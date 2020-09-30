@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 03/19/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 7a0e29d3fc90d50f23247a9c11cd4846aa4fb158
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8763c07ee91f228f63880c2be16497a7a78c6453
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806026"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595281"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con redireccionamiento basado en rutas de dirección URL con Azure PowerShell
 
@@ -20,11 +20,10 @@ Puede usar Azure PowerShell para configurar [reglas de enrutamiento basadas en U
 
 En este artículo aprenderá a:
 
-> [!div class="checklist"]
-> * Configuración de la red
-> * Creación de una puerta de enlace de aplicaciones
-> * Incorporación de agentes de escucha y reglas de enrutamiento
-> * Creación de conjuntos de escalado de máquinas virtuales para grupos de back-end
+* Configuración de la red
+* Creación de una puerta de enlace de aplicaciones
+* Incorporación de agentes de escucha y reglas de enrutamiento
+* Creación de conjuntos de escalado de máquinas virtuales para grupos de back-end
 
 En el ejemplo siguiente se muestra el tráfico del sitio procedente de los puertos 8080 y 8081, y que se dirige a los mismos grupos de back-end:
 

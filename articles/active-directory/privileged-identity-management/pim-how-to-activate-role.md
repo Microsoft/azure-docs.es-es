@@ -14,18 +14,18 @@ ms.date: 07/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb1041cb5fc4aa7503f5ae9de6ffc74ba72052b8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 0306ae3193dc53f25a1e82eae1eb09c7d26ba9b6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421406"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055459"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Activación de mis roles de Azure AD en PIM
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplifica la forma en que las empresas administran el acceso con privilegios a los recursos de Azure AD y otros servicios en línea de Microsoft, como Office 365 o Microsoft Intune.  
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplifica la forma en que las empresas administran el acceso con privilegios a los recursos de Azure AD y otros servicios en línea de Microsoft, como Microsoft 365 o Microsoft Intune.  
 
-Si se le ha considerado apto para un rol administrativo, debe activar la asignación de roles cuando necesite realizar acciones con privilegios. Por ejemplo, si administra de vez en cuando características de Office 365, los administradores de roles con privilegios de su organización puede que no le hayan asignado el rol de administrador global permanente, ya que ese rol afecta también a otros servicios. En su lugar, pueden asignarle roles de Azure AD como administrador de Exchange Online. Puede solicitar la activación de ese rol cuando necesite sus privilegios y tendrá control de administrador durante un período predeterminado.
+Si se le ha considerado apto para un rol administrativo, debe activar la asignación de roles cuando necesite realizar acciones con privilegios. Por ejemplo, si administra de vez en cuando características de Microsoft 365, los administradores de roles con privilegios de su organización puede que no le hayan asignado el rol de administrador global permanente, ya que ese rol afecta también a otros servicios. En su lugar, pueden asignarle roles de Azure AD como administrador de Exchange Online. Puede solicitar la activación de ese rol cuando necesite sus privilegios y tendrá control de administrador durante un período predeterminado.
 
 Este artículo está dirigido a los administradores que necesitan activar su rol de Azure AD en Privileged Identity Management.
 
@@ -118,7 +118,7 @@ Al activar un rol en Privileged Identity Management, la activación podría no p
 
 # <a name="previous-version"></a>[Versión anterior](#tab/previous)
 
-## <a name="activate-a-role"></a>Activación de un rol
+## <a name="activate-a-role-previous-version"></a>Activación de un rol (versión anterior)
 
 Cuando necesite asumir un rol de Azure AD, puede solicitar la activación mediante la opción de navegación **Mis roles** de Privileged Identity Management.
 
@@ -168,7 +168,7 @@ Cuando necesite asumir un rol de Azure AD, puede solicitar la activación media
 
     Si el [rol requiere aprobación](./azure-ad-pim-approval-workflow.md) para activarse, aparecerá una notificación de Azure en la esquina superior del explorador que le informa de que la solicitud está pendiente de aprobación.
 
-## <a name="view-the-status-of-your-requests"></a>Visualización del estado de las solicitudes
+## <a name="view-the-status-of-your-requests-previous-version"></a>Vista del estado de las solicitudes (versión anterior)
 
 Puede ver el estado de las solicitudes pendientes de activación.
 
@@ -180,7 +180,7 @@ Puede ver el estado de las solicitudes pendientes de activación.
 
     ![Roles de Azure AD: lista Mis solicitudes](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
-## <a name="deactivate-a-role"></a>Desactivación de un rol
+## <a name="deactivate-a-role-previous-version"></a>Desactivación de un rol (versión anterior)
 
 Cuando se ha activado un rol, si alcanza su límite de tiempo (de duración elegible), se desactiva automáticamente.
 
@@ -196,7 +196,7 @@ Si completa pronto sus tareas de administrador, también puede desactivar un rol
 
 1. Busque el rol que está usando y haga clic en **Desactivar**.
 
-## <a name="cancel-a-pending-request"></a>Cancelación de una solicitud pendiente
+## <a name="cancel-a-pending-request-previous-version"></a>Cancelación de una solicitud pendiente (versión anterior)
 
 Si no necesita activar un rol que requiera aprobación, puede cancelar una solicitud pendiente en cualquier momento.
 
@@ -212,7 +212,7 @@ Si no necesita activar un rol que requiera aprobación, puede cancelar una solic
 
    ![Lista Mis solicitudes con el botón Cancelar resaltado](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
-## <a name="troubleshoot"></a>Solución de problemas
+## <a name="troubleshoot-previous-version"></a>Solución de problemas (versión anterior)
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Permisos no concedidos después de activar un rol
 

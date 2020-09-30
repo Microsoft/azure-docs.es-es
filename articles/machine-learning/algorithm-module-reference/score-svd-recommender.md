@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/10/2020
-ms.openlocfilehash: 806c19100594f449288d810b68d072dd7de23646
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: bf62fa995724b8e1fff757e89945cc39db3d9842
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189824"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893706"
 ---
 # <a name="score-svd-recommender"></a>Puntuación del recomendador SVD
 
-En este artículo se describe cómo usar el módulo Score SVD Recommender (Puntuar recomendador de SVD) del diseñador de Azure Machine Learning (versión preliminar). Use este módulo para crear predicciones con un modelo de recomendación entrenado basado en el algoritmo de descomposición de un solo valor (SVD).
+En este artículo se describe cómo usar el módulo Score SVD Recommender (Puntuar recomendador de SVD) del diseñador de Azure Machine Learning. Use este módulo para crear predicciones con un modelo de recomendación entrenado basado en el algoritmo de descomposición de un solo valor (SVD).
 
 El recomendador SVD puede generar dos tipos diferentes de predicciones:
 

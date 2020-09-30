@@ -4,22 +4,24 @@ titleSuffix: Azure Media Services
 description: Obtenga información sobre la transmisión de contenido con la integración de CDN, así como la captura previa y la característica Origin-Assist CDN-Prefetch.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
-ms.date: 02/13/2020
-ms.author: juliako
-ms.openlocfilehash: b60a86d09e5d6f7d1108595253349bbd0784e4d3
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: e1ea0a43783fb7abdc17655e3a3431d125d426f8
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799356"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291286"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Transmisión de contenido con la integración de CDN
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Content Delivery Network (CDN) ofrece a los desarrolladores una solución global para la entrega rápida de contenido con alto ancho de banda a los usuarios mediante el almacenamiento en caché del contenido en nodos físicos estratégicamente situados en todo el mundo.  
 
@@ -29,14 +31,19 @@ El contenido popular se servirá directamente desde la caché de CDN, siempre qu
 
 También debe tener en cuenta cómo funciona el streaming adaptable. Cada fragmento de vídeo individual se almacena en caché como una entidad independiente. Por ejemplo, imagine la primera vez que se mira un vídeo determinado. Si el visor omite parte y mira solo unos segundos aquí y allá, solo los fragmentos de vídeo asociados con lo que miró esa persona se almacenan en la caché de CDN. Con el streaming adaptable, se suelen tener de 5 a 7 velocidades de bits de vídeo distintas. Si una persona está mirando a una velocidad de bits y otra persona a una velocidad de bits diferente, se almacenan en caché cada uno por separado en la red CDN. Incluso si dos personas están mirando a la misma velocidad de bits podrían hacer streaming a través de protocolos diferentes. Cada protocolo (HLS, MPEG-DASH, Smooth Streaming) se almacena en caché por separado. Por lo tanto, cada velocidad de bits y protocolo se almacenan en caché por separado y solo se almacenan en caché los fragmentos de vídeo que se han solicitado.
 
-A la hora de decidir si habilitar CDN en el [punto de conexión de streaming](streaming-endpoint-concept.md) de Media Services, tenga en cuenta el número de espectadores previstos. CDN solo resulta útil si se esperan muchos espectadores para el contenido. Si la simultaneidad máxima es inferior a 500 espectadores, se recomienda deshabilitar CDN, ya que esta red se escala mejor con simultaneidad.
+A excepción del entorno de prueba, se recomienda que CDN esté habilitado para los puntos de conexión de streaming Estándar y Premium. Cada tipo de punto de conexión de streaming tiene un límite de rendimiento admitido diferente.
+Es difícil realizar un cálculo preciso del número máximo de streamings simultáneos que admite un punto de conexión de streaming, ya que hay varios factores que se deben tener en cuenta. Entre ellas se incluyen las siguientes:
+
+- Velocidades de bits máximas usadas para el streaming.
+- Comportamiento de búfer previo y de conmutación del reproductor. Los reproductores intentan transferir en ráfagas los segmentos desde un origen y usan la velocidad de carga para calcular el cambio de velocidad de bits adaptable. Si un punto de conexión de streaming se aproxima a la saturación, los tiempos de respuesta pueden variar y los reproductores empiezan a cambiar a una calidad inferior. Dado que esto reduce la carga en los reproductores de punto de conexión de streaming, revierta a una mayor calidad creando desencadenadores de conmutación no deseados.
+En general, es seguro calcular el número máximo de streamings tomando el rendimiento máximo de los puntos de conexión de streaming y dividiéndolo por la velocidad de bits máxima (suponiendo que todos los reproductores usen la velocidad de bits más alta). Por ejemplo, puede tener un punto de conexión de streaming estándar que esté limitado a 600 Mbps y la velocidad de bits máxima de 3 Mbps. En este caso, se admiten aproximadamente 200 secuencias simultáneas a la velocidad de bits más alta. Recuerde también tener en cuentan los requisitos de ancho de banda de audio. Aunque es posible que una secuencia de audio solo se transmita a 128 kbps, el streaming total aumenta rápidamente cuando se multiplica por el número de secuencias simultáneas.
 
 En este tema se describe la habilitación de la [integración de CDN](#enable-azure-cdn-integration). También se explica la captura previa (almacenamiento en caché activo) y el concepto [Origin-Assist CDN-Prefetch](#origin-assist-cdn-prefetch).
 
 ## <a name="considerations"></a>Consideraciones
 
-* El [punto de conexión de streaming](streaming-endpoint-concept.md) `hostname` y la dirección URL de streaming se mantienen independientemente de si habilita CDN.
-* Si necesita poder probar el contenido con o sin CDN, cree otro punto de conexión de streaming que no tenga la red CDN habilitada.
+- El [punto de conexión de streaming](streaming-endpoint-concept.md) `hostname` y la dirección URL de streaming se mantienen independientemente de si habilita CDN.
+- Si necesita poder probar el contenido con o sin CDN, cree otro punto de conexión de streaming que no tenga la red CDN habilitada.
 
 ## <a name="enable-azure-cdn-integration"></a>Habilitación de la integración de Azure CDN
 

@@ -4,12 +4,12 @@ description: Aprenda a administrar y supervisar las copias de seguridad del agen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: b46303bdb7fc6c39aafd3046a4bcbc5e0ba75766
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: b3b648ca27a407640b42932fe2ed7c32f5109114
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893075"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145576"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Administración de copias de seguridad del agente de Microsoft Azure Recovery Services (MARS) con el servicio Azure Backup
 
@@ -173,7 +173,7 @@ Una frase de contraseña se usa para cifrar y descifrar los datos durante la cop
 
 En esta sección se describe un escenario en el que la máquina de origen protegida con MARS ya no está disponible porque se eliminó, dañó, infectó con malware o ransomware, o bien se retiró.
 
-En el caso de estas máquinas, el servicio Azure Backup garantiza que el último punto de recuperación no expire (es decir, no se elimine) según las reglas de retención especificadas en la directiva de copia de seguridad. Por lo tanto, puede restaurar la máquina de forma segura.  Tenga en cuenta los siguientes escenarios que puede implementar en los datos con copia de seguridad:
+En el caso de estas máquinas, el servicio Azure Backup garantiza que el punto de recuperación más reciente no expire (es decir, no se elimine) según las reglas de retención especificadas en la directiva de copia de seguridad. Por lo tanto, puede restaurar la máquina de forma segura.  Tenga en cuenta los siguientes escenarios que puede implementar en los datos con copia de seguridad:
 
 ### <a name="scenario-1-the-source-machine-is-unavailable-and-you-no-longer-need-to-retain-backup-data"></a>Escenario 1: la máquina de origen no está disponible y ya no es necesario que conserve los datos de copia de seguridad
 

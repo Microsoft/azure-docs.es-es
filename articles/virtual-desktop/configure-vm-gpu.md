@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 8a253723367681d947a9bd94c1505ab4cc156c08
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 33b8d3f62ef45c6078f10535c6376f611472f5a2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612646"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441755"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configuración de la aceleración por la unidad de procesamiento gráfico (GPU) para Windows Virtual Desktop
 
@@ -67,7 +67,7 @@ El Escritorio remoto codifica todos los gráficos que representan las aplicacion
 
 2. Ahora que se han editado las directivas de grupo, fuerce una actualización de las directivas de grupo. Abra el símbolo del sistema y escriba:
 
-    ```batch
+    ```cmd
     gpupdate.exe /force
     ```
 
@@ -80,7 +80,7 @@ Si suele usar aplicaciones que producen un contenido de velocidad de fotogramas 
 1. Seleccione la directiva **Priorizar el modo de gráficos H.264/AVC 444 para las conexiones de Escritorio remoto** y establezca esta directiva en **Habilitada** para aplicar el códec H.264/AVC 444 en la sesión remota.
 2. Ahora que se han editado las directivas de grupo, fuerce una actualización de las directivas de grupo. Abra el símbolo del sistema y escriba:
 
-    ```batch
+    ```cmd
     gpupdate.exe /force
     ```
 

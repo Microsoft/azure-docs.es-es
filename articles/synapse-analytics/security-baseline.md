@@ -6,13 +6,13 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 7f05e4fb0443107370f9182706bd35b45771e0f2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: bbec83c655d568b43b319f30a96da0a8fc1effe8
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210902"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230660"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Base de referencia de seguridad de Azure para Synapse Analytics
 
@@ -138,7 +138,7 @@ Cuando se usa un punto de conexión de servicio para el grupo de Azure Synapse S
 
 **Instrucciones**: Defina e implemente configuraciones de seguridad de red para recursos relacionados con su grupo de SQL con Azure Policy. Puede usar el espacio de nombres "Microsoft.Sql" para detallar definiciones de directiva personalizadas o usar cualquiera de las definiciones de directiva integradas diseñadas para la protección de red de Azure SQL Database o el servidor. Un ejemplo de una directiva de seguridad de red integrada aplicable para Azure SQL Database Server sería: "SQL Server debe usar un punto de conexión de servicio de red virtual".
 
-Use Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como plantillas de Administración de recursos de Azure, control de acceso basado en rol (RBAC) y directivas, en una única definición de plano técnico. Aplique fácilmente el plano técnico a nuevas suscripciones y entornos, y ajuste el control y la administración mediante el control de versiones.
+Use Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como las plantillas de Azure Resource Manager, el control de acceso basado en rol de Azure (Azure RBAC) y las directivas, en una única definición de un plano técnico. Aplique fácilmente el plano técnico a nuevas suscripciones y entornos, y ajuste el control y la administración mediante el control de versiones.
 
 * [Configuración y administración de Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -582,7 +582,7 @@ Además, puede configurar una directiva de enmascaramiento dinámico de datos (D
 
 **Responsabilidad**: Customer
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Uso del control de acceso basado en rol para controlar el acceso a los recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
 **Guía**: Use el control de acceso basado en roles (Azure RBAC) de Azure para administrar el acceso a las instancias de Azure SQL Database en el grupo de Synapse SQL.
 

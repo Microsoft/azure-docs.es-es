@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 9b8d7f241f79b087f318c9c416dcadf92838b084
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 894fc4066ad408f0749e7a982011d82b205e6fec
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85126219"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901340"
 ---
 # <a name="security-alerts-schemas"></a>Esquemas de las alertas de seguridad
 
-Los usuarios del nivel estándar de Azure Security Center reciben alertas de seguridad cuando Security Center detecta amenazas para sus recursos.
+Si su suscripción tiene habilitado Azure Defender, recibirá alertas de seguridad cuando Security Center detecte amenazas para sus recursos.
 
 Estas alertas se pueden ver en las páginas de **Protección contra amenazas** de Azure Security Center o a través de herramientas externas como:
 

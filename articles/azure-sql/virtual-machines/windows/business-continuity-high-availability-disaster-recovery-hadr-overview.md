@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: b81af3e89a3226757c5bf7668a06701c35831072
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3b18582cdb34708c379725d361d1fcc5e608ae38
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962720"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462775"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuidad empresarial y HADR para SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -148,7 +148,7 @@ Para obtener más información sobre la conectividad del cliente, consulte:
 
 * [Usar palabras clave de cadena de conexión con SQL Server Native Client](https://msdn.microsoft.com/library/ms130822.aspx)
 * [Conectar clientes a una sesión de creación de reflejo de la base de datos (SQL Server)](https://technet.microsoft.com/library/ms175484.aspx)
-* [Conexión con el agente de escucha del grupo de disponibilidad en TI híbrida](https://blogs.msdn.com/b/sqlalwayson/archive/2013/02/14/connecting-to-availability-group-listener-in-hybrid-it.aspx)
+* [Conexión con el agente de escucha del grupo de disponibilidad en TI híbrida](https://docs.microsoft.com/archive/blogs/sqlalwayson/connecting-to-availability-group-listener-in-hybrid-it)
 * [Agentes de escucha del grupo de disponibilidad, conectividad de cliente y conmutación por error de una aplicación (SQL Server)](https://technet.microsoft.com/library/hh213417.aspx)
 * [Uso de cadenas de conexión de creación de reflejo de la base de datos con grupos de disponibilidad](https://technet.microsoft.com/library/hh213417.aspx)
 

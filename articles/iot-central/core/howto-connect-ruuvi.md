@@ -10,16 +10,16 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: 93e4d3d0bed9090573d2b6ee87a29b86ccd72e42
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 7cf0d31895eaeaa41c23f9f07664b27bed1d3126
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758940"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016765"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Conexión de un sensor RuuviTag a la aplicación de Azure IoT Central
 
-*Este artículo se aplica a los generadores de soluciones y a los desarrolladores de dispositivos.*
+*Este artículo se aplica a los generadores de soluciones.*
 
 En este artículo se describe cómo los creadores de soluciones pueden conectar un sensor RuuviTag a la aplicación de Microsoft Azure IoT Central.
 

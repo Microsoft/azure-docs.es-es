@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ff89b38de1ff62ddea328a49b998692e8039341f
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 9e782ee8e4afda1f8891979b6e50f99f3e0f1cc7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661561"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299548"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Administración de modelos de Azure Digital Twins
 
@@ -166,6 +166,30 @@ La llamada a `RetrieveModelWithDependencies` devuelve no solo el modelo solicita
 
 Los modelos no se devuelven necesariamente con el formato de documento exacto con el que se cargaron. Azure Digital Twins solo garantiza que el formato devuelvo será equivalente desde el punto de vista semántico. 
 
+### <a name="update-models"></a>Actualización de modelos
+
+Una vez que se carga un modelo en la instancia, toda la interfaz del modelo es inmutable. Esto significa que no hay ninguna "edición" tradicional de los modelos.
+
+En su lugar, si desea realizar cambios en un modelo en Azure Digital Twins, la manera de hacerlo es cargar una **versión más reciente** del mismo modelo. Durante la versión preliminar, el avance de una versión del modelo solo le permitirá quitar campos, no agregar otros nuevos (para agregar nuevos campos, simplemente [cree un modelo nuevo](#create-models)).
+
+Para crear una nueva versión de un modelo existente, empiece con el DTDL del modelo original. Actualice los campos que quiera cambiar.
+
+A continuación, marque esta opción como una versión más reciente del modelo actualizando el campo `id` del modelo. La última sección del identificador de modelo, después del `;`, representa el número de modelo. Para indicar que esta es una versión más actualizada de este modelo, incremente el número al final del valor `id` en cualquier número mayor que el número de versión actual.
+
+Por ejemplo, si el identificador de modelo anterior tuviera el siguiente aspecto:
+
+```json
+"@id": "dtmi:com:contoso:PatientRoom;1",
+```
+
+la versión 2 de este modelo podría tener este aspecto:
+
+```json
+"@id": "dtmi:com:contoso:PatientRoom;2",
+```
+
+A continuación, cargue la nueva versión del modelo en la instancia. Ocupará el lugar de la versión anterior y los nuevos dispositivos gemelos que cree con este modelo usarán la versión actualizada.
+
 ### <a name="remove-models"></a>Eliminación de modelos
 
 Los modelos también se pueden quitar del servicio, de alguna de estas dos maneras:
@@ -249,6 +273,8 @@ Azure Digital Twins no impide este estado, por lo que debe asegurarse de revisar
 ## <a name="manage-models-with-cli"></a>Administración de modelos con la CLI
 
 Los modelos también se pueden administrar con la CLI de Azure Digital Twins. Los comandos se pueden encontrar en [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

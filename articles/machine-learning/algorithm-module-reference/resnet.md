@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: ea8c13e134eceeb27bd064e794d46d711092a867
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d8806b8c93f5a8cbceaa6efa16dfff978dda42e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450109"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905203"
 ---
 # <a name="resnet"></a>ResNet
 
-En este artículo se describe cómo usar el módulo **ResNet** en Azure Machine Learning Designer (versión preliminar) para crear un modelo de clasificación de imágenes con el algoritmo ResNet.  
+En este artículo se describe cómo usar el módulo **ResNet** en el diseñador de Azure Machine Learning para crear un modelo de clasificación de imágenes con el algoritmo ResNet.  
 
 Este algoritmo de clasificación es un método de aprendizaje supervisado y requiere un conjunto de datos etiquetado. Para más información sobre cómo obtener un directorio de imagen con etiquetas, consulte [Conversión a directorio de imagen](convert-to-image-directory.md). Puede entrenar el modelo proporcionando un modelo y un directorio de imagen con etiquetas como entradas para [Entrenamiento del modelo de PyTorch](train-pytorch-model.md). Después, el modelo entrenado puede utilizarse para predecir valores para los nuevos ejemplos de entrada mediante [Puntuación del modelo de imagen](score-image-model.md).
 

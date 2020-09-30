@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: d746b942f624fc83515ba29b0a092c2e592f1f25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 525293c7ae3d0af49f6deaa0ce9d3cb037d9ba38
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137627"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907694"
 ---
 # <a name="two-class-logistic-regression-module"></a>Módulo Regresión logística de dos clases
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
 Utilice este módulo para crear un modelo de regresión logística que pueda usarse para predecir dos resultados (y solo dos). 
 

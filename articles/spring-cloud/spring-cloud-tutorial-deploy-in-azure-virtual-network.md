@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: a7905ae0fdbd797d9b544cb71f44b82af1295246
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 979ecf77fe53238dfd377c5fd2baf394de985c2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688460"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892899"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Tutorial: Implementación de Azure Spring Cloud en una red virtual de Azure (inserción de red virtual)
+
+**Este artículo se aplica a:** ✔️ Java ✔️ C#
 
 En este tutorial se explica cómo implementar una instancia de servicio de Azure Spring Cloud en la red virtual. Esto se llama en ocasiones inserción de red virtual.  
 
@@ -38,7 +40,7 @@ La red virtual en la que se implementa la instancia de servicio de Azure Spring 
 * **Subredes**: la red virtual debe incluir dos subredes dedicadas para una instancia de servicio de Azure Spring Cloud: 
     * Una para el entorno de ejecución del servicio
     * Una para las aplicaciones de microservicios de Spring Boot. 
-    * Hay una relación uno a uno entre estas subredes y una instancia de servicio de Azure Spring Cloud. No se pueden compartir varias instancias de servicio en una sola subred. Debe usar nuevas subredes para cada instancia de servicio que implemente.
+    * Hay una relación uno a uno entre estas subredes y una instancia de servicio de Azure Spring Cloud. Debe usar una nueva subred para cada instancia de servicio que implemente, y cada subred solo puede incluir una única instancia de servicio.
 * **Espacio de direcciones**: un bloque CIDR de hasta /28 para la subred del entorno de ejecución del servicio y otro bloque CIDR de hasta /24 para la subred de aplicaciones de microservicios de Spring Boot.
 * **Tabla de rutas**: las subredes no deben tener asociada una tabla de rutas existente.
 

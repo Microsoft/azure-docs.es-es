@@ -8,15 +8,14 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 00718e15b069e9be25abdaf0e4460eae20c6afd0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c90d11ba630dbb1e37054715855ae5547a8a034b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998082"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902717"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Creación de conjuntos de datos de Azure Machine Learning en Azure Open Datasets
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este artículo, aprenderá a incorporar datos de enriquecimiento mantenidos en sus experimentos de aprendizaje automático locales o remotos con conjuntos de datos de [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) y [Azure Open Datasets](https://docs.microsoft.com/azure/open-datasets/). 
 
@@ -111,7 +110,7 @@ También puede crear conjuntos de datos de Azure Machine Learning a partir de Az
 
     ![Elegir conjunto de datos](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-1. Elija el nombre con que va a registrar el conjunto de datos y, opcionalmente, filtre los datos mediante los filtros disponibles. En este caso, para el conjunto de datos de **días festivos público**, filtre el período a un año y el código de país a solo EE. UU. Consulte el [Catálogo de Azure Open Datasets](https://azure.microsoft.com/services/op[en-datasets/catalog/) para ver datos detallados como, por ejemplo, descripciones del campo e intervalos de fechas. Seleccione **Crear**.
+1. Elija el nombre con que va a registrar el conjunto de datos y, opcionalmente, filtre los datos mediante los filtros disponibles. En este caso, para el conjunto de datos de **días festivos público**, filtre el período a un año y el código de país a solo EE. UU. Consulte el [Catálogo de Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog) para ver datos detallados como, por ejemplo, descripciones del campo e intervalos de fechas. Seleccione **Crear**.
 
     ![Establecer parámetros del conjunto de datos y crear conjunto de datos](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
 

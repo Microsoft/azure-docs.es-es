@@ -24,6 +24,10 @@
     - name: 'Creación de un servicio Private Link: plantilla de Resource Manager'
       displayName: Resource Manager
       href: create-private-link-service-template.md
+- name: Tutoriales
+  items:
+    - name: Conexión a una cuenta de almacenamiento
+      href: tutorial-private-endpoint-storage-portal.md
 - name: Conceptos
   items:
     - name: Punto de conexión privado
@@ -32,10 +36,12 @@
       href: private-link-service-overview.md
     - name: Integración de DNS de punto de conexión privado
       href: private-endpoint-dns.md
+    - name: Seguridad
+      items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
 - name: Procedimientos
   items:
-    - name: Conexión de forma privada a una cuenta de almacenamiento
-      href: create-private-endpoint-storage-portal.md
     - name: "Conexión de forma privada a una cuenta de Cosmos\_DB"
       href: create-private-endpoint-cosmosdb-portal.md
     - name: Conexión privada a una aplicación web

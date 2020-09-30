@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 38606f424e38fc68519181f485b5b698d0705d6a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0cde479e50c67006a9ef1668ba68b211c3a9af93
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477585"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907906"
 ---
 # <a name="join-data"></a>Combinación de datos
 
-En este artículo se describe cómo usar el módulo **Combinación de datos** en el diseñador de Azure Machine Learning (versión preliminar) para combinar dos conjuntos de datos mediante una operación de combinación con estilo de base de datos.  
+En este artículo se describe cómo usar el módulo **Combinación de datos** en el diseñador de Azure Machine Learning para combinar dos conjuntos de datos mediante una operación de combinación con estilo de base de datos.  
 
 ## <a name="how-to-configure-join-data"></a>Configuración de Combinación de datos
 

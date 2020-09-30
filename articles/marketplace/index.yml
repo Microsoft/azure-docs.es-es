@@ -10,12 +10,12 @@ metadata:
   author: keferna
   ms.author: keferna
   ms.date: 09/02/2020
-  ms.openlocfilehash: 39d0f00bd59663da8ec5529e9a7be185d93e4de0
-  ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+  ms.openlocfilehash: 16c122bd0efafce395be3ff931ef5324c0b757d1
+  ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/03/2020
-  ms.locfileid: "89421686"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91371480"
 landingContent:
 - title: Trabajo en Marketplace comercial
   linkLists:
@@ -97,14 +97,14 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Informes de pago
-      url: ./partner-center-portal/payout-summary-overview.md
+    - text: Extractos de pagos
+      url: /partner-center/payout-statement?context=/azure/marketplace/context/context
     - text: Umbrales de pago, métodos y periodos de tiempo
-      url: ./partner-center-portal/payment-thresholds-methods-timeframes.md
+      url: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
     - text: Configuración de la cuenta de pago y los formularios de impuestos
-      url: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
+      url: /partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context
     - text: Detalles fiscales
-      url: ./partner-center-portal/tax-details-paid-transactions.md
+      url: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
     - text: Facturación de Marketplace comercial
       url: ./partner-center-portal/billing-details.md
 - title: Referencia de API

@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: eabae1050b4892de8c30f460834d1ae4da934198
-  ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+  ms.openlocfilehash: 7d6de6b2600a02980b4b094dd670e6b0f5f7e730
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/26/2020
-  ms.locfileid: "88890943"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91324219"
 landingContent:
 - title: Acerca de Azure Digital Twins
   linkLists:
@@ -66,7 +66,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Configuración de una instancia y autenticación
-      url: how-to-set-up-instance-scripted.md
+      url: how-to-set-up-instance-portal.md
   - linkListType: how-to-guide
     links:
     - text: Escritura de código de autenticación de aplicación

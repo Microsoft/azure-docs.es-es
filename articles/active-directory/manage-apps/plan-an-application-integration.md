@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d49c23e5968b0fe1b2d4838978fe1b23931e5e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc691148723e610f0885f7c20fd8684f11a81dc0
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763098"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182333"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guía de introducción a la integración de Azure Active Directory con las aplicaciones
 
@@ -54,7 +54,7 @@ Antes de integrar las aplicaciones con Azure AD, es importante saber dónde se e
 * ¿Deberá limpiar las bases de datos de usuarios o grupos antes de la integración?  (Esta es una pregunta bastante importante. Entrada y salida de elementos no utilizados).
 
 ### <a name="access-management-inventory"></a>Inventario de administración de acceso
-* ¿Cómo administra actualmente el acceso de los usuarios a las aplicaciones? ¿Es necesario cambiarlo?  ¿Ha pensado en otras formas de administrar el acceso, como con [RBAC](../../role-based-access-control/role-assignments-portal.md) por ejemplo?
+* ¿Cómo administra actualmente el acceso de los usuarios a las aplicaciones? ¿Es necesario cambiarlo?  ¿Ha pensado en otras formas de administrar el acceso, como con [Azure RBAC](../../role-based-access-control/role-assignments-portal.md) por ejemplo?
 * ¿Quién necesita acceso a qué?
 
 Quizás no tenga respuestas a todas estas preguntas por adelantado, pero no importa.  Esta guía puede ayudarle a responder a algunas de esas preguntas y a tomar algunas decisiones informadas.

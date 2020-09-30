@@ -1,6 +1,6 @@
 ---
-title: 'CLI: creación de una imagen a partir de una instantánea o un VHD en Shared Image Gallery'
-description: Obtenga información sobre cómo crear una imagen a partir de una instantánea o VHD en Shared Image Gallery con la CLI de Azure.
+title: 'CLI: Creación de una imagen a partir de una instantánea o un disco administrado en Shared Image Gallery'
+description: Obtenga información sobre cómo crear una imagen a partir de una instantánea o disco administrado en Shared Image Gallery con la CLI de Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: b5dcadd2381596509a3d2f512d0f4ebbbfbba893
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e694630d8bcd7879d9405152c4141fb6e5bad4e2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502884"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297100"
 ---
-# <a name="create-an-image-from-a-vhd-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Creación de una imagen a partir de un VHD o una instantánea en Shared Image Gallery mediante la CLI de Azure
+# <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Creación de una imagen a partir de un disco administrado o una instantánea en Shared Image Gallery mediante la CLI de Azure
 
-Si tiene una instantánea o VHD existente que quiera migrar a Shared Image Gallery, puede crear una imagen de Shared Image Gallery directamente a partir del VHD o la instantánea. Una vez que haya probado la nueva imagen, podrá eliminar el VHD o la instantánea de origen. También puede crear una imagen a partir de un VHD o una instantánea en Shared Image Gallery mediante [Azure PowerShell](image-version-snapshot-powershell.md).
+Si tiene una instantánea o disco administrado existente que quiera migrar a Shared Image Gallery, puede crear una imagen de Shared Image Gallery directamente a partir del disco administrado o la instantánea. Una vez que haya probado la nueva imagen, puede eliminar el disco administrado o instantánea de origen. También puede crear una imagen a partir de un disco administrado o una instantánea en Shared Image Gallery mediante [Azure PowerShell](image-version-snapshot-powershell.md).
 
 Las imágenes de una galería de imágenes tienen dos componentes, que se crearán durante este ejemplo:
 - Una **definición de imagen**, que contiene información sobre la imagen y los requisitos para usarla. Esto incluye si la imagen es Windows o Linux, si es generalizada o especializada, las notas de la versión y los requisitos de memoria mínima y máxima. Es una definición de un tipo de imagen. 
@@ -27,13 +27,13 @@ Las imágenes de una galería de imágenes tienen dos componentes, que se crear�
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Para completar este artículo, debe tener una instantánea o VHD. 
+Para completar este artículo, debe tener una instantánea o disco administrado. 
 
 Si quiere incluir un disco de datos, el tamaño del disco de datos no puede ser superior a 1 TB.
 
 Al trabajar en este artículo, reemplace los nombres de los recursos cuando proceda.
 
-## <a name="find-the-snapshot-or-vhd"></a>Búsqueda de la instantánea o el VHD 
+## <a name="find-the-snapshot-or-managed-disk"></a>Búsqueda de la instantánea o del disco administrado 
 
 Puede ver una lista de instantáneas disponibles en un grupo de recursos con [az snapshot list](/cli/azure/snapshot#az-snapshot-list). 
 
@@ -41,13 +41,13 @@ Puede ver una lista de instantáneas disponibles en un grupo de recursos con [az
 az snapshot list --query "[].[name, id]" -o tsv
 ```
 
-También puede usar un VHD en lugar de una instantánea. Para obtener un disco duro virtual, use [az disk list](/cli/azure/disk#az-disk-list). 
+También puede usar un disco administrado en lugar de una instantánea. Para obtener un disco administrado, utilice [az disk list](/cli/azure/disk#az-disk-list). 
 
 ```azurecli-interactive
 az disk list --query "[].[name, id]" -o tsv
 ```
 
-Una vez que tenga el id. de la instantánea o VHD, asígnelo a una variable llamada `$source` que se usará más adelante.
+Cuando tenga el identificador de la instantánea o disco administrado, asígnelo a una variable llamada `$source` que se usará más adelante.
 
 Puede usar el mismo proceso para obtener los discos de datos que quiera incluir en la imagen. Asígnelos a variables y, a continuación, use esas variables más adelante cuando cree la versión de la imagen.
 
@@ -67,7 +67,7 @@ az sig list -o table
 
 Las definiciones de imagen crean una agrupación lógica de imágenes. Se usan para administrar la información acerca de la imagen. Los nombres de las definiciones de imagen pueden estar formados por letras mayúsculas o minúsculas, números, puntos y guiones. 
 
-Al crear la definición de la imagen, asegúrese de tener toda la información correcta. En este ejemplo, se da por hecho que la instantánea o el VHD proceden de una máquina virtual que está en uso y que no se ha generalizado. Si se tomó el VHD o la instantánea de un sistema operativo generalizado (después de ejecutar Sysprep para Windows o [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` o `-deprovision+user` para Linux), cambie `-OsState` a `generalized`. 
+Al crear la definición de la imagen, asegúrese de tener toda la información correcta. En este ejemplo, se da por hecho que la instantánea o el disco administrado proceden de una máquina virtual que está en uso y que no se ha generalizado. Si se tomó el disco administrado o la instantánea de un sistema operativo generalizado (después de ejecutar Sysprep para Windows o [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` o `-deprovision+user` para Linux), cambie `-OsState` a `generalized`. 
 
 Para más información sobre los valores que se pueden especificar para una definición de imagen, consulte [Definiciones de imagen](./linux/shared-image-galleries.md#image-definitions).
 
@@ -99,9 +99,9 @@ Cree una versión de la imagen con [az image gallery create-image-version](/cli/
 
 Los caracteres permitidos para la versión de una imagen son números y puntos. Los números deben estar dentro del rango de un entero de 32 bits. Formato: *VersiónPrincipal*.*VersiónSecundaria*.*Revisión*.
 
-En este ejemplo, la versión de la imagen es *1.0.0* y vamos a crear una réplica en la región *Centro-sur de EE. UU.* y otra en la región *Este de EE. UU. 2* mediante el almacenamiento con redundancia de zona. Al elegir las regiones de destino de la replicación, recuerde que también debe incluir la región de *origen* del VHD o la instantánea como destino de la replicación.
+En este ejemplo, la versión de la imagen es *1.0.0* y vamos a crear una réplica en la región *Centro-sur de EE. UU.* y otra en la región *Este de EE. UU. 2* mediante el almacenamiento con redundancia de zona. Al elegir las regiones de destino de la replicación, recuerde que también debe incluir la región de *origen* del disco administrado o la instantánea como destino de la replicación.
 
-Use el identificador del VHD o la instantánea en el parámetro `--os-snapshot`.
+Use el identificador del disco administrado o la instantánea en el parámetro `--os-snapshot`.
 
 
 ```azurecli-interactive 

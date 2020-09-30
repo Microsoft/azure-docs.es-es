@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7d16b0755fae91979802e50cb2ebbf4324ce2c45
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 3aa8d691eb62b94c5784d8a6efc35b53a3762d7f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921143"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294125"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Envío de solicitudes a Bing Autosuggest API
 
@@ -64,7 +64,7 @@ Para ver una lista de todos los encabezados de solicitud y respuesta, consulte [
 > [!NOTE]
 > Cuando se llama a Bing Autosuggest API desde JavaScript, las características de seguridad integradas de su explorador podrían impedirle acceder a los valores de estos encabezados.
 
-Para resolverlo, puede realizar una solicitud de Bing Autosuggest API a través de un proxy CORS. La respuesta de un proxy de este tipo tiene un encabezado `Access-Control-Expose-Headers` que agrega los encabezados de respuesta a listas blancas y hace que estén disponibles para JavaScript.
+Para resolverlo, puede realizar una solicitud de Bing Autosuggest API a través de un proxy CORS. La respuesta de un proxy de este tipo tiene un encabezado `Access-Control-Expose-Headers` que filtra los encabezados de respuesta y hace que estén disponibles para JavaScript.
 
 Es fácil instalar un proxy CORS para permitir que nuestra [aplicación de tutorial](../tutorials/autosuggest.md) obtenga acceso a los encabezados de cliente opcionales. En primer lugar, si aún no lo tiene, [instale Node.js](https://nodejs.org/en/download/). A continuación, escriba el siguiente comando en un símbolo del sistema.
 

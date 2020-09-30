@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Documentación de Azure Static Web Apps
-summary: Azure Static Web Apps le permite crear aplicaciones web de JavaScript que se publican automáticamente a partir de cambios realizados en GitHub.
+summary: Azure Static Web Apps le permite crear aplicaciones web modernas que se publican automáticamente a partir de los cambios realizados en GitHub.
 metadata:
   title: Documentación de Azure Static Web Apps
-  description: Azure Static Web Apps le permite crear aplicaciones web de JavaScript que se publican automáticamente a partir de cambios realizados en GitHub.
+  description: Azure Static Web Apps le permite crear aplicaciones web modernas que se publican automáticamente a partir de los cambios realizados en GitHub.
   ms.topic: landing-page
   ms.service: static-web-apps
   author: craigshoemaker
   ms.author: cshoe
   ms.date: 04/09/2020
-  ms.openlocfilehash: f70a746c948038b5bd67f4645e8dbd3df71b8b8a
-  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+  ms.openlocfilehash: a72c9ab1dfcaf6fd95ac706bc0f0a7b8adb17c0f
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/20/2020
-  ms.locfileid: "86528662"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90905356"
 landingContent:
 - title: Acerca de Azure Static Web Apps
   linkLists:
@@ -54,6 +54,8 @@ landingContent:
       url: publish-vuepress.md
     - text: Publicación desde Jekyll
       url: publish-jekyll.md
+    - text: Implementación desde Blazor
+      url: deploy-blazor.md
     - text: Implementación desde Next.js
       url: deploy-nextjs.md
     - text: Implementación desde Nuxt.js

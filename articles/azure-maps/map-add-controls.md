@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 9a54ef02677c657d9a86507370344dd335fd497c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a1194b65f7f2cbd79ec5744d92ab65154305f7c1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286998"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086222"
 ---
 # <a name="add-controls-to-a-map"></a>Incorporación de controles a un mapa
 
@@ -35,7 +35,7 @@ A continuación se muestra el código de ejemplo de ejecución completo de la fu
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Adición de un control de zoom' src='//codepen.io/azuremaps/embed/WKOQyN/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/WKOQyN/'>Adding a zoom control</a> (Agregar un control de zoom) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adición de un control de zoom' src='//codepen.io/azuremaps/embed/WKOQyN/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/WKOQyN/'>Adding a zoom control</a> (Agregar un control de zoom) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="add-pitch-control"></a>Agregar un control de inclinación
@@ -53,7 +53,7 @@ A continuación se muestra el código de ejemplo de ejecución completo de la fu
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Adición de un control de inclinación' src='//codepen.io/azuremaps/embed/xJrwaP/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/xJrwaP/'>Adding a pitch control</a> (Agregar un control de inclinación) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adición de un control de inclinación' src='//codepen.io/azuremaps/embed/xJrwaP/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/xJrwaP/'>Adding a pitch control</a> (Agregar un control de inclinación) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="add-compass-control"></a>Agregar un control de brújula
@@ -71,7 +71,7 @@ A continuación se muestra el código de ejemplo de ejecución completo de la fu
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Adición de un control de giro' src='//codepen.io/azuremaps/embed/GBEoRb/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/GBEoRb/'>Adding a rotate control</a> (Agregar un control de giro) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adición de un control de giro' src='//codepen.io/azuremaps/embed/GBEoRb/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/GBEoRb/'>Adding a rotate control</a> (Agregar un control de giro) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="a-map-with-all-controls"></a>Mapa con todos los controles
@@ -93,7 +93,7 @@ En el siguiente código de ejemplo se agregan los controles de zoom, inclinació
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Mapa con todos los controles' src='//codepen.io/azuremaps/embed/qyjbOM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/qyjbOM/'>A map with all the controls</a> (Mapa con todos los controles) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Mapa con todos los controles' src='//codepen.io/azuremaps/embed/qyjbOM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/qyjbOM/'>A map with all the controls</a> (Mapa con todos los controles) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 El control selector de estilo se define mediante la clase [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol). Para más información sobre el uso del control selector de estilo, consulte el artículo en el que se explica cómo [elegir un estilo de mapa](choose-map-style.md).
@@ -104,7 +104,7 @@ Esta es una herramienta para probar las distintas opciones de personalización d
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="Opciones de control de la navegación" src="//codepen.io/azuremaps/embed/LwBZMx/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="700" style="width: 100%;" scrolling="no" title="Opciones de control de la navegación" src="//codepen.io/azuremaps/embed/LwBZMx/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/LwBZMx/'>Symbol Layer Options</a> (Opciones de capa de símbolos) de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

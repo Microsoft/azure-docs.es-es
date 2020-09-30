@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 517d6f7f06025b35dd27fa69d1de1b4139de6c8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73c4931533e3926086320531a0800a572d13808c
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478015"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535779"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedimientos: Configuración de las condiciones del servicio y a la declaración de privacidad para una aplicación
 
@@ -58,7 +58,7 @@ Cuando las condiciones del servicio y la declaración de privacidad estén prepa
 ### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Mediante Azure Portal
 Siga estos pasos en Azure Portal.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) y seleccione el inquilino de AzureAD correcto (no B2C).
 2. Navegue hasta la sección **Registros de aplicaciones** y seleccione la aplicación.
 3. Abra el panel **Personalización de marca**.
 4. Rellene los campos **URL de las condiciones del servicio** y **URL de la declaración de privacidad**.
@@ -69,6 +69,11 @@ Siga estos pasos en Azure Portal.
 ### <a name="using-the-app-object-json"></a><a name="app-object-json"></a>Con JSON del objeto de aplicación
 
 Si desea modificar directamente JSON del objeto de aplicación, puede usar el editor de manifiestos en Azure Portal o el Portal de registro de aplicaciones para incluir vínculos en las condiciones del servicio y la declaración de privacidad de la aplicación.
+
+1. Vaya a la sección **Registros de aplicaciones** y seleccione la aplicación.
+2. Abra el panel **Manifiesto**.
+3. Con Ctrl+F, busque "informationalUrls". Rellene la información.
+4. Guarde los cambios.
 
 ```json
     "informationalUrls": { 

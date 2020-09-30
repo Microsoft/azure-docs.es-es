@@ -9,15 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: bb213776d41c07238fcaba1ccdd4e06f5d5bbb5f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a548a1aa6b7c6382d00e218f1b61347002df2b38
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420896"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907781"
 ---
 # <a name="train-wide--deep-recommender"></a>Train Wide & Deep Recommender
-En este artículo se describe cómo usar el módulo **Aprenda a usar el módulo Train Wide & Deep Recommender.** de Azure Machine Learning Designer (versión preliminar) para entrenar un modelo de recomendación. Este módulo se basa en el aprendizaje ancho y profundo que ofrece Google.
+En este artículo se describe cómo usar el módulo **Aprenda a usar el módulo Train Wide & Deep Recommender** de Azure Machine Learning Designer para entrenar un modelo de recomendación. Este módulo se basa en el aprendizaje ancho y profundo que ofrece Google.
 
 En el módulo **Train Wide & Deep Recommender** se estudia un conjunto de datos de triples usuario-elemento-calificación y, de manera opcional, algunas características de usuario y elemento. Devuelve un recomendador Wide & Deep entrenado.  Después, puede usar el modelo entrenado para generar predicciones o recomendaciones de clasificación mediante el uso del módulo [Score Wide and Deep Recommender](score-wide-and-deep-recommender.md).  
 
@@ -84,7 +84,7 @@ Por ejemplo, un conjunto típico de características del elemento puede tener el
 
 ### <a name="train-the-model"></a>Entrenamiento del modelo
 
-1.  Agregue el módulo **Train Wide and Deep Recommender** al experimento del diseñador (versión preliminar) y conéctelo al conjunto de datos de entrenamiento.  
+1.  Agregue el módulo **Train Wide and Deep Recommender** al experimento del diseñador y conéctelo al conjunto de datos de entrenamiento.  
   
 2. Si tiene un conjunto de información independiente de características del usuario y/o características del elemento, conéctelo al módulo **Train Wide and Deep Recommender**.  
   

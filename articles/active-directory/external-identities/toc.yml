@@ -2,11 +2,14 @@
   href: index.yml
   items:
     - name: Información general
+      expanded: true
       items:
         - name: Comparación entre soluciones para External Identities
           href: compare-with-b2c.md
         - name: ¿Qué es el acceso de usuarios invitados de B2B?
           href: what-is-b2b.md
+        - name: ¿Qué es Azure AD B2C?
+          href: 'https://docs.microsoft.com/azure/active-directory-b2c/overview'
     - name: Guías de inicio rápido
       items:
         - name: Incorporación de usuarios invitados en el portal
@@ -15,15 +18,15 @@
           href: b2b-quickstart-invite-powershell.md
     - name: Tutoriales
       items:
-        - name: Invitación en bloque a través de PowerShell
+        - name: Invitación masiva a usuarios invitados mediante PowerShell
           href: bulk-invite-powershell.md
-        - name: Invitación masiva a través del portal
+        - name: Invitación masiva a usuarios invitados mediante Azure Portal
           href: tutorial-bulk-invite.md
-        - name: Aplicación de Multi-Factor Authentication
+        - name: Aplicación de la autenticación multifactor en usuarios invitados
           href: b2b-tutorial-require-mfa.md
     - name: Ejemplos
       items:
-        - name: Ejemplos de registro de autoservicio
+        - name: Ejemplos de registro de autoservicio para usuarios invitados
           href: code-samples-self-service-sign-up.md
         - name: Ejemplos de Code y Azure PowerShell
           href: code-samples.md
@@ -63,9 +66,9 @@
     - name: Guías paso a paso
       expanded: true
       items:
-        - name: Configuración del uso compartido externo
+        - name: Configuración de valores de colaboración externa
           href: delegate-invitations.md
-        - name: Invitar a usuarios de B2B
+        - name: Invitar a usuarios externos
           items:
             - name: Adición de usuarios de B2B por los administradores
               href: add-users-administrator.md
@@ -91,7 +94,7 @@
               href: direct-federation-adfs.md
         - name: Autenticación con código de acceso de un solo uso
           href: one-time-passcode.md
-        - name: Registro de autoservicio (versión preliminar)
+        - name: Registro de autoservicio para usuarios invitados (versión preliminar)
           items:
             - name: Incorporación de un flujo de usuario de registro de autoservicio
               href: self-service-sign-up-user-flow.md
@@ -103,7 +106,7 @@
               href: self-service-sign-up-add-api-connector.md
             - name: Adición de un sistema de aprobación personalizado
               href: self-service-sign-up-add-approvals.md
-        - name: Administración de cuentas de invitado
+        - name: Administración de cuentas de usuario invitado
           items:
             - name: Adición de un usuario B2B a un rol
               href: add-guest-to-role.md
@@ -113,7 +116,7 @@
               href: user-properties.md
             - name: B2B para las aplicaciones integradas de Azure AD
               href: configure-saas-apps.md
-        - name: Administración del acceso en una organización híbrida
+        - name: Administración del acceso de invitado en una organización híbrida
           items:
             - name: Concesión a los usuarios locales de acceso a las aplicaciones en la nube
               href: hybrid-on-premises-to-cloud.md

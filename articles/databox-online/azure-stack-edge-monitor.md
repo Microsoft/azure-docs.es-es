@@ -1,6 +1,6 @@
 ---
-title: Supervisión del dispositivo Azure Stack Edge | Microsoft Docs
-description: Describe cómo usar Azure Portal y la interfaz de usuario web local para supervisar Azure Stack Edge.
+title: Supervisión del dispositivo Azure Stack Edge Pro | Microsoft Docs
+description: Describe cómo usar Azure Portal y la interfaz de usuario web local para supervisar Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 9e4050a4a75432e8bcc840a2406660dce268c5a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd75eb0f7de602979f2233a873c01ef742471e37
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339559"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904397"
 ---
-# <a name="monitor-your-azure-stack-edge"></a>Supervisión de Azure Stack Edge
+# <a name="monitor-your-azure-stack-edge-pro"></a>Supervisión de Azure Stack Edge Pro
 
-En este artículo se describe cómo supervisar Azure Stack Edge. Para supervisar el dispositivo, puede usar Azure Portal o la interfaz de usuario web local. Use Azure Portal para ver los eventos de dispositivo, configurar y administrar las alertas, y ver las métricas. Use la interfaz de usuario web local en el dispositivo físico para ver el estado del hardware de los distintos componentes del dispositivo.
+En este artículo se describe cómo supervisar Azure Stack Edge Pro. Para supervisar el dispositivo, puede usar Azure Portal o la interfaz de usuario web local. Use Azure Portal para ver los eventos de dispositivo, configurar y administrar las alertas, y ver las métricas. Use la interfaz de usuario web local en el dispositivo físico para ver el estado del hardware de los distintos componentes del dispositivo.
 
 En este artículo aprenderá a:
 

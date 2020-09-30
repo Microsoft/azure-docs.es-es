@@ -1,23 +1,24 @@
 ---
 title: 'Uso del conector Ethereum Blockchain con Azure Logic Apps: Azure Blockchain Service'
 description: Uso del conector Ethereum Blockchain con Azure Logic Apps para desencadenar funciones de contrato inteligente y responder a eventos de contrato inteligente.
-ms.date: 10/14/2019
+ms.date: 08/31/2020
 ms.topic: how-to
-ms.reviewer: chrisseg
-ms.openlocfilehash: 61dbda7cd7f486c7a8d838084875b34803833502
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: caleteet
+ms.openlocfilehash: 4364d2f616c8eaadedf12baf4bf77810eec69fdb
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077036"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230541"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Uso del conector Ethereum Blockchain con Azure Logic Apps
 
-Use el [conector Ethereum Blockchain](/connectors/blockchainethereum/) con [Azure Logic Apps](../../logic-apps/index.yml) para realizar acciones y responder a eventos de contrato inteligente. Supongamos que desea crear un microservicio basado en REST que devuelva información de un libro de contabilidad de cadena de bloques. Mediante el uso de una aplicación lógica, puede aceptar solicitudes HTTP que consulten la información almacenada en un libro de contabilidad de cadena de bloques.
+Use el [conector Ethereum Blockchain](/connectors/blockchainethereum/) con [Azure Logic Apps](../../logic-apps/index.yml) para realizar acciones y responder a eventos de contrato inteligente. En este artículo, se explica cómo puede utilizarse el conector Ethereum Blockchain para enviar información de cadenas de bloques a otro servicio o para llamar a una función de cadena de bloques. Supongamos que desea crear un microservicio basado en REST que devuelva información de un libro de contabilidad de cadena de bloques. Mediante el uso de una aplicación lógica, puede aceptar solicitudes HTTP que consulten la información almacenada en un libro de contabilidad de cadena de bloques.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Complete el requisito previo opcional de [Inicio rápido: Uso de Visual Studio Code para conectarse a una red del consorcio de Azure Blockchain Service](connect-vscode.md). El inicio rápido le guía por la instalación de [Azure Blockchain Development Kit para Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) y la configuración del entorno de desarrollo de la cadena de bloques.
+- Complete el requisito previo opcional de [Inicio rápido: Uso de Visual Studio Code para conectarse a una red del consorcio de Azure Blockchain Service](connect-vscode.md). El inicio rápido le guía por la instalación de [Azure Blockchain Development Kit para Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) y la configuración del entorno de desarrollo de la cadena de bloques.
+- Si es la primera vez que utiliza Azure Logic Apps, considere la posibilidad de consultar los siguientes módulos de Microsoft Learn: [Introducción a Azure Logic Apps](/learn/modules/intro-to-logic-apps/) y [Llamada a una API desde un flujo de trabajo de Logic Apps mediante un conector personalizado](/learn/modules/logic-apps-and-custom-connectors/).
 
 ## <a name="create-a-logic-app"></a>Creación de una aplicación lógica
 
@@ -33,7 +34,7 @@ Azure Logic Apps le ayuda a programar y automatizar procesos empresariales y flu
 
 Cada aplicación lógica debe comenzar con un desencadenador, que se activa cuando sucede un evento específico o cuando se cumple una condición determinada. Cada vez que el desencadenador se activa, el motor de Logic Apps crea una instancia de aplicación lógica que inicia y ejecuta el flujo de trabajo.
 
-El conector Ethereum Blockchain incluye un desencadenador y varias acciones. El desencadenador o la acción que se usa depende del escenario.
+El conector Ethereum Blockchain incluye un desencadenador y varias acciones. El desencadenador o la acción que se usa depende del escenario. Siga la sección de este artículo que mejor se ajuste a su caso.
 
 Si el flujo de trabajo:
 

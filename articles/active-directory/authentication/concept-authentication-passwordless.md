@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70f7082de204cedd25b3b87b7157376505598712
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: ef1148555706ff04c58733b66f4784da71849ce8
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718091"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226682"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opciones de autenticación sin contraseña de Azure Active Directory
 
@@ -114,6 +114,8 @@ Una clave de seguridad **DEBE** implementar las siguientes extensiones y caracte
 | 2 | PIN de cliente | Esta característica permite proteger las credenciales con un segundo factor y se aplica a las claves de seguridad que no tienen una interfaz de usuario. |
 | 3 | hmac-secret | Esta extensión garantiza que pueda iniciar sesión en el dispositivo cuando está sin conexión o en modo avión. |
 | 4 | Varias cuentas por RP | Esta característica garantiza que pueda usar la misma clave de seguridad en varios servicios, como Microsoft Account y Azure Active Directory. |
+
+### <a name="fido2-security-key-providers"></a>Proveedores de claves de seguridad FIDO2
 
 Los siguientes proveedores ofrecen claves de seguridad FIDO2 o diferentes factores de forma que permiten iniciar sesión sin contraseña. Animamos a los clientes a evaluar las propiedades de seguridad de estas claves poniéndose en contacto con el proveedor y con FIDO Alliance.
 

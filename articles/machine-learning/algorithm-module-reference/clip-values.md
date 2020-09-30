@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 6466cea9fe04bb308a670cb03fd3de5314758142
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 99fb41542dff28997438881abad71da11e927a78
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79456614"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898813"
 ---
 # <a name="clip-values"></a>Recorte de valores
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
 Use el módulo Clip Values (Recorte de valores) para identificar y, opcionalmente, reemplazar los valores de los datos que estén por encima o por debajo de un umbral especificado por una media, una constante u otro valor sustituto.  
 

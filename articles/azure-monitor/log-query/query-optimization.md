@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: ec5717135ec7bbf2236b5f5672dbf0b5d1413b44
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: efbc0ba4ef39be6a2a8598ad006cb3aea090974c
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565730"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177750"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimización de las consultas de registro en Azure Monitor
 Los registros de Azure Monitor usan [Azure Data Explorer (ADX)](/azure/data-explorer/) para almacenar los datos de registro y ejecutar consultas para analizar los datos. Crea, administra y mantiene los clústeres de ADX automáticamente y los optimiza para la carga de trabajo de análisis de registros. Al ejecutar una consulta, se optimiza y se redirige al clúster de ADX adecuado que almacena los datos del área de trabajo. Tanto los registros de Azure Monitor como Azure Data Explorer usan muchos mecanismos de optimización de consultas automática. Aunque las optimizaciones automáticas proporcionan un aumento significativo, en algunos casos se puede mejorar drásticamente el rendimiento de las consultas. En este artículo se explican las consideraciones de rendimiento y varias técnicas para corregirlas.
@@ -52,6 +52,8 @@ Los siguientes indicadores de rendimiento de consultas están disponibles para t
 
 ## <a name="total-cpu"></a>CPU total
 La CPU de cálculo real que se ha invertido para procesar esta consulta en todos los nodos de procesamiento de consultas. Como la mayoría de las consultas se ejecutan en un gran número de nodos, normalmente será mucho mayor que la duración de la ejecución de la consulta. 
+
+Si una consulta consume más de 100 segundos de CPU, se considera que consume demasiados recursos. Si una consulta utiliza más de 1000 segundos de CPU, se considera abusiva y podría verse limitada.
 
 El tiempo de procesamiento de consultas se emplea en:
 - Recuperación de datos: la recuperación de datos antiguos consumirá más tiempo que la recuperación de datos recientes.
@@ -177,6 +179,8 @@ SecurityEvent
 
 Un factor crítico en el procesamiento de la consulta es el volumen de datos que se digitaliza y usa para el procesamiento de la consulta. Azure Data Explorer usa optimizaciones agresivas que reducen en gran medida el volumen de datos en comparación con otras plataformas de datos. Aún así, hay factores críticos en la consulta que pueden afectar al volumen de datos que se usa.
 
+Si una consulta procesa más de 2000 KB de datos, se considera que consume demasiados recursos. Si una consulta procesa más de 20 000 KB de datos, se considera abusiva y podría verse limitada.
+
 En los registros de Azure Monitor, la columna **TimeGenerated** se usa para indexar los datos. Si los valores de **TimeGenerated** se restringen tanto como sea posible, se producirá una mejora significativa en el rendimiento de la consulta mediante una limitación considerable de la cantidad de datos que se tienen que procesar.
 
 ### <a name="avoid-unnecessary-use-of-search-and-union-operators"></a>Evitar el uso innecesario de los operadores search y union
@@ -300,6 +304,8 @@ SecurityEvent
 
 Todos los registros de Azure Monitor se dividen en particiones según la columna **TimeGenerated**. El número de particiones a las que se obtiene acceso está directamente relacionado con el intervalo de tiempo. La forma más eficaz de garantizar la ejecución de una consulta del símbolo del sistema consiste en reducir el intervalo de tiempo.
 
+Si una consulta tiene un intervalo de tiempo superior a 15 días, se considera que consume demasiados recursos. Si una consulta tiene un intervalo de tiempo superior a 90 días, se considera abusiva y podría verse limitada.
+
 El intervalo de tiempo puede establecerse con el selector de intervalo de tiempo en la pantalla de Log Analytics tal como se describe en [Ámbito e intervalo de tiempo de una consulta de registro en Log Analytics de Azure Monitor](scope.md#time-range). Se trata del método recomendado, ya que el intervalo de tiempo seleccionado se pasa al back-end mediante los metadatos de la consulta. 
 
 Un método alternativo consiste en incluir explícitamente una condición [where](/azure/kusto/query/whereoperator) en **TimeGenerated** en la consulta. Se debería usar este método, ya que se asegura que el intervalo de tiempo sea fijo, aunque la consulta se use desde una interfaz diferente.
@@ -389,6 +395,9 @@ Hay varios casos en los que el sistema no puede proporcionar una medida precisa 
 ## <a name="age-of-processed-data"></a>Antigüedad de los datos procesados
 Azure Data Explorer usa varias capas de almacenamiento: en memoria, discos SSD locales y blobs de Azure mucho más lentos. Cuanto más recientes sean los datos, más alta será la posibilidad de que se almacenen en una capa más eficiente y con menos latencia, lo que reduce el uso de la CPU y la duración de la consulta. Al margen de los propios datos, el sistema también tiene una memoria caché para los metadatos. Cuanto más antiguos sean los datos, menor será la probabilidad de que sus metadatos estén en la caché.
 
+Si una consulta procesa datos con más de 14 días de antigüedad, se considera que consume demasiados recursos.
+
+
 Mientras que algunas consultas requieren el uso de datos antiguos, hay casos en los que dichos datos se usan por error. Esto sucede cuando las consultas se ejecutan sin proporcionar el intervalo de tiempo en sus metadatos y no todas las referencias de tabla incluyen filtros en la columna **TimeGenerated**. En estos casos, el sistema digitalizará todos los datos que estén almacenados en esa tabla. Cuando la retención de datos es larga, puede abarcar intervalos de tiempo largos y, por lo tanto, aquellos datos que son tan antiguos como el período de retención de datos.
 
 A continuación, se indican algunos ejemplos de dichos casos:
@@ -408,6 +417,8 @@ Hay varias situaciones en las que una única consulta puede ejecutarse en difere
 La ejecución de consultas en varias regiones requiere que el sistema efectúe la serialización y la transferencia en los fragmentos grandes del back-end de los datos intermedios que suelen ser mucho mayores que los resultados finales de la consulta. También limita la capacidad de desempeño del sistema de llevar a cabo optimizaciones, heurísticas y usar cachés.
 Si no hay motivo alguno para digitalizar todas estas regiones, debe ajustar el ámbito para que cubra menos regiones. Si el ámbito del recurso se minimiza, pero aún se usan varias regiones, puede producirse debido a un error de configuración. Por ejemplo, la configuración de diagnóstico y los registros de auditoría se envía a diferentes áreas de trabajo en distintas regiones o hay varias configuraciones de diagnóstico. 
 
+Si una consulta abarca más de 3 regiones, se considera una que consume demasiados recursos. Si una consulta abarca más de 6 regiones, se considera abusiva y podría verse limitada.
+
 > [!IMPORTANT]
 > Cuando una consulta se ejecuta en varias regiones, las medidas de los datos y la CPU no serán precisas y solo representarán la medida en una de las regiones.
 
@@ -420,6 +431,8 @@ El uso de varias áreas de trabajo puede deberse a alguno de los siguientes caso
 - Cuando una consulta con ámbito de recurso está capturando los datos y estos se almacenan en varias áreas de trabajo.
  
 La ejecución de consultas en varios clústeres y varias regiones requiere que el sistema efectúe la serialización y la transferencia en los fragmentos grandes del back-end de los datos intermedios que suelen ser mucho mayores que los resultados finales de la consulta. También limita la capacidad de desempeño del sistema de llevar a cabo optimizaciones, heurísticas y usar cachés.
+
+Si una consulta abarca más de 5 áreas de trabajo, se considera que consume demasiados recursos. Las consultas no pueden abarcar más de 100 áreas de trabajo.
 
 > [!IMPORTANT]
 > En algunos escenarios de varias áreas de trabajo, las medidas de los datos y la CPU no serán precisas y solo representarán la medida de algunas de las áreas de trabajo.

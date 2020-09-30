@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 2c028bff80856f7edcb34688ffa5c3320a66ccc9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d4dc5c2690be7b9abbda685e78ea562878626b5c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112619"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902853"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-using-the-azure-portal"></a>Aumento automático del almacenamiento en Azure Database for MySQL mediante Azure Portal
 En este artículo se describe cómo configurar el almacenamiento en el servidor Azure Database for MySQL para que aumente sin que ello afecte a la carga de trabajo.
@@ -32,13 +32,13 @@ Siga estos pasos para establecer el aumento automático de almacenamiento en el 
 
 3. En la sección de aumento automático, seleccione **Sí** para habilitarlo para el almacenamiento.
 
-    ![Azure Database for MySQL: Settings_Pricing_tier: aumento automático](./media/howto-auto-grow-storage-portal/3-auto-grow.png)
+    :::image type="content" source="./media/howto-auto-grow-storage-portal/3-auto-grow.png" alt-text="Azure Database for MySQL: Settings_Pricing_tier: aumento automático":::
 
 4. Haga clic en **Aceptar** para guardar los cambios.
 
 5. Se enviara una notificación de confirmación de la habilitación del aumento automático.
 
-    ![Azure Database for MySQL: aumento automático correcto](./media/howto-auto-grow-storage-portal/5-auto-grow-success.png)
+    :::image type="content" source="./media/howto-auto-grow-storage-portal/5-auto-grow-success.png" alt-text="Azure Database for MySQL: aumento automático correcto":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

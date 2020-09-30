@@ -48,7 +48,7 @@
         - name: ASP.NET
           href: quickstart-v2-dotnet-native-aspnet.md
         - name: ASP.NET Core
-          href: 'https://docs.microsoft.com/samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/active-directory-dotnet-native-aspnetcore-v2/'
+          href: quickstart-v2-aspnet-core-web-api.md
     - name: Aplicaciones móviles y de escritorio
       items:
         - name: Android
@@ -81,6 +81,8 @@
       items:
         - name: ASP.NET
           href: tutorial-v2-asp-webapp.md
+        - name: Servidor Blazor
+          href: tutorial-blazor-server.md
     - name: Aplicaciones móviles y de escritorio
       items:
         - name: Android
@@ -445,7 +447,7 @@
           href: supported-accounts-validation.md
         - name: Aplicaciones de un solo inquilino y multiinquilino
           href: single-and-multi-tenant-apps.md
-        - name: Comprobación del publicador (versión preliminar)
+        - name: Verificación del editor
           href: publisher-verification-overview.md
     - name: Permisos y consentimiento
       displayName: Scopes
@@ -553,9 +555,9 @@
           href: howto-add-terms-of-service-privacy-statement.md
         - name: Configuración de la comprobación del publicador de la aplicación
           items:
-            - name: Marcar la aplicación con "publicador comprobado" (versión preliminar)
+            - name: Marcación de la aplicación como comprobada por el publicador
               href: mark-app-as-publisher-verified.md
-            - name: Solución de problemas de comprobación del publicador (versión preliminar)
+            - name: Solución de problemas de verificación del editor
               href: troubleshoot-publisher-verification.md
     - name: Uso de la biblioteca de autenticación de Microsoft
       displayName: MSAL

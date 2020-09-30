@@ -10,6 +10,8 @@
       href: event-hubs-capture-overview.md
     - name: Event Hubs dedicado
       href: event-hubs-dedicated-overview.md
+    - name: Registro de esquema de Azure en Event Hubs (versión preliminar)
+      href: schema-registry-overview.md
 - name: Guías de inicio rápido
   expanded: true
   items:
@@ -17,7 +19,7 @@
       items:
         - name: Azure Portal
           href: event-hubs-create.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: event-hubs-quickstart-cli.md
         - name: Azure PowerShell
           href: event-hubs-quickstart-powershell.md
@@ -125,6 +127,8 @@
       maintainContext: true
 - name: Guías paso a paso
   items:
+    - name: Creación de un registro de esquema
+      href: create-schema-registry.md
     - name: Move
       items:
         - name: Movimiento de un espacio de nombres a otra región
@@ -219,6 +223,8 @@
           href: troubleshoot-authentication-authorization.md
         - name: Guía de solución de problemas de Kafka para Event Hubs
           href: apache-kafka-troubleshooting-guide.md
+        - name: EventHubsException
+          href: exceptions-dotnet.md
         - name: Excepciones .NET
           href: event-hubs-messaging-exceptions.md
         - name: Excepciones de Resource Manager

@@ -3,12 +3,12 @@ title: Preguntas frecuentes sobre Azure Relay | Microsoft Docs
 description: En este artículo se responden algunas de las preguntas más frecuentes relativas al servicio Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 40e6f830e2314f7c8f36fcd25d24a41cc256bef2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d967d926c6ab59e027fe4d4cf98e8418a8ff9bc
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317032"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299293"
 ---
 # <a name="azure-relay-faqs"></a>Preguntas frecuentes sobre Azure Relay
 
@@ -119,8 +119,8 @@ Para obtener una descripción de excepciones comunes y las acciones sugeridas qu
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>¿Qué es una firma de acceso compartido y qué lenguajes puedo usar para generar una firma?
 Las firmas de acceso compartido (SAS) son un mecanismo de autenticación basado en valores hash seguros SHA-256 o en URI. Para obtener información sobre cómo generar sus propias firmas en Node.js, PHP, Python, Java, C y C#, consulte [Autenticación de Service Bus con firmas de acceso compartido][Shared Access Signatures].
 
-### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>¿Es posible incluir los puntos de conexión de Relay en la lista de permitidos?
-Sí. El cliente de Relay establece conexiones al servicio de Azure Relay mediante nombres de dominio completos. Los clientes pueden agregar una entrada para `*.servicebus.windows.net` en los firewalls compatibles con la creación de listas de autorizados de DNS.
+### <a name="is-it-possible-to-allow-only-some-relay-endpoints"></a>¿Se pueden permitir únicamente algunos puntos de conexión de retransmisión?
+Sí. El cliente de Relay establece conexiones al servicio de Azure Relay mediante nombres de dominio completos. Los clientes pueden añadir una entrada para `*.servicebus.windows.net` en firewalls compatibles con listas de aprobaciones de DNS.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Creación de un espacio de nombres](relay-create-namespace-portal.md)

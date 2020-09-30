@@ -3,17 +3,17 @@ title: Referencia de Azure Blob Storage
 description: Busque la referencia de la API de Azure Blob Storage, los archivos Léame y los paquetes de la biblioteca cliente.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 06/02/2020
+ms.date: 09/10/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: 477170cf3c2bab54efc5ef74495f39fb89f62c77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8e4cada8ac2570fa32d55e35cbcdb214d5b5188
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976700"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018163"
 ---
 # <a name="azure-blob-storage-reference"></a>Referencia de Azure Blob Storage
 
@@ -50,7 +50,7 @@ En la tabla siguiente se muestra la documentación de referencia y de ejemplo pa
 
 |  Versión  | Documentación de referencia | Paquete | Guía de inicio rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Blobs de Azure Storage](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob) | [Inicio rápido: Administración de blobs con el SDK de Java v12](/azure/storage/blobs/storage-quickstart-blobs-java) |
+| 12.x | [Blobs de Azure Storage](/java/api/overview/azure/storage-blob-readme) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob) | [Inicio rápido: Administración de blobs con el SDK de Java v12](/azure/storage/blobs/storage-quickstart-blobs-java) |
 | 8.x | [com.microsoft.azure.storage.blob](/java/api/com.microsoft.azure.storage.blob) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Inicio rápido: Administración de blobs con el SDK de Java v8](/azure/storage/blobs/storage-quickstart-blobs-java-legacy) |
 
 ### <a name="storage-management"></a>Administración del almacenamiento
@@ -67,8 +67,8 @@ En la tabla siguiente se muestra la documentación de referencia y de ejemplo pa
 
 |  Versión  | Documentación de referencia | Paquete | Guía de inicio rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Bibliotecas cliente de Azure Storage v12 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12) | [Paquete (PyPI)](https://pypi.org/project/azure-storage-blob/) | [Inicio rápido: Administración de blobs con el SDK de Python v12](/azure/storage/blobs/storage-quickstart-blobs-python) |
-| 2.x | [Bibliotecas cliente de Azure Storage v2 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2) | [Package (PyPI)](https://pypi.org/project/azure-storage-blob/2.1.0/) | [Inicio rápido: Administración de blobs con el SDK de Python v2.1](/azure/storage/blobs/storage-quickstart-blobs-python-legacy) |
+| 12.x | [Bibliotecas cliente de Azure Storage v12 para Python](/azure/developer/python/sdk/storage/overview) | [Paquete (PyPI)](https://pypi.org/project/azure-storage-blob/) | [Inicio rápido: Administración de blobs con el SDK de Python v12](/azure/storage/blobs/storage-quickstart-blobs-python) |
+| 2.x | [Bibliotecas cliente de Azure Storage v2 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Package (PyPI)](https://pypi.org/project/azure-storage-blob/2.1.0/) | [Inicio rápido: Administración de blobs con el SDK de Python v2.1](/azure/storage/blobs/storage-quickstart-blobs-python-legacy) |
 
 ## <a name="javascript-client-libraries"></a>Bibliotecas cliente de JavaScript
 
@@ -77,7 +77,7 @@ En la tabla siguiente se muestra la documentación de referencia y de ejemplo pa
 |  Versión  | Documentación de referencia | Paquete | Guía de inicio rápido |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Biblioteca cliente de Azure Storage Blob para JavaScript](/javascript/api/overview/azure/storage-blob-readme) | [Paquete (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Inicio rápido: Administración de blobs con el SDK de JavaScript v12 en Node.js](/azure/storage/blobs/storage-quickstart-blobs-nodejs) <br/> [Inicio rápido: Administración de blobs con el SDK de JavaScript v12 en un explorador](/azure/storage/blobs/quickstart-blobs-javascript-browser) |
-| 10.x | [@azure/storage-blob](/javascript/api/@azure/storage-blob/?view=azure-node-legacy) | [Paquete (npm)](https://www.npmjs.com/package/@azure/storage-blob/v/10.5.0) | [Inicio rápido: Administración de blobs con el SDK de JavaScript v10 en Node.js](/azure/storage/blobs/storage-quickstart-blobs-nodejs-legacy) <br/> [Inicio rápido: Administración de blobs con el SDK de JavaScript v10 en el explorador](/azure/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy)|
+| 10.x | [@azure/storage-blob](/javascript/api/@azure/storage-blob/?view=azure-node-legacy&preserve-view=true) | [Paquete (npm)](https://www.npmjs.com/package/@azure/storage-blob/v/10.5.0) | [Inicio rápido: Administración de blobs con el SDK de JavaScript v10 en Node.js](/azure/storage/blobs/storage-quickstart-blobs-nodejs-legacy) <br/> [Inicio rápido: Administración de blobs con el SDK de JavaScript v10 en el explorador](/azure/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy)|
 
 ## <a name="rest-apis"></a>API de REST
 
@@ -107,8 +107,9 @@ La tabla siguiente contiene vínculos a la versión más reciente del contenido 
 
 | Versión | Plataforma |
 | ------- | -------- |
-|  3.x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-3.8.0) |
-|  2.x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-2.8.0) |
+|  4.x  | [PowerShell](/powershell/module/az.storage/?view=azps-4.6.1&preserve-view=true) |
+|  3.x  | [PowerShell](/powershell/module/az.storage/?view=azps-3.8.0&preserve-view=true) |
+|  2.x  | [PowerShell](/powershell/module/az.storage/?view=azps-2.8.0&preserve-view=true) |
 
 ## <a name="azure-cli"></a>Azure CLI
 

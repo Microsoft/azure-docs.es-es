@@ -1,6 +1,6 @@
 ---
 title: Creación de una factoría de datos de Azure con la API REST
-description: Cree una factoría de datos de Azure para copiar los datos de una ubicación de Azure Blob Storage a otra.
+description: Cree una canalización de Azure Data Factory para copiar los datos de una ubicación de Azure Blob Storage a otra.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 357026bbe17650464716282608bc316c5d4b055e
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 1d1db69215294ac4aa4849bbaa1a886a91f0ba7e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85514883"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439170"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Inicio rápido: Creación de una instancia de Azure Data Factory y una canalización mediante la API de REST
 
@@ -28,7 +28,7 @@ ms.locfileid: "85514883"
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, puede crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse para que los consuman las aplicaciones de inteligencia empresarial (BI).
+Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, se pueden crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar dichos datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar los datos de salida en almacenes de datos como Azure Synapse Analytics (anteriormente SQL Data Warehouse) para que los consuman las aplicaciones de inteligencia empresarial (BI).
 
 En esta guía de inicio rápido se describe cómo usar la API de REST para crear una instancia de Azure Data Factory. La canalización de esta factoría de datos copia los datos de una ubicación a otra en una instancia de Azure Blob Storage.
 
@@ -40,7 +40,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 * **Suscripción de Azure**. Si no tiene ninguna suscripción, puede crear una [cuenta de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Cuenta de Azure Storage**. El almacenamiento de blobs se puede usar como almacén de datos de **origen** y **receptor**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para ver los pasos para su creación.
-* Cree un **contenedor de blobs** en Blob Storage, cree una **carpeta** de entrada en el contenedor y cargue algunos archivos en la carpeta. Puede usar herramientas como [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para conectarse a Azure Blob Storage, crear un contenedor de blobs, cargar el archivo de entrada y comprobar el archivo de salida.
+* Cree un **contenedor de blobs** en Blob Storage, cree una **carpeta** de entrada en el contenedor y cargue algunos archivos en la carpeta. Puede usar herramientas como el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para conectarse a Azure Blob Storage, crear un contenedor de blobs, cargar el archivo de entrada y comprobar el archivo de salida.
 * Instale **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-Az-ps). Esta guía de inicio rápido usa PowerShell para invocar llamadas a la API de REST.
 * **Cree una aplicación en Azure Active Directory**. Para ello, siga [estas instrucciones](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Tome nota de los valores siguientes; los usará en pasos posteriores:**application ID**, **clientSecrets** y **tenant ID**. Asigne la aplicación al rol "**Colaborador**".
 

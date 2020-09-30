@@ -1,6 +1,6 @@
 ---
-title: Administración de la red de proceso en Azure Stack Edge para acceder a módulos | Microsoft Docs
-description: En este artículo se explica cómo extender la red de proceso en Azure Stack Edge para acceder a los módulos por medio de una dirección IP externa.
+title: Administración de la red de proceso en Azure Stack Edge Pro para acceder a módulos | Microsoft Docs
+description: En este artículo se explica cómo extender la red de proceso en Azure Stack Edge Pro para acceder a los módulos por medio de una dirección IP externa.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: alkohli
-ms.openlocfilehash: 01b0eae7d2e5d1078c0761838081a2379a724a97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19c92deb58ac51aa882e7123b9a90aa3eae627d0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84342993"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894118"
 ---
-# <a name="enable-compute-network-on-your-azure-stack-edge"></a>Habilitación de la red de proceso en Azure Stack Edge
+# <a name="enable-compute-network-on-your-azure-stack-edge-pro"></a>Habilitación de la red de proceso en Azure Stack Edge Pro
 
-En este artículo se explica cómo pueden acceder los módulos que se ejecutan en Azure Stack Edge a la red de proceso habilitada en el dispositivo.
+En este artículo se explica el modo en el que los módulos que se ejecutan en Azure Stack Edge Pro pueden acceder a la red de proceso habilitada en el dispositivo.
 
 Para configurar la red, deberá seguir los siguientes pasos:
 
-- Habilite una interfaz de red en el dispositivo Azure Stack Edge para el proceso
-- Agregue un módulo para acceder a la red de proceso en Azure Stack Edge
+- Habilite una interfaz de red en el dispositivo Azure Stack Edge Pro para el proceso.
+- Agregue un módulo para acceder a la red de proceso en Azure Stack Edge Pro.
 - Compruebe que el módulo pueda acceder a la interfaz de red habilitada.
 
 En este tutorial usará un módulo de aplicaciones de servidor web para demostrar el escenario.
@@ -31,8 +31,8 @@ En este tutorial usará un módulo de aplicaciones de servidor web para demostra
 
 Antes de comenzar, necesitará:
 
-- Un dispositivo Azure Stack Edge con la configuración de dispositivo completada.
-- Ya completó el paso **Configurar el proceso** según el [tutorial: Transformación de datos con Azure Stack Edge](azure-stack-edge-deploy-configure-compute-advanced.md#configure-compute) en el dispositivo. Su dispositivo debe tener un recurso de IoT Hub asociado, un dispositivo IoT y un dispositivo IoT Edge.
+- Un dispositivo Azure Stack Edge Pro con la configuración de dispositivo completada.
+- Ya completó el paso **Configurar el proceso** según el [tutorial: transformación de datos con Azure Stack Edge Pro](azure-stack-edge-deploy-configure-compute-advanced.md#configure-compute) en el dispositivo. Su dispositivo debe tener un recurso de IoT Hub asociado, un dispositivo IoT y un dispositivo IoT Edge.
 
 ## <a name="enable-network-interface-for-compute"></a>Habilitar una interfaz de red para el proceso
 
@@ -55,10 +55,10 @@ Realice los pasos siguientes en la interfaz de usuario web local para configurar
 
 ## <a name="add-webserver-app-module"></a>Agregar el módulo de aplicaciones de servidor web
 
-Siga estos pasos para agregar un módulo de aplicaciones de servidor web al dispositivo Azure Stack Edge.
+Siga estos pasos para agregar un módulo de aplicaciones de servidor web al dispositivo Azure Stack Edge Pro.
 
-1. Vaya al recurso de IoT Hub asociado al dispositivo Azure Stack Edge y seleccione **Dispositivo IoT Edge**.
-2. Seleccione el dispositivo IoT Edge asociado al dispositivo Azure Stack Edge. En los **detalles del dispositivo**, seleccione **Establecer módulos**. En **Agregar módulos**, seleccione **+ Agregar** y **módulo de IoT Edge**.
+1. Vaya al recurso de IoT Hub asociado al dispositivo Azure Stack Edge Pro y seleccione **Dispositivo IoT Edge**.
+2. Seleccione el dispositivo IoT Edge asociado al dispositivo Azure Stack Edge Pro. En los **detalles del dispositivo**, seleccione **Establecer módulos**. En **Agregar módulos**, seleccione **+ Agregar** y **módulo de IoT Edge**.
 3. En la hoja de los **módulos personalizados de IoT Edge**:
 
     1. Especifique un **nombre** para el módulo de aplicaciones del servidor web que quiera implementar.

@@ -5,16 +5,16 @@ services: synapse analytics
 author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: ce7238aaa10b1e73f7fa3c061045f47cbc472e23
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 54910aae3667d42ea5a6996d70d8989328711605
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378702"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033428"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Características de Transact-SQL compatibles en Azure Synapse SQL
 

@@ -3,12 +3,12 @@ title: Errores de cuota
 description: Describe cómo resolver errores de cuota de recursos al implementar recursos con Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 03/09/2018
-ms.openlocfilehash: 410b086b39d63d03491d390364f4aec6300fc7c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 75e8abf31d035a1e3a106bc0c6561624762db5d5
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007802"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530427"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Resolución de errores de cuotas de recursos
 
@@ -95,7 +95,7 @@ Para solicitar un aumento de cuota, vaya al portal y abra una incidencia de sopo
 
 1. Seleccione **Suscripciones**.
 
-   ![Suscripciones](./media/error-resource-quota/subscriptions.png)
+   ![Captura de pantalla que muestra el menú de Azure Portal con la opción Suscripciones seleccionada.](./media/error-resource-quota/subscriptions.png)
 
 2. Seleccione la suscripción que necesita una cuota mayor.
 

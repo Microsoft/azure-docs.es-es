@@ -5,16 +5,16 @@ services: key-vault
 author: ghogen
 manager: jillfra
 ms.service: key-vault
-ms.custom: vs-azure
+ms.custom: vs-azure, devx-track-csharp
 ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 52c9584ca94117db58a5427c46269d7f2612861a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: d0d0465e2e60945649958911c508e06aee877ac9
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588490"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378872"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adición de Key Vault a una aplicación web mediante los servicios conectados de Visual Studio
 
@@ -201,6 +201,6 @@ Afecta a las referencias .NET y a `packages.config` (referencias de NuGet) del a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si ha seguido este tutorial, los permisos de Key Vault estarán configurados para que se ejecuten con su propia suscripción de Azure, pero esto podría no ser deseable para un escenario de producción. Puede crear una identidad administrada para administrar el acceso a Key Vault de la aplicación. Consulte [Autenticación de Key Vault con una identidad administrada](/azure/key-vault/managed-identity).
+Si ha seguido este tutorial, los permisos de Key Vault estarán configurados para que se ejecuten con su propia suscripción de Azure, pero esto podría no ser deseable para un escenario de producción. Puede crear una identidad administrada para administrar el acceso a Key Vault de la aplicación. Consulte [Autenticación en Key Vault](/azure/key-vault/general/authentication) y [Asignación de una directiva de acceso de Key Vault](/azure/key-vault/general/assign-access-policy-portal).
 
 Puede obtener más información sobre el desarrollo con Key Vault en la [Guía del desarrollador de Key Vault](developers-guide.md).

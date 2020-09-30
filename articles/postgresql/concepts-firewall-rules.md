@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 38edbfcb8800843b43678e99d6817595ccba3235
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7048fac4804e16ae70145c8fadc1cd6e0859fcfc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071545"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903903"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Reglas de firewall de Azure Database for PostgreSQL con un único servidor
 El firewall del servidor de Azure Database for PostgreSQL impide todo acceso al servidor de base de datos, excepto a aquellos equipos a los que haya concedido permiso. Asimismo, otorgan acceso al servidor según la dirección IP de origen de cada solicitud.
@@ -23,7 +23,7 @@ Para configurar su firewall, cree reglas de firewall que especifiquen intervalos
 Todos los accesos de base de datos al servidor de Azure Database for PostgreSQL se bloquean por el firewall de manera predeterminada. Para comenzar a usar el servidor desde otro equipo, debe especificar una o varias reglas de firewall a nivel de servidor para habilitar el acceso a su servidor. Use las reglas de firewall para especificar los intervalos de direcciones IP de Internet que se permitirán. La acción de las reglas de firewall no repercute sobre el acceso al propio sitio web de Azure Portal.
 Los intentos de conexión desde Internet y Azure deben atravesar primero el firewall antes de poder alcanzar PostgreSQL Database, tal y como se muestra en el siguiente diagrama:
 
-![Ejemplo de flujo de cómo funciona el firewall](media/concepts-firewall-rules/1-firewall-concept.png)
+:::image type="content" source="media/concepts-firewall-rules/1-firewall-concept.png" alt-text="Ejemplo de flujo de cómo funciona el firewall":::
 
 ## <a name="connecting-from-the-internet"></a>Conexión desde Internet
 Las reglas de firewall de nivel de servidor se aplican a todas las bases de datos del mismo servidor de Azure Database for PostgreSQL. Si la dirección IP de la solicitud está comprendida en uno de los intervalos especificados en las reglas de firewall de nivel de servidor, la conexión se concede.
@@ -40,7 +40,7 @@ Si no hay ninguna dirección IP saliente fija disponible para su servicio de Azu
 > La opción **Permitir el acceso a servicios de Azure** configura el firewall para permitir todas las conexiones desde Azure, lo que incluye conexiones desde las suscripciones de otros clientes. Al seleccionar esta opción, asegúrese de que los permisos de usuario y el inicio de sesión limiten el acceso solamente a los usuarios autorizados.
 > 
 
-![Configurar el permiso de acceso a los servicios de Azure en el portal](media/concepts-firewall-rules/allow-azure-services.png)
+:::image type="content" source="media/concepts-firewall-rules/allow-azure-services.png" alt-text="Configurar el permiso de acceso a los servicios de Azure en el portal":::
 
 ### <a name="connecting-from-a-vnet"></a>Conexión desde una red virtual
 Para conectarse de forma segura a Azure Database for PostgreSQL desde una red virtual, considere la posibilidad de usar [puntos de conexión de servicio de red virtual](./concepts-data-access-and-security-vnet.md). 

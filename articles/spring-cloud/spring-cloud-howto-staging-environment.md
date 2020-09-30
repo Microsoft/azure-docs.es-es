@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 5333dd45cee58821d89cd49c44d3c5bba4cd9115
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d36c185272b7b67ffb8a21a77cc3a64f22d0df5a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500409"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888471"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configuración de un entorno de ensayo en Azure Spring Cloud
+
+**Este artículo se aplica a:** ✔️ Java
 
 En este artículo se aborda cómo configurar una implementación de ensayo con el patrón de implementación azul-verde en Azure Spring Cloud. La implementación azul/verde es un patrón de entrega continua de Azure DevOps que se basa en mantener una versión existente (azul) activa mientras se implementa una nueva (verde). En este artículo se muestra cómo llevar la implementación de ensayo a producción sin cambiar directamente la implementación de producción.
 
@@ -103,3 +105,7 @@ Como alternativa, también puede eliminarla desde la CLI de Azure con el siguien
 ```azurecli
 az spring-cloud app deployment delete -n <staging-deployment-name> -g <resource-group-name> -s <service-instance-name> --app gateway
 ```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Inicio rápido: Implementación de la primera aplicación de Azure Spring Cloud](spring-cloud-quickstart.md)

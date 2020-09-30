@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cf6cfdc00d38b72f292f2b3ed41a633fb9cf989d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d2a49c1ba90c35575116ed6cf1482683c45e0b5e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502739"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595825"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con terminación TLS mediante la CLI de Azure
 
@@ -21,11 +21,10 @@ Puede usar la CLI de Azure para crear una [puerta de enlace de aplicaciones](ove
 
 En este artículo aprenderá a:
 
-> [!div class="checklist"]
-> * Creación de un certificado autofirmado
-> * Configurar una red
-> * Crear una puerta de enlace de aplicaciones con el certificado
-> * Crear un conjunto de escalado de máquinas virtuales con el grupo de servidores back-end predeterminado
+* Creación de un certificado autofirmado
+* Configurar una red
+* Crear una puerta de enlace de aplicaciones con el certificado
+* Crear un conjunto de escalado de máquinas virtuales con el grupo de servidores back-end predeterminado
 
 Si lo prefiere, puede realizar los pasos de este procedimiento mediante [Azure PowerShell](tutorial-ssl-powershell.md).
 

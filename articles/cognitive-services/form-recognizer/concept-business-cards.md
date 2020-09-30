@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 039f7343bcef64db9ad9eae558cd3e97f3678c59
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 1163531fb5a6aa7158bd81ff9095ed1ee29e73c1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799288"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004908"
 ---
 # <a name="business-card-concepts"></a>Conceptos de tarjeta de presentación
 
-Azure Form Recognizer puede analizar y extraer pares clave-valor de tarjetas de presentación con alguno de los modelos precompilados. La API de tarjetas de presentación combina funcionalidades eficaces de reconocimiento óptico de caracteres (OCR) con nuestro modelo de comprensión de tarjetas de presentación para extraer información clave de las tarjetas de presentación en inglés. Extrae información de contacto personal, el nombre de la empresa, el puesto y mucho más. La API de tarjeta de presentación precompilada está disponible públicamente en la versión preliminar de Form Recognizer v2.1. 
+Azure Form Recognizer puede analizar y extraer información de contacto de tarjetas de presentación mediante alguno de los modelos precompilados. La API de tarjetas de presentación combina funcionalidades eficaces de reconocimiento óptico de caracteres (OCR) con nuestro modelo de comprensión de tarjetas de presentación para extraer información clave de las tarjetas de presentación en inglés. Extrae información de contacto personal, el nombre de la empresa, el puesto y mucho más. La API de tarjeta de presentación precompilada está disponible públicamente en la versión preliminar de Form Recognizer v2.1. 
 
 ## <a name="what-does-the-business-card-api-do"></a>¿Qué hace la API de tarjeta de presentación?
 
@@ -27,11 +27,12 @@ La API de tarjeta de presentación extrae campos clave de las tarjetas de presen
 
 ![Imagen de Contoso detallada de FOTT y salida JSON](./media/business-card-english.jpg)
 
-### <a name="fields-extracted"></a>Campos extraídos: 
+### <a name="fields-extracted"></a>Campos extraídos:
+
 * Nombres de contacto 
-* Nombre 
-* Apellido 
-* Nombres de la empresa 
+  * Nombres
+  * Apellidos
+* Nombres de compañía 
 * Departments 
 * Puestos de trabajo 
 * Correos electrónicos 
@@ -43,7 +44,7 @@ La API de tarjeta de presentación extrae campos clave de las tarjetas de presen
   * Teléfonos de trabajo 
   * Otros teléfonos 
 
-La API de tarjeta de presentación también devuelve todo el texto reconocido de la tarjeta de presentación. Esta salida de OCR se incluye en la respuesta JSON.  
+La API de tarjeta de presentación también puede devolver todo el texto reconocido de la tarjeta de presentación. Esta salida de OCR se incluye en la respuesta JSON.  
 
 ### <a name="input-requirements"></a>Requisitos de entrada 
 
@@ -51,7 +52,7 @@ La API de tarjeta de presentación también devuelve todo el texto reconocido de
 
 ## <a name="the-analyze-business-card-operation"></a>Operación Analyze Business Card
 
-[Analyze Business Card](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) toma una imagen o PDF de una tarjeta de presentación como entrada y extrae los valores de interés y el texto. La llamada devuelve un campo de encabezado de respuesta denominado `Operation-Location`. El valor `Operation-Location` es una dirección URL que contiene el id. de resultado que se va a usar en el paso siguiente.
+[Analyze Business Card](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) toma una imagen o PDF de una tarjeta de presentación como entrada y extrae los valores de interés. La llamada devuelve un campo de encabezado de respuesta denominado `Operation-Location`. El valor `Operation-Location` es una dirección URL que contiene el id. de resultado que se va a usar en el paso siguiente.
 
 |Encabezado de respuesta| Dirección URL del resultado |
 |:-----|:----|
@@ -63,18 +64,15 @@ El segundo paso consiste en llamar a la operación [Get Analyze Business Card Re
 
 |Campo| Tipo | Valores posibles |
 |:-----|:----:|:----|
-|status | string | notStarted: la operación de análisis no se ha iniciado. |
-| |  | running: la operación de análisis está en curso. |
-| |  | failed: error en la operación de análisis. |
-| |  | succeeded: la operación de análisis se realizó correctamente. |
+|status | string | notStarted: la operación de análisis no se ha iniciado.<br /><br />running: la operación de análisis está en curso.<br /><br />failed: error en la operación de análisis.<br /><br />succeeded: la operación de análisis se realizó correctamente.|
 
-Cuando el campo **status** tenga el valor **succeeded**, la respuesta JSON incluirá los resultados del reconocimiento de texto y la tarjeta de presentación. El resultado de la descripción de la tarjeta de presentación se organiza como un diccionario de valores de campo con nombre, en el que cada valor contiene el texto extraído, el valor normalizado, el cuadro de límite, el nivel de confianza y los elementos de la palabra correspondiente. El resultado del reconocimiento de texto se organiza como una jerarquía de líneas y palabras, con texto, cuadro de límite e información de confianza.
+Cuando el campo **status** tenga el valor **succeeded**, la respuesta JSON incluirá los resultados del reconocimiento de texto opcional y la tarjeta de presentación, si es necesario. El resultado de la descripción de la tarjeta de presentación se organiza como un diccionario de valores de campo con nombre, en el que cada valor contiene el texto extraído, el valor normalizado, el cuadro de límite, el nivel de confianza y los elementos de la palabra correspondiente. El resultado del reconocimiento de texto se organiza como una jerarquía de líneas y palabras, con texto, cuadro de límite e información de confianza.
 
 ![salida de tarjeta de presentación de ejemplo](./media/business-card-results.png)
 
 ### <a name="sample-json-output"></a>Salida de JSON de ejemplo
 
-Consulte el siguiente ejemplo de una respuesta JSON correcta: El nodo "readResults" contiene todo el texto reconocido. El texto se organiza por página, después, por líneas y, finalmente, por palabras individuales. El nodo "documentResults" contiene los valores específicos de la tarjeta de presentación que el modelo ha detectado. Aquí encontrará pares clave-valor útiles, como el nombre, el apellido, el nombre de la empresa y más.
+Consulte el siguiente ejemplo de una respuesta JSON correcta: El nodo "readResults" contiene todo el texto reconocido. El texto se organiza por página, después, por líneas y, finalmente, por palabras individuales. El nodo "documentResults" contiene los valores específicos de la tarjeta de presentación que el modelo ha detectado. Aquí encontrará información de contacto útil como el nombre, el apellido, el nombre de la compañía y más.
 
 ```json
 {
@@ -394,5 +392,4 @@ La API de tarjeta de presentación también impulsa la [característica de proce
 - Siga las guías de inicio rápido de [Python para la API de tarjeta de presentación](./quickstarts/python-business-cards.md) para empezar
 - Obtenga más información acerca de la [API REST Form Recognizer](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
 - Obtenga más información sobre [Form Recognizer](overview.md)
-
 

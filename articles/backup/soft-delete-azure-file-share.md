@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo la eliminación temporal puede pro
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0ec2d3bf84aed19b608a92b6f21cd1674ba5b7cf
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 52a116320e07c25d4ee7f00b8063ca15faeb8560
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282711"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179919"
 ---
 # <a name="accidental-delete-protection-for-azure-file-shares-using-azure-backup"></a>Protección contra la eliminación accidental de los recursos compartidos de archivos de Azure mediante Azure Backup
 
@@ -53,7 +53,7 @@ Si tiene al menos un recurso compartido de archivos protegido en una cuenta de a
 >Debe realizar el paso 2 antes de que se ejecute el siguiente trabajo de copia de seguridad programada en el recurso compartido de archivos protegido de la cuenta de almacenamiento. El motivo es que, cada vez que se ejecuta el trabajo de copia de seguridad, se vuelve a habilitar la eliminación temporal para todos los recursos compartidos de archivos de la cuenta de almacenamiento.
 
 >[!WARNING]
->Después de deshabilitar la eliminación temporal en el paso 2, cualquier operación de eliminación realizada en los recursos compartidos de archivos es una operación de eliminación permanente. Esto significa que, si elimina accidentalmente el recurso compartido del que se ha hecho una copia de seguridad después de deshabilitar la eliminación temporal, perderá todas las instantáneas y no podrá recuperar los datos.
+>Después de deshabilitar la eliminación temporal en el paso 2, cualquier operación de eliminación realizada en los recursos compartidos de archivos es una operación de eliminación permanente. Esto significa que si elimina accidentalmente el recurso compartido del que se ha hecho una copia de seguridad después de deshabilitar la eliminación temporal, perderá todas las instantáneas y no podrá recuperar los datos.
 
 ### <a name="in-the-context-of-a-file-shares-soft-delete-setting-what-changes-does-azure-backup-do-when-i-unregister-a-storage-account"></a>En el contexto de la configuración de eliminación temporal de un recurso compartido de archivos, ¿qué cambios hace Azure Backup cuando anulo el registro de una cuenta de almacenamiento?
 

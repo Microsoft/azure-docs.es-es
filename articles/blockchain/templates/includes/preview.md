@@ -4,12 +4,12 @@ ms.service: azure-blockchain
 ms.topic: include
 ms.date: 07/07/2020
 ms.author: patricka
-ms.openlocfilehash: cd23954fb5b65e191d46e531c6b15182a58b2dd0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ad96affd48ed9c05bb4ad92a359f48910d3fb535
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081292"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226883"
 ---
 > [!IMPORTANT]
 > Las plantillas de soluciones de Azure Blockchain se encuentran en versión preliminar pública.

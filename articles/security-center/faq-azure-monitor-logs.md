@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 2fe306cf7d17f0789c5e134c3fcad3f8f07a0b80
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 0f4552d6488ecd083b6ee5d4cae2ef2bd660efc7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612833"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906382"
 ---
 # <a name="faq-for-customers-already-using-azure-monitor-logs"></a>Preguntas frecuentes para clientes que ya usan registros de Azure Monitor<a name="existingloganalyticscust"></a>
 
@@ -32,10 +32,11 @@ Una solución de Security Center se instala en el área de trabajo seleccionada 
 > Si el agente de Log Analytics se instala directamente en la máquina virtual (no como una extensión de Azure), Security Center no lo instala y la supervisión de seguridad estará limitada.
 
 ## <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>¿Instala Security Center soluciones en mis áreas de trabajo de Log Analytics existentes? ¿Qué implica desde el punto de vista de la facturación?
-Cuando Security Center identifica que una VM ya está conectada a un área de trabajo creado por el usuario, habilita las soluciones en esta área de trabajo según el plan de tarifa. Las soluciones se aplican solo a las VM de Azure pertinentes a través de la [selección de destino de solución](../operations-management-suite/operations-management-suite-solution-targeting.md), por lo que la facturación sigue siendo la misma.
+Cuando Security Center identifica que una VM ya está conectada a un área de trabajo creada por el usuario, habilita las soluciones en esta área de trabajo según la configuración de precios. Las soluciones se aplican solo a las VM de Azure pertinentes a través de la [selección de destino de solución](../operations-management-suite/operations-management-suite-solution-targeting.md), por lo que la facturación sigue siendo la misma.
 
-- **Nivel Gratis**: Security Center instala la solución “SecurityCenterFree” en el área de trabajo. No se le facturará por el nivel Gratis.
-- **Nivel Estándar**: Security Center instala la solución "Security" en el área de trabajo.
+- **Azure Defender desactivado**: Security Center instala la solución “SecurityCenterFree” en el área de trabajo. No se le facturará.
+- 
+- **Azure Defender activado**: Security Center instala la solución “Security” en el área de trabajo.
 
    ![Soluciones del área de trabajo predeterminada](./media/security-center-platform-migration-faq/solutions.png)
 
@@ -45,4 +46,4 @@ Si una VM ya tiene el agente de Log Analytics instalado como una extensión de A
 Cuando Security Center instala el agente de Log Analytics en las máquinas virtuales, usa los espacios de trabajo predeterminados creados por Security Center si este no apunta a un área de trabajo ya existente.
 
 ## <a name="i-already-have-security-solution-on-my-workspaces-what-are-the-billing-implications"></a>Ya tengo una solución de seguridad en mis áreas de trabajo. ¿Qué implica desde el punto de vista de la facturación?
-La solución Seguridad y auditoría se utiliza para habilitar las características de nivel estándar de Security Center para máquinas virtuales de Azure. Si la solución Seguridad y auditoría ya está instalada en un área de trabajo, Security Center utiliza la solución existente. No hay ningún cambio en la facturación.
+La solución Seguridad y auditoría se usa para habilitar **Azure defender para servidores**. Si la solución Seguridad y auditoría ya está instalada en un área de trabajo, Security Center utiliza la solución existente. No hay ningún cambio en la facturación.

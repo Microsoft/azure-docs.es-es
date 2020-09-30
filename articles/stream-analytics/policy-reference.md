@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas para Azure Stream Analytics
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure Stream Analytics. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 07/10/2020
+ms.date: 09/16/2020
 ms.topic: reference
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: bd9418aca71eaee5714f29a49d90f4707147348b
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 6f6b954cf054e4eb2a698cf7fc4d5e595bb18bd9
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300971"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979558"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-stream-analytics"></a>Definiciones de directivas integradas de Azure Policy para Azure Stream Analytics
 

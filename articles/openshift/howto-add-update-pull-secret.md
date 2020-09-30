@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/21/2020
 keywords: secreto de extracción, aro, openshift, red hat
-ms.openlocfilehash: 3351052db63f095bfca5f0b91f26e1013319c582
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 769b7589fb6496fc2f4123665ad1f6fe61d0cce2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095333"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294754"
 ---
 # <a name="add-or-update-your-red-hat-pull-secret-on-an-azure-red-hat-openshift-4-cluster"></a>Adición o actualización del secreto de extracción de Red Hat en un clúster de la versión 4 de Red Hat OpenShift en Azure
 
-En esta guía se describe cómo agregar o actualizar un secreto de extracción de Red Hat para un clúster existente de la versión 4.x de Red Hat OpenShift en Azure.
+En esta guía se describe cómo agregar o actualizar un secreto de extracción de Red Hat para un clúster existente de la versión 4.x de Red Hat OpenShift en Azure (ARO).
 
 Si va a crear un clúster por primera vez, puede agregar el secreto de extracción al crear el clúster. Para obtener más información sobre la creación de un clúster de ARO con un secreto de extracción de Red Hat, consulte [Creación de un clúster de la versión 4 de Red Hat OpenShift en Azure](tutorial-create-cluster.md#get-a-red-hat-pull-secret-optional).
 
@@ -29,13 +29,13 @@ Cuando se crea un clúster de ARO sin agregar un secreto de extracción de Red H
 
 Esta sección le guía por los pasos de actualización de ese secreto de extracción con valores adicionales del secreto de extracción de Red Hat.
 
-1. Capture el secreto denominado `pull-secret` en el espacio de nombres openshift-config y guárdelo en un archivo independiente a través del comando siguiente: 
+1. Capture el secreto denominado `pull-secret` en el espacio de nombres `openshift-config` y guárdelo en un archivo independiente a través del comando siguiente: 
 
     ```console
     oc get secrets pull-secret -n openshift-config -o template='{{index .data ".dockerconfigjson"}}' | base64 -d > pull-secret.json
     ```
 
-    La salida debería ser similar a la siguiente (tenga en cuenta que se ha quitado el valor del secreto real):
+    La salida debe ser similar a la siguiente (tenga en cuenta que se ha quitado el valor del secreto real).
 
     ```json
     {
@@ -47,7 +47,7 @@ Esta sección le guía por los pasos de actualización de ese secreto de extracc
     }
     ```
 
-2. Vaya al [portal del administrador de clústeres de Red Hat OpenShift](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) y haga clic en **Download pull secret** (Descargar secreto de extracción). El secreto de extracción de Red Hat tendrá un aspecto similar al siguiente (tenga en cuenta que se han quitado los valores de secreto reales):
+2. Vaya al [portal del administrador de clústeres de Red Hat OpenShift](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) y seleccione **Descargar secreto de extracción**. El secreto de extracción de Red Hat tendrá un aspecto similar al siguiente (tenga en cuenta que se han quitado los valores del secreto reales).
 
     ```json
     {
@@ -75,7 +75,7 @@ Esta sección le guía por los pasos de actualización de ese secreto de extracc
 3. Edite el archivo del secreto de extracción que recibió del clúster agregando las entradas que se encuentran en el secreto de extracción de Red Hat. 
 
     > [!IMPORTANT]
-    > La inclusión de la entrada `cloud.openshift.com` del secreto de extracción de Red Hat hará que el clúster empiece a enviar datos de telemetría a Red Hat. Incluya solo esta sección si desea enviar datos de telemetría. De lo contrario, no incluya la siguiente sección.
+    > La inclusión de la entrada `cloud.openshift.com` del secreto de extracción de Red Hat hará que el clúster empiece a enviar datos de telemetría a Red Hat. Incluya solo esta sección si desea enviar datos de telemetría. De lo contrario, no incluya la siguiente sección.    
     > ```json
     > {
     >         "cloud.openshift.com": {
@@ -86,13 +86,14 @@ Esta sección le guía por los pasos de actualización de ese secreto de extracc
 
     > [!CAUTION]
     > No quite ni modifique la entrada `arosvc.azurecr.io` del secreto de extracción. Esta sección es necesaria para que el clúster funcione correctamente.
+
     ```json
     "arosvc.azurecr.io": {
                 "auth": "<my-aroscv.azurecr.io-secret>"
             }
     ```
 
-    El archivo final debería tener un aspecto similar al siguiente (tenga en cuenta que se han quitado los valores de secreto reales):
+    El archivo final debería tener este aspecto (tenga en cuenta que se han quitado los valores del secreto reales).
 
     ```json
     {
@@ -121,16 +122,17 @@ Esta sección le guía por los pasos de actualización de ese secreto de extracc
     ```
 
 4. Asegúrese de que el archivo sea un JSON válido. Hay muchas maneras de validar el archivo JSON. En el ejemplo siguiente se usa jq:
+
     ```json
     cat pull-secret.json | jq
     ```
 
     > [!NOTE]
-    > Si hay un error en el archivo, puede verse `parse error`.
+    > Si hay un error en el archivo, aparece como `parse error`.
 
 ## <a name="add-your-pull-secret-to-your-cluster"></a>Adición del secreto de extracción al clúster
 
-Ejecute el comando siguiente para actualizar el secreto de extracción:
+Ejecute el comando siguiente para actualizar el secreto de extracción.
 
 > [!NOTE]
 > Al ejecutar este comando, los nodos del clúster se reiniciarán de uno en uno a medida que se actualicen. 
@@ -153,7 +155,7 @@ oc edit configs.samples.operator.openshift.io/cluster -o yaml
 
 Cambie los valores de `spec.architectures.managementState` y `status.architecture.managementState` de `Removed` a `Managed`. 
 
-El siguiente fragmento de código de YAML muestra solo las secciones pertinentes del archivo YAML editado.
+El siguiente fragmento de código de YAML muestra solo las secciones pertinentes del archivo YAML editado:
 
 ```yaml
 apiVersion: samples.operator.openshift.io/v1
@@ -183,7 +185,7 @@ oc edit operatorhub cluster -o yaml
 
 Cambie los valores de `Spec.Sources.Disabled` y `Status.Sources.Disabled` de `true` a `false` para cualquier origen que desee habilitar.
 
-El siguiente fragmento de código de YAML muestra solo las secciones pertinentes del archivo YAML editado.
+El siguiente fragmento de código de YAML muestra solo las secciones pertinentes del archivo YAML editado:
 
 ```yaml
 Name:         cluster

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: f444ff4e884e50ed75b02328bfbe4d4117bc4cc9
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 1be04c0617dc4ed235cc3f3bc29aa58f4c2cb1d2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064798"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902141"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Cifrado de datos del servidor único de Azure Database for PostgreSQL con clave administrada por el cliente
 
@@ -43,7 +43,7 @@ Las DEK, cifradas con las KEK, se almacenan por separado. Solo una entidad con a
 
 ## <a name="how-data-encryption-with-a-customer-managed-key-work"></a>Funcionamiento del cifrado de datos con una clave administrada por el cliente
 
-![Diagrama que muestra información general de Bring Your Own Key](media/concepts-data-access-and-security-data-encryption/postgresql-data-encryption-overview.png)
+:::image type="content" source="media/concepts-data-access-and-security-data-encryption/postgresql-data-encryption-overview.png" alt-text="Diagrama que muestra información general de Bring Your Own Key":::
 
 Para que un servidor de PostgreSQL pueda usar claves administradas por el cliente almacenadas en Key Vault para el cifrado de la DEK, un administrador de Key Vault debe conceder los siguientes derechos de acceso al servidor:
 
@@ -79,7 +79,7 @@ Cuando vaya a usar el cifrado de datos mediante una clave administrada por el cl
 * Asegúrese de que Key Vault y el servidor único de Azure Database for PostgreSQL residen en la misma región para garantizar un acceso más rápido para las operaciones de encapsulado y desencapsulado de DEK.
 * Bloquee la KeyVault de Azure solo para **punto de conexión privado y las redes seleccionadas** y permita solamente *servicios de Microsoft* de confianza para proteger los recursos.
 
-    ![servicio de confianza con AKV](media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png)
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="servicio de confianza con AKV":::
 
 A continuación se ofrecen recomendaciones para configurar una clave administrada por el cliente:
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Filtrado y análisis de los datos con proceso en Azure Stack Edge | Microsoft Docs'
-description: Aprenda a configurar el rol de proceso en Azure Stack Edge y a usarlo para transformar los datos antes de enviarlos a Azure.
+title: 'Tutorial: Filtrado y análisis de los datos con proceso en Azure Stack Edge Pro | Microsoft Docs'
+description: Aprenda a configurar el rol de proceso en Azure Stack Edge Pro y a usarlo para transformar los datos antes de enviarlos a Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,17 +8,17 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: ab9c93dc029498c70a828f38f297c1e02dcb29ee
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
+ms.openlocfilehash: b19bac439035da85d542d62f33e813822edc38d9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "83774080"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904593"
 ---
-# <a name="tutorial-transform-data-with-azure-stack-edge"></a>Tutorial: Transformación de datos con Azure Stack Edge
+# <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Tutorial: Transformación de datos con Azure Stack Edge Pro
 
-En este tutorial se describe cómo configurar un rol de proceso en un dispositivo de Azure Stack Edge. Una vez configurado el rol de proceso, Azure Stack Edge puede transformar los datos antes de enviarlos a Azure.
+En este tutorial se describe cómo configurar un rol de proceso en un dispositivo de Azure Stack Edge Pro. Una vez configurado el rol de proceso, Azure Stack Edge Pro puede transformar los datos antes de enviarlos a Azure.
 
 Este procedimiento tarda aproximadamente entre 10 y 15 minutos en completarse.
 
@@ -33,14 +33,14 @@ En este tutorial, aprenderá a:
  
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Antes de configurar un rol de proceso en el dispositivo de Azure Stack Edge, compruebe lo siguiente:
+Antes de configurar un rol de proceso en el dispositivo de Azure Stack Edge Pro, asegúrese de que:
 
-- Ha activado el dispositivo físico de Azure Stack Edge tal como se describe en [Conexión, configuración y activación de Azure Stack Edge](azure-stack-edge-deploy-connect-setup-activate.md).
+- Ha activado el dispositivo físico de Azure Stack Edge Pro tal como se describe en [Conexión, configuración y activación de Azure Stack Edge Pro](azure-stack-edge-deploy-connect-setup-activate.md).
 
 
 ## <a name="configure-compute"></a>Configurar el proceso
 
-Para configurar el proceso en Azure Stack Edge, creará un recurso de IoT Hub.
+Para configurar el proceso en Azure Stack Edge Pro, creará un recurso de IoT Hub.
 
 1. En la instancia de Azure Portal del recurso de Azure Stack Edge, vaya a Información general. En el panel derecho, en el icono **Proceso**, seleccione **Comenzar**.
 
@@ -62,7 +62,7 @@ Para configurar el proceso en Azure Stack Edge, creará un recurso de IoT Hub.
     ![Introducción al proceso](./media/azure-stack-edge-deploy-configure-compute/configure-compute-3.png)
 
     > [!NOTE]
-    > Si el cuadro de diálogo **Configurar proceso** se cierra antes de que IoT Hub esté asociado con el dispositivo de Azure Stack Edge, la instancia de IoT Hub se crea, pero no se muestra en la configuración de proceso. 
+    > Si el cuadro de diálogo **Configurar proceso** se cierra antes de que IoT Hub esté asociado con el dispositivo de Azure Stack Edge Pro, la instancia de IoT Hub se crea, pero no se muestra en la configuración de proceso. 
     
     Cuando el rol de proceso de Edge está configurado en el dispositivo de Edge, este crea dos dispositivos: uno IoT y el otro IoT Edge. Ambos se pueden ver en el recurso de IoT Hub. Un entorno de ejecución de IoT Edge también se ejecuta en este dispositivo de IoT Edge. En este momento, solo está disponible la plataforma Linux para el dispositivo IoT Edge.
 
@@ -101,9 +101,9 @@ En este tutorial, se realizará una implementación sencilla con dos recursos co
 
 ## <a name="add-a-module"></a>Agregar un módulo
 
-Puede agregar un módulo personalizado o uno creado previamente. No hay módulos personalizados en este dispositivo perimetral. Para aprender a crear un módulo personalizado, vaya a [Desarrollo de un módulo C# para un dispositivo de Azure Stack Edge](azure-stack-edge-create-iot-edge-module.md).
+Puede agregar un módulo personalizado o uno creado previamente. No hay módulos personalizados en este dispositivo perimetral. Para aprender a crear un módulo personalizado, vaya a [Desarrollo de un módulo C# para un dispositivo de Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md).
 
-En esta sección, agregará un módulo personalizado al dispositivo de IoT Edge que creó en [Desarrollo de un módulo C# para Azure Stack Edge](azure-stack-edge-create-iot-edge-module.md). Este módulo personalizado toma los archivos de un recurso compartido local perimetral del dispositivo perimetral y los mueve a un recurso compartido perimetral (nube) del dispositivo. A continuación, el recurso compartido en la nube inserta los archivos en la cuenta de Azure Storage asociada con este.
+En esta sección, agregará un módulo personalizado al dispositivo de IoT Edge que creó en [Desarrollo de un módulo C# para Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md). Este módulo personalizado toma los archivos de un recurso compartido local perimetral del dispositivo perimetral y los mueve a un recurso compartido perimetral (nube) del dispositivo. A continuación, el recurso compartido en la nube inserta los archivos en la cuenta de Azure Storage asociada con este.
 
 1. Vaya a **Proceso perimetral > Comenzar**. En el icono **Agregar módulos**, seleccione el tipo de escenario como **simple**. Seleccione **Agregar**.
 2. En la hoja **Configurar y agregar módulo**, escriba los valores siguientes:
@@ -111,7 +111,7 @@ En esta sección, agregará un módulo personalizado al dispositivo de IoT Edge 
     
     |Campo  |Value  |
     |---------|---------|
-    |Nombre     | Un nombre único para el módulo. Este módulo es un contenedor de Docker que puede implementar en el dispositivo de IoT Edge asociado a Azure Stack Edge.        |
+    |Nombre     | Un nombre único para el módulo. Este módulo es un contenedor de Docker que puede implementar en el dispositivo de IoT Edge asociado a Azure Stack Edge Pro.        |
     |URI de imagen     | El URI de la imagen de contenedor correspondiente del módulo.        |
     |Credenciales necesarias     | Si está activada, se usa el nombre de usuario y la contraseña para recuperar los módulos con una dirección URL coincidente.        |
     |Recurso compartido de entrada     | Seleccione un recurso compartido de entrada. En este caso, el recurso compartido local perimetral es el recurso compartido de entrada. El módulo que se usa aquí mueve los archivos desde el recurso compartido local perimetral hasta un recurso compartido perimetral donde se cargan en la nube.        |
@@ -165,7 +165,7 @@ En este tutorial, ha aprendido a:
 > * Agregar un módulo de proceso
 > * Comprobar la transformación y la transferencia de los datos
 
-Para aprender a administrar el dispositivo de Azure Stack Edge, consulte:
+Para aprender a administrar el dispositivo de Azure Stack Edge Pro, consulte:
 
 > [!div class="nextstepaction"]
-> [Uso de la interfaz de usuario web local para administrar Azure Stack Edge](azure-stack-edge-manage-access-power-connectivity-mode.md).
+> [Uso de la interfaz de usuario web local para administrar Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md).

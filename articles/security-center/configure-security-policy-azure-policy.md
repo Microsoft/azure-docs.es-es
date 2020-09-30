@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: c218b5dc8ca3bfa0358a9b6a0d4867696762a8d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a81b3016f86c6fd7de646ccbdbf533685471ac3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77430948"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894803"
 ---
 # <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configuración de una directiva de seguridad mediante la API de REST
 
@@ -124,7 +124,7 @@ En este ejemplo se muestra cómo quitar una asignación:
 |Actualizaciones del sistema |Supervisión de las actualizaciones del sistema que faltan en Azure Security Center |systemUpdatesMonitoringEffect|
 |Cifrado de almacenamiento |Auditoría de la falta del cifrado de blob de las cuentas de almacenamiento |storageEncryptionMonitoringEffect|
 |Acceso de red JIT |Supervisión del posible acceso de red Just-In-Time (JIT) en Azure Security Center |jitNetworkAccessMonitoringEffect |
-|Controles de aplicación adaptables |Supervisión de una posible inclusión de aplicaciones en la lista de permitidos en Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
+|Controles de aplicación adaptables |Supervisión de posibles listas de aplicaciones permitidas en Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
 |Grupos de seguridad de red |Supervisión del acceso de red permisivo en Azure Security Center |networkSecurityGroupsMonitoringEffect| 
 |Configuraciones de seguridad |Supervisión de los puntos vulnerables del sistema operativo en Azure Security Center |systemConfigurationsMonitoringEffect| 
 |Endpoint Protection |Supervisión de la falta de Endpoint Protection en Azure Security Center |endpointProtectionMonitoringEffect |

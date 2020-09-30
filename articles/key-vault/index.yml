@@ -13,12 +13,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: 549309a01602206b85a54b47df297735dfc5e709
-  ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+  ms.openlocfilehash: bd1a0b2efb01d0db153bd666f8ff4e3911095702
+  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/17/2020
-  ms.locfileid: "88262609"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90984994"
 highlightedContent:
   items:
   - title: Introducción a Azure Key Vault
@@ -89,6 +89,20 @@ conceptualContent:
     footerLink:
       url: ./secrets/index.yml
       text: Ver más
+  - title: HSM administrado (versión preliminar)
+    links:
+    - url: ./managed-hsm/overview.md
+      itemType: overview
+      text: ¿Qué es HSM administrado?
+    - url: ./managed-hsm/best-practices.md
+      itemType: overview
+      text: Procedimientos recomendados
+    - url: ./managed-hsm/quick-create-cli.md
+      itemType: quickstart
+      text: Aprovisionamiento y activación de un HSM administrado
+    footerLink:
+      text: Ver más
+      url: ./managed-hsm/index.yml
   - title: Bibliotecas cliente
     links:
     - url: ./general/client-libraries.md

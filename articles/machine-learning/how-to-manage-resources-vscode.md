@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 07/09/2020
-ms.openlocfilehash: 5ec6af894f434f8d1f7df34b2ed0c2514ab88cc4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 09/03/2020
+ms.openlocfilehash: abdd04f59ee820585d58817297d161f68bd952f0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306152"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897401"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Administración de recursos de Azure Machine Learning con la extensión de VS Code (versión preliminar)
 
@@ -44,10 +44,10 @@ Para más información, consulte el artículo sobre las [áreas de trabajo](conc
     1. Elegir la suscripción de Azure
     1. Elija o cree un grupo de recursos donde aprovisionar el área de trabajo.
     1. Seleccione la ubicación donde aprovisionar el área de trabajo.
-    1. Elija entre la edición *Basic* y *Enterprise*. Obtenga más información sobre las distintas [ediciones de Azure Machine Learning](concept-editions.md).
 
 Los métodos alternativos para crear un área de trabajo incluyen:
 
+- Abra la paleta de comandos **Ver > Paleta de comandos** y escriba el mensaje de texto **Azure ML: Creación del área de trabajo**.
 - Hacer clic en el icono `+` que aparece en la parte superior de la vista Azure Machine Learning.
 - Crear un área de trabajo nueva cuando se le pida que seleccione un área de trabajo durante el aprovisionamiento de otros recursos.
 
@@ -242,6 +242,39 @@ Una vez que se completa una ejecución, puede que quiera descargar los registros
 ### <a name="view-run-metadata"></a>Visualización de metadatos de la ejecución
 
 En la extensión, puede inspeccionar los metadatos, como la configuración de ejecución que se usa para la ejecución, así como los detalles de la ejecución.
+
+## <a name="compute-instances"></a>Instancias de proceso
+
+Para obtener más información, vea [instancias de proceso](concept-compute-instance.md).
+
+### <a name="create-compute-instance"></a>Creación de una instancia de proceso
+
+1. Expanda el nodo de suscripción que contiene el área de trabajo.
+1. Expanda el nodo del área de trabajo donde quiere crear la instancia de proceso.
+1. Haga clic con el botón derecho en el nodo **Compute instances** (Instancias de proceso) y seleccione **Create compute instance** (Crear instancia de proceso).
+1. En la solicitud:
+    1. Proporcione un nombre para la instancia de proceso.
+    1. Seleccione un tamaño de VM de la lista.
+    1. Elija si quiere habilitar el acceso SSH.
+        1. Si habilita el acceso SSH, tendrá que proporcionar también la clave SSH pública o el archivo que contiene la clave. Para obtener más información, consulte la [guía sobre la creación y el uso de claves SSH en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
+
+### <a name="stop-or-restart-compute-instance"></a>Detención o reinicio de la instancia de proceso
+
+1. Expanda el nodo de suscripción que contiene el área de trabajo.
+1. Expanda el nodo **Compute instance** (Instancia de proceso) en el área de trabajo.
+1. Haga clic con el botón secundario en la instancia de proceso que quiere detener o reiniciar y seleccione **Stop Compute instance** (Detener instancia de proceso) o **Restart compute instance** (Reiniciar instancia de proceso), respectivamente.
+
+### <a name="view-compute-instance-configuration"></a>Configuración de visualización de la instancia de proceso
+
+1. Expanda el nodo de suscripción que contiene el área de trabajo.
+1. Expanda el nodo **Compute instance** (Instancia de proceso) en el área de trabajo.
+1. Haga clic con el botón derecho en la instancia de proceso que quiere inspeccionar y seleccione **View Compute instance Properties** (Ver propiedades de la instancia de proceso).
+
+### <a name="delete-compute-instance"></a>Eliminación de una instancia de proceso
+
+1. Expanda el nodo de suscripción que contiene el área de trabajo.
+1. Expanda el nodo **Compute instance** (Instancia de proceso) en el área de trabajo.
+1. Haga clic con el botón derecho en la instancia de proceso que quiere eliminar y seleccione **Delete compute instance** (Eliminar instancia de proceso).
 
 ## <a name="compute-clusters"></a>Clústeres de proceso
 

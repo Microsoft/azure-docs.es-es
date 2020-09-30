@@ -4,12 +4,12 @@ description: Aprenda a desarrollar funciones con Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: ffdb6ee9747c76e7f4a6ff3e2f7b65ae96f53fb4
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 1dd98ede537321403053e2e7c8a5f4f7272665d4
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810095"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144930"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guía de Azure Functions para desarrolladores de Java
 
@@ -144,14 +144,16 @@ En la tabla siguiente se muestran las versiones actuales de Java compatibles par
 
 | Versión de Functions | Versiones de Java (Windows) | Versiones de Java (Linux) |
 | ----- | ----- | --- |
-| 3.x | 11 (versión preliminar)<br/>8<sup>\*</sup> | 11 (versión preliminar)<br/>8 |
+| 3.x | 11 (versión preliminar)<br/>8 | 11 (versión preliminar)<br/>8 |
 | 2.x | 8 | N/D |
 
-<sup>\*</sup>Este es el valor predeterminado actual del archivo pom.xml generado por el arquetipo de Maven.
+A menos que especifique una versión de Java para la implementación, el arquetipo de Maven usa como valor predeterminado Java 8 durante la implementación en Azure.
 
 ### <a name="specify-the-deployment-version"></a>Especificación de la versión de implementación
 
-Actualmente, el arquetipo de Maven genera un archivo pom.xml que tiene como destino Java 8. Los siguientes elementos del archivo pom.xml deben actualizarse para crear una aplicación de funciones que ejecute Java 11.
+Puede controlar la versión de Java de destino del arquetipo de Maven mediante el parámetro `-DjavaVersion`. El valor de este parámetro puede ser `8` o `11`. La compatibilidad con Java 11 se encuentra actualmente en versión preliminar. 
+
+El arquetipo de Maven genera un archivo pom.xml que tiene como destino la versión de Java especificada. Los siguientes elementos del archivo pom.xml indican la versión de Java que se va a usar:
 
 | Elemento |  Valor de Java 8 | Valor de Java 11 | Descripción |
 | ---- | ---- | ---- | --- |

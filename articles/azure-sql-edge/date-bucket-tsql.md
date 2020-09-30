@@ -1,6 +1,6 @@
 ---
-title: 'Date_Bucket (Transact-SQL): Azure SQL Edge (versión preliminar)'
-description: Más información sobre el uso de Date_Bucket en Azure SQL Edge (versión preliminar)
+title: 'Date_Bucket (Transact-SQL): Azure SQL Edge'
+description: Más información sobre el uso de Date_Bucket en Azure SQL Edge
 keywords: Date_Bucket, SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -8,28 +8,26 @@ ms.topic: reference
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2019
-ms.openlocfilehash: c2f63abeb9f935236b4c35decb278eb86e0e2a82
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.date: 09/03/2020
+ms.openlocfilehash: 896caae2dfd79c4678ffb34c531fb56835e9bd66
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233291"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886844"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket (Transact-SQL)
 
-Esta función devuelve el valor de fecha y hora correspondiente al inicio de cada cubo de fecha y hora, del valor de origen predeterminado de `1900-01-01 00:00:00.000`.
+Esta función devuelve el valor de fecha y hora correspondiente al inicio de cada cubo de fecha y hora, desde la marca de tiempo definida por el parámetro `origin` o el valor de origen predeterminado de `1900-01-01 00:00:00.000`, si el parámetro de origen no se ha especificado. 
 
 Para una introducción acerca de todos los tipos de datos y funciones de fecha y hora de Transact-SQL, vea [Tipos de datos y funciones de fecha y hora &#40;Transact-SQL&#41;](/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql/).
 
 [Convenciones de sintaxis de Transact-SQL](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql/)
 
-`DATE_BUCKET` usa un valor de fecha de origen predeterminado de `1900-01-01 00:00:00.000`, es decir, 12:00 a. m. del lunes 1 de enero de 1900.
-
 ## <a name="syntax"></a>Sintaxis
 
 ```sql
-DATE_BUCKET (datePart, number, date)
+DATE_BUCKET (datePart, number, date, origin)
 ```
 
 ## <a name="arguments"></a>Argumentos
@@ -52,7 +50,7 @@ Parte de *date* que se usa con el parámetro ‘number’. Por ejemplo, Año, me
 
 *número*
 
-Número entero que decide el ancho del cubo combinado con el argumento *datePart*. Representa el ancho de los cubos de datePart desde la hora de origen. **`This argument cannot be a negative integer value`** . 
+Número entero que decide el ancho del cubo combinado con el argumento *datePart*. Representa el ancho de los cubos de datePart desde la hora de origen. **`This argument cannot be a negative integer value`**. 
 
 *date*
 
@@ -66,6 +64,21 @@ Una expresión que se puede resolver en uno de los valores siguientes:
 + **time**
 
 Para *data*, `DATE_BUCKET` aceptará una expresión de columna, una expresión o una variable definida por el usuario si se resuelven en cualquiera de los tipos de datos mencionados anteriormente.
+
+**Origen** 
+
+Expresión opcional que se puede resolver en uno de los valores siguientes:
+
++ **date**
++ **datetime**
++ **datetimeoffset**
++ **datetime2**
++ **smalldatetime**
++ **time**
+
+El tipo de datos de `Origin` debe coincidir con el tipo de datos del parámetro `Date`. 
+
+`DATE_BUCKET` usa un valor de fecha de origen predeterminado de `1900-01-01 00:00:00.000`, es decir, 12:00 a.m. del lunes, 1 de enero de 1900, si no se especifica ningún valor de origen para la función.
 
 ## <a name="return-type"></a>Tipo de valor devuelto
 
@@ -92,11 +105,19 @@ Select DATE_BUCKET(wk, 4, @date)
 Select DATE_BUCKET(wk, 6, @date)
 ```
 
-La salida de la expresión siguiente, que es 6275 semanas a partir de la hora de origen.
+La salida de la expresión siguiente es `2020-04-06 00:00:00.0000000`, que es 6275 semanas a partir de la hora de origen predeterminada `1900-01-01 00:00:00.000`.
 
 ```sql
 declare @date datetime2 = '2020-04-15 21:22:11'
 Select DATE_BUCKET(wk, 5, @date)
+```
+
+La salida de la expresión siguiente es `2020-06-09 00:00:00.0000000`, que es 75 semanas a partir de la hora de origen especificada `2019-01-01 00:00:00`.
+
+```sql
+declare @date datetime2 = '2020-06-15 21:22:11'
+declare @origin datetime2 = '2019-01-01 00:00:00'
+Select DATE_BUCKET(wk, 5, @date, @origin)
 ```
 
 ## <a name="datepart-argument"></a>Argumento datepart
@@ -126,6 +147,10 @@ Invalid bucket width value passed to date_bucket function. Only positive values 
 ```sql
 Select DATE_BUCKET(dd, 10, SYSUTCDATETIME())
 ```
+
+## <a name="origin-argument"></a>Argumento origin  
+
+El tipo de datos de los argumentos `origin` y `date` debe ser el mismo. Si se usan tipos de datos diferentes, se generará un error.
 
 ## <a name="remarks"></a>Observaciones
 
@@ -268,6 +293,15 @@ Where ShipDate between '2011-01-03 00:00:00.000' and '2011-02-28 00:00:00.000'
 order by DateBucket
 GO  
 ``` 
+### <a name="c-using-a-non-default-origin-value"></a>C. Uso de un valor de origen no predeterminado
+
+En este ejemplo se usa un valor de origen no predeterminado para generar los cubos de fecha. 
+
+```sql
+declare @date datetime2 = '2020-06-15 21:22:11'
+declare @origin datetime2 = '2019-01-01 00:00:00'
+Select DATE_BUCKET(hh, 2, @date, @origin)
+```
 
 ## <a name="see-also"></a>Consulte también
 

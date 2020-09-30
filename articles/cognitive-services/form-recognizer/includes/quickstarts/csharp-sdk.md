@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 08/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 428aa25bc40b556ffd7ca6e59948fc79c8bef1c5
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f924347b99d270ac97da5f6d6f4edf7a13efacee
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89238042"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89449649"
 ---
 > [!IMPORTANT]
 > * Actualmente, el SDK de Form Recognizer tiene como destino la versión v2.0 del servicio Form Recognizer.
@@ -539,7 +539,7 @@ Para ejecutar este método, deberá llamarlo desde `Main`.
 ```csharp
 static void Main(string[] args)
 {
-    var trainCustomModel = TrainCustomModelNoLabels();
+    var trainCustomModel = TrainCustomModelWithLabels();
     Task.WaitAll(trainCustomModel);
 }
 ```
@@ -596,6 +596,7 @@ En esta sección, se muestra cómo extraer información de clave-valor y otro co
 Usará el método `StartRecognizeCustomFormsFromUri`. El valor devuelto es una colección de objetos `RecognizedForm`, uno para cada página del documento enviado. El código siguiente imprime los resultados del análisis en la consola. Imprime cada campo reconocido y el valor correspondiente, junto con una puntuación de confianza.
 
 ```csharp
+static async Task RecognizeContentCustomModel()
 {
     // Use the custom model ID returned in the previous example.
     string modelId = "<modelId>";

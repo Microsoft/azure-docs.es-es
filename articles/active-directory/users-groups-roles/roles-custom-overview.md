@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: overview
-ms.date: 04/22/2020
+ms.date: 09/11/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 915098130c7a8462bc0e009be04a61b5b0a7985d
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: e962bea893e8a658b876aabf417e64b11a31dfc1
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795599"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033513"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Roles de administrador personalizados en Azure Active Directory (versión preliminar)
 

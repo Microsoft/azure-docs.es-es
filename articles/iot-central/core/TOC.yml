@@ -6,10 +6,12 @@
       href: overview-iot-central.md
     - name: Paseo por la interfaz de usuario
       href: overview-iot-central-tour.md
-    - name: Desarrollo de dispositivos
+    - name: Conexión y desarrollo de dispositivos
       href: overview-iot-central-developer.md
     - name: Actualizaciones recientes
       items:
+        - name: "Característica nuevas y actualizadas de agosto de\_2020"
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-august-2020/'
         - name: "Características nuevas y actualizadas de julio de\_2020"
           href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-july-2020/'
         - name: "Características nuevas y actualizadas de junio de\_2020"
@@ -39,7 +41,7 @@
       href: quick-monitor-devices.md
 - name: Tutoriales
   items:
-    - name: Obtención de conexión
+    - name: Conexión y desarrollo de dispositivos
       items:
         - name: Conexión de un dispositivo (Node.js)
           href: tutorial-connect-device-nodejs.md
@@ -75,16 +77,20 @@
       href: concepts-iot-edge.md
 - name: Guías paso a paso
   items:
-    - name: Obtención de conexión
+    - name: Conexión y desarrollo de dispositivos
       items:
         - name: Configuración de una plantilla de dispositivo
           href: howto-set-up-template.md
+        - name: Uso de las propiedades
+          href: howto-use-properties.md
         - name: Preparación y conexión de un kit de desarrollo de Azure Sphere
           href: howto-connect-sphere.md
         - name: Preparación y conexión de un dispositivo RuuviTag
           href: howto-connect-ruuvi.md
         - name: Preparación y conexión a Rigado Cascade 500
           href: howto-connect-rigado-cascade-500.md
+        - name: Conexión de dispositivos mediante X.509
+          href: how-to-connect-devices-x509.md
         - name: Conexión a otras nubes de IoT
           href: howto-build-iotc-device-bridge.md
     - name: Mantenimiento de la conexión
@@ -107,7 +113,7 @@
           href: howto-run-a-job.md
     - name: Transformación
       items:
-        - name: Exportación de datos a destinos en la nube (versión preliminar)
+        - name: Exportación de datos a destinos en la nube
           href: howto-export-data.md
         - name: Exportación de datos a destinos en la nube (heredados)
           href: howto-export-data-legacy.md

@@ -3,17 +3,17 @@ title: Administración de costos de Azure con Automation
 description: En este artículo se explica cómo administrar los costos de Azure con Automation.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/19/2020
+ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
-ms.openlocfilehash: a5ab84794884cc0c87bd766be7a0fa2fe4c52aa9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.reviewer: matrive
+ms.openlocfilehash: eb6ed73305d55b4f76464a4567c6b53715b10c3a
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684412"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526653"
 ---
 # <a name="manage-costs-with-automation"></a>Administración de costos con Automation
 
@@ -161,6 +161,70 @@ Las llamadas GET a Budgets API no devolverán los costos actuales que se muestra
 ### <a name="automate-budget-creation"></a>Automatización de la creación de presupuestos
 
 Para automatizar la creación de presupuestos, utilice [Budgets API](/rest/api/consumption/budgets). También puede crear un presupuesto con una [plantilla de presupuesto](quick-create-budget-template.md). Las plantillas son una forma sencilla de estandarizar las implementaciones de Azure, a la vez que garantizan que el control de costos está correctamente configurado y aplicado.
+
+#### <a name="supported-locales-for-budget-alert-emails"></a>Configuraciones regionales admitidas para los correos electrónicos de alertas de presupuesto
+
+Recibirá una notificación cuando los costos de un presupuesto superen el umbral establecido. Puede configurar hasta cinco destinatarios de correo electrónico por presupuesto. Los destinatarios reciben las alertas por correo electrónico en un plazo de 24 horas desde que se supere el umbral del presupuesto. Sin embargo, es posible que el destinatario tenga que recibir el correo electrónico en otro idioma. Budgets API se puede usar con los siguientes códigos de referencia cultural. Establezca el código de referencia cultural con el parámetro `locale`, de forma similar a este ejemplo.
+
+```json
+{
+  "eTag": "\"1d681a8fc67f77a\"",
+  "properties": {
+    "timePeriod": {
+      "startDate": "2020-07-24T00:00:00Z",
+      "endDate": "2022-07-23T00:00:00Z"
+    },
+    "timeGrain": "BillingMonth",
+    "amount": 1,
+    "currentSpend": {
+      "amount": 0,
+      "unit": "USD"
+    },
+    "category": "Cost",
+    "notifications": {
+      "actual_GreaterThan_10_Percent": {
+        "enabled": true,
+        "operator": "GreaterThan",
+        "threshold": 20,
+        "locale": "en-us",
+        "contactEmails": [
+          "user@contoso.com"
+        ],
+        "contactRoles": [],
+        "contactGroups": [],
+        "thresholdType": "Actual"
+      }
+    }
+  }
+}
+
+```
+
+Idiomas admitidos por un código de referencia cultural:
+
+| Código de referencia cultural| Lenguaje |
+| --- | --- |
+| es-es | Spanish (Traditional Sort) - Spain |
+| ja-jp | Japonés (Japón) |
+| zh-CN | Chino (simplificado, China) |
+| de-de | Alemán (Alemania) |
+| es-es | Español (España, internacional) |
+| fr-fr | Francés (Francia) |
+| it-it | Italiano (Italia) |
+| ko-kr | Coreano (Corea) |
+| pt-br | Portugués (Brasil) |
+| ru-ru | Ruso (Rusia) |
+| zh-tw | Chino (tradicional, Taiwán) |
+| cs-cz | Checo (República Checa) |
+| pl-pl | Polaco (Polonia) |
+| tr-tr | Turco (Turquía) |
+| da-dk | Danés (Dinamarca) |
+| dn-gb | Inglés (Reino Unido) |
+| hu-HU | Húngaro (Hungría) |
+| nb-bo | Noruego Bokmal (Noruega) |
+| nl-nl | Neerlandés (Países Bajos) |
+| pt-pt | Portugués (Portugal) |
+| sv-se | Sueco (Suecia) |
 
 #### <a name="common-budgets-api-configurations"></a>Configuraciones comunes de Budgets API
 

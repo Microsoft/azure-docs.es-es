@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/30/2020
-ms.openlocfilehash: 0dd0fbdd9bcf4d4fab2ffe9f420264ab737a700b
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: e80ea37409f7b5beb48ba7b8e96aeeda9a5836e5
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87511928"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433439"
 ---
 # <a name="what-is-azure-data-share"></a>¿Qué es Azure Data Share?
 
@@ -45,7 +45,7 @@ Los proveedores de datos pueden ofrecer a sus consumidores de datos actualizacio
 
 ![flujo de recurso compartido de datos](media/data-share-flow.png)
 
-Cuando un consumidor de datos acepta un recurso compartido de datos, puede recibir los datos en el almacén de datos que prefiera. Por ejemplo, si el proveedor de datos comparte datos mediante Azure Blob Storage, el consumidor de datos puede recibirlos en Azure Data Lake Store. Del mismo modo, si el proveedor de datos comparte datos desde una instancia de Azure SQL Data Warehouse, el consumidor de datos puede elegir si desea recibirlos en una instancia de Azure Data Lake Store, una de Azure SQL Database o una de Azure SQL Data Warehouse. En el caso de uso compartido desde orígenes basados en SQL, el consumidor de datos también puede elegir si recibirá los datos en formato Parquet o csv. 
+Cuando un consumidor de datos acepta un recurso compartido de datos, puede recibir los datos en el almacén de datos que prefiera. Por ejemplo, si el proveedor de datos comparte datos mediante Azure Blob Storage, el consumidor de datos puede recibirlos en Azure Data Lake Store. Del mismo modo, si el proveedor de datos comparte datos desde una instancia de Azure Synapse Analytics (anteriormente SQL Data Warehouse), el consumidor de datos puede elegir si desea recibirlos en una instancia de Azure Data Lake Store, una de Azure SQL Database o una de Azure Synapse Analytics. En el caso de uso compartido desde orígenes basados en SQL, el consumidor de datos también puede elegir si recibirá los datos en formato Parquet o csv. 
 
 Con el uso compartido in situ, los proveedores de datos pueden compartir datos donde estos residen sin copiar los datos. Después de establecer la relación de uso compartido a través del flujo de invitación, se crea un vínculo simbólico entre el almacén de datos de origen del proveedor de datos y el almacén de datos de destino del consumidor de datos. El consumidor de datos puede leer los datos y realizar consultas en ellos en tiempo real mediante su propio almacén de datos. Los cambios que se realicen en el almacén de datos de origen están disponibles de inmediato para el consumidor de datos. El uso compartido in situ se encuentra actualmente en versión preliminar para Azure Data Explorer.
 

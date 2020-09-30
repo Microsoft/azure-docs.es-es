@@ -47,9 +47,7 @@
   items:
     - name: Detección de caras
       href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-    - name: Identificación de caras
-      href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
-    - name: Agregar caras
+    - name: Adición de caras a un grupo
       href: Face-API-How-to-Topics/how-to-add-faces.md
     - name: Uso del atributo HeadPose
       href: Face-API-How-to-Topics/how-to-use-headpose.md

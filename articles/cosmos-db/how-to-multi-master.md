@@ -4,15 +4,15 @@ description: Aprenda a configurar la arquitectura multimaestro en las aplicacion
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 12/02/2019
+ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 94465e44a6cc2c4fa94ec8ea4504cbed80742f0f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 68f3beb0ee1c12aa06b6cce0f9ddd480b0ce5f2f
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019154"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015252"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configuración de la arquitectura multimaestro en las aplicaciones que usan Azure Cosmos DB
 

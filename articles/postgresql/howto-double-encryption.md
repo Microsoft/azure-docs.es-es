@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 6612fe38adcd3c8002dd4a11122b5bb2e797a4dd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 362c051cf1dd7e97430bd6afaf4821a9c960b71d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102181"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901552"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-postgresql"></a>Cifrado doble de infraestructura para Azure Database for PostgreSQL
 
@@ -29,19 +29,19 @@ Siga estos pasos para crear un servidor de Azure Database for MySQL con el cifra
 
 2. Seleccione **Bases de datos** > **Azure Database for PostgreSQL**. También puede escribir PostgreSQL en el cuadro de búsqueda para encontrar el servicio. Se habilitó la opción de implementación de **servidor único**.
 
-   !["Azure Database for PostgreSQL" en el menú](./media/quickstart-create-database-portal/1-create-database.png)
+   :::image type="content" source="./media/quickstart-create-database-portal/1-create-database.png" alt-text="Azure Database for PostgreSQL en el menú":::
 
 3. Proporcione la información básica del servidor. Seleccione **Configuración adicional** y marque la casilla **Cifrado doble de infraestructura** para establecer el parámetro.
 
-    ![Selecciones de Azure Database for PostgreSQL](./media/howto-infrastructure-double-encryption/infrastructure-encryption-selected.png)
+    :::image type="content" source="./media/howto-infrastructure-double-encryption/infrastructure-encryption-selected.png" alt-text="Selecciones de Azure Database for PostgreSQL":::
 
 4. Seleccione **Revisar y crear** para realizar el aprovisionamiento del servidor.
 
-    ![Resumen de Azure Database for PostgreSQL](./media/howto-infrastructure-double-encryption/infrastructure-encryption-summary.png)
+    :::image type="content" source="./media/howto-infrastructure-double-encryption/infrastructure-encryption-summary.png" alt-text="Resumen de Azure Database for PostgreSQL":::
 
 5. Una vez creado el servidor, puede validar el cifrado doble de infraestructura comprobando el estado en la hoja del servidor **Cifrado de datos**.
 
-    ![Validación de Azure Database for MySQL](./media/howto-infrastructure-double-encryption/infrastructure-encryption-validation.png)
+    :::image type="content" source="./media/howto-infrastructure-double-encryption/infrastructure-encryption-validation.png" alt-text="Validación de Azure Database for MySQL":::
 
 ## <a name="create-an-azure-database-for-postgresql-server-with-infrastructure-double-encryption---cli"></a>Creación de un servidor de Azure Database for PostgreSQL con el cifrado doble de infraestructura: CLI
 

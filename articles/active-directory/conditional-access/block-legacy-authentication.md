@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f72e477d332b33b7434663fb13cb3ca4f4c2069d
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: a1973d45197044c325caf2d9938838f438d7755c
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032208"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049543"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedimientos: Bloqueo de la autenticación heredada en Azure AD con acceso condicional   
 
@@ -122,7 +122,7 @@ Puede seleccionar todos los controles de concesión disponibles para la condici�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Determinación del impacto mediante el modo de solo informe de acceso condicional](howto-conditional-access-report-only.md)
-- Si todavía no sabe cómo configurar las directivas de acceso condicional, consulte [Exigir MFA para aplicaciones específicas con acceso condicional de Azure Active Directory](app-based-mfa.md) para ver un ejemplo.
+- [Determinación del impacto mediante el modo de solo informe de acceso condicional](howto-conditional-access-insights-reporting.md)
+- Si todavía no sabe cómo configurar las directivas de acceso condicional, consulte [Exigir MFA para aplicaciones específicas con acceso condicional de Azure Active Directory](../authentication/tutorial-enable-azure-mfa.md) para ver un ejemplo.
 - Para más información sobre la compatibilidad con la autenticación moderna, consulte [Cómo funciona la autenticación moderna para las aplicaciones de cliente de Office 2013 y Office 2016](/office365/enterprise/modern-auth-for-office-2013-and-2016). 
 - [Cómo configurar una aplicación o dispositivo multifunción para enviar correos electrónicos mediante Office 365 y Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

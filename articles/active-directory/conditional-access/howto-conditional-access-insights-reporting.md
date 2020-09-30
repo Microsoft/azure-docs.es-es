@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 08/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 678c32703501c4d0b66321cfc3518631ffa28c0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c2364eae0d04da8f8e6fe38ae80db7adb8666ce
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253280"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049424"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Información detallada e informes del acceso condicional
 
@@ -97,6 +97,22 @@ Vea el desglose de usuarios e inicios de sesión para cada una de las condicione
 
 También puede investigar los inicios de sesión de un usuario específico si busca inicios de sesión en la parte inferior del panel. La consulta de la izquierda muestra los usuarios más frecuentes. Al seleccionar un usuario se filtrará la consulta a la derecha.  
 
+> [!NOTE]
+> Al descargar los registros de inicios de sesión, seleccione formato JSON para incluir datos de resultados de solo informe de acceso condicional.
+
+## <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Configuración de una directiva de acceso condicional en modo de solo informe
+
+Para configurar una directiva de acceso condicional en modo de solo informe:
+
+1. Inicie sesión en **Azure Portal** como administrador de acceso condicional, administrador de seguridad o administrador global.
+1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
+1. Seleccione una directiva existente o cree una nueva.
+1. En **Habilitar directiva**, establezca la opción en modo de **solo informe**.
+1. Seleccione **Guardar**.
+
+> [!TIP]
+> La edición del estado **Habilitar directiva** de una directiva existente de **Activado** a **Solo informe** deshabilita la aplicación de la directiva existente. 
+
 ## <a name="troubleshooting"></a>Solución de problemas
 
 ### <a name="why-are-queries-failing-due-to-a-permissions-error"></a>¿Por qué se producen errores en las consultas debido a un error de permisos?
@@ -111,6 +127,10 @@ Para tener acceso al libro, necesita los permisos de Azure AD adecuados, así c
 ![Solución de problemas de consultas con errores](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
 
 Para obtener más información sobre cómo transmitir los registros de inicio de sesión de Azure AD a un área de trabajo de Log Analytics, consulte el artículo [Integración de registros de Azure AD con registros de Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+
+### <a name="why-are-the-queries-in-the-workbook-failing"></a>¿Por qué se producen errores en las consultas del libro?
+
+Los clientes han observado que, en ocasiones, se producen errores en las consultas si varias áreas de trabajo o áreas de trabajo erróneas se asocian al libro. Para corregir este problema, haga clic en **Editar** en la parte superior del libro y, a continuación, en el icono con forma de engranaje de Configuración. Seleccione y, a continuación, quite las áreas de trabajo no asociadas al libro. Solo debe haber un área de trabajo asociada a cada libro.
 
 ### <a name="why-is-the-conditional-access-policies-parameter-is-empty"></a>¿Por qué está vacío el parámetro de las directivas de acceso condicional?
 
@@ -134,4 +154,8 @@ Para editar y personalizar el libro, puede dirigirse a **Azure Active Directory*
  
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Modo de solo informe de acceso condicional](concept-conditional-access-report-only.md)
+- [Modo de solo informe de acceso condicional](concept-conditional-access-report-only.md)
+
+- Para obtener más información acerca de los libros de Azure AD, consulte [Cómo usar los libros de Azure Monitor en informes de Azure Active Directory](../reports-monitoring/howto-use-azure-monitor-workbooks.md).
+
+- [Directivas de acceso condicional habituales](concept-conditional-access-policy-common.md)

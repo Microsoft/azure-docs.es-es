@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: b7ddbff2643086f1875ca190b67f521edb115c3e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 0bff283b8e9c0c753100c635ecd4451b467c206d
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930543"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146630"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planeamiento de la implementación de Aplicaciones de Azure Active Directory
 
-Aplicaciones de Azure Active Directory (Azure AD) es un portal basado en web que le permite reducir los costos de soporte técnico, aumentar la productividad y la seguridad, y reducir la frustración de los usuarios. El sistema incluye informes detallados de seguimiento de su acceso al sistema y envía notificaciones de alerta a los administradores ante posibles abusos o usos indebidos.
+Aplicaciones de Azure Active Directory (Azure AD) es un portal basado en web que le permite reducir los costos de soporte técnico, aumentar la productividad y la seguridad, y reducir la frustración de los usuarios. El sistema incluye informes detallados de seguimiento de su acceso al sistema y envía notificaciones de alerta a los administradores ante posibles abusos o usos indebidos. Para obtener información sobre el uso de Aplicaciones desde la perspectiva del usuario final, consulte la [ayuda del portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 Con Aplicaciones de Azure AD, puede:
 
@@ -42,7 +42,7 @@ Aplicaciones de Azure AD beneficia a las empresas de la forma siguiente:
 
 **Proporciona una experiencia de usuario intuitiva**: Aplicaciones proporciona una plataforma única para todas las aplicaciones conectadas al inicio de sesión único (SSO) de Azure. Tiene un portal unificado para encontrar la configuración actual y nuevas funcionalidades, similar a la administración de grupos y al autoservicio de restablecimiento de contraseña, a medida que se agregan. La experiencia intuitiva permite a los usuarios trabajar más rápido y ser más productivos, a la vez que se reduce su frustración.
 
-**Aumenta la productividad**: Todas las aplicaciones de usuario de Aplicaciones tienen habilitado el inicio de sesión único. Habilitar el inicio de sesión único en las aplicaciones empresariales y en Microsoft 365 ofrece una experiencia de inicio de sesión superior con la reducción o eliminación de los mensajes de inicio de sesión adicionales. Aplicaciones usa la pertenencia dinámica y de autoservicio y mejora la seguridad global del sistema de identidades. Para ello, garantiza que las personas adecuadas administran el acceso a las aplicaciones. Aplicaciones sirve como una página de aterrizaje coherente para encontrar rápidamente los recursos y continuar con las tareas del trabajo.
+**Aumenta la productividad**: Todas las aplicaciones de usuario de Aplicaciones tienen habilitado el inicio de sesión único. Habilitar el inicio de sesión único en las aplicaciones empresariales y en Microsoft 365 ofrece una experiencia de inicio de sesión superior con la reducción o eliminación de los mensajes de inicio de sesión adicionales. Aplicaciones usa la pertenencia dinámica y de autoservicio y mejora la seguridad global del sistema de identidades. Aplicaciones garantiza que las personas adecuadas administran el acceso a las aplicaciones. Aplicaciones sirve como una página de aterrizaje coherente para encontrar rápidamente los recursos y continuar con las tareas del trabajo.
 
 **Administra los costos**: la habilitación de Aplicaciones con Azure AD puede ayudar a retirar las inversiones en infraestructuras locales. Reduce los costos de soporte técnico al proporcionar un portal coherente para encontrar todas las aplicaciones, solicitar acceso a los recursos y administrar las cuentas.
 
@@ -55,11 +55,8 @@ Aplicaciones de Azure AD beneficia a las empresas de la forma siguiente:
 Aplicaciones es gratuito y no requiere ninguna licencia para usarse en un nivel básico. Sin embargo, es posible que el número de objetos en el directorio y las características adicionales que desee implementar requieran licencias adicionales. Entre los escenarios de Azure AD más habituales que tienen requisitos de licencia se incluyen las siguientes características de seguridad:
 
 * [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
-
 * [Pertenencia basada en grupos](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-
 * [Restablecimiento de la contraseña de autoservicio](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
-
 * [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 
 Consulte la [guía de licencias completa para Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -69,7 +66,6 @@ Consulte la [guía de licencias completa para Azure AD](https://azure.microsoft
 Cumpla los siguientes requisitos previos antes de empezar este proyecto:
 
 * [Integre el inicio de sesión único de las aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
-
 * [Administre la infraestructura de usuarios y grupos de Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 
 ## <a name="plan-azure-ad-my-apps-deployment"></a>Planeamiento de la implementación de Aplicaciones de Azure AD
@@ -89,6 +85,10 @@ En la tabla siguiente se describen los casos de uso principales de una implement
 | Experiencia del usuario| Los usuarios pueden administrar sus cuentas. |
 | Experiencia del usuario| Los usuarios son conscientes de la compatibilidad con el explorador. |
 | Soporte técnico| Los usuarios pueden encontrar soporte técnico para los problemas de Aplicaciones. |
+
+
+> [!TIP]
+> Aplicaciones se puede usar con direcciones URL internas de la empresa mientras se usa Application Proxy de forma remota. Para más información, consulte el [Tutorial: Adición de una aplicación local para el acceso remoto mediante Application Proxy en Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 ### <a name="best-practices-for-deploying-azure-ad-my-apps"></a>Procedimientos recomendados para la implementación de Aplicaciones de Azure AD
 
@@ -135,7 +135,6 @@ Los usuarios o administradores deben dar su consentimiento a los términos de us
 Para usar el consentimiento del administrador, debe ser un administrador global de la organización y las aplicaciones deben:
 
 * Registrarse en su organización
-
 * Registrarse en otro inquilino de Azure AD y haber recibido previamente el consentimiento, como mínimo, de un usuario
 
 Para más información, consulte [Configuración del modo en que los usuarios finales dan su consentimiento a una aplicación en Azure Active Directory](configure-user-consent.md).
@@ -176,9 +175,7 @@ Cuando los usuarios inician sesión en las aplicaciones de inicio de sesión ún
 Si debe integrar aplicaciones de inicio de sesión único basado en contraseñas, debería definir un mecanismo para implementar la extensión a escala con [exploradores compatibles](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Las opciones incluyen:
 
 * [Directiva de grupo para Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-
 * [Configuration Manager para Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-
 * [Descarga y configuración de Chrome, Firefox, Microsoft Edge o IE controladas por el usuario](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 Los usuarios que no usan aplicaciones de inicio de sesión único basado en contraseñas también se benefician de la extensión. Entre las ventajas se incluyen la posibilidad de iniciar cualquier aplicación desde su barra de búsqueda, encontrar acceso a las aplicaciones usadas recientemente y tener un vínculo a la página Aplicaciones.
@@ -189,7 +186,7 @@ Se necesita un explorador protegido con una directiva de Intune (Microsoft Edge 
 
 ## <a name="plan-your-my-apps-deployment"></a>Planeación de la implementación de la página Aplicaciones
 
-La base de Aplicaciones es el portal del iniciador de aplicaciones, al que los usuarios acceden en [https://myapps.microsoft.com](https://myapps.microsoft.com/). La página Aplicaciones proporciona a los usuarios un único lugar desde el que iniciar el trabajo y utilizar las aplicaciones necesarias. En ella, los usuarios encontrarán una lista de todas las aplicaciones a las que tienen acceso de inicio de sesión único. 
+La base de Aplicaciones es el portal del iniciador de aplicaciones, al que los usuarios acceden en [https://myapps.microsoft.com](https://myapps.microsoft.com/). La página Aplicaciones proporciona a los usuarios un único lugar desde el que iniciar el trabajo y usar las aplicaciones necesarias. En ella, los usuarios encontrarán una lista de todas las aplicaciones a las que tienen acceso de inicio de sesión único. 
 
 > [!NOTE]
 > Las mismas aplicaciones se mostrarán en el iniciador de aplicaciones de Microsoft 365.
@@ -255,7 +252,7 @@ Consulte [Asignación de usuarios y grupos en una aplicación de Active Directo
 
 Si durante las pruebas o la implementación quiere agregar los grupos, pero no permitir todavía que las aplicaciones aparezcan en Aplicaciones, consulte [Ocultación de una aplicación de la experiencia del usuario en Azure Active Directory](hide-application-from-user-portal.md).
 
-### <a name="deploy-microsoft-microsoft-365-applications-to-my-apps"></a>Implementación de aplicaciones de Microsoft 365 en Aplicaciones
+### <a name="deploy-microsoft-365-applications-to-my-apps"></a>Implementación de aplicaciones de Microsoft 365 en Aplicaciones
 
 En el caso de aplicaciones de Microsoft 365, los usuarios recibirán una copia de Office basada en las licencias que se les hayan asignado. Un requisito previo para el acceso a las aplicaciones de Office que se asigne a los usuarios las licencias correctas asociadas a las aplicaciones de Office. Al asignar a un usuario la licencia, verá automáticamente las aplicaciones asociadas a ella en la página Aplicaciones y en el iniciador de aplicaciones de Microsoft 365.
 
@@ -290,7 +287,6 @@ Las siguientes pruebas se deben llevar a cabo con dispositivos de propiedad corp
 
 #### <a name="application-self-service-capabilities-test-case-examples"></a>Casos de prueba de ejemplo de las funcionalidades de autoservicio de aplicaciones
 
-
 | Oportunidad de negocio| Resultado esperado |
 | - | - |
 | El usuario puede administrar la pertenencia a la aplicación.| El usuario puede agregar o quitar miembros con acceso a la aplicación. |
@@ -303,7 +299,7 @@ Es importante planear qué hacer si la implementación no funciona según lo pre
 
 ## <a name="manage-your-implementation"></a>Administrar la implementación
 
-Debe usar el rol con menos privilegios para realizar una tarea necesaria en Azure Active Directory. [Revise los distintos roles disponibles](../users-groups-roles/directory-assign-admin-roles.md) y elija el correcto para resolver las necesidades para cada rol de esta aplicación. Es posible que algunos roles se tengan que aplicar temporalmente y quitar una vez completada la implementación.
+Use el rol con menos privilegios para realizar una tarea necesaria en Azure Active Directory. [Revise los distintos roles disponibles](../users-groups-roles/directory-assign-admin-roles.md) y elija el correcto para resolver las necesidades para cada rol de esta aplicación. Es posible que algunos roles se tengan que aplicar temporalmente y quitar una vez completada la implementación.
 
 | Personas| Roles| Rol de Azure AD  |
 | - | -| -|
@@ -315,22 +311,5 @@ Debe usar el rol con menos privilegios para realizar una tarea necesaria en Azur
 
 Puede usar [Privileged Identity Management](../privileged-identity-management/pim-configure.md) para administrar los roles con el fin de permitir la auditoría, control y revisión de acceso adicionales para los usuarios con permisos de directorio.
 
-### <a name="troubleshoot-my-apps-issues"></a>Solución de problemas de Aplicaciones
-
-Cree guías de solución de problemas para su equipo de soporte técnico con escenarios comunes y con vínculos a la documentación de Microsoft sobre sus soluciones. Puede ser conveniente crear guías que dividan el soporte técnico en los distintos niveles que usa su organización.
-
-Consulte las siguientes guías de solución de problemas como referencia:
-
-[Aplicaciones que no aparecen](access-panel-troubleshoot-application-not-appearing.md)
-
-[Aplicaciones inesperadas que aparecen](access-panel-troubleshoot-unexpected-application.md)
-
-[El usuario no puede iniciar sesión en Aplicaciones](access-panel-troubleshoot-web-sign-in-problem.md)
-
-[Problemas al usar el acceso de autoservicio a las aplicaciones](access-panel-troubleshoot-self-service-access.md)
-
-[Problemas con la extensión del explorador](manage-access-panel-browser-extension.md)
-
 ## <a name="next-steps"></a>Pasos siguientes
-
 [Planeamiento de una implementación de Azure Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)

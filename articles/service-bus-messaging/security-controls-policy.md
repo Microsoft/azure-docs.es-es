@@ -1,18 +1,18 @@
 ---
 title: Controles de Cumplimiento normativo de Azure Policy para Azure Service Bus Messaging
 description: En este artículo se muestran los controles de Cumplimiento normativo de Azure Policy disponibles para Azure Service Bus Messaging. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 09/04/2020
+ms.date: 09/16/2020
 ms.topic: sample
 author: spelluru
 ms.author: spelluru
 ms.service: service-bus-messaging
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 736f83820e0d5ee856dd0f3b92d426e9baaadb88
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: a0eac77167ccdcc2de63b430a37687a5b5d647de
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489379"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980414"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-service-bus-messaging"></a>Controles de Cumplimiento normativo de Azure Policy para Azure Service Bus Messaging
 

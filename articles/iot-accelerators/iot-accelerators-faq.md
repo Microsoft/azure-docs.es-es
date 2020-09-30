@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 7a2b167f90b4ec79f5fa515ded1c676ca7085e72
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: abab80f8c790a170ec30fa228dd86576079a73a0
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75647720"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462554"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Preguntas más frecuentes acerca de los aceleradores de soluciones de IoT
 
@@ -101,7 +101,7 @@ En este momento, no se puede crear un acelerador de soluciones con una cuenta de
 
 ### <a name="how-do-i-delete-an-azure-ad-tenant"></a>¿Cómo puedo eliminar un inquilino de Azure AD?
 
-Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD Tenant](https://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx) (Tutorial para la eliminación de inquilinos de Azure AD).
+Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD Tenant](https://docs.microsoft.com/archive/blogs/ericgolpe/walkthrough-of-deleting-an-azure-ad-tenant) (Tutorial para la eliminación de inquilinos de Azure AD).
 
 ### <a name="next-steps"></a>Pasos siguientes
 

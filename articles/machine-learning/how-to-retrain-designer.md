@@ -1,7 +1,7 @@
 ---
-title: Volver a entrenar modelos mediante el diseñador de Azure Machine Learning (versión preliminar)
+title: Volver a entrenar modelos mediante el diseñador de Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Obtenga información sobre cómo volver a entrenar modelos con canalizaciones publicadas en el diseñador de Azure Machine Learning (versión preliminar).
+description: Aprenda a volver a entrenar modelos con canalizaciones publicadas en el diseñador de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,15 +10,15 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 181d79c6aef87999bc1b4242a70870edf60ad7df
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d43bea855d9ac3dc34b8e72adcd9577e5933e52c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319633"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905670"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Volver a entrenar modelos con el diseñador de Azure Machine Learning (versión preliminar)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="retrain-models-with-azure-machine-learning-designer"></a>Volver a entrenar modelos con el diseñador de Azure Machine Learning
+
 
 Siga los pasos de este artículo para aprender a usar el diseñador de Azure Machine Learning para volver a entrenar un modelo de aprendizaje automático. Usará canalizaciones publicadas para automatizar el flujo de trabajo y establecer los parámetros para entrenar el modelo con nuevos datos. 
 
@@ -32,16 +32,16 @@ En este artículo aprenderá a:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Un área de trabajo de Azure Machine Learning con un SKU de Enterprise.
+* Un área de trabajo de Azure Machine Learning
 * Complete la parte 1 de esta serie de procedimientos, [Transformación de datos en el diseñador](how-to-designer-transform-data.md).
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
-En este artículo se da por hecho que tiene conocimientos básicos sobre la creación de canalizaciones en el diseñador. Para una introducción guiada, complete el [tutorial](tutorial-designer-automobile-price-train-score.md). 
+En este artículo se da por hecho que tiene algunos conocimientos sobre la creación de canalizaciones en el diseñador. Para una introducción guiada, complete el [tutorial](tutorial-designer-automobile-price-train-score.md). 
 
 ### <a name="sample-pipeline"></a>Canalización de ejemplo
 
-La canalización usada en este artículo es una versión modificada de [Ejemplo 3: Predicción de ingresos](samples-designer.md#classification). La canalización usa el módulo [Import Data](algorithm-module-reference/import-data.md) (Importación de datos) en lugar del conjunto de datos de ejemplo para mostrarle cómo entrenar un modelo con sus propios datos.
+La canalización usada en este artículo es una versión modificada de la canalización de ejemplo [Predicción de ingresos](samples-designer.md#classification) de la página principal del diseñador. La canalización usa el módulo [Import Data](algorithm-module-reference/import-data.md) (Importación de datos) en lugar del conjunto de datos de ejemplo para mostrarle cómo entrenar un modelo con sus propios datos.
 
 ![Captura de pantalla que muestra la canalización de ejemplo modificada con un cuadro que resalta el módulo Importación de datos](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
@@ -83,7 +83,8 @@ El diseñador guarda todas las salidas de la canalización, incluidos los modelo
 1. Puede encontrar el modelo en **Other outputs** (Otras salidas) junto con los registros de ejecución.
 1. Como alternativa, seleccione el icono **View output** (Ver salida). A partir de aquí, puede seguir las instrucciones del cuadro de diálogo para ir directamente al almacén de datos. 
 
-![Captura de pantalla que muestra cómo descargar el modelo entrenado](./media/how-to-retrain-designer/trained-model-view-output.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de pantalla que muestra cómo descargar el modelo entrenado](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="publish-a-training-pipeline"></a>Publicación de una canalización de entrenamiento
 
@@ -101,9 +102,9 @@ Publique una canalización en un punto de conexión de canalización para volver
 
 Ahora que tiene una canalización de entrenamiento publicada, puede usarla para volver a entrenar el modelo con nuevos datos. Puede enviar ejecuciones desde un punto de conexión de canalización desde el área de trabajo de Studio o mediante programación.
 
-### <a name="submit-runs-by-using-the-designer"></a>Envío de ejecuciones mediante el diseñador
+### <a name="submit-runs-by-using-the-studio-portal"></a>Envío de ejecuciones mediante el portal de Studio
 
-Siga estos pasos para enviar una ejecución de punto de conexión de canalización con parámetros desde el diseñador:
+Realice los pasos siguientes para enviar una ejecución de punto de conexión de canalización con parámetros desde el portal de Studio:
 
 1. Vaya a la página **Endpoints** (Puntos de conexión) del área de trabajo de Studio.
 1. Seleccione la pestaña **Puntos de conexión de la canalización**. Seleccione el punto de conexión de canalización.

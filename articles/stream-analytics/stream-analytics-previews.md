@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 8/07/2020
-ms.openlocfilehash: e11d5b14bdf6b134fefea79a1f709ec73499bd20
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 0020efea69fc684ff6ebebf286718aa2a720910e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815715"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900804"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Características en vista previa (GB) de Azure Stream Analytics
 
@@ -25,10 +25,6 @@ Las características siguientes se encuentran en la versión preliminar pública
 ### <a name="authenticate-to-sql-database-output-with-managed-identities"></a>Autenticación en la salida de SQL Database con identidades administradas
 
 Azure Stream Analytics admite la [autenticación de identidades administradas](../active-directory/managed-identities-azure-resources/overview.md) para los receptores de salida de Azure SQL Database. Las identidades administradas eliminan las limitaciones de los métodos de autenticación basada en el usuario, como la necesidad de volver a realizar la autenticación debido a los cambios de contraseña. 
-
-### <a name="output-to-azure-synapse-analytics"></a>Salida a Azure Synapse Analytics
-
-La salida de los trabajos de Azure Stream Analytics se puede generar en una tabla de grupos de SQL en [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) y pueden procesar velocidades de rendimiento de hasta 200 MB/s. Esto admite los análisis en tiempo real más exigentes y las necesidades de procesamiento de datos de ruta de acceso activa para cargas de trabajo como generación de informes y creación de paneles.  
 
 ### <a name="real-time-high-performance-scoring-with-custom-ml-models-managed-by-azure-machine-learning"></a>Puntuación de alto rendimiento en tiempo real con modelos de ML personalizados y administrados por Azure Machine Learning
 
@@ -52,7 +48,7 @@ Las herramientas de Visual Studio para Azure Stream Analytics mejoran la funció
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code para Azure Stream Analytics
 
-Los trabajos de Azure Stream Analytics se pueden crear en Visual Studio Code. Consulte el [tutorial de introducción de VS Code](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code).
+Los trabajos de Azure Stream Analytics se pueden crear en Visual Studio Code. Consulte el [tutorial de introducción de VS Code](https://docs.microsoft.com/azure/stream-analytics/quick-create-visual-studio-code).
 
 ### <a name="local-testing-with-live-data-in-visual-studio-code"></a>Consultas de prueba con datos activos en Visual Studio Code
 

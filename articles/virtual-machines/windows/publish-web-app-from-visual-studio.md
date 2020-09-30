@@ -122,7 +122,7 @@ Para configurar una canalización de entrega continua conAzure Pipelines, consul
 [Selector de máquinas virtuales de Azure]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectVM.png
 [Inicio de sesión de WebDeploy]: ../../../includes/media/publish-web-app-from-visual-studio/WebDeployLogin.png
 [Error de certificado]: ../../../includes/media/publish-web-app-from-visual-studio/CertificateError.png
-[Ventana Salida]: ../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png
+[Ventana de Salida]: ../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png
 [Página de publicación: botón Publicar]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPagePublishButton.png
 [Página de publicación: botón Configuración]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageSettingsButton.png
 [Configuración de publicación: página de conexión]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsConnectionPage.png

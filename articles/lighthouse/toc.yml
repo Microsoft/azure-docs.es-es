@@ -53,6 +53,9 @@
     - name: Quitar el acceso a una delegación
       displayName: 'delete, undelegate'
       href: ./how-to/remove-delegation.md
+    - name: Integración de Azure Arc
+      displayName: 'server, kubernetes, hybrid, infrastructure'
+      href: ./how-to/manage-hybrid-infrastructure-arc.md
     - name: Integración de Azure Monitor
       items:
         - name: Uso de registros de Azure Monitor a escala
@@ -98,6 +101,8 @@
     - name: Elementos integrados de Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./samples/policy-reference.md
+    - name: Terraform
+      href: 'https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html'
 - name: Recursos
   items:
     - name: Preguntas y respuestas de Microsoft para Azure Lighthouse

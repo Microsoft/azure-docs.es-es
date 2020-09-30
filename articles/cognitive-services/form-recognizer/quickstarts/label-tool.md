@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 08/25/2020
 ms.author: pafarley
-ms.openlocfilehash: 6118f8109f44081c797cb09a6157abaf4044965e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e231bb7919f25210d7e5a2adff49dede6f0349a9
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377819"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418966"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo
 
@@ -225,7 +225,9 @@ Actualmente se admiten los siguientes tipos de valor y variaciones:
 > [!NOTE]
 > Consulte estas reglas para el formato de fecha:
 > 
-> Los siguientes caracteres se pueden usar como delimitadores de fecha de DMA: `, - / . \`. No se puede usar un espacio en blanco como delimitador. Por ejemplo:
+> Para que el formato de fecha funcione, debe especificar un formato (`dmy`, `mdy`, `ymd`).
+>
+> Los siguientes caracteres se pueden usar como delimitadores de fecha: `, - / . \`. No se puede usar un espacio en blanco como delimitador. Por ejemplo:
 > * 01,01,2020
 > * 01-01-2020
 > * 01/01/2020
@@ -234,11 +236,11 @@ Actualmente se admiten los siguientes tipos de valor y variaciones:
 > * 1-1-2020
 > * 1-01-20
 >
-> Si una cadena de fecha de DMA tiene ocho dígitos, el delimitador es opcional:
+> Si una cadena de fecha tiene ocho dígitos, el delimitador es opcional:
 > * 01012020
 > * 01 01 2020
 >
-> El mes también se puede escribir con su nombre completo o abreviado. Si se usa el nombre, los caracteres delimitadores son opcionales:
+> El mes también se puede escribir con su nombre completo o abreviado. Si se usa el nombre, los caracteres delimitadores son opcionales. Sin embargo, es posible que este formato se reconozca con menos precisión que otros.
 > * 01/Ene/2020
 > * 01Ene2020
 > * 01 de enero de 2020

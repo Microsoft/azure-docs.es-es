@@ -3,7 +3,7 @@ title: Grupos de volúmenes de StorSimple Snapshot Manager | Microsoft Docs
 description: Describe cómo usar el complemento MMC para Administrador de instantáneas StorSimple para crear y administrar grupos de volúmenes.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: carmonm
 editor: ''
 ms.assetid: 7a232414-6a28-4b81-bd7b-cf61e28b33d7
@@ -13,13 +13,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: twooley
-ms.openlocfilehash: 97bb232f726dada5241242e4a1d90e120c07e38c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: 805ab0e78f0679ce483af3a73203b41132be2a59
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506266"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054779"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Uso de Administrador de instantáneas StorSimple para crear y administrar grupos de volúmenes
 ## <a name="overview"></a>Información general

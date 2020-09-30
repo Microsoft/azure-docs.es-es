@@ -7,20 +7,26 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 03/03/2020
-ms.openlocfilehash: f1a539096ac1a154ca37bbe6703f820787f927fb
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 08/11/2020
+ms.openlocfilehash: 4f7db88da646c9787c70d04ff7e3478a27a09275
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82778267"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401646"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Direcciones IP de administración de HDInsight
 
+En este artículo se enumeran las direcciones IP que usan los servicios de mantenimiento y administración de Azure HDInsight. Si usa grupos de seguridad de red o rutas definidas por el usuario, es posible que tenga que agregar algunas de estas direcciones IP a la lista de permitidos para el tráfico de red entrante.
+
+## <a name="introduction"></a>Introducción
+ 
 > [!Important]
-> En la mayoría de los casos, ahora puede usar la característica [etiqueta de servicio](hdinsight-service-tags.md) para los grupos de seguridad de red, en lugar de agregar manualmente las direcciones IP. Solo se agregarán nuevas regiones para las etiquetas de servicio y las direcciones IP estáticas quedarán en desuso.
+> En la mayoría de los casos, ahora puede usar las [etiquetas de servicio](hdinsight-service-tags.md) para los grupos de seguridad de red, en lugar de agregar manualmente las direcciones IP. Las direcciones IP no se publicarán para las nuevas regiones de Azure y solo tendrán etiquetas de servicio publicadas. Las direcciones IP estáticas para las direcciones IP de administración quedarán en desuso.
 
 Si usa grupos de seguridad de red (NSG) o rutas definidas por el usuario (UDR) para controlar el tráfico entrante a su clúster de HDInsight, tiene que asegurarse de que el clúster pueda comunicarse con los servicios críticos de mantenimiento y administración de Azure.  Algunas de las direcciones IP de esos servicios son específicas de una región y otra se aplican a todas las regiones de Azure. También es posible que deba permitir el tráfico desde el servicio Azure DNS si no usa DNS personalizado.
+
+Si necesita direcciones IP para una región que no aparece aquí, puede usar la [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) para buscar las direcciones IP de su región. Si no puede usar la API, descargue el [archivo JSON de la etiqueta de servicio](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) y busque la región deseada.
 
 En las secciones siguientes se describen las direcciones IP específicas que se deben permitir.
 

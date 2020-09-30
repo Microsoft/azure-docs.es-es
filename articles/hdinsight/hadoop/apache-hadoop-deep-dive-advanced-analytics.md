@@ -1,19 +1,19 @@
 ---
 title: 'Profundización: análisis avanzado en Azure HDInsight'
 description: Obtenga información sobre cómo el análisis avanzado usa algoritmos para procesar macrodatos en Azure HDInsight.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: fa2909055259d7832942f9f47434963f7bbb2aa1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ffc8fcf734877f55210507310849a5746a280c3d
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079367"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504356"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Profundización: análisis avanzado
 

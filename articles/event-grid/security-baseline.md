@@ -6,13 +6,13 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 7c331fcbb013243cbd724d0c9337ce80fa1bedbd
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 581e30508b508d5a36f2d5695043ac7bd782a2d5
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752702"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394387"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Línea de base de seguridad de Azure para Event Grid
 
@@ -58,7 +58,7 @@ de tráfico.
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: Proteja las aplicaciones web críticas
 
-**Guía**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -571,7 +571,7 @@ En el caso de la plataforma subyacente administrada por Microsoft, Microsoft tra
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: Eliminación de recursos de Azure no autorizados
 
-**Guía**: use el etiquetado, los grupos de administración y las suscripciones independientes, si procede, para organizar y realizar un seguimiento de los recursos. Concilie el inventario periódicamente y asegúrese de que los recursos no autorizados se eliminan de la suscripción de manera oportuna.
+**Guía**: Use el etiquetado, los grupos de administración y las suscripciones independientes, si procede, para organizar y realizar un seguimiento de los recursos. Concilie el inventario periódicamente y asegúrese de que los recursos no autorizados se eliminan de la suscripción de manera oportuna.
  
  
  
@@ -804,7 +804,9 @@ Use identidades administradas con Azure Key Vault para simplificar la administra
 
 - [Creación de un almacén de claves](/azure/key-vault/quick-create-portal)
 
-- [Cómo proporcionar la autenticación de Key Vault con una identidad administrada](/azure/key-vault/managed-identity)
+- [Autenticación en Key Vault](../key-vault/general/authentication.md)
+
+- [Asignación de una directiva de acceso de Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 **Supervisión de Azure Security Center**: Sí
 

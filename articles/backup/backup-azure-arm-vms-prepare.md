@@ -3,12 +3,12 @@ title: Copia de seguridad de máquinas virtuales de Azure en un almacén de Reco
 description: Aquí se describe cómo realizar una copia de seguridad de VM de Azure en un almacén de Recovery Services con Azure Backup
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: fd958fe658306fd068356764100e6aaa15f4fc67
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 29895c0358547679a9db7b2f4da203e2b546d67f
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826317"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145661"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services
 
@@ -155,7 +155,7 @@ Completed | Con error | Completado con advertencia
 Con error | Con error | Con error
 
 Con esta capacidad y para la misma VM, se pueden ejecutar dos copias de seguridad en paralelo, pero en cualquier fase (instantánea, transferir datos al almacén) solo se puede ejecutar una subtarea. Por lo tanto, si un trabajo de copia de seguridad en curso produce un error en la copia de seguridad del día siguiente, este se evitará con esta funcionalidad de desacoplamiento. Las copias de seguridad del día siguiente pueden tener una instantánea completada, mientras que la opción **Transferir datos al almacén** se omite si el trabajo de copia de seguridad de un día anterior está en curso.
-El punto de recuperación incremental creado en el almacén capturará toda la rotación desde el último punto de recuperación creado en ese almacén. Esto no costará nada al usuario.
+El punto de recuperación incremental creado en el almacén capturará toda la rotación desde el punto de recuperación más reciente que se creó en ese almacén. Esto no costará nada al usuario.
 
 ## <a name="optional-steps"></a>Pasos opcionales
 

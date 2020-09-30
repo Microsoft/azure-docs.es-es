@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: a9f2568bc35552e299e7bc33137666c1a23891a5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1bedeb752a18d7a0212ede2b34526efb8ea09287
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999451"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905833"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Configuración de la conectividad SSL en la aplicación para conectarse de forma segura a Azure Database for MySQL
 
@@ -22,6 +22,9 @@ Azure Database for MySQL permite conectar el servidor de Azure Database for MySQ
 
 Descargue el certificado necesario para comunicarse a través de SSL con el servidor de Azure Database for MySQL de [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) y guarde el archivo de certificado en la unidad local (por ejemplo, en este tutorial se usa c:\ssl).
 **Para Microsoft Internet Explorer y Microsoft Edge:** una vez finalizada la descarga, cambie el nombre del certificado a BaltimoreCyberTrustRoot.crt.pem.
+
+> [!IMPORTANT] 
+> El certificado raíz de SSL se ha establecido para que expire a partir del 26 de octubre de 2020 (26/10/2020). Actualice la aplicación para que use el [nuevo certificado](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Para más información, consulte el artículo sobre las [actualizaciones de certificados planeadas](concepts-certificate-rotation.md).
 
 Consulte estos vínculos para obtener los certificados de los servidores en nubes soberanas: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure China](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) y [Azure Alemania](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 
@@ -39,7 +42,7 @@ Configure MySQL Workbench para conectarse de forma segura a través de SSL.
 
 1. En el campo **Archivo CA SSL**, escriba la ubicación del archivo **BaltimoreCyberTrustRoot.crt.pem**.
 
-   ![Guardar la configuración de SSL](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+   :::image type="content" source="./media/howto-configure-ssl/mysql-workbench-ssl.png" alt-text="Guardar la configuración de SSL":::
 
 En el caso de las conexiones existentes, puede enlazar SSL haciendo clic con el botón derecho en el icono de conexión y eligiendo Editar. A continuación, navegue hasta la pestaña **SSL** y enlace el archivo de certificado.
 
@@ -60,7 +63,7 @@ mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p -
 
 Mediante Azure Portal, vaya al servidor de Azure Database for MySQL y haga clic en **Seguridad de conexión**. Use el botón de alternancia para habilitar o deshabilitar la opción **Aplicar conexión SSL** y después haga clic en **Guardar**. Microsoft recomienda habilitar siempre la opción **Aplicar conexión SSL** para mejorar la seguridad.
 
-![Captura de pantalla de Azure Portal aplicar conexiones SSL en Azure Database for MySQL](./media/howto-configure-ssl/enable-ssl.png)
+:::image type="content" source="./media/howto-configure-ssl/enable-ssl.png" alt-text="Captura de pantalla de Azure Portal aplicar conexiones SSL en Azure Database for MySQL":::
 
 ### <a name="using-azure-cli"></a>Uso de la CLI de Azure
 

@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 7c178f0bb54cb815b25259c819d15d10b3671c79
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 75ba8e1e2037ba8ef249b548dfb38e5fd1618cb2
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070945"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564192"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>Creación de un recurso compartido de archivos de Azure Premium
 
@@ -163,6 +163,7 @@ Para crear un recurso compartido de archivos Premium con el módulo de Azure Pow
 ```powershell
 New-AzStorageShare `
    -Name myshare `
+   -EnabledProtocol SMB `
    -Context $storageAcct.Context
 ```
 
@@ -177,6 +178,7 @@ Para crear un recurso compartido de archivos Premium con la CLI de Azure, utilic
 az storage share create \
     --account-name $STORAGEACCT \
     --account-key $STORAGEKEY \
+    --enabled-protocol SMB \
     --name "myshare" 
 ```
 ---

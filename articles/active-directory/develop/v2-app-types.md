@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: 7b89add55a060c7ba0ef9488f1f6438090b8d3d2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: aaddev, fasttrack-edit
+ms.openlocfilehash: f8906c5fb934546ac8b1a95f817874f91f6c3b95
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121177"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015813"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicaciones para la Plataforma de identidad de Microsoft
 
@@ -42,9 +42,9 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>Aplicaciones de una página (JavaScript)
 
-Muchas aplicaciones modernas tienen un front-end de aplicación de página única escrito principalmente en JavaScript, a menudo con un marco como Angular, React o Vue. El punto de conexión de la Plataforma de identidad de Microsoft admite estas aplicaciones a través del [flujo de código de autorización de OAuth 2.0](v2-oauth2-auth-code-flow.md).
+Muchas aplicaciones modernas tienen un front-end de aplicación de página única escrito principalmente en JavaScript, a menudo con un marco como Angular, React o Vue. El punto de conexión de la plataforma de identidad de Microsoft es compatible con estas aplicaciones mediante el protocolo [OpenID Connect](v2-protocols-oidc.md) para la autenticación y [flujo de concesión implícita de OAuth 2.0](v2-oauth2-implicit-grant-flow.md) o [flujo de código de autorización de OAuth 2.0 más PKCE](v2-oauth2-auth-code-flow.md), el más reciente, para la autorización (consulte a continuación).
 
-En este flujo, la aplicación recibe un código del punto de conexión `authorize` de la Plataforma de identidad de Microsoft, y lo canjea por tokens y tokens de actualización mediante solicitudes web entre sitios. El token de actualización expira cada 24 horas, y la aplicación debe solicitar otro código.
+En el diagrama de flujo siguiente se muestra la concesión de código de autorización de OAuth 2.0 (con los detalles sobre PKCE omitidos), donde la aplicación recibe un código del punto de conexión `authorize` de la plataforma de identidad de Microsoft y lo canjea por tokens y tokens de actualización mediante solicitudes web entre sitios. El token de actualización expira cada 24 horas, y la aplicación debe solicitar otro código. Además del token de acceso, normalmente también se solicita un valor de `id_token` que representa el usuario que ha iniciado sesión en la aplicación cliente a través del mismo flujo o de una solicitud OpenID Connect independiente (no se muestra aquí).
 
 ![Flujo de código para aplicaciones SPA](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
 

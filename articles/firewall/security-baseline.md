@@ -6,13 +6,13 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 869c6590146561f6f2f50694c5cc3f79530dad25
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 24c9e5137e59fbd14a489b4d41709f39aa448ed8
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854175"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231357"
 ---
 # <a name="azure-security-baseline-for-azure-firewall"></a>Base de referencia de seguridad de Azure para Azure Firewall
 
@@ -74,7 +74,7 @@ Tenga en cuenta que no puede crear su propia etiqueta de servicio, ni especifica
 
 **Guía**: Azure Policy todavía no es totalmente compatible con Azure Firewall. Azure Firewall Manager se puede usar para lograr la normalización de las configuraciones de seguridad.
 
-También puede usar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como plantillas de Azure Resource Manager, controles de RBAC y directivas, en una única definición de plano técnico. Puede aplicar el plano técnico a nuevas suscripciones y ajustar el control y la administración a través del control de versiones.
+También puede usar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como plantillas de Azure Resource Manager, controles de Azure RBAC y directivas, en una única definición de plano técnico. Puede aplicar el plano técnico a nuevas suscripciones y ajustar el control y la administración a través del control de versiones.
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -224,7 +224,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel.
 
 ## <a name="identity-and-access-control"></a>Control de identidades y acceso
 
-*Para más información, consulte [Azure Security Benchmark: Identidad y control de acceso](/azure/security/benchmarks/security-control-identity-access-control).*
+*Para obtener más información, consulte [Azure Security Benchmark: Identidad y control de acceso](/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Mantenga un inventario de cuentas administrativas
 
@@ -356,7 +356,7 @@ Puede simplificar este proceso creando una configuración de diagnóstico para l
 
 ## <a name="data-protection"></a>Protección de los datos
 
-*Para más información, consulte [Azure Security Benchmark: Protección de datos](/azure/security/benchmarks/security-control-data-protection).*
+*Para obtener más información, consulte [Azure Security Benchmark: Protección de datos](/azure/security/benchmarks/security-control-data-protection).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Mantenimiento de un inventario de información confidencial
 
@@ -416,11 +416,11 @@ Siga las recomendaciones de Azure Security Center para el cifrado en reposo y el
 
 **Responsabilidad**: Compartido
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Uso del control de acceso basado en rol para controlar el acceso a los recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
-**Guía**: Use el control de acceso basado en roles (RBAC) de Azure Active Directory para controlar el acceso a recursos de Azure Firewall y recursos relacionados.
+**Guía**: Use el control de acceso basado en roles (RBAC de Azure) de Azure Active Directory para controlar el acceso a recursos de Azure Firewall y recursos relacionados.
 
-- [Configuración de RBAC en Azure](../role-based-access-control/role-assignments-portal.md)
+- [Configuración de Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -544,7 +544,7 @@ Use Azure Resource Graph para consultar o detectar recursos de Azure Firewall de
 
 ## <a name="secure-configuration"></a>Configuración segura
 
-*Para más información, consulte [Azure Security Benchmark: Configuración segura](/azure/security/benchmarks/security-control-secure-configuration).*
+*Para obtener más información, consulte [Azure Security Benchmark: Configuración segura](/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Establezca configuraciones seguras para todos los recursos de Azure
 
@@ -678,7 +678,7 @@ Azure Policy no es totalmente compatible en este momento.
 
 ## <a name="incident-response"></a>Respuesta a los incidentes
 
-*Para más información, consulte [Azure Security Benchmark: Respuesta a los incidentes](/azure/security/benchmarks/security-control-incident-response).*
+*Para obtener más información, consulte [Azure Security Benchmark: Respuesta a los incidentes](/azure/security/benchmarks/security-control-incident-response).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Creación de una guía de respuesta ante incidentes
 
@@ -754,7 +754,7 @@ La exportación continua le permite exportar alertas y recomendaciones de forma 
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Pruebas de penetración y ejercicios del equipo rojo
 
-*Para más información, consulte [Azure Security Benchmark: Pruebas de penetración y ejercicios del equipo rojo](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Para obtener más información, consulte [Azure Security Benchmark: Pruebas de penetración y ejercicios del equipo rojo](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Realice pruebas de penetración periódicas de los recursos de Azure y asegúrese de corregir todos los resultados de seguridad críticos
 

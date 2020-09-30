@@ -12,12 +12,12 @@ metadata:
   author: normesta
   ms.author: normesta
   ms.date: 08/20/2019
-  ms.openlocfilehash: 9db4921b6f0b8382b69dbac658536b5151bdd653
-  ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+  ms.openlocfilehash: b830092f6a54d2dc460c7aba4338c695d27b16b9
+  ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/24/2020
-  ms.locfileid: "82117257"
+  ms.lasthandoff: 09/11/2020
+  ms.locfileid: "90019111"
 landingContent:
 - title: Acerca de Blob Storage
   linkLists:
@@ -126,7 +126,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Acceso a datos de blob con una cuenta de Azure AD
-      url: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      url: authorize-blob-access-portal.md
     - text: Administración de derechos de acceso con RBAC
       url: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - text: Uso de una identidad administrada para autorizar el acceso a Blob Storage

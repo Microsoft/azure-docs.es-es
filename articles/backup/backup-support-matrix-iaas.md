@@ -4,12 +4,12 @@ description: Proporciona un resumen de opciones de compatibilidad y limitaciones
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 6cb9f53bceb6caaac77dddd6828c46842e53d257
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: c50a19acceeb68ead4d86a59bbe8275ae97ecb5f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825263"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019596"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 
@@ -27,7 +27,7 @@ A continuación, se muestra cómo puede realizar copias de seguridad y restaurac
 
 **Escenario** | **Backup** | **Agent** |**Restauración**
 --- | --- | --- | ---
-copia de seguridad directa de máquinas virtuales de Azure  | Copia de seguridad de toda la máquina virtual.  | No se necesita ningún agente adicional en la VM de Azure. Azure Backup instala y usa una extensión en el [agente de máquina virtual de Azure](../virtual-machines/extensions/agent-windows.md) que se ejecuta en la máquina virtual. | Realice la restauración como sigue:<br/><br/> - **Creación de una máquina virtual básica**. Esto es útil si la máquina virtual no tiene ninguna configuración especial, como varias direcciones IP.<br/><br/> - **Restauración del disco de máquina virtual**. Restaure el disco. Conéctelo a una máquina virtual existente o cree una máquina virtual a partir del disco mediante PowerShell.<br/><br/> - **Sustitución del disco de máquina virtual**. Si existe una máquina virtual y esta usa discos administrados (sin cifrar), puede restaurar un disco y usarlo para reemplazar un disco existente en la máquina virtual.<br/><br/> - **Restauración de archivos y carpetas específicos**. Puede restaurar archivos o carpetas de una máquina virtual en vez de toda la máquina virtual.
+copia de seguridad directa de máquinas virtuales de Azure  | Copia de seguridad de toda la máquina virtual.  | No se necesita ningún agente adicional en la VM de Azure. Azure Backup instala y usa una extensión para el [agente de máquina virtual de Azure](../virtual-machines/extensions/agent-windows.md) que se ejecuta en la máquina virtual. | Realice la restauración como sigue:<br/><br/> - **Creación de una máquina virtual básica**. Esto es útil si la máquina virtual no tiene ninguna configuración especial, como varias direcciones IP.<br/><br/> - **Restauración del disco de máquina virtual**. Restaure el disco. Conéctelo a una máquina virtual existente o cree una máquina virtual a partir del disco mediante PowerShell.<br/><br/> - **Sustitución del disco de máquina virtual**. Si existe una máquina virtual y esta usa discos administrados (sin cifrar), puede restaurar un disco y usarlo para reemplazar un disco existente en la máquina virtual.<br/><br/> - **Restauración de archivos y carpetas específicos**. Puede restaurar archivos o carpetas de una máquina virtual en vez de toda la máquina virtual.
 Copia de seguridad directa de máquinas virtuales de Azure (solo Windows)  | Copia de seguridad de archivos, carpetas o volúmenes específicos. | Instale el [agente de Azure Recovery Services](backup-azure-file-folder-backup-faq.md).<br/><br/> Puede ejecutar al agente de MARS junto con la extensión de copia de seguridad del agente de máquina virtual de Azure para realizar copias de seguridad de la máquina virtual en el nivel de archivo o carpeta. | Restauración de archivos y carpetas específicos.
 Copia de seguridad de una máquina virtual de Azure en un servidor de copia de seguridad  | Copia de seguridad de archivos, carpetas y volúmenes; archivos de estado del sistema y de reconstrucción completa; datos de aplicaciones para System Center DPM o Microsoft Azure Backup Server (MABS).<br/><br/> Después, DPM/MABS realiza una copia de seguridad en el almacén de Backup. | Instale al agente de protección de DPM/MABS en la máquina virtual. El agente de MARS se instala en DPM/MABS.| Restauración de archivos, carpetas y volúmenes; archivos de estado del sistema y de reconstrucción completa; datos de aplicaciones.
 
@@ -160,7 +160,7 @@ Tamaño del disco de datos | El tamaño de disco individual puede ser de hasta 3
 Tipo de almacenamiento | HDD estándar, SSD estándar y SSD Premium.
 Discos administrados | Compatible.
 Discos cifrados | Compatible.<br/><br/> Se puede realizar una copia de seguridad (con o sin la aplicación Azure AD) de las máquinas virtuales de Azure que tengan habilitado Azure Disk Encryption.<br/><br/> Las máquinas virtuales cifradas no se pueden recuperar a nivel de archivo o carpeta. Tiene que recuperar la máquina virtual completa.<br/><br/> Puede habilitar el cifrado en máquinas virtuales que ya estén protegidas con Azure Backup.
-Discos con el Acelerador de escritura habilitado | No compatible.<br/><br/> La copia de seguridad de Azure excluye automáticamente los discos con el Acelerador de escritura (WA) habilitado durante la copia de seguridad. Como no tienen copia de seguridad, no puede restaurar estos discos desde puntos de recuperación de la máquina virtual. <br><br> **Nota importante**: Las máquinas virtuales con discos WA necesitan conectividad a Internet para una copia de seguridad correcta (aunque esos discos se excluyan de la copia de seguridad).
+Discos con el Acelerador de escritura habilitado | No compatible.<br/><br/> Azure Backup excluye automáticamente los discos que tienen habilitado el Acelerador de escritura (WA) durante la copia de seguridad. Como no tienen copia de seguridad, no puede restaurar estos discos desde puntos de recuperación de la máquina virtual. <br><br> **Nota importante**: Las máquinas virtuales con discos WA necesitan conectividad a Internet para una copia de seguridad correcta (aunque esos discos se excluyan de la copia de seguridad).
 Copia de seguridad y restauración de discos y máquinas virtuales desduplicados | Azure Backup no admite la desduplicación. Para más información, consulte este [artículo](./backup-support-matrix.md#disk-deduplication-support). <br/> <br/>  - Azure Backup no se desduplica entre máquinas virtuales en el almacén de Recovery Services <br/> <br/>  - Si hay máquinas virtuales en estado de desduplicación durante la restauración, los archivos no se pueden restaurar porque el almacén no entiende el formato. Sin embargo, puede realizar correctamente la restauración de una máquina virtual completa.
 Agregar disco a una máquina virtual protegida | Compatible.
 Cambiar tamaño de disco de una máquina virtual protegida | Compatible.

@@ -8,18 +8,14 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
-ms.openlocfilehash: 6587a055d672bc309c89ff2a37fabb273a4c4621
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 772b136c00dc9c20f8bc35d7ebb324175a56e885
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084688"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061723"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Uso de paquetes externos con cuadernos de Jupyter en clústeres de Apache Spark en HDInsight
-
-> [!div class="op_single_selector"]
-> * [Uso de magic cell](apache-spark-jupyter-notebook-use-external-packages.md)
-> * [Uso de acciones de script](apache-spark-python-package-installation.md)
 
 Aprenda a configurar una instancia de [Jupyter Notebook](https://jupyter.org/) en clústeres de Apache Spark en HDInsight para usar paquetes **maven** externos de Apache aportados por la comunidad que no se incluyan listos para utilizarse en el clúster.
 
@@ -27,7 +23,7 @@ Puede buscar el [repositorio de Maven](https://search.maven.org/) para obtener u
 
 En este artículo, aprenderá a utilizar el paquete [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) con Jupyter Notebook.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md).
 
@@ -52,7 +48,7 @@ En este artículo, aprenderá a utilizar el paquete [spark-csv](https://search.m
     >[!IMPORTANT]  
     >Si se olvida de configurar el kernel en la primera celda, puede utilizar el parámetro `%%configure` con el parámetro `-f`, pero ello reiniciará la sesión y se perderá todo el trabajo.
 
-    | Versión de HDInsight | Get-Help |
+    | Versión de HDInsight | Comando |
     |-------------------|---------|
     | Para HDInsight 3.5 y HDInsight 3.6 | `%%configure`<br>`{ "conf": {"spark.jars.packages": "com.databricks:spark-csv_2.11:1.5.0" }}`|
     |Para HDInsight 3.3 y HDInsight 3.4 | `%%configure` <br>`{ "packages":["com.databricks:spark-csv_2.10:1.4.0"] }`|
@@ -97,15 +93,15 @@ En este artículo, aprenderá a utilizar el paquete [spark-csv](https://search.m
     df.select("Time").count()
     ```
 
-## <a name="see-also"></a><a name="seealso"></a>Otras referencias
+## <a name="see-also"></a><a name="seealso"></a>Vea también
 
-* [Introducción a Apache Spark en HDInsight de Azure](apache-spark-overview.md)
+* [Información general: Apache Spark en Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Escenarios
 
-* [Apache Spark con BI: Realización de análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
-* [Apache Spark con Machine Learning: Uso de Spark en HDInsight para analizar la temperatura de un edificio mediante datos de HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark con Machine Learning: Uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark con BI: Análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark con Machine Learning: uso de Apache Spark en HDInsight para analizar la temperatura de edificios con los datos del sistema de acondicionamiento de aire](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark con Machine Learning: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
 * [Análisis de registros de un sitio web mediante Apache Spark en HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Creación y ejecución de aplicaciones

@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/14/2018
-ms.openlocfilehash: a5d49a16324a5a97f4a0507f9abf47ea602ea072
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0fb19524079f84e92e1ddbc98a61917026492663
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72328710"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469905"
 ---
 # <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>Uso de identidades administradas para recursos de Azure en Azure Cloud Shell
 
@@ -43,8 +43,8 @@ El subsistema MSI local almacena en memoria caché los tokens. Por lo tanto, se 
 
 Si almacena el token en el código, debe estar preparado para administrar escenarios en los que el recurso indica que el token ha expirado.
 
-Para controlar los errores de token, visite la [página de MSI sobre tokens de acceso de MSI de curl](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token#error-handling).
+Para controlar los errores de token, visite la [página de MSI sobre tokens de acceso de MSI de curl](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#error-handling).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Más información acerca de MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)  
-[Adquisición de tokens de acceso a partir de máquinas virtuales de MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)
+[Más información acerca de MSI](../active-directory/managed-identities-azure-resources/overview.md)  
+[Adquisición de tokens de acceso a partir de máquinas virtuales de MSI](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)

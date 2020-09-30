@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: c510d6f1cc2aa4a7e71f64e0c296e14a9896614e
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: afac8273b5729bcf5470be471145214426dc7dab
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717989"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055306"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Configuración de una aplicación de PHP para Azure App Service
 
@@ -262,7 +262,7 @@ La imagen de PHP predeterminada para App Service utiliza Apache y no le permite 
 ```
 <IfModule mod_rewrite.c>
     RewriteEngine on
-    RewriteCond %{REQUEST_URI} ^/$
+    RewriteCond %{REQUEST_URI} ^(.*)
     RewriteRule ^(.*)$ /public/$1 [NC,L,QSA]
 </IfModule>
 ```

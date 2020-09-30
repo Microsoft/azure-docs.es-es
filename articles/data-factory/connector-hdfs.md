@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 08/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 43ab59f109e311d9d7312b77d34321fa98a952d6
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 562acfe1ae96f7f88b72945846bcb49c0cc1f216
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926814"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179545"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copia de datos desde un servidor HDFS mediante Azure Data Factory
 
@@ -172,6 +172,8 @@ Las propiedades siguientes se admiten para HDFS en la configuración `storeSetti
 | ***Configuración adicional*** |  | |
 | recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Cuando `recursive` se establece en *true* y el receptor es un almacén basado en archivos, no se copia ni crea ninguna carpeta o subcarpeta vacías en el receptor. <br>Los valores permitidos son: *True* (valor predeterminado) y *False*.<br>Esta propiedad no se aplica al configurar `fileListPath`. |No |
 | modifiedDatetimeStart    | Los archivos se filtran en función del atributo *Last Modified*. <br>Los archivos se seleccionan si la hora de su última modificación está dentro del intervalo de `modifiedDatetimeStart` a `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato *2018-12-01T05:00:00Z*. <br> Las propiedades pueden ser NULL, lo que significa que no se aplica ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene un valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.<br/>Esta propiedad no se aplica al configurar `fileListPath`. | No                                            |
+| enablePartitionDiscovery | En el caso de archivos con particiones, especifique si quiere analizar las particiones de la ruta de acceso del archivo y agregarlas como columnas de origen adicionales.<br/>Los valores permitidos son **false** (valor predeterminado) y **true**. | No                                            |
+| partitionRootPath | Cuando esté habilitada la detección de particiones, especifique la ruta de acceso raíz absoluta para poder leer las carpetas con particiones como columnas de datos.<br/><br/>Si no se especifica, de forma predeterminada,<br/>- Cuando se usa la ruta de acceso de archivo en un conjunto de datos o una lista de archivos del origen, la ruta de acceso raíz de la partición es la ruta de acceso configurada en el conjunto de datos.<br/>- Cuando se usa el filtro de carpeta con caracteres comodín, la ruta de acceso raíz de la partición es la subruta antes del primer carácter comodín.<br/><br/>Por ejemplo, supongamos que configura la ruta de acceso en el conjunto de datos como "root/folder/year=2020/month=08/day=27":<br/>- Si especifica la ruta de acceso raíz de la partición como "root/folder/year=2020", la actividad de copia generará dos columnas más, `month` y `day`, con el valor "08" y "27", respectivamente, además de las columnas de los archivos.<br/>- Si no se especifica la ruta de acceso raíz de la partición, no se generará ninguna columna adicional. | No                                            |
 | maxConcurrentConnections | Número de conexiones que se pueden conectar al almacén de almacenamiento de forma simultánea. Especifique un valor solamente cuando desee limitar la conexión simultánea al almacén de datos. | No                                            |
 | ***Configuración de DistCp*** |  | |
 | distcpSettings | Grupo de propiedades que se va a usar al utilizar HDFS DistCp. | No |

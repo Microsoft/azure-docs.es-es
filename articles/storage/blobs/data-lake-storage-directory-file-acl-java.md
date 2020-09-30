@@ -3,24 +3,24 @@ title: SDK de Java para Azure Data Lake Storage Gen2 para archivos y ACL
 description: Use bibliotecas de Azure Storage para Java con el fin de administrar directorios y listas de control de acceso (ACL) de archivos y directorios en cuentas de almacenamiento que tengan habilitado el espacio de nombres jerárquico (HNS).
 author: normesta
 ms.service: storage
-ms.date: 03/20/2020
+ms.date: 09/10/2020
 ms.custom: devx-track-java
 ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 0f7dfda46c7a4af8143c33b1b45001a88d3bed88
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ac0f885a370269a87e45b5e31ec1de6ac397080a
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319395"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017220"
 ---
 # <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Uso de Java para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2
 
 En este artículo se muestra cómo usar Java para crear y administrar directorios, archivos y permisos en cuentas de almacenamiento que tengan habilitado el espacio de nombres jerárquico (HNS). 
 
-[Paquete (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) | [Muestras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [Referencia de API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.1/index.html) | [Asignación de Gen1 a Gen2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Envíenos sus comentarios](https://github.com/Azure/azure-sdk-for-java/issues)
+[Paquete (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) | [Muestras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [Referencia de API](/java/api/overview/azure/storage-file-datalake-readme) | [Asignación de Gen1 a Gen2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Envíenos sus comentarios](https://github.com/Azure/azure-sdk-for-java/issues)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -395,7 +395,7 @@ static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClien
 
 ## <a name="see-also"></a>Consulte también
 
-* [Documentación de referencia de API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.1/index.html)
+* [Documentación de referencia de API](/java/api/overview/azure/storage-file-datalake-readme)
 * [Paquete (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)
 * [Muestras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
 * [Asignación de Gen1 a Gen2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)

@@ -12,14 +12,14 @@ metadata:
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma
-  ms.reviewer: carlrab
+  ms.reviewer: sstein
   ms.date: 10/30/2019
-  ms.openlocfilehash: 03f1f908983487bb3ee5be88ced36a0848a731cc
-  ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+  ms.openlocfilehash: 0cb1d825c902cb616bfc1feac9274db87ec14342
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/19/2020
-  ms.locfileid: "88590445"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91283860"
 landingContent:
 - title: Azure SQL Database
   linkLists:
@@ -127,7 +127,7 @@ landingContent:
       url: database/connect-query-ssms.md
     - text: Azure Data Studio
       url: /sql/azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fazure-sql%2Ftoc.json
-    - text: Azure portal
+    - text: Azure Portal
       url: database/connect-query-portal.md
     - text: Visual Studio (.NET)
       url: database/connect-query-dotnet-visual-studio.md

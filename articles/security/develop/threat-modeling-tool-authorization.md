@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 07e33279452b8296688c358c9ffdab1bfb2e1321
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 51d8b740ba1275b23bc17a58284141dce0d48fe0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543969"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300007"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Marco de seguridad: Autorización | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -204,7 +205,7 @@ Tenga en cuenta que RLS, al ser una característica de base de datos de serie, s
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Introducción al modelo de autenticación y seguridad de Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **Pasos** | No se debe proporcionar un token que concede acceso directo al centro de eventos al dispositivo. El empleo de un token con privilegios mínimos para el dispositivo que proporcione acceso solo a un publicador podría ayudar a identificarlo e incluirlo en una lista negra si resultara ser un dispositivo malintencionado o en peligro.|
+| **Pasos** | No se debe proporcionar un token que concede acceso directo al centro de eventos al dispositivo. El empleo de un token con privilegios mínimos para el dispositivo que proporcione acceso solo a un editor podría ayudar a identificarlo y no permitirlo si resultara ser un dispositivo malintencionado o en peligro.|
 
 ## <a name="connect-to-event-hub-using-sas-keys-that-have-the-minimum-permissions-required"></a><a id="sas-minimum-permissions"></a>Conexión al centro de eventos mediante claves SAS que tienen los permisos mínimos necesarios
 

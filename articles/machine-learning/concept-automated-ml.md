@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 081da2b3f6fbe97ebce21940d7e0ca8978793b15
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 83281a9dde0b29a9f8bfc2bd90114227bf9e769f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652107"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886382"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>¿Qué es el aprendizaje automático automatizado (AutoML)?
 
@@ -78,8 +78,6 @@ Si usa **Azure Machine Learning**, puede diseñar y ejecutar sus experimentos de
 
    * Si busca una experiencia sin código o limitada, pruebe la experiencia web de Azure Machine Learning Studio en [https://ml.azure.com](https://ml.azure.com/).  
    * Los desarrolladores de Python pueden consultar el [SDK de Python de Azure Machine Learning](how-to-configure-auto-train.md). 
-
-    [!INCLUDE [aml-applies-to-enterprise-sku](../../includes/aml-applies-to-enterprise-sku-inline.md)]  
     
 1. **Especifique el origen y el formato de los datos de entrenamiento etiquetados**: matrices de Numpy o dataframes de Pandas.
 
@@ -172,25 +170,25 @@ Cuando elija entre local y remoto tenga en cuenta estas ventajas y desventajas.
 
 ### <a name="feature-availability"></a>Disponibilidad de características 
 
- Hay más características disponibles cuando se usa el proceso remoto, tal como se muestra en la tabla siguiente. Algunas de estas características solo están disponibles en las áreas de trabajo Enterprise.
+ Hay más características disponibles cuando se usa el proceso remoto, tal como se muestra en la tabla siguiente. 
 
-| Característica                                                    | Remote | Local | Requiere <br>Área de trabajo Enterprise |
-|------------------------------------------------------------|--------|-------|-------------------------------|
-| Streaming de datos (compatibilidad con datos de gran tamaño, hasta 100 GB)          | ✓      |       | ✓                             |
-| Características de texto y entrenamiento basados en DNN-BERT             | ✓      |       | ✓                             |
-| Compatibilidad de GPU integrada (entrenamiento e inferencia)        | ✓      |       | ✓                             |
-| Compatibilidad con la clasificación y etiquetado de imágenes                  | ✓      |       | ✓                             |
-| Modelos Auto-ARIMA, Prophet y ForecastTCN para la previsión | ✓      |       | ✓                             |
-| Varias ejecuciones/iteraciones en paralelo                       | ✓      |       | ✓                             |
-| Creación de modelos con la funcionalidad de interpretación en la interfaz de usuario de la experiencia web de AutoML Studio      | ✓      |       | ✓                             |
-| Personalización de ingeniería de características en la interfaz de usuario de la experiencia web de Studio                        | ✓      |       | ✓                              |
-| Ajuste de hiperparámetros de Azure ML                             | ✓      |       |                               |
-| Compatibilidad con el flujo de trabajo de canalización de Azure ML                         | ✓      |       |                               |
-| Continuación de una ejecución                                             | ✓      |       |                               |
-| Previsión                                                | ✓      | ✓     | ✓                             |
-| Creación y ejecución de experimentos en cuadernos                    | ✓      | ✓     |                               |
-| Registro y visualización de la información y las métricas del experimento en la interfaz de usuario | ✓      | ✓     |                               |
-| Límites de protección de datos                                            | ✓      | ✓     |                               |
+| Característica                                                    | Remote | Local | 
+|------------------------------------------------------------|--------|-------|
+| Streaming de datos (compatibilidad con datos de gran tamaño, hasta 100 GB)          | ✓      |       | 
+| Características de texto y entrenamiento basados en DNN-BERT             | ✓      |       |
+| Compatibilidad de GPU integrada (entrenamiento e inferencia)        | ✓      |       |
+| Compatibilidad con la clasificación y etiquetado de imágenes                  | ✓      |       |
+| Modelos Auto-ARIMA, Prophet y ForecastTCN para la previsión | ✓      |       | 
+| Varias ejecuciones/iteraciones en paralelo                       | ✓      |       |
+| Creación de modelos con la funcionalidad de interpretación en la interfaz de usuario de la experiencia web de AutoML Studio      | ✓      |       |
+| Personalización de ingeniería de características en la interfaz de usuario de la experiencia web de Studio| ✓      |       |
+| Ajuste de hiperparámetros de Azure ML                             | ✓      |       |
+| Compatibilidad con el flujo de trabajo de canalización de Azure ML                         | ✓      |       |
+| Continuación de una ejecución                                             | ✓      |       |
+| Previsión                                                | ✓      | ✓     |
+| Creación y ejecución de experimentos en cuadernos                    | ✓      | ✓     |
+| Registro y visualización de la información y las métricas del experimento en la interfaz de usuario | ✓      | ✓     |
+| Límites de protección de datos                                            | ✓      | ✓     |
 
 ## <a name="many-models"></a>Many Models 
 
@@ -204,9 +202,9 @@ Por ejemplo, la creación de un modelo __para cada instancia o individual__ en l
 
 ## <a name="automl-in-azure-machine-learning"></a>AutoML en Azure Machine Learning
 
-Azure Machine Learning ofrece dos experiencias para trabajar con aprendizaje automático automatizado
+Azure Machine Learning ofrece dos experiencias para trabajar con aprendizaje automático automatizado:
 
-* Para clientes con experiencia en código, [SDK de Python de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
+* Para clientes con experiencia en código, [SDK de Python de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 
 
 * Para clientes con poca experiencia en código o ninguna, Azure Machine Learning Studio en [https://ml.azure.com](https://ml.azure.com/)  
 
@@ -289,9 +287,9 @@ Los artículos de procedimientos proporcionan información adicional sobre la fu
 
 Revise los ejemplos de código y los casos de uso detallados en el repositorio del [cuaderno de GitHub para obtener muestras de aprendizaje automático automatizado](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/).
 
-### <a name="python-sdk-reference"></a>Referencia de SDK de Python 
+### <a name="python-sdk-reference"></a>Referencia de SDK de Python
 
-Profundizar en sus conocimientos sobre los patrones de diseño y las especificaciones de clases del SDK con la [documentación de referencia de la clase AutoML](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py). 
+Profundizar en sus conocimientos sobre los patrones de diseño y las especificaciones de clases del SDK con la [documentación de referencia de la clase AutoML](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true). 
 
 > [!Note]
 > Las funcionalidades del aprendizaje automático automatizado también están disponibles en otras soluciones de Microsoft como,[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) y [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

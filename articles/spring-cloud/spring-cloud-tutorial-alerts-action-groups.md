@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 856bace0c67c5afedd6305158326af46037e7f21
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: dc8dffb12dcd205671e2219dbef45ac14f9f7df7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299234"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892530"
 ---
 # <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Tutorial: Supervisión de recursos de Spring Cloud mediante alertas y grupos de acciones
+
+**Este artículo se aplica a:** ✔️ Java ✔️ C#
 
 Las alertas de Azure Spring Cloud permiten supervisar los recursos en función de condiciones tales como el almacenamiento disponible, la tasa de solicitudes o el uso de datos. Una alerta envía una notificación cuando las condiciones cumplen las especificaciones definidas.
 
@@ -58,11 +60,11 @@ En la página **Agregar grupo de acciones**:
 
 ## <a name="set-up-alert"></a>Configuración de una alerta 
 
-En los pasos anteriores se creó un **Grupo de acciones** que usa notificaciones por correo electrónico. También puede usar notificaciones por teléfono, webhooks, Azure Functions, etc.  
+En los pasos anteriores se creó un **Grupo de acciones** que usa notificaciones por correo electrónico. También puede usar notificaciones por teléfono, webhooks, Azure Functions, etc. Siga los pasos a continuación para configurar una **Alerta**.
 
-Para configurar una **Alerta**, vuelva a la página **Alertas** y haga clic en **Administrar reglas de alerta**.
+1. Vuelva a la página **Alertas** y haga clic en **Administrar reglas de alerta**.
 
-  ![Captura de pantalla del portal con la definición de la alerta](media/alerts-action-groups/alerts-2.png)
+   ![Captura de pantalla del portal con la definición de la alerta](media/alerts-action-groups/alerts-2.png)
 
 1. Seleccione el valor de **Recurso** para la alerta.
 
@@ -84,9 +86,9 @@ Para configurar una **Alerta**, vuelva a la página **Alertas** y haga clic en *
 
 1. Haga clic en **Done**(Listo).
 
-Para más información sobre las condiciones disponibles para supervisar, consulte [Métricas en Azure Spring Cloud](spring-cloud-concept-metrics.md#user-metrics-options).
+   Para más información sobre las condiciones disponibles para supervisar, consulte [Métricas en Azure Spring Cloud](spring-cloud-concept-metrics.md#user-metrics-options).
 
- En **Acciones**, haga clic en **Seleccionar grupo de acciones**. En el panel **Acciones**, seleccione el **Grupo de acciones** definido previamente.
+1. En **Acciones**, haga clic en **Seleccionar grupo de acciones**. En el panel **Acciones**, seleccione el **Grupo de acciones** definido previamente.
 
    ![Captura de pantalla del portal con la nueva regla de alerta 4](media/alerts-action-groups/alerts-3-3.png) 
 
@@ -98,13 +100,13 @@ Para más información sobre las condiciones disponibles para supervisar, consul
 
    ![Captura de pantalla del portal con la nueva regla de alerta 5](media/alerts-action-groups/alerts-3-4.png)
 
-Compruebe que la nueva regla de alerta esté habilitada.
+1. Compruebe que la nueva regla de alerta esté habilitada.
 
    ![Captura de pantalla del portal con la nueva regla de alerta 6](media/alerts-action-groups/alerts-4.png)
 
 También se puede crear una regla mediante la página **Métricas**:
 
-   ![Captura de pantalla del portal con la nueva regla de alerta 7](media/alerts-action-groups/alerts-5.png)
+![Captura de pantalla del portal con la nueva regla de alerta 7](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

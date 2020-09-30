@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 5b450254648cb253d6631397d703430401009f14
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: cff2e918c7b67f6d3bccb9b56366cbf034ed1bb5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925641"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300109"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor
 
@@ -270,7 +270,7 @@ Para crear un rol con acceso solo a la tabla _SecurityBaseline_, cree un rol per
     "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
 ],
 ```
-Los ejemplos anteriores definen una lista blanca de las tablas que están permitidas. En este ejemplo se muestra la definición de la lista negra cuando un usuario puede tener acceso a todas las tablas, salvo la tabla _SecurityAlert_:
+Los ejemplos anteriores definen una lista de las tablas que están permitidas. En este ejemplo se muestra la definición de la lista de elementos bloqueados cuando un usuario puede tener acceso a todas las tablas, salvo la tabla _SecurityAlert_:
 
 ```
 "Actions":  [

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 766d0a763f7d69ec58851116e18510235f39b364
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7d11fa8605d9cd5f335b6be56097caf7a5222bbd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495070"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006948"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Supervisión de Site Recovery con registros de Azure Monitor
 
@@ -20,7 +20,7 @@ En este artículo se describe cómo supervisar las máquinas replicadas que haya
 
 Los registros de Azure Monitor proporcionan una plataforma de datos de registro que recopila registros de actividad y de recursos, junto con otros datos de supervisión. En los registros de Azure Monitor, debe usar Log Analytics para escribir y probar consultas de registro y para analizar interactivamente esos datos de registro. Puede visualizar y consultar los resultados del registro y configurar alertas para realizar acciones basadas en los datos supervisados.
 
-En cuanto a Site Recovery, puede usar los registros de Azure Monitor para hacer lo siguiente:
+En el caso de Site Recovery, puede usar los registros de Azure Monitor para hacer lo siguiente:
 
 - **Supervisar el estado de Site Recovery**. Por ejemplo, puede supervisar el estado de la replicación, probar el estado de conmutación por error, los eventos de Site Recovery, los objetivos del punto de recuperación (RPO) para máquinas protegidas y las velocidades de cambio de disco o datos.
 - **Configurar alertas para Site Recovery**. Por ejemplo, puede configurar alertas relacionadas con el estado de la máquina, probar el estado de conmutación por error o el estado del trabajo de Site Recovery.
@@ -62,9 +62,9 @@ Puede capturar la información sobre la tasa de renovación de datos y la inform
 1. Vaya al área de trabajo de Log Analytics y haga clic en**Configuración avanzada**.
 2. Haga clic en la página **Orígenes conectados** y seleccione **Servidores de Windows**.
 3. Descargue el agente de Windows (64 bits) en el servidor de procesos. 
-4. [Obtención de la clave y el identificador del área de trabajo](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key)
+4. [Obtención de la clave y el identificador del área de trabajo](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)
 5. [Configuración del agente para usar TLS 1.2](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
-6. [Complete la instalación del agente](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard) proporcionando la clave y el identificador del área de trabajo obtenidos.
+6. [Complete la instalación del agente](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard) proporcionando la clave y el identificador del área de trabajo obtenidos.
 7. Una vez completada la instalación, vaya al área de trabajo de Log Analytics y haga clic en **Configuración avanzada**. Vaya a la página **Datos** y haga clic en **Contadores de rendimiento de Windows**. 
 8. Haga clic en **' + '** para agregar los dos contadores siguientes con un intervalo de muestra de 300 segundos:
 

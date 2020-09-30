@@ -8,12 +8,12 @@ ms.custom: mvc, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: b5e024536cdd0829435b9676501b21bc99fff49a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6c1cc658708a8429e635d23a058a784f6fc4ef05
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020055"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904012"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-mysql"></a>Inicio rápido: Uso de .NET (C#) para conectarse y consultar datos en Azure Database for MySQL
 
@@ -49,7 +49,7 @@ Obtenga la información de conexión necesaria para conectarse a Azure Database 
 2. En el menú izquierdo de Azure Portal, haga clic en **Todos los recursos** y, luego, busque el servidor que ha creado, por ejemplo, **mydemoserver**.
 3. Haga clic en el nombre del servidor.
 4. En el panel **Información general** del servidor, anote el **nombre del servidor** y el **nombre de inicio de sesión del administrador del servidor**. Si olvida la contraseña, puede restablecerla en este panel.
- ![Nombre del servidor de Azure Database for MySQL](./media/connect-csharp/1_server-overview-name-login.png)
+ :::image type="content" source="./media/connect-csharp/1_server-overview-name-login.png" alt-text="Nombre del servidor de Azure Database for MySQL":::
 
 ## <a name="connect-create-table-and-insert-data"></a>Conexión, creación de una tabla e inserción de datos
 Use el código siguiente para conectarse y leer los datos mediante las instrucciones SQL `CREATE TABLE` y `INSERT INTO`. El código usa la clase `MySqlConnection` con el método [OpenAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) para establecer una conexión con MySQL. A continuación, el código usa el método [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand), establece la propiedad CommandText y llama al método [ExecuteNonQueryAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executenonqueryasync) para ejecutar los comandos de base de datos. 

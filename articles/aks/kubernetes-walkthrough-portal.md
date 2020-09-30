@@ -4,14 +4,14 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a crear rápidamente un clúster de Kubernetes, implementar una aplicación y supervisar el rendimiento en Azure Kubernetes Service (AKS) mediante Azure Portal.
 services: container-service
 ms.topic: quickstart
-ms.date: 08/18/2020
+ms.date: 09/11/2020
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: cd3fd41d281708f4c1d9616db47f751f60e055cd
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b2e5a7f6207710d000b6b997df437b100863125f
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589918"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600762"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS) mediante Azure Portal
 
@@ -71,7 +71,7 @@ Abra Cloud Shell mediante el botón `>_` de la parte superior de Azure Portal.
 
 Para configurar `kubectl` para conectarse a su clúster de Kubernetes, use el comando [az aks get-credentials][az-aks-get-credentials]. Con este comando se descargan las credenciales y se configura la CLI de Kubernetes para usarlas. En el ejemplo siguiente se obtienen credenciales para el nombre de clúster *myAKSCluster* del grupo de recursos denominado *myResourceGroup*:
 
-```azurecli-interactive
+```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
@@ -153,7 +153,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
-        image: microsoft/azure-vote-front:v1
+        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
         resources:
           requests:
             cpu: 100m
@@ -244,7 +244,7 @@ Para ver los registros del pod `azure-vote-front`, seleccione el vínculo **Ver 
 
 Cuando el clúster ya no sea necesario, elimine el recurso del clúster, lo que elimina todos los recursos asociados. Esta operación se puede realizar en Azure Portal; para ello, seleccione el botón **Eliminar** en el panel de clústeres de AKS. Como alternativa, se puede usar el comando [az aks delete][az-aks-delete] en Cloud Shell:
 
-```azurecli-interactive
+```azurecli
 az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 ```
 

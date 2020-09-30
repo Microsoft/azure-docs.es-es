@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: bf2fbb48c34631bc74a3b712e135b618a1718d8e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9ed6690348816229d369bcff5d92c9703a4b3702
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688100"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469922"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Uso de Creator para crear planos interiores
 
@@ -120,7 +120,7 @@ Data Upload API es una transacción de larga duración que implementa el patrón
 4. Inicie un nuevo método HTTP **GET**  en la pestaña del generador. Anexe la clave de suscripción principal de Azure Maps a `status URL`. Haga una solicitud **GET** en el valor de `status URL` que copió en el paso 3. El valor de `status URL` se parecerá a la siguiente dirección URL:
 
     ```http
-    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0
+    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
     Si aún no se ha completado el proceso de conversión, puede ver algo parecido a la siguiente respuesta JSON:
@@ -208,7 +208,7 @@ Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representa
 3. Realice una solicitud **GET** en `statusURL` para obtener el conjunto de mosaicos. Anexe la clave de suscripción principal de Azure Maps para realizar la autenticación. La solicitud debe tener un aspecto similar a la siguiente dirección URL:
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 4. Cuando la solicitud HTTP **GET** se complete correctamente, el encabezado de respuesta contendrá el valor `tilesetId` del conjunto de mosaicos creado. Copie el valor de `tilesetId`.

@@ -3,12 +3,12 @@ title: Opciones de autenticación de registro
 description: Opciones de autenticación de una instancia privada de Azure Container Registry, incluido el inicio de sesión con una identidad de Azure Active Directory, mediante entidades de servicio y credenciales de administrador opcionales.
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 3d2379b2b2384342fb84ba1b610caa609300aa0c
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 7c8176d0cdca5d74ed3201071f83ed1181d94b8d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926327"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657074"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Autenticación con un registro de contenedor de Azure
 
@@ -53,7 +53,7 @@ En algunos casos, puede que necesite autenticarse con `az acr login` cuando el d
 En este escenario, ejecute `az acr login` primero con el parámetro `--expose-token`. Esta opción expone un token de acceso en lugar de iniciar sesión a través de la CLI de Docker.
 
 ```azurecli
-az acr login -name <acrName> --expose-token
+az acr login --name <acrName> --expose-token
 ```
 
 La salida muestra el token de acceso, abreviado aquí:

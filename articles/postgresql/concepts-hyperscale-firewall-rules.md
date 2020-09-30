@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 127840738d8fb8db00a7efc0b0d8fe393138488d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 559c5eca6fa8a6eceb37ade003d4f1983c0a1a1b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82580927"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902085"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---hyperscale-citus"></a>Reglas de firewall en Azure Database for PostgreSQL: Hiperescala (Citus)
 El firewall del servidor Azure Database for PostgreSQL impide todo acceso al nodo de coordinación de Hiperescala (Citus) hasta que se especifica qué equipos tienen permiso. Asimismo, otorgan acceso al servidor según la dirección IP de origen de cada solicitud.
@@ -24,7 +24,7 @@ Para configurar su firewall, cree reglas de firewall que especifiquen intervalos
 El firewall bloquea de forma predeterminada el acceso de todas las bases de datos al nodo de coordinación. Para comenzar a usar el servidor desde otro equipo, debe especificar una o varias reglas de firewall a nivel de servidor para habilitar el acceso a su servidor. Use las reglas de firewall para especificar los intervalos de direcciones IP de Internet que se permitirán. La acción de las reglas de firewall no repercute sobre el acceso al propio sitio web de Azure Portal.
 Los intentos de conexión desde Internet y Azure deben atravesar primero el firewall antes de poder alcanzar PostgreSQL Database, tal y como se muestra en el siguiente diagrama:
 
-![Ejemplo de flujo de cómo funciona el firewall](media/concepts-hyperscale-firewall-rules/1-firewall-concept.png)
+:::image type="content" source="media/concepts-hyperscale-firewall-rules/1-firewall-concept.png" alt-text="Ejemplo de flujo de cómo funciona el firewall":::
 
 ## <a name="connecting-from-the-internet-and-from-azure"></a>Conexión desde Internet y desde Azure
 

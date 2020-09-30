@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 37005a722d4a1962b4f6e1ddb8bb1c7a1229d28a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16345ae479be70ffb1eaae95196a43ec99ca1586
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81273297"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470143"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Persistencia de archivos en Azure Cloud Shell
 Cloud Shell utiliza Azure File Storage para conservar los archivos entre sesiones. En el primer inicio, Cloud Shell le pedirá que asocie un recurso compartido de archivos nuevo o existente para conservar los archivos entre sesiones.
@@ -83,7 +83,7 @@ Si se usa una región de almacenamiento secundaria, la cuenta de almacenamiento 
 Un usuario puede ejecutar `(Get-CloudDrive | Get-AzStorageAccount).Location` en PowerShell para ver la ubicación de su recurso compartido de archivos.
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Restringir la creación de recursos con una directiva de recursos de Azure
-Las cuentas de almacenamiento creadas en Cloud Shell se etiquetan con `ms-resource-usage:azure-cloud-shell`. Si quiere impedir que los usuarios creen cuentas de almacenamiento en Cloud Shell, cree una [directiva de recursos de Azure para etiquetas](../azure-policy/json-samples.md) que se desencadene mediante esta etiqueta específica.
+Las cuentas de almacenamiento creadas en Cloud Shell se etiquetan con `ms-resource-usage:azure-cloud-shell`. Si quiere impedir que los usuarios creen cuentas de almacenamiento en Cloud Shell, cree una [directiva de recursos de Azure para etiquetas](../governance/policy/samples/index.md) que se desencadene mediante esta etiqueta específica.
 
 ## <a name="how-cloud-shell-storage-works"></a>Funcionamiento del almacenamiento de Cloud Shell 
 Cloud Shell conserva los archivos a través de los métodos siguientes: 
@@ -170,4 +170,4 @@ Nota: si tiene que definir una función en un archivo y llamarla desde los cmdle
 ## <a name="next-steps"></a>Pasos siguientes
 [Inicio rápido de Cloud Shell](quickstart.md) <br>
 [Información sobre el almacenamiento de Microsoft Azure Files](../storage/files/storage-files-introduction.md) <br>
-[Información sobre las etiquetas de almacenamiento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>
+[Información sobre las etiquetas de almacenamiento](../azure-resource-manager/management/tag-resources.md) <br>

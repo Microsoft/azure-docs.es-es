@@ -4,21 +4,21 @@ description: Obtenga información sobre el almacén transaccional (basado en fil
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: b3d1371f486a73b40d352007e3681fd451a8a8b7
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 17dce45e73a5620db2201534126900d8e571ec45
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815834"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900265"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>¿Qué es el almacén analítico de Azure Cosmos DB (versión preliminar)?
 
 > [!IMPORTANT]
 > El almacén analítico de Azure Cosmos DB se encuentra actualmente en versión preliminar. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Para obtener más información, consulte [Términos de uso complementarios de las Versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-El almacén analítico de Azure Cosmos DB es un almacén de columnas completamente aislado para habilitar el análisis a gran escala en los datos operativos de su instancia de Azure Cosmos DB, sin que ello afecte a las cargas de trabajo transaccionales.  
+El almacén analítico de Azure Cosmos DB es un almacén de columnas completamente aislado para habilitar el análisis a gran escala en los datos operativos de su instancia de Azure Cosmos DB, sin que ello afecte a las cargas de trabajo transaccionales.  
 
 ## <a name="challenges-with-large-scale-analytics-on-operational-data"></a>Desafíos del análisis a gran escala de los datos operativos
 
@@ -30,11 +30,11 @@ Las canalizaciones ETL también se vuelven complejas al administrar las actualiz
 
 ## <a name="column-oriented-analytical-store"></a>Almacén analítico orientado a columnas
 
-El almacén analítico de Azure Cosmos DB aborda los desafíos de complejidad y latencia que se presentan con las canalizaciones ETL tradicionales. El almacén analítico de Azure Cosmos DB puede sincronizar automáticamente los datos operativos en un almacén de columnas independiente. El formato del almacén de columnas es adecuado para las consultas analíticas a gran escala que se van a realizar de forma optimizada, lo que aumenta la latencia de dichas consultas.
+El almacén analítico de Azure Cosmos DB aborda los desafíos de complejidad y latencia que se presentan con las canalizaciones ETL tradicionales. El almacén analítico de Azure Cosmos DB puede sincronizar automáticamente los datos operativos en un almacén de columnas independiente. El formato del almacén de columnas es adecuado para las consultas analíticas a gran escala que se van a realizar de forma optimizada, lo que aumenta la latencia de estas.
 
 Con Azure Synapse Link, ahora puede compilar soluciones de HTAP sin ETL mediante la vinculación directa al almacén analítico de Azure Cosmos DB desde Synapse Analytics. Esto le permite ejecutar análisis a gran escala casi en tiempo real con los datos operativos.
 
-## <a name="analytical-store-details"></a>Detalles del almacén analítico
+## <a name="features-of-analytical-store"></a>Características del almacén analítico 
 
 Cuando se habilita el almacén analítico en un contenedor de Azure Cosmos DB, se crea internamente un nuevo almacén de columnas en función de los datos operativos del contenedor. Este almacén de columnas se conserva de forma independiente del almacén transaccional orientado a filas de ese contenedor. Las inserciones, actualizaciones y eliminaciones de los datos operativos se sincronizan automáticamente con el almacén analítico. No necesita la fuente de cambios ni ETL para sincronizar los datos.
 
@@ -70,35 +70,94 @@ Mediante la creación de partición horizontal, el almacén transaccional de Azu
 
 #### <a name="automatically-handle-schema-updates"></a><a id="analytical-schema"></a>Control automático de las actualizaciones de esquema
 
-El almacén transaccional de Azure Cosmos DB es independiente del esquema y le permite iterar las aplicaciones transaccionales sin tener que encargarse de la administración de esquemas o índices. A diferencia de esto, el almacén analítico de Azure Cosmos DB está esquematizado para optimizar el rendimiento de las consultas analíticas. Con la funcionalidad de sincronización automática, Azure Cosmos DB administra la inferencia del esquema en las actualizaciones más recientes del almacén transaccional.  También administra la representación del esquema en el almacén analítico de manera integrada, lo que incluye el control de los tipos de datos anidados.
+El almacén transaccional de Azure Cosmos DB es independiente del esquema y le permite iterar las aplicaciones transaccionales sin tener que encargarse de la administración de esquemas o índices. A diferencia de esto, el almacén analítico de Azure Cosmos DB está esquematizado para optimizar el rendimiento de las consultas analíticas. Con la funcionalidad de sincronización automática, Azure Cosmos DB administra la inferencia de esquemas en las actualizaciones más recientes del almacén transaccional.  También administra la representación del esquema en el almacén analítico de manera integrada, lo que incluye el control de los tipos de datos anidados.
 
-Al haber una evolución del esquema, donde se agregan nuevas propiedades a lo largo del tiempo, el almacén analítico presenta automáticamente un esquema unificado en todos los esquemas históricos del almacén transaccional.
+A medida que evoluciona el esquema, y se agregan propiedades nuevas con el tiempo, el almacén analítico presenta automáticamente un esquema unificado de todos los esquemas históricos del almacén de transacciones.
 
-Si todos los datos operativos de Azure Cosmos DB siguen un esquema bien definido para el análisis, el esquema se inferirá automáticamente y se representará correctamente en el almacén analítico. Si ciertos elementos infringen el esquema bien definido para análisis, como se define a continuación, no se incluirán en el almacén analítico. Si tiene escenarios bloqueados debido un esquema bien definido para la definición del análisis, envíe un correo electrónico al [equipo de Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+##### <a name="schema-constraints"></a>Restricciones del esquema
 
-Un esquema bien definido para el análisis se define teniendo en cuenta las siguientes consideraciones:
+Las restricciones siguientes se aplican a los datos operativos de Azure Cosmos DB al habilitar el almacén analítico para que realice la inferencia automáticamente y represente el esquema correctamente:
 
-* Una propiedad siempre tiene el mismo tipo entre los varios elementos
-
-  * Por ejemplo, `{"a":123} {"a": "str"}` no tiene un esquema bien definido porque `"a"` a veces es una cadena y, a veces, un número. 
+* Puede tener 200 propiedades como máximo en cualquier nivel de anidamiento del esquema y una profundidad de anidamiento máxima de 5.
   
-    En este caso, el almacén analítico registra el tipo de datos de `“a”` como el tipo de datos de `“a”` en el primer elemento durante la vigencia del contenedor. Los elementos en los que el tipo de datos de `“a”` difiere no se incluirán en el almacén analítico.
+  * Un elemento con 201 propiedades en el nivel superior no cumple esta restricción y, por lo tanto, no se representará en el almacén analítico.
+  * Un elemento con más de cinco niveles anidados en el esquema tampoco cumple esta restricción, por lo que tampoco se representaría en el almacén analítico. Por ejemplo, el elemento siguiente no cumple el requisito:
+
+     `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
+
+* Los nombres de propiedad deben ser únicos al compararlos sin distinción de mayúsculas y minúsculas. Por ejemplo, los elementos siguientes no cumplen esta restricción y, por lo tanto, no se representarán en el almacén analítico:
+
+  `{"Name": "fred"} {"name": "john"}`: "Name" y "name" son iguales al compararlos sin hacer distinción de mayúsculas y minúsculas.
+
+##### <a name="schema-representation"></a>Representación del esquema
+
+En el almacén analítico hay dos maneras de representar el esquema. Estos modos presentan ventajas e inconvenientes en relación con la simplicidad de la representación en columnas, el control de los esquemas polimórficos y la simplicidad de la experiencia de consulta:
+
+* Representación de esquemas bien definida
+* Representación de esquemas con fidelidad total
+
+> [!NOTE]
+> En el caso de las cuentas de SQL (Core) API, cuando se habilita el almacén analítico, la representación de esquemas predeterminada en él es la representación bien definida. Mientras que para las cuentas de Azure Cosmos DB API para MongoDB, la representación de esquemas predeterminada en el almacén analítico es la representación con fidelidad total. Si tiene escenarios que requieran una representación de esquemas diferente de la predeterminada para cada una de estas API, póngase en contacto con el [equipo de Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com) para habilitarla.
+
+**Representación de esquemas bien definida**
+
+La representación de esquemas bien definida crea una representación tabular simple de los datos independientes del esquema en el almacén transaccional. La representación de esquemas bien definida tiene las siguientes características:
+
+* Las propiedades siempre tienen el mismo tipo en los distintos elementos.
+
+  * Por ejemplo, `{"a":123} {"a": "str"}` no tiene un esquema bien definido porque `"a"` a veces es una cadena y, a veces, un número. En este caso, el almacén analítico registra el tipo de datos de `“a”` como tipo de datos de `“a”` en el primer elemento durante la vigencia del contenedor. Los elementos en los que el tipo de datos de `“a”` difiere no se incluirán en el almacén analítico.
   
-    Esta condición no se aplica a las propiedades NULL. Por ejemplo, `{"a":123} {"a":null}` sigue estando bien definido.
+    Esta condición no se aplica a las propiedades NULL. Por ejemplo, `{"a":123} {"a":null}` sigue estando bien definida.
 
-* Los tipos de matriz deben contener un único tipo repetido.
+* Los tipos de las matrices deben contener un único tipo repetido.
 
-  * Por ejemplo, `{"a": ["str",12]}` no es un esquema bien definido porque la matriz contiene una mezcla de tipos enteros y de cadena.
+  * Por ejemplo, `{"a": ["str",12]}` no es un esquema bien definido, porque la matriz contiene una mezcla de tipos enteros y de cadenas.
 
-* Hay un máximo de 200 propiedades en cualquier nivel de anidamiento de un esquema, y una profundidad de anidamiento máxima de 5.
+> [!NOTE]
+> Si el almacén analítico de Azure Cosmos DB sigue la representación de esquemas bien definida y no se cumplen las especificaciones anteriores en determinados elementos, estos no se incluirán en el almacén analítico.
 
-  * Un elemento con propiedades 201 en el nivel superior no tiene un esquema bien definido.
+**Representación de esquemas con fidelidad total**
 
-  * Un elemento con más de cinco niveles anidados en el esquema tampoco tiene un esquema bien definido. Por ejemplo: `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
+La representación de esquemas con fidelidad total está diseñada para administrar todos los esquemas polimórficos de los datos operativos independientes del esquema. En esta representación de esquemas no se quita ningún elemento del almacén analítico aunque no se cumplan las restricciones de los esquemas bien definidos (es decir, que no haya campos ni matrices de tipos de datos mixtos).
 
-* Los nombres de propiedad son únicos cuando se comparan sin distinción de mayúsculas y minúsculas.
+Para ello, se traducen las propiedades de hoja de los datos operativos del almacén analítico con columnas distintas según el tipo de datos de los valores de la propiedad. Los nombres de las propiedades de hoja se amplían con tipos de datos como sufijos en el esquema del almacén analítico, de modo que se pueden consultar sin ambigüedad.
 
-  * Por ejemplo, los siguientes elementos no tienen un esquema bien definido `{"Name": "fred"} {"name": "john"}`: `"Name"` y `"name"` son iguales cuando se comparan sin distinguir entre mayúsculas y minúsculas.
+Por ejemplo, vamos a tomar el siguiente documento de ejemplo del almacén transaccional:
+
+```json
+{
+name: "John Doe",
+age: 32,
+profession: "Doctor",
+address: {
+  streetNo: 15850,
+  streetName: "NE 40th St.",
+  zip: 98052
+},
+salary: 1000000
+}
+```
+
+La propiedad de hoja `streetName` del objeto anidado `address` se representará en el esquema del almacén analítico como columna `address.object.streetName.int32`. El tipo de datos se agrega como sufijo a la columna. De este modo, si se agrega otro documento al almacén transaccional donde el valor de la propiedad de hoja `streetNo` sea "123" (una cadena), el esquema del almacén analítico evoluciona automáticamente sin modificar el tipo de la columna escrita previamente. Se agrega una columna nueva al almacén analítico, `address.object.streetName.string`, donde se almacena este valor "123".
+
+**Asignación de un tipo de datos a un sufijo**
+
+Esta es la asignación de los tipos de datos de propiedad y sus representaciones de sufijos en el almacén analítico:
+
+|Tipo de datos original  |Sufijo  |Ejemplo  |
+|---------|---------|---------|
+| Doble |  ".float64" |    24.99|
+| Array | ".array" |    ["a", "b"]|
+|Binary | ".binary" |0|
+|Boolean    | ".bool"   |Verdadero|
+|Int32  | ".int32"  |123|
+|Int64  | ".int64"  |255486129307|
+|Null   | ".null"   | null|
+|String|    ".string" | "ABC"|
+|Timestamp |    ".timestamp" |  Timestamp(0, 0)|
+|DateTime   |".date"    | ISODate("2020-08-21T07:43:07.375Z")|
+|ObjectId   |".objectId"    | ObjectId("5f3f7b59330ec25c132623a2")|
+|Documento   |".object" |    {"a": "a"}|
 
 ### <a name="cost-effective-archival-of-historical-data"></a>Archivado rentable de datos históricos
 
@@ -155,10 +214,17 @@ El TTL analítico en un contenedor se establece mediante la propiedad `Analytica
 * Si está presente y el valor se establece en algún número positivo "n": los elementos expirarán del almacén analítico "n" segundos después de la hora de la última modificación en el almacén transaccional. Este valor se puede aprovechar si desea conservar los datos operativos durante un período de tiempo limitado en el almacén analítico, independientemente de la retención de los datos en el almacén transaccional.
 
 Algunos puntos que se deben tener en cuenta:
+
 *   Después de habilitar el almacén analítico con un valor de TTL analítico, puede actualizarse a un valor válido diferente más tarde. 
 *   Aunque el TTL transaccional se puede establecer a nivel de contenedor o de elemento, actualmente el TTL analítico solo se puede establecer a nivel de contenedor.
 *   Puede lograr una retención más prolongada de los datos operativos en el almacén analítico si establece un TTL analítico >= TTL transaccional a nivel de contenedor.
-*   Se puede hacer que el almacén analítico refleje el almacén transaccional si se establece un TTL analítico = TTL transaccional.
+*   Se puede hacer que el almacén analítico refleje el almacén transaccional si se establece lo siguiente: TTL analítico = TTL transaccional.
+
+Al habilitar el almacén analítico en un contenedor:
+
+* En Azure Portal, la opción de análisis de TTL se establece en el valor predeterminado de -1. Puede cambiar este valor a "n" segundos; para ello, vaya a la configuración del contenedor en el Explorador de datos. 
+ 
+* En el SDK, PowerShell o la CLI de Azure se puede habilitar la opción de análisis de TTL; para ello, establézcala en -1 o en "n". 
 
 Para obtener más información, consulte [Configuración del TTL analítico en un contenedor](configure-synapse-link.md#create-analytical-ttl).
 

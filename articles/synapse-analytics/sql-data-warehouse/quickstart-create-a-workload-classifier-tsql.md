@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 05173790d8efe05851d39121ecfa15186ccb6d3c
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 65a77dfaab0bf99207fd27a35d67a12532056476
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212962"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442946"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Inicio rápido: Creación un clasificador de carga de trabajo mediante T-SQL
 
@@ -31,7 +31,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-En este inicio rápido se da por supuesto que ya tiene una instancia de SQL Data Warehouse y que tiene permisos CONTROL DATABASE. Si tiene que crear una, consulte [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](create-data-warehouse-portal.md) para crear un almacenamiento de datos denominado **mySampleDataWarehouse**.
+En este inicio rápido se da por supuesto que ya ha aprovisionado un grupo de Synapse SQL en Azure Synapse Analytics y que tiene los permisos CONTROL DATABASE. Si tiene que crear una, consulte [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](create-data-warehouse-portal.md) para crear un almacenamiento de datos denominado **mySampleDataWarehouse**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 

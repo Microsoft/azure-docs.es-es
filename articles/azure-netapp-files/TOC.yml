@@ -4,7 +4,7 @@
   items:
     - name: ¿Qué es Azure NetApp Files?
       href: azure-netapp-files-introduction.md
-    - name: Descripción de la jerarquía de almacenamiento
+    - name: Jerarquía de almacenamiento de Azure NetApp Files
       href: azure-netapp-files-understand-storage-hierarchy.md
 - name: Guías de inicio rápido
   expanded: true
@@ -33,6 +33,12 @@
       href: azure-netapp-files-cost-model.md
     - name: Instrucciones para el planeamiento de red de Azure NetApp Files
       href: azure-netapp-files-network-topologies.md
+    - name: Replicación entre regiones
+      items:
+        - name: Descripción de la replicación entre regiones
+          href: cross-region-replication-introduction.md
+        - name: Requisitos y consideraciones de la replicación entre regiones
+          href: cross-region-replication-requirements-considerations.md
     - name: Soluciones
       items:
         - name: Arquitecturas de las soluciones con Azure NetApp Files
@@ -55,6 +61,8 @@
       href: azure-netapp-files-create-netapp-account.md
     - name: Configuración de un grupo de capacidad
       href: azure-netapp-files-set-up-capacity-pool.md
+    - name: Administración de un grupo de capacidad de QoS manual
+      href: manage-manual-qos-capacity-pool.md
     - name: Delegación de una subred en Azure NetApp Files
       href: azure-netapp-files-delegate-subnet.md
     - name: Creación y administración de un volumen NFS
@@ -81,6 +89,16 @@
       href: azure-netapp-files-resize-capacity-pools-or-volumes.md
     - name: Cambio dinámico del nivel de servicio de un volumen
       href: dynamic-change-volume-service-level.md
+    - name: Administración de la replicación entre regiones
+      items:
+        - name: Creación de emparejamiento de replicación
+          href: cross-region-replication-create-peering.md
+        - name: Visualización del estado de mantenimiento de la relación de la replicación
+          href: cross-region-replication-display-health-status.md
+        - name: Administración de la recuperación ante desastres
+          href: cross-region-replication-manage-disaster-recovery.md
+        - name: Eliminación de replicaciones
+          href: cross-region-replication-delete.md
     - name: Desarrollar
       items:
         - name: API DE REST
@@ -91,6 +109,14 @@
           href: azure-netapp-files-sdk-cli.md
         - name: Solución de errores del proveedor de recursos de Azure NetApp Files
           href: azure-netapp-files-troubleshoot-resource-provider-errors.md
+    - name: Solucionar problemas
+      items:
+        - name: Solución de problemas de grupos de capacidad
+          href: troubleshoot-capacity-pools.md
+        - name: Solución de problemas de la replicación entre regiones
+          href: troubleshoot-cross-region-replication.md
+        - name: Solución de problemas de directivas de instantáneas
+          href: troubleshoot-snapshot-policies.md
 - name: Referencia
   items:
     - name: REST

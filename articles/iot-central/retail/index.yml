@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: f37f876db15e2722907669cd1c1d8390f771034b
-  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+  ms.openlocfilehash: 8469f67967f311d4aca98417e8a5a639665b4641
+  ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/11/2020
-  ms.locfileid: "88080650"
+  ms.lasthandoff: 09/11/2020
+  ms.locfileid: "90014929"
 landingContent:
 - title: Creación de soluciones para el comercio minorista
   linkLists:
@@ -43,18 +43,32 @@ landingContent:
     links:
     - text: Conexión a Rigado Cascade 500
       url: ../core/howto-connect-rigado-cascade-500.md
-- title: Obtención de conexión
+- title: Conexión y desarrollo de dispositivos
   linkLists:
+  - linkListType: overview
+    links:
+    - text: Información general para desarrolladores de dispositivos
+      url: ../core/overview-iot-central-developer.md
   - linkListType: tutorial
     links:
-    - text: Configuración de una plantilla de dispositivo
-      url: ../core/howto-set-up-template.md
-    - text: Conexión de un dispositivo
-      url: ../core/tutorial-connect-device.md
+    - text: Conexión de un dispositivo (Node.js)
+      url: ../core/tutorial-connect-device-nodejs.md
+    - text: Conexión de un dispositivo (Python)
+      url: ../core/tutorial-connect-device-python.md
+  - linkListType: concept
+    links:
+    - text: Conectividad de dispositivos
+      url: ../core/concepts-get-connected.md
+    - text: Plantillas de dispositivo
+      url: ../core/concepts-device-templates.md
   - linkListType: how-to-guide
     links:
-    - text: Conexión a otras nubes de IoT
-      url: ../core/howto-build-iotc-device-bridge.md
+    - text: Configuración de una plantilla
+      url: ../core/howto-set-up-template.md
+    - text: Conexión de un dispositivo de Azure Sphere
+      url: ../core/howto-connect-sphere.md
+    - text: Solución de problemas de conectividad de dispositivos
+      url: ../core/troubleshoot-connection.md
 - title: Mantenimiento de la conexión
   linkLists:
   - linkListType: tutorial

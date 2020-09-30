@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: f35e5971374f54940396f602a23ffa0ae3abd015
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 5de505ff9573fb186ca2bbe4f5bd6783022eb3ef
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552839"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421465"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Cómo: personalizar las notificaciones emitidas en el token SAML para aplicaciones empresariales
 
@@ -88,11 +88,11 @@ También puede asignar cualquier valor constante (estático) a cualquier notific
 
 1. Escriba el valor constante sin comillas en el **Atributo de origen** según su organización y haga clic en **Guardar**.
 
-    ![Apertura de la sección Atributos y notificaciones de usuario en Azure Portal](./media/active-directory-saml-claims-customization/organization-attribute.png)
+    ![Sección Org Attributes & Claims (Atributos y notificaciones de organización) de Azure Portal](./media/active-directory-saml-claims-customization/organization-attribute.png)
 
 1. El valor constante se mostrará a continuación.
 
-    ![Apertura de la sección Atributos y notificaciones de usuario en Azure Portal](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
+    ![Sección Edit Attributes & Claims (Editar atributos y notificaciones) de Azure Portal](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
 
 ### <a name="special-claims---transformations"></a>Notificaciones especiales: transformaciones
 
@@ -121,7 +121,7 @@ Para aplicar una transformación a un atributo de usuario:
 2. Seleccione la función en la lista desplegable transformación. Dependiendo de la función seleccionada, tendrá que proporcionar parámetros y un valor constante para evaluar en la transformación. Consulte la tabla siguiente para más información sobre las funciones disponibles.
 3. Para aplicar varias transformaciones, haga clic en **Agregar transformación**. Puede aplicar un máximo de dos transformaciones a una notificación. Por ejemplo, puede extraer primero el prefijo de correo del `user.mail`. Después, convierta la cadena en mayúsculas.
 
-   ![Edición del valor de la notificación NameID (identificador de nombre)](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
+   ![Transformación de varias notificaciones](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
 
 Puede utilizar las siguientes funciones para transformar notificaciones.
 
@@ -129,8 +129,8 @@ Puede utilizar las siguientes funciones para transformar notificaciones.
 |----------|-------------|
 | **ExtractMailPrefix()** | Quita el sufijo de dominio de la dirección de correo electrónico o el nombre principal de usuario. De este modo se extrae solo la primera parte del nombre de usuario por la que se pasa (por ejemplo, "joe_smith" en lugar de joe_smith@contoso.com). |
 | **Join()** | Crea un nuevo valor al combinar dos atributos. Si quiere, puede usar un separador entre los dos atributos. Para la transformación de notificaciones NameID, la combinación está restringida a un dominio comprobado. Si el valor de identificador de usuario seleccionado tiene un dominio, extraerá el nombre de usuario para anexar el dominio comprobado seleccionado. Por ejemplo, si selecciona el correo electrónico (joe_smith@contoso.com) como valor de identificador de usuario y selecciona contoso.onmicrosoft.com como dominio comprobado, el resultado será joe_smith@contoso.onmicrosoft.com. |
-| **ToLower()** | Convierte los caracteres del atributo seleccionado en caracteres en minúscula. |
-| **ToUpper()** | Convierte los caracteres del atributo seleccionado en caracteres en mayúscula. |
+| **ToLowercase()** | Convierte los caracteres del atributo seleccionado en caracteres en minúscula. |
+| **ToUppercase()** | Convierte los caracteres del atributo seleccionado en caracteres en mayúscula. |
 | **Contains()** | Genera un atributo o una constante si la entrada coincide con el valor especificado. En caso contrario, puede especificar otra salida si no hay ninguna coincidencia.<br/>Por ejemplo, si quiere emitir una notificación en la que el valor es la dirección de correo electrónico del usuario si contiene el dominio "@contoso.com"; en caso contrario, quiere obtener el nombre principal de usuario. Para ello, configuraría los siguientes valores:<br/>*Parámetro 1 (entrada)* : user.email<br/>*Valor*: "@contoso.com"<br/>Parámetro 2 (salida): user.email<br/>Parámetro 3 (salida si no hay ninguna coincidencia): user.userprincipalname |
 | **EndWith()** | Genera un atributo o una constante si la entrada finaliza con el valor especificado. En caso contrario, puede especificar otra salida si no hay ninguna coincidencia.<br/>Por ejemplo, si quiere emitir una notificación en la que el valor es el Id. de empleado del usuario, si el Id. de empleado termina con "000", de lo contrario, quiere generar un atributo de extensión. Para ello, configuraría los siguientes valores:<br/>*Parámetro 1 (entrada)* : user.employeeid<br/>*Valor*: "000"<br/>Parámetro 2 (salida): user.employeeid<br/>Parámetro 3 (salida si no hay ninguna coincidencia): user.extensionattribute1 |
 | **StartWith()** | Genera un atributo o una constante si la entrada empieza con el valor especificado. En caso contrario, puede especificar otra salida si no hay ninguna coincidencia.<br/>Por ejemplo, si quiere emitir una notificación en la que el valor es el Id. de empleado del usuario, si el país o la región comienza por "US", en caso contrario, quiere generar un atributo de extensión. Para ello, configuraría los siguientes valores:<br/>*Parámetro 1 (entrada)* : user.country<br/>*Valor*: "US"<br/>Parámetro 2 (salida): user.employeeid<br/>Parámetro 3 (salida si no hay ninguna coincidencia): user.extensionattribute1 |

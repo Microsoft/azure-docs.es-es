@@ -3,12 +3,12 @@ title: Administración y supervisión de bases de datos de SQL Server en una m�
 description: En este artículo se describe cómo administrar y supervisar las bases de datos de SQL Server que se ejecutan en una máquina virtual de Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 26a1a6cf7bc011edce61a8bb60926dad2cb29a16
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: b0df22002521c8148cac1200e79aeb0ae5a60546
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826640"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146528"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Administración y supervisión de bases de datos SQL Server con copia de seguridad
 
@@ -55,7 +55,7 @@ Si decide dejar los puntos de recuperación, tenga en cuenta estos detalles:
 
 - Todos los puntos de recuperación permanecerán intactos para siempre y, al detenerse la protección de los datos, se detendrá la eliminación de todos los puntos y se conservarán los datos.
 - Se le cobrará la instancia protegida y el almacenamiento consumido. Para más información, consulte [Precios de Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
-- Si elimina un origen de datos sin detener las copias de seguridad, las nuevas copias de seguridad producirán errores. Los puntos de recuperación anteriores expirarán según la directiva, pero siempre se mantendrá el último punto de recuperación hasta que detenga la copia de seguridad y elimine los datos.
+- Si elimina un origen de datos sin detener las copias de seguridad, las nuevas copias de seguridad producirán errores. Los puntos de recuperación anteriores expirarán según la directiva, pero siempre se mantendrá el punto de recuperación más reciente hasta que detenga la copia de seguridad y elimine los datos.
 
 Para detener la protección de una base de datos:
 

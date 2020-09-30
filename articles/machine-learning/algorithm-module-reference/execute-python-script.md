@@ -10,16 +10,16 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: e3e14001758cadc8df5af3c82cb4386659a59d6a
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 3a39b12afb715cf091ff1af1dcc7cc702769bed3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843732"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908020"
 ---
 # <a name="execute-python-script-module"></a>Módulo Ejecutar script de Python
 
-En este artículo se describe el módulo Ejecución de script de Python del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe el módulo Ejecución de script de Python del diseñador de Azure Machine Learning.
 
 Utilice este módulo para ejecutar código de Python. Para obtener más información sobre los principios de arquitectura y diseño de Python, consulte [Ejecutar código de Python en el diseñador de Azure Machine Learning](../how-to-designer-python.md).
 
@@ -58,7 +58,7 @@ if spec is None:
 > Si la canalización contiene varios módulos Ejecutar script de Python que necesitan paquetes que no están en la lista preinstalada, instale los paquetes en cada módulo.
 
 ## <a name="upload-files"></a>Carga de archivos
-El módulo Ejecutar script de Python admite la carga de archivos con el [SDK de Python de Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-).
+El módulo Ejecutar script de Python admite la carga de archivos con el [SDK de Python de Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#&preserve-view=trueupload-file-name--path-or-stream-).
 
 En el ejemplo siguiente se muestra cómo cargar un archivo de imagen en el módulo Ejecutar script de Python:
 

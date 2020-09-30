@@ -1,13 +1,13 @@
 ---
-ms.openlocfilehash: afe5ec179826b6d8dbef54ef773948bf9cbaea2f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: db0e3bf102feeab6272ac96198d486b51e144d05
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684334"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89570237"
 ---
-
-![Información general](../../../media/quickstarts/overview-qs5.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="../../../media/quickstarts/overview-qs5.svg" alt-text="Flujo de señales":::
 
 En este diagrama se muestra cómo fluyen las señales en este inicio rápido. Un [módulo perimetral](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula una cámara IP que hospeda un servidor de protocolo RTSP. Un nodo de [origen de RTSP](../../../media-graph-concept.md#rtsp-source) extrae la fuente de vídeo de este servidor y envía fotogramas de vídeo al nodo del [procesador de filtros de velocidad de fotogramas](../../../media-graph-concept.md#frame-rate-filter-processor), que limita la velocidad de los fotogramas de la secuencia de vídeo que llega al nodo del [procesador de extensión HTTP](../../../media-graph-concept.md#http-extension-processor). 
 

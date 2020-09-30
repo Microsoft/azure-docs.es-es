@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
-ms.openlocfilehash: 8543276a338b523a290fb131a8f1b7a55affbd98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bdab4f33852be6bfc2621e2cbecff76778567b1a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85248979"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484738"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de procedimiento almacenado de SQL Server en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -33,13 +33,13 @@ Las actividades de transformación en una [canalización](concepts-pipelines-act
 Puede usar la actividad de procedimiento almacenado para invocar un procedimiento almacenado en uno de los siguientes almacenes de datos de la empresa o en una máquina virtual (VM) de Azure: 
 
 - Azure SQL Database
-- Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse)
+- Azure Synapse Analytics (anteriormente SQL Data Warehouse)
 - Base de datos de SQL Server.  Si se usa SQL Server, se debe instalar el entorno de ejecución de integración autohospedado en el mismo equipo que hospeda la base de datos o en un equipo independiente que tenga acceso a la base de datos. El entorno de ejecución de integración autohospedado es un componente que conecta orígenes de datos locales o en la máquina virtual de Azure con servicios en la nube de forma segura y administrada. Consulte el artículo sobre el [entorno de ejecución de integración autohospedado](create-self-hosted-integration-runtime.md) para más información.
 
 > [!IMPORTANT]
-> Al copiar datos en Azure SQL Database o SQL Server, se puede configurar **SqlSink** en la actividad de copia para invocar un procedimiento almacenado mediante la propiedad **sqlWriterStoredProcedureName**. Para más información sobre la propiedad, consulte los artículos sobre los conectores siguientes: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md). No se admite la invocación de un procedimiento almacenado al copiar datos en una instancia de Azure Synapse Analytics (anteriormente, Azure SQL Data Warehouse) mediante una actividad de copia. Sin embargo, puede usar la actividad de procedimiento almacenado para invocar un procedimiento almacenado en un SQL Data Warehouse. 
+> Al copiar datos en Azure SQL Database o SQL Server, se puede configurar **SqlSink** en la actividad de copia para invocar un procedimiento almacenado mediante la propiedad **sqlWriterStoredProcedureName**. Para más información sobre la propiedad, consulte los artículos sobre los conectores siguientes: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md). No se admite la invocación de un procedimiento almacenado al copiar datos en Azure Synapse Analytics mediante una actividad de copia. Pero se puede usar la actividad de procedimiento almacenado para invocar un procedimiento almacenado de Azure Synapse Analytics. 
 >
-> Al copiar datos de Azure SQL Database, SQL Server o Azure Synapse Analytics (anteriormente, Azure SQL Data Warehouse), se puede configurar **SqlSource** en la actividad de copia para invocar un procedimiento almacenado de lectura de datos mediante la propiedad **sqlReaderStoredProcedureName**. Para más información, consulte los artículos sobre los conectores siguientes: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)          
+> Al copiar datos de Azure SQL Database, SQL Server o Azure Synapse Analytics, se puede configurar **SqlSource** en la actividad de copia para invocar un procedimiento almacenado de lectura de datos desde la base de datos de origen mediante la propiedad **sqlReaderStoredProcedureName**. Para más información, consulte los artículos sobre los conectores siguientes: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)          
 
  
 
@@ -73,7 +73,7 @@ En la tabla siguiente se describen estas propiedades JSON:
 | name                      | Nombre de la actividad                     | Sí      |
 | description               | Texto que describe para qué se usa la actividad. | No       |
 | type                      | Para la actividad de procedimiento almacenado, el tipo de actividad es **SqlServerStoredProcedure** | Sí      |
-| linkedServiceName         | Referencia a **Azure SQL Database**, **Azure Synapse Analytics (anteriormente, Azure SQL Data Warehouse)** o **SQL Server** registrada como un servicio vinculado en Data Factory. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
+| linkedServiceName         | Referencia a **Azure SQL Database**, **Azure Synapse Analytics** o **SQL Server** registrada como un servicio vinculado en Data Factory. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
 | storedProcedureName       | Especifique el nombre del procedimiento almacenado que se invocará. | Sí      |
 | storedProcedureParameters | Especifique los valores para los parámetros del procedimiento almacenado. Use `"param1": { "value": "param1Value","type":"param1Type" }` para pasar valores de parámetros y su tipo compatible con el origen de datos. Si necesita pasar NULL para un parámetro, use `"param1": { "value": null }` (todo en minúsculas). | No       |
 
@@ -82,7 +82,7 @@ El tipo de datos que especifique para el parámetro es el tipo de Azure Data Fac
 
 | Origen de datos          | Asignación de tipos de datos |
 | ---------------------|-------------------|
-| Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse) | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
+| Azure Synapse Analytics | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
 | Azure SQL Database   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
 | Oracle               | https://docs.microsoft.com/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
 | SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |

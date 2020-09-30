@@ -3,12 +3,12 @@ title: Realización de una copia de seguridad de una granja de SharePoint en Azu
 description: En este artículo se incluye información general sobre la protección del Servidor de Azure Backup y el servidor de DPM de una granja de SharePoint en Azure.
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: b326ce15cd605f4f768a03b95337bbc5bd6aaabc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a667626fb53920150a4b5a16759228aacbfae75d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032891"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375251"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Realización de una copia de seguridad de una granja de SharePoint en Azure con DPM
 
@@ -53,7 +53,7 @@ Para obtener información sobre cómo restaurar un elemento de SharePoint desde 
    > Como la granja de SharePoint está protegida para la retención a largo plazo en Azure, no hay información de catálogo (metadatos) disponible en el servidor de DPM. Como resultado, cada vez que deba recuperar una base de datos de contenido de SharePoint en un momento dado, deberá volver a catalogar la granja de SharePoint.
    >
    >
-3. Haga clic en **Volver a catalogar**.
+3. Seleccione **Volver a catalogar**.
 
     ![Protección de SharePoint con DPM10](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 
@@ -61,10 +61,10 @@ Para obtener información sobre cómo restaurar un elemento de SharePoint desde 
 
     ![Protección de SharePoint con DPM11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    Cuando finaliza la catalogación, el estado cambia a *Correcto*. Haga clic en **Cerrar**.
+    Cuando finaliza la catalogación, el estado cambia a *Correcto*. Seleccione **Cerrar**.
 
     ![Protección de SharePoint con DPM12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
-4. Haga clic en el objeto de SharePoint que se muestra en la pestaña **Recuperación** de DPM para obtener la estructura de la base de datos de contenido. Haga clic con el botón derecho en el elemento y luego haga clic en **Recuperar**.
+4. Seleccione el objeto de SharePoint que se muestra en la pestaña **Recuperación** de DPM para obtener la estructura de la base de datos de contenido. Haga clic con el botón derecho en el elemento y seleccione **Recuperar**.
 
     ![Protección de SharePoint con DPM13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. En este momento, siga los pasos de recuperación que se han indicado en este artículo para recuperar una base de datos de contenido de SharePoint desde el disco.

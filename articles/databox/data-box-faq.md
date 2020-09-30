@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: c6b524fb76c623273c60d39f4102500664c487cb
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 7fbc69100a2cc5c23150fcc0c19e6c38ba6d438d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88823988"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051175"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Preguntas más frecuentes
 
@@ -61,7 +61,7 @@ A. Data Box se admite en todas las regiones de Estados Unidos, Oeste de Europa, 
 
 Data Box es compatible con la salida o ingesta de datos solo dentro del mismo país o región de destino y no cruzará ninguna frontera internacional. La única excepción es en el caso de los pedidos dentro de la Unión Europea (UE), donde los dispositivos Data Box se pueden enviar desde y hasta cualquier país o región de la UE.
 
-Por ejemplo, en el escenario de importación, si tuviera datos en el entorno local en Canadá que quisiera trasladar a una cuenta de almacenamiento de Azure WestUS, podría conseguirlo de la siguiente manera:
+Por ejemplo, en el escenario de importación, si tuviera los datos de origen en Canadá que quisiera trasladar a una cuenta de almacenamiento de Azure WestUS, podría conseguirlo de la siguiente manera:
 
 1. Pedir un dispositivo Data Box en Canadá al seleccionar una cuenta de almacenamiento en Canadá. El dispositivo se envía desde un centro de datos de Azure en Canadá a la dirección de envío (en Canadá) proporcionada durante la creación del pedido.
 

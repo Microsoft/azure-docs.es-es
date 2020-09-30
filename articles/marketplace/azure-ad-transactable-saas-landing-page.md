@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.openlocfilehash: 737e2fc682e630775b763dd2f22f904d895a120f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 09/02/2020
+ms.openlocfilehash: 9db013d13098fc6aa4552459a2189e0ad8fc3ea6
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921273"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378804"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Creación de la página de aterrizaje de su oferta de SaaS comercializable en el marketplace comercial
 
@@ -38,15 +38,15 @@ La página de aterrizaje suele incluir:
 Las siguientes secciones le guiarán en el proceso de creación de una página de aterrizaje:
 
 1. [Cree un registro de aplicaciones de Azure AD](#create-an-azure-ad-app-registration) para la página de aterrizaje.
-2. [Use un ejemplo de código como punto de partida](#use-a-code-sample-as-a-starting-point) para su aplicación.
-3. [Resuelva el token de identificación de compra de Marketplace](#resolve-the-marketplace-purchase-identification-token) agregado a la dirección URL por el marketplace comercial.
-4. [Lea información de las notificaciones codificadas en el token de identificación](#read-information-from-claims-encoded-in-the-id-token), que se recibió de Azure AD después del inicio de sesión, que se envió con la solicitud.
-5. [Use la API de Microsoft Graph](#use-the-microsoft-graph-api) para recopilar información adicional, según sea necesario.
-6. [Use dos aplicaciones de Azure AD para mejorar la seguridad en producción](#use-two-azure-ad-apps-to-improve-security-in-production).
+1. [Use un ejemplo de código como punto de partida](#use-a-code-sample-as-a-starting-point) para su aplicación.
+1. [Use dos aplicaciones de Azure AD para mejorar la seguridad en producción](#use-two-azure-ad-apps-to-improve-security-in-production).
+1. [Resuelva el token de identificación de compra de Marketplace](#resolve-the-marketplace-purchase-identification-token) agregado a la dirección URL por el marketplace comercial.
+1. [Consulte la información de las notificaciones codificadas en el token de identificación](#read-information-from-claims-encoded-in-the-id-token) que se recibió de Azure AD después del inicio de sesión y que se envió con la solicitud.
+1. [Use la API de Microsoft Graph](#use-the-microsoft-graph-api) para recopilar información adicional, según sea necesario.
 
 ## <a name="create-an-azure-ad-app-registration"></a>Creación de un registro de aplicación de Azure AD
 
-El marketplace comercial está totalmente integrado con Azure AD. Los compradores llegan al marketplace autenticados con una [cuenta de Azure AD o una cuenta de Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Después de la compra, el comprador va del marketplace comercial a la dirección URL de la página de aterrizaje para activar y administrar su suscripción de su aplicación de SaaS. Debe permitir que el comprador inicie sesión en la aplicación con el SSO de Azure AD. (La dirección URL de la página de aterrizaje se especifica en la [página de configuración técnica](partner-center-portal/offer-creation-checklist.md#technical-configuration-page) de la oferta.
+El marketplace comercial está totalmente integrado con Azure AD. Los compradores llegan al marketplace autenticados con una [cuenta de Azure AD o una cuenta de Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Después de la compra, el comprador va del marketplace comercial a la dirección URL de la página de aterrizaje para activar y administrar su suscripción de su aplicación de SaaS. Debe permitir que el comprador inicie sesión en la aplicación con el SSO de Azure AD. (La dirección URL de la página de aterrizaje se especifica en la [página de configuración técnica](plan-saas-offer.md#technical-information) de la oferta.
 
 El primer paso para usar la identidad es asegurarse de que la página de aterrizaje esté registrada como aplicación de Azure AD. Registrar la aplicación le permite usar Azure AD para autenticar usuarios y solicitar acceso a recursos de usuarios. Se puede considerar la definición de la aplicación, lo que permite que el servicio sepa cómo emitir tokens para la aplicación en función de la configuración de la aplicación.
 
@@ -131,4 +131,4 @@ La mayoría de las aplicaciones que se registran con Azure AD conceden permisos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación de una oferta de SaaS en el marketplace comercial](./partner-center-portal/create-new-saas-offer.md)
+- [Creación de una oferta de SaaS en el marketplace comercial](create-new-saas-offer.md)

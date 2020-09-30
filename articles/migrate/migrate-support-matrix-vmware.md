@@ -3,12 +3,12 @@ title: Compatibilidad para la evaluación de VMware en Azure Migrate
 description: Obtenga información sobre la compatibilidad de la evaluación de máquinas virtuales de VMware con la herramienta Server Assessment de Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 9c9b1f7687d1ab1af36ac603501ecbaa7affd9b6
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 3d975b35ff5db9bf77ed33e040eb49b6b15f3cf9
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387037"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277789"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de compatibilidad para la evaluación de VMware 
 
@@ -33,13 +33,14 @@ Si quiere migrar máquinas virtuales de VMware a Azure, revise la [matriz de com
 
 **VMware** | **Detalles**
 --- | ---
-**vCenter Server** | Las máquinas que quiera detectar y evaluar las debe administrar vCenter Server, versión 5.5, 6.0, 6.5 o 6.7.
+**vCenter Server** | Las máquinas que quiera detectar y evaluar las debe administrar vCenter Server, versión 5.5, 6.0, 6.5, 6.7 o 7.0.<br/><br/> Actualmente no se admite la detección de máquinas virtuales de VMware proporcionando detalles del host ESXi en el dispositivo.
 **Permisos** | La evaluación del servidor necesita una cuenta de vCenter Server de solo lectura para la detección y la evaluación.<br/><br/> Si desea realizar la detección de aplicaciones o la visualización de dependencias, la cuenta necesita la habilitación de privilegios para  > **las operaciones de invitado** de **Virtual Machines**.
 
 ## <a name="vm-requirements"></a>Requisitos de máquina virtual
 **VMware** | **Detalles**
 --- | ---
 **Máquinas virtuales de VMware** | Todos los sistemas operativos se pueden evaluar para la migración. 
+**Storage** | Se admiten los discos conectados a controladores basados en SCSI, IDE y SATA.
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos del dispositivo de Azure Migrate

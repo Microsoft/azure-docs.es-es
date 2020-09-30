@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 8a3677ba285f5b02407ca3d176979bf6c016ef9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: efd19d9dc1fdc857a51d7af34c54bbe2d6077767
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74974843"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294397"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Desaprovisionamiento de dispositivos aprovisionados automáticamente 
 
@@ -57,22 +57,10 @@ Para ver una lista de dispositivos que se han aprovisionado a través de un grup
 Hay dos escenarios que se deben tener en cuenta en relación con los grupos de inscripción:
 
 - Para desaprovisionar todos los dispositivos que se han aprovisionado mediante un grupo de inscripción, siga estos pasos:
-  1. Deshabilite el grupo de inscripción para incluir su certificado de firma en la lista de no permitidos. 
+  1. Deshabilite el grupo de inscripción para no permitir su certificado de firma. 
   2. Use la lista de dispositivos aprovisionados de ese grupo de inscripción para deshabilitar o eliminar todos los dispositivos del registro de identidades de su respectiva instancia de IoT Hub. 
   3. Después de deshabilitar o eliminar todos los dispositivos de sus respectivas instancias de IoT Hub, puede eliminar opcionalmente el grupo de inscripción. Sin embargo, tenga en cuenta que, si elimina el grupo de inscripción y hay un grupo de inscripción habilitado para un certificado de firma más arriba en la cadena de certificados de uno o varios de los dispositivos, estos dispositivos se podrán volver a inscribir. 
 
 - Para desaprovisionar un único dispositivo de un grupo de inscripción, siga estos pasos:
   1. Cree una inscripción individual deshabilitada para su certificado de hoja (dispositivo). Esto revoca el acceso al servicio de aprovisionamiento para dicho dispositivo mientras se sigue permitiendo el acceso para otros dispositivos que tienen el certificado de firma del grupo de inscripción en su cadena. No elimine la inscripción individual deshabilitada para el dispositivo. Si lo hace, permitirá al dispositivo volver a inscribirse a través del grupo de inscripción. 
   2. Use la lista de dispositivos aprovisionados para ese grupo de inscripción para buscar la instancia de IoT Hub en que se ha aprovisionado el dispositivo y deshabilitarlo o eliminarlo del registro de identidades de dicha instancia. 
-  
-  
-
-
-
-
-
-
-
-
-
-

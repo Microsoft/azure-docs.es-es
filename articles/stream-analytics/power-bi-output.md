@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 0fc4e9a794429e7f1c1609fac287e67dabb3c878
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: d398cfe063dbbb2bc87a3debf1669afa6a16b43e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875539"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891995"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Salida de Power BI desde Azure Stream Analytics
 
@@ -20,7 +20,7 @@ Puede usar [Power BI](https://powerbi.microsoft.com/) como salida para un trabaj
 
 La salida de Power BI desde Stream Analytics no está disponible actualmente en las regiones de Azure China (21Vianet) y Azure Alemania (T-Systems International).
 
-## <a name="ouput-configuration"></a>Configuración de salida
+## <a name="output-configuration"></a>Configuración de salida
 
 En la siguiente tabla se encuentra una lista de nombres de propiedades y su descripción para configurar la salida de Power BI.
 
@@ -82,4 +82,4 @@ Para ver el tamaño del lote de salida, consulte los [límites de la API REST de
 * [Inicio rápido: Creación de un trabajo de Azure Stream Analytics mediante una plantilla de ARM](quick-create-azure-resource-manager.md)
 * [Inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Inicio rápido: Creación de un trabajo de Azure Stream Analytics con Visual Studio](stream-analytics-quick-create-vs.md)
-* [Inicio rápido: Creación de un trabajo de Azure Stream Analytics en Visual Studio Code](quick-create-vs-code.md)
+* [Inicio rápido: Creación de un trabajo de Azure Stream Analytics en Visual Studio Code](quick-create-visual-studio-code.md)

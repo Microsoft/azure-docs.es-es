@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: afc9f8e29cf27734787da9cab3e3456e5414d9ac
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3c469d7274bb90e194478af2464cb352efe7490c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918033"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294873"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Creación de una consulta simple en Azure Cognitive Search
 
@@ -37,13 +37,13 @@ Lo que necesita es Postman o una herramienta equivalente para emitir la solicitu
 
 Después de especificar el encabezado de solicitud, puede volver a usarlo para todas las consultas de este artículo, cambiando solo la cadena **search=** . 
 
-  ![Encabezado de solicitud de Postman](media/search-query-lucene-examples/postman-header.png)
+  ![Parámetros del conjunto de encabezados de solicitud de Postman](media/search-query-lucene-examples/postman-header.png)
 
 ### <a name="set-the-request-url"></a>Establecimiento de la dirección URL de solicitud
 
 La solicitud es un comando GET emparejado con una dirección URL que contiene la cadena de búsqueda y el punto de conexión de Azure Cognitive Search.
 
-  ![Encabezado de solicitud de Postman](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  ![Encabezado de solicitud GET de Postman](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 La composición de dirección URL tiene los siguientes elementos:
 

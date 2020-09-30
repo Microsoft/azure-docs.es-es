@@ -3,14 +3,12 @@ title: Configuración de una dirección IP estática de salida
 description: Configure Azure Firewall y las rutas definidas por el usuario para las cargas de trabajo de Azure Container Instances que utilizan la dirección IP pública del firewall para la entrada y salida
 ms.topic: article
 ms.date: 07/16/2020
-author: dlepow
-ms.author: danlep
-ms.openlocfilehash: d748e3e6239ba913afc5b8aadd7e85dcd1027c04
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 497645b9fe7f908cc9b8b4d7ed0ba5e201570160
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023711"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566575"
 ---
 # <a name="configure-a-single-public-ip-address-for-outbound-and-inbound-traffic-to-a-container-group"></a>Configuración de una única dirección IP pública para el tráfico entrante y saliente a un grupo de contenedores
 

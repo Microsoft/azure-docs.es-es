@@ -2,20 +2,20 @@
 title: Supervisión de un sitio de SharePoint con Application Insights
 description: Inicio de la supervisión de una nueva aplicación con una nueva clave de instrumentación
 ms.topic: conceptual
-ms.date: 07/11/2018
-ms.openlocfilehash: 392c0e0ee46e8acd540d498cbda1d240611d182e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 09/08/2020
+ms.openlocfilehash: 0d365e1fbcc52e14cfc727dd1de3e31a7d3e5d68
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326535"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536504"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Supervisión de un sitio de SharePoint con Application Insights
 
 Azure Application Insights le permite supervisar la disponibilidad, el rendimiento y el uso de sus aplicaciones. Aquí aprenderá a configurarlo para un sitio de SharePoint.
 
 > [!NOTE]
-> Debido a algunos problemas de seguridad, no puede agregar directamente el script que se describe en este artículo a sus páginas web de la experiencia de usuario moderna de SharePoint. También puede usar [el marco de SharePoint (SPFx)](/sharepoint/dev/spfx/extensions/overview-extensions) para crear una extensión personalizada que puede usar para instalar Application Insights en los sitios de SharePoint. Para más información, consulte [Creación de una solución de extensión de SPFx con AppInsights instalado desde cero](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO#how-to-create-a-spfx-extension-solution-with-appinsights-installed-from-scratch) o [consulte el ejemplo](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO/AppInsightsExtensionSolutionSample). 
+> Debido a algunos problemas de seguridad, no puede agregar directamente el script que se describe en este artículo a sus páginas web de la experiencia de usuario moderna de SharePoint. También puede usar [el marco de SharePoint (SPFx)](/sharepoint/dev/spfx/extensions/overview-extensions) para crear una extensión personalizada que puede usar para instalar Application Insights en los sitios de SharePoint. Para más información, consulte [Creación de una solución de extensión de SPFx con AppInsights instalado desde cero](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO#how-to-create-a-spfx-extension-solution-with-appinsights-installed-from-scratch) o [consulte el ejemplo](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO/AppInsightsExtensionSolutionSample-NPM). 
 
 ## <a name="create-an-application-insights-resource"></a>Creación de recursos en Application Insights
 En el [portal de Azure](https://portal.azure.com), cree un nuevo recurso de Application Insights. Elija ASP.NET como el tipo de aplicación.

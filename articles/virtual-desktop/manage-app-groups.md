@@ -3,15 +3,15 @@ title: 'Administración de grupos de aplicaciones para Windows Virtual Desktop: 
 description: Cómo administrar grupos de aplicaciones de Windows Virtual Desktop con Azure Portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 21dba3c9beeefa2b25b8038f6cbd0ec77f947774
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 52f495753d055730c1ad42444c83cf3d5cd4c1d3
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226733"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461433"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Tutorial: Administración de grupos de aplicaciones con Azure Portal
 
@@ -121,6 +121,9 @@ El proceso de implementación realizará las siguientes tareas automáticamente:
 - Publicar el grupo de aplicaciones publicado en usuarios y grupos de usuarios seleccionados
 - Registrar el grupo de aplicaciones, si ha decidido hacerlo
 - Crear un vínculo a una plantilla de Azure Resource Manager (basada en la configuración) que pueda descargar y guardar para más adelante.
+
+>[!IMPORTANT]
+>Solo se pueden crear grupos de 50 aplicaciones para cada inquilino de Azure Active Directory. Hemos establecido este límite debido a las limitaciones del servicio para recuperar fuentes para nuestros usuarios. El límite no se aplica a los grupos de aplicaciones creados en Windows Virtual Desktop (versión clásica).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

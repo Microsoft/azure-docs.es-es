@@ -31,6 +31,8 @@
       href: connection-monitor-preview.md
     - name: Diagnóstico de problemas de filtro de tráfico de red de máquinas virtuales
       href: network-watcher-ip-flow-verify-overview.md
+    - name: Diagnóstico de reglas del grupo de seguridad de red y filtrado del tráfico
+      href: network-watcher-network-configuration-diagnostics-overview.md
     - name: Diagnóstico de problemas de enrutamiento de máquina virtual
       href: network-watcher-next-hop-overview.md
     - name: Diagnóstico de problemas de comunicación de salida de máquinas virtuales
@@ -184,7 +186,7 @@
           href: resource-move.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/network/watcher
     - name: Azure PowerShell
       href: /powershell/module/az.network/#network_watcher

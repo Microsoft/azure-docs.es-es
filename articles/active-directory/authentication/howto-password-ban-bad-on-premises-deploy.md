@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 759a5fa2be5a3df50160d2fd0ac4231c9f49329b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: b773fb887d3663a2af2e340912e378c7fccaba4a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718958"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003548"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planeación e implementación de la protección con contraseña de Azure Active Directory local
 
@@ -49,6 +49,8 @@ También es posible que la validación de contraseñas más seguras afecte a la 
 * [No se puede realizar la degradación del controlador de dominio debido a una contraseña no segura del administrador local](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
 Después de que la característica se haya ejecutado en modo de auditoría durante un período razonable, puede cambiar la configuración de *Auditoría* a *Exigir* para requerir contraseñas más seguras. Es conveniente enfocar una supervisión adicional durante dicho período.
+
+Es importante tener en cuenta que la protección con contraseña de Azure AD solo puede validar contraseñas durante las operaciones de cambio o establecimiento de contraseñas. Las contraseñas que se hayan aceptado y almacenado en Active Directory antes de la implementación de la protección con contraseña de Azure AD nunca se validarán y seguirán funcionando tal cual. Con el tiempo, todos los usuarios y las cuentas comenzarán a usar una contraseña validada por la protección con contraseña de Azure AD, ya que las contraseñas existentes suelen expirar. Las cuentas configuradas con la opción "la contraseña nunca expira" están exentas de esta situación.
 
 ### <a name="multiple-forest-considerations"></a>Consideraciones sobre varios bosques
 

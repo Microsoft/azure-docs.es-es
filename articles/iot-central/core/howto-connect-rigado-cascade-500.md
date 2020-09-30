@@ -10,16 +10,16 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: 3e6026e683d46ca9062c5c139fcd7febd7df9bd1
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 0000e7690ab92f469a7417e82cb375c524e0b343
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758254"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016850"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Conexión de un dispositivo de puerta de enlace Rigado Cascade 500 a la aplicación de Azure IoT Central
 
-*Este artículo se aplica a los generadores de soluciones y a los desarrolladores de dispositivos.*
+*Este artículo se aplica a los generadores de soluciones.*
 
 En este artículo se describe cómo los creadores de soluciones pueden conectar un dispositivo de puerta de enlace Rigado Cascade 500 a la aplicación de Microsoft Azure IoT Central. 
 
@@ -65,7 +65,7 @@ Una vez que el dispositivo está conectado a Internet, Rigado podrá insertar un
 
 Esta actualización aplicará los detalles de conexión de IoT Central al dispositivo Cascade 500 y este aparecerá en la lista de dispositivos. 
 
-![Clave principal](./media/howto-connect-rigado-cascade-500/devices-list-c500.png)  
+![Lista de dispositivos](./media/howto-connect-rigado-cascade-500/devices-list-c500.png)  
 
 Ya está listo para usar el dispositivo C500 en la aplicación de IoT Central.
 

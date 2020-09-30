@@ -1,6 +1,6 @@
 ---
-title: Registro de una incidencia de soporte técnico de Azure Stack Edge y Azure Data Box Gateway | Microsoft Docs
-description: Aprenda registrar una solicitud de soporte técnico para problemas relacionados con los pedidos de Azure Stack Edge o Data Box Gateway.
+title: Registro de una incidencia de soporte técnico de Azure Stack Edge Pro y Azure Data Box Gateway | Microsoft Docs
+description: Aprenda a registrar una solicitud de soporte técnico para problemas relacionados con los pedidos de Azure Stack Edge Pro o Data Box Gateway.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 4d513471e288c1aadbf70b24ef367965a0b69a80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9df729277934e074e1e8cc92126e777336708586
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339916"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904518"
 ---
-# <a name="open-a-support-ticket-for-azure-stack-edge-and-azure-data-box-gateway"></a>Apertura de una incidencia de soporte técnico relacionada con Azure Stack Edge y Azure Data Box Gateway
+# <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Abra una incidencia de soporte técnico para Azure Stack Edge Pro y Azure Data Box Gateway
 
-Este artículo es aplicable a Azure Stack Edge y Azure Data Box Gateway, que están administrados por el servicio Azure Stack Edge o Azure Data Box Gateway. Si tiene algún problema con el servicio, puede crear una solicitud de servicio de soporte técnico. Este artículo le enseñará a:
+Este artículo se aplica a Azure Stack Edge Pro y Azure Data Box Gateway, que están administrados por los servicios Azure Stack Edge Pro o Azure Data Box Gateway. Si tiene algún problema con el servicio, puede crear una solicitud de servicio de soporte técnico. Este artículo le enseñará a:
 
 * Crear una solicitud de soporte.
 * Administrar el ciclo de vida de una solicitud de soporte técnico desde dentro del portal.
@@ -26,13 +26,13 @@ Este artículo es aplicable a Azure Stack Edge y Azure Data Box Gateway, que est
 
 Lleve a cabo los siguientes pasos para crear una solicitud de soporte.
 
-1. Vaya al pedido de Azure Stack Edge o Data Box Gateway. Vaya a la sección **Soporte técnico y solución de problemas** y, luego, seleccione **Nueva solicitud de soporte técnico**.
+1. Vaya al pedido de Azure Stack Edge Pro o Data Box Gateway. Vaya a la sección **Soporte técnico y solución de problemas** y, luego, seleccione **Nueva solicitud de soporte técnico**.
 
 2. En **Nueva solicitud de soporte técnico**, en la pestaña **Aspectos básicos**, siga estos pasos:
 
     1. En la lista desplegable **Tipo de problema**, seleccione **Técnico**.
     2. Elija la **suscripción**.
-    3. En **Servicio**, compruebe **Mis servicios**. En la lista desplegable, seleccione **Azure Stack Edge y Data Box Gateway**.
+    3. En **Servicio**, compruebe **Mis servicios**. En la lista desplegable, seleccione **Azure Stack Edge Pro y Data Box Gateway**.
     4. Seleccione el **recurso**. Este corresponde al nombre del pedido.
     5. Escriba un **resumen** breve del problema que experimenta. 
     6. Seleccione el **tipo de problema**.
@@ -98,5 +98,5 @@ Después de crear una incidencia de soporte técnico, puede administrar el ciclo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a [solucionar problemas relacionados con Azure Stack Edge](azure-stack-edge-troubleshoot.md).
+Aprenda a [solucionar problemas relacionados con Azure Stack Edge Pro](azure-stack-edge-troubleshoot.md).
 Aprenda a [solucionar problemas relacionados con Data Box Gateway](data-box-gateway-troubleshoot.md).

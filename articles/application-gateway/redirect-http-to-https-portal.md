@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: dbf4770bf5ac1747d596e6907dbc903ce8c16de9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07689f7d16cd1df451fdab28f188e5c4a324486e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804347"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594822"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con redirección de HTTP a HTTPS mediante Azure Portal
 
@@ -20,12 +20,11 @@ Puede usar Azure Portal para crear una [puerta de enlace de aplicaciones](overvi
 
 En este artículo aprenderá a:
 
-> [!div class="checklist"]
-> * Creación de un certificado autofirmado
-> * Configurar una red
-> * Crear una puerta de enlace de aplicaciones con el certificado
-> * Adición de un agente de escucha y una regla de redireccionamiento
-> * Crear un conjunto de escalado de máquinas virtuales con el grupo de servidores back-end predeterminado
+* Creación de un certificado autofirmado
+* Configurar una red
+* Crear una puerta de enlace de aplicaciones con el certificado
+* Adición de un agente de escucha y una regla de redireccionamiento
+* Crear un conjunto de escalado de máquinas virtuales con el grupo de servidores back-end predeterminado
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

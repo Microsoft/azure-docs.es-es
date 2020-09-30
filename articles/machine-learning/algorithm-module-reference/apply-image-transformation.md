@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 7ff135911742c49c2c52ce30d1dca00bc89b3a56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a64d5cebfd8e70e2f54a66193a7041c47887c54a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450099"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898919"
 ---
 # <a name="apply-image-transformation"></a>Aplicación de transformación de imagen 
 
-En este artículo se describe cómo usar el módulo Aplicación de transformación de imagen en Azure Machine Learning Designer (versión preliminar), para modificar un directorio de imagen en función de una transformación de imagen especificada previamente.  
+En este artículo se describe cómo usar el módulo Aplicación de transformación de imagen en el diseñador de Azure Machine Learning para modificar un directorio de imagen en función de una transformación de imagen especificada previamente.  
 
 Debe conectar un módulo [Transformación de imagen init](init-image-transformation.md) para especificar la transformación y, a continuación, puede aplicar dicha transformación al directorio de imagen de entrada del módulo Aplicación de transformación de imagen.
 

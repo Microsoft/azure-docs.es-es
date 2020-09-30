@@ -10,12 +10,12 @@ metadata:
   author: JnHs
   ms.author: jenhayes
   ms.date: 07/20/2020
-  ms.openlocfilehash: 40352965db20c12e589f52f76869032d1f5f1b10
-  ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+  ms.openlocfilehash: 0748df5bdc961ff198d91d2584072cd07965995d
+  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/20/2020
-  ms.locfileid: "88659881"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90971909"
 landingContent:
 - title: Acerca de Azure Lighthouse
   linkLists:
@@ -35,6 +35,8 @@ landingContent:
     links:
     - text: Incorporación de un cliente a Azure Lighthouse
       url: ./how-to/onboard-customer.md
+    - text: Vinculación de un identificador para el crédito obtenido por el asociado
+      url: ./how-to/partner-earned-credit.md
   - linkListType: concept
     links:
     - text: Procedimientos de seguridad recomendados
@@ -85,6 +87,8 @@ landingContent:
       url: ./how-to/policy-at-scale.md
     - text: Implementación de una directiva que se pueda corregir
       url: ./how-to/deploy-policy-remediation.md
+    - text: Administración de máquinas híbridas con Azure Arc
+      url: ./how-to/manage-hybrid-infrastructure-arc.md
 - title: 'Referencia: SDK'
   linkLists:
   - linkListType: reference
@@ -99,6 +103,8 @@ landingContent:
       url: /dotnet/api/Microsoft.Azure.Management.ManagedServices
     - text: Python
       url: /python/api/azure-mgmt-managedservices
+    - text: Terraform
+      url: https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html
 - title: 'Referencia: descargas'
   linkLists:
   - linkListType: download

@@ -3,12 +3,12 @@ title: Copias de seguridad del estado del sistema de Windows en Azure
 description: Obtenga información sobre cómo realizar copias de seguridad el estado del sistema de equipos Windows Server en Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 8ce30b93ebaecec1e69c6c6a6f1064c6cdd3d0f6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 10d37bbafab6aa96986a5d7af88a509d4c8eac25
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824469"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376497"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Copias de seguridad del estado del sistema de Windows en Azure
 
@@ -62,7 +62,7 @@ Ahora que ha creado un almacén, configúrelo para realizar copias de seguridad 
 
     ![Configuración de archivos y carpetas](./media/backup-azure-system-state/backup-goal-system-state.png)
 
-    Después de hacer clic en Aceptar, aparecerá una marca de verificación junto a **Objetivo de Backup** y se abrirá el panel **Preparar infraestructura**.
+    Después de seleccionar **Aceptar**, aparecerá una marca de verificación junto a **Objetivo de Backup** y se abrirá el panel **Preparar infraestructura**.
 
     ![Objetivo de copia de seguridad configurado, a continuación, prepare la infraestructura](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 
@@ -90,7 +90,7 @@ Ahora que ha creado un almacén, configúrelo para realizar copias de seguridad 
 
     ![finalizó la descarga de las credenciales de almacén](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
    > [!NOTE]
-   > Las credenciales del almacén deben guardarse únicamente en una ubicación que sea local en Windows Server en la que vaya a usar el agente.
+   > Las credenciales del almacén deben guardarse únicamente en una ubicación que sea local en Windows Server en la que vaya a usar el agente.
    >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]

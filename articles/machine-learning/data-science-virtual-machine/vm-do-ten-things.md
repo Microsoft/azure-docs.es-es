@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: dba0f22f1dfece7edd92a80ae1c3a91616a4236c
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b570968a66a0cfd60ac4d6ce6dd7dc31a1003240
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815936"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440463"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Ciencia de datos con una instancia de Data Science Virtual Machine para Windows
 
@@ -255,7 +255,7 @@ Los datos se leen como una trama de datos:
 ### <a name="azure-synapse-analytics-formerly-sql-dw-and-databases"></a>Azure Synapse Analytics (anteriormente SQL DW) y bases de datos
 Azure Synapse Analytics (anteriormente SQL DW) es un almacén de datos elástico que funciona como un servicio con una experiencia de SQL Server de clase empresarial.
 
-Puede aprovisionar Azure Synapse Analytics siguiendo las instrucciones de [este artículo](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Una vez que aprovisione SQL Data Warehouse, puede usar [este tutorial](../team-data-science-process/sqldw-walkthrough.md) para cargar, explorar y modelar los datos mediante los datos de SQL Data Warehouse.
+Puede aprovisionar Azure Synapse Analytics siguiendo las instrucciones de [este artículo](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Después de aprovisionar Azure Synapse Analytics, puede usar [este tutorial](../team-data-science-process/sqldw-walkthrough.md) para cargar, examinar y modelar los datos mediante datos de Azure Synapse Analytics.
 
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 Azure Cosmos DB es una base de datos NoSQL en la nube. Puede usarlo para trabajar con documentos como JSON, así como para almacenar y consultar dichos documentos.

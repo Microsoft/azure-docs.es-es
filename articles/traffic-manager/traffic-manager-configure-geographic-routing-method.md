@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: duau
-ms.openlocfilehash: 71219eea1c7cdeeefbf63e5a5715fb10fcf68682
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 53773d7c616edec067e1ed1778b7ce6b500ee936
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401085"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462622"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Tutorial: Configuración del método de enrutamiento de tráfico geográfico con Traffic Manager
 
@@ -39,8 +39,7 @@ El método de enrutamiento de tráfico geográfico le permite dirigir el tráfic
 
 1. Busque el nombre del perfil de Traffic Manager que acaba de crear en la barra de búsqueda del portal y haga clic en el resultado cuando aparezca.
 2. Vaya a **Configuración** -> **Puntos de conexión** en Traffic Manager.
-3. Haga clic en **Agregar** para mostrar la hoja **Agregar punto de conexión**.
-3. Haga clic en **Agregar** y, en **Agregar punto de conexión**, complete lo siguiente:
+3. Haga clic en **Agregar** y, en el panel **Agregar punto de conexión** que aparece, siga estos pasos:
 4. Seleccione **Tipo** según el tipo de punto de conexión que agrega. En el caso de los perfiles de enrutamiento geográfico que se usan en producción, se recomienda usar tipos de punto de conexión anidado que contengan un perfil secundario con más de un punto de conexión. Para más detalles, consulte [Preguntas más frecuentes sobre los métodos de enrutamiento de tráfico geográfico](traffic-manager-FAQs.md).
 5. Proporcione un **nombre** con el que desea reconocer este punto de conexión.
 6. Algunos de los campos de esta página dependen del tipo de punto de conexión que agrega:

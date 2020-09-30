@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: yelevin
-ms.openlocfilehash: 2110d3319cebf693ef06deec26a29fa655e35035
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54c10d7941e053bec928f8f43310218d89124f9a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77585278"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461738"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Recursos útiles al trabajar con Azure Sentinel
 
@@ -82,4 +82,4 @@ Lea las entradas del blog de Azure Sentinel desde [TechCommunity](https://techco
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, ha obtenido una lista de recursos de gran utilidad al trabajar con Azure Sentinel. Encontrará información adicional sobre la seguridad y el cumplimiento de Azure en el [Blog sobre seguridad y cumplimiento de Microsoft Azure](https://blogs.msdn.com/b/azuresecurity/).
+En este documento, ha obtenido una lista de recursos de gran utilidad al trabajar con Azure Sentinel. Encontrará información adicional sobre la seguridad y el cumplimiento de Azure en el [Blog sobre seguridad y cumplimiento de Microsoft Azure](https://docs.microsoft.com/archive/blogs/azuresecurity/).

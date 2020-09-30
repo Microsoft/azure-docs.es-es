@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/26/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f04eb0eb3741a388b375cf7d8c6455bfd4a17b39
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 45c8694c90fedccbecee1fee09e7146bf2d0aaa6
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266347"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601170"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Creación, enumeración o eliminación de una identidad administrada asignada por el usuario usando llamadas a la API de REST
 
@@ -38,8 +38,6 @@ En este artículo, aprenderá a crear, enumerar y eliminar una identidad adminis
 - Si utiliza el [subsistema de Windows para Linux](/windows/wsl/about) o un [sistema operativo de distribución de Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [instale la consola local de la CLI de Azure](/cli/azure/install-azure-cli).
 - Si utiliza la consola local de la CLI de Azure, inicie sesión en Azure mediante `az login` con una cuenta asociada a la suscripción de Azure de la que desea implementar o recuperar la información de identidad administrada asignada por el usuario.
 - Recupere un token de acceso de portador mediante `az account get-access-token` para realizar las siguientes operaciones de identidad administrada asignada por el usuario.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Crear una identidad administrada asignada por el usuario 
 

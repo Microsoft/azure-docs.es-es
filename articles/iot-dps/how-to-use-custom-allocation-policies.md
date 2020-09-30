@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7733859c4ca4de8b580a228d8a73b899f0afa953
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fc1154a3d4cefc84f223810a1972dd85673a6b3e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001984"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530903"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Uso de directivas de asignación personalizadas
 
@@ -44,7 +44,7 @@ En este artículo, llevará a cabo los siguientes pasos:
 
 Los siguientes requisitos previos corresponden a un entorno de desarrollo de Windows. En el caso de Linux o macOS, consulte la sección correspondiente en [Preparación del entorno de desarrollo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) en la documentación del SDK.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 con la carga de trabajo ["Desarrollo para el escritorio con C++"](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) habilitada. También se admiten Visual Studio 2015 y Visual Studio 2017.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 con la carga de trabajo ["Desarrollo para el escritorio con C++"](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitada. También se admiten Visual Studio 2015 y Visual Studio 2017.
 
 * Tener instalada la versión más reciente de [Git](https://git-scm.com/download/).
 
@@ -298,7 +298,7 @@ En esta sección, creará una función de Azure que implementa la directiva de a
 
 ## <a name="create-the-enrollment"></a>Creación de la inscripción
 
-En esta sección, creará un grupo de inscripciones que use la directiva de asignación personalizada. Para que sea más sencillo, en este artículo se usa la [atestación de clave simétrica](concepts-symmetric-key-attestation.md) con la inscripción. Con el fin de obtener una solución más segura, considere la posibilidad de usar la [atestación de certificado X.509](concepts-security.md#x509-certificates) con una cadena de confianza.
+En esta sección, creará un grupo de inscripciones que use la directiva de asignación personalizada. Para que sea más sencillo, en este artículo se usa la [atestación de clave simétrica](concepts-symmetric-key-attestation.md) con la inscripción. Con el fin de obtener una solución más segura, considere la posibilidad de usar la [atestación de certificado X.509](concepts-x509-attestation.md) con una cadena de confianza.
 
 1. Aún en [Azure Portal](https://portal.azure.com), abra el servicio de aprovisionamiento.
 

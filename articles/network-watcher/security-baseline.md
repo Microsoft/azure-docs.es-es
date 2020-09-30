@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 2a4cba847610ab7d6119c04f9e3b1c32a192d6c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 28b3bc5adfc3c2e83de658947193b6046a455c32
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255859"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231510"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>Base de referencia de seguridad de Azure para Network Watcher
 
@@ -234,9 +234,9 @@ Network Watcher debe estar habilitado
 
 **Guía**: mantenga un inventario de las cuentas de usuario que tienen acceso administrativo al plano de control (por ejemplo, Azure Portal) de Azure Network Watcher. Para usar las funcionalidades de Network Watcher, debe asignar la cuenta con la que inicia sesión en Azure a los roles integrados de Propietario, Colaborador o Colaborador de red, o bien un rol personalizado al que se asignan las acciones enumeradas para funciones concretas de Network Watcher.
 
-Puede usar el panel de identidades y control de acceso (IAM) de Azure Portal de la suscripción para configurar el control de acceso basado en rol (RBAC). Los roles se aplican a usuarios, grupos, entidades de servicio e identidades administradas en Active Directory.
+Puede usar el panel Administración de identidad y acceso (IAM) de Azure Portal para la suscripción a fin de configurar el control de acceso basado en rol de Azure (Azure RBAC). Los roles se aplican a usuarios, grupos, entidades de servicio e identidades administradas en Active Directory.
 
-* [Descripción de RBAC en Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Descripción de Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 * [Permisos de control de acceso basado en roles necesarios para usar las funcionalidades de Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
 
@@ -254,7 +254,7 @@ Puede usar el panel de identidades y control de acceso (IAM) de Azure Portal de 
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: Use cuentas administrativas dedicadas
 
-**Instrucciones**: Cree procedimientos operativos estándar en torno al uso de cuentas administrativas dedicadas. Use la administración de identidad y acceso de Azure Security Center para supervisar el número de cuentas administrativas.
+**Guía**: Cree procedimientos operativos estándar en torno al uso de cuentas administrativas dedicadas. Use la administración de identidad y acceso de Azure Security Center para supervisar el número de cuentas administrativas.
 
 Además, para ayudarle a realizar un seguimiento de las cuentas administrativas dedicadas, puede seguir las recomendaciones de Azure Security Center o las directivas integradas de Azure Policy, por ejemplo:
 - Debe haber más de un propietario asignado a su suscripción
@@ -365,7 +365,7 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12: Alerte de las desviaciones de comportamiento en los inicios de sesión de las cuentas
 
-**Guía**: para la desviación de comportamiento de inicio de sesión de cuenta en el plan de control (por ejemplo, Azure Portal), use las características de detección de riesgos y de Azure AD Identity Protection para configurar respuestas automatizadas a las acciones sospechosas detectadas relacionadas con las identidades de los usuarios. También puede hacer que Azure Sentinel ingiera los datos para investigarlos más.
+**Guía**: para la desviación del comportamiento de inicio de sesión de cuenta en el plan de control (por ejemplo, Azure Portal), use las características de detección de riesgos y de Azure AD Identity Protection para configurar respuestas automatizadas a las acciones sospechosas detectadas relacionadas con las identidades de los usuarios. También puede hacer que Azure Sentinel ingiera los datos para investigarlos más.
 
 * [Visualización del inicio de sesión de riesgo de Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
@@ -443,15 +443,15 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 **Responsabilidad**: No aplicable
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Uso del control de acceso basado en rol para controlar el acceso a los recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
-**Instrucciones**: Puede usar el panel de identidades y control de acceso (IAM) de Azure Portal de la suscripción para configurar el control de acceso basado en rol (RBAC). Los roles se aplican a usuarios, grupos, entidades de servicio e identidades administradas en Active Directory. Puede usar roles integrados o personalizados para usuarios y grupos.
+**Guía**: Puede usar el panel Administración de identidad y acceso (IAM) de Azure Portal para la suscripción a fin de configurar el control de acceso basado en rol de Azure (Azure RBAC). Los roles se aplican a usuarios, grupos, entidades de servicio e identidades administradas en Active Directory. Puede usar roles integrados o personalizados para usuarios y grupos.
 
 Para usar las funcionalidades de Network Watcher, debe asignar la cuenta con la que inicia sesión en Azure a los roles integrados de Propietario, Colaborador o Colaborador de red, o bien un rol personalizado al que se asignan las acciones enumeradas para funciones concretas de Network Watcher.
 
-* [Configuración de RBAC en Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Configuración de Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
-* [Descripción de los permisos de RBAC en Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
+* [Descripción de los permisos de RBAC de Azure en Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -537,7 +537,7 @@ Para usar las funcionalidades de Network Watcher, debe asignar la cuenta con la 
 
 **Guía**: Use Azure Resource Graph para consultar o detectar todos los recursos (por ejemplo, proceso, almacenamiento, red, puertos y protocolos, etc.) dentro de las suscripciones. Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y enumere todas las suscripciones de Azure, así como los recursos de las suscripciones.
 
-Aunque los recursos clásicos de Azure se pueden detectar a través de Resource Graph, es muy recomendable a partir de ahora crear y usar los recursos de Azure Resource Manager.
+Aunque los recursos clásicos de Azure se pueden detectar a través de Resource Graph, a partir de ahora es muy recomendable crear y usar los recursos con Azure Resource Manager.
 
 * [Creación de consultas con Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
@@ -647,7 +647,7 @@ Use Azure Resource Graph para consultar y detectar recursos dentro de sus suscri
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6.11: Limitación de la capacidad de los usuarios para interactuar con Azure Resource Manager
 
-**Guía**: Configure el acceso condicional de Azure para limitar la capacidad de los usuarios de interactuar con Azure Resource Manager configurando "Bloquear acceso" en la aplicación Microsoft Azure Management.
+**Instrucciones**: Configure el acceso condicional de Azure para limitar la capacidad de los usuarios de interactuar con Azure Resource Manager configurando "Bloquear acceso" en la aplicación Microsoft Azure Management.
 
 * [Configuración del acceso condicional para bloquear el acceso a Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
 
@@ -773,7 +773,7 @@ Consulte también:
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: Implemente la supervisión de configuración automatizada para sistemas operativos
 
-**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
+**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -813,7 +813,7 @@ Consulte también:
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Use software antimalware administrado centralmente
 
-**Guía**: No aplicable; esta guía está pensada para recursos de proceso. Microsoft Antimalware está habilitado en el host subyacente que admite los servicios de Azure (por ejemplo, Azure App Service), pero no se ejecuta en el contenido del cliente.
+**Guía**: No aplicable; esta guía está pensada para recursos de proceso. Microsoft Antimalware está habilitado en el host subyacente que admite los servicios de Azure (por ejemplo, Azure App Service), pero no se ejecuta en el contenido del cliente.
 
 **Supervisión de Azure Security Center**: No aplicable
 

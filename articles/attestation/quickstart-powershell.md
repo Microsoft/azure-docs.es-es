@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 70e86e01a9d37a27620d451bcd5d035dfcb4573d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 538aa29ab66fce48da944dbdf9ea79d5c8f7f330
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237121"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421295"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Inicio rápido: Configuración de Azure Attestation con Azure PowerShell
 
@@ -159,26 +159,27 @@ TagsTable:
 
 Los proveedores de atestación se pueden eliminar con el cmdlet Remove-AzAttestation.  
 
-``azurepowershell Remove-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
+```powershell
+Remove-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
 ```
 
-## Policy management
+## <a name="policy-management"></a>Administración de directivas
 
-In order to manage policies, an Azure AD user requires the following permissions for "Actions":
+Para administrar directivas, un usuario de Azure AD necesita los siguientes permisos para las "acciones":
 - Microsoft.Attestation/attestationProviders/attestation/read
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
-These permissions can be assigned to an AD user through a role such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) or "Attestation Contributor" (specific permissions for Azure Attestation only).  
+Estos permisos se pueden asignar a un usuario de AD a través de un rol como "propietario" (permisos con caracteres comodín), "colaborador" (permisos con caracteres comodín) o "colaborador de atestación" (permisos específicos solo para Azure Attestation).  
 
-In order to read policies, an Azure AD user requires the following permission for "Actions":
+Para leer directivas, un usuario de Azure AD necesita los siguientes permisos para las "acciones":
 - Microsoft.Attestation/attestationProviders/attestation/read
 
-This permission can be assigned to an AD user through a role such as "Reader" (wildcard permissions) or "Attestation Reader" (specific permissions for Azure Attestation only).
+Este permiso se puede asignar a un usuario de AD a través de un rol como "lector" (permisos con caracteres comodín) o "lector de atestación" (permisos específicos solo para Azure Attestation).
 
-Below PowerShell cmdlets provide policy management for an attestation provider (one TEE at a time).
+Los siguientes cmdlets de PowerShell proporcionan la administración de certificados de firmante de directivas para un proveedor de atestación (un TEE a la vez):
 
-Get-AzAttestationPolicy returns the current policy for the specified TEE. The cmdlet displays policy in both text and JWT format of the policy.
+Get-AzAttestationPolicy devuelve la directiva actual para el TEE especificado. El cmdlet muestra la directiva en el formato de texto y JWT de la directiva.
 
 ```powershell
 $teeType = "<tee Type>"

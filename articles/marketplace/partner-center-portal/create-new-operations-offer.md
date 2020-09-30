@@ -3,16 +3,16 @@ title: Creación de una oferta de Dynamics 365 for Operations en el portal de Ma
 description: Cómo crear una nueva oferta de Dynamics 365 for Operations para mostrarla o venderla en Azure Marketplace, AppSource, o bien a través del programa Proveedor de soluciones en la nube (CSP) mediante el portal de Marketplace comercial del Centro de partners de Microsoft.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 79bf5f0d6b7e3fa4735d94c7b26c1736ab25113e
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: e5fb00eadaa8d1702b46a03c03b55bbd0ef693f6
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817007"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646693"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Creación de una oferta de Dynamics 365 for Operations
 

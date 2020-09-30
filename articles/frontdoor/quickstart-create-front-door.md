@@ -3,7 +3,7 @@ title: 'Inicio rápido: Configuración de alta disponibilidad con Azure Front Do
 description: Este inicio rápido describe cómo usar Azure Front Door Service para una aplicación web global de alta disponibilidad y alto rendimiento.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.assetid: ''
 ms.service: frontdoor
@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
-ms.author: sharadag
-ms.openlocfilehash: c1ce34bb7fc851d3f763241c9e92371b43ed1861
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: duau
+ms.openlocfilehash: 16ebfe7ae39d63f455e39c677acc61b31d40bb5a
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82133397"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569244"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Inicio rápido: Cree una instancia de Front Door para una aplicación web global de alta disponibilidad.
 
@@ -165,5 +165,3 @@ Repita el procedimiento anterior con los otros dos grupos.
 Pase al siguiente artículo para aprender a agregar un dominio personalizado a Front Door.
 > [!div class="nextstepaction"]
 > [Agregar un dominio personalizado](front-door-custom-domain.md)
-
-Para más información acerca del enrutamiento de tráfico, consulte [Métodos de enrutamiento de Front Door](front-door-routing-methods.md).

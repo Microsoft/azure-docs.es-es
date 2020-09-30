@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: f54dd09ac82ddefeb2528462c7131aa921592d2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa81987f9214870e248ef9b625e6afcd1093fe5d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84487957"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907885"
 ---
 # <a name="init-image-transformation"></a>Transformación de imagen init
 
-En este artículo se describe cómo usar el módulo **Transformación de imagen init** en el diseñador de Azure Machine Learning (versión preliminar), para inicializar la transformación de la imagen con el fin de especificar cómo desea que se transforme la imagen.
+En este artículo se describe cómo usar el módulo **Transformación de imagen init** en el diseñador de Azure Machine Learning, para inicializar la transformación de la imagen con el fin de especificar cómo desea que se transforme la imagen.
 
 ## <a name="how-to-configure-init-image-transformation"></a>Configuración de la transformación de imagen init
 

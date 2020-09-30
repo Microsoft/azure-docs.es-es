@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 01/27/2020
-ms.openlocfilehash: b0def12582dd3795e1b17334406e28d77c3c5656
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5206565b85d1551e5e551f1dfe75d28c93bc53f0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477449"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898222"
 ---
 # <a name="summarize-data"></a>Resumen de datos
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
 Use el módulo Summarize Data (Resumen de datos) para crear un conjunto de medidas estadísticas estándar que describan cada columna de la tabla de entrada.
 

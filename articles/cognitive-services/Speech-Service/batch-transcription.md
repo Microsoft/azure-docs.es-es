@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 08/28/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5be3b4ce5d89a15009f2b9b31183400890dbefb5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3b9a491f7546fbaa8722498b164bfa56353dfcfc
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918951"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050189"
 ---
 # <a name="how-to-use-batch-transcription"></a>Uso de la transcripción por lotes
 
@@ -170,7 +170,7 @@ Utilice estas propiedades opcionales para configurar la transcripción:
       `destinationContainerUrl`
    :::column-end:::
    :::column span="2":::
-      URL opcional con [SAS de servicio](../../storage/common/storage-sas-overview.md) en un contenedor grabable de Azure. El resultado se almacena en este contenedor. Cuando no se especifica, Microsoft almacena los resultados en un contenedor de almacenamiento administrado por Microsoft. Cuando se elimina la transcripción mediante una llamada a [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), también se eliminan los datos del resultado.
+      URL opcional con [SAS ad hoc de servicio](../../storage/common/storage-sas-overview.md) en un contenedor grabable de Azure. El resultado se almacena en este contenedor. **No** se admite SAS con directiva de acceso almacenada. Cuando no se especifica, Microsoft almacena los resultados en un contenedor de almacenamiento administrado por Microsoft. Cuando se elimina la transcripción mediante una llamada a [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), también se eliminan los datos del resultado.
 :::row-end:::
 
 ### <a name="storage"></a>Storage

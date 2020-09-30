@@ -3,27 +3,23 @@ title: Configuración de vínculo privado
 description: Configure un punto de conexión privado en un registro de contenedor y habilite un vínculo privado en una red virtual local. El acceso de vínculo privado es una característica del nivel de servicio Premium.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 713b19e4a60e5dcad6cfd92d65f97af2e921c0e9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: da07d35ad944db8e9b8a7bac0602fff23cd222d8
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523849"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488752"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Conexión privada a un registro de contenedor de Azure mediante Azure Private Link
 
 
-Limite el acceso a un registro mediante la asignación de direcciones IP privadas de red virtual a los puntos de conexión del registro y el uso de [Azure Private Link](../private-link/private-link-overview.md). El tráfico de red entre los clientes de la red virtual y los puntos de conexión privados del registro atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet. Private Link también habilita el acceso al registro privado desde el entorno local a través del emparejamiento privado de [Azure ExpressRoute](../expressroute/expressroute-introduction.MD) o una [puerta de enlace de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Limite el acceso a un registro mediante la asignación de direcciones IP privadas de red virtual a los puntos de conexión del registro y el uso de [Azure Private Link](../private-link/private-link-overview.md). El tráfico de red entre los clientes de la red virtual y los puntos de conexión privados del registro atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet. Azure Private Link también permite acceder al registro privado desde el entorno local utilizando el emparejamiento privado de [Azure ExpressRoute](../expressroute/expressroute-introduction.MD) o una [puerta de enlace de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 Puede [establecer la configuración DNS](../private-link/private-endpoint-overview.md#dns-configuration) de los puntos de conexión privados del registro, de modo que la configuración se resuelva en la dirección IP privada asignada del registro. Con la configuración DNS, los clientes y servicios de la red pueden seguir accediendo al registro en el nombre de dominio completo de este, como *myregistry.azurecr.io*. 
 
-Esta característica está disponible en el nivel de servicio de un registro de contenedor **Premium**. Para obtener información sobre los límites y niveles de servicio de registro, consulte [Niveles de Azure Container Registry](container-registry-skus.md).
+Esta característica está disponible en el nivel de servicio de un registro de contenedor **Premium**. Actualmente, se puede configurar un máximo de 10 puntos de conexión privados para un registro. Para obtener información sobre los límites y niveles de servicio de registro, consulte [Niveles de Azure Container Registry](container-registry-skus.md).
 
-
-## <a name="things-to-know"></a>Cosas que debe saber
-
-* Actualmente, el análisis de imágenes mediante Azure Security Center no está disponible en un registro configurado con un punto de conexión privado.
-* Actualmente, se puede configurar un máximo de 10 puntos de conexión privados para un registro.
+[!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -215,7 +211,7 @@ Configure un vínculo privado al crear un registro o agregue un vínculo privado
 
     | Configuración | Valor |
     | ------- | ----- |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Escriba el nombre de un grupo existente o cree uno nuevo.|
     | Nombre | Escriba un nombre único. |
     | Subrecurso |Seleccione **registro**.|
@@ -240,7 +236,7 @@ Configure un vínculo privado al crear un registro o agregue un vínculo privado
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Escriba el nombre de un grupo existente o cree uno nuevo.|
     | **Detalles de instancia** |  |
     | Nombre | Escriba un nombre. |
@@ -252,7 +248,7 @@ Configure un vínculo privado al crear un registro o agregue un vínculo privado
     | Configuración | Value |
     | ------- | ----- |
     |Método de conexión  | Seleccione **Conectarse a un recurso de Azure en mi directorio**.|
-    | Suscripción| Seleccione su suscripción. |
+    | Subscription| Seleccione su suscripción. |
     | Tipo de recurso | Seleccione **Microsoft.ContainerRegistry/registries**. |
     | Recurso |Seleccione el nombre del registro.|
     |Subrecurso de destino |Seleccione **registro**.|

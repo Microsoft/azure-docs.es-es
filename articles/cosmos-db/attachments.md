@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 27d9297809d2bd028918885a88faf55e8314b71d
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: cb5dbe5101231963f45132fca58279b934c5e49c
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817256"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055374"
 ---
 # <a name="azure-cosmos-db-attachments"></a>Datos adjuntos de Azure Cosmos DB
 
@@ -102,6 +102,7 @@ namespace attachments
                 foreach (Document document in response)
                 {
                     string attachmentContinuation = null;
+                    PartitionKey docPartitionKey = new PartitionKey(document.Id);
 
                     // Iterate through each attachment within the item (if any).
                     do
@@ -110,7 +111,7 @@ namespace attachments
                             document.SelfLink,
                             new FeedOptions
                             {
-                                PartitionKey = new PartitionKey(document.Id),
+                                PartitionKey = docPartitionKey,
                                 RequestContinuation = attachmentContinuation
                             }
                         );
@@ -134,6 +135,15 @@ namespace attachments
 
                             Console.WriteLine("Copied attachment ... Item Id: {0} , Attachment Id: {1}, Blob Id: {2}", document.Id, attachment.Id, blobId);
                             totalCount++;
+
+                            // Clean up attachment from Azure Cosmos DB.
+                            // Warning: please verify you've succesfully migrated attachments to blog storage prior to cleaning up Azure Cosmos DB.
+                            // await cosmosClient.DeleteAttachmentAsync(
+                            //     attachment.SelfLink,
+                            //     new RequestOptions { PartitionKey = docPartitionKey }
+                            // );
+
+                            // Console.WriteLine("Cleaned up attachment ... Document Id: {0} , Attachment Id: {1}", document.Id, attachment.Id);
                         }
 
                     } while (!string.IsNullOrEmpty(attachmentContinuation));

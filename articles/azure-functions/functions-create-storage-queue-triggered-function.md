@@ -5,12 +5,12 @@ ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.topic: how-to
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: c4c20579f2306b61741f3c6ab1549285271435a3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d722d420597bb459d3e7b6d2ca33fdc49bfe6f09
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123350"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981574"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Crear una función desencadenada por Azure Queue Storage
 
@@ -34,13 +34,13 @@ Después, cree una función en la nueva Function App.
 
 1. Seleccione **Functions** y, a continuación, **+ Agregar** para agregar una función nueva.
 
-   :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-app-quickstart-choose-template.png" alt-text="Elija una plantilla de función en Azure Portal." border="true":::
+   :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-app-quickstart-choose-template.png" alt-text="La aplicación de funciones se creó correctamente." border="true":::
 
 1. Elija la plantilla **Azure Queue Storage trigger** (Desencadenador de Azure Queue Storage).
 
 1. Utilice la configuración que se especifica en la tabla debajo de la imagen.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png" alt-text="Asignar un nombre y configurar la función desencadenada de Queue Storage" border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png" alt-text="La aplicación de funciones se creó correctamente." border="true":::
 
 
     | Configuración | Valor sugerido | Descripción |
@@ -51,7 +51,7 @@ Después, cree una función en la nueva Function App.
 
 1. Seleccione **Crear función** para crear la función.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-3.png" alt-text="Cree la función desencadenada por Queue Storage." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-3.png" alt-text="La aplicación de funciones se creó correctamente." border="true":::
 
 Después, conéctese a su cuenta de Azure Storage y cree la cola de almacenamiento **myqueue-items**.
 
@@ -59,19 +59,19 @@ Después, conéctese a su cuenta de Azure Storage y cree la cola de almacenamien
 
 1. En la función, en la página **Información general**, seleccione el grupo de recursos.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-resource-group.png" alt-text="Seleccione el grupo de recursos de Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-resource-group.png" alt-text="La aplicación de funciones se creó correctamente." border="true":::
 
 1. Busque y seleccione la cuenta de almacenamiento del grupo de recursos.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-account-access.png" alt-text="Acceda a la cuenta de almacenamiento." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-account-access.png" alt-text="La aplicación de funciones se creó correctamente." border="true":::
 
 1. Elija **Colas** y, a continuación, elija **+ Cola**. 
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-add-queue.png" alt-text="Agregue una cola a la cuenta de almacenamiento en Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-add-queue.png" alt-text="La aplicación de funciones se creó correctamente." border="true":::
 
 1. En el campo **Nombre**, escriba `myqueue-items` y seleccione **Crear**.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-name-queue.png" alt-text="Asigne un nombre al contenedor de Queue Storage." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-name-queue.png" alt-text="La aplicación de funciones se creó correctamente." border="true":::
 
 Ahora que tiene una cola de almacenamiento, puede probar la función. Para ello, agregue un mensaje a la cola.
 
@@ -79,21 +79,21 @@ Ahora que tiene una cola de almacenamiento, puede probar la función. Para ello,
 
 1. De nuevo en Azure Portal, vaya a la función. Expanda **Registros** en la parte inferior de la página y asegúrese de que el streaming de registros no está en pausa.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-queue-storage-log-expander.png" alt-text="Expanda el inicio de sesión en Azure Portal" border="true":::.
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-queue-storage-log-expander.png" alt-text="La aplicación de funciones se creó correctamente." border="true":::.
 
 1. En una ventana del explorador independiente, vaya al grupo de recursos de Azure Portal y seleccione la cuenta de almacenamiento.
 
 1. Seleccione **Colas** y, a continuación, el contenedor **myqueue-items**.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue.png" alt-text="Vaya a la cola myqueue-items en Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue.png" alt-text="La aplicación de funciones se creó correctamente." border="true":::
 
 1. Seleccione **Agregar mensaje** y escriba "¡Hola mundo!". en **Texto del mensaje**. Seleccione **Aceptar**.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue-test.png" alt-text="Vaya a la cola myqueue-items en Azure Portal." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue-test.png" alt-text="La aplicación de funciones se creó correctamente." border="true":::
 
 1. Espere unos segundos y, después, vuelva a los registros de función para comprobar que se ha leído el mensaje nuevo de la cola.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png" alt-text="Vea el mensaje en los registros." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png" alt-text="La aplicación de funciones se creó correctamente." border="true":::
 
 1. En Storage Queue, seleccione **Actualizar** y verifique que el mensaje se haya procesado y ya no esté en la cola.
 

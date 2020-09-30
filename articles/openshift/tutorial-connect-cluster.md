@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 226cf29b1a94b4508a9d68f02b7400a18eba4bc2
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 24990087507dee09bc38418f40c72911386e5efb
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587861"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469123"
 ---
 # <a name="tutorial-connect-to-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Conexión a un clúster de la versión 4 de Red Hat OpenShift en Azure
 
@@ -25,7 +25,7 @@ En este tutorial, la segunda de tres partes, se conectará a un clúster de Red 
 
 En los tutoriales anteriores, se creó un clúster de Red Hat OpenShift en Azure. Si no ha realizado estos pasos, pero desea continuar, comience con el [Tutorial 1: Creación de un clúster de la versión 4 de Red Hat Openshift en Azure](tutorial-create-cluster.md).
 
-Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.6.0, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.6.0, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="connect-to-the-cluster"></a>Conectarse al clúster
 
@@ -46,7 +46,7 @@ En la siguiente salida de ejemplo se muestra que la contraseña estará en `kube
 }
 ```
 
-Para encontrar la dirección URL de la consola del clúster, ejecute el siguiente comando, que será similar a `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`.
+Para encontrar la dirección URL de la consola del clúster, ejecute el siguiente comando, que tendrá este aspecto `https://console-openshift-console.apps.<random>.<region>.aroapp.io/`.
 
 ```azurecli-interactive
  az aro show \

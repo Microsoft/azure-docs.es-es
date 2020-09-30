@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 63872f3d62bcf62562cef7fd4ee02e9a0535da67
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 3050d0c61b6278b32b8e9272f228a863c9a0a244
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756884"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458695"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver
 
@@ -1255,7 +1255,9 @@ Consulte la diferencia de arquitectura entre el modelo clásico y el de ARM, que
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>Configuración del sistema SAP y la conectividad de la GUI de SAP a través de Internet
 
-Para obtener información más detallada sobre este tema consulte este artículo: <https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
+Para obtener información más detallada sobre este tema consulte este artículo: 
+
+<https://docs.microsoft.com/archive/blogs/saponsqlserver/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure>
 
 #### <a name="changing-firewall-settings-within-vm"></a>Cambio de la configuración del firewall en la máquina virtual
 
@@ -1980,7 +1982,7 @@ Se puede efectuar una copa de seguridad de otras máquinas virtuales dentro del 
 
 Desde mediados de 2014, las extensiones de diversos componentes de Hyper-V, System Center y Azure permiten el uso de Azure como sitio de recuperación ante desastres para las máquinas virtuales basadas en Hyper-V que se ejecutan en el entorno local.
 
-Se puede encontrar un blog que detalla cómo implementar esta solución aquí: <https://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx>.
+Se puede encontrar un blog que detalla cómo implementar esta solución aquí: <https://docs.microsoft.com/archive/blogs/saponsqlserver/protecting-sap-solutions-with-azure-site-recovery>.
 
 ## <a name="summary"></a>Resumen
 

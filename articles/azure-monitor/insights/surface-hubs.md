@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
-ms.openlocfilehash: 7999735bf2d182b2811d01172adcfc89cba27dc8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7e3b0f92770b48ef5163846e67940efe80fb669a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77662508"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085355"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Supervisión de Surface Hub con Azure Monitor para realizar un seguimiento de su estado
 
@@ -60,7 +60,7 @@ Si no usa Intune para administrar su entorno, puede inscribir dispositivos manua
 3. Haga clic en **Este dispositivo** y, en **Supervisión**, haga clic en **Configuración de Log Analytics**.
 4. Seleccione **Habilitar supervisión**.
 5. En el cuadro de diálogo de configuración de Log Analytics, escriba el **identificador de área de trabajo** y la **clave de área de trabajo** de Log Analytics.  
-   ![settings](./media/surface-hubs/settings.png)
+   ![Captura de pantalla que muestra la configuración del conjunto de aplicaciones de Microsoft Operations Manager con la opción Habilitar supervisión seleccionada y los cuadros de texto Id. de área de trabajo y Clave de área de trabajo.](./media/surface-hubs/settings.png)
 6. Haga clic en **Aceptar** para completar la configuración.
 
 Aparecerá una confirmación que indica si la configuración se aplicó correctamente en el dispositivo. Si es así, aparecerá un mensaje que indica que el agente se ha conectado correctamente a Azure Monitor. El dispositivo comienza a enviar datos a Azure Monitor, donde puede verlos y usarlos.

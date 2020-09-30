@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 76c5bac600f05094f2e2a354cd5cf5895d9d45d2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 082adc0753cb8e41bc61f5703445e6b8507202b5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496617"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902680"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-powershell"></a>Inicio rápido: Creación de una instancia de Azure Database for PostgreSQL: servidor único mediante PowerShell
 
@@ -165,11 +165,11 @@ pgAdmin es una herramienta de código abierto que se usa con PostgreSQL. Puede i
 
 1. En el cuadro de diálogo **Create - Server** (Crear: servidor) de la pestaña **General**, escriba un nombre descriptivo único para el servidor, como **mydemoserver**.
 
-   ![Pestaña "General"](./media/quickstart-create-postgresql-server-database-using-azure-powershell/9-pgadmin-create-server.png)
+   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/9-pgadmin-create-server.png" alt-text="Pestaña General":::
 
 1. En la pestaña **Connection** (Conexión) del cuadro de diálogo **Create - Server** (Crear: servidor), rellene la tabla de configuración.
 
-   ![Pestaña "Conexión"](./media/quickstart-create-postgresql-server-database-using-azure-powershell/10-pgadmin-create-server.png)
+   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/10-pgadmin-create-server.png" alt-text="Pestaña Conexión":::
 
     parámetro pgAdmin |Value|Descripción
     ---|---|---
@@ -193,7 +193,7 @@ pgAdmin es una herramienta de código abierto que se usa con PostgreSQL. Puede i
 
 1. Seleccione el **propietario** de la base de datos en el cuadro de lista. Elija el nombre de inicio de sesión del administrador del servidor, como en el ejemplo, **my admin**.
 
-   ![Creación de una base de datos en pgAdmin](./media/quickstart-create-postgresql-server-database-using-azure-powershell/11-pgadmin-database.png)
+   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/11-pgadmin-database.png" alt-text="Creación de una base de datos en pgAdmin":::
 
 1. Seleccione **Guardar** para crear una base de datos vacía.
 

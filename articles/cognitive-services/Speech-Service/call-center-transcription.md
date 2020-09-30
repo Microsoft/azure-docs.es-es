@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 77573ac4240eeded1f803d88f218aaf4d4c5a929
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 84a1e2edcbe9e9da93a158ebc11e7bf638dae100
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636133"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462741"
 ---
 # <a name="speech-service-for-telephony-data"></a>Servicio Voz para datos de telefonía
 
@@ -60,7 +60,7 @@ No es raro que el 35 por ciento de una llamada de soporte técnico sea lo que ll
 
 ### <a name="translation"></a>Traducción
 
-Algunas empresas experimentan ahora con ofrecer transcripciones traducidas de llamadas de soporte técnico en idiomas extranjeros para que los administradores de entrega puedan comprender la experiencia de sus clientes de todo el mundo. Nuestras funcionalidades de [traducción](translation.md) son insuperables. Podemos traducir audio a audio o audio a texto para un gran número de configuraciones regionales.
+Algunas empresas experimentan ahora con ofrecer transcripciones traducidas de llamadas de soporte técnico en idiomas extranjeros para que los administradores de entrega puedan comprender la experiencia de sus clientes de todo el mundo. Nuestras funcionalidades de [traducción](/azure/cognitive-services/speech-service/speech-translation) son insuperables. Podemos traducir audio a audio o audio a texto para un gran número de configuraciones regionales.
 
 ### <a name="text-to-speech"></a>Texto a voz
 

@@ -6,12 +6,12 @@ ms.author: aul
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: fb53a966b0dc4959253ac0786ef09ef3c497e809
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7614dd1d60bad5c124269ae2af02d30a5aacfe3e
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77658853"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564039"
 ---
 # <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>Acceso y resumen de conversión del diseñador de vistas en libros
 El [diseñador de vistas](view-designer.md) es una característica de Azure Monitor que permite crear vistas personalizadas para ayudar a visualizar datos en el área de trabajo de Log Analytics, con gráficos, listas y escalas de tiempo. Estas vistas se están retirando paulatinamente y están siendo reemplazadas por libros, que proporcionan funcionalidad adicional. En este artículo se describe cómo puede crear un resumen de información general y los permisos necesarios para acceder a los libros.
@@ -21,7 +21,7 @@ Los usuarios del diseñador de vistas pueden estar familiarizados con un icono d
 
 Puede aprovechar el alto nivel de las características de personalización que se proporcionan con los paneles de Azure, que permiten la actualización automática, el movimiento, el ajuste de tamaño y el filtrado adicional para los elementos anclados y las visualizaciones. 
 
-![Panel](media/view-designer-conversion-access/dashboard.png)
+![Captura de pantalla que muestra un panel de Azure personalizado titulado Resumen del área de trabajo.](media/view-designer-conversion-access/dashboard.png)
 
 Cree un nuevo panel de Azure o seleccione un panel existente para empezar a anclar los elementos de los libros.
 

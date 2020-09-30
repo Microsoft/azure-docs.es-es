@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: b37b327a535b716bbce845cd5883e58ec5379c48
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: e6ab37539d00b6748d0e63a3f559bf70f493cf42
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782726"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394744"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Traslado de Azure Key Vault a otra suscripción
 
@@ -59,8 +59,6 @@ Asegúrese de ir a la página de Azure Policy en Azure Portal y examine las asig
 
 ## <a name="procedure"></a>Procedimiento
 
-Si usted: 
-
 ### <a name="moving-key-vault-to-a-new-subscription-within-the-same-tenant"></a>Movimiento de Key Vault a una nueva suscripción dentro del mismo inquilino
 
 1. Iniciar sesión en Azure Portal
@@ -99,11 +97,9 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 
 Ahora que el almacén está asociado al identificador de inquilino correcto y que se han quitado las entradas de directiva de acceso antiguas, establezca nuevas entradas de directiva de acceso con el cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) de Azure PowerShell o el comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) de la CLI de Azure.
 
-Si usa una identidad administrada para los recursos de Azure, tendrá que actualizarla también al nuevo inquilino de Azure AD. Para más información sobre las identidades administradas, consulte [Autenticación de Key Vault con una identidad administrada](managed-identity.md).
+Si usa una identidad administrada para los recursos de Azure, tendrá que actualizarla también al nuevo inquilino de Azure Active Directory. Para más información sobre las identidades administradas, consulte [Identidades administradas para recursos de Azure](/azure/active-directory/managed-identities-azure-resources/overview).
 
-Si usa MSI, también tendrá que actualizar la identidad de MSI, ya que la anterior ya no estará en el inquilino de AAD correcto. Consulte los siguientes documentos para ayudar a resolver este problema. 
+Si usa identidad administrada, también tendrá que actualizar la identidad, ya que la anterior ya no estará en el inquilino de Azure Active Directory correcto. Consulte los siguientes documentos para ayudar a resolver este problema. 
 
 * [Actualización de MSI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)
 * [Transferencia de una suscripción a un nuevo directorio](https://docs.microsoft.com/azure/role-based-access-control/transfer-subscription)
-
-

@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9d3f8208af9d5997f5a9e025a54b54b5b035fb85
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8e8c32f5596e469de5402a1f712d234a806a69e4
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934980"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298001"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Uso de la sintaxis de búsqueda "completa" de Lucene (consultas avanzadas en Azure Cognitive Search)
 
@@ -40,13 +40,13 @@ Lo que necesita es Postman o una herramienta equivalente para emitir la solicitu
 
 Después de especificar el encabezado de solicitud, puede volver a usarlo para todas las consultas de este artículo, cambiando solo la cadena **search=** . 
 
-  ![Encabezado de solicitud de Postman](media/search-query-lucene-examples/postman-header.png)
+  ![Parámetros del conjunto de encabezados de solicitud de Postman](media/search-query-lucene-examples/postman-header.png)
 
 ### <a name="set-the-request-url"></a>Establecimiento de la dirección URL de solicitud
 
 La solicitud es un comando GET emparejado con una dirección URL que contiene la cadena de búsqueda y el punto de conexión de Azure Cognitive Search.
 
-  ![Encabezado de solicitud de Postman](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  ![Encabezado de solicitud GET de Postman](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 La composición de dirección URL tiene los siguientes elementos:
 
@@ -111,7 +111,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 La respuesta de esta consulta debe tener un aspecto similar a la siguiente captura de pantalla.
 
-  ![Respuesta de ejemplo de Postman](media/search-query-lucene-examples/postman-sample-results.png)
+  ![Respuesta de ejemplo de Postman con puntuaciones](media/search-query-lucene-examples/postman-sample-results.png)
 
 Tal vez haya notado la puntuación de búsqueda en la respuesta. Las puntuaciones uniformes de 1 se producen cuando no hay ninguna clasificación, ya sea debido a que la búsqueda no era de texto completo o porque no se ha aplicado ningún criterio. Para la búsqueda de valores null sin ningún criterio, las filas vuelven en orden aleatorio. Al incluir criterios reales de búsqueda, verá que las puntuaciones de búsqueda evolucionan a valores significativos.
 
@@ -137,7 +137,7 @@ $select=business_title, posting_type&search=business_title:(senior NOT junior) A
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
-  ![Respuesta de ejemplo de Postman](media/search-query-lucene-examples/intrafieldfilter.png)
+  ![Expresión de búsqueda de respuesta de ejemplo de Postman](media/search-query-lucene-examples/intrafieldfilter.png)
 
 Puede definir una operación de búsqueda clasificada por campos con la sintaxis **fieldName:searchExpression**, donde la expresión de búsqueda puede ser una sola palabra o una frase, o una expresión más compleja entre paréntesis, opcionalmente con operadores booleanos. A continuación se muestran algunos ejemplos:
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 50de800c94bd0a65fafcff3ef6613d6f063a3797
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 5953e5d5f6bc50c913c3e92aa92775c34c0fd170
+ms.sourcegitcommit: 8791f69d44150767807d215cafc4076f3ed43f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855485"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89512341"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protegida: Configuración del código
 
@@ -156,9 +156,10 @@ también puede escribir lo siguiente (que es equivalente).
 public void ConfigureServices(IServiceCollection services)
 {
  // Adds Microsoft Identity platform (AAD v2.0) support to protect this API
- services.AddMicrosoftIdentityWebApiAuthentication(Configuration, "AzureAd");
+ services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
+             .AddMicrosoftIdentityWebApi(Configuration, "AzureAd");
 
- services.AddControllers();
+services.AddControllers();
 }
 ```
 

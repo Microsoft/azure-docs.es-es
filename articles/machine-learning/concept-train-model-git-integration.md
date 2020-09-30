@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
-ms.openlocfilehash: 154d28e4df9bad68f3c5e93208ccf62ba2721663
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: bd77af133b88e1ba93054dbb7e0f896d8d418f89
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144828"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893554"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integración de Git con Azure Machine Learning
 
@@ -70,12 +70,10 @@ La información de Git se almacena en las propiedades para la ejecución de entr
 
 ### <a name="azure-portal"></a>Portal de Azure
 
-1. En [Azure Portal](https://portal.azure.com), seleccione su área de trabajo.
+1. En el [portal de Studio](https://ml.azure.com), seleccione su área de trabajo.
 1. Seleccione __Experimentos__ y, a continuación, seleccione uno de los experimentos.
 1. Seleccione una de las ejecuciones de la columna __NÚMERO DE EJECUCIÓN__.
-1. Seleccione __Registros__ y, a continuación, expanda las entradas __logs__ y __azureml__. Seleccione el vínculo que comienza por __###\_azure__.
-
-    ![La entrada ###_azure en el portal](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
+1. Seleccione __Resultados y registros__ y, a continuación, expanda las entradas __logs__ y __azureml__. Seleccione el vínculo que comienza por __###\_azure__.
 
 La información registrada contiene texto similar al siguiente JSON:
 
@@ -98,7 +96,7 @@ La información registrada contiene texto similar al siguiente JSON:
 
 ### <a name="python-sdk"></a>SDK de Python
 
-Después de enviar una ejecución de entrenamiento, se devuelve un objeto [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py). El atributo `properties` de este objeto contiene la información de Git registrada. Por ejemplo, el código siguiente recupera el hash de confirmación:
+Después de enviar una ejecución de entrenamiento, se devuelve un objeto [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true). El atributo `properties` de este objeto contiene la información de Git registrada. Por ejemplo, el código siguiente recupera el hash de confirmación:
 
 ```python
 run.properties['azureml.git.commit']

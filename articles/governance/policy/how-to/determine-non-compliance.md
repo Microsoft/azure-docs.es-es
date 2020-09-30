@@ -3,12 +3,12 @@ title: Determinación de las causas de incumplimiento
 description: Cuando un recurso no es compatible, hay muchos motivos posibles para ello. Descubra qué es lo que provoca que no sea compatible.
 ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: ee027ff0f2936dc3eb7153869c52d4e70c83918b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a666da4ecb97c24e7176e6c7cfbe2ee24f46f1b7
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512034"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648568"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinación de las causas de incumplimiento
 
@@ -30,17 +30,17 @@ Cuando un recurso no es compatible, los detalles de cumplimiento para ese recurs
 
 Para ver los detalles de cumplimiento, siga estos pasos:
 
-1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
+1. Inicie el servicio Azure Policy en Azure Portal. Para ello, seleccione **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
 
 1. En la página **Información general** o **Cumplimiento**, seleccione una directiva que sea con un **estado de compatibilidad** que sea _No compatible_.
 
 1. En la pestaña **Compatibilidad de recursos** de **Cumplimiento de directiva**, haga clic con el botón derecho o seleccione los puntos suspensivos de un recurso en un **estado de compatibilidad** que sea _No compatible_. A continuación, seleccione **Ver detalles de cumplimiento**.
 
-   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Ver opción de detalles de cumplimiento" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Captura de pantalla del vínculo &quot;Ver detalles de cumplimiento&quot; en la pestaña Cumplimiento de recursos." border="false":::
 
 1. La página **Detalles de cumplimiento** muestra información de la última evaluación del recurso en la asignación de directiva actual. En este ejemplo, el campo **Microsoft.Sql/servers/version** tiene que ser _12.0_ y se espera que la definición de política sea _14.0_. Si el recurso no es compatible por varias razones, estas se muestran en este panel.
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Panel de detalles de cumplimiento y razones de no compatibilidad" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Captura de pantalla del vínculo &quot;Ver detalles de cumplimiento&quot; en la pestaña Cumplimiento de recursos." border="false":::
 
    Para una definición de directiva **auditIfNotExists** o **deployIfNotExists**, los detalles incluyen la propiedad **details.type** y cualquier propiedad opcional. Para obtener una lista, consulte [auditIfNotExists propiedades](../concepts/effects.md#auditifnotexists-properties) y [deployIfNotExists propiedades](../concepts/effects.md#deployifnotexists-properties). **Último recurso evaluado** es un recurso relacionado de la sección de **detalles** de la definición.
 
@@ -69,7 +69,7 @@ Para ver los detalles de cumplimiento, siga estos pasos:
    }
    ```
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Panel de detalles de cumplimiento: *ifNotExists" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Captura de pantalla del vínculo &quot;Ver detalles de cumplimiento&quot; en la pestaña Cumplimiento de recursos." border="false":::
 
 > [!NOTE]
 > Para proteger los datos, cuando un valor de propiedad es _secreto_, el valor actual muestra asteriscos.
@@ -114,13 +114,13 @@ También es posible que no disponga de acceso para iniciar sesión en la VM dire
 
 Para empezar, siga los mismos pasos de la sección anterior para ver los detalles de cumplimiento de directivas.
 
-En la vista del panel Detalles de cumplimiento, haga clic en el vínculo **Último recurso evaluado**.
+En la vista del panel Detalles de cumplimiento, seleccione el vínculo **Último recurso evaluado**.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Ver detalles de la definición de auditIfNotExists" border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Captura de pantalla del vínculo &quot;Ver detalles de cumplimiento&quot; en la pestaña Cumplimiento de recursos." border="false":::
 
 La página **Asignación de invitado** muestra todos los detalles de cumplimiento disponibles. Cada fila de la vista representa una evaluación que se realizó dentro de la máquina. En la columna **Motivo**, se muestra una frase que describe el motivo por el que Asignación de invitado es _No compatible_. Por ejemplo, si audita directivas de contraseñas, la columna **Motivo** mostraría un texto que incluye el valor actual de cada configuración.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Ver detalles de cumplimiento" border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Captura de pantalla del vínculo &quot;Ver detalles de cumplimiento&quot; en la pestaña Cumplimiento de recursos." border="false":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -191,7 +191,7 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 Como parte de una nueva **versión preliminar pública**, los últimos 14 días del historial de cambios están disponibles para todos los recursos de Azure que admiten la [eliminación de modo completa](../../../azure-resource-manager/templates/complete-mode-deletion.md). El historial de cambios proporciona información acerca de cuándo se detectó un cambio y una _diferencia visual_ para cada cambio. Se desencadena una detección de cambios cuando se agregan, eliminan o modifican las propiedades de Azure Resource Manager.
 
-1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
+1. Inicie el servicio Azure Policy en Azure Portal. Para ello, seleccione **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
 
 1. En la página **Información general** o **Cumplimiento**, seleccione una directiva con cualquier **estado de compatibilidad**.
 
@@ -199,11 +199,11 @@ Como parte de una nueva **versión preliminar pública**, los últimos 14 días 
 
 1. Seleccione la pestaña **Historial de cambios (versión preliminar)** en la página **Compatibilidad de recursos**. Se muestra una lista de cambios detectados, si existe alguna.
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Pestaña Historial de cambios de directiva de Azure en la página Compatibilidad de recursos" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Captura de pantalla del vínculo &quot;Ver detalles de cumplimiento&quot; en la pestaña Cumplimiento de recursos." border="false":::
 
 1. Seleccione uno de los cambios detectados. Las _diferencias visuales_ para el recurso se presentan en la página **Historial de cambios**.
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Diferencias visuales del historial de cambios de directiva de Azure en la página Historial de cambios" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Captura de pantalla del vínculo &quot;Ver detalles de cumplimiento&quot; en la pestaña Cumplimiento de recursos." border="false":::
 
 Las _diferencias visuales_ ayudan a identificar los cambios de un recurso. Los cambios detectados pueden no estar relacionados con el estado de compatibilidad actual del recurso.
 

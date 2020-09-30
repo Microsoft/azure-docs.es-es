@@ -1,44 +1,44 @@
 ---
-title: Conexión de datos de Azure Security Center a Azure Sentinel
-description: Descubra cómo conectar alertas desde el nivel estándar de Azure Security Center (ASC) y transmitirlas a Azure Sentinel.
+title: Conexión de datos de Azure Defender a Azure Sentinel
+description: Descubra cómo conectar alertas de Azure Defender desde Azure Security Center y transmitirlas a Azure Sentinel.
 author: yelevin
 manager: rkarlin
 ms.assetid: d28c2264-2dce-42e1-b096-b5a234ff858a
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.topic: conceptual
-ms.date: 09/23/2019
+ms.topic: how-to
+ms.date: 09/07/2020
 ms.author: yelevin
-ms.openlocfilehash: 2fc7744600a9652ad43fd0aae8d886dc94acd58f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1188e533039b0137cebb22652d9921418c41deb
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559157"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659643"
 ---
-# <a name="connect-data-from-azure-security-center-asc"></a>Conectar datos de Azure Security Center (ASC)
+# <a name="connect-azure-defender-alert-data-from-azure-security-center"></a>Conexión de datos de alertas de Azure Defender desde Azure Security Center
 
-Azure Sentinel permite conectar alertas de [Azure Security Center](../security-center/security-center-intro.md) y transmitirlos a Azure Sentinel. 
+Use el conector de alertas de Azure Defender para ingerir alertas de Azure Defender desde [Azure Security Center](../security-center/security-center-intro.md) y transmitirlas a Azure Sentinel. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Para exportar alertas desde Azure Security Center, debe tener el rol de lector de seguridad en la suscripción de los registros que transmita.
+- El usuario debe tener el rol de lector de seguridad en la suscripción de los registros que transmita.
 
-- En la suscripción debe ejecutarse el [nivel estándar de Azure Security Center](../security-center/security-center-pricing.md). Si no es así, [actualícela al nivel estándar](https://azure.microsoft.com/pricing/details/security-center/).
+- Tendrá que habilitar Azure Defender en Azure Security Center (el nivel Estándar ya no existe, por lo que ya no es un requisito de licencia).
 
-## <a name="connect-to-azure-security-center"></a>Conectar a Azure Security Center
+## <a name="connect-to-azure-defender"></a>Conexión a Azure Defender
 
 1. En el menú de navegación de Azure Sentinel, seleccione **Conectores de datos**.
 
-1. En la galería de conectores de datos, seleccione **Azure Security Center** y, a continuación, haga clic en el botón **Abrir la página del conector**.
+1. En la galería de conectores de datos, seleccione **Azure Defender alerts from ASC** (Alertas de Azure Defender desde ASC) (es posible que todavía se le llame Azure Security Center) y haga clic en el botón **Open connector page** (Abrir la página del conector).
 
-1. En **Configuration** (Configuración), haga clic en **Connect** (Conectar) junto a cada suscripción cuyas alertas quiera transmitir a Azure Sentinel. El botón Conectar solo estará disponible si tiene los permisos necesarios y la suscripción de nivel estándar de ASC.
+1. En **Configuration** (Configuración), haga clic en **Connect** (Conectar) junto a cada suscripción cuyas alertas quiera transmitir a Azure Sentinel. El botón Conectar solo estará disponible si tiene los permisos necesarios.
 
-1. Puede seleccionar si quiere que las alertas de Azure Security Center generen incidentes en Azure Sentinel. En **Create incidents** (Crear incidentes), seleccione **Enabled** (Habilitado) para activar la regla de análisis predeterminada que crea automáticamente incidentes a partir de alertas. Luego, puede editar esta regla en **Analytics** (Análisis), en la pestaña **Active rules** (Reglas activas).
+1. Puede seleccionar si quiere que las alertas de Azure Defender generen incidentes automáticamente en Azure Sentinel. En **Create incidents** (Crear incidentes), seleccione **Enabled** (Habilitado) para activar la regla de análisis predeterminada que crea automáticamente incidentes a partir de alertas. Luego, puede editar esta regla en **Analytics** (Análisis), en la pestaña **Active rules** (Reglas activas).
 
-1. Para usar el esquema correspondiente en Log Analytics para encontrar alertas de Azure Security Center, busque **SecurityAlert**.
+1. Para usar el esquema pertinente en Log Analytics a fin de encontrar alertas de Azure Defender, busque **SecurityAlert**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, ha aprendido a conectar Azure Security Center a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
+En este documento, ha obtenido información sobre cómo conectar Azure Defender a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Aprenda a [obtener visibilidad de los datos y de posibles amenazas](quickstart-get-visibility.md).
 - Empiece a [detectar amenazas con Azure Sentinel](tutorial-detect-threats-built-in.md).

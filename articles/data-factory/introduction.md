@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 937b836582cfcbf11564aa28b11cd8647afa835c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 1840bf93cbca73e593465c999b416e7cbd7af201
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191104"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536319"
 ---
 # <a name="what-is-azure-data-factory"></a>¿Qué es Azure Data Factory?
 
@@ -28,11 +28,11 @@ Por ejemplo, imagine una empresa de juegos que recopila petabytes de registros d
 
 Para analizar estos registros, la empresa debe usar datos de referencia, como información de clientes, información de juegos e información de campañas de marketing, que se encuentran en un almacén de datos local. La empresa quiere usar estos datos del almacén de datos local y combinarlos con datos de registro adicionales que tiene en un almacén de datos en la nube. 
 
-Para extraer información, espera procesar los datos combinados mediante un clúster de Spark en la nube (Azure HDInsight) y publicar los datos transformados en un almacenamiento de datos en la nube como Azure SQL Data Warehouse para generar fácilmente un informe sobre él. Quieren automatizar este flujo de trabajo y supervisarlo y administrarlo según una programación diaria. También quieren ejecutarlo cuando los archivos lleguen a un contenedor de almacén de blobs.
+Para extraer información, espera procesar los datos combinados mediante un clúster de Spark en la nube (Azure HDInsight) y publicar los datos transformados en un almacenamiento de datos en la nube como Azure Synapse Analytics (anteriormente SQL Data Warehouse) para generar fácilmente un informe sobre él. Quieren automatizar este flujo de trabajo y supervisarlo y administrarlo según una programación diaria. También quieren ejecutarlo cuando los archivos lleguen a un contenedor de almacén de blobs.
 
 Azure Data Factory es la plataforma que resuelve estos escenarios de datos. Se trata de un *servicio de integración de datos y ETL basado en la nube que le permite crear flujos de trabajo orientados a datos a fin de coordinar el movimiento y la transformación de datos a escala*. Con Azure Data Factory, puede crear y programar flujos de trabajo basados en datos (llamados canalizaciones) que pueden ingerir datos de distintos almacenes de datos. Puede crear procesos ETL complejos que transformen datos visualmente con flujos de datos o mediante servicios de proceso como Azure HDInsight Hadoop, Azure Databricks y Azure SQL Database. 
 
-Además, puede publicar los datos transformados en almacenes de datos, como Azure SQL Data Warehouse, para que los consuman aplicaciones de inteligencia empresarial (BI). En última instancia, mediante Azure Data Factory, los datos sin procesar se pueden organizar en almacenes de datos y Data Lakes significativos para tomar mejores decisiones empresariales.
+Además, puede publicar los datos transformados en almacenes de datos, como Azure Synapse Analytics, para que los consuman aplicaciones de inteligencia empresarial (BI). En última instancia, mediante Azure Data Factory, los datos sin procesar se pueden organizar en almacenes de datos y Data Lakes significativos para tomar mejores decisiones empresariales.
 
 ![Vista de nivel superior de Data Factory](media/data-flow/overview.png)
 
@@ -62,7 +62,15 @@ Data Factory ofrece compatibilidad total con CI/CD de sus canalizaciones de dato
 Una vez creada e implementada correctamente la canalización de integración de datos, que proporciona un valor empresarial a partir de datos procesados, supervise las canalizaciones y las actividades programadas para ver las tasas de éxito y error. Azure Data Factory tiene compatibilidad integrada para la supervisión de canalizaciones mediante Azure Monitor, API, PowerShell, los registros de Azure Monitor y los paneles de mantenimiento de Azure Portal.
 
 ## <a name="top-level-concepts"></a>Conceptos de nivel superior
-Una suscripción de Azure puede tener una o varias instancias de Azure Data Factory (o factorías de datos). Azure Data Factory consta de cuatro componentes principales. Estos componentes funcionan juntos para proporcionar la plataforma en la que pueda crear flujos de trabajo basados en datos con pasos para moverlos y transformarlos.
+Una suscripción de Azure puede tener una o varias instancias de Azure Data Factory (o factorías de datos). Azure Data Factory consta de los siguientes componentes principales.
+- Pipelines
+- Actividades
+- Conjuntos de datos
+- Servicios vinculados
+- Flujos de datos
+- Integration Runtime
+
+Estos componentes funcionan juntos para proporcionar la plataforma en la que pueda crear flujos de trabajo basados en datos con pasos para moverlos y transformarlos.
 
 ### <a name="pipeline"></a>Canalización
 Una factoría de datos puede tener una o más canalizaciones. La canalización es una agrupación lógica de actividades para realizar una unidad de trabajo. Juntas, las actividades de una canalización realizan una tarea. Por ejemplo, una canalización puede contener un grupo de actividades que ingiere datos de un blob de Azure y luego ejecutar una consulta de Hive en un clúster de HDInsight para particionar los datos. 

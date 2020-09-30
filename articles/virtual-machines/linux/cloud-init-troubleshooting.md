@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 81e138e7149327c7b792df58180419b93417d263
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6412036e3f16e2efb3bbf6669f6a31e9dc6e3584
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510980"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434646"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Solución de problemas de aprovisionamiento de VM con cloud-init
 
@@ -56,7 +56,7 @@ Cuando no se puede aprovisionar la VM, Azure mostrará el estado "creando", dura
 
 Mientras se ejecuta la VM, necesitará los registros de la VM para comprender por qué se produjo un error en el aprovisionamiento.  Para comprender por qué se produjo un error en el aprovisionamiento de la VM, no detenga la VM. Mantenga la VM en ejecución. Tendrá que mantener la VM con errores en ejecución para recopilar registros. Para recopilar los registros, use uno de los siguientes métodos:
 
-- [Consola serie](./serial-console-grub-single-user-mode.md)
+- [Consola serie](../troubleshooting/serial-console-grub-single-user-mode.md)
 
 - [Habilitar los diagnósticos de arranque](./tutorial-monitor.md#enable-boot-diagnostics) antes de crear la VM y, a continuación, [verlos](./tutorial-monitor.md#view-boot-diagnostics) durante el arranque.
 
@@ -108,7 +108,7 @@ Una vez que encuentre un error o una advertencia, lea en el registro de cloud-in
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
 ```
 
-Si tiene acceso a la [consola serie](./serial-console-grub-single-user-mode.md), puede intentar volver a ejecutar el comando que cloud-init estaba intentando ejecutar.
+Si tiene acceso a la [consola serie](../troubleshooting/serial-console-grub-single-user-mode.md), puede intentar volver a ejecutar el comando que cloud-init estaba intentando ejecutar.
 
 El registro de `/var/log/cloud-init.log` también se puede reconfigurar desde /etc/cloud/cloud.cfg.d/05_logging.cfg. Para más detalles sobre el registro de cloud-init, consulte la [documentación de cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 

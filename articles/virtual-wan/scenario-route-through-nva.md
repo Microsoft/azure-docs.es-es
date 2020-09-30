@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6b62f8c33c73ded978c0c2e3a8c3b7fadea49c96
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 2fdc1cd36c037f163b6b04907248e08ef20e961d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852084"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400031"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Escenario: Enrutamiento del tráfico a través de una aplicación virtual de red
 
@@ -46,7 +46,7 @@ En la siguiente matriz de conectividad se resumen los flujos admitidos en este e
 | **VNet no de NVA**| &#8594; |   estática |      X   |        X     |      X    |
 | **Ramas**     | &#8594; |   estática |      X   |        X     |      X    |
 
-Cada una de las celdas de la matriz de conectividad describe si una conexión de Virtual WAN (el lado "De" del flujo, los encabezados de fila de la tabla) aprende un prefijo de destino (el lado "A" del flujo, los encabezados de columna en cursiva de la tabla) para un flujo de tráfico concreto. Tenga en cuenta lo siguiente.
+Cada una de las celdas de la matriz de conectividad describe si una conexión de Virtual WAN (el lado "De" del flujo, los encabezados de fila de la tabla) aprende un prefijo de destino (el lado "A" del flujo, los encabezados de columna en cursiva de la tabla) para un flujo de tráfico concreto. Una "X" significa que la conectividad se proporciona de forma nativa por Virtual WAN y "estática" significa que la conectividad se proporciona mediante Virtual WAN mediante rutas estáticas. Tenga en cuenta lo siguiente.
 
 * Los radios de NVA no están administrados por Virtual WAN. Como consecuencia, el usuario mantiene los mecanismos con los que se comunicarán con otras redes virtuales o ramas. La conectividad a la red virtual de NVA se proporciona mediante un emparejamiento de VNet, y una ruta predeterminada a 0.0.0.0/0 que apunta a la NVA como próximo salto debe cubrir la conectividad a Internet, a otros radios y a las ramas.
 * Las redes virtuales de NVA sabrán sobre sus propios radios de NVA, pero no sobre los radios de NVA conectados a otras redes virtuales de NVA. Por ejemplo, en la tabla 1, VNet 2 sabe sobre VNet 5 y VNet 6, pero no sobre otros radios, como VNet 7 y VNet 8. Se requiere una ruta estática para insertar los prefijos de otros radios en redes virtuales de NVA

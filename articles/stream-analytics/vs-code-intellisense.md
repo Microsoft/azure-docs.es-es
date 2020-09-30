@@ -6,12 +6,12 @@ author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: how-to
-ms.openlocfilehash: df6e7435d072cc88e82f3dc9a323a5b21145c432
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: bd72866e3e3db21691fda6aaec864a76af7414a3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037263"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903730"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense en las herramientas de Azure Stream Analytics para Visual Studio Code
 
@@ -71,6 +71,6 @@ Este problema se debe a que falta la configuración de entrada que proporciona d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Inicio rápido: Creación de un trabajo de Azure Stream Analytics en Visual Studio Code](quick-create-vs-code.md)
+* [Inicio rápido: Creación de un trabajo de Azure Stream Analytics en Visual Studio Code](quick-create-visual-studio-code.md)
 * [Prueba de consultas de Stream Analytics localmente con datos de ejemplo mediante Visual Studio Code](visual-studio-code-local-run.md)
 * [Prueba de las consultas de Stream Analytics localmente en una entrada de streaming en vivo con Visual Studio Code](visual-studio-code-local-run-live-input.md)

@@ -4,12 +4,12 @@ description: En este inicio rápido, aplicará Computer Vision para analizar la 
 ms.topic: quickstart
 ms.date: 08/14/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: ac11ced68ab8463da26b9978a5b0b02c4cd1a402
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 907d402a4b0ef5d5e437322d02431a0ccd2d8da3
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687368"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421546"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-grpc-model"></a>Inicio rápido: Análisis de vídeo en directo con su propio modelo gRPC
 
@@ -56,11 +56,11 @@ En este inicio rápido se muestra cómo usar Live Video Analytics en IoT Edge pa
 ## <a name="create-and-deploy-the-media-graph"></a>Creación e implementación del grafo de elementos multimedia
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [create and deply the media graph](includes/analyze-live-video-your-grpc-model-quickstart/csharp/create-deploy-media-graph.md)]
+[!INCLUDE [create and deploy the media graph](includes/analyze-live-video-your-grpc-model-quickstart/csharp/create-deploy-media-graph.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [create and deply the media graph](includes/analyze-live-video-your-grpc-model-quickstart/python/create-deploy-media-graph.md)]
+[!INCLUDE [create and deploy the media graph](includes/analyze-live-video-your-grpc-model-quickstart/python/create-deploy-media-graph.md)]
 ::: zone-end
 
 ## <a name="interpret-results"></a>Interpretación de los resultados
@@ -79,4 +79,9 @@ Si su intención es probar los demás inicios rápidos, conserve los recursos cr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Pruebe a ejecutar diferentes topologías de grafo multimedia con el protocolo gRPC.
+* Pruebe a ejecutar diferentes topologías de grafo multimedia con el protocolo gRPC.
+* **Compilación y ejecución de extensiones de Live Video Analytics (LVA) de ejemplo**
+<br/>Pruebe nuestros cuadernos de ejemplo de Jupyter Notebook, que permiten compilar y ejecutar modelos de YOLO basados en [ONNX](http://onnx.ai/) como extensión de Live Video Analytics (LVA).
+    * [Modelo de YOLOv3 de ejemplo](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/notebooks/Yolo/yolov3/yolov3-grpc-icpu-onnx/readme.md)
+    * [Modelo de YOLOv4 de ejemplo](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/Yolo/yolov4/yolov4-grpc-icpu-onnx/readme.md)
+

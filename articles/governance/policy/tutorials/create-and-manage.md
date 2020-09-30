@@ -3,12 +3,12 @@ title: 'Tutorial: Creación de directivas para aplicar el cumplimiento'
 description: En este tutorial, utilizará directivas para aplicar estándares, controlar los costos, mantener la seguridad e imponer principios de diseño para toda la empresa.
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 90ac6d1c4121b8672e561ff633263775bbad5357
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: d8dc65d50182b5336a683c2da8e2a5d8ebb9e849
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84781134"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650076"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Creación y administración de directivas para aplicar el cumplimiento
 
@@ -32,15 +32,15 @@ El primer paso para aplicar cumplimientos con Azure Policy es asignar una defini
 
 1. Vaya a Azure Portal para asignar directivas. Busque y seleccione **Directiva**.
 
-   :::image type="content" source="../media/create-and-manage/search-policy.png" alt-text="Búsqueda de Policy en la barra de búsqueda" border="false":::
+   :::image type="content" source="../media/create-and-manage/search-policy.png" alt-text="Captura de pantalla de búsqueda de la directiva en la barra de búsqueda." border="false":::
 
 1. Seleccione **Asignaciones** en el panel izquierdo de la página de Azure Policy. Una asignación es una directiva que se asignó para que se lleve a cabo dentro de un ámbito específico.
 
-   :::image type="content" source="../media/create-and-manage/select-assignments.png" alt-text="Página Seleccionar asignaciones en la página Información general de directivas" border="false":::
+   :::image type="content" source="../media/create-and-manage/select-assignments.png" alt-text="Captura de pantalla de la selección del nodo de asignaciones en la página Información general de la directiva." border="false":::
 
 1. Seleccione **Asignar directiva** en la parte superior de la página **Policy - Asignaciones**.
 
-   :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="Asignar una definición de directiva en la página Asignaciones" border="false":::
+   :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="Captura de pantalla de la selección del botón Asignar directiva en la página Asignaciones." border="false":::
 
 1. En la página **Asignar directiva** y en la pestaña **Aspectos básicos**, seleccione los puntos suspensivos y seleccione una suscripción o un grupo de administración como **Ámbito**. Opcionalmente, seleccione un grupo de recursos. Un ámbito determina en qué recursos o agrupación de recursos se implementa la asignación de directiva.
    Luego elija **Seleccionar** en la parte inferior de la página **Ámbito**.
@@ -54,7 +54,7 @@ El primer paso para aplicar cumplimientos con Azure Policy es asignar una defini
 1. Seleccione **Heredar una etiqueta del grupo de recursos si falta**. Si no la encuentra inmediatamente, escriba **heredar una etiqueta** en el cuadro de búsqueda y, después, presione ENTRAR o haga clic fuera del cuadro de búsqueda.
    Elija **Seleccionar** en la parte inferior de la página **Definiciones disponibles** después de encontrar y seleccionar la definición de directiva.
 
-   :::image type="content" source="../media/create-and-manage/select-available-definition.png" alt-text="Usar un filtro de búsqueda para buscar una directiva":::
+   :::image type="content" source="../media/create-and-manage/select-available-definition.png" alt-text="Captura de pantalla del filtro de búsqueda al seleccionar una definición de directiva.":::
 
 1. **Nombre de asignación** se rellena automáticamente con el nombre de directiva seleccionado, pero puede cambiarlo. En este ejemplo, deje _Heredar una etiqueta del grupo de recursos si falta_. También puede agregar una **Descripción** opcional. La descripción ofrece detalles sobre esta asignación de directiva.
 
@@ -82,7 +82,7 @@ Ahora que ha asignado una definición de directiva integrada, puede hacer más c
 
 1. Seleccione **Definiciones** en **Creación** en el lado izquierdo de la página de Azure Policy.
 
-   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Página de definición en el grupo de creación" border="false":::
+   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Captura de pantalla de la página Definiciones en el grupo de creación." border="false":::
 
 1. Seleccione **+ Definición de directiva** en la parte superior de la página. Este botón abre la página **Definición de directiva**.
 
@@ -342,11 +342,11 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
 1. Seleccione **Definiciones** en **Creación** en el lado izquierdo de la página de Azure Policy.
 
-   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Seleccionar la definición de la página Definiciones" border="false":::
+   :::image type="content" source="../media/create-and-manage/definition-under-authoring.png" alt-text="Captura de pantalla de la página Definiciones en el grupo de creación." border="false":::
 
 1. Seleccione **+ Initiative Definition** (+ Definición de iniciativa) en la parte superior de la página para abrir la página **Definición de iniciativa** (Definición de iniciativa).
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition.png" alt-text="Revisar la página de definición de iniciativa" border="false":::
+   :::image type="content" source="../media/create-and-manage/initiative-definition.png" alt-text="Captura de pantalla de la página de definición de iniciativa y las propiedades que se van a establecer." border="false":::
 
 1. Use **Ubicación de definición** para seleccionar un grupo de administración o una suscripción para almacenar la definición. Si ha establecido el ámbito de la página anterior a un único grupo de administración o suscripción, **Ubicación de definición** se rellena automáticamente. Una vez seleccionado, se rellena el campo **Definiciones disponibles**.
 
@@ -366,11 +366,11 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
    Después de seleccionar la definición de directiva de la lista, se agrega cada una debajo de **Categoría**.
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition-2.png" alt-text="Revisar los parámetros de definición de iniciativa" border="false":::
+   :::image type="content" source="../media/create-and-manage/initiative-definition-2.png" alt-text="Captura de pantalla de los parámetros y definiciones de valor en la página de definición de iniciativa." border="false":::
 
 1. Si una definición de directiva que se va a agregar a la iniciativa tiene parámetros, se muestran bajo el nombre de la directiva en el área **Categoría**. El _valor_ puede establecerse en "Establecer valor" (de forma rígida para todas las asignaciones de esta iniciativa) o en "Utilice el parámetro de iniciativa" (establecido durante cada asignación de iniciativa). Si se selecciona "Establecer valor", la lista desplegable situada a la derecha de _Valores_ permite escribir o seleccionar los valores. Si se selecciona "Utilice el parámetro de iniciativa", se muestra una nueva sección llamada **Parámetros de iniciativa** que permite definir el parámetro que se va a establecer durante la asignación de iniciativa. Los valores permitidos en este parámetro de iniciativa pueden restringir aún más lo que puede establecerse durante la asignación de iniciativa.
 
-   :::image type="content" source="../media/create-and-manage/initiative-definition-3.png" alt-text="Cambiar los parámetros de definición de iniciativa desde los valores permitidos" border="false":::
+   :::image type="content" source="../media/create-and-manage/initiative-definition-3.png" alt-text="Captura de pantalla de las opciones de los valores permitidos para un parámetro de efecto en la página definición de iniciativa." border="false":::
 
    > [!NOTE]
    > En el caso de algunos parámetros `strongType`, la lista de valores no se puede determinar automáticamente. En estos casos, se muestran puntos suspensivos a la derecha de la fila de parámetros. Al seleccionarlos se abre la página "Ámbito de parámetro (&lt;nombre del parámetro&gt;)". En esta página, seleccione la suscripción que se usará para proporcionar las opciones de valor. Este ámbito de parámetro solo se usa durante la creación de la definición de iniciativa y no influye en la evaluación de directivas ni en el ámbito de la iniciativa cuando se asigna.
@@ -426,11 +426,11 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
 1. Busque la definición de directiva **Get Secure** (Estar protegido) que creó anteriormente y selecciónela. Seleccione **Asignar** en la parte superior de la página para abrir la página **Get Secure: Assign initiative** (Estar protegido: asignar iniciativa).
 
-   :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Asignar una definición desde la página Definición de iniciativa" border="false":::
+   :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Captura de pantalla del botón Asignar en la página de definición de iniciativa." border="false":::
 
    También puede hacer clic con el botón derecho en la fila seleccionada o seleccionar los puntos suspensivos al final de la fila de un menú contextual. A continuación, seleccione **Asignar**.
 
-   :::image type="content" source="../media/create-and-manage/select-right-click.png" alt-text="Opciones alternativas para una iniciativa" border="false":::
+   :::image type="content" source="../media/create-and-manage/select-right-click.png" alt-text="Captura de pantalla del menú contextual de una iniciativa para seleccionar la funcionalidad de asignación." border="false":::
 
 1. Rellene la página **Get Secure: Assign Initiative** (Estar protegido: asignar iniciativa) con la siguiente información de ejemplo. Puede usar su propia información.
 
@@ -457,11 +457,11 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 1. Busque la iniciativa **Get Secure** (Estar protegido). Es probable que _Estado de compatibilidad_ se encuentre aún como **No iniciado**.
    Seleccione la iniciativa para obtener información detallada sobre el progreso de la asignación.
 
-   :::image type="content" source="../media/create-and-manage/compliance-status-not-started.png" alt-text="Página de cumplimiento de iniciativas: evaluaciones no iniciadas" border="false":::
+   :::image type="content" source="../media/create-and-manage/compliance-status-not-started.png" alt-text="Captura de pantalla de la página de cumplimiento de la iniciativa que muestra las evaluaciones de asignación en un estado no iniciado." border="false":::
 
 1. Una vez que se haya completado la asignación de la iniciativa, la página de conformidad se actualiza con el _Estado de compatibilidad_**Conforme**.
 
-   :::image type="content" source="../media/create-and-manage/compliance-status-compliant.png" alt-text="Página de cumplimiento de iniciativas: recursos compatibles" border="false":::
+   :::image type="content" source="../media/create-and-manage/compliance-status-compliant.png" alt-text="Captura de pantalla de la página de cumplimiento de la iniciativa que muestra las evaluaciones de asignación en un estado conforme." border="false":::
 
 1. Al seleccionar cualquier directiva de la página de cumplimiento de la iniciativa se abre la página de detalles de cumplimiento de esa directiva. Esta página proporciona los detalles de cumplimiento a nivel de recurso.
 
@@ -471,11 +471,11 @@ Después de asignar una iniciativa de directiva para exigir una ubicación espec
 
 Las implementaciones que ha impedido una directiva o iniciativa asignada se pueden ver en el grupo de recursos de destino de la implementación: seleccione **Implementaciones** en el lado izquierdo de la página y luego seleccione el valor de **Nombre de la implementación** de la implementación con errores. El recurso denegado se muestra con el estado _Prohibido_. Para determinar la directiva o iniciativa y la asignación que denegaron el recurso, seleccione **Failed. Click here for details ->** (Error. Haga clic aquí para ver los detalles ->) en la página de información general de la implementación. Una ventana se abre en el lado derecho de la página con la información sobre el error. En **Detalles del error** se muestran los identificadores únicos globales de los objetos de directiva relacionados.
 
-:::image type="content" source="../media/create-and-manage/rg-deployment-denied.png" alt-text="Implementación denegada por la asignación de directiva" border="false":::
+:::image type="content" source="../media/create-and-manage/rg-deployment-denied.png" alt-text="Captura de pantalla de una implementación con errores denegada por una asignación de directiva." border="false":::
 
 En la página de Azure Policy: Seleccione **Cumplimiento** en el lado izquierdo de la página y seleccione la iniciativa **Get Secure** (Estar protegido). En esta página, hay un aumento en el recuento de **denegaciones** para los recursos bloqueados. En la pestaña **Eventos** se muestran detalles sobre quién intentó crear o implementar el recurso que se denegó en la definición de directiva.
 
-:::image type="content" source="../media/create-and-manage/compliance-overview.png" alt-text="Información general del cumplimiento de una directiva asignada" border="false":::
+:::image type="content" source="../media/create-and-manage/compliance-overview.png" alt-text="Captura de pantalla de la pestaña Eventos y detalles del evento de directiva en la página cumplimiento de la iniciativa." border="false":::
 
 En este ejemplo, Trent Baker, uno de los especialistas en virtualización sénior de Contoso, estaba haciendo el trabajo requerido. Es necesario conceder a Trent un espacio para una excepción. Cree el grupo de recursos **LocationsExcluded** y, luego, concédale una excepción a esta asignación de directiva.
 
@@ -487,7 +487,7 @@ En este ejemplo, Trent Baker, uno de los especialistas en virtualización sénio
 
 1. Para establecer el valor de **Exclusión**, seleccione los puntos suspensivos y seleccione el grupo de recursos que quiere excluir; en este ejemplo, _LocationsExcluded_. Seleccione **Agregar al ámbito seleccionado** y, luego, seleccione **Guardar**.
 
-   :::image type="content" source="../media/create-and-manage/request-exclusion.png" alt-text="Agregar un grupo de recursos excluido a la asignación de directiva" border="false":::
+   :::image type="content" source="../media/create-and-manage/request-exclusion.png" alt-text="Captura de pantalla de la opción Exclusiones de la página de asignación de la iniciativa para agregar un grupo de recursos excluidos a la asignación de directiva." border="false":::
 
    > [!NOTE]
    > Dependiendo de la definición de directiva y de su efecto, es posible que la exclusión también se conceda a recursos específicos dentro de un grupo de recursos en el ámbito de la asignación. Dado que se usó un efecto **deny** en este tutorial, no tendría sentido establecer la exclusión en un recurso concreto que ya existe.

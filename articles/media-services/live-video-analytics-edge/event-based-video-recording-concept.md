@@ -3,12 +3,12 @@ title: 'Grabación de vídeo basada en eventos: Azure'
 description: La grabación de vídeo basada en eventos (EVR) hace referencia al proceso de grabación de vídeo desencadenado por un evento. El evento en cuestión podría generarse a partir del procesamiento de la propia señal de vídeo (por ejemplo, al detectar un objeto en movimiento) o desde un origen independiente (por ejemplo, la apertura de una puerta).  En este artículo se describen algunos casos de uso relacionados con la grabación de vídeo basada en eventos.
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 0a6f7ca4233c195c7494fc6f63e7dfb5bf654c17
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: f3efd2b9be41928ab4721d6db4aa84c0f1f57e2f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260748"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568525"
 ---
 # <a name="event-based-video-recording"></a>Grabación de vídeo basada en eventos  
  
@@ -34,7 +34,8 @@ En este caso de uso, puede grabar clips de vídeo solo cuando se detecten movimi
 
 En el diagrama siguiente se muestra una representación gráfica de un grafo multimedia para este caso de uso. La representación JSON de la topología de grafo de este tipo de grafo multimedia se puede encontrar [aquí](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-motion-assets/topology.json).
 
-![Grabación de vídeo basada en la detección de movimiento](./media/event-based-video-recording/motion-detection.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording/motion-detection.svg" alt-text="Grabación de vídeo basada en la detección de movimiento":::
 
 En el diagrama, el nodo de origen RTSP captura la fuente de vídeo en directo de la cámara y la entrega a un nodo del [procesador de detección de movimiento](media-graph-concept.md#motion-detection-processor). Después de detectar el movimiento en el vídeo en directo, el nodo del procesador de detección de movimiento genera un evento que va al nodo del [procesador de la puerta de señales](media-graph-concept.md#signal-gate-processor), así como al nodo receptor de mensajes de IoT Hub. El último nodo envía los eventos al centro de IoT Edge, desde donde se pueden enrutar a otros destinos para desencadenar alertas. 
 
@@ -44,7 +45,8 @@ Un evento del nodo detector de movimiento desencadenará el nodo del procesador 
 
 En este caso de uso, se pueden usar las señales de otro sensor de IoT para desencadenar la grabación de vídeos. En el diagrama siguiente se muestra una representación gráfica de un grafo multimedia para este caso de uso. La representación JSON de la topología de grafo de este tipo de grafo multimedia se puede encontrar [aquí](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-files/topology.json).
 
-![Grabación de vídeo basada en eventos desde otros orígenes](./media/event-based-video-recording/other-sources.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording/other-sources.svg" alt-text="Grabación de vídeo basada en eventos desde otros orígenes":::
 
 En el diagrama, el sensor externo envía eventos al centro de IoT Edge. Después, los eventos se enrutan al nodo del procesador de la puerta de señales a través del nodo de [origen de mensajes de IoT Hub](media-graph-concept.md#iot-hub-message-source). El comportamiento del nodo del procesador de la puerta de señales es el mismo que el del caso de uso anterior; se abrirá y permitirá que la fuente de vídeo en directo pase del nodo de origen RTSP al nodo receptor de archivos (o al nodo receptor de recursos) cuando el evento externo desencadene la grabación. 
 
@@ -54,7 +56,8 @@ Si usa un nodo receptor de archivos, el vídeo se grabará en el sistema de arch
 
 En este caso de uso, puede grabar clips de vídeo basados en una señal de un sistema lógico externo. Un ejemplo de este tipo de caso de uso podría ser la grabación de un clip de vídeo solo cuando se detecta un camión en la fuente de vídeo del tráfico en una autopista. En el diagrama siguiente se muestra una representación gráfica de un grafo multimedia para este caso de uso. La representación JSON de la topología de grafo de este tipo de grafo multimedia se puede encontrar [aquí](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json).
 
-![Grabación de vídeo basada en un módulo de inferencia externo](./media/event-based-video-recording/external-inferencing-module.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording/external-inferencing-module.svg" alt-text="Grabación de vídeo basada en un módulo de inferencia externo":::
 
 En el diagrama, el nodo de origen RTSP captura la fuente de vídeo en directo de la cámara y la entrega a dos ramas: una tiene un nodo del [procesador de la puerta de señales](media-graph-concept.md#signal-gate-processor) y la otra usa un nodo de [extensión HTTP](media-graph-concept.md) para enviar datos a un módulo lógico externo. El nodo de extensión HTTP permite que el grafo multimedia envíe fotogramas de imagen (en formato JPEG, BMP o PNG) a un servicio de inferencia externo a través de REST. Normalmente, esta ruta de señal solo admite velocidades de fotogramas bajas (<5 fps). Puede usar el nodo del [procesador de filtros de velocidad de fotogramas](media-graph-concept.md#frame-rate-filter-processor) para reducir la velocidad de fotogramas del vídeo que pasa al nodo de extensión HTTP.
 

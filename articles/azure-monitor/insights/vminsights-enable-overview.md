@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/27/2020
-ms.openlocfilehash: e3c5f6d7e04620cf36f6cd952467d47afd775b19
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/27/2020
+ms.openlocfilehash: 449979443577d22f8cc2ec35ec770dd1e107bb76
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824773"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998414"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Información general sobre la habilitación de Azure Monitor para VM
 
@@ -78,86 +78,25 @@ Si no tiene un área de trabajo de Log Analytics, puede crear una usando alguno 
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
-La siguiente es una lista de los sistemas operativos Windows y Linux que son compatibles con Azure Monitor para VM. Más adelante en esta sección, encontrará una lista completa que detalla las versiones de kernel admitidas y las versiones de sistema operativo Linux principales y secundarias.
+Azure Monitor para VM admite cualquier sistema operativo que sea compatible con el agente de Log Analytics y el agente de dependencia. Consulte [Información general sobre los agentes de Azure Monitor](../platform/agents-overview.md#supported-operating-systems).
 
-|Versión del SO |Rendimiento |Mapas |
-|-----------|------------|-----|
-|Windows Server 2019 | X | X |
-|Windows Server 2016 1803 | X | X |
-|Windows Server 2016 | X | X |
-|Windows Server 2012 R2 | X | X |
-|Windows Server 2012 | X | X |
-|Windows Server 2008 R2 | X | X|
-|Windows 10 1803 | X | X |
-|Windows 8.1 | X | X |
-|Windows 8 | X | X |
-|Windows 7 SP1 | X | X |
-|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| 
-|Ubuntu 18.04, 16.04 | X | X |
-|CentOS Linux 7, 6 | X | X |
-|SUSE Linux Enterprise Server (SLES) 12 | X | X |
-|Debian 9.4, 8 | X<sup>1</sup> | |
+Consulte la siguiente lista de consideraciones sobre la compatibilidad de Linux del agente de dependencia que admite Azure Monitor para VM:
 
-<sup>1</sup> La característica Rendimiento de Azure Monitor para VM solo está disponible desde Azure Monitor. No está disponible directamente desde el panel izquierdo de la máquina virtual de Azure.
+- Se admiten solo versiones de kernel SMP Linux y predeterminados.
+- Las versiones de kernel no estándar, como Physical Address Extension (PAE) y Xen, no son compatibles con ninguna distribución de Linux. Por ejemplo, un sistema con la cadena de versión *2.6.16.21-0.8-xen* no es compatible.
+- No se admiten los kernel personalizados, incluidas las recompilaciones de kernels estándar.
+- Para distribuciones de Debian que no sean la versión 9.4, no se admite la característica de asignación y la característica de rendimiento solo está disponible en el menú de Azure Monitor. No está disponible directamente desde el panel izquierdo de la máquina virtual de Azure.
+- Se admite el kernel de CentOSPlus.
+- El kernel de Linux debe revisarse para la vulnerabilidad de Spectre. Consulte al proveedor de distribución de Linux para más información.
 
->[!NOTE]
->En el sistema operativo Linux:
-> - Se admiten solo versiones de kernel SMP Linux y predeterminados.
-> - Las versiones de kernel no estándar, como Physical Address Extension (PAE) y Xen, no son compatibles con ninguna distribución de Linux. Por ejemplo, un sistema con la cadena de versión *2.6.16.21-0.8-xen* no es compatible.
-> - No se admiten los kernel personalizados, incluidas las recompilaciones de kernels estándar.
-> - Se admite el kernel de CentOSPlus.
-> - El kernel de Linux debe revisarse para la vulnerabilidad de Spectre. Consulte al proveedor de distribución de Linux para más información.
 
-#### <a name="red-hat-linux-7"></a>Red Hat Linux 7
-
-| Versión del SO | Versión del kernel |
-|:--|:--|
-| 7.6 | 3.10.0-957 |
-| 7.5 | 3.10.0-862 |
-| 7.4 | 3.10.0-693 |
-
-#### <a name="red-hat-linux-6"></a>Red Hat Linux 6
-
-| Versión del SO | Versión del kernel |
-|:--|:--|
-| 6.10 | 2.6.32-754 |
-| 6.9 | 2.6.32-696 |
-
-#### <a name="centosplus"></a>CentOSPlus
-
-| Versión del SO | Versión del kernel |
-|:--|:--|
-| 6.10 | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
-| 6.9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
-
-#### <a name="ubuntu-server"></a>Ubuntu Server
-
-| Versión del SO | Versión del kernel |
-|:--|:--|
-| 18,04 | 5.3.0-1020<br>5.0 (incluye kernel optimizado para Azure)<br>4.18 *<br>4.15* |
-| 16.04.3 | 4.15.* |
-| 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
-
-#### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
-
-| Versión del SO | Versión del kernel |
-|:--|:--|
-|12 SP4 | 4.12.* (incluye kernel optimizado para Azure) |
-|12 SP3 | 4.4.* |
-|12 SP2 | 4.4.* |
-
-#### <a name="debian"></a>Debian 
-
-| Versión del SO | Versión del kernel |
-|:--|:--|
-| 9 | 4,9 | 
 
 ## <a name="supported-azure-arc-machines"></a>Máquinas de Azure Arc admitidas
 Azure Monitor para VM está disponible para los servidores habilitados para Azure Arc en las regiones donde el servicio de extensión de Arc está disponible. Debe ejecutar la versión 0 9 o superior del agente de Arc.
 
 | Origen conectado | Compatible | Descripción |
 |:--|:--|:--|
-| Agentes de Windows | Sí | Junto con el [agente de Log Analytics para Windows](../platform/log-analytics-agent.md), los agentes de Windows requieren Dependency Agent. Para más información, consulte el artículo sobre los [sistemas operativos compatibles](#supported-operating-systems). |
+| Agentes de Windows | Sí | Junto con el [agente de Log Analytics para Windows](../platform/log-analytics-agent.md), los agentes de Windows requieren Dependency Agent. Para más información, consulte el artículo sobre los [sistemas operativos compatibles](../platform/agents-overview.md#supported-operating-systems). |
 | Agentes de Linux | Sí | Junto con el [agente de Log Analytics para Linux](../platform/log-analytics-agent.md), los agentes de Linux requieren Dependency Agent. Para más información, consulte el artículo sobre los [sistemas operativos compatibles](#supported-operating-systems). |
 | Grupo de administración de System Center Operations Manager | No | |
 

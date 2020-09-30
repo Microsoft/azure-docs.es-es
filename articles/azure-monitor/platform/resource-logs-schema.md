@@ -3,13 +3,13 @@ title: Servicios y esquemas admitidos de los registros de recursos de Azure
 description: Conozca el esquema de los eventos y servicios admitidos para los registros de recurso de Azure.
 ms.subservice: logs
 ms.topic: reference
-ms.date: 06/15/2020
-ms.openlocfilehash: fd2dc4030816ab0b31befe46ac60d5e96fdae917
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/01/2020
+ms.openlocfilehash: d0f78b858da51838aacd9e3be9b0a069918710a7
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782131"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421924"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Esquema específico de servicio y común para los registros de recursos de Azure
 
@@ -49,14 +49,11 @@ El esquema para los registros de recursos varía según la categoría de registr
 | Servicio | Esquema y documentos |
 | --- | --- |
 | Azure Active Directory | [Información general](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Esquema de registros de auditoría](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) y [Esquema de inicios de sesión](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
-| Analysis Services | https://docs.microsoft.com/azure/analysis-services/analysis-services-logging |
+| Analysis Services | [Configuración del registro de diagnóstico de Azure Analysis Services](../../analysis-services/analysis-services-logging.md) |
 | API Management | [Registros de recursos de API Management](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | Puertas de enlace de aplicaciones |[Registro para Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log Analytics para Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Registro de Azure Batch](../../batch/batch-diagnostics.md) |
-| Azure Database for MySQL | [Registros de diagnóstico de Azure Database for MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
-| Azure Database for PostgreSQL | [Registros de Azure Database for PostgreSQL](../../postgresql/concepts-server-logs.md#resource-logs) |
-| Explorador de datos de Azure | [Registros de Azure Data Explorer](/azure/data-explorer/using-diagnostic-logs) |
 | Cognitive Services | [Registro para Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
 | Container Registry | [Registro para Azure Container Registry](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Content Delivery Network | [Registros de Azure para CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
@@ -64,7 +61,11 @@ El esquema para los registros de recursos varía según la categoría de registr
 | Data Factory | [Supervisión de factorías de datos mediante Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Acceso a los registros para Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Acceso a los registros para Azure Data Lake Store](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Azure Databricks | [Registro de diagnósticos en Azure Databricks](https://github.com/MicrosoftDocs/databricks-pr/blob/live/databricks/administration-guide/account-settings/azure-diagnostic-logs.md) |
+| Explorador de datos de Azure | [Registros de Azure Data Explorer](/azure/data-explorer/using-diagnostic-logs) |
+| Azure Database for MySQL | [Registros de diagnóstico de Azure Database for MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
+| Azure Database for PostgreSQL | [Registros de Azure Database for PostgreSQL](../../postgresql/concepts-server-logs.md#resource-logs) |
+| Azure Databricks | [Registro de diagnósticos en Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
+| Azure Digital Twins | [Configuración de diagnósticos de Azure Digital Twins](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Event Hubs |[Registros de Azure Event Hubs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | Esquema no disponible. |
 | Azure Firewall | Esquema no disponible. |
@@ -84,6 +85,7 @@ El esquema para los registros de recursos varía según la categoría de registr
 | Traffic Manager | [Esquema de registro de Traffic Manager](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Virtual Networks | Esquema no disponible. |
 | Puertas de enlace de red virtual | Esquema no disponible. |
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes

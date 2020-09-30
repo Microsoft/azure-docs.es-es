@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: d3076f2591718931bdab4dba9510d25fe07b2d02
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: eafad5edf9dcac5745986d09060baf7e4278762d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118767"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903976"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-mysql"></a>Cifrado doble de infraestructura para Azure Database for MySQL
 
@@ -29,19 +29,19 @@ Siga estos pasos para crear un servidor de Azure Database for MySQL con el cifra
 
 2. Seleccione **Bases de datos** > **Azure Database for MySQL**. También puede escribir **MySQL** en el cuadro de búsqueda para encontrar el servicio.
 
-   ![Opción Azure Database for MySQL](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
+   :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png" alt-text="Opción Azure Database for MySQL":::
 
 3. Proporcione la información básica del servidor. Seleccione **Configuración adicional** y marque la casilla **Cifrado doble de infraestructura** para establecer el parámetro.
 
-    ![Selecciones de Azure Database for MySQL](./media/howto-double-encryption/infrastructure-encryption-selected.png)
+    :::image type="content" source="./media/howto-double-encryption/infrastructure-encryption-selected.png" alt-text="Selecciones de Azure Database for MySQL":::
 
 4. Seleccione **Revisar y crear** para realizar el aprovisionamiento del servidor.
 
-    ![Resumen de Azure Database for MySQL](./media/howto-double-encryption/infrastructure-encryption-summary.png)
+    :::image type="content" source="./media/howto-double-encryption/infrastructure-encryption-summary.png" alt-text="Resumen de Azure Database for MySQL":::
 
 5. Una vez creado el servidor, puede validar el cifrado doble de infraestructura comprobando el estado en la hoja del servidor **Cifrado de datos**.
 
-    ![Validación de Azure Database for MySQL](./media/howto-double-encryption/infrastructure-encryption-validation.png)
+    :::image type="content" source="./media/howto-double-encryption/infrastructure-encryption-validation.png" alt-text="Validación de Azure Database for MySQL":::
 
 ## <a name="create-an-azure-database-for-mysql-server-with-infrastructure-double-encryption---cli"></a>Creación de un servidor de Azure Database for MySQL con el cifrado doble de infraestructura: CLI
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1bdaa2fd1e435e8bf7ff4b17c7f8a15d5bd249d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e45afed3332d26006cf0b4296986edb6f6588962
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987172"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421737"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configuración de una conexión de punto a sitio a una red virtual con autenticación RADIUS: PowerShell
 

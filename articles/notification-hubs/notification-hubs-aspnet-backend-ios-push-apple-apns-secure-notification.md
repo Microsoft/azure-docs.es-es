@@ -10,16 +10,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/17/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: d7dc3212007e9b9ec67d0d235135d4d46f20b950
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a6c85ba017656bd312ddfe3d5f6d98014a3dc89a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022130"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090353"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Notificaciones push seguras de Azure Notification Hubs
 
@@ -43,7 +43,7 @@ A un alto nivel, el flujo es el siguiente:
    * El dispositivo entra en contacto con el back-end que solicita la carga segura.
    * La aplicación puede mostrar la carga como una notificación en el dispositivo.
 
-Es importante tener en cuenta que en el flujo anterior (y en este tutorial), asumimos que el dispositivo almacena un token de autenticación localmente y, después, el usuario inicia sesión. Esto garantiza una experiencia sin problemas, ya que el dispositivo puede recuperar la carga segura de la notificación usando este token. Si la aplicación no almacena tokens de autenticación en el dispositivo, o si estos tokens han expirado, la aplicación del dispositivo, al recibir la notificación, debe mostrar una notificación genérica pidiendo al usuario que inicie la aplicación. Después, la aplicación autentica al usuario y muestra la carga de la notificación.
+Es importante tener en cuenta que en el flujo anterior (y en este tutorial), asumimos que el dispositivo almacena un token de autenticación localmente y, después, el usuario inicia sesión. Esto garantiza una experiencia sin problemas, ya que el dispositivo puede recuperar la carga segura de la notificación usando este token. Si la aplicación no almacena tokens de autenticación en el dispositivo, o si estos tokens han expirado, la aplicación del dispositivo, al recibir la notificación, debe mostrar una notificación genérica que pide al usuario que inicie la aplicación. Después, la aplicación autentica al usuario y muestra la carga de la notificación.
 
 Este tutorial Inserción segura muestra cómo enviar una notificación de inserción de forma segura. El tutorial se basa en el tutorial [Notificar a los usuarios](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) , por lo que debe completar los pasos de ese tutorial primero.
 
@@ -119,8 +119,8 @@ Para lograr este objetivo, tenemos que escribir la lógica para recuperar el con
 
     Este método llama al back-end de la aplicación para recuperar el contenido de la notificación usando las credenciales almacenadas en las preferencias compartidas.
 
-4. Ahora tenemos que administrar la notificación entrante y usar el método anterior para recuperar el contenido para mostrar. Primero, tenemos que habilitar la aplicación iOS para que se ejecute en segundo plano cuando reciba una notificación de inserción. En **XCode**, seleccione el proyecto de aplicación en el panel izquierdo y, a continuación, haga clic en el destino de la aplicación principal en la sección **Targets** (Destinos) del panel central.
-5. A continuación, haga clic en la pestaña **Capabilities** (Funcionalidades) situada en la parte superior del panel central y active la casilla **Remote Notifications** (Notificaciones remotas).
+4. Ahora administre la notificación entrante y use el método anterior para recuperar el contenido que se va a mostrar. Primero, habilite la aplicación iOS para que se ejecute en segundo plano cuando reciba una notificación de inserción. En **XCode**, seleccione el proyecto de aplicación en el panel izquierdo y, a continuación, haga clic en el destino de la aplicación principal en la sección **Targets** (Destinos) del panel central.
+5. Luego haga clic en la pestaña **Capacidades** de la parte superior del panel central y active la casilla **Notificaciones remotas**.
 
     ![Captura de pantalla de XCode, con el proyecto de aplicación seleccionado y la pestaña Capabilities (Funcionalidades) abierta. La casilla Remote notifications (Notificaciones remotas) está activada.][IOS1]
 

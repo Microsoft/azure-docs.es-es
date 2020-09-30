@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: b185b6e7706b2049f2821400db9d810588000419
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: c3a5f3a984c95af400c9e0c1543e3c1883290668
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848220"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442963"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Servicios de Azure que admiten Azure Data Lake Storage Gen2
 
@@ -44,7 +44,6 @@ En esta tabla se enumeran los servicios de Azure que puede usar con Azure Data L
 |Explorador de datos de Azure|Disponibilidad general|Sí|Sí|[Consulta de datos en Azure Data Lake con Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/data-lake-query-data)|
 |Azure Cognitive Search|Versión preliminar|Sí|Sí|[Indexación y búsqueda de documentos de Azure Data Lake Storage Gen2 (versión preliminar)](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|
 |Azure Content Delivery Network|Todavía no se admite|No aplicable|No aplicable|[Indexación y búsqueda de documentos de Azure Data Lake Storage Gen2 (versión preliminar)](https://docs.microsoft.com/azure/cdn/cdn-overview)|
-
 
 ## <a name="see-also"></a>Consulte también
 

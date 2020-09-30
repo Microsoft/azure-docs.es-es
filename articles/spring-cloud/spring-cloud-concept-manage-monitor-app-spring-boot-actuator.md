@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1c1ea19c22d003ed1aa7c3d3191ff20a69513bc5
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 93fd286aa76a0409a515abbf8c9dabd88a9a65c4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299514"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904277"
 ---
 # <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Administración y supervisión de aplicaciones con el accionador de Spring Boot de Azure
+
+**Este artículo se aplica a:** ✔️ Java
 
 Después de implementar el nuevo archivo binario en la aplicación, recomendamos comprobar la característica y ver información sobre la aplicación en ejecución. En este artículo se explica cómo acceder a la API desde un punto de conexión de prueba proporcionado por Azure Spring Cloud y exponer las características listas para producción de la aplicación.
 
@@ -73,5 +75,7 @@ Ahora puede volver al panel de información general de la aplicación y esperar 
 Para ver todos los puntos de conexión integrados, lea [Exponer puntos de conexión](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints-exposing-endpoints).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Descripción de las métricas en Azure Spring Cloud](spring-cloud-concept-metrics.md)
 * [Descripción del estado de las aplicaciones en Azure Spring Cloud](spring-cloud-concept-app-status.md)
+

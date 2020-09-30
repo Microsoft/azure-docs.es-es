@@ -2,13 +2,13 @@
 title: Implementación de recursos en una suscripción
 description: Se describe cómo crear un grupo de recursos en una plantilla de Azure Resource Manager. También se muestra cómo implementar recursos en el ámbito de la suscripción de Azure.
 ms.topic: conceptual
-ms.date: 07/27/2020
-ms.openlocfilehash: aca1aaf9d7d0c8a97bf2dad437953ccadc02a924
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/15/2020
+ms.openlocfilehash: 3889f5a06f138114dfe4511d0957558d6d803c8e
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002783"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605182"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creación de grupos de recursos y otros recursos en el nivel de suscripción
 
@@ -82,7 +82,7 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 Los comandos para las implementaciones de nivel de suscripción son diferentes de los comandos de las implementaciones de grupo de recursos.
 
-Para la CLI de Azure, use [az deployment sub create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create). El ejemplo siguiente implementa una plantilla para crear un grupo de recursos:
+Para la CLI de Azure, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). El ejemplo siguiente implementa una plantilla para crear un grupo de recursos:
 
 ```azurecli-interactive
 az deployment sub create \
@@ -115,7 +115,7 @@ Para cada nombre de implementación, la ubicación es inmutable. No se puede cre
 
 ## <a name="deployment-scopes"></a>Ámbitos de implementación
 
-Al realizar la implementación en una suscripción, puede tener como destino la suscripción o cualquier grupo de recursos dentro de la suscripción. El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
+Al realizar la implementación en una suscripción, puede dirigirse a una suscripción y a cualquiera de los recursos que contenga. No puede realizar la suscripción en una suscripción diferente de la de destino. El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
 
 Los recursos definidos en la sección de recursos de la plantilla se aplican a la suscripción.
 
@@ -145,7 +145,7 @@ Para establecer como destino un grupo de recursos dentro de la suscripción, agr
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resource-group-resources
                 }
             }
         }
@@ -154,15 +154,17 @@ Para establecer como destino un grupo de recursos dentro de la suscripción, agr
 }
 ```
 
+En este artículo, puede encontrar plantillas que muestran cómo implementar recursos en distintos ámbitos. Para ver una plantilla que crea un grupo de recursos e implementa en él una cuenta de almacenamiento, consulte [Creación de grupos de recursos y recursos](#create-resource-group-and-resources). Para ver una plantilla que crea un grupo de recursos, le aplica un bloqueo y le asigna un rol, consulte [Control de acceso](#access-control).
+
 ## <a name="use-template-functions"></a>Usar funciones de plantillas
 
 En las implementaciones de nivel de suscripción, hay algunas consideraciones importantes que deben tenerse en cuenta al usar las funciones de plantilla:
 
 * La función [resourceGroup()](template-functions-resource.md#resourcegroup)**no** se admite.
 * Se admiten las funciones [reference()](template-functions-resource.md#reference) y [list()](template-functions-resource.md#list).
-* O bien, use la función [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) para obtener el id. de recurso para recursos implementados en nivel de suscripción.
+* No use [resourceId()](template-functions-resource.md#resourceid) para obtener el identificador de los recursos implementados en el nivel de suscripción. En su lugar, use la función [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid).
 
-  Por ejemplo, para obtener el identificador de recurso de una definición de directiva, utilice:
+  Por ejemplo, para obtener el identificador de recurso de una definición de directiva que se implementa en una suscripción, use:
 
   ```json
   subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
@@ -420,7 +422,7 @@ Puede [definir](../../governance/policy/concepts/definition-structure.md) y asig
       ],
       "properties": {
         "scope": "[subscription().id]",
-        "policyDefinitionId": "[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
+        "policyDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
       }
     }
   ]

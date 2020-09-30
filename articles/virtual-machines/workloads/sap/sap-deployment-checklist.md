@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f195d4096baaa1d6a03b4b6c7c589ccef8fbd036
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9991bae3d5c8487cc80cca0bf9a249e715b5c521
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651733"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650696"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Lista de comprobación de planeamiento e implementación de cargas de trabajo de SAP en Azure
 
@@ -213,7 +213,7 @@ En esta fase, normalmente se implementan sistemas de desarrollo, sistemas de pru
 12. A medida que se aplique la carga de trabajo, registre el consumo de recursos de los sistemas en Azure. Compare este consumo con los registros de la plataforma anterior. Si observa grandes diferencias, ajuste el tamaño de las máquinas virtuales de las futuras implementaciones. Tenga en cuenta que si reduce el tamaño, también se reducirán los anchos de banda de almacenamiento y red de las máquinas virtuales.
     - [Tamaños de las máquinas virtuales Windows en Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     - [Tamaños de las máquinas virtuales Linux en Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
-13. Realice pruebas con la funcionalidad y los procesos de copia del sistema. El objetivo es facilitar la copia de un sistema de desarrollo o un sistema de pruebas, para que los equipos de proyecto puedan obtener rápidamente los nuevos sistemas. Considere la posibilidad de usar [SAP LaMa](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) para estas tareas.
+13. Realice pruebas con la funcionalidad y los procesos de copia del sistema. El objetivo es facilitar la copia de un sistema de desarrollo o un sistema de pruebas, para que los equipos de proyecto puedan obtener rápidamente los nuevos sistemas. 
 14. Optimice y perfeccione los accesos basados en rol, los permisos y los procesos de Azure de su equipo para asegurarse de conseguir la separación de funciones. Al mismo tiempo, asegúrese de que todos los equipos pueden realizar sus tareas en la infraestructura de Azure.
 15. Practique, pruebe y documente los procedimientos de alta disponibilidad y recuperación ante desastres para permitir que su personal ejecute estas tareas. Identifique las deficiencias y adapte la nueva funcionalidad de Azure que va a integrar en las implementaciones.
 

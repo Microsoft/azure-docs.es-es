@@ -12,18 +12,18 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 08/17/2020
-ms.openlocfilehash: 3eb1a4cbfcf62617796af6a26cb4688b734eb617
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 22ed36213c932c7e202817fd093e1ec96aec94fd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551848"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434408"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configuración y administración de la autenticación de Azure AD con Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-En este artículo se muestra cómo crear y rellenar una instancia de Azure Active Directory (Azure AD) y, a continuación, usarla con [Azure SQL Database](sql-database-paas-overview.md), una [Instancia administrada de Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md) y [Azure Synapse Analytics (anteriormente, Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Para obtener información general, consulte [Autenticación con Azure Active Directory](authentication-aad-overview.md).
+En este artículo se muestra cómo crear y rellenar una instancia de Azure Active Directory (Azure AD) y, a continuación, usarla con [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) y [Azure Synapse Analytics (anteriormente, SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Para obtener información general, consulte [Autenticación con Azure Active Directory](authentication-aad-overview.md).
 
 ## <a name="azure-ad-authentication-methods"></a>Métodos de autenticación de Azure AD
 

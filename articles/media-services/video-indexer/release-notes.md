@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 08/05/2020
+ms.date: 09/03/2020
 ms.author: juliako
-ms.openlocfilehash: 1b11dc0ee17fd0686776a7262c4bc99bd98bcc3e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e2b45ebf9acea7334678110015d8cfd3022675f4
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837316"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505347"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de la versión de Video Indexer de Azure Media Services
 
@@ -29,6 +29,16 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 * Problemas conocidos
 * Corrección de errores
 * Funciones obsoletas
+
+## <a name="august-2020"></a>Agosto de 2020
+
+### <a name="mobile-design-for-the-video-indexer-website"></a>Diseño móvil para el sitio web de Video Indexer
+
+La experiencia del sitio web de Video Indexer ahora es compatible con dispositivos móviles. La experiencia del usuario tiene capacidad de respuesta para adaptarse al tamaño de la pantalla del móvil (salvo las interfaces de usuario de personalización). 
+
+### <a name="accessibility-improvements-and-bug-fixes"></a>Mejoras en la accesibilidad y correcciones de errores 
+
+Como parte de WCAG (directrices de accesibilidad de contenido web), las experiencias del sitio web de Video Indexer se alinean con la categoría C, como parte de los estándares de accesibilidad de Microsoft. Se han solucionado varios errores y realizado mejoras relacionados con la navegación mediante teclado, el acceso mediante programación y el lector de pantalla. 
 
 ## <a name="july-2020"></a>Julio de 2020
 

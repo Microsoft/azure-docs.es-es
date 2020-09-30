@@ -1,18 +1,18 @@
 ---
 title: Incorporación de un script a un plan de recuperación en Azure Site Recovery
 description: Obtenga información sobre cómo agregar un script de VMM a un plan de recuperación para la recuperación ante desastres de máquinas virtuales de Hyper-V en nubes de VMM.
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: rajanaki
-ms.openlocfilehash: fb690dfb90c0f7b8216368cb6b26a9af7d895d18
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.author: sharrai
+ms.openlocfilehash: 3217c30737a133c1c1092fc4a8a8caaa0338e980
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130127"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425881"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Incorporación de un script de VMM a un plan de recuperación
 

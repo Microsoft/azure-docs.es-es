@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: fd45db779b7a828d247f09cae38f90fc20d12c16
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9b2d003ef4938681229317b625aae4526787ac15
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79456597"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898713"
 ---
 # <a name="convert-to-dataset"></a>Convertir conjunto de datos
 
-Este artículo describe cómo usar el módulo Convert to Dataset (Convertir conjunto de datos) en el diseñador Azure Machine Learning (versión preliminar) para convertir cualquier dato de una canalización al formato interno del diseñador.
+En este artículo se describe cómo usar el módulo Convertir conjunto de datos en el diseñador Azure Machine Learning para convertir cualquier dato de una canalización al formato interno del diseñador.
   
 La conversión no es necesaria en la mayoría de los casos. Azure Machine Learning convierte implícitamente los datos a su formato de conjunto de datos nativo cuando se realiza cualquier operación en los datos. 
 
@@ -35,7 +35,7 @@ Le recomendamos usar el módulo [Edit Metadata](edit-metadata.md) (Editar metada
 
 2. Conéctelo a cualquier módulo que genere un conjunto de datos.   
 
-    Siempre y cuando los datos sean [tabulares](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py), puede convertirlos en un conjunto de datos. Esto incluye los datos cargados con [Importar datos](import-data.md), los datos creados con la [Introducción manual de datos](enter-data-manually.md), o los conjuntos de datos transformados con [Aplicar transformación](apply-transformation.md).
+    Siempre y cuando los datos sean [tabulares](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true), puede convertirlos en un conjunto de datos. Esto incluye los datos cargados con [Importar datos](import-data.md), los datos creados con la [Introducción manual de datos](enter-data-manually.md), o los conjuntos de datos transformados con [Aplicar transformación](apply-transformation.md).
 
 3.  En la lista desplegable **Acción**, indique si desea realizar alguna limpieza en los datos antes de guardar el conjunto de datos:  
   

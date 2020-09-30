@@ -13,7 +13,7 @@
     - name: Compilación y ejecución de microservicios
       expanded: true
       items:
-        - name: Introducción a las aplicaciones de ejemplo
+        - name: Introducción a la aplicación de ejemplo
           href: spring-cloud-quickstart-sample-app-introduction.md
         - name: Aprovisionamiento del servicio Azure Spring Cloud
           href: spring-cloud-quickstart-provision-service-instance.md
@@ -37,8 +37,6 @@
       href: spring-cloud-tutorial-circuit-breaker.md
     - name: Nombre DNS personalizado
       href: spring-cloud-tutorial-custom-domain.md
-    - name: Uso de IntelliJ para implementar aplicaciones de Azure Spring Cloud
-      href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: Aprovisione una instancia de Azure Spring Cloud con Terraform
       href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: CI/CD con Jenkins
@@ -47,6 +45,8 @@
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: Implementación de Azure Spring Cloud en una red virtual
       href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
+    - name: Uso de la identidad administrada para invocar Azure Functions desde una aplicación de Azure Spring Cloud
+      href: spring-cloud-tutorial-managed-identities-functions.md
 - name: Conceptos
   items:
     - name: Descripción de la aplicación y su implementación
@@ -67,6 +67,8 @@
   items:
     - name: Preparación de una aplicación Java Spring para la implementación
       href: spring-cloud-tutorial-prepare-app-deployment.md
+    - name: Inicio de una aplicación Java desde el código fuente
+      href: spring-cloud-howto-launch-from-source.md
     - name: Configuración de un servidor de configuración
       href: spring-cloud-tutorial-config-server.md
     - name: Habilitación del registro del servicio

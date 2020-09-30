@@ -7,12 +7,15 @@ ms.date: 12/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: f8660cb18f5e7ac5f3695eb15475570b107bf25c
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.custom:
+- device-developer
+- iot-edge
+ms.openlocfilehash: 5c51649e742f6e314e0e324ae19c38f1a83b02ee
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337082"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016867"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Conexión de dispositivos de Azure IoT Edge a una aplicación de Azure IoT Central
 

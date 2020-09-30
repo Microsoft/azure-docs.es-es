@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: erhopf
-ms.openlocfilehash: 4c448b8ed50863457da69db3f74b959f04e26ec1
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: c2b96193204c6938338594054bc3cd4715008313
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131861"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055318"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Servicio Voz: novedades de la documentación
 
@@ -48,9 +48,6 @@ Si quiere obtener información sobre las actualizaciones en el Servicio Voz, el 
 * [Inicio rápido: Configuración del entorno de desarrollo](quickstarts/setup-platform.md): se han agregado instrucciones de JavaScript a la documentación.
 * [Inicio rápido: Síntesis de voz en un archivo de audio](quickstarts/text-to-speech-audio-file.md): se han agregado instrucciones de JavaScript a la documentación.
 * [Inicio rápido: Síntesis de voz en un altavoz](quickstarts/text-to-speech.md): se han agregado instrucciones de JavaScript a la documentación.
-* [Inicio rápido: Traducción de voz a voz](quickstarts/translate-speech-to-speech.md): se han agregado instrucciones de JavaScript a la documentación.
-* [Inicio rápido: Traducción de voz a varios idiomas](quickstarts/translate-speech-to-text-multiple-languages.md): se han agregado instrucciones de JavaScript a la documentación.
-* [Inicio rápido: Traducción de voz a texto](quickstarts/translate-speech-to-text.md): se han agregado instrucciones de JavaScript a la documentación.
 * [¿Qué es una palabra clave?](custom-keyword-overview.md): se han actualizado el contenido y los vínculos de la introducción.
 * [Especificación del lenguaje fuente para la conversión de voz en texto](how-to-specify-source-language.md): se han agregado instrucciones de JavaScript y Objective-C a la documentación.
 
@@ -77,7 +74,7 @@ Esta tabla se actualiza cada mes y solo refleja los problemas abiertos en mayo.
 |[54743](https://github.com/MicrosoftDocs/azure-docs/issues/54743)|fifteenjoy|Error de ejecución de contenedores del Servicio Voz|13-05-2020|Abrir|Incidencia|
 |[54550](https://github.com/MicrosoftDocs/azure-docs/issues/54550)|manish-95|Ejemplo de archivo de pronunciación|2020-05-11|Abrir|Incidencia|
 |[54522](https://github.com/MicrosoftDocs/azure-docs/issues/54522)|pjmlp|Ejemplo de Java incorrecto.|10-05-2020|Abrir|Incidencia|
-|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|No se puede obtener puntuación de pronunciación|08-05-2020|Closed|Incidencia|
+|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|No se puede obtener la puntuación de pronunciación|08-05-2020|Closed|Incidencia|
 |[54382](https://github.com/MicrosoftDocs/azure-docs/issues/54382)|jgtellez1|Plantilla de archivo YAML|07-05-2020|Closed|Incidencia|
 |[54208](https://github.com/MicrosoftDocs/azure-docs/issues/54208)|paparush|Código de ejemplo de C# no pide al usuario que hable.|06-05-2020|Closed|Incidencia|
 |[54132](https://github.com/MicrosoftDocs/azure-docs/pull/54132)|anthonsu|Actualización de TTS de v1.3 a v1.4|05-05-2020|Closed|Solicitud de incorporación de cambios|

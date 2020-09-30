@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a60683b8dbf809bc3e91ffd8720b545db4c361d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9d3f7d5f496634f10b48e7509c21cd634fd92d3c
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008682"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458339"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista de comprobación de rendimiento y de escalabilidad para Table Storage
 
@@ -197,7 +197,7 @@ En esta sección se enumeran varias configuraciones rápidas que puede usar para
 
 A partir de la versión del 15 de agosto de 2013 del servicio Storage, Table service admite el uso de JSON en lugar del formato AtomPub basado en XML para transferir datos de las tablas. El uso de JSON puede reducir los tamaños de carga hasta en un 75 % y puede mejorar significativamente el rendimiento de la aplicación.
 
-Para más información, consulte la publicación [Tablas de Microsoft Azure: introducción a JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) y [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx) (Formato de carga para las operaciones de Table service).
+Para más información, consulte la publicación [Tablas de Microsoft Azure: introducción a JSON](https://docs.microsoft.com/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) y [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx) (Formato de carga para las operaciones de Table service).
 
 ### <a name="disable-nagle"></a>Deshabilitación de Nagle
 

@@ -1,26 +1,27 @@
 ---
 title: Creación y administración de una instantánea de blob en .NET
 titleSuffix: Azure Storage
-description: Aprenda a crear una instantánea de solo lectura de un blob para hacer una copia de seguridad de los datos de blob en un momento determinado.
+description: Aprenda a usar la biblioteca cliente de .NET para crear una instantánea de solo lectura de un blob para hacer una copia de seguridad de los datos de blob en un momento determinado.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 9404cc8037b9cd7ef3e6f74265ce803177eb0465
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: fb57e7260a056afe023455149f610ff492c98c12
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185288"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226138"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Creación y administración de una instantánea de blob en .NET
 
 Una instantánea es una versión de solo lectura de un blob que se ha realizado en un momento dado. En este artículo se muestra cómo crear y administrar instantáneas de blob mediante la [biblioteca cliente para .NET de Azure Storage](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
-Para obtener más información sobre las instantáneas de blob en Azure Storage, consulte [Creación y administración de una instantánea de blob en .NET](snapshots-overview.md).
+Para obtener más información sobre las instantáneas de blob en Azure Storage, consulte [Instantáneas de blobs](snapshots-overview.md).
 
 ## <a name="create-a-snapshot"></a>Crear una instantánea
 
@@ -161,5 +162,5 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Instantáneas de blob](snapshots-overview.md)
-- [Versiones de blob (versión preliminar)](versioning-overview.md)
+- [Versiones de blob](versioning-overview.md)
 - [Eliminación temporal para blobs](storage-blob-soft-delete.md)

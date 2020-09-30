@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: duau
 ms.custom: contperfq1
-ms.openlocfilehash: 14a61d33ef2e4d4fc80770f5c86e33d34ec860cd
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: bb0d3cebd9382ef2c81b217417cfbcb6198b6ebb
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401442"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565930"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute
 
@@ -86,7 +86,7 @@ Habilite el emparejamiento privado para conectarse a VM y servicios en la nube i
 
 #### <a name="for-microsoft-peering"></a>En el caso del emparejamiento de Microsoft
 
-Habilite esta opción para acceder a servicios en línea de Microsoft, como Office 365. Además, se puede acceder a todos los servicios de PaaS de Azure a través del emparejamiento de Microsoft. Debe asegurarse de que usa un proxy/borde independiente para conectarse a Microsoft, distinto del que usa para Internet. Si usa el mismo borde para ExpressRoute e Internet se producirá un enrutamiento asimétrico y causará interrupciones en la conectividad de la red.
+Habilite esta opción para acceder a los servicios de Microsoft Online Services, como Microsoft 365. Además, se puede acceder a todos los servicios de PaaS de Azure a través del emparejamiento de Microsoft. Debe asegurarse de que usa un proxy/borde independiente para conectarse a Microsoft, distinto del que usa para Internet. Si usa el mismo borde para ExpressRoute e Internet se producirá un enrutamiento asimétrico y causará interrupciones en la conectividad de la red.
 
 * Subred de emparejamiento para la ruta de acceso 1 (/30): debe ser una dirección IP pública
 * Subred de emparejamiento para la ruta de acceso 2 (/30): debe ser una dirección IP pública

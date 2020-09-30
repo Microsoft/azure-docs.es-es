@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: 44823ce888e97b308f29403612f598c0eb585ae5
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 894a89126d1ee3ed909134f3e0dd914166568654
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673368"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606543"
 ---
 La cola se puede ver en [Azure Portal](../articles/storage/queues/storage-quickstart-queues-portal.md) o en el [Explorador de Microsoft Azure Storage](https://storageexplorer.com/). También puede ver la cola en la CLI de Azure, como se describe en los pasos siguientes:
 
@@ -18,7 +18,7 @@ La cola se puede ver en [Azure Portal](../articles/storage/queues/storage-quicks
     # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
-    AZURE_STORAGE_CONNECTION_STRING="<MY_CONNECTION_STRING>"
+    export AZURE_STORAGE_CONNECTION_STRING="<MY_CONNECTION_STRING>"
     ```
     
     # <a name="powershell"></a>[PowerShell](#tab/powershell)

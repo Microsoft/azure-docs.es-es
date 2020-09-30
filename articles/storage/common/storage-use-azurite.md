@@ -7,12 +7,13 @@ ms.date: 07/15/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: c850fccf5a86df4c35ce4db53b5b40d5e8588210
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 35a93669bf301b3be1d560a0777751c12f3c9d14
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089420"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001916"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Uso del emulador Azurite para el desarrollo local de Azure Storage
 
@@ -561,5 +562,5 @@ Las contribuciones y las sugerencias para Azurite son bienvenidas. Vaya a la pá
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Uso del emulador de Azure Storage para el desarrollo y pruebas](storage-use-emulator.md) documenta el antiguo emulador de almacenamiento de Azure que Azurite sustituye.
+- [Uso del Emulador de Azure Storage para desarrollo y pruebas](storage-use-emulator.md) documenta el antiguo emulador de Azure Storage que Azurite sustituye.
 - En [Configuración de las cadenas de conexión de Azure Storage](storage-configure-connection-string.md) se explica cómo ensamblar una cadena de conexión de Azure Storage válida.

@@ -3,12 +3,12 @@ title: 'Agente de Microsoft Azure Recovery Services (MARS): Preguntas frecuente
 description: Responde las preguntas habituales acerca de la realización de copias de seguridad de archivos y carpetas con Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: e50e424f1a9f044aa1ed8e95c1bce002d134bffe
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: e3a5b6d07982c3261b457d4999025c44489c0a8d
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874629"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182520"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Preguntas más frecuentes: agente de Microsoft Azure Recovery Services (MARS)
 
@@ -199,7 +199,7 @@ Si tiene la misma frase de contraseña (que proporcionó durante el registro) de
 
 ### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>Se produjo un error en los trabajos de copia de seguridad o no se están ejecutando durante mucho tiempo. Ya pasé el período de retención. ¿Todavía puedo restaurarlo?
 
-Como medida de seguridad, Azure Backup conservará el último punto de recuperación, aunque haya pasado el período de retención. Una vez que se reanudan las copias de seguridad y los puntos de recuperación nuevos están disponibles, se elimina el punto de recuperación anterior según la retención especificada.
+Como medida de seguridad, Azure Backup conservará el punto de recuperación más reciente, aunque haya pasado el período de retención. Una vez que se reanudan las copias de seguridad y los puntos de recuperación nuevos están disponibles, se elimina el punto de recuperación anterior según la retención especificada.
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>¿Qué ocurre si se cancela un trabajo de restauración en curso?
 

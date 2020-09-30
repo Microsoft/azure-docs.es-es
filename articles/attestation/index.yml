@@ -10,12 +10,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 07/20/2020
-  ms.openlocfilehash: 218a957bfc351dd40f9b101f44d1c6e090e92027
-  ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+  ms.openlocfilehash: 984fecd947cb174ab6663a874071926d16f657bd
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/02/2020
-  ms.locfileid: "89398127"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91285408"
 landingContent:
 - title: Acerca de Microsoft Azure Attestation
   linkLists:

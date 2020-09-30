@@ -7,12 +7,13 @@ ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 1eab1022e9b0f03597c108c3c927909aa9bb2712
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.custom: device-developer
+ms.openlocfilehash: cdc85029ec004060abf69b111d8a0ebca42147a4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337116"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015099"
 ---
 # <a name="what-are-device-templates"></a>¿Qué son las plantillas de dispositivo?
 

@@ -3,12 +3,12 @@ title: Concepto de grafo multimedia en Azure
 description: Un grafo multimedia le permite definir dónde se debe capturar el elemento multimedia, cómo se debe procesar y dónde se deben entregar los resultados. En este artículo se ofrece una descripción detallada del concepto de grafo multimedia.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 8c6775da6804b5079c89cae73d4621dd8067e90a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6be741ee38cc8f1980fe9aa96883f9aacc1be8e2
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798846"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048436"
 ---
 # <a name="media-graph"></a>Grafo multimedia
 
@@ -37,19 +37,28 @@ Los valores de los parámetros de la topología se especifican al crear instanci
 
 ## <a name="media-graph-states"></a>Estados de los grafos multimedia  
 
-Un grafo multimedia puede tener alguno de los siguientes estados:
+El ciclo de vida de las topologías de grafos y las instancias de grafos se muestra en el siguiente diagrama de estado.
 
-* Inactivo: representa el estado en el que un grafo multimedia está configurado, pero no activo.
-* Activando: el estado cuando se crea una instancia de un grafo multimedia (es decir, el estado de transición entre inactivo y activo).
-* Activo: el estado cuando un grafo multimedia está activo. 
+![Ciclo de vida de la topología de grafo e instancia de grafo](./media/media-graph/graph-topology-lifecycle.svg)
 
-    > [!NOTE]
-    >  El grafo multimedia puede estar activo sin que los datos fluyan a través de él (por ejemplo, el origen del vídeo de entrada se queda sin conexión).
-* Desactivando: es el estado que presenta un grafo multimedia cuando pasa de activo a inactivo.
+Comience por [crear una topología de grafo](direct-methods.md#graphtopologyset). A continuación, para cada fuente de vídeo en directo que desee procesar con esta topología, [cree una instancia de grafo](direct-methods.md#graphinstanceset). 
 
-En el diagrama siguiente se muestra la máquina de estados de los grafos multimedia.
+La instancia de grafo estará en el estado `Inactive` (inactivo).
 
-![Máquina de estados de los grafos multimedia](./media/media-graph/media-graph-state-machine.png)
+Cuando esté listo para enviar la fuente de vídeo en directo a la instancia de grafo, [actívela](direct-methods.md#graphinstanceactivate). La instancia de grafo pasará brevemente a través de un estado `Activating` de transición y, si se realiza correctamente, entrará en un estado `Active`. En el estado `Active`, se procesarán los elementos multimedia (si la instancia de grafo recibe datos de entrada).
+
+> [!NOTE]
+>  Una instancia de grafo puede estar activa sin que los datos fluyan a través de ella (por ejemplo, la cámara se queda sin conexión).
+> La suscripción de Azure se facturará cuando la instancia de grafo esté en estado activo.
+
+Puede repetir el proceso de creación y activación de otras instancias de grafo para la misma topología, si tiene otras fuentes de vídeo en directo para procesar.
+
+Cuando haya terminado de procesar la fuente de vídeo en directo, puede [desactivar](direct-methods.md#graphinstancedeactivate) la instancia de grafo. La instancia de grafo pasará brevemente a través de un estado `Deactivating` de transición, vaciará todos los datos que tenga y, a continuación, volverá al estado `Inactive`.
+
+Solo puede [eliminar](direct-methods.md#graphinstancedelete) una instancia de grafo cuando esté en el estado `Inactive`.
+
+Una vez eliminadas todas las instancias de grafo que hacen referencia a una topología de grafo específica, puede [eliminar la topología de grafo](direct-methods.md#graphtopologydelete).
+
 
 ## <a name="sources-processors-and-sinks"></a>Orígenes, procesadores y receptores  
 

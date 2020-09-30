@@ -1,29 +1,31 @@
 ---
 title: Instalación y ejecución de contenedores para usar Anomaly Detector API
 titleSuffix: Azure Cognitive Services
-description: Use algoritmos avanzados de Anomaly Detector API para identificar anomalías en datos de serie temporal.
+description: Aprenda a instalar y utilizar el contenedor para emplear los algoritmos avanzados de la API de Anomaly Detector.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: ee742f09f3fcc1bd283efbc346fea6a040e53f48
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2a4ff7da16524e0706601e43dff39325952990ff
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548538"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903553"
 ---
-# <a name="install-and-run-anomaly-detector-containers-preview"></a>Instalación y ejecución de contenedores de Anomaly Detector (versión preliminar)
+# <a name="install-and-run-anomaly-detector-containers"></a>Instalación y ejecución de contenedores de Anomaly Detector 
+
+[!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
 Anomaly Detector tiene la siguiente funcionalidad de la característica de contenedor:
 
 | Función | Características |
 |--|--|
-| Anomaly Detector | <li> Detecta las anomalías que se producen en tiempo real. <li> Detecta las anomalías en todo el conjunto de datos como un lote. <li> Deduce el intervalo normal esperado de los datos. <li> Permite el ajuste de la sensibilidad de la detección de anomalías para adaptarse mejor a los datos. |
+| Anomaly Detector | <li> Detecta las anomalías que se producen en tiempo real. <li> Detecta las anomalías en todo el conjunto de datos como un lote. <li> Detecta puntos de cambio de tendencia en el conjunto de datos como lote.<li> Deduce el intervalo normal esperado de los datos. <li> Permite el ajuste de la sensibilidad de la detección de anomalías para adaptarse mejor a los datos. |
 
 Para más información sobre las API, consulte:
 * [Más información sobre el servicio de API Anomaly Detector](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
@@ -67,7 +69,7 @@ Use el comando [`docker pull`](https://docs.docker.com/engine/reference/commandl
 
 | Contenedor | Repositorio |
 |-----------|------------|
-| cognitive-services-anomaly-detector | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest` |
+| cognitive-services-anomaly-detector | `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector:latest` |
 
 <!--
 For a full description of available tags, such as `latest` used in the preceding command, see [anomaly-detector](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409) on Docker Hub.
@@ -95,7 +97,7 @@ Hay disponibles [ejemplos](anomaly-detector-container-configuration.md#example-d
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest \
+mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector:latest \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -177,7 +179,7 @@ Para obtener más información acerca de estas opciones, consulte [Configure con
 En este artículo, ha aprendido los conceptos y el flujo de trabajo de la descarga, la instalación y la ejecución de contenedores de Anomaly Detector. En resumen:
 
 * Anomaly Detector proporciona un contenedor Linux para Docker, que encapsula la detección de anomalías con lotes frente a transmisión por secuencias, inferencia de intervalo esperado y ajuste de sensibilidad.
-* Las imágenes de contenedor se descargan de una instancia privada de Azure Container Registry dedicada para la vista previa de contenedores.
+* Las imágenes de contenedor se descargan de una instancia privada de Azure Container Registry dedicada para contenedores.
 * Las imágenes de contenedor se ejecutan en Docker.
 * Puede usar la API REST o el SDK para llamar a operaciones de contenedores de Anomaly Detector mediante la especificación del URI del host del contenedor.
 * Debe especificar la información de facturación al crear una instancia de un contenedor.

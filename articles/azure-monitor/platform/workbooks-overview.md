@@ -1,6 +1,6 @@
 ---
 title: Introducción a los libros de Azure Monitor
-description: Simplifique la creación de informes complejos con libros parametrizados creados previamente y personalizados.
+description: Obtenga información sobre cómo los libros proporcionan un lienzo flexible para el análisis de datos y la creación de informes visuales completos en el Azure Portal.
 author: mrbullwinkle
 manager: carmonm
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: 1d85f011289bfa27bcf1e94d8da8cd7a32092c2c
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: d6ac552640b4a557c51b674624e6a4493241e0ed
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799572"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977565"
 ---
 # <a name="azure-monitor-workbooks"></a>Libros de Azure Monitor
 
@@ -43,12 +43,13 @@ Los libros son compatibles actualmente con los siguientes orígenes de datos:
 
 Los libros proporcionan un amplio conjunto de funciones para visualizar los datos. Para obtener ejemplos detallados de cada tipo de visualización, puede consultar los siguientes vínculos de ejemplo:
 
-* [Texto](workbooks-visualizations.md#text)
-* [Gráficos](workbooks-visualizations.md#charts)
-* [Cuadrículas](workbooks-visualizations.md#grids)
-* [Iconos](workbooks-visualizations.md#tiles)
-* [Árboles](workbooks-visualizations.md#trees)
-* [Gráficos](workbooks-visualizations.md#graphs)
+* [Texto](workbooks-text-visualizations.md)
+* [Gráficos](workbooks-chart-visualizations.md)
+* [Cuadrículas](workbooks-grid-visualizations.md)
+* [Iconos](workbooks-tile-visualizations.md)
+* [Árboles](workbooks-tree-visualizations.md)
+* [Gráficos](workbooks-graph-visualizations.md)
+* [Barra compuesta](workbooks-composite-bar.md)
 
 ![Ejemplo de visualizaciones de libros](./media/workbooks-overview/visualizations.png)
 
@@ -86,9 +87,9 @@ En el caso de este libro concreto, la experiencia es interactiva. Puede ajustar 
 
 ### <a name="editing-mode"></a>Modo de edición
 
-Para comprender cómo se agrupa esta plantilla de libro, debe cambiar al modo de edición seleccionando **Editar**. 
+Para comprender cómo se agrupa esta plantilla de libro, debe cambiar al modo de edición seleccionando **Editar**.
 
-![Captura de pantalla de la plantilla de análisis de los errores de la aplicación](./media/workbooks-overview/edit.png)
+![Captura de pantalla del botón en libros.](./media/workbooks-overview/edit.png)
 
 Una vez que haya cambiado al modo de edición, observará que aparece un número de cuadros de **Editar** a la derecha correspondiente con cada aspecto individual del libro.
 

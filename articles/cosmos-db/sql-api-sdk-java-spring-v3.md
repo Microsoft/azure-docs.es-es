@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 04a50d37606754ff4540d1056e378d46388e2592
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: e67e6911eeac29036dee2b68c19395b34e1d11da
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590533"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228042"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Spring Data Azure Cosmos DB v3 para Core (SQL) API: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -129,6 +129,8 @@ cosmos.queryMetricsEnabled=true
 |**Tutorial**| [Tutorial de Spring Data Azure Cosmos DB en GitHub](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/tree/main/azure-spring-data-2-2-cosmos-java-getting-started) | [Tutorial de Spring Data Azure Cosmos DB en GitHub](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/tree/main/azure-spring-data-2-3-cosmos-java-getting-started) |
 
 ## <a name="release-history"></a>Historial de versiones
+
+### <a name="300-beta2-unreleased"></a>3.0.0-beta.2 (no publicada)
 
 ### <a name="300-beta1-2020-08-17"></a>3.0.0-beta.1 (2020-08-17)
 #### <a name="new-features"></a>Nuevas características

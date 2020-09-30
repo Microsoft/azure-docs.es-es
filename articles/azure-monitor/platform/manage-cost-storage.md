@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 09/08/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 84a5b1cd7b2229defd4e38a227f75cfbf9ebdd95
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8d1e2454dc4b9a9fbc85d2e5edc5ba3ede33f9c0
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933671"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595658"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Administrar el uso y los costos con los registros de Azure Monitor    
 
@@ -166,7 +166,10 @@ Tenga en cuenta que el tipo de datos (tabla) distingue mayúsculas de minúscula
     GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview
 ```
 
-Para obtener la configuración actual de retención por tipo de datos para todos los tipos de datos del área de trabajo, solo tiene que omitir el tipo de datos específico, por ejemplo:
+> [!NOTE]
+> Solo se devuelve la retención de un tipo de datos si esta se estableció explícitamente para dicho tipo de datos.  Los tipos de datos para los que no se ha establecido explícitamente (y que, por tanto, heredan la retención del área de trabajo) no devolverán nada en esta llamada. 
+
+Para obtener la configuración actual de retención por tipo de datos para todos los tipos de datos del área de trabajo que tienen establecida esta configuración, solo tiene que omitir el tipo de datos específico, por ejemplo:
 
 ```JSON
     GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2017-04-26-preview
@@ -575,7 +578,7 @@ Para generar una alerta si la ingesta del volumen de datos facturable en las úl
 - **Definición de la condición de alerta**: especifique el área de trabajo de Log Analytics como el destino del recurso.
 - **Criterios de alerta**: especifique lo siguiente:
    - **Nombre de señal**: seleccione **Custom log search** (Búsqueda de registros personalizada)
-   - **Consulta de búsqueda** en `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50`. 
+   - **Consulta de búsqueda** en `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50`. Si desea otro 
    - El valor de **Lógica de alerta** está **Basado en** el *número de resultados*, mientras que el valor de **Condición** es *Mayor que* un **Umbral**  de *0*.
    - **Período de tiempo** de *1440* minutos y **Frecuencia de alerta** cada *1440* minutos para ejecutarse una vez al día.
 - **Definición de los detalles de la alerta**: especifique lo siguiente:
@@ -604,7 +607,7 @@ Cuando se detiene la recopilación de datos, el valor de OperationStatus es **Ad
 |Motivo por el que se detiene la recopilación| Solución| 
 |-----------------------|---------|
 |Se alcanzó el límite diario del área de trabajo|Espere para que se reinicie automáticamente la recopilación o aumente el límite diario de volumen de datos que se describe en Administración del volumen de datos diario máximo El tiempo de restablecimiento del límite diario se muestra en la página **Límite diario**. |
-| El área de trabajo ha alcanzado la [tasa de volumen de ingesta de datos](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces). | En las áreas de trabajo se aplica un umbral de velocidad de volumen de ingesta de datos de 500 MB (comprimidos), que es aproximadamente **6 GB/min** sin comprimir (el tamaño real puede variar entre los tipos de datos en función de la longitud del registro y su relación de compresión). Este umbral se aplica a todos los datos ingeridos, tanto si se envían desde recursos de Azure mediante la [configuración de diagnóstico](diagnostic-settings.md), [Data Collector API](data-collector-api.md) o agentes. Cuando se envían datos a un área de trabajo a una velocidad superior al 80 % del umbral configurado en el área de trabajo, se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Cuando la velocidad de ingesta del volumen supera el umbral, se quitan algunos datos y se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Si la velocidad de ingesta del sigue superando el umbral o prevé que lo va a alcanzar pronto, puede abrir una solicitud de soporte técnico para solicitar su aumento en su área de trabajo. Para recibir una notificación de este evento en el área de trabajo, cree una [regla de alerta de registro](alerts-log.md) mediante la siguiente consulta que utiliza lógica de alerta basada en un número de resultados superior a cero, un periodo de evaluación de 5 minutos y una frecuencia de 5 minutos. La velocidad de ingesta del volumen ha alcanzado el 80 % del umbral: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"`. La velocidad de ingesta del volumen ha alcanzado el umbral: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed the threshold"`. |
+| El área de trabajo ha alcanzado la [tasa de volumen de ingesta de datos](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces). | El límite de velocidad de volumen de ingesta predeterminado para los datos enviados desde los recursos de Azure mediante la configuración del diagnóstico es de aproximadamente 6 GB/min por área de trabajo. Este es un valor aproximado, ya que el tamaño real puede variar entre los tipos de datos en función de la longitud del registro y su razón de compresión. Este límite no se aplica a los datos que se envían desde agentes o la Data Collector API. Si envía datos a una velocidad superior a una sola área de trabajo, se quitan algunos datos y se envía un evento a la tabla Operación del área de trabajo cada 6 horas mientras se siga superando el umbral. Si el volumen de ingesta sigue superando el límite de velocidad o prevé que pronto lo alcanzará, puede solicitar un aumento en el área de trabajo mediante el envío de un correo electrónico a LAIngestionRate@microsoft.com o mediante la apertura de una solicitud de soporte técnico. El evento que se va a buscar que indica un límite de tasa de ingesta de datos se puede encontrar mediante la consulta `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The rate of data crossed the threshold"`. |
 |Se alcanzó el límite diario del plan de tarifa Gratis heredado |Espere hasta el día siguiente para que la recopilación se reinicie automáticamente, o cambie a un plan de tarifa de pago.|
 |La suscripción de Azure está en estado suspendido debido a:<br> Prueba gratuita finalizada<br> Pase para Azure expirado<br> Se ha alcanzado el límite de gasto mensual (por ejemplo, en una suscripción de MSDN o Visual Studio)|Cambie a una suscripción de pago<br> Quite el límite o espere a que se restablezca|
 

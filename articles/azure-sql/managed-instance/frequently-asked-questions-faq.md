@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab
-ms.date: 03/17/2020
-ms.openlocfilehash: fe779ebf8bb041fb90b8eb38a9469a783127ffd3
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.reviewer: sstein
+ms.date: 09/21/2020
+ms.openlocfilehash: 2e3bf8251cfb5da20cade65831ef34dbc6709b1b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661425"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887384"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Preguntas frecuentes acerca de Instancia administrada de Azure SQL (P+F)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -102,7 +102,7 @@ Sí, puede hacerlo. Para obtener instrucciones, consulte [Traslado de recursos e
 
 **¿Cómo puedo eliminar mi instancia administrada?**
 
-Puede eliminar instancias administradas a través de Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), la [CLI de Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) o las [API de REST de Resource Manager](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
+Puede eliminar instancias administradas desde Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), la [CLI de Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) o las [API REST de Resource Manager](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
 
 **¿Cuánto tiempo se tarda en crear o actualizar una instancia, o en restaurar una base de datos?**
 
@@ -316,7 +316,7 @@ Por este motivo se desaconseja confiar en la inmutabilidad de la dirección IP, 
 
 **¿La Instancia administrada tiene un punto de conexión público?**
 
-Sí. La Instancia administrada tiene un punto de conexión público que, de forma predeterminada, solo se usa para la administración de servicios, pero un cliente también puede habilitarlo para el acceso a datos. Para obtener más información, vea [Uso de SQL Managed Instance con puntos de conexión públicos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Para configurar el punto de conexión público, vaya a [Configuración de un punto de conexión público en SQL Managed Instance](public-endpoint-configure.md).
+Sí. Tiene un punto de conexión público que, de forma predeterminada, solo se usa para la administración de servicios. Los clientes también puede habilitarlo para el acceso a datos. Para obtener más información, vea [Uso de SQL Managed Instance con puntos de conexión públicos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Para configurar el punto de conexión público, vaya a [Configuración de un punto de conexión público en SQL Managed Instance](public-endpoint-configure.md).
 
 **¿Cómo controla la Instancia administrada el acceso al punto de conexión público?**
 
@@ -350,7 +350,7 @@ Para mitigar los riesgos de filtración de datos, es aconsejable que los cliente
 - Acceder a la instancia con una cuenta de DBA con pocos privilegios.
 - Configurar el acceso del jumpbox de JIT para la cuenta de sysadmin.
 - Activar la [auditoría de SQL](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) e integrarla en los mecanismos de alerta.
-- Activar la [detección de amenazas](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) desde el conjunto de pruebas de [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
+- Active [Detección de amenazas](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) en el conjunto de [Azure Defender para SQL](https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql).
 
 ## <a name="dns"></a>DNS
 

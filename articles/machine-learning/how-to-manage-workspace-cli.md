@@ -10,15 +10,15 @@ author: Blackmist
 ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 0eec9ce6b035b7bf3627c844abb97649ce972693
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cd9af35e5b616f3f4d72405078782e1e88414c98
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167647"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897353"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creación de un área de trabajo para Azure Machine Learning con la CLI de Azure
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 En este artículo aprenderá a crear un área de trabajo de Azure Machine Learning mediante la CLI de Azure. La CLI de Azure proporciona comandos para administrar recursos de Azure. La extensión de aprendizaje automático de la CLI proporciona comandos para trabajar con recursos de Azure Machine Learning.
 
@@ -35,7 +35,7 @@ En este artículo aprenderá a crear un área de trabajo de Azure Machine Learni
 > [!IMPORTANT]
 > Puede omitir esta sección si usa Azure Cloud Shell. Cloud Shell se autentica automáticamente mediante la cuenta con la que inicia sesión en su suscripción a Azure.
 
-Hay varias maneras de autenticarse en la suscripción a Azure desde la CLI. La manera más básica consiste en autenticarse interactivamente a través de un explorador. Para autenticarse de forma interactiva, abra una línea de comandos o un terminal y use el siguiente comando:
+Hay varias maneras de autenticarse en la suscripción a Azure desde la CLI. La manera más simple consiste en autenticarse interactivamente a través de un explorador. Para autenticarse de forma interactiva, abra una línea de comandos o un terminal y use el siguiente comando:
 
 ```azurecli-interactive
 az login
@@ -109,9 +109,6 @@ Para obtener más información sobre cómo trabajar con grupos de recursos, cons
 
 Para crear una nueva área de trabajo en la que __los servicios se creen automáticamente__, use el siguiente comando:
 
-> [!TIP]
-> Los comandos de esta sección crean un área de trabajo de edición básica. Para crear un área de trabajo empresarial, use el modificador `--sku enterprise` con el comando `az ml workspace create`. Para más información sobre las ediciones de Azure Machine Learning, consulte [¿Qué es Azure Machine Learning?](overview-what-is-azure-ml.md#sku).
-
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
@@ -155,13 +152,13 @@ Si quiere restringir el acceso al área de trabajo a una red virtual, puede usar
 * `--pe-vnet-name`: red virtual existente en la que se va a crear el punto de conexión privado.
 * `--pe-subnet-name`: nombre de la subred en la que se va a crear el punto de conexión privado. El valor predeterminado es `default`.
 
-Para obtener más información sobre el uso de un punto de conexión privado y una red virtual con el área de trabajo, vea [Aislamiento de red y privacidad](how-to-enable-virtual-network.md).
+Para obtener más información sobre el uso de un punto de conexión privado y una red virtual con el área de trabajo, vea [Información general sobre la privacidad y el aislamiento de la red virtual](how-to-network-security-overview.md).
 
 ### <a name="customer-managed-key-and-high-business-impact-workspace"></a>Clave administrada por el cliente y área de trabajo de alto impacto de negocio
 
 De forma predeterminada, las métricas y los metadatos del área de trabajo se almacenan en una instancia de Azure Cosmos DB que Microsoft mantiene. Estos datos se cifran con claves administradas por Microsoft. 
 
-Si va a crear una versión __Enterprise__ de Azure Machine Learning, puede usar la clave propia. Así, se crea la instancia de Azure Cosmos DB que almacena las métricas y los metadatos en la suscripción de Azure. Use el parámetro `--cmk-keyvault` para especificar la instancia de Azure Key Vault que contiene la clave y `--resource-cmk-uri` para especificar la dirección URL de la clave en el almacén.
+En lugar de usar la clave administrada por Microsoft, puede proporcionar su propia clave. Así, se crea la instancia de Azure Cosmos DB que almacena las métricas y los metadatos en la suscripción de Azure. Use el parámetro `--cmk-keyvault` para especificar la instancia de Azure Key Vault que contiene la clave y `--resource-cmk-uri` para especificar la dirección URL de la clave en el almacén.
 
 > [!IMPORTANT]
 > Para usar los parámetros `--cmk-keyvault` y `--resource-cmk-uri`, primero debe realizar las siguientes acciones:

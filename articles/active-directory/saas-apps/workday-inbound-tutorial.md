@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 51ab05a995ba5b620b759f419fb5b4594873d2f5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 87085d4a4911801933993720ae0ab23aeb19956d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88527815"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974365"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -31,13 +31,13 @@ El objetivo de este tutorial es mostrar los pasos que debe dar para aprovisionar
 
 El [servicio de aprovisionamiento de usuarios de Azure Active Directory](../app-provisioning/user-provisioning.md) se integra con la [API de recursos humanos de Workday](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) para poder aprovisionar cuentas de usuario. El flujo de trabajo de aprovisionamiento de usuarios de Workday compatible con el servicio de aprovisionamiento de usuarios de Azure AD permite la automatización de los siguientes escenarios de recursos humanos y de administración del ciclo de vida de identidades:
 
-* **Contratación de nuevos empleados**: Cuando se agrega un nuevo empleado a Workday, se crea automáticamente una cuenta de usuario en Active Directory, Azure Active Directory y, opcionalmente, en Office 365 y en [otras aplicaciones SaaS compatibles con Azure AD](../app-provisioning/user-provisioning.md), con escritura diferida de la información de contacto administrada por TI en Workday.
+* **Contratación de nuevos empleados**: cuando se agrega un nuevo empleado a Workday, se crea automáticamente una cuenta de usuario en Active Directory, Azure Active Directory y, opcionalmente, en Microsoft 365 y en [otras aplicaciones SaaS compatibles con Azure AD](../app-provisioning/user-provisioning.md), con escritura diferida de la información de contacto administrada por TI en Workday.
 
-* **Actualizaciones de atributos y de perfil de los empleados**: si se actualiza un registro de empleado en Workday (por ejemplo, el nombre, el cargo o el administrador), su cuenta de usuario se actualizará automáticamente en Active Directory, Azure Active Directory y, opcionalmente, en Office 365 y en [otras aplicaciones SaaS compatibles con Azure AD](../app-provisioning/user-provisioning.md).
+* **Actualizaciones de atributos y perfiles de los empleados**: si se actualiza un registro de empleado en Workday (por ejemplo, el nombre, el cargo o el administrador), su cuenta de usuario se actualizará automáticamente en Active Directory, Azure Active Directory y, opcionalmente, en Microsoft 365 y en [otras aplicaciones SaaS compatibles con Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Ceses de empleados**: cuando se prescinde de un empleado en Workday, su cuenta de usuario se deshabilita automáticamente de Active Directory, Azure Active Directory y, opcionalmente, de Office 365 y de [otras aplicaciones SaaS compatibles con Azure AD](../app-provisioning/user-provisioning.md).
+* **Ceses de empleados**: cuando se prescinde de un empleado en Workday, su cuenta de usuario se deshabilita automáticamente en Active Directory, Azure Active Directory y, opcionalmente, en Microsoft 365 y en [otras aplicaciones SaaS compatibles con Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Recontrataciones de empleados**: cuando se vuelve a contratar a un empleado en Workday, se puede reactivar o volver a aprovisionar automáticamente su cuenta antigua (en función de sus preferencias) en Active Directory, Azure Active Directory y, opcionalmente, en Office 365 y en [otras aplicaciones SaaS compatibles con Azure AD](../app-provisioning/user-provisioning.md).
+* **Recontrataciones de empleados**: cuando se vuelve a contratar a un empleado en Workday, se puede reactivar o volver a aprovisionar automáticamente su cuenta antigua (en función de sus preferencias) en Active Directory, Azure Active Directory y, opcionalmente, en Microsoft 365 y en [otras aplicaciones SaaS compatibles con Azure AD](../app-provisioning/user-provisioning.md).
 
 ### <a name="whats-new"></a>Novedades
 En esta sección se capturan las mejoras recientes de la integración de Workday. Para obtener una lista completa de actualizaciones, cambios planificados y archivos, visite la página [¿Cuáles son las novedades de Azure Active Directory?](../fundamentals/whats-new.md) 
@@ -60,7 +60,7 @@ Esta solución de aprovisionamiento de usuarios de Workday resulta adecuada para
 
 * Organizaciones que necesitan combinar y mover usuarios y dejarles que se sincronicen con uno o varios bosques, dominios o unidades organizativas de Active Directory en función de únicamente la información de cambio detectada en el módulo HCM de Workday (consulte [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html))
 
-* Organizaciones que usan Office 365 para el correo electrónico
+* Organizaciones que usan Microsoft 365 para el correo electrónico
 
 ## <a name="solution-architecture"></a>Arquitectura de la solución
 
@@ -373,7 +373,7 @@ Transfiera el instalador del agente descargado al host del servidor y siga los p
 1. Compruebe la instalación del agente y asegúrese de que se está ejecutando; para ello, abra el complemento "Servicios" y busque el servicio denominado "Microsoft Azure AD Connect Provisioning Agent".
 
    >[!div class="mx-imgBorder"]
-   >![Servicios](./media/workday-inbound-tutorial/services.png)
+   >![Captura de pantalla del agente de aprovisionamiento de Microsoft Azure AD Connect que se ejecuta en los servicios.](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Parte 3: En la aplicación de aprovisionamiento, configuración de la conectividad con WorkDay y Active Directory
 En este paso, se establecerá la conectividad con WorkDay y Active Directory en Azure Portal. 

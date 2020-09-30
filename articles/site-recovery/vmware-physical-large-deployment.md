@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: d991b38c3f72b54f4564dd4847c8532b507286cc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 101e42263e46c5a21f26b0fa9cdeed798525fee9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131773"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047094"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configuración de recuperación ante desastres a escala para servidores físicos o máquinas virtuales de VMware
 
@@ -205,7 +205,7 @@ Puede prepararse por adelantado para una conmutación por error como sigue:
     - Calcular el RTO integral de las aplicaciones.
     - Calcular el RPO integral de las cargas de trabajo.
     - Identificar conflictos de intervalos de dirección IP.
-    - Cuando realice las maniobras, se recomienda no usar las redes de producción para realizar las maniobras, evitar el uso de los mismos nombres de subred en las redes de producción y prueba y limpiar las conmutaciones por error después de cada maniobra.
+    - Cuando se ejecuten simulacros, se recomienda no usar redes de producción en estos escenarios y limpiar las conmutaciones por error de prueba después de cada uno.
 
 Para ejecutar una conmutación por error a gran escala, se recomienda lo siguiente:
 

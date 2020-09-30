@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: f202a9d616809d1f14366350d8d60ef2bc06b96b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: d924c019d5ee231f3c9d66a56c4d98857bc89abc
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934521"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055556"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Mejora de la síntesis con el Lenguaje de marcado de síntesis de voz (SSML)
 
@@ -192,33 +192,38 @@ speechConfig!.setPropertyTo(
 > [!IMPORTANT]
 > El ajuste de estilos de habla solo funciona con las voces neuronales.
 
-De forma predeterminada, el servicio de texto a voz sintetiza el texto mediante un estilo de habla neutro tanto para voces estándar como neuronales. Mediante las voces neuronales, es posible adaptar el estilo del habla para expresar diferentes emociones, como alegría, empatía y serenidad, o bien modular la voz para diferentes escenarios, como un servicio personalizado, la transmisión de noticias o un asistente de voz, mediante el elemento  `mstts:express-as` . Se trata de un elemento opcional único para el servicio de voz.
+De forma predeterminada, el servicio de texto a voz sintetiza el texto mediante un estilo de habla neutro tanto para voces estándar como neuronales. Mediante las voces neuronales, es posible adaptar el estilo del habla para expresar diferentes emociones, como alegría, empatía y serenidad, o bien modular la voz para diferentes escenarios, como un servicio al cliente, la transmisión de noticias o un asistente de voz, mediante el elemento `mstts:express-as`. Se trata de un elemento opcional único para el servicio de voz.
 
 Actualmente, los ajustes de estilo de habla son compatibles con estas voces neuronales:
 * `en-US-AriaNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 
-Los cambios se aplican en el nivel de la oración y el estilo varía según la voz. Si no se admite un estilo, el servicio devolverá la voz con el estilo de habla neutro predeterminado.
+Los cambios se aplican en el nivel de la oración y los estilos varían según la voz. Si no se admite un estilo, el servicio devolverá la voz con el estilo de habla neutro predeterminado. Puede consultar los estilos admitidos para cada voz a través de la [API de enumeración de voces](rest-text-to-speech.md#get-a-list-of-voices).
+
+En el caso la voz XiaoxiaoNeural de chino, la intensidad del estilo de habla se puede cambiar aún más para ajustarse mejor a su caso de uso. Puede especificar un estilo más seguro o más suave con `styledegree` para que la voz sea más expresiva o moderada.
 
 **Sintaxis**
 
 ```xml
-<mstts:express-as style="string"></mstts:express-as>
+<mstts:express-as style="string" styledegree="value"></mstts:express-as>
 ```
+> [!NOTE]
+> En este momento, `styledegree` solo admite XiaoxiaoNeural. 
 
 **Atributos**
 
 | Atributo | Descripción | Obligatorio u opcional |
 |-----------|-------------|---------------------|
 | `style` | Especifica el estilo de habla. Actualmente, los estilos de habla son específicos de la voz. | Se necesita si se ajusta el estilo de habla para una voz neuronal. Si se usa `mstts:express-as`, se debe especificar el estilo. Si se proporciona un valor no válido, se omitirá este elemento. |
+| `styledegree` | Especifica la intensidad del estilo de voz. **Valores aceptados**: 0,01 a 2, inclusivo. El valor predeterminado es 1, que señala la intensidad de estilo predefinida. La unidad mínima es 0,01, que da como resultado una ligera tendencia hacia el estilo de destino. Un valor de 2, como resultado, duplica la intensidad de estilo predeterminada.  | Opcional (en este momento, `styledegree` solo admite XiaoxiaoNeural).|
 
 Utilice esta tabla para determinar qué estilos de habla son compatibles para cada voz neuronal.
 
 | Voz                   | Estilo                     | Descripción                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
-| `en-US-AriaNeural`      | `style="newscast-formal"` | Tono formal, seguro y autoritativo para la difusión informativa|
-|                         | `style="newscast-casual"` | Tono versátil e informal para la difusión de noticias generales       |
+| `en-US-AriaNeural`      | `style="newscast-formal"` | Expresa un tono formal, seguro y autoritario para la difusión informativa. |
+|                         | `style="newscast-casual"` | Expresa un tono versátil e informal para la difusión de noticias generales.        |
 |                         | `style="customerservice"` | Expresa un tono amistoso y servicial para atender a clientes  |
 |                         | `style="chat"`            | Expresa un tono casual y relajado                         |
 |                         | `style="cheerful"`        | Expresa un tono positivo y feliz                         |
@@ -226,6 +231,16 @@ Utilice esta tabla para determinar qué estilos de habla son compatibles para ca
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expresa un tono formal y profesional para narrar noticias |
 |                         | `style="customerservice"` | Expresa un tono amistoso y servicial para atender a clientes  |
 |                         | `style="assistant"`       | Expresa un tono cálido y relajado para asistentes digitales    |
+|                         | `style="chat"`            | Expresa un tono casual y relajado para charlar.           |
+|                         | `style="calm"`            | Expresa una actitud interesante, recolectada y compuesta al hablar. El tono, la intensidad y la prosodia son mucho más uniformes en comparación con otros tipos de voz.                                |
+|                         | `style="cheerful"`        | Expresa un tono animado y entusiasta, agudo y enérgico.                         |
+|                         | `style="sad"`             | Expresa un tono afligido, agudo, con menos intensidad y poco enérgico. Los indicadores comunes de esta emoción serían lloriqueos o gimoteos al hablar.            |
+|                         | `style="angry"`           | Expresa un tono enfadado y molesto, grave, con mayor intensidad y energía vocal más alta. El hablante está en un estado de ira, disgustado y ofendido.       |
+|                         | `style="fearful"`         | Expresa un tono asustado y nervioso, agudo, con energía vocal alta y más velocidad. El hablante está en un estado de tensión y ansiedad.                          |
+|                         | `style="disgruntled"`     | Expresa desdén y un tono de queja. La voz de esta emoción muestra desagrado y desprecio.              |
+|                         | `style="serious"`         | Expresa un tono estricto e imponente. A menudo, el hablante suena rígido y mucho menos relajado, con una cadencia firme.          |
+|                         | `style="affectionate"`    | Expresa un tono cálido y afectuoso, agudo y con una energía vocal alta. El hablante está en un estado que atrae la atención de su interlocutor. La "personalidad" del hablante suele ser simpática por naturaleza.          |     
+|                         | `style="gentle"`          | Expresa un tono dulce, educado y agradable, con un tono más grave y energía vocal.         |   
 |                         | `style="lyrical"`         | Expresa emociones de forma melódica y sentimental         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | Expresa un tono amistoso y servicial para atender a clientes  | 
 
@@ -239,6 +254,18 @@ Este fragmento de SSML ilustra cómo se utiliza el elemento `<mstts:express-as>`
     <voice name="en-US-AriaNeural">
         <mstts:express-as style="cheerful">
             That'd be just amazing!
+        </mstts:express-as>
+    </voice>
+</speak>
+```
+
+Este fragmento de código SSML muestra cómo se usa el atributo `styledegree` para cambiar la intensidad del estilo de habla de XiaoxiaoNeural.
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="zh-CN">
+    <voice name="zh-CN-XiaoxiaoNeural">
+        <mstts:express-as style="sad" styledegree="2">
+            快走吧，路上一定要注意安全，早去早回。
         </mstts:express-as>
     </voice>
 </speak>

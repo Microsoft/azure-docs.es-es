@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: dfca1eb2eebe4418880be9da67e250bbc6e380a9
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: a9dba7c85ded7add1a9f1494d88a3f8a1f62f175
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852180"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882449"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Administración de un servidor de Azure Database for MySQL mediante Azure Portal
 
@@ -37,7 +37,7 @@ Puede escalar desde De uso general a Optimizada para memoria y viceversa. No se 
 
 2. Seleccione **De uso general** o **Con optimización de memoria**, dependiendo de lo que esté escalando.
 
-   ![Captura de pantalla de Azure Portal para elegir el nivel Básico, De uso general u Optimizado para memoria en Azure Database for MySQL](./media/howto-create-manage-server-portal/change-pricing-tier.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/change-pricing-tier.png" alt-text="Captura de pantalla de Azure Portal para elegir el nivel Básico, De uso general u Optimizado para memoria en Azure Database for MySQL":::
 
    > [!NOTE]
    > El cambio de los niveles provoca un reinicio del servidor.
@@ -50,7 +50,7 @@ Puede escalar desde De uso general a Optimizada para memoria y viceversa. No se 
 
 2. Cambie el valor de **vCore** moviendo el control deslizante hasta alcanzar el valor deseado.
 
-    ![Captura de pantalla de Azure Portal para elegir la opción de núcleo virtual en Azure Database for MySQL](./media/howto-create-manage-server-portal/scaling-compute.png)
+    :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Captura de pantalla de Azure Portal para elegir la opción de núcleo virtual en Azure Database for MySQL":::
 
     > [!NOTE]
     > El escalado de los núcleos virtuales provoca un reinicio del servidor.
@@ -63,7 +63,7 @@ Puede escalar desde De uso general a Optimizada para memoria y viceversa. No se 
 
 2. Cambie el valor de **Almacenamiento** moviendo el control deslizante hacia arriba hasta alcanzar el valor que se quiera.
 
-   ![Captura de pantalla de Azure Portal para elegir la escala de almacenamiento en Azure Database for MySQL](./media/howto-create-manage-server-portal/scaling-storage.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Captura de pantalla de Azure Portal para elegir la escala de almacenamiento en Azure Database for MySQL":::
 
    > [!NOTE]
    > El almacenamiento no se puede reducir verticalmente.
@@ -76,11 +76,11 @@ La contraseña del rol de administrador se puede cambiar en Azure Portal.
 
 1. Seleccione el servidor en Azure Portal. En la ventana **Información general**, seleccione **Restablecer contraseña**.
 
-   ![Captura de pantalla de Azure Portal para restablecer la contraseña en Azure Database for MySQL](./media/howto-create-manage-server-portal/overview-reset-password.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Captura de pantalla de Azure Portal para restablecer la contraseña en Azure Database for MySQL":::
 
 2. Escriba la contraseña nueva y confírmela. El cuadro de texto le pedirá los requisitos de complejidad de la contraseña.
 
-   ![Captura de pantalla de Azure Portal para restablecer la contraseña y guardarla en Azure Database for MySQL](./media/howto-create-manage-server-portal/reset-password.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Captura de pantalla de Azure Portal para restablecer la contraseña y guardarla en Azure Database for MySQL":::
 
 3. Seleccione **Aceptar** para guardar la nueva contraseña.
 
@@ -90,11 +90,11 @@ Puede eliminar el servidor cuando ya no lo necesite.
 
 1. Seleccione el servidor en Azure Portal. En la ventana **Información general**, seleccione **Eliminar**.
 
-   ![Captura de pantalla de Azure Portal para eliminar el servidor en Azure Database for MySQL](./media/howto-create-manage-server-portal/overview-delete.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Captura de pantalla de Azure Portal para eliminar el servidor en Azure Database for MySQL":::
 
 2. Escriba el nombre del servidor en el cuadro de entrada para confirmar que es el servidor que quiere eliminar.
 
-   ![Captura de pantalla de Azure Portal para confirmar la eliminación del servidor en Azure Database for MySQL](./media/howto-create-manage-server-portal/confirm-delete.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Captura de pantalla de Azure Portal para confirmar la eliminación del servidor en Azure Database for MySQL":::
 
    > [!NOTE]
    > La eliminación de un servidor es irreversible.

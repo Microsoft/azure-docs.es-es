@@ -5,20 +5,20 @@ description: Depure de manera interactiva el código, las canalizaciones e imple
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
+ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 08/06/2020
-ms.openlocfilehash: 73cb8396876a5baad74190ec9a86237362037c36
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 3c2934c92be668d4b4c05f97a98395e2e219b7dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907610"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907617"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Depuración interactiva con Visual Studio Code
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Obtenga información sobre cómo depurar interactivamente canalizaciones e implementaciones de Azure Machine Learning con Visual Studio Code (VS Code) y [depugpy](https://github.com/microsoft/debugpy/).
 
@@ -37,7 +37,7 @@ En algunos casos, es posible que tenga que depurar interactivamente el código d
   * Una instancia de proceso de VM de cuadernos en la red virtual
   * Una máquina cliente que tenga conectividad de red privada con la red virtual, ya sea por VPN o a través de ExpressRoute.
 
-Para más información sobre el uso de Azure Virtual Network con Azure Machine Learning, consulte [Protección de los trabajos de experimentación e inferencia de ML en una instancia de Azure Virtual Network](how-to-enable-virtual-network.md).
+Para más información sobre el uso de Azure Virtual Network con Azure Machine Learning, consulte [Información general sobre la privacidad y el aislamiento de la red virtual](how-to-network-security-overview.md).
 
 > [!TIP]
 > Aunque puede trabajar con recursos de Azure Machine Learning que no están detrás de una red virtual, se recomienda usar una red virtual.
@@ -109,7 +109,7 @@ Para habilitar la depuración, realice los cambios siguientes en los scripts de 
         print(f'Debugger attached = {debugpy.is_client_connected()}')
     ```
 
-En el siguiente ejemplo de Python se muestra un archivo `train.py` básico que habilita la depuración:
+En el siguiente ejemplo de Python se muestra un archivo `train.py` de ejemplo que habilita la depuración:
 
 ```python
 # Copyright (c) Microsoft. All rights reserved.
@@ -281,7 +281,7 @@ Guarde el valor de `ip_address`. Se usa en la siguiente sección.
 En algunos casos, es posible que tenga que depurar interactivamente el código de Python incluido en la implementación de modelo. Por ejemplo, si el script de entrada presenta errores y no se puede determinar el motivo mediante un registro adicional. Mediante VS Code y debugpy, puede conectarse al código que se ejecuta en el contenedor de Docker.
 
 > [!IMPORTANT]
-> Este método de depuración no funciona cuando se usa `Model.deploy()` y `LocalWebservice.deploy_configuration` para implementar un modelo de manera local. En su lugar, debe crear una imagen con el método [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-).
+> Este método de depuración no funciona cuando se usa `Model.deploy()` y `LocalWebservice.deploy_configuration` para implementar un modelo de manera local. En su lugar, debe crear una imagen con el método [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-).
 
 Las implementaciones de servicios web locales requieren una instalación de Docker en funcionamiento en el sistema local. Para obtener más información sobre el uso de Docker, consulte la [Documentación de Docker](https://docs.docker.com/). Tenga en cuenta que, al trabajar con instancias de proceso, Docker ya está instalado.
 

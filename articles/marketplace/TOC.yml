@@ -2,171 +2,171 @@
   href: index.yml
   items:
     - name: Actualizaciones de Marketplace comercial
-      href: ./marketplace-roadmap.md
-    - name: Términos y directivas de Marketplace comercial
-      href: ./policies-terms.md
+      href: marketplace-roadmap.md
     - name: Información general y ventajas de Marketplace comercial
-      href: ./marketplace-publishers-guide.md
+      href: marketplace-publishers-guide.md
       items:
         - name: Un Marketplace y dos tiendas en línea
-          href: ./comparing-appsource-azure-marketplace.md
+          href: comparing-appsource-azure-marketplace.md
         - name: Publicación de opciones y consideraciones
-          href: ./determine-your-listing-type.md
+          href: determine-your-listing-type.md
           items:
             - name: Administración de clientes potenciales
-              href: ./lead-management-for-cloud-marketplace.md
+              href: lead-management-for-cloud-marketplace.md
             - name: Transacciones en Marketplace comercial
-              href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
+              href: marketplace-commercial-transaction-capabilities-and-considerations.md
             - name: Planes y precios
               href: plans-pricing.md
             - name: Ofertas privadas
-              href: ./private-offers.md
+              href: private-offers.md
             - name: Contrato estándar
-              href: ./standard-contract.md
+              href: standard-contract.md
             - name: Atribución de uso del cliente para asociados de Azure
-              href: ./azure-partner-customer-usage-attribution.md
+              href: azure-partner-customer-usage-attribution.md
             - name: Países y regiones admitidos
-              href: ./sell-from-countries.md
+              href: sell-from-countries.md
         - name: Guías de publicación por tipo de oferta
-          href: ./publisher-guide-by-offer-type.md
+          href: publisher-guide-by-offer-type.md
           items:
+            - name: Planificación de una oferta de SaaS
+              href: plan-saas-offer.md
             - name: Máquinas virtuales
-              href: ./marketplace-virtual-machines.md
+              href: marketplace-virtual-machines.md
             - name: Plantillas de solución de aplicaciones de Azure
-              href: ./marketplace-solution-templates.md
+              href: marketplace-solution-templates.md
             - name: Aplicaciones administradas de aplicaciones de Azure
-              href: ./marketplace-managed-apps.md
+              href: marketplace-managed-apps.md
             - name: Contenedores
-              href: ./marketplace-containers.md
+              href: marketplace-containers.md
             - name: Módulos de IoT Edge
-              href: ./iot-edge-module.md
+              href: iot-edge-module.md
             - name: Servicios de consultoría
-              href: ./consulting-services.md
+              href: consulting-services.md
             - name: "Microsoft\_365, Dynamics\_365 y Power BI"
-              href: ./appsource-offer-publishing-guide.md
+              href: appsource-offer-publishing-guide.md
             - name: Habilitación de la autenticación de ofertas con Azure AD
-              href: ./enable-appsource-marketplace-using-azure-ad.md
+              href: enable-appsource-marketplace-using-azure-ad.md
             - name: Soluciones integradas
-              href: ./integrated-solutions-for-publishers.md
+              href: integrated-solutions-for-publishers.md
         - name: Procedimientos recomendados de marketing
-          href: ./gtm-marketing-best-practices.md
+          href: gtm-marketing-best-practices.md
           items:
             - name: Procedimientos recomendados para la publicación de ofertas
-              href: ./gtm-offer-listing-best-practices.md
+              href: gtm-offer-listing-best-practices.md
             - name: Obtención de destacados
-              href: ./gtm-how-to-get-featured.md
+              href: gtm-how-to-get-featured.md
             - name: Validación de contenido de Marketplace
-              href: ./marketplace-criteria-content-validation.md
+              href: marketplace-criteria-content-validation.md
             - name: Proveedores de soluciones en la nube
-              href: ./cloud-solution-providers.md
+              href: cloud-solution-providers.md
             - name: Guía de incorporación de programas de conexión
-              href: ./business-applications-isv-program.md
+              href: business-applications-isv-program.md
         - name: Sus ventajas de Marketplace
-          href: ./gtm-your-marketplace-benefits.md
+          href: gtm-your-marketplace-benefits.md
           items:
             - name: Ventaja del compromiso de consumo de Azure
-              href: ./azure-consumption-commitment-benefit.md
+              href: azure-consumption-commitment-benefit.md
             - name: Participación de asociados de venta conjunta
-              href: ./marketplace-co-sell.md
+              href: marketplace-co-sell.md
             - name: Soluciones preferidas
-              href: ./preferred-solutions.md
+              href: preferred-solutions.md
             - name: Soluciones integradas
-              href: ./integrated-solutions.md
+              href: integrated-solutions.md
         - name: Compatibilidad con Marketplace comercial
-          href: ./support-azure-marketplace.md
+          href: support-azure-marketplace.md
           items:
             - name: Preguntas frecuentes de Marketplace comercial
-              href: ./marketplace-faq-publisher-guide.md
+              href: marketplace-faq-publisher-guide.md
             - name: Disponibilidad geográfica y moneda
-              href: ./marketplace-geo-availability-currencies.md
+              href: marketplace-geo-availability-currencies.md
 - name: Marketplace comercial en el Centro de partners
   items:
     - name: Introducción al Marketplace comercial
-      href: ./partner-center-portal/commercial-marketplace-overview.md
+      href: partner-center-portal/commercial-marketplace-overview.md
     - name: Preguntas frecuentes acerca de la migración
-      href: ./cloud-partner-portal-migration-faq.md
+      href: cloud-partner-portal-migration-faq.md
     - name: Administración de cuentas
       items:
         - name: Creación de una cuenta del Centro de partners
-          href: ./partner-center-portal/create-account.md
+          href: partner-center-portal/create-account.md
         - name: Administración de la cuenta del Centro de partners
-          href: ./partner-center-portal/manage-account.md
+          href: partner-center-portal/manage-account.md
         - name: Búsqueda o creación de una cuenta profesional de empresa
-          href: ./partner-center-portal/company-work-accounts.md
+          href: partner-center-portal/company-work-accounts.md
         - name: Migración de cuentas de CPP al Centro de partners
-          href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
+          href: partner-center-portal/account-migration-from-cpp-to-pc.md
     - name: Crear una nueva oferta
       items:
         - name: Ofertas de la aplicación de Azure
           items:
             - name: Creación de una oferta de aplicación de Azure
-              href: ./partner-center-portal/create-new-azure-apps-offer.md
+              href: partner-center-portal/create-new-azure-apps-offer.md
             - name: Facturación medida de la aplicación de Azure
-              href: ./partner-center-portal/azure-app-metered-billing.md
+              href: partner-center-portal/azure-app-metered-billing.md
             - name: Administración de los comentarios de revisión
-              href: ./partner-center-portal/azure-apps-review-feedback.md
+              href: partner-center-portal/azure-apps-review-feedback.md
             - name: API para la incorporación
-              href: ./partner-center-portal/azure-app-apis.md
+              href: partner-center-portal/azure-app-apis.md
         - name: Ofertas de Azure Container
           items:
             - name: Preparación de recursos técnicos
-              href: ./partner-center-portal/create-azure-container-technical-assets.md
+              href: partner-center-portal/create-azure-container-technical-assets.md
             - name: Creación de una oferta de Azure Container
-              href: ./partner-center-portal/create-azure-container-offer.md
+              href: partner-center-portal/create-azure-container-offer.md
         - name: Oferta de máquina virtual
           items:
             - name: Creación de una oferta de máquina virtual de Azure
-              href: ./partner-center-portal/azure-vm-create-offer.md
+              href: partner-center-portal/azure-vm-create-offer.md
             - name: Creación de recursos técnicos de máquina virtual de Azure
               items:
                 - name: 'Certificación de máquinas virtuales: problemas y soluciones'
-                  href: ./partner-center-portal/vm-certification-issues-solutions.md
+                  href: partner-center-portal/vm-certification-issues-solutions.md
                 - name: Creación de un recurso técnico de máquina virtual de Azure
-                  href: ./partner-center-portal/create-azure-vm-technical-asset.md
+                  href: partner-center-portal/create-azure-vm-technical-asset.md
                 - name: Preguntas frecuentes sobre los recursos técnicos de máquina virtual de Azure
-                  href: ./partner-center-portal/common-issues-during-vhd-creation.md
+                  href: partner-center-portal/common-issues-during-vhd-creation.md
                 - name: Prueba de máquina virtual implementada desde un disco duro virtual
-                  href: ./partner-center-portal/azure-vm-image-certification.md
+                  href: partner-center-portal/azure-vm-image-certification.md
                 - name: URI de SAS
                   items:
                     - name: Obtención del identificador URI de SAS
-                      href: ./partner-center-portal/get-sas-uri.md
+                      href: partner-center-portal/get-sas-uri.md
                     - name: Preguntas frecuentes sobre URI de SAS
-                      href: ./partner-center-portal/common-sas-uri-issues.md
+                      href: partner-center-portal/common-sas-uri-issues.md
         - name: Servicios de consultoría
           items:
             - name: Requisitos previos
-              href: ./partner-center-portal/consulting-service-prerequisites.md
+              href: partner-center-portal/consulting-service-prerequisites.md
             - name: Creación de una oferta de servicios de consultoría
-              href: ./partner-center-portal/create-consulting-service-offer.md
+              href: partner-center-portal/create-consulting-service-offer.md
         - name: "Ofertas de Dynamics\_365"
           items:
             - name: "Creación de una oferta de Dynamics\_365 for Customer Engagement y PowerApps"
-              href: ./partner-center-portal/create-new-customer-engagement-offer.md
+              href: partner-center-portal/create-new-customer-engagement-offer.md
             - name: Creación de una oferta de Dynamics 365 for Operations
               items:
                 - name: Creación de una oferta de Dynamics 365 for Operations
-                  href: ./partner-center-portal/create-new-operations-offer.md
+                  href: partner-center-portal/create-new-operations-offer.md
                 - name: Validación funcional
-                  href: ./dynamics-365-finance-operations-functional-validation.md
+                  href: dynamics-365-finance-operations-functional-validation.md
             - name: Creación de una oferta de Dynamics 365 Business Central
-              href: ./partner-center-portal/create-new-business-central-offer.md
+              href: partner-center-portal/create-new-business-central-offer.md
         - name: Ofertas del módulo de IoT Edge
           items:
             - name: Creación de una oferta de módulo de IoT Edge
-              href: ./partner-center-portal/azure-iot-edge-module-creation.md
+              href: partner-center-portal/azure-iot-edge-module-creation.md
             - name: Preparación de recursos técnicos del módulo de IoT Edge
-              href: ./partner-center-portal/create-iot-edge-module-asset.md
+              href: partner-center-portal/create-iot-edge-module-asset.md
         - name: Ofertas de servicio administrado
           items:
             - name: Creación de una oferta de servicio administrado
-              href: ./partner-center-portal/create-new-managed-service-offer.md
+              href: partner-center-portal/create-new-managed-service-offer.md
         - name: Ofertas de la aplicación Power BI
           items:
             - name: Publicación de información general
-              href: ./partner-center-portal/create-power-bi-app-overview.md
+              href: partner-center-portal/create-power-bi-app-overview.md
             - name: Creación de oferta de la aplicación Power BI
-              href: ./partner-center-portal/create-power-bi-app-offer.md
+              href: partner-center-portal/create-power-bi-app-offer.md
         - name: Ofertas de SaaS
           items:
             - name: Planificación de una oferta de SaaS
@@ -174,13 +174,13 @@
             - name: "Autenticación de Azure\_AD para SaaS"
               items:
                 - name: "Introducción a Azure\_AD y SaaS"
-                  href: ./azure-ad-saas.md
+                  href: azure-ad-saas.md
                 - name: Página de aterrizaje de las ofertas procesables
-                  href: ./azure-ad-transactable-saas-landing-page.md
+                  href: azure-ad-transactable-saas-landing-page.md
                 - name: Página de aterrizaje de las ofertas gratuitas o de prueba
-                  href: ./azure-ad-free-or-trial-landing-page.md
+                  href: azure-ad-free-or-trial-landing-page.md
             - name: Facturación según uso de SaaS
-              href: ./partner-center-portal/saas-metered-billing.md
+              href: partner-center-portal/saas-metered-billing.md
             - name: Creación y publicación de una oferta de SaaS
               items:
                 - name: Creación de una oferta SaaS
@@ -200,129 +200,141 @@
             - name: Comercialización de una oferta de SaaS
               href: create-new-saas-offer-marketing.md
             - name: API de suministro de SaaS
-              href: ./partner-center-portal/pc-saas-fulfillment-apis.md
+              href: partner-center-portal/pc-saas-fulfillment-apis.md
               items:
                 - name: Registro de una aplicación SaaS
-                  href: ./partner-center-portal/pc-saas-registration.md
+                  href: partner-center-portal/pc-saas-registration.md
                 - name: API de suministro de SaaS v2
-                  href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
+                  href: partner-center-portal/pc-saas-fulfillment-api-v2.md
                 - name: API de suministro de SaaS v1 (en desuso)
-                  href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
+                  href: partner-center-portal/pc-saas-fulfillment-api-v1.md
                 - name: Preguntas más frecuentes sobre las API de suministro de SaaS
-                  href: ./partner-center-portal/saas-fulfillment-apis-faq.md
+                  href: partner-center-portal/saas-fulfillment-apis-faq.md
         - name: Introducción a la administración de clientes potenciales
-          href: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
+          href: partner-center-portal/commercial-marketplace-get-customer-leads.md
           items:
             - name: Blob de Azure
-              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-blob.md
+              href: partner-center-portal/commercial-marketplace-lead-management-instructions-azure-blob.md
             - name: tabla de Azure
-              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md
+              href: partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md
             - name: Dynamics 365 for Customer Engagement
-              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md
+              href: partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md
             - name: Punto de conexión HTTPS
-              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md
+              href: partner-center-portal/commercial-marketplace-lead-management-instructions-https.md
             - name: Marketo
-              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
+              href: partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
             - name: Salesforce
-              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
+              href: partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
         - name: Servicio de medición de Marketplace
           items:
             - name: Estrategias de autenticación
-              href: ./partner-center-portal/marketplace-metering-service-authentication.md
+              href: partner-center-portal/marketplace-metering-service-authentication.md
             - name: API del servicio de medición de Marketplace
-              href: ./partner-center-portal/marketplace-metering-service-apis.md
+              href: partner-center-portal/marketplace-metering-service-apis.md
             - name: Preguntas más frecuentes sobre las API del servicio de medición de Marketplace
-              href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
+              href: partner-center-portal/marketplace-metering-service-apis-faq.md
         - name: Versión de prueba
           items:
             - name: ¿Qué es una versión de prueba?
-              href: ./what-is-test-drive.md
+              href: what-is-test-drive.md
             - name: Configuración técnica de la versión de prueba
-              href: ./test-drive-technical-configuration.md
+              href: test-drive-technical-configuration.md
             - name: Versión de prueba de Azure Resource Manager
-              href: ./azure-resource-manager-test-drive.md
+              href: azure-resource-manager-test-drive.md
         - name: Opción de venta conjunta
-          href: ./partner-center-portal/commercial-marketplace-co-sell.md
+          href: partner-center-portal/commercial-marketplace-co-sell.md
           items:
             - name: Códigos de país y región
-              href: ./partner-center-portal/commercial-marketplace-co-sell-countries.md
+              href: partner-center-portal/commercial-marketplace-co-sell-countries.md
             - name: Códigos de estado
-              href: ./partner-center-portal/commercial-marketplace-co-sell-states.md
+              href: partner-center-portal/commercial-marketplace-co-sell-states.md
     - name: Revisión y publicación
       href: review-publish-offer.md
     - name: Actualización de oferta existente
-      href: ./partner-center-portal/update-existing-offer.md
+      href: partner-center-portal/update-existing-offer.md
     - name: Activación de Marketplace Rewards
-      href: ./partner-center-portal/marketplace-rewards.md
+      href: partner-center-portal/marketplace-rewards.md
     - name: Partner Center Analytics
       items:
         - name: Análisis de Marketplace comercial
-          href: ./partner-center-portal/analytics.md
+          href: partner-center-portal/analytics.md
         - name: Panel Resumen
-          href: ./partner-center-portal/summary-dashboard.md
+          href: partner-center-portal/summary-dashboard.md
         - name: Panel Pedidos
-          href: ./partner-center-portal/orders-dashboard.md
+          href: partner-center-portal/orders-dashboard.md
         - name: Panel de uso
-          href: ./partner-center-portal/usage-dashboard.md
+          href: partner-center-portal/usage-dashboard.md
         - name: Panel Cliente
-          href: ./partner-center-portal/customer-dashboard.md
+          href: partner-center-portal/customer-dashboard.md
         - name: Panel de información de Marketplace
-          href: ./partner-center-portal/insights-dashboard.md
+          href: partner-center-portal/insights-dashboard.md
         - name: Panel Descargas
-          href: ./partner-center-portal/downloads-dashboard.md
+          href: partner-center-portal/downloads-dashboard.md
         - name: Panel de calificaciones y reseñas
-          href: ./partner-center-portal/ratings-reviews.md
+          href: partner-center-portal/ratings-reviews.md
         - name: Preguntas frecuentes y terminología
-          href: ./partner-center-portal/faq-terminology.md
+          href: partner-center-portal/faq-terminology.md
     - name: Recepción del pago
       items:
         - name: Recepción del pago
-          href: ./partner-center-portal/get-paid.md
+          href: /partner-center/marketplace-get-paid?context=/azure/marketplace/context/context
         - name: Configuración de la cuenta de pago y los formularios de impuestos
-          href: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
-        - name: 'Umbrales, métodos y periodos de pago'
-          href: ./partner-center-portal/payment-thresholds-methods-timeframes.md
-        - name: Introducción a los resúmenes de pagos
-          href: ./partner-center-portal/payout-summary-overview.md
-        - name: Resúmenes de pagos
-          href: ./partner-center-portal/payout-summary.md
+          href: /partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context
+        - name: Umbrales y periodos de pago
+          href: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
+        - name: Extractos de pagos
+          href: /partner-center/payout-statement?context=/azure/marketplace/context/context
         - name: Detalles de directiva de pagos
-          href: ./partner-center-portal/payout-policy-details.md
+          href: /partner-center/payout-policy-details?context=/azure/marketplace/context/context
         - name: Detalles fiscales
-          href: ./partner-center-portal/tax-details-paid-transactions.md
+          href: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
+        - name: Preguntas frecuentes sobre pagos
+          href: /partner-center/payout-faq?context=/azure/marketplace/context/context
     - name: Referencia de CPP API
       items:
         - name: Información general
-          href: ./cloud-partner-portal-api-overview.md
+          href: cloud-partner-portal-api-overview.md
         - name: Requisitos previos
-          href: ./cloud-partner-portal-api-prerequisites.md
+          href: cloud-partner-portal-api-prerequisites.md
         - name: Consideraciones
-          href: ./cloud-partner-portal-api-considerations.md
+          href: cloud-partner-portal-api-considerations.md
         - name: Control de simultaneidad
-          href: ./cloud-partner-portal-api-concurrency-control.md
+          href: cloud-partner-portal-api-concurrency-control.md
         - name: Recuperación de ofertas
-          href: ./cloud-partner-portal-api-retrieve-offers.md
+          href: cloud-partner-portal-api-retrieve-offers.md
         - name: Recuperación de una oferta específica
-          href: ./cloud-partner-portal-api-retrieve-specific-offer.md
+          href: cloud-partner-portal-api-retrieve-specific-offer.md
         - name: Adición o modificación de una oferta
-          href: ./cloud-partner-portal-api-creating-offer.md
+          href: cloud-partner-portal-api-creating-offer.md
         - name: Recuperación del estado de la oferta
-          href: ./cloud-partner-portal-api-retrieve-offer-status.md
+          href: cloud-partner-portal-api-retrieve-offer-status.md
         - name: Publicación de una oferta
-          href: ./cloud-partner-portal-api-publish-offer.md
+          href: cloud-partner-portal-api-publish-offer.md
         - name: Retrieve operations
-          href: ./cloud-partner-portal-api-retrieve-operations.md
+          href: cloud-partner-portal-api-retrieve-operations.md
         - name: Cancelación de operaciones
-          href: ./cloud-partner-portal-api-cancel-operations.md
+          href: cloud-partner-portal-api-cancel-operations.md
         - name: Go Live
-          href: ./cloud-partner-portal-api-go-live.md
+          href: cloud-partner-portal-api-go-live.md
         - name: Precios de ofertas de máquinas virtuales
-          href: ./cloud-partner-portal-api-setting-price.md
+          href: cloud-partner-portal-api-setting-price.md
         - name: Solución de errores de autenticación
-          href: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
+          href: cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Opciones de soporte técnico
-      href: ./partner-center-portal/support.md
-    - name: Recursos
-      items:
-        - name: Etiquetas HTML que se admiten
-          href: supported-html-tags.md
+      href: partner-center-portal/support.md
+- name: Términos y directivas de Marketplace comercial
+  items:
+    - name: Acerca de nuestras directivas y términos
+      href: policies-terms.md
+    - name: Directivas de certificación de Marketplace comercial
+      href: /legal/marketplace/offer-policies-change-history?context=/azure/marketplace/context/context
+    - name: Directivas de reseñas de Marketplace comercial
+      href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
+    - name: Directivas de participación de Azure Marketplace
+      href: /legal/marketplace/participation-policy?context=/azure/marketplace/context/context
+    - name: Términos de Azure Marketplace
+      href: /legal/marketplace/terms?context=/azure/marketplace/context/context
+- name: Recursos
+  items:
+    - name: Etiquetas HTML que se admiten
+      href: supported-html-tags.md

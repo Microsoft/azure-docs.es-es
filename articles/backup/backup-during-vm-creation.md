@@ -3,12 +3,12 @@ title: Habilitar copia de seguridad al crear una máquina virtual de Azure
 description: Describe cómo habilitar la copia de seguridad al crear una VM de Azure con Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: bbc00239a34fc0eb88991fcabd91c5a0eb7dbea7
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: ad81300545686d61f42cdd8684e502c937b4fd43
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892310"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377342"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Habilitar copia de seguridad al crear una máquina virtual de Azure
 
@@ -28,12 +28,12 @@ Si aún no ha iniciado sesión en su cuenta, hágalo en [Azure Portal](https://p
 
 1. En Azure Portal, haga clic en **Crear un recurso**.
 
-2. En Azure Marketplace, haga clic en **Proceso** y, luego, seleccione una imagen de VM.
+2. En Azure Marketplace, seleccione **Proceso** y, después, elija una imagen de máquina virtual.
 
 3. Configure la VM de acuerdo con las instrucciones para [Windows](../virtual-machines/windows/quick-create-portal.md) o [Linux](../virtual-machines/linux/quick-create-portal.md).
 
-4. En la pestaña **Administración**, en **Habilitar copia de seguridad**, haga clic en **Activado**.
-5. Las copias de seguridad de Azure Backup se hacen en un almacén de Recovery Services. Haga clic en **Crear nuevo** si no tiene un almacén existente.
+4. En la pestaña **Administración**, en **Habilitar copia de seguridad**, seleccione **Activado**.
+5. Las copias de seguridad de Azure Backup se hacen en un almacén de Recovery Services. Seleccione **Crear nuevo** si no tiene un almacén existente.
 6. Acepte el nombre del almacén sugerido o especifique el suyo.
 7. Especifique o cree un grupo de recursos en el que se ubicará el almacén. El almacén del grupo de recursos puede ser diferente del grupo de recursos de la VM.
 
@@ -76,8 +76,8 @@ La copia de seguridad de la VM se ejecuta según la directiva de copia de seguri
 
 Una vez creada la VM, haga lo siguiente:
 
-1. En las propiedades de la VM, haga clic en **Copia de seguridad**. El estado de la VM es Copia de seguridad inicial pendiente hasta que se ejecuta la copia de seguridad inicial.
-2. Haga clic en **Hacer copia ahora** para ejecutar una copia de seguridad a petición.
+1. En las propiedades de la máquina virtual, seleccione **Copia de seguridad**. El estado de la máquina virtual es Copia de seguridad inicial pendiente hasta que se ejecuta la copia de seguridad inicial.
+2. Seleccione **Hacer copia ahora** para ejecutar una copia de seguridad a petición.
 
     ![Ejecución de una copia de seguridad a petición](./media/backup-during-vm-creation/run-backup.png)
 

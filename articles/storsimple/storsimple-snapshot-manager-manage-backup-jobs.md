@@ -3,7 +3,7 @@ title: Trabajos de copia de seguridad de StorSimple Snapshot Manager | Microsoft
 description: Describe cómo usar el complemento MMC de Administrador de instantáneas StorSimple para ver y administrar trabajos de copia de seguridad programados, actualmente en ejecución y completados.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: timlt
 editor: ''
 ms.assetid: bf4dcff6-c819-4766-b9d9-9922831cb200
@@ -13,13 +13,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: twooley
-ms.openlocfilehash: fb0d330b833c8841e65d650599d74211003843bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: 3c26a84e32a17cba83b5ca895f146e561072fa62
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511490"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054966"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Uso de Administrador de instantáneas StorSimple para ver y administrar trabajos de copia de seguridad
 

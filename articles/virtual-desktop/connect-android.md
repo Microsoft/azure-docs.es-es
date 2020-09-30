@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 79d88d218d04d00def19bdd2aa98f76d2f128de1
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ebf91f68e45148d9a609ff671ffa4683bd74c82c
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007767"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226121"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-android-client"></a>Conexión a Windows Virtual Desktop con el cliente Android
 
@@ -36,6 +36,7 @@ Para suscribirse a una fuente:
 2. Escriba la dirección URL de la fuente en el campo **Feed URL** (Dirección URL de la fuente). La dirección URL de la fuente puede ser una dirección URL o una dirección de correo electrónico.
    - Si usa una dirección URL, use la que le proporcionó el administrador, que lo habitual es que sea <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery>.
    - Para usar el correo electrónico, escriba su dirección de correo electrónico. El cliente buscará una dirección URL asociada a su dirección de correo electrónico si el administrador configuró el servidor de esa forma.
+   - Para conectarse mediante el portal de US Gov, utilice <https://rdweb.wvd.azure.us/api/arm/feeddiscovery>.
 3. Pulse **NEXT** (Siguiente).
 4. Escriba sus credenciales cuando se le solicite.
    - En **User Name** (Nombre de usuario), asigne al nombre de usuario permiso para acceder a los recursos.

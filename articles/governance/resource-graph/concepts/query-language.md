@@ -3,12 +3,12 @@ title: Descripción del lenguaje de consultas
 description: Describe las tablas de Resource Graph y los tipos de datos, los operadores y las funciones de Kusto disponibles que se pueden usar con Azure Resource Graph.
 ms.date: 08/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4d7ca949e9eef075adb130bb84b2617749950bec
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 65304ca1241b2c8a1f9541580e7ee8434dd5b6eb
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798557"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426408"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Información del lenguaje de consulta de Azure Resource Graph
 
@@ -32,6 +32,7 @@ Resource Graph proporciona varias tablas para los datos que almacena sobre los t
 |ResourceContainers |Incluye los datos y los tipos de recursos de suscripción (en versión preliminar: `Microsoft.Resources/subscriptions`) y grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
 |AdvisorResources |Incluye recursos _relacionados_ con `Microsoft.Advisor`. |
 |AlertsManagementResources |Incluye recursos _relacionados_ con `Microsoft.AlertsManagement`. |
+|GuestConfigurationResources |Incluye recursos _relacionados_ con `Microsoft.GuestConfiguration`. |
 |HealthResources |Incluye recursos _relacionados_ con `Microsoft.ResourceHealth`. |
 |MaintenanceResources |Incluye recursos _relacionados_ con `Microsoft.Maintenance`. |
 |SecurityResources |Incluye recursos _relacionados_ con `Microsoft.Security`. |
@@ -142,7 +143,7 @@ Esta es la lista de operadores tabulares de KQL admitidos por Resource Graph con
 El ámbito de las suscripciones desde las que una consulta devuelve los recursos depende del método de acceso a Resource Graph. La CLI de Azure y Azure PowerShell rellenan la lista de suscripciones que se van a incluir en la solicitud, en función del contexto del usuario autorizado. Cada lista de suscripciones se puede definir manualmente con las **suscripciones** y los parámetros de **suscripción**, respectivamente.
 En la API de REST y en todos los demás SDK, la lista de suscripciones en las que se incluyen los recursos debe definirse explícitamente como parte de la solicitud.
 
-Como **versión preliminar**, la versión de API de REST `2020-04-01-preview` agrega una propiedad para limitar el ámbito de la consulta a un [grupo de administración](../../management-groups/overview.md). Esta API de versión preliminar también hace que la propiedad de suscripción sea opcional. Si no se define un grupo de administración o una lista de suscripciones, el ámbito de la consulta comprenderá todos los recursos a los que puede tener acceso el usuario autenticado. La nueva propiedad `managementGroupId` toma el id. del grupo de administración, que es diferente del nombre del grupo de administración. Cuando se especifica `managementGroupId`, se incluyen los recursos de las primeras 5000 suscripciones de la jerarquía de grupos de administración especificada. `managementGroupId` no se puede usar al mismo tiempo que `subscriptions`.
+Como **versión preliminar**, la versión de API de REST `2020-04-01-preview` agrega una propiedad para limitar el ámbito de la consulta a un [grupo de administración](../../management-groups/overview.md). Esta API de versión preliminar también hace que la propiedad de suscripción sea opcional. Si no se define un grupo de administración o una lista de suscripciones, el ámbito de la consulta comprenderá todos los recursos, incluidos los recursos delegados de [Azure Lighthouse](../../../lighthouse/concepts/azure-delegated-resource-management.md), a los que puede acceder el usuario autenticado. La nueva propiedad `managementGroupId` toma el id. del grupo de administración, que es diferente del nombre del grupo de administración. Cuando se especifica `managementGroupId`, se incluyen los recursos de las primeras 5000 suscripciones de la jerarquía de grupos de administración especificada. `managementGroupId` no se puede usar al mismo tiempo que `subscriptions`.
 
 Ejemplo: Consulte todos los recursos de la jerarquía del grupo de administración denominado "Mi grupo de administración" que cuenta con el id. "myMG".
 

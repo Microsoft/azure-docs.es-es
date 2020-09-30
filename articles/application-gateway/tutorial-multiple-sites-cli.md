@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 40761b8b187d864c7b93b8aa4ee49233683fcad7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4baafe9f3356e3134626c819c47939b96ab48a79
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502770"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595866"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones que hospede varios sitios web mediante la CLI de Azure
 
@@ -22,13 +22,12 @@ Puede usar la CLI de Azure para [configurar el hospedaje de varios sitios web](m
 
 En este artículo aprenderá a:
 
-> [!div class="checklist"]
-> * Configuración de la red
-> * Creación de una puerta de enlace de aplicaciones
-> * Crear un agente de escucha de back-end
-> * Crear reglas de enrutamiento
-> * Crear conjuntos de escalado de máquinas virtuales con los grupos de back-end
-> * Creación de un registro CNAME en el dominio
+* Configuración de la red
+* Creación de una puerta de enlace de aplicaciones
+* Crear un agente de escucha de back-end
+* Crear reglas de enrutamiento
+* Crear conjuntos de escalado de máquinas virtuales con los grupos de back-end
+* Creación de un registro CNAME en el dominio
 
 :::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="Instancia de Application Gateway multisitio":::
 

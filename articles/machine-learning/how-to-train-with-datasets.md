@@ -12,19 +12,19 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b20612756050ae2e9d39f59d049b8c097e3b8010
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 7a3f839a676723942af2e669839457ed3246aabd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651223"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885885"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Entrenamiento con conjuntos de datos en Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este artículo obtendrá información acerca de cómo usar [conjuntos de datos de Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) en sus experimentos de entrenamiento.  Puede usar conjuntos de datos en el destino de proceso local o remoto sin preocuparse por las cadenas de conexión o las rutas de acceso a datos.
 
-Los conjuntos de datos de Azure Machine Learning proporcionan una integración perfecta con productos de entrenamiento de Azure Machine Learning, como [ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py), [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py) y [canalizaciones de Azure Machine Learning](how-to-create-your-first-pipeline.md).
+En este artículo obtendrá información acerca de cómo usar [conjuntos de datos de Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true) en sus experimentos de entrenamiento.  Puede usar conjuntos de datos en el destino de proceso local o remoto sin preocuparse por las cadenas de conexión o las rutas de acceso a datos.
+
+Los conjuntos de datos de Azure Machine Learning proporcionan una integración perfecta con productos de entrenamiento de Azure Machine Learning, como [ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py&preserve-view=true), [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true), [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py&preserve-view=true) y [canalizaciones de Azure Machine Learning](how-to-create-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -34,16 +34,16 @@ Para crear conjuntos de datos y entrenar con ellos, necesita:
 
 * Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
-* El [SDK de Azure Machine Learning para Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), que incluye el paquete azureml-datasets.
+* El [SDK de Azure Machine Learning para Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true), que incluye el paquete azureml-datasets.
 
 > [!Note]
-> Algunas clases Dataset tienen dependencias del paquete [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py). Para los usuarios de Linux, estas clases solo se admiten en las siguientes distribuciones:  Red Hat Enterprise Linux, Ubuntu, Fedora y CentOS.
+> Algunas clases Dataset tienen dependencias del paquete [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py&preserve-view=true). Para los usuarios de Linux, estas clases solo se admiten en las siguientes distribuciones:  Red Hat Enterprise Linux, Ubuntu, Fedora y CentOS.
 
 ## <a name="access-and-explore-input-datasets"></a>Acceso y exploración de conjuntos de datos de entrada
 
 Puede acceder a un conjunto de datos TabularDataset existente desde el script de entrenamiento de un experimento en su área de trabajo y cargar ese conjunto de datos en un dataframe de Pandas para realizar más exploraciones en su entorno local.
 
-En el código siguiente se usa el método [`get_context()`]() de la clase [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) para acceder al conjunto de datos TabularDataset de entrada existente, `titanic`, en el script de entrenamiento. A continuación, se usa el método [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) para cargar ese conjunto de datos en un dataframe de Pandas para la exploración y preparación de datos adicionales antes del entrenamiento.
+En el código siguiente se usa el método [`get_context()`]() de la clase [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true) para acceder al conjunto de datos TabularDataset de entrada existente, `titanic`, en el script de entrenamiento. A continuación, se usa el método [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) para cargar ese conjunto de datos en un dataframe de Pandas para la exploración y preparación de datos adicionales antes del entrenamiento.
 
 > [!Note]
 > Si el origen de datos original contiene NaN, cadenas vacías o valores en blanco, cuando se utiliza el to_pandas_dataframe(), esos valores se reemplazan como un valor de *Null*. 
@@ -67,7 +67,7 @@ Si necesita cargar los datos preparados en un nuevo conjunto de datos a partir d
 
 Si tiene datos estructurados que aún no se han registrado como un conjunto de datos, cree un conjunto de datos TabularDataset y úselo directamente en el script de entrenamiento para su experimento local o remoto.
 
-En este ejemplo, creará un objeto [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) no registrado que usará como entrada directa para el objeto `estimator` para entrenamiento. Si desea volver a usar este conjunto de datos TabularDataset con otros experimentos en su área de trabajo, consulte [Registro de conjuntos de registros en su área de trabajo](how-to-create-register-datasets.md#register-datasets).
+En este ejemplo, creará un objeto [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) no registrado que usará como entrada directa para el objeto `estimator` para entrenamiento. Si desea volver a usar este conjunto de datos TabularDataset con otros experimentos en su área de trabajo, consulte [Registro de conjuntos de registros en su área de trabajo](how-to-create-register-datasets.md#register-datasets).
 
 ### <a name="create-a-tabulardataset"></a>Creación de un objeto TabularDataset
 
@@ -84,7 +84,7 @@ Los objetos TabularDataset ofrecen la posibilidad de cargar los datos de su conj
 
 ### <a name="configure-the-estimator"></a>Configuración del estimador
 
-Un objeto [estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) se usa para enviar la ejecución del experimento. Azure Machine Learning tiene estimadores preconfigurados para marcos de aprendizaje automático comunes, así como un estimador genérico.
+Un objeto [estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py&preserve-view=true) se usa para enviar la ejecución del experimento. Azure Machine Learning tiene estimadores preconfigurados para marcos de aprendizaje automático comunes, así como un estimador genérico.
 
 Este código crea un objeto estimator genérico, `est`, que especifica:
 
@@ -109,9 +109,12 @@ experiment_run.wait_for_completion(show_output=True)
 
 ## <a name="mount-files-to-remote-compute-targets"></a>Montar los archivos en destinos de proceso remotos
 
-Si tiene datos no estructurados, cree un conjunto de datos [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py) y monte o descargue los archivos de datos para que estén disponibles para el destino de proceso remoto para el entrenamiento. Obtenga información acerca de cuándo usar [el montaje frente a la descarga](#mount-vs-download) para los experimentos de entrenamiento remoto. 
+Si tiene datos no estructurados, cree un conjunto de datos [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) y monte o descargue los archivos de datos para que estén disponibles para el destino de proceso remoto para el entrenamiento. Obtenga información acerca de cuándo usar [el montaje frente a la descarga](#mount-vs-download) para los experimentos de entrenamiento remoto. 
 
 En el ejemplo siguiente se crea un conjunto de datos FileDataset y se monta el conjunto de datos en el destino de proceso, para lo cual se pasa como un argumento en el estimador del entrenamiento. 
+
+> [!Note]
+> Si usa una imagen base de Docker personalizada, tendrá que instalar Fuse a través de `apt-get install -y fuse` como una dependencia para que el montaje del conjunto de datos funcione. Obtenga información sobre cómo [compilar una imagen de compilación personalizada](how-to-deploy-custom-docker-image.md#build-a-custom-base-image).
 
 ### <a name="create-a-filedataset"></a>Creación de un objeto FileDataset
 
@@ -133,7 +136,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 Se recomienda pasar el conjunto de datos como un argumento al realizar el montaje. Además de pasar el conjunto de datos mediante el parámetro `inputs` en el estimador, también puede pasarlo mediante `script_params` y obtener la ruta de acceso a los datos (punto de montaje) en el script de entrenamiento por medio de argumentos. En otras palabras, podrá usar el mismo script de entrenamiento para la depuración local y el entrenamiento remoto en todas las plataformas en la nube.
 
-Un objeto estimator [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) se usa para enviar la ejecución de experimentos scikit-learn. Después de enviar la ejecución, los archivos de datos a los que el conjunto de datos `mnist` hace referencia se montarán en el destino de proceso. Obtenga más información sobre el entrenamiento con el [calculador de SKlearn](how-to-train-scikit-learn.md).
+Un objeto estimator [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py&preserve-view=true) se usa para enviar la ejecución de experimentos scikit-learn. Después de enviar la ejecución, los archivos de datos a los que el conjunto de datos `mnist` hace referencia se montarán en el destino de proceso. Obtenga más información sobre el entrenamiento con el [calculador de SKlearn](how-to-train-scikit-learn.md).
 
 ```Python
 from azureml.train.sklearn import SKLearn
@@ -219,7 +222,7 @@ print (mounted_path)
 
 ## <a name="access-datasets-in-your-script"></a>Obtener acceso a los conjuntos de datos del script
 
-A los conjuntos de bases de datos registrados se puede acceder de local y remota en clústeres de proceso como el proceso de Azure Machine Learning. Para acceder a un conjunto de datos registrado en los experimentos, use el siguiente código para acceder al área de trabajo y al conjunto de datos registrado por nombre. De forma predeterminada, el método [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) de la clase `Dataset` devuelve la versión más reciente del conjunto de datos registrada en el área de trabajo.
+A los conjuntos de bases de datos registrados se puede acceder de local y remota en clústeres de proceso como el proceso de Azure Machine Learning. Para acceder a un conjunto de datos registrado en los experimentos, use el siguiente código para acceder al área de trabajo y al conjunto de datos registrado por nombre. De forma predeterminada, el método [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) de la clase `Dataset` devuelve la versión más reciente del conjunto de datos registrada en el área de trabajo.
 
 ```Python
 %%writefile $script_folder/train.py

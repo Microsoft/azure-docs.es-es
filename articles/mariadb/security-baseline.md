@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: fd195fee513b2eed9049c7841f791d73a41b876b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: f067d4c777bb9a49ac2cc50595046249479a8f7a
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366840"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393843"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Línea de base de seguridad de Azure para Azure Database for MariaDB
 
@@ -522,9 +522,9 @@ Descripción de la protección de datos de los clientes en Azure: https://docs.m
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
-**Instrucciones**: Use RBAC de Azure AD para controlar el acceso a Azure Database para el plano de administración de MariaDB (Azure Portal/Azure Resource Manager). Para el acceso al plano de datos (dentro de la base de datos), use consultas SQL para crear usuarios y configurar permisos de usuario.
+**Guía**: Use el control de acceso basado en roles de Azure para controlar el acceso a Azure Database para el plano de administración de MariaDB (Azure Portal/Azure Resource Manager). Para el acceso al plano de datos (dentro de la base de datos), use consultas SQL para crear usuarios y configurar permisos de usuario.
 
-Cómo configurar RBAC en Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
+Configuración de Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
 Configuración del acceso de usuario con SQL para MariaDB: https://docs.microsoft.com/azure/mariadb/howto-create-users
 
@@ -836,7 +836,7 @@ Documentación de Azure Repos: https://docs.microsoft.com/azure/devops/repos/ind
 
 ### <a name="77-deploy-system-configuration-management-tools"></a>7.7: Implemente herramientas de administración de configuración del sistema
 
-**Instrucciones**: Use alias de Azure Policy en el espacio de nombres "Microsoft.DBforMariaDB" para crear directivas personalizadas con el fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Además, desarrolle un proceso y una canalización para administrar las excepciones de las directivas.
+**Guía**: Use alias de Azure Policy en el espacio de nombres "Microsoft.DBforMariaDB" para crear directivas personalizadas con el fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Además, desarrolle un proceso y una canalización para administrar las excepciones de las directivas.
 
 Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -868,7 +868,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: Implemente la supervisión de configuración automatizada para sistemas operativos
 
-**Guía**: No aplicable; esta recomendación está pensada para los recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -880,11 +880,11 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 Cómo integrar las identidades administradas de Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Cómo crear un almacén de claves: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Cómo crear un almacén de claves: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Cómo proporcionar la autenticación de Key Vault con una identidad administrada: https://docs.microsoft.com/azure/key-vault/managed-identity 
+Autenticación en Azure Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
 
-
+Asignación de una directiva de acceso de Key Vault: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -920,7 +920,7 @@ Cómo configurar el escáner de credenciales: https://secdevtools.azurewebsites.
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Use software antimalware administrado centralmente
 
-**Guía**: No aplicable; esta recomendación está pensada para los recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 Microsoft Antimalware está habilitado en el host subyacente que admite los servicios de Azure (por ejemplo, Azure App Service), pero no se ejecuta en el contenido del cliente.
 

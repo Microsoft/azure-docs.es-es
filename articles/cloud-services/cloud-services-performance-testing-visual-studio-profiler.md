@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: 21270d3c7143ce063ffe30d939368b9813e9072e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 503b1ca8c8f1ff06bbdd54316611d886fb1e9d87
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70094102"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462316"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Prueba del rendimiento de un servicio en la nube de manera local en el emulador de Azure Compute con el generador de perfiles de Visual Studio
 Se encuentran disponibles diversas herramientas y técnicas para probar el rendimiento de los servicios en la nube.
@@ -168,7 +168,7 @@ La instrumentación de binarios de Azure en el emulador no es compatible en el g
 
 [1]: https://docs.microsoft.com/azure/application-insights/app-insights-profiler
 [2]: https://msdn.microsoft.com/library/azure/hh411542.aspx
-[3]: https://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
+[3]: https://docs.microsoft.com/archive/blogs/habibh/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010
 [4]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
 [5]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png
 [6]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png

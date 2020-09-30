@@ -1,6 +1,6 @@
 ---
-title: Requisitos del sistema de Microsoft Azure Stack Edge | Microsoft Docs
-description: Conozca los requisitos de software y de red de Azure Stack Edge
+title: Requisitos del sistema de Microsoft Azure Stack Edge Pro | Microsoft Docs
+description: Obtenga información sobre los requisitos de software y de red de Azure Stack Edge Pro
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 921dcb05401c61a9fb581595c20112e67f696c5e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a1a0462b82629b16bd8ccbe269fb1a917357d542
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371316"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883513"
 ---
-# <a name="azure-stack-edge-system-requirements"></a>Requisitos del sistema de Azure Stack Edge
+# <a name="azure-stack-edge-pro-system-requirements"></a>Requisitos del sistema de Azure Stack Edge Pro
 
-En este artículo, se describen los requisitos importantes del sistema de la solución Microsoft Azure Stack Edge y de los clientes que se conectan a Azure Stack Edge. Le recomendamos que revise detenidamente la información antes de implementar Azure Stack Edge. Puede consultar esta información según considere necesario durante la implementación y las operaciones posteriores.
+En este artículo se describen los requisitos importantes del sistema de la solución Microsoft Azure Stack Edge Pro y de los clientes que se conectan a Azure Stack Edge Pro. Le recomendamos que examine detenidamente la información antes de implementar Azure Stack Edge Pro. Puede consultar esta información según considere necesario durante la implementación y las operaciones posteriores.
 
-Los requisitos del sistema de Azure Stack Edge son:
+Los requisitos del sistema de Azure Stack Edge Pro son los siguientes:
 
 - **Requisitos de software para hosts**: describe las plataformas compatibles, los exploradores de la interfaz de usuario de configuración local, los clientes SMB y los requisitos adicionales de los clientes que acceden al dispositivo.
 - **Requisitos de red para el dispositivo**: proporciona información acerca de los requisitos de red para el funcionamiento del dispositivo físico.
@@ -46,9 +46,9 @@ Los requisitos del sistema de Azure Stack Edge son:
 
 ## <a name="networking-port-requirements"></a>Requisitos de los puertos de redes
 
-### <a name="port-requirements-for-azure-stack-edge"></a>Requisitos de los puertos de Azure Stack Edge
+### <a name="port-requirements-for-azure-stack-edge-pro"></a>Requisitos de puertos de Azure Stack Edge Pro
 
-La siguiente tabla enumera los puertos que deben abrirse en el firewall para permitir el tráfico de administración, de la nube o de SMB. En esta tabla, *dentro* o *entrante* hace referencia a la dirección desde la que el cliente entrante solicita acceso al dispositivo. *Salida* o *Saliente* hace referencia a la dirección en la que el dispositivo de Azure Stack Edge envía datos al exterior, fuera de los límites de la implementación; por ejemplo, datos de salida hacia Internet.
+La siguiente tabla enumera los puertos que deben abrirse en el firewall para permitir el tráfico de administración, de la nube o de SMB. En esta tabla, *dentro* o *entrante* hace referencia a la dirección desde la que el cliente entrante solicita acceso al dispositivo. Por su parte, *fuera* o *saliente* hacen referencia a la dirección en la que el dispositivo Azure Stack Edge Pro envía datos al exterior, fuera de los límites de la implementación; por ejemplo, datos que salen a Internet.
 
 [!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
@@ -66,9 +66,9 @@ Para obtener información completa, vaya a [Reglas de configuración de puertos 
 
 ## <a name="url-patterns-for-firewall-rules"></a>Patrones de URL para reglas de firewall
 
-Con frecuencia, los administradores de red pueden configurar reglas avanzadas de firewall de acuerdo con los patrones de URL para filtrar el tráfico saliente y entrante. El dispositivo de Azure Stack Edge y el servicio dependen de otras aplicaciones de Microsoft, como Azure Service Bus, Azure Active Directory Access Control, cuentas de almacenamiento y los servidores de Microsoft Update. Es posible usar los patrones de URL asociados a estas aplicaciones para configurar las reglas de firewall. Es importante entender que los patrones de URL asociados a estas aplicaciones pueden cambiar. Estos cambios requieren que el administrador de red supervise y actualice las reglas de firewall de Azure Stack Edge según sea necesario.
+Con frecuencia, los administradores de red pueden configurar reglas avanzadas de firewall de acuerdo con los patrones de URL para filtrar el tráfico saliente y entrante. El dispositivo Azure Stack Edge Pro y el servicio dependen de otras aplicaciones de Microsoft, como Azure Service Bus, Azure Active Directory Access Control, cuentas de almacenamiento y servidores de Microsoft Update. Es posible usar los patrones de URL asociados a estas aplicaciones para configurar las reglas de firewall. Es importante entender que los patrones de URL asociados a estas aplicaciones pueden cambiar. Estos cambios requieren que el administrador de red supervise y actualice las reglas de firewall de Azure Stack Edge Pro cuando sea necesario.
 
-Es recomendable que configure las reglas de firewall para el tráfico de salida en función de las direcciones IP fijas de Azure Stack Edge, que pueden establecerse libremente en la mayoría de los casos. Sin embargo, puede utilizar la información siguiente con el objetivo de establecer las reglas avanzadas de firewall que se necesitan para crear entornos seguros.
+Es recomendable configurar las reglas de firewall para el tráfico de salida en función de las direcciones IP fijas de Azure Stack Edge Pro, que pueden establecerse libremente en la mayoría de los casos. Sin embargo, puede utilizar la información siguiente con el objetivo de establecer las reglas avanzadas de firewall que se necesitan para crear entornos seguros.
 
 > [!NOTE]
 > - Las direcciones IP del dispositivo (origen) siempre se deben establecer en todas las interfaces de red habilitadas para la nube.
@@ -104,7 +104,7 @@ Es recomendable que configure las reglas de firewall para el tráfico de salida 
 
 ## <a name="compute-sizing-considerations"></a>Consideraciones de tamaño de proceso
 
-Use su experiencia al desarrollar y probar la solución para asegurarse de que hay suficiente capacidad en el dispositivo de Azure Stack Edge y obtener un rendimiento óptimo del dispositivo.
+Use su experiencia al desarrollar y probar la solución para asegurarse de que hay suficiente capacidad en el dispositivo Azure Stack Edge Pro y que se obtiene un rendimiento óptimo del dispositivo.
 
 Debe considerar los siguientes factores:
 
@@ -130,9 +130,9 @@ Para comprender y ajustar el rendimiento de la solución, puede usar:
 
     Para obtener más información sobre los comandos disponibles, vaya a [Supervisar y solucionar problemas de los módulos de proceso](azure-stack-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
 
-Por último, no olvide validar la solución en el conjunto de datos y cuantificar el rendimiento de Azure Stack Edge antes de realizar la implementación en producción.
+Por último, no olvide validar la solución en el conjunto de datos y cuantificar el rendimiento de Azure Stack Edge Pro antes de realizar la implementación en producción.
 
 
 ## <a name="next-step"></a>Paso siguiente
 
-- [Implementación de Azure Stack Edge](azure-stack-edge-deploy-prep.md)
+- [Implementación de Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)

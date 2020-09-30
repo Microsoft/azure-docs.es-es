@@ -1,0 +1,143 @@
+### YamlMime:Landing
+title: Documentación de un servidor único
+summary: 'Azure Database for MySQL: servidor único es un servicio de base de datos relacional con tecnología de MySQL Community Edition.  Es una base de datos como servicio totalmente administrada que puede manejar cargas de trabajo críticas con un rendimiento predecible y escalabilidad dinámica. Aprenda a usar un servidor único con nuestros inicios rápidos, tutoriales y ejemplos.'
+metadata:
+  description: Azure Database for MySQL (servidor único) es un servicio de base de datos relacional en la nube de Microsoft creado para los desarrolladores y que tiene la tecnología de MySQL Community Edition.
+  author: mksuni
+  ms.author: sumuth
+  ms.date: 09/20/2020
+  ms.service: mysql
+  ms.topic: landing-page
+  ms.openlocfilehash: a9ddd354a97578c5b83455fc6d709d5c2d60494f
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90928943"
+landingContent:
+- title: Acerca de un servidor único
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es un servidor único?
+      url: ../concepts-servers.md
+  - linkListType: whats-new
+    links:
+    - text: Consultar nuestro blog
+      url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/bg-p/ADforMySQL
+- title: Introducción
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creación de un servidor mediante Azure Portal
+      url: ../quickstart-create-mysql-server-database-using-azure-portal.md
+    - text: Creación de un servidor mediante la CLI de Azure
+      url: ../quickstart-create-mysql-server-database-using-azure-cli.md
+  - linkListType: concept
+    links:
+    - text: Descripción de los planes de tarifa
+      url: ../concepts-pricing-tiers.md
+    - text: Conocimiento de los límites
+      url: ../concepts-limits.md
+    - text: Descripción de las versiones admitidas de MySQL
+      url: ../concepts-supported-versions.md
+    - text: Planeamiento para lograr alta disponibilidad
+      url: ../concepts-high-availability.md
+  - linkListType: tutorial
+    links:
+    - text: Diseño de un base de datos para un servidor único
+      url: ../tutorial-design-database-using-portal.md
+    - text: Implementación de Wordpress en una aplicación web para Containers con MySQL
+      url: ../../app-service/tutorial-multi-container-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
+    - text: Compilación de una aplicación web PHP (Laravel) con MySQL
+      url: ../../app-service/tutorial-php-mysql-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
+- title: Conexión y consultas
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Descripción del firewall
+      url: ../concepts-firewall-rules.md
+    - text: Descripción de SSL
+      url: ../concepts-ssl-connection-security.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creación de reglas de firewall
+      url: ../howto-manage-firewall-using-portal.md
+    - text: Configuración de la conectividad SSL
+      url: ../howto-configure-ssl.md
+    - text: Solución de problemas de conexión
+      url: ../howto-troubleshoot-common-connection-issues.md
+  - linkListType: get-started
+    links:
+    - text: Conexión mediante MySQL Workbench
+      url: ../connect-workbench.md
+    - text: Conexión mediante PHP
+      url: ../connect-php.md
+    - text: Conexión mediante Java
+      url: ../connect-java.md
+    - text: Conexión mediante .Net
+      url: ../connect-csharp.md
+    - text: Conexión mediante Python
+      url: ../connect-python.md
+    - text: Conexión mediante Node.js
+      url: ../connect-nodejs.md
+- title: Administración y migración de datos
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Descripción de parámetros del servidor
+      url: ../concepts-server-parameters.md
+    - text: Descripción de las redes virtuales
+      url: ../concepts-data-access-and-security-vnet.md
+    - text: Habilitación de la supervisión
+      url: ../concepts-monitoring.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configuración de parámetros del servidor
+      url: ../howto-server-parameters.md
+    - text: Migración mediante Data Migration Service
+      url: ../howto-migrate-online.md
+    - text: Migración mediante volcado y restauración
+      url: ../concepts-migrate-dump-restore.md
+    - text: Migración mediante importación y exportación
+      url: ../concepts-migrate-import-export.md
+- title: Continuidad empresarial
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Continuidad empresarial
+      url: ../concepts-business-continuity.md
+    - text: Copia de seguridad y restauración
+      url: ../concepts-backup.md
+    - text: Replicación de datos internos
+      url: ../concepts-data-in-replication.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configuración de la replicación de datos internos
+      url: ../howto-data-in-replication.md
+    - text: Restauración de un servidor mediante Azure Portal
+      url: ../howto-restore-server-portal.md
+    - text: Restauración de un servidor mediante Azure Portal
+      url: ../howto-restore-server-cli.md
+- title: Referencia
+  linkLists:
+  - linkListType: download
+    links:
+    - text: MySQL Workbench
+      url: https://www.mysql.com/products/workbench
+    - text: MySQL .NET Connector
+      url: https://dev.mysql.com/doc/connector-net/en/
+  - linkListType: deploy
+    links:
+    - text: Scripts de la CLI de Azure para tareas comunes
+      url: /azure/mysql/sample-scripts-azure-cli
+    - text: Plantillas del Administrador de recursos de Azure
+      url: /azure/templates/microsoft.dbformysql/allversions
+  - linkListType: reference
+    links:
+    - text: Referencia para desarrolladores de la CLI de Azure
+      url: /cli/azure/mysql
+    - text: Referencia para desarrolladores de API REST
+      url: /rest/api/mysql/
+    - text: PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.mysql

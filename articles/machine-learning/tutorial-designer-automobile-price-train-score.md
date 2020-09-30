@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Predicción de los precios de los automóviles con el diseñador (versión preliminar)'
+title: 'Tutorial: Predicción de los precios de los automóviles con el diseñador'
 titleSuffix: Azure Machine Learning
 description: Aprenda a entrenar, puntuar e implementar un modelo de Machine Learning mediante una interfaz de arrastrar y colocar. Este tutorial es la primera de una serie de dos partes sobre la predicción de precios de automóviles mediante la regresión lineal.
 author: peterclu
@@ -10,15 +10,15 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 3992bbe466241eb388874905237dbe00f07b3752
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 55d950435522a18eafda69d152619426fe54d87f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88812992"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896703"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Predicción del precio de un automóvil con el diseñador (versión preliminar)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Predicción del precio de un automóvil con el diseñador
+
 
 En este tutorial de dos partes aprenderá a usar el diseñador de Azure Machine Learning para entrenar e implementar un modelo de Machine Learning que predice el precio de cualquier automóvil. El diseñador es una herramienta de arrastrar y colocar que le permite crear modelos de Machine Learning sin una sola línea de código.
 
@@ -49,10 +49,6 @@ Para crear una canalización de Azure Machine Learning, necesita un área de tra
 ### <a name="create-a-new-workspace"></a>Crear un área de trabajo
 
 Para usar el diseñador, primero necesita un área de trabajo de Azure Machine Learning. El área de trabajo es el recurso de nivel superior de Azure Machine Learning y proporciona un lugar centralizado para trabajar con todos los artefactos que crea con Azure Machine Learning.
-
-Si tiene un área de trabajo de Azure Machine Learning con una edición Enterprise, [vaya a la siguiente sección](#create-the-pipeline).
-
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
 ### <a name="create-the-pipeline"></a>Creación de la canalización
 
@@ -94,7 +90,7 @@ Puede establecer un **destino de proceso predeterminado** para toda la canalizac
 
 Se incluyen varios conjuntos de datos de ejemplo en el diseñador para que experimente con ellos. En este tutorial, use **Automobile price data (Raw)** . 
 
-1. A la izquierda del lienzo de la canalización, hay una paleta de conjuntos de datos y módulos. Seleccione **Datasets** (Conjuntos de datos) y examine la sección **Samples** (Ejemplos) para ver los conjuntos de datos de ejemplo disponibles.
+1. A la izquierda del lienzo de la canalización, hay una paleta de conjuntos de datos y módulos. Seleccione **Conjuntos de datos de ejemplo** para ver los conjuntos de datos de ejemplo disponibles.
 
 1. Seleccione el conjunto de datos **Automobile price data (Raw)** y arrástrelo al lienzo.
 

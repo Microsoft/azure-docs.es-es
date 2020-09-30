@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
-ms.openlocfilehash: 7e59229f6664dc8966aa491e9d2ded1abbd5536f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9ae21b2a6d470b959f5e869e8a9edda9c56bec73
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323050"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019570"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referencia: Puntos de conexión de IoT Hub
 
@@ -55,6 +55,8 @@ En la lista siguiente se describen los puntos de conexión:
   * *Recuperación y actualización de las propiedades del dispositivo gemelo*. Un dispositivo usa este punto de conexión para tener acceso a las propiedades del [dispositivo gemelo](iot-hub-devguide-device-twins.md). HTTPS no es compatible.
 
   * *Recepción de solicitudes de métodos directos*. Un dispositivo usa este punto de conexión para escuchar solicitudes de [métodos directos](iot-hub-devguide-direct-methods.md). HTTPS no es compatible.
+
+  [!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 * **Puntos de conexión de servicio**. Cada instancia de IoT Hub muestra un conjunto de puntos de conexión que el back-end de solución para comunicarse con los dispositivos. Con una excepción, estos puntos de conexión solo se muestran con los protocolo [AMQP](https://www.amqp.org/) y AMQP sobre WebSockets. El punto de conexión de invocación de método directo se muestra en el protocolo HTTPS.
   

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f90f5f4298fcca77e293965ddd377598bcfd1930
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 93922986dfe0b2b4e8ba0923931df601cc12428b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077308"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532535"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Uso de Azure AD como proveedor de identidades para vCenter en la nube privada de CloudSimple
 
@@ -64,7 +64,7 @@ También puede configurar otras características de Azure AD,  aunque son neces
 3. Configure el grupo de administradores para administrar Azure AD Domain Services como se describe en [Habilitación de Azure Active Directory Domain Services mediante Azure Portal](../active-directory-domain-services/tutorial-create-instance.md).
 4. Actualice la configuración de DNS para Azure AD Domain Services como se describe en [Habilitación de Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md).  Si quiere conectarse a AD a través de Internet, configure el registro DNS para la dirección IP pública de Azure AD Domain Services en el nombre de dominio.
 5. Habilite la sincronización de hash de contraseñas para los usuarios.  Este paso habilita la sincronización de los valores hash de las contraseñas necesarios para la autenticación NT LAN Manager (NTLM) y Kerberos en Azure AD Domain Services. Una vez configurada la sincronización de los valores hash de las contraseñas, los usuarios pueden iniciar sesión en el dominio administrado mediante sus credenciales corporativas. Consulte [Habilitación de la sincronización de los valores hash de las contraseñas con Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md).
-    1. Si hay presentes usuarios solo de nube, deben cambiar su contraseña mediante el <a href="http://myapps.microsoft.com/" target="_blank">panel de acceso de Azure AD</a> para asegurarse de que los valores hash de las contraseñas se almacenan en el formato requerido por NTLM o Kerberos.  Siga las instrucciones indicadas en [Habilitar la sincronización de los valores hash de las contraseñas con el dominio administrado para las cuentas de usuario solo de nube](../active-directory-domain-services/tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).  Este paso debe realizarse para los usuarios individuales y para todos los usuarios nuevos que se creen en el directorio de Azure AD con los cmdlets de PowerShell de Azure AD o Azure Portal. Los usuarios que necesitan acceso a Azure AD Domain Services deben usar el <a href="http://myapps.microsoft.com/" target="_blank">panel de acceso de Azure AD</a> y acceder a su perfil para cambiar la contraseña.
+    1. Si hay presentes usuarios solo de nube, deben cambiar su contraseña mediante el <a href="https://myapps.microsoft.com/" target="_blank">panel de acceso de Azure AD</a> para asegurarse de que los valores hash de las contraseñas se almacenan en el formato requerido por NTLM o Kerberos.  Siga las instrucciones indicadas en [Habilitar la sincronización de los valores hash de las contraseñas con el dominio administrado para las cuentas de usuario solo de nube](../active-directory-domain-services/tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).  Este paso debe realizarse para los usuarios individuales y para todos los usuarios nuevos que se creen en el directorio de Azure AD con los cmdlets de PowerShell de Azure AD o Azure Portal. Los usuarios que necesitan acceso a Azure AD Domain Services deben usar el <a href="https://myapps.microsoft.com/" target="_blank">panel de acceso de Azure AD</a> y acceder a su perfil para cambiar la contraseña.
 
         > [!NOTE]
         > Si su organización tiene cuentas de usuario solo de nube, todos los usuarios que tengan que usar Azure Active Directory Domain Services deben cambiar sus contraseñas. Una cuenta de usuario solo de nube es una cuenta creada en su directorio de Azure AD mediante Azure Portal, o bien mediante cmdlets de PowerShell de Azure AD. Estas cuentas de usuario no se sincronizan desde un directorio local.

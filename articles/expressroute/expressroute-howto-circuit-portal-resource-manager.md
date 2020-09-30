@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: duau
-ms.openlocfilehash: 58c35b094d21dc562e61b4819c0d8e063908392d
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: e0ba14cd5db47c12435b2de35d0753b402c947ea
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322148"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566269"
 ---
 # <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>Tutorial: Creación y modificación de un circuito ExpressRoute
 
@@ -75,7 +75,10 @@ Puede crear un circuito ExpressRoute seleccionando la opción de creación de un
     > [!IMPORTANT]
     > La ubicación de emparejamiento indica la [ubicación física](expressroute-locations.md) de emparejamiento con Microsoft. **No** está vinculada a la propiedad Location, que hace referencia a la ubicación geográfica donde se encuentra el proveedor de recursos de red de Azure. Aunque no están relacionadas, se recomienda elegir un proveedor de recursos de red geográficamente cerca de la ubicación de emparejamiento del circuito.
 
-    * **SKU** determina si está habilitado un complemento local, estándar o premium de ExpressRoute. Puede especificar **Local** para obtener la SKU local, **Estándar** para obtener la SKU estándar o **Premium** si quiere el complemento Premium.
+    * **SKU** determina si está habilitado un complemento local, estándar o premium de ExpressRoute. Puede especificar **Local** para obtener la SKU local, **Estándar** para obtener la SKU estándar o **Premium** si quiere el complemento Premium. Tenga en cuenta que puede cambiar la SKU para habilitar el complemento Premium.
+    > [!IMPORTANT]
+    > No se puede cambiar la SKU de **Estándar o Premium** a **Local**.
+    
     * **Modelo de facturación** determina el tipo de facturación. Puede especificar **Metered** (Limitado) para un plan de datos limitado y **Unlimited** (Ilimitado) para un plan de datos ilimitado. Tenga en cuenta que puede cambiar el tipo de facturación de **Uso medido** a **Sin límite**.
 
     > [!IMPORTANT]
@@ -150,6 +153,10 @@ Puede modificar determinadas propiedades de un circuito ExpressRoute sin afectar
 Puede realizar las siguientes tareas sin experimentar tiempo de inactividad:
 
 * Habilitar o deshabilitar un complemento ExpressRoute Premium en su circuito ExpressRoute.
+
+> [!IMPORTANT]
+  > No se admite el cambio de la SKU de **Estándar o Premium** a **Local**.
+
 * Aumente el ancho de banda del circuito ExpressRoute, siempre que haya capacidad disponible en el puerto.
 
   > [!IMPORTANT]

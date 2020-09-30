@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: ecd402c30fee63ad594fff5e4fdc3b1610fe7e4e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f2dc93767457bfb96a9457a73adb83c0ed965308
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003888"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069754"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Solución de problemas de Azure Digital Twins: Métricas
 
@@ -41,7 +41,7 @@ Las métricas están habilitadas de forma predeterminada. Puede ver las métrica
 4. Para optar por configurar alertas para los datos de métricas, seleccione **Alertas** en el menú y, a continuación, **+ Nueva regla de alerta**.
     :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Captura de pantalla que muestra la página Alertas y el botón para agregar":::
 
-    Para más información sobre este proceso, consulte [*Solución de problemas: Configuración de diagnósticos*](troubleshoot-diagnostics.md).
+    Para más información sobre este proceso, consulte [*Solución de problemas: Configuración de alertas*](troubleshoot-alerts.md).
 
 ## <a name="azure-digital-twins-metrics-and-how-to-use-them"></a>Métricas de Azure Digital Twins y cómo usarlas
 
@@ -70,7 +70,7 @@ Métricas relacionadas con la facturación:
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | Operaciones de API de facturación (versión preliminar) | Count | Total | Métrica de facturación para el recuento de todas las solicitudes de API realizadas en el servicio Azure Digital Twins. | Id. de medidor |
 | BillingMessagesProcessed | Mensajes de facturación procesados (versión preliminar) | Count | Total | Métrica de facturación para el número de mensajes enviados desde Azure Digital Twins a puntos de conexión externos. | Id. de medidor |
-| BillingQueryUnits | Unidades de consulta de facturación (versión preliminar) | Count | Total | Número de unidades de consulta, una medida del uso de recursos de servicio calculada internamente, que se consume para ejecutar consultas. También hay una API auxiliar disponible para medir las unidades de consulta: [Clase de QueryChargeHelper](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview) | Id. de medidor |
+| BillingQueryUnits | Unidades de consulta de facturación (versión preliminar) | Count | Total | Número de unidades de consulta, una medida del uso de recursos de servicio calculada internamente, que se consume para ejecutar consultas. También hay una API auxiliar disponible para medir las unidades de consulta: [Clase de QueryChargeHelper](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview&preserve-view=true) | Id. de medidor |
 
 #### <a name="ingress-metrics"></a>Métricas de entrada
 

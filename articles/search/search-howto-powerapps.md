@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 08/21/2020
-ms.openlocfilehash: 887017f60deb832bd5c53f28bde4b57a3d82bde5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fd74bfca73323209012dfd1fda61bbaada84092f
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918050"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530699"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Tutorial: Consulta de un índice de Cognitive Search desde Power Apps
 
@@ -31,7 +31,7 @@ Si no tiene una suscripción a Azure, abra una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* [Cuenta de Power Apps](http://make.powerapps.com)
+* [Cuenta de Power Apps](https://make.powerapps.com)
 
 * [Índice hotels-sample](search-get-started-portal.md)
 
@@ -41,7 +41,7 @@ Si no tiene una suscripción a Azure, abra una [cuenta gratuita](https://azure.m
 
 Un conector de Power Apps es una conexión de origen de datos. En este paso, creará un conector personalizado para conectarse a un índice de búsqueda en la nube.
 
-1. [Inicie sesión](http://make.powerapps.com) en Power Apps.
+1. [Inicie sesión](https://make.powerapps.com) en Power Apps.
 
 1. A la izquierda, expanda **Datos** > **Conectores personalizados**.
  

@@ -6,15 +6,15 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 07/06/2020
+ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: d177e7fd7d18b24f9d8fd7f3e6662abe16bba317
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 63bc3caf97e1325c365171ba3f8e6353885d9b68
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045338"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322558"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Creación de imágenes generalizadas sin un agente de aprovisionamiento
 
@@ -199,7 +199,7 @@ WantedBy=multi-user.target
 Este servicio de systemd realiza tres acciones para el aprovisionamiento básico:
 
 1. Informa a Azure de que está listo (para indicar que apareció correctamente).
-1. Cambia el nombre de la máquina virtual en función del nombre de la máquina virtual proporcionado por el usuario extrayendo estos datos de IMDS.
+1. Cambia el nombre de la máquina virtual en función del nombre de la máquina virtual proporcionado por el usuario extrayendo estos datos de [Azure Instance Metadata Service (IMDS)](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service). **Tenga en cuenta** que IMDS también proporciona otros [metadatos de instancia](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#accessing-azure-instance-metadata-service), como las claves públicas SSH, por lo que puede establecer más de un nombre de host.
 1. Se deshabilita por su cuenta, de modo que solo se ejecute en el primer arranque y no en reinicios posteriores.
 
 Con la unidad en el sistema de archivos, ejecute lo siguiente para su habilitación:

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 843bb32a4b5b5e29c4ab7c1dc9ff254a8424ae86
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 61b08514f8d2989736ff2505f0446937757ddb99
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118688"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884676"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Creación y administración de reglas y puntos de conexión de servicio de red virtual de Azure Database for MySQL mediante Azure Portal
 Las reglas y los puntos de conexión de servicios de red virtual (VNet) amplían el espacio de direcciones privadas de una red virtual al servidor de Azure Database for MySQL. Para obtener información general sobre los puntos de conexión de servicio de red virtual de Azure Database for MySQL, incluidas las limitaciones, consulte [Azure Database for MySQL Server VNet service endpoints](concepts-data-access-and-security-vnet.md) (Puntos de conexión de servicio de red virtual del servidor de Azure Database for MySQL). Los puntos de conexión del servicio de red virtual están disponibles en todas las regiones admitidas para Azure Database for MySQL.
@@ -32,11 +32,11 @@ Las reglas y los puntos de conexión de servicios de red virtual (VNet) amplían
 
 3. A continuación, haga clic en **+ Agregar una red virtual existente**. Si no tiene ninguna red virtual, puede hacer clic en **+ Crear nueva red virtual** para crear una. Consulte [Quickstart: Creación de una red virtual mediante Azure Portal](../virtual-network/quick-create-portal.md)
 
-   ![Azure Portal: haga clic en Seguridad de conexión](./media/howto-manage-vnet-using-portal/1-connection-security.png)
+   :::image type="content" source="./media/howto-manage-vnet-using-portal/1-connection-security.png" alt-text="Azure Portal: haga clic en Seguridad de conexión":::
 
 4. Escriba un nombre de regla de red virtual, seleccione la suscripción, el nombre de la subred y red virtual y, luego, haga clic en **Habilitar**. Esto habilita automáticamente puntos de conexión de servicio de red virtual en la subred mediante la etiqueta de servicio **Microsoft.SQL**.
 
-   ![Azure Portal: configuración de red virtual](./media/howto-manage-vnet-using-portal/2-configure-vnet.png)
+   :::image type="content" source="./media/howto-manage-vnet-using-portal/2-configure-vnet.png" alt-text="Azure Portal: configuración de red virtual":::
 
    La cuenta debe tener todos los permisos necesarios para crear una red virtual y un punto de conexión de servicio.
 
@@ -54,7 +54,7 @@ Las reglas y los puntos de conexión de servicios de red virtual (VNet) amplían
 
 5. Una vez habilitada, haga clic en **Aceptar** y verá que se habilitan los puntos de conexión de servicio de red virtual junto con una regla de red virtual.
 
-   ![Se han habilitado los puntos de conexión de servicio de red virtual y se ha creado la regla de red virtual](./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png)
+   :::image type="content" source="./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png" alt-text="Se han habilitado los puntos de conexión de servicio de red virtual y se ha creado la regla de red virtual":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 - De forma similar, puede crear scripts para [habilitar puntos de conexión de servicio de red virtual y crear una regla de red virtual para Azure Database for MySQL mediante la CLI de Azure](howto-manage-vnet-using-cli.md).

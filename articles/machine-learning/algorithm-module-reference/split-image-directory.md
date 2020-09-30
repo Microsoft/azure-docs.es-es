@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 9673b3260425fd9244c635beaf77d367a14cac54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63ae7115f905523a3aac131fd7e77b56eb695243
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809922"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890271"
 ---
 # <a name="split-image-directory"></a>División de directorio de imagen
 
-En este tema se describe cómo usar el módulo Split Image Directory (División del directorio de imagen) en Azure Machine Learning Designer (versión preliminar) para dividir las imágenes de un directorio de imagen en dos conjuntos distintos.
+En este tema se describe cómo usar el módulo División del directorio de imagen en el diseñador de Azure Machine Learning para dividir las imágenes de un directorio de imagen en dos conjuntos distintos.
 
 Este módulo es especialmente útil cuando tiene que separar los datos de imagen en conjuntos de entrenamiento y de prueba. 
 

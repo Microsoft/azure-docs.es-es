@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.custom: contperfq1
-ms.openlocfilehash: 6c7ac840dfba665c4691fc4d389d66f44b077bf7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 1eaef57f46bf6373fdd2a73575bb028904ef108b
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069476"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561657"
 ---
 # <a name="what-is-single-sign-on-sso"></a>¿Qué es el inicio de sesión único (SSO)?
 
@@ -53,7 +53,7 @@ La forma de implementar el inicio de sesión único depende de dónde se hospede
 > [!TIP]
 > Las aplicaciones hospedadas en la nube también se denominan aplicaciones de software como servicio (SaaS). 
 
-El inicio de sesión único en las aplicaciones hospedadas en la nube es sencillo. El usuario permite que el proveedor de identidades sepa que la aplicación se está usando. Luego, la aplicación se configura para que confíe en el proveedor de identidades. Para aprender a usar Azure AD como proveedor de identidades de una aplicación, consulte la [serie de inicios rápidos sobre la administración de aplicaciones](view-applications-portal.md).
+El inicio de sesión único en las aplicaciones hospedadas en la nube es sencillo. El usuario permite que el proveedor de identidades sepa que la aplicación se está usando. Luego, la aplicación se configura para que confíe en el proveedor de identidades. Para aprender a usar Azure AD como proveedor de identidades de una aplicación, consulte la [serie de inicios rápidos sobre la administración de aplicaciones](add-application-portal.md).
 
 > [!TIP]
 > Los términos "nube" e "Internet" suelen usarse indistintamente. El motivo tiene que ver con los diagramas de red. Es habitual denotar redes de equipos de gran tamaño con una forma de nube en un diagrama porque no es factible dibujar todos los componentes. Internet es la red más conocida y, por lo tanto, es fácil usar los términos indistintamente. Sin embargo, cualquier red de equipos puede usar la nube.

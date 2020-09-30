@@ -9,13 +9,14 @@ ms.topic: how-to
 ms.date: 08/02/2020
 ms.author: tamram
 ms.reviewer: fryu
+ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1ba36c7128f72f5181f3fed53f5615ab464e3325
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2437c5b3272163b3931d7417c84e761c591aec85
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013544"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088823"
 ---
 # <a name="access-public-containers-and-blobs-anonymously-with-net"></a>Acceso anónimo a contenedores y blobs públicos con .NET
 

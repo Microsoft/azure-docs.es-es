@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: d18d4aa4bf9306bcdd667faa53f0d888c090e2fd
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 50d2d974815e0921d99154bce67f604b7314970d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875538"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892032"
 ---
 # <a name="event-hubs-output-from-azure-stream-analytics"></a>Salida de Event Hubs desde Azure Stream Analytics
 
@@ -38,7 +38,7 @@ La tabla siguiente contiene los parámetros necesarios para configurar las trans
 
 ## <a name="partitioning"></a>Creación de particiones
 
-La creación de particiones varía según alineación de particiones. Cuando la clave de partición para la salida del centro de eventos está alineada equitativamente con el paso de consulta ascendente (anterior), el número de sistemas de escritura es el mismo que el número de particiones en la salida del centro de eventos. Cada sistema de escritura usa la [clase EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) para enviar eventos a la partición específica. Cuando la clave de partición para la salida del centro de eventos no está alineada con el paso de consulta ascendente (anterior), el número de sistemas de escritura es el mismo que el número de particiones del paso anterior. Cada sistema de escritura usa [la clase SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) de **EventHubClient** para enviar eventos a todas las particiones de salida. 
+La creación de particiones varía según alineación de particiones. Cuando la clave de partición para la salida del centro de eventos está alineada equitativamente con el paso de consulta ascendente (anterior), el número de sistemas de escritura es el mismo que el número de particiones en la salida del centro de eventos. Cada sistema de escritura usa la [clase EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet&preserve-view=true) para enviar eventos a la partición específica. Cuando la clave de partición para la salida del centro de eventos no está alineada con el paso de consulta ascendente (anterior), el número de sistemas de escritura es el mismo que el número de particiones del paso anterior. Cada sistema de escritura usa [la clase SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet&preserve-view=true) de **EventHubClient** para enviar eventos a todas las particiones de salida. 
 
 ## <a name="output-batch-size"></a>Tamaño de lote de salida
 
@@ -55,4 +55,4 @@ Puede asociar las columnas de la consulta como propiedades de usuario a los mens
 * [Inicio rápido: Creación de un trabajo de Azure Stream Analytics mediante una plantilla de ARM](quick-create-azure-resource-manager.md)
 * [Inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Inicio rápido: Creación de un trabajo de Azure Stream Analytics con Visual Studio](stream-analytics-quick-create-vs.md)
-* [Inicio rápido: Creación de un trabajo de Azure Stream Analytics en Visual Studio Code](quick-create-vs-code.md)
+* [Inicio rápido: Creación de un trabajo de Azure Stream Analytics en Visual Studio Code](quick-create-visual-studio-code.md)

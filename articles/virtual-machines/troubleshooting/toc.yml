@@ -83,6 +83,8 @@
           href: troubleshoot-critical-service-failed-boot-error.md
         - name: 'Solución de errores de arranque: no se encuentra el estado'
           href: boot-error-status-not-found.md
+        - name: 'Solución de problemas: Windows no pudo acabar de configurar el sistema'
+          href: windows-could-not-configure-system.md
         - name: Solución de problemas de capacidad de la instalación de Windows Update
           href: windows-update-installation-capacity.md
         - name: No es un disco de arranque
@@ -101,6 +103,8 @@
           href: unresponsive-vm-apply-windows-update.md
         - name: La máquina virtual no responde durante la aplicación de la directiva de configuración de auditorías
           href: vm-unresponsive-applying-audit-configuration-policy.md
+        - name: La máquina virtual no responde cuando se aplica una directiva de controladores de dominio predeterminada
+          href: vm-unresponsive-domain-controllers-policy.md
         - name: La máquina virtual no responde al aplicar una directiva de grupo
           href: unresponsive-vm-apply-group-policy.md
         - name: La máquina virtual no responde al aplicar una directiva de seguridad
@@ -111,6 +115,8 @@
           href: windows-stop-error-bad-system-config-info.md
         - name: 'Error de detención de Windows: estado, Sin memoria'
           href: troubleshoot-windows-stop-error.md
+        - name: 'Error de detención de Windows: proceso del sistema terminado'
+          href: windows-stop-error-system-process-terminated.md
 - name: No puedo conectarme a mi máquina virtual.
   items:
     - name: RDP
@@ -230,6 +236,12 @@
           items:
             - name: Cómo usar PerfInsights
               href: how-to-use-perfinsights-linux.md
+- name: Solución de problemas de instancias de Shared Image Gallery
+  items:
+    - name: 'Solución de problemas de Shared Image Gallery: Windows'
+      href: ../windows/troubleshooting-shared-images.md
+    - name: 'Solución de problemas de Shared Image Gallery: Linux'
+      href: ../linux/troubleshooting-shared-images.md
 - name: Problemas de las extensiones de máquina virtual
   items:
     - name: Introducción a las extensiones de Azure

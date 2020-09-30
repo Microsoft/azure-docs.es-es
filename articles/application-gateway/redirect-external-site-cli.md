@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: b671af46d34e3b45796186cd10282d060fa8c537
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7566122e4edf4357562e830197fade746f18a16f
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804663"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594274"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con redireccionamiento externo mediante la CLI de Azure
 
@@ -20,10 +20,9 @@ Puede usar la CLI de Azure para configurar el [redireccionamiento del tráfico w
 
 En este artículo aprenderá a:
 
-> [!div class="checklist"]
-> * Configuración de la red
-> * Crear un agente de escucha y una regla de redireccionamiento
-> * Creación de una puerta de enlace de aplicaciones
+* Configuración de la red
+* Crear un agente de escucha y una regla de redireccionamiento
+* Creación de una puerta de enlace de aplicaciones
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

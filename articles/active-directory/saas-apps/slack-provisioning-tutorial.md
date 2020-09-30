@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 368d75ecffda49f688a7a5ce11b60693650014c6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6caaba06dcc2fdeaeb672b5381b240cb3f676ca9
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88527832"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563099"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configuración de Slack para aprovisionar usuarios automáticamente
 
@@ -81,7 +81,7 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 5. En **Credenciales de administrador**, haga clic en **Autorizar**. Se abrirá un cuadro de diálogo de autorización de Slack en una nueva ventana del explorador.
 
-    ![Authorization](media/slack-provisioning-tutorial/authorization.png)
+    ![Captura de pantalla que muestra el botón Authorize Admin Credentials (Autorizar credenciales de administrador).](media/slack-provisioning-tutorial/authorization.png)
 
 
 6. En esa nueva ventana, inicie sesión en Slack con su cuenta de administrador de equipo. En el cuadro de diálogo de autorización que aparece, seleccione el equipo de Slack para el que desea habilitar el aprovisionamiento y, luego, seleccione **Autorizar**. Cuando termina, vuelva a Azure Portal para completar la configuración de aprovisionamiento.
@@ -174,7 +174,7 @@ Una vez configurado el aprovisionamiento, use los recursos siguientes para super
   
   * La puntuación permitida incluye puntos, caracteres de subrayado, guiones, apóstrofes, corchetes (por ejemplo, **( [ { } ] )** ) y separadores (por ejemplo, **, / ;** ).
   
-  * la propiedad displayName no puede tener un carácter "@". Si se incluye un carácter "@", es posible que encuentre un evento omitido en los registros de aprovisionamiento con la descripción "AttributeValidationFailed".
+  * La propiedad displayName no puede tener un carácter "\@". Si se incluye un carácter "\@", es posible que encuentre un evento omitido en los registros de aprovisionamiento con la descripción "AttributeValidationFailed".
 
   * Solo se actualiza si estos dos parámetros están configurados en el área de trabajo y organización de Slack - **La sincronización de perfiles está habilitada** y **Los usuarios no pueden cambiar su nombre para mostrar**.
 

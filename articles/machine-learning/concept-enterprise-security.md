@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 05/19/2020
-ms.openlocfilehash: ed95cf0b98edd8a6775c980876a6092c00e3a68d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/09/2020
+ms.openlocfilehash: af32be357899090e0df96e2c67910a4f9ad5194d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918594"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988082"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Seguridad de empresa para Azure Machine Learning
 
@@ -63,7 +63,6 @@ En la tabla siguiente se muestran algunas de las principales operaciones de Azur
 | ---- |:----:|:----:|:----:|
 | Creación del espacio de trabajo | ✓ | ✓ | |
 | Compartir área de trabajo | ✓ | |  |
-| Actualizar el área de trabajo de Enterprise Edition | ✓ | |
 | Crear el destino de proceso | ✓ | ✓ | |
 | Asociar el destino de proceso | ✓ | ✓ | |
 | Asociar almacenes de datos | ✓ | ✓ | |
@@ -105,7 +104,7 @@ Azure Machine Learning crea una aplicación adicional (el nombre empieza por `am
 
 Azure Machine Learning depende de otros servicios de Azure para los recursos de proceso. Los recursos de proceso (destinos de proceso) se usan para entrenar e implementar modelos. Puede crear estos destinos de proceso en una red virtual. Por ejemplo, puede usar Azure Data Science Virtual Machine para entrenar un modelo y, después, implementarlo en AKS.  
 
-Para obtener más información, consulte [Ejecución segura de experimentos y realización de inferencias en una red virtual aislada](how-to-enable-virtual-network.md).
+Para más información, consulte [Información general sobre aislamiento y privacidad de redes virtuales](how-to-network-security-overview.md).
 
 También puede habilitar Azure Private Link para el área de trabajo. Private Link le permite restringir las comunicaciones con el área de trabajo desde una instancia de Azure Virtual Network. Para más información, consulte [Configuración de Private Link](how-to-configure-private-link.md).
 
@@ -119,7 +118,7 @@ También puede habilitar Azure Private Link para el área de trabajo. Private Li
 ### <a name="encryption-at-rest"></a>Cifrado en reposo
 
 > [!IMPORTANT]
-> Si su área de trabajo contiene datos confidenciales, se recomienda establecer el parámetro [hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) a la hora de crearla. La marca `hbi_workspace` solo se puede establecer cuando se crea un área de trabajo. No se puede cambiar en un área de trabajo existente.
+> Si su área de trabajo contiene datos confidenciales, se recomienda establecer el parámetro [hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) a la hora de crearla. La marca `hbi_workspace` solo se puede establecer cuando se crea un área de trabajo. No se puede cambiar en un área de trabajo existente.
 
 La marca `hbi_workspace` controla la cantidad de [datos que Microsoft recopila para fines de diagnóstico](#microsoft-collected-data) y permite el [cifrado adicional en entornos administrados por Microsoft](../security/fundamentals/encryption-atrest.md). Además, permite las siguientes acciones:
 
@@ -140,7 +139,7 @@ Si necesita __girar o revocar__ la clave, puede hacerlo en cualquier momento. Al
 
 Para más información sobre cómo regenerar una clave de acceso, vea el artículo [Regeneración de las claves de la cuenta de almacenamiento](how-to-change-storage-access-key.md).
 
-#### <a name="azure-cosmos-db"></a>Azure Cosmos DB
+#### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
 Azure Machine Learning almacena métricas y metadatos en una instancia de Azure Cosmos DB. Esta instancia está asociada a una suscripción de Microsoft administrada por Azure Machine Learning. Todos los datos almacenados en Azure Cosmos DB se cifran en reposo con claves administradas por Microsoft.
 
@@ -157,13 +156,14 @@ Para habilitar el aprovisionamiento de una instancia de Cosmos DB en su suscripc
     * `cmk_keyvault`: Este parámetro es el identificador de recurso del almacén de claves de su suscripción. Este almacén de claves debe estar en la misma región y suscripción que usará para el área de trabajo de Azure Machine Learning. 
     
         > [!NOTE]
-        > Esta instancia del almacén de claves puede ser diferente a la creada por Azure Machine Learning al aprovisionar el área de trabajo. Si quiere usar la misma instancia del almacén de claves para el área de trabajo, pase el mismo almacén de claves al aprovisionar el área de trabajo mediante el [parámetro key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
+        > Esta instancia del almacén de claves puede ser diferente a la creada por Azure Machine Learning al aprovisionar el área de trabajo. Si quiere usar la misma instancia del almacén de claves para el área de trabajo, pase el mismo almacén de claves al aprovisionar el área de trabajo mediante el [parámetro key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-Esta instancia de Cosmos DB se crea en un grupo de recursos administrados por Microsoft en su suscripción. El grupo de recursos administrado se denomina con el formato `<AML Workspace Resource Group Name><GUID>`.
+Esta instancia de Cosmos DB se crea en un grupo de recursos administrados por Microsoft en su suscripción, junto con los recursos que necesita. El grupo de recursos administrado se denomina con el formato `<AML Workspace Resource Group Name><GUID>`. Si el área de trabajo de Azure Machine Learning usa un punto de conexión privado, también se crea una red virtual para la instancia de Cosmos DB. Esta red virtual se usa para proteger la comunicación entre Cosmos DB y Azure Machine Learning.
 
 > [!IMPORTANT]
-> * Si necesita eliminarla, primero debe eliminar el área de trabajo de Azure Machine Learning que la usa. 
-> * Las [__Unidades de solicitud__](../cosmos-db/request-units.md) predeterminadas para esta cuenta de Cosmos DB son __8000__. Este valor no se puede cambiar. 
+> * No elimine el grupo de recursos que contiene esta instancia de Cosmos DB, ni ninguno de los recursos que se crean automáticamente en este grupo. Si necesita eliminar el grupo de recursos, la instancia de Cosmos DB, etc., primero debe eliminar el área de trabajo de Azure Machine Learning que la usa. El grupo de recursos, la instancia de Cosmos DB y los otros recursos que se crean automáticamente se eliminan cuando se elimina el área de trabajo asociada.
+> * Las [__Unidades de solicitud__](../cosmos-db/request-units.md) predeterminadas para esta cuenta de Cosmos DB son __8000__. Este valor no se puede cambiar.
+> * No puede proporcionar su propia red virtual para usar con la instancia de Cosmos DB que se crea. Tampoco puede modificar la red virtual. Por ejemplo, no puede cambiar el rango de direcciones IP que usa.
 
 Si necesita __girar o revocar__ la clave, puede hacerlo en cualquier momento. Al rotar una clave, Cosmos DB comenzará a usar la nueva clave (versión más reciente) para cifrar los datos en reposo. Al revocar (deshabilitar) una clave, Cosmos DB se encarga de las solicitudes con error. Normalmente, se tarda una hora para que la rotación o la revocación surtan efecto.
 
@@ -197,7 +197,7 @@ Para usar la clave al implementar un modelo en una instancia de Azure Container 
 
 Para obtener más información sobre la creación y el uso de una configuración de implementación, vea los siguientes artículos:
 
-* Referencia de [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-)
+* Referencia de [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-)
 * [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md)
 * [Implementación de un modelo en Azure Container Instances](how-to-deploy-azure-container-instance.md)
 
@@ -246,7 +246,7 @@ Cada área de trabajo lleva asociada una identidad administrada asignada por el 
 
 Microsoft puede recopilar información de identificación no relacionada con el usuario, como los nombres de los recursos (por ejemplo, el nombre del conjunto de datos o el nombre del experimento de aprendizaje automático) o las variables de entorno de trabajo con fines de diagnóstico. Todos estos datos se almacenan mediante claves administradas por Microsoft en el almacenamiento hospedado en suscripciones propiedad de Microsoft, y siguen los [estándares de tratamiento de los datos y la directiva de privacidad estándar de Microsoft](https://privacy.microsoft.com/privacystatement).
 
-Microsoft también recomienda no almacenar información confidencial (como secretos de clave de cuenta) en variables de entorno. Nosotros no encargamos de registrar, cifrar y almacenar las variables de entorno. Del mismo modo, al asignar nombres [run_id](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py), evite incluir información confidencial, como nombres de usuario o nombres de proyectos secretos. Esta información puede aparecer en los registros de telemetría a los que pueden acceder los ingenieros de Soporte técnico de Microsoft.
+Microsoft también recomienda no almacenar información confidencial (como secretos de clave de cuenta) en variables de entorno. Nosotros no encargamos de registrar, cifrar y almacenar las variables de entorno. Del mismo modo, al asignar nombres [run_id](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true), evite incluir información confidencial, como nombres de usuario o nombres de proyectos secretos. Esta información puede aparecer en los registros de telemetría a los que pueden acceder los ingenieros de Soporte técnico de Microsoft.
 
 Puede dejar de participar en la recopilación de datos de diagnóstico si establece el parámetro `hbi_workspace` en `TRUE` mientras aprovisiona el área de trabajo. Esta función se admite cuando se usa el SDK de Python de AzureML, la CLI, las API REST o las plantillas de Azure Resource Manager.
 
@@ -362,11 +362,22 @@ Estos son los detalles:
 
 [![Flujo de trabajo de inferencia](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing.png#lightbox)
 
+## <a name="audit-and-manage-compliance"></a>Auditoría y administración del cumplimiento
+
+[Azure Policy](/azure/governance/policy) es una herramienta de gobierno que le permite asegurarse de que los recursos de Azure son compatibles con las directivas. Con Azure Machine Learning, puede asignar las siguientes directivas:
+
+* **Clave administrada por el cliente**: audite o exija si las áreas de trabajo deben usar una clave administrada por el cliente.
+* **Vínculo privado**: audite si las áreas de trabajo usan un punto de conexión privado para comunicarse con una red virtual.
+
+Para obtener más información sobre Azure Policy, consulte la documentación de [Azure Policy](/azure/governance/policy/overview).
+
+Para obtener más información sobre las directivas específicas de Azure Machine Learning, consulte [Auditoría y administración del cumplimiento con Azure Policy](how-to-integrate-azure-policy.md).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Protección de los servicios web Azure Machine Learning con TLS](how-to-secure-web-service.md)
 * [Consumir un modelo de Machine Learning implementado como un servicio web](how-to-consume-web-service.md)
 * [Uso de Azure Machine Learning con Azure Firewall](how-to-access-azureml-behind-firewall.md)
-* [Uso de Azure Machine Learning con Azure Virtual Network](how-to-enable-virtual-network.md)
+* [Uso de Azure Machine Learning con Azure Virtual Network](how-to-network-security-overview.md)
 * [Procedimientos recomendados para compilar sistemas de recomendaciones](https://github.com/Microsoft/Recommenders)
 * [Compilación de una API de recomendaciones en tiempo real en Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

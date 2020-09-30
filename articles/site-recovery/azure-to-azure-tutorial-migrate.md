@@ -2,18 +2,18 @@
 title: Traslado de máquinas virtuales de IaaS de Azure a otra región con Azure Site Recovery
 description: Use Azure Site Recovery para mover máquinas virtuales de IaaS de Azure de una región de Azure a otra.
 services: site-recovery
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.author: rajanaki
+ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: 3cbf3eda97bd1ba6b71c4bc7910e942e39224e30
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e8f14b86678f7d395f445438d7e869168b13e54b
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076098"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425932"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Traslado de máquinas virtuales de Azure a otra región
 
@@ -88,7 +88,7 @@ En los pasos siguientes se muestra cómo preparar la máquina virtual para el mo
 1. En el apartado **Nombre**, especifique el nombre descriptivo **ContosoVMVault**. Si tiene más de una suscripción, seleccione la apropiada.
 1. Cree un grupo de recursos denominado **ContosoRG**.
 1. Especifique una región de Azure. Para comprobar las regiones admitidas, consulte la disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-1. En los **almacenes de Recovery Services**, haga clic en **Información general** > **ContosoVMVault** >  **+Replicar**.
+1. En los **almacenes de Recovery Services**, seleccione **Información general** > **ContosoVMVault** > **Elementos replicados** >  **+Replicar**.
 1. En **Origen**, seleccione **Azure**.
 1. En **Ubicación de origen**, seleccione la región de Azure de origen donde se ejecutan actualmente sus máquinas virtuales.
 1. Seleccione el modelo de implementación de Resource Manager. A continuación, seleccione la **suscripción de origen** y el **grupo de recursos de origen**.

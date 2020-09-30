@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: ec4b4d705e6cc8b9cfc26952083292b74b3d4abf
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 9b05149515f2d40ad8043cd65c2ec5589440713e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185883"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882520"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql"></a>Inicio rápido: Uso de PHP para conectarse y consultar datos en Azure Database for MySQL
 En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for MySQL mediante una aplicación de [PHP](https://secure.php.net/manual/intro-whatis.php). Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En este tema se da por hecho que está familiarizado con el desarrollo mediante PHP y que nunca ha usado Azure Database for MySQL.
@@ -47,7 +47,7 @@ Obtenga la información de conexión necesaria para conectarse a Azure Database 
 2. En el menú izquierdo de Azure Portal, haga clic en **Todos los recursos** y, luego, busque el servidor que ha creado, por ejemplo, **mydemoserver**.
 3. Haga clic en el nombre del servidor.
 4. En el panel **Información general** del servidor, anote el **nombre del servidor** y el **nombre de inicio de sesión del administrador del servidor**. Si olvida la contraseña, puede restablecerla en este panel.
- ![Nombre del servidor de Azure Database for MySQL](./media/connect-php/1_server-overview-name-login.png)
+ :::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Nombre del servidor de Azure Database for MySQL":::
 
 ## <a name="connect-and-create-a-table"></a>Conexión y creación de una tabla
 Use el código siguiente para crear una tabla y conectarla mediante la instrucción SQL **CREATE TABLE**. 

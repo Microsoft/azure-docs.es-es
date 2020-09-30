@@ -3,17 +3,17 @@ title: Instancias reservadas de máquinas virtuales de Azure EA
 description: En este artículo se resume la forma en que las reservas de Azure para las instancias reservadas de máquinas virtuales pueden ayudarle a ahorrar dinero en la inscripción de su empresa.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/20/2020
+ms.date: 09/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: aa95cf8b649558dc3164fe12e4268f210301f755
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 4970852634039bddfb14be579db5dd355fff9740
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687047"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442452"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instancias reservadas de máquinas virtuales de Azure EA
 

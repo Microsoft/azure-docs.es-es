@@ -11,19 +11,19 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 56cd2117a352626cf59023d62ea8c931401389c5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5427d62f93eb6284ecda9a0762e3d8c4e99c06e2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018100"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890091"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir un modelo de Azure Machine Learning que está implementado como un servicio web
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 La implementación de un modelo de Azure Machine Learning como un servicio web crea un punto de conexión de la API de REST. Puede enviar datos a este punto de conexión y recibir la predicción que devuelve el modelo. En este documento aprenderá a crear clientes para el servicio web usando C #, Go, Java y Python.
 
-Al implementar un modelo en el entorno local, en Azure Container Instances, en Azure Kubernetes Service o en matrices de puertas programables (FPGA) creará un servicio web. Recuperará el URI que se usa para obtener acceso al servicio web gracias al [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Si la autenticación está habilitada, también puede usar el SDK para obtener las claves o tokens de autenticación.
+Al implementar un modelo en el entorno local, en Azure Container Instances, en Azure Kubernetes Service o en matrices de puertas programables (FPGA) creará un servicio web. Recuperará el URI que se usa para obtener acceso al servicio web gracias al [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Si la autenticación está habilitada, también puede usar el SDK para obtener las claves o tokens de autenticación.
 
 El flujo de trabajo general al crear un cliente que usa un servicio web de Machine Learning es:
 
@@ -39,7 +39,7 @@ El flujo de trabajo general al crear un cliente que usa un servicio web de Machi
 > [!NOTE]
 > Use el SDK de Azure Machine Learning para obtener la información del servicio web. Este es un SDK de Python. Puede usar cualquier lenguaje para crear un cliente para el servicio.
 
-La clase [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) proporciona la información necesaria para crear un cliente. Las siguientes propiedades `Webservice` son útiles para crear una aplicación cliente:
+La clase [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py&preserve-view=true) proporciona la información necesaria para crear un cliente. Las siguientes propiedades `Webservice` son útiles para crear una aplicación cliente:
 
 * `auth_enabled`: si la autenticación de la clave está habilitada, `True`; de lo contrario, `False`.
 * `token_auth_enabled`: si la autenticación del token está habilitada, `True`; de lo contrario, `False`.
@@ -57,7 +57,7 @@ Existen tres formas de recuperar esta información para los servicios web implem
     print(service.swagger_uri)
     ```
 
-* Puede usar `Webservice.list` para recuperar una lista de servicios web implementados para modelos en su área de trabajo. Puede agregar filtros para limitar la lista de información devuelta. Para obtener más información sobre lo que se puede filtrar, consulte la documentación de referencia de [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py).
+* Puede usar `Webservice.list` para recuperar una lista de servicios web implementados para modelos en su área de trabajo. Puede agregar filtros para limitar la lista de información devuelta. Para obtener más información sobre lo que se puede filtrar, consulte la documentación de referencia de [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py&preserve-view=true).
 
     ```python
     services = Webservice.list(ws)
@@ -113,7 +113,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Si necesita regenerar una clave, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
+> Si necesita regenerar una clave, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py&preserve-view=true).
 
 #### <a name="authentication-with-tokens"></a>Autenticación con tokens
 
@@ -501,7 +501,7 @@ Los resultados devueltos son similares al siguiente documento JSON:
 
 ## <a name="web-service-schema-openapi-specification"></a>Esquema de servicio web (especificación de OpenAPI)
 
-Si ha usado la generación automática de esquemas con la implementación, puede obtener la dirección de la especificación de OpenAPI para el servicio mediante la [propiedad swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri). (Por ejemplo, `print(service.swagger_uri)`). Use una solicitud GET o abra el URI en un explorador para recuperar la especificación.
+Si ha usado la generación automática de esquemas con la implementación, puede obtener la dirección de la especificación de OpenAPI para el servicio mediante la [propiedad swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#&preserve-view=trueswagger-uri). (Por ejemplo, `print(service.swagger_uri)`). Use una solicitud GET o abra el URI en un explorador para recuperar la especificación.
 
 El siguiente documento JSON es un ejemplo de un esquema (especificación de OpenAPI) generado para una implementación:
 
@@ -643,7 +643,7 @@ Para obtener una utilidad que puede crear bibliotecas de cliente a partir de la 
 
 
 > [!TIP]
-> Puede recuperar el documento JSON del esquema después de implementar el servicio. Use la [propiedad swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) del servicio web implementado (por ejemplo, `service.swagger_uri`) para obtener el URI del archivo Swagger del servicio web local.
+> Puede recuperar el documento JSON del esquema después de implementar el servicio. Use la [propiedad swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#&preserve-view=trueswagger-uri) del servicio web implementado (por ejemplo, `service.swagger_uri`) para obtener el URI del archivo Swagger del servicio web local.
 
 ## <a name="consume-the-service-from-power-bi"></a>Consumo del servicio desde Power BI
 

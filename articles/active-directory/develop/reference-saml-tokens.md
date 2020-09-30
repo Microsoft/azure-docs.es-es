@@ -1,7 +1,7 @@
 ---
-title: Tipos de tokens y notificaciones en Azure AD
-description: Una guía en la que se describen y evalúan las notificaciones en los tokens SAML 2.0 y los tokens web JSON (JWT) emitidos por Azure Active Directory (AAD)
-documentationcenter: na
+title: Referencia de notificaciones de token de SAML 2.0 | Azure
+titleSuffix: Microsoft identity platform
+description: Referencia de notificaciones con detalles sobre las notificaciones incluidas en los tokens SAML 2.0 emitidos por la plataforma de identidad de Microsoft, como sus equivalentes JWT.
 author: kenwith
 services: active-directory
 manager: CelesteDG
@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 06/22/2018
+ms.date: 09/09/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: bab21bfc6dba6e9cd35c8053e943cb76339e2254
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 6dda32bb2bab4123ede0133b31625c499380fd59
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114972"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705714"
 ---
-# <a name="azure-ad-saml-token-reference"></a>Referencia de tokens SAML de Azure AD
+# <a name="saml-token-claims-reference"></a>Referencia de notificaciones de token SAML
 
-Azure Active Directory (Azure AD) emite varios tipos de tokens de seguridad durante el procesamiento de cada flujo de autenticación. Este documento describe el formato, las características de seguridad y el contenido de cada tipo de token.
+La plataforma de identidad de Microsoft emite varios tipos de tokens de seguridad durante el procesamiento de cada flujo de autenticación. En este documento se describe el formato, las características de seguridad y el contenido de los tokens SAML 2.0.
 
 ## <a name="claims-in-saml-tokens"></a>Notificaciones en los tokens SAML
 
@@ -30,11 +30,11 @@ Azure Active Directory (Azure AD) emite varios tipos de tokens de seguridad dura
 > | Nombre | Notificación de JWT equivalente | Descripción | Ejemplo |
 > | --- | --- | --- | ------------|
 > |Público | `aud` |El destinatario previsto del token. La aplicación que recibe el token debe comprobar que el valor de la audiencia sea correcto y rechazar cualquier token destinado a una audiencia diferente. | `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>`  |
-> | Instante de autenticación | |Registra la fecha y la hora de la autenticación. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | 
+> | Instante de autenticación | |Registra la fecha y la hora de la autenticación. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` |
 > |Método de autenticación | `amr` |Identifica cómo se autenticó el firmante del token. | `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` |
 > |Nombre | `given_name` |Proporciona el nombre de pila o "dado" del usuario, tal como se establece en el objeto de usuario de Azure AD. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">`<br>`<AttributeValue>Frank<AttributeValue>`  |
-> |Grupos | `groups` |Proporciona identificadores de objeto que representan la pertenencia al grupo del firmante. Estos valores son únicos (vea el id. de objeto) y se pueden usar de forma segura para administrar el acceso, por ejemplo, para exigir autorización para tener acceso a un recurso. Los grupos incluidos en la notificación de grupos se configuran por aplicación mediante la propiedad "groupMembershipClaims" del manifiesto de aplicación. Un valor null excluirá todos los grupos, un valor de "SecurityGroup" incluirá únicamente la pertenencia a grupos de seguridad de Active Directory y un valor de "All" incluirá grupos de seguridad y listas de distribución de Office 365. <br><br> **Notas**: <br> Si el número de grupos en los que el usuario está supera un límite (150 para SAML, 200 para JWT), se agregará una notificación de uso por encima del límite a los orígenes de notificaciones que apuntan al punto de conexión de Graph que contiene la lista de grupos del usuario. (en. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
-> | Indicador de uso por encima del límite de los grupos | `groups:src1` | Para las solicitudes de tokens que no tienen limitación de longitud (consulte `hasgroups` descrito anteriormente) pero que todavía son demasiado grandes para el token, se incluirá un enlace a la lista completa de grupos del usuario. Para SAML esto se agregará como una nueva notificación en lugar de la notificación `groups`. | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
+> |Grupos | `groups` |Proporciona identificadores de objeto que representan la pertenencia al grupo del firmante. Estos valores son únicos (vea el id. de objeto) y se pueden usar de forma segura para administrar el acceso, por ejemplo, para exigir autorización para tener acceso a un recurso. Los grupos incluidos en la notificación de grupos se configuran por aplicación mediante la propiedad "groupMembershipClaims" del manifiesto de aplicación. Un valor NULL excluirá todos los grupos, un valor de "SecurityGroup" incluirá únicamente la pertenencia a grupos de seguridad de Active Directory y un valor de "All" incluirá grupos de seguridad y listas de distribución de Microsoft 365. <br><br> **Notas**: <br> Si el número de grupos en los que el usuario está supera un límite (150 para SAML, 200 para JWT), se agregará una notificación de uso por encima del límite a los orígenes de notificaciones que apuntan al punto de conexión de Graph que contiene la lista de grupos del usuario. (en. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
+> | Indicador de uso por encima del límite de los grupos | `groups:src1` | Para las solicitudes de tokens que no tengan limitación de longitud, pero que todavía sean demasiado grandes para el token, se incluirá un vínculo a la lista completa de grupos del usuario. Para SAML esto se agregará como una nueva notificación en lugar de la notificación `groups`. | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
 > |Proveedor de identidades | `idp` |Registra el proveedor de identidades que autenticó al firmante del token. Este valor es idéntico al valor de la notificación del emisor, a menos que la cuenta de usuario esté en un inquilino diferente que el emisor. | `<Attribute Name=" http://schemas.microsoft.com/identity/claims/identityprovider">`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` |
 > |IssuedAt | `iat` |Almacena la hora a la que se emitió el token. A menudo se usa para medir la actualización de tokens. | `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` |
 > |Emisor | `iss` |Identifica el servicio de token de seguridad (STS) que construye y devuelve el token. En los tokens que devuelve Azure AD, el emisor es sts.windows.net. El GUID en el valor de notificación del emisor es el id. de inquilino del directorio de Azure AD. El id. de inquilino es un identificador inmutable y confiable del directorio. | `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` |
@@ -152,10 +152,9 @@ Este es un ejemplo de token SAML típico.
 </t:RequestSecurityTokenResponse>
 ```
 
-## <a name="related-content"></a>Contenido relacionado
+## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte el [recurso Policy](/graph/api/resources/policy?view=graph-rest-beta) para obtener más información sobre la administración de directivas de vigencia de tokens mediante Microsoft Graph API.
-* Para más información y ejemplos acerca de cómo administrar las directivas a través de los cmdlets de PowerShell, incluidos ejemplos, consulte [Configurable Token Lifetimes in Azure Active Directory](../develop/active-directory-configurable-token-lifetimes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) (Vigencias de tokens configurables en Azure Active Directory). 
-* Agregue [notificaciones opcionales y personalizadas](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) a los tokens de la aplicación.
-* Uso del [inicio de sesión único (SSO) con SAML](single-sign-on-saml-protocol.md).
-* Uso del [Protocolo SAML de cierre de sesión único de Azure](single-sign-out-saml-protocol.md)
+* Para más información sobre la administración de directivas del ciclo de vida de los tokens mediante Microsoft Graph API, consulte [Introducción a los recursos de directiva de Azure AD](/graph/api/resources/policy).
+* Agregue [notificaciones opcionales y personalizadas](active-directory-optional-claims.md) a los tokens de la aplicación.
+* Use el [inicio de sesión único (SSO) con SAML](single-sign-on-saml-protocol.md).
+* Use el [protocolo SAML de cierre de sesión único de Azure](single-sign-out-saml-protocol.md).

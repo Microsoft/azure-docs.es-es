@@ -31,6 +31,8 @@
       href: set-preferences.md
     - name: 'Adición, eliminación y ordenación de favoritos'
       href: azure-portal-add-remove-sort-favorites.md
+    - name: Visualización y filtrado de información de los recursos
+      href: manage-filter-resource-views.md
     - name: Creación de paneles de Azure
       items:
         - name: Creación y uso compartido de paneles de Azure

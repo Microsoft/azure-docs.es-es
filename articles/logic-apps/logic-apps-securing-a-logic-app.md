@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 08/20/2020
-ms.openlocfilehash: 883eede5296f3f280bf30c9a459c02a9243f9081
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.date: 08/27/2020
+ms.openlocfilehash: 9dc63de56a71ab07f513efefe2cf068f6a7be7b0
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719536"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276055"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -19,11 +19,11 @@ Azure Logic Apps se basa en [Azure Storage](../storage/index.yml) para almacenar
 
 Para controlar el acceso y proteger los datos confidenciales en Azure Logic Apps aún más, puede configurar seguridad adicional en estas áreas:
 
-* [Acceso a desencadenadores de solicitud](#secure-triggers)
+* [Acceso de las llamadas entrantes a desencadenadores basados en solicitud](#secure-inbound-requests)
 * [Acceso a las operaciones de las aplicaciones lógicas](#secure-operations)
 * [Acceso a las entradas y salidas del historial de ejecución](#secure-run-history)
 * [Acceso a las entradas de parámetros](#secure-action-parameters)
-* [Acceso a los servicios y sistemas invocados desde aplicaciones lógicas](#secure-outbound-requests)
+* [Acceso de las llamadas salientes a otros servicios y sistemas](#secure-outbound-requests)
 * [Bloquear la creación de conexiones para conectores específicos](#block-connections)
 * [Guía de aislamiento para aplicaciones lógicas](#isolation-logic-apps)
 * [Base de referencia de seguridad de Azure para Azure Logic Apps](../logic-apps/security-baseline.md)
@@ -34,18 +34,29 @@ Para obtener más información sobre la seguridad en Azure, consulte estos temas
 * [Cifrado en reposo de datos de Azure](../security/fundamentals/encryption-atrest.md)
 * [Azure Security Benchmark](../security/benchmarks/overview.md)
 
-<a name="secure-triggers"></a>
+<a name="secure-inbound-requests"></a>
 
-## <a name="access-to-request-based-triggers"></a>Acceso a desencadenadores de solicitud
+## <a name="access-for-inbound-calls-to-request-based-triggers"></a>Acceso de las llamadas entrantes a desencadenadores basados en solicitud
 
-Si la aplicación lógica usa un desencadenador basado en solicitudes que recibe llamadas o solicitudes entrantes, como el desencadenador [Solicitud](../connectors/connectors-native-reqres.md) o [Webhook](../connectors/connectors-native-webhook.md), puede limitar el acceso para que solo los clientes autorizados puedan llamar a la aplicación lógica. Todas las solicitudes que recibe una aplicación lógica están cifradas y protegidas con el protocolo de Seguridad de la capa de transporte (TLS), antes conocido como Capa de sockets seguros (SSL).
+Las llamadas entrantes que una aplicación lógica recibe a través de un desencadenador basado en solicitud, como el desencadenador [Request](../connectors/connectors-native-reqres.md) (Solicitud) o el desencadenador [HTTP Webhook](../connectors/connectors-native-webhook.md) (Webhook de HTTP), admiten el cifrado y se protegen con la [versión 1.2 de Seguridad de la capa de transporte (TLS), como mínimo](https://en.wikipedia.org/wiki/Transport_Layer_Security), que antes se conocía como Capa de sockets seguros (SSL). Logic Apps aplica esta versión al recibir una llamada entrante al desencadenador Request (Solicitud) o una devolución de llamada al desencadenador o acción HTTP Webhook (Webhook de HTTP). Si obtiene errores de protocolo de enlace TLS, asegúrese de usar TLS 1.2. Para más información, consulte [Solución del problema de TLS 1.0](/security/solving-tls1-problem).
 
-Algunas opciones que permiten proteger el acceso a este tipo de desencadenador son:
+Las llamadas de entrada admiten estos conjuntos de cifrado:
 
-* [Generación de firmas de acceso compartido](#sas)
+* TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+* TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+* TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+* TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+* TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+* TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+
+Estas son otras formas de limitar el acceso a los desencadenadores que reciben llamadas entrantes a la aplicación lógica para que solo los clientes autorizados puedan llamar a la aplicación lógica:
+
+* [Generación de firmas de acceso compartido (SAS)](#sas)
 * [Habilitación de Azure Active Directory Open Authentication (Azure AD OAuth)](#enable-oauth)
+* [Exposición de su aplicación lógica con Azure API Management](#azure-api-management)
 * [Direcciones IP entrantes restringidas](#restrict-inbound-ip-addresses)
-* [Adición de Azure Active Directory Open Authentication (Azure AD OAuth) u otro tipo de seguridad](#add-authentication)
 
 <a name="sas"></a>
 
@@ -108,9 +119,21 @@ En el cuerpo, incluya la propiedad `KeyType` como `Primary` o `Secondary`. Esta 
 
 <a name="enable-oauth"></a>
 
-### <a name="enable-azure-active-directory-oauth"></a>Habilitación de Azure Active Directory OAuth
+### <a name="enable-azure-active-directory-open-authentication-azure-ad-oauth"></a>Habilitación de Azure Active Directory Open Authentication (Azure AD OAuth)
 
-Si la aplicación lógica se inicia con un [desencadenador de solicitud](../connectors/connectors-native-reqres.md), puede habilitar [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) definiendo o agregando una directiva de autorización para las llamadas entrantes al desencadenador de solicitud. Cuando la aplicación lógica recibe una solicitud entrante que incluye un token de autenticación, Azure Logic Apps compara las notificaciones del token con las de cada directiva de autorización. Si existe una coincidencia entre las notificaciones del token y todas las notificaciones en al menos una directiva, la autorización de la solicitud entrante se realiza correctamente. El token puede tener más notificaciones que el número especificado por la directiva de autorización.
+Si la aplicación lógica se inicia con un [desencadenador Request](../connectors/connectors-native-reqres.md) (Solicitud), puede habilitar [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml) mediante la definición o incorporación de una directiva de autorización para las llamadas entrantes al desencadenador Request (Solicitud).
+
+Antes de habilitar esta autenticación, tenga en cuenta los siguientes aspectos:
+
+* La llamada entrante al desencadenador Request (Solicitud) solo puede usar un esquema de autorización, ya sea Azure AD OAuth mediante un token de autenticación, que solo es compatible con el desencadenador Request (Solicitud) o mediante una dirección URL de [firma de acceso compartido (SAS)](#sas). Ambos esquemas no se pueden usar.
+
+  Aunque el uso de un esquema no deshabilita el otro, si se utilizan ambos al mismo tiempo se produce un error porque el servicio no sabe qué esquema elegir. Además, solo se admiten esquemas de autorización [Bearer-type](../active-directory/develop/active-directory-v2-protocols.md#tokens) para los tokens de autenticación OAuth, que solo se admiten para el desencadenador Request (Solicitud). El token de autenticación debe especificar `Bearer-type` en el encabezado de autorización.
+
+* La aplicación lógica está limitada a un número máximo de directivas de autorización. Cada directiva de autorización también tiene un número máximo de [notificaciones](../active-directory/develop/developer-glossary.md#claim). Para más información, consulte el artículo de [límites y configuración para Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
+
+* Una directiva de autorización debe incluir al menos la notificación de **Emisor**, que tiene un valor que comienza con `https://sts.windows.net/` o `https://login.microsoftonline.com/` (OAuth V2) como identificador de emisor de Azure AD. Para obtener más información sobre los tokens de acceso, consulte [Tokens de acceso de la Plataforma de identidad de Microsoft](../active-directory/develop/access-tokens.md).
+
+Cuando la aplicación lógica recibe una solicitud entrante que incluye un token de autenticación OAuth, Azure Logic Apps compara las notificaciones del token con las de cada directiva de autorización. Si existe una coincidencia entre las notificaciones del token y todas las notificaciones en al menos una directiva, la autorización de la solicitud entrante se realiza correctamente. El token puede tener más notificaciones que el número especificado por la directiva de autorización.
 
 Por ejemplo, supongamos que la aplicación lógica tiene una directiva de autorización que requiere dos tipos de notificaciones: **emisor** y **audiencia**. Este [token de acceso](../active-directory/develop/access-tokens.md) descodificado de ejemplo incluye ambos tipos de notificaciones:
 
@@ -155,16 +178,6 @@ Por ejemplo, supongamos que la aplicación lógica tiene una directiva de autori
 }
 ```
 
-#### <a name="considerations-for-enabling-azure-oauth"></a>Consideraciones para habilitar Azure OAuth
-
-Antes de habilitar esta autenticación, tenga en cuenta los siguientes aspectos:
-
-* Una llamada entrante a la aplicación lógica solo puede usar un esquema de autorización, ya sea Azure AD OAuth o [firmas de acceso compartido (SAS)](#sas). El uso de un esquema no deshabilita el otro, pero cuando se utilizan ambos al mismo tiempo se produce un error porque el servicio no sabe qué esquema elegir. Solo se admiten esquemas de autorización de [tipo portador](../active-directory/develop/active-directory-v2-protocols.md#tokens) para los tokens de OAuth, que solo se admiten para el desencadenador de solicitud.
-
-* La aplicación lógica está limitada a un número máximo de directivas de autorización. Cada directiva de autorización también tiene un número máximo de [notificaciones](../active-directory/develop/developer-glossary.md#claim). Para más información, consulte el artículo de [límites y configuración para Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
-
-* Una directiva de autorización debe incluir al menos la notificación de **Emisor**, que tiene un valor que comienza con `https://sts.windows.net/` o `https://login.microsoftonline.com/` (OAuth V2) como identificador de emisor de Azure AD. Para obtener más información sobre los tokens de acceso, consulte [Tokens de acceso de la Plataforma de identidad de Microsoft](../active-directory/develop/access-tokens.md).
-
 <a name="define-authorization-policy-portal"></a>
 
 #### <a name="define-authorization-policy-in-azure-portal"></a>Definición de una directiva de autorización en Azure Portal
@@ -184,7 +197,7 @@ Para habilitar Azure AD OAuth para la aplicación lógica en Azure Portal, siga
    | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
    | **Nombre de directiva** | Sí | El nombre que quiere usar para la directiva de autorización. |
-   | **Notificaciones** | Sí | Los tipos de notificaciones y los valores que acepta la aplicación lógica de las llamadas entrantes. Estos son los tipos de notificaciones disponibles: <p><p>- **Emisor** <br>- **Audiencia** <br>- **Subject** (Asunto) <br>- **JWT ID** (Id. de JWT) (identificador de token web de JSON) <p><p>Como mínimo, la lista **Notificaciones** debe incluir la notificación de **Emisor**, que tiene un valor que comienza con `https://sts.windows.net/` o `https://login.microsoftonline.com/` como identificador de emisor de Azure AD. Para obtener más información sobre estos tipos de notificaciones, consulte [Notificaciones de tokens de seguridad de Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). También puede especificar su propio tipo de notificaciones y valor. |
+   | **Notificaciones** | Sí | Los tipos de notificaciones y los valores que acepta la aplicación lógica de las llamadas entrantes. Estos son los tipos de notificaciones disponibles: <p><p>- **Emisor** <br>- **Audiencia** <br>- **Subject** (Asunto) <br>- **JWT ID** (Id. de JWT) (identificador de token web de JSON) <p><p>Como mínimo, la lista **Notificaciones** debe incluir la notificación de **Emisor**, que tiene un valor que comienza con `https://sts.windows.net/` o `https://login.microsoftonline.com/` como identificador de emisor de Azure AD. Para obtener más información sobre estos tipos de notificaciones, consulte [Notificaciones de tokens de seguridad de Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). También puede especificar su propio tipo de notificaciones y valor. |
    |||
 
 1. Para agregar otra notificación, seleccione una de estas opciones:
@@ -203,6 +216,9 @@ Para habilitar Azure AD OAuth para la aplicación lógica en Azure Portal, siga
 
 Para habilitar Azure AD OAuth en la plantilla de ARM para implementar la aplicación lógica, en la sección `properties` de la [definición de recursos de la aplicación lógica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition), agregue un objeto `accessControl`, si no existe ninguno, que contenga un objeto `triggers`. En el objeto `triggers`, agregue un objeto `openAuthenticationPolicies` en el que defina una o varias directivas de autorización siguiendo esta sintaxis:
 
+> [!NOTE]
+> Como mínimo, la matriz `claims` debe incluir la notificación `iss`, que tiene un valor que comienza por `https://sts.windows.net/` o `https://login.microsoftonline.com/` como identificador del emisor de Azure AD. Para más información sobre estos tipos de notificaciones, consulte [Notificaciones de tokens de seguridad de Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). También puede especificar su propio tipo de notificaciones y valor.
+
 ```json
 "resources": [
    {
@@ -220,7 +236,7 @@ Para habilitar Azure AD OAuth en la plantilla de ARM para implementar la aplicac
                         "claims": [
                            {
                               "name": "<claim-name>",
-                              "values": "<claim-value>"
+                              "value": "<claim-value>"
                            }
                         ]
                      }
@@ -241,6 +257,12 @@ Para habilitar Azure AD OAuth en la plantilla de ARM para implementar la aplicac
 ```
 
 Para más información sobre la sección `accessControl`, vea [Restricción de los intervalos IP entrantes en la plantilla de Azure Resource Manager](#restrict-inbound-ip-template) y [Referencia de plantillas de flujos de trabajo de Microsoft.Logic](/azure/templates/microsoft.logic/2019-05-01/workflows).
+
+<a name="azure-api-management"></a>
+
+### <a name="expose-your-logic-app-with-azure-api-management"></a>Exposición de su aplicación lógica con Azure API Management
+
+Para agregar más [protocolos de autenticación](../active-directory/develop/authentication-vs-authorization.md) a la aplicación lógica, considere la posibilidad de usar el servicio [Azure API Management](../api-management/api-management-key-concepts.md). Este servicio le permite exponer su aplicación lógica como API y le ofrece una supervisión enriquecida, seguridad, directiva y documentación para cualquier punto de conexión. API Management puede exponer un punto de conexión público o privado para la aplicación lógica. Para autorizar el acceso a este punto de conexión, puede usar Azure AD OAuth, un [certificado de cliente](#client-certificate-authentication) o cualquier otro estándar de seguridad. Cuando API Management recibe una solicitud, el servicio la envía a la aplicación lógica y también hace cualquier transformación o restricción necesaria en el proceso. Para que solo API Management pueda llamar a la aplicación lógica, puede [limitar el número de direcciones IP de entrada de la aplicación lógica](#restrict-inbound-ip).
 
 <a name="restrict-inbound-ip"></a>
 
@@ -311,12 +333,6 @@ Si [automatiza la implementación de las aplicaciones lógicas mediante plantill
    "outputs": {}
 }
 ```
-
-<a name="add-authentication"></a>
-
-### <a name="add-azure-active-directory-open-authentication-or-other-security"></a>Adición de Azure Active Directory Open Authentication u otro tipo de seguridad
-
-Para agregar más protocolos de [autenticación](../active-directory/develop/authentication-vs-authorization.md) a la aplicación lógica, considere la posibilidad de usar el servicio [Azure API Management](../api-management/api-management-key-concepts.md). Este servicio le permite exponer su aplicación lógica como API y le ofrece una supervisión enriquecida, seguridad, directiva y documentación para cualquier punto de conexión. API Management puede exponer un punto de conexión público o privado para la aplicación lógica. Para autorizar el acceso a este punto de conexión, puede usar [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), el [certificado del cliente](#client-certificate-authentication) u otros estándares de seguridad. Cuando API Management recibe una solicitud, el servicio la envía a la aplicación lógica y también hace cualquier transformación o restricción necesaria en el proceso. Para permitir que solo API Management desencadene la aplicación lógica, puede usar la configuración del intervalo IP entrante de la aplicación lógica.
 
 <a name="secure-operations"></a>
 
@@ -719,13 +735,21 @@ Esta plantilla de ejemplo tiene varias definiciones de parámetros seguros que u
 
 <a name="secure-outbound-requests"></a>
 
-## <a name="access-to-services-and-systems-called-from-logic-apps"></a>Acceso a servicios y sistemas invocados desde aplicaciones lógicas
+## <a name="access-for-outbound-calls-to-other-services-and-systems"></a>Acceso de las llamadas salientes a otros servicios y sistemas
 
-Se pueden proteger los puntos de conexión que reciben llamadas o solicitudes de la aplicación lógica de varias maneras:
+En función de la funcionalidad del punto de conexión de destino, las llamadas salientes enviadas por el [desencadenador HTTP o la acción HTTP](../connectors/connectors-native-http.md) admiten el cifrado y están protegidas mediante el protocolo [Seguridad de la capa de transporte (TLS) 1.0, 1.1 o 1.2](https://en.wikipedia.org/wiki/Transport_Layer_Security), conocido anteriormente como Capa de sockets seguros (SSL). Logic Apps negocia con el punto de conexión de destino el uso de la versión más alta que sea compatible. Por ejemplo, si el punto de conexión de destino admite la versión 1.2, el desencadenador o la acción HTTP usan primero esta versión. De lo contrario, el conector utiliza la siguiente versión compatible más alta.
 
-* Incorporación de la autenticación en las solicitudes salientes.
+A continuación se muestra información acerca de los certificados autofirmados de TLS/SSL:
 
-  Cuando usa un desencadenador o acción basados en HTTP que realiza llamadas salientes, como por ejemplo HTTP, puede agregar autenticación a la solicitud enviada por la aplicación lógica. Por ejemplo, puede seleccionar estos tipos de autenticación:
+* En el caso de aplicaciones lógicas en el entorno global multiinquilino de Azure, el conector HTTP no permite certificados de TLS/SSL autofirmados. Si la aplicación lógica realiza una llamada HTTP a un servidor y presenta un certificado autofirmado de TLS/SSL, la llamada HTTP produce un error `TrustFailure`.
+
+* En el caso de las aplicaciones lógicas en un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), el conector HTTP permite certificados autofirmados para los protocolos de enlace TLS/SSL. Sin embargo, primero debe [habilitar la compatibilidad con certificados autofirmados](../logic-apps/create-integration-service-environment-rest-api.md#request-body) para un ISE existente o un ISE nuevo mediante la API REST de Logic Apps, y, después, instalar el certificado público en la ubicación de `TrustedRoot`.
+
+Estas son otras formas en que se puede ayudar a proteger los punto de conexión que controlan las llamadas enviadas desde su aplicación lógica:
+
+* [Incorporación de la autenticación a las solicitudes salientes](#add-authentication-outbound).
+
+  Cuando se usa el desencadenador o la acción HTTP para realizar llamadas salientes, se puede agregar autenticación a la solicitud enviada por la aplicación lógica. Por ejemplo, puede seleccionar estos tipos de autenticación:
 
   * [Autenticación básica](#basic-authentication)
 
@@ -734,8 +758,6 @@ Se pueden proteger los puntos de conexión que reciben llamadas o solicitudes de
   * [Autenticación de Active Directory OAuth](#azure-active-directory-oauth-authentication)
 
   * [Autenticación de identidad administrada](#managed-identity-authentication)
-
-  Para obtener más información, consulte [Incorporación de autenticación a las llamadas salientes](#add-authentication-outbound) más adelante en este tema.
 
 * Restricción del acceso desde direcciones IP de aplicación lógica.
 
@@ -776,7 +798,7 @@ Se pueden proteger los puntos de conexión que reciben llamadas o solicitudes de
 
 <a name="add-authentication-outbound"></a>
 
-## <a name="add-authentication-to-outbound-calls"></a>Incorporación de la autenticación en las llamadas salientes
+### <a name="add-authentication-to-outbound-calls"></a>Incorporación de la autenticación en las llamadas salientes
 
 Los extremos HTTP y HTTPS admiten varios tipos de autenticación. En algunos desencadenadores y acciones que se usan para enviar llamadas o solicitudes salientes a estos puntos de conexión, se puede especificar un tipo de autenticación. En el Diseñador de aplicación lógica, los desencadenadores y las acciones que admiten la elección de un tipo de autenticación tienen una propiedad **Autenticación**. Sin embargo, es posible que esta propiedad no aparezca siempre de forma predeterminada. En estos casos, en el desencadenador o la acción, abra la lista **Agregar nuevo parámetro** y seleccione **Autenticación**.
 
@@ -803,7 +825,7 @@ Si la opción [Básica](../active-directory-b2c/secure-rest-api.md) está dispon
 
 | Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | Descripción |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticación** | `type` | Sí | Básico | Tipo de autenticación que se debe usar. |
+| **Autenticación** | `type` | Sí | Básica | Tipo de autenticación que se debe usar. |
 | **Nombre de usuario** | `username` | Sí | <*nombre-de-usuario*>| Nombre de usuario para autenticar el acceso al extremo del servicio de destino. |
 | **Contraseña** | `password` | Sí | <*contraseña*> | Contraseña para autenticar el acceso al extremo del servicio de destino. |
 ||||||
@@ -869,7 +891,7 @@ Para obtener más información acerca de cómo proteger los servicios mediante l
 
 ### <a name="azure-active-directory-open-authentication"></a>Azure Active Directory Open Authentication
 
-En los desencadenadores de solicitud, puede usar [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) para autenticar las llamadas entrantes después de [configurar directivas de autorización de Azure AD](#enable-oauth) en la aplicación lógica. En el caso del resto de desencadenadores y acciones que proporcionan el tipo de autenticación **Active Directory OAuth**, especifique estos valores de propiedad:
+En los desencadenadores Request (Solicitud), se puede usar [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml) para autenticar las llamadas entrantes después de [configurar las directivas de autorización de Azure AD](#enable-oauth) de la aplicación lógica. En el caso del resto de desencadenadores y acciones que proporcionan el tipo de autenticación **Active Directory OAuth**, especifique estos valores de propiedad:
 
 | Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | Descripción |
 |---------------------|-----------------|----------|-------|-------------|

@@ -2,16 +2,16 @@
 title: 'Tutorial: Exportación de una plantilla desde Azure Portal'
 description: Aprenda a usar una plantilla exportada para realizar el desarrollo mediante plantillas.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 09/09/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4042ed29b143ab160883ca46ecb1cc17d2e0c761
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7aaeb7af3876c2603208faaf46bead01199906cd
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497161"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650074"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: Uso de una plantilla desde Azure Portal
 
@@ -62,7 +62,7 @@ Esta plantilla es adecuada para implementar cuentas de almacenamiento, pero pued
 
    La característica de exportación de plantillas toma el estado actual de un recurso y genera una plantilla para implementarlo. Exportar una plantilla puede ser una forma útil de obtener rápidamente el código JSON necesario para implementar un recurso.
 
-1. Copie la definición **Microsoft.Web/serverfarms** y la definición del parámetro en la plantilla.
+1. Observe la definición **Microsoft.Web/serverfarms** y la definición de parámetros de la plantilla exportada. No es necesario copiar estas secciones. Puede usar esta plantilla exportada como ejemplo de cómo desea agregar este recurso a la plantilla.
 
     ![Plantilla de Resource Manager: plantillas exportadas con la exportación de plantillas](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
 
@@ -73,7 +73,7 @@ Esta plantilla es adecuada para implementar cuentas de almacenamiento, pero pued
 
 La plantilla exportada le proporciona la mayor parte del código JSON que necesita, pero debe personalizarlo para su plantilla. Preste especial atención a las diferencias de parámetros y variables que existen entre la plantilla y la plantilla exportada. Obviamente, el proceso de exportación no conoce los parámetros y las variables que ya ha definido en la plantilla.
 
-En el ejemplo siguiente se resaltan los elementos agregados a la plantilla. Contiene el código exportado y algunos cambios. En primer lugar, cambia el nombre del parámetro para que coincida con su convención de nomenclatura. En segundo lugar, usa el parámetro de ubicación para la ubicación del plan de App Service. En tercer lugar, quita el parámetro **name** del objeto **properties** porque este valor es redundante con la propiedad **name** en el nivel de recurso.
+En el ejemplo siguiente se resaltan los elementos agregados a la plantilla. Contiene el código exportado y algunos cambios. En primer lugar, cambia el nombre del parámetro para que coincida con su convención de nomenclatura. En segundo lugar, usa el parámetro de ubicación para la ubicación del plan de App Service. En tercer lugar, elimina algunas de las propiedades en las que el valor predeterminado es correcto.
 
 Copie el archivo completo y reemplace la plantilla por su contenido.
 

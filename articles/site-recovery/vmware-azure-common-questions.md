@@ -3,12 +3,12 @@ title: Preguntas comunes sobre la recuperación ante desastres de VMware con Azu
 description: Obtenga respuestas a las preguntas comunes sobre cómo configurar la recuperación ante desastres de máquinas virtuales de VMware locales en Azure mediante Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 603dc77e6f2a53abb1d65688ced77e58297b8ab5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1d61b8556038959f6acab447fc0510830b1dd943
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086156"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89054978"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Preguntas frecuentes sobre la replicación de VMware en Azure
 
@@ -114,7 +114,7 @@ Site Recovery replica servidores físicos y máquinas virtuales locales de VMwar
 
 No. Desde marzo de 2019, en Azure Portal, solo se puede realizar la replicación en discos administrados de Azure.
 
-La replicación de máquinas virtuales nuevas en una cuenta de almacenamiento será posible solo mediante PowerShell o la API de REST (versión 2018-01-10 o 2016-08-10).
+La replicación de máquinas virtuales nuevas en una cuenta de almacenamiento será posible solo mediante PowerShell ([versión 1.4.5 del módulo Az.RecoveryServices](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) o la API REST (versión 2018-01-10 o 2016-08-10). [Obtenga información sobre cómo](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell) configurar la replicación mediante los comandos de PowerShell.
 
 ### <a name="what-are-the-benefits-of-replicating-to-managed-disks"></a>¿Cuáles son las ventajas de la replicación en discos administrados?
 

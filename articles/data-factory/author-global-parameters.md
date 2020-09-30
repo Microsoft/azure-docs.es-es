@@ -7,13 +7,13 @@ ms.workload: data-services
 ms.topic: conceptual
 author: djpmsft
 ms.author: daperlov
-ms.date: 08/05/2020
-ms.openlocfilehash: 052f502ed27db9ade0fd2916f91d6922c52a5a98
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.date: 08/31/2020
+ms.openlocfilehash: 96fba5c27115dab65f26be80ce03bef35abcdb92
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854168"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230844"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Parámetros globales en Azure Data Factory
 
@@ -43,7 +43,22 @@ Los parámetros globales se pueden usar en cualquier [expresión de canalizació
 
 ## <a name="global-parameters-in-cicd"></a><a name="cicd"></a> Parámetros globales en CI/CD
 
-Los parámetros globales tienen un proceso de CI/CD único relativo a otras entidades de Azure Data Factory. Al publicar una factoría o exportar una plantilla de Resource Manager con parámetros globales, se crea una carpeta llamada *globalParameters* con un archivo denominado *nombre-de-su-factoría.json*. Este archivo es un objeto JSON que contiene cada tipo y valor de parámetro global en la factoría publicada.
+Hay dos maneras de integrar los parámetros globales en la solución de integración e implementación continuas:
+
+* Incluir los parámetros globales en la plantilla de Resource Manager
+* Implementar los parámetros globales mediante un script de PowerShell
+
+Para la mayoría de los casos de uso, se recomienda incluir parámetros globales en la plantilla de ARM. Esto se integrará de forma nativa con la solución descrita en la [documentación sobre CI/CD](continuous-integration-deployment.md). Los parámetros globales se agregarán como un parámetro de plantilla de ARM de forma predeterminada, ya que a menudo cambian de un entorno a otro. Puede habilitar la inclusión de parámetros globales en la plantilla de ARM desde el centro de administración.
+
+![Inclusión en la plantilla de Resource Manager](media/author-global-parameters/include-arm-template.png)
+
+El hecho de agregar parámetros globales a la plantilla de Resource Manager, agrega una configuración de nivel de fábrica que puede invalidar otras opciones de configuración de nivel de fábrica como, por ejemplo, una clave administrada por el cliente o una configuración de Git en otros entornos. Si tiene esta configuración habilitada en un entorno con privilegios elevados como UAT o PROD, es mejor implementar parámetros globales mediante un script de PowerShell en los pasos que se indican a continuación.
+
+### <a name="deploying-using-powershell"></a>Implementación con PowerShell
+
+En los pasos siguientes se describe cómo implementar parámetros globales a través de PowerShell. Esto resulta útil cuando el generador de destino tiene una configuración de nivel de fábrica como, por ejemplo, una clave administrada por el cliente.
+
+Al publicar una factoría o exportar una plantilla de Resource Manager con parámetros globales, se crea una carpeta llamada *globalParameters* con un archivo denominado *nombre-de-su-factoría.json*. Este archivo es un objeto JSON que contiene cada tipo y valor de parámetro global en la factoría publicada.
 
 ![Publicación de parámetros globales](media/author-global-parameters/global-parameters-adf-publish.png)
 

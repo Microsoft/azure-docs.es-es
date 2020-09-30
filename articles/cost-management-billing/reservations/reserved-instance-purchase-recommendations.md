@@ -7,13 +7,13 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 08/04/2020
-ms.openlocfilehash: 813cf91195a43a2fc68236febe114c67eb5a3378
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.date: 09/02/2020
+ms.openlocfilehash: 869009d7dd26685842da3c948fbdc058a38feb21
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684616"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398433"
 ---
 # <a name="reservation-recommendations"></a>Recomendaciones de reserva
 
@@ -25,6 +25,7 @@ En los pasos siguientes se define cómo se calculan las recomendaciones:
 2. Según los datos de uso, el motor simula los costos con y sin reservas.
 3. Los costos se simulan para distintas cantidades y se recomienda la cantidad que maximiza el ahorro.
 4. Si los recursos se cierran con regularidad, la simulación no encontrará ningún ahorro y no se proporcionará ninguna recomendación de compra.
+5. El cálculo de recomendaciones incluye todos los descuentos especiales que pueda tener en las tarifas de uso a petición.
 
 ## <a name="recommendations-in-the-azure-portal"></a>Recomendaciones en Azure Portal
 
@@ -52,11 +53,11 @@ Para maximizar el ahorro con las reservas, intente adquirir una cantidad de rese
 
 Las recomendaciones de compra de reservas están disponibles en Azure Advisor. Tenga en cuenta los siguientes puntos:
 
-- Advisor solo tiene recomendaciones de ámbito de una sola suscripción.
-- Las recomendaciones se calculan en función de la tendencia de uso de los últimos 30 días.
+- Advisor solo tiene recomendaciones de ámbito de una sola suscripción. Si desea ver recomendaciones de todo el ámbito de facturación (cuenta de facturación o perfil de facturación), vaya a Azure Portal > Reservas > Agregar y seleccionar el tipo cuyas recomendaciones desea ver.
+- Recomendaciones disponibles en Advisor considerada la tendencia de uso de 30 días.
 - La cantidad y ahorro de las recomendaciones son para una reserva de 3 años, siempre que esté disponible. Si no se vende una reserva de 3 años para el servicio, la recomendación se calculará según el precio de una reserva de 1 año.
-- Las recomendaciones incluyen todos los descuentos especiales que pueda tener en las tarifas de uso a petición.
-- Si adquiere una reserva de ámbito compartido, las recomendaciones de compra de reservas de Advisor pueden tardar hasta 30 días en desaparecer.
+- Los cálculos de recomendaciones incluyen todos los descuentos especiales que pueda tener en las tarifas de uso a petición.
+- Si compra una reserva de ámbito compartido, las recomendaciones de compra de reservas de Advisor pueden tardar hasta 5 días en desaparecer.
 
 ## <a name="other-expected-api-behavior"></a>Otro comportamiento esperado de la API
 

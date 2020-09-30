@@ -1,5 +1,5 @@
 ---
-title: Compilación de modelos de Machine Learning con el diseñador (versión preliminar)
+title: Compilación de modelos de ML con el diseñador
 titleSuffix: Azure Machine Learning
 description: Más información sobre los términos, los conceptos y el flujo de trabajo que componen el diseñador para Azure Machine Learning.
 services: machine-learning
@@ -10,15 +10,15 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 181f0d62f160a6644e0423be052012521752525f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c92351131a60b571a102b85f7d11b79ab29d939e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012951"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883124"
 ---
-# <a name="what-is-azure-machine-learning-designer-preview"></a>¿Qué es el diseñador de Azure Machine Learning (versión preliminar)? 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="what-is-azure-machine-learning-designer"></a>¿Qué es el diseñador de Azure Machine Learning? 
+
 
 El diseñador de Azure Machine Learning le permite conectar visualmente [conjuntos de datos](#datasets) y [módulos](#module) en un lienzo interactivo para crear modelos de aprendizaje automático. Para más información sobre cómo empezar a trabajar con el diseñador, consulte [Tutorial: Predicción del precio de un automóvil con el diseñador](tutorial-designer-automobile-price-train-score.md)
 
@@ -114,9 +114,9 @@ Las canalizaciones publicadas son flexibles; se pueden usar para entrenar o volv
 
 Una canalización publicada se ejecuta en los recursos de proceso que se definen en el borrador de canalización de cada módulo.
 
-El diseñador crea el mismo objeto [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) como SDK.
+El diseñador crea el mismo objeto [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py&preserve-view=true) como SDK.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Aprenda los aspectos básicos del análisis predictivo y del aprendizaje automático con el [Tutorial: Predicción del precio de un automóvil con el diseñador](tutorial-designer-automobile-price-train-score.md)
+* Aprenda los aspectos fundamentales del análisis predictivo y del aprendizaje automático con el [Tutorial: Predicción del precio de un automóvil con el diseñador](tutorial-designer-automobile-price-train-score.md)
 * Aprenda a modificar los [ejemplos existentes del diseñador](samples-designer.md) para adaptarlos a sus necesidades.

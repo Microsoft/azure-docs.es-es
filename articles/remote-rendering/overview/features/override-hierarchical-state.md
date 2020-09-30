@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 99f57c212dfc44d84640224b1526ab770fe97230
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c098dc6b1d3b41a41246857f8a353dd4f5dfcef1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009464"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884181"
 ---
 # <a name="hierarchical-state-override"></a>Invalidación de estado jerárquico
 
-En muchos casos, es necesario cambiar dinámicamente el aspecto de las partes de un [modelo](../../concepts/models.md); por ejemplo, al ocultar subgráficos o cambiar partes a una representación transparente. Cambiar los materiales de cada parte implicada no es práctico, ya que requiere recorrer en iteración todo el gráfico de la escena y administrar la clonación y asignación de materiales en cada nodo.
+En muchos casos, es necesario cambiar de forma dinámica el aspecto de partes de un [modelo](../../concepts/models.md), por ejemplo, ocultar subgráficos o cambiar partes a una representación transparente. Cambiar los materiales de cada parte implicada no es práctico, ya que requiere recorrer en iteración todo el gráfico de la escena y administrar la clonación y asignación de materiales en cada nodo.
 
 Para completar este caso de uso con la menor sobrecarga posible, use `HierarchicalStateOverrideComponent`. Este componente implementa las actualizaciones de estado jerárquico en ramas arbitrarias del gráfico de escena. Esto significa que un estado se puede definir en cualquier nivel del gráfico de escena y se filtra en la jerarquía hasta que se reemplaza por un estado nuevo o se aplica a un objeto hoja.
 
@@ -31,20 +31,27 @@ El conjunto fijo de estados que se pueden invalidar es:
 * **`Hidden`** : Las mallas respectivas del gráfico de escena se ocultan o se muestran.
 * **`Tint color`** : un objeto representado se puede teñir con su intensidad y color de tono individual. En la imagen siguiente se muestra el tinte de color del borde de una rueda.
   
-  ![Tono de color](./media/color-tint.png)
+  ![Color de tinte usado para convertir un objeto en verde](./media/color-tint.png)
 
 * **`See-through`** : la geometría se representa de modo semitransparente; por ejemplo, para mostrar las partes internas de un objeto. En la imagen siguiente se muestra el coche completo que se representa en el modo transparente, excepto la mordaza de freno roja:
 
-  ![Transparente](./media/see-through.png)
+  ![Modo transparente usado para convertir en transparentes los objetos seleccionados](./media/see-through.png)
 
   > [!IMPORTANT]
   > El efecto transparente solo funciona cuando se usa el [modo de representación](../../concepts/rendering-modes.md) *TileBasedComposition*.
 
 * **`Selected`** : la geometría se representa con un [contorno de selección](outlines.md).
 
-  ![Contorno de selección](./media/selection-outline.png)
+  ![Opción de contorno usada para resaltar un elemento seleccionado](./media/selection-outline.png)
 
 * **`DisableCollision`** : la geometría está exenta de [consultas espaciales](spatial-queries.md). La marca **`Hidden`** no afecta a la marca del estado de las colisiones, por lo que estas dos marcas se suelen establecer juntas.
+
+* **`UseCutPlaneFilterMask`** : use una máscara de bits de filtro individual para controlar la selección del plano de corte. Esta marca determina si se debe usar la máscara de filtro individual o si se hereda de su elemento primario. La máscara de bits de filtro se establece mediante la propiedad `CutPlaneFilterMask`. Para obtener información detallada sobre cómo funciona el filtrado, vea el párrafo [Planos de corte selectivos](cut-planes.md#selective-cut-planes).
+![Planos de corte selectivos](./media/selective-cut-planes.png)
+
+
+> [!TIP]
+> Como alternativa a desactivar las consultas espaciales y de visibilidad de un subgráfico completo, se puede alternar el estado `enabled` de un objeto de juego. Si una jerarquía está deshabilitada, esto tiene preferencia sobre cualquier `HierarchicalStateOverrideComponent`.
 
 ## <a name="hierarchical-overrides"></a>Invalidaciones jerárquicas
 
@@ -95,6 +102,11 @@ La invalidación de `tint color` es ligeramente especial, ya que hay tanto un es
 Una instancia de `HierarchicalStateOverrideComponent` no agrega mucha sobrecarga en tiempo de ejecución. Sin embargo, siempre es recomendable mantener un número bajo de componentes activos. Por ejemplo, al implementar un sistema de selección que resalta el objeto seleccionado, se recomienda eliminar el componente al quitar el resaltado. El mantenimiento de los componentes en torno a características neutras puede sumar rápidamente.
 
 La representación transparente coloca más carga de trabajo en las GPU del servidor que la representación estándar. Si las partes grandes del gráfico de escena cambian a *transparente*, con muchas capas de geometría visibles, puede convertirse en un cuello de botella de rendimiento. Lo mismo es válido para los objetos con [contornos de selección](../../overview/features/outlines.md#performance).
+
+## <a name="api-documentation"></a>Documentación de la API
+
+* [Clase HierarchicalStateOverrideComponent de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent)
+* [Clase HierarchicalStateOverrideComponent de C++](https://docs.microsoft.com/cpp/api/remote-rendering/hierarchicalstateoverridecomponent)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

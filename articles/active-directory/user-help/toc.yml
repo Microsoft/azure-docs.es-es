@@ -106,8 +106,6 @@
   items:
     - name: Inicio de sesión y uso del portal Aplicaciones
       href: my-apps-portal-end-user-access.md
-    - name: Actualización de la información del perfil y de la cuenta
-      href: my-apps-portal-end-user-update-profile.md
     - name: Actualización de la información de tus grupos
       href: my-apps-portal-end-user-groups.md
     - name: Organización de aplicaciones con colecciones

@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas de Azure Database for MySQL
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para Azure Database for MySQL. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 07/10/2020
+ms.date: 09/16/2020
 ms.topic: reference
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 3ee522c7faa68fbe1aa39b4174f7f078d7dd3dbd
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 4d701698b54e11c58891bea0b08c33ea70118f7a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300998"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979639"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-mysql"></a>Definiciones integradas de Azure Policy para Azure Database for MySQL
 

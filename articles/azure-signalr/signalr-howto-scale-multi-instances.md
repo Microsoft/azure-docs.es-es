@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 03/27/2019
 ms.author: zhshang
-ms.openlocfilehash: ecf4a35fc239a70e87550a97e71d7abd3d00ecfa
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fd6ac8c4d4fc4c3fec4f549f8ef4f955e2b1c637
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88921994"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439221"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>¿Cómo escalar SignalR Service con varias instancias?
 El SDK más reciente de SignalR Service admite varios puntos de conexión para las instancias de SignalR Service. Puede usar esta característica para escalar las conexiones simultáneas, o usarla para la mensajería entre regiones.
@@ -27,7 +27,7 @@ Si la clave empieza por `Azure:SignalR:ConnectionString:`, debe estar en formato
 
 Puede agregar varias cadenas de conexión de instancias con los siguientes comandos `dotnet`:
 
-```batch
+```cmd
 dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-a <ConnectionString1>
 dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-b:primary <ConnectionString2>
 dotnet user-secrets set Azure:SignalR:ConnectionString:backup:secondary <ConnectionString3>

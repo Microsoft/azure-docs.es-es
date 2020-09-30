@@ -1,6 +1,6 @@
 ---
 title: Publicación de Escritorio remoto con el proxy de aplicación de Azure AD | Microsoft Docs
-description: Se explican los conceptos básicos acerca de los conectores del Proxy de aplicación de Azure AD.
+description: Explica cómo configurar el proxy de aplicación con RDS
 services: active-directory
 documentationcenter: ''
 author: kenwith
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.custom: it-pro
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cba74c773e1f141db14e06cf0cda8b31d06ba4f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7ffdccf9cf3b6de4ba15d6076d7a5b9e0a93f464
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019529"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396767"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicación de Escritorio Remoto con el Proxy de aplicación de Azure AD
 
@@ -135,7 +135,7 @@ La configuración descrita en este artículo es para el acceso a RDS a través d
 
 | Método de autenticación | Configuración de cliente compatible |
 | --------------------- | ------------------------------ |
-| Autenticación previa    | Acceso web de Escritorio remoto: Windows 7/10 con Internet Explorer + complemento ActiveX de RDS |
+| Autenticación previa    | Acceso web de Escritorio remoto: Windows 7/10 con Internet Explorer o [modo IE de Edge Chromium](https://docs.microsoft.com/deployedge/edge-ie-mode) y complemento ActiveX de RDS |
 | Autenticación previa    | Cliente web de escritorio remoto: explorador web compatible con HTML5, como Microsoft Edge, Internet Explorer 11, Google Chrome, Safari o Mozilla Firefox (v55.0 y versiones posteriores) |
 | Acceso directo | Cualquier otro sistema operativo compatible con la aplicación Escritorio remoto de Microsoft |
 

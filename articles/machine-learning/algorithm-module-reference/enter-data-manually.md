@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 35e31e5ace53654e8aad794dd3e25fc04bd9a088
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3bff9a91f06649487560faef3ab554b2a3d56af3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79367523"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908079"
 ---
 # <a name="enter-data-manually-module"></a>Módulo Introducción manual de datos
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
 Utilice el módulo **Introducción manual de datos** para crear un conjunto de datos pequeño escribiendo valores. El conjunto de datos puede tener varias columnas.
   

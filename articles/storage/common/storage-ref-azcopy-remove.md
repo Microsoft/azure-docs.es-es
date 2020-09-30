@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 1cdb49f6865afa4101468dc35b4e416d999b63f5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d79b647d216fe28241e5891def574ab598304828
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285227"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078227"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
@@ -73,7 +73,6 @@ azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/parent/d
     blob1
     blob2
 ```
-
 Quite un solo archivo de una cuenta de Blob Storage que tenga un espacio de nombres jerárquico (no se admite incluir/excluir):
 
 ```azcopy
@@ -102,7 +101,9 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 **--include-pattern** string   Incluye solo los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: *`.jpg`;* `.pdf`;`exactName`
 
-**--list-of-files** string   Define la ubicación de un archivo que contiene la lista de archivos y directorios que se van a eliminar. Las rutas de acceso relativas deben delimitarse mediante saltos de línea y las rutas de acceso NO deben estar codificadas como URL.
+**--list-of-files** string   Define la ubicación de un archivo que contiene la lista de archivos y directorios que se van a eliminar. Las rutas de acceso relativas deben delimitarse mediante saltos de línea y las rutas de acceso NO deben estar codificadas como URL. 
+
+**--list-of-versions** string Especifica un archivo en el que cada identificador de versión aparece en una línea independiente. Asegúrese de que el origen apunte a un único blob y que todos los identificadores de versión especificados en el archivo con esta marca solo pertenezcan al blob de origen. Los identificadores de versión especificados del blob determinado se eliminarán de Azure Storage. 
 
 **--log-level** string   Define el nivel de detalle del registro para el archivo de registro. Los niveles disponibles son: `INFO`(todas las solicitudes/respuestas), `WARNING`(respuestas lentas), `ERROR`(solo solicitudes con errores) y `NONE`(sin registros de salida). (`INFO` predeterminado) (`INFO` predeterminado)
 

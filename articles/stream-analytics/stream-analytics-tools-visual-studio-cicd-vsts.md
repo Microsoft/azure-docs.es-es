@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: d9360ff64206cdce208f9643cf8ca86515aaeb7e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 18ab9a4108d6d9effaa25fe69ce42a18ca4ba0dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75354433"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903839"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Tutorial: Implementación de un trabajo de Azure Stream Analytics con CI/CD mediante Azure Pipelines
 En este tutorial se describe cómo configurar la integración y la implementación continuas de un trabajo de Azure Stream Analytics mediante Azure Pipelines. 
@@ -26,8 +26,12 @@ En este tutorial, aprenderá a:
 > * Crear una canalización de versión en Azure Pipelines
 > * Implementar y actualizar una aplicación automáticamente
 
-## <a name="prerequisites"></a>Prerrequisitos
-Antes de empezar, asegúrese de que dispone de lo siguiente:
+> [!NOTE]
+> El paquete NuGet de CI/CD está en desuso. Para obtener información sobre cómo migrar a la versión de npm más reciente, consulte la [Información general sobre la integración e implementación continua](cicd-overview.md).
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Antes de empezar, asegúrese de que ha realizado los siguientes pasos:
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Instale [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) y las cargas de trabajo de **desarrollo de Azure** o de **almacenamiento y procesamiento de datos**.
@@ -63,9 +67,9 @@ Comparta sus archivos de origen de la aplicación en un proyecto de Azure DevOps
     La publicación del repositorio crea un proyecto en su organización con el mismo nombre que el repositorio local. Para crear el repositorio en un proyecto existente, haga clic en **Avanzado**, junto al nombre del **repositorio**, y seleccione un proyecto. Para ver el código en el explorador, seleccione **See it on the web** (Verlo en la Web).
  
 ## <a name="configure-continuous-delivery-with-azure-devops"></a>Configuración de la entrega continua con Azure DevOps
-Una canalización de compilación de Azure Pipelines describe un flujo de trabajo compuesto por pasos de compilación que se ejecutan de manera secuencial. Más información sobre las [canalizaciones de compilación de Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav). 
+Una canalización de compilación de Azure Pipelines describe un flujo de trabajo compuesto por pasos de compilación que se ejecutan de manera secuencial. Más información sobre las [canalizaciones de compilación de Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav&preserve-view=true).
 
-Una canalización de versión de Azure Pipelines describe un flujo de trabajo que implementa un paquete de aplicación en un clúster. Cuando se usan juntas, la canalización de compilación y la de versión ejecutan el flujo de trabajo completo empezando por los archivos de origen y terminando por una aplicación en el clúster. Más información sobre las [canalizaciones de versión de Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts).
+Una canalización de versión de Azure Pipelines describe un flujo de trabajo que implementa un paquete de aplicación en un clúster. Cuando se usan juntas, la canalización de compilación y la de versión ejecutan el flujo de trabajo completo empezando por los archivos de origen y terminando por una aplicación en el clúster. Más información sobre las [canalizaciones de versión de Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts&preserve-view=true).
 
 ### <a name="create-a-build-pipeline"></a>Creación de una canalización de compilación
 Abra un explorador web y vaya hasta el proyecto que acaba de crear en [Azure DevOps](https://app.vsaex.visualstudio.com/). 
@@ -121,7 +125,7 @@ Abra un explorador web y vaya hasta el proyecto que acaba de crear en [Azure Dev
     |Grupo de recursos  |  Escriba el nombre de un grupo de recursos.   |
     |Plantilla  | [La ruta de acceso a la solución]\bin\Debug\Deploy\\[El nombre del proyecto].JobTemplate.json   |
     |Parámetros de plantilla  | [La ruta de acceso a la solución]\bin\Debug\Deploy\\[El nombre del proyecto].JobTemplate.parameters.json   |
-    |Reemplazo de los parámetros de plantilla  | Escriba los parámetros de plantilla para reemplazar en el cuadro de texto. Ejemplo: –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). Esta propiedad es opcional, pero la compilación generará errores si no se reemplazan los parámetros de clave.    |
+    |Reemplazo de los parámetros de plantilla  | Escriba los parámetros de plantilla para reemplazar en el cuadro de texto. Ejemplo: `–storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre)`. Esta propiedad es opcional, pero la compilación generará errores si no se reemplazan los parámetros de clave.    |
     
     ![Establecimiento de las propiedades para la implementación del grupo de recursos de Azure](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deployment-properties.png)
 
@@ -158,7 +162,7 @@ Cuando no los necesite, elimine el grupo de recursos, el trabajo de streaming y 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para aprender más sobre el uso de herramientas de Azure Stream Analytics para Visual Studio para configurar un proceso de integración e implementación continuas, continúe con el artículo para configurar la canalización de CI/CD:
+Para aprender más sobre el uso de herramientas de Azure Stream Analytics para Visual Studio en la configuración de un proceso de integración e implementación continuas, continúe con el artículo para configurar la canalización de CI/CD:
 
 > [!div class="nextstepaction"]
 > [Integración y desarrollo continuos con las herramientas de Stream Analytics](stream-analytics-tools-for-visual-studio-cicd.md)

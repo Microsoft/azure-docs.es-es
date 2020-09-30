@@ -1,6 +1,6 @@
 ---
 title: Elementos de lenguaje T-SQL
-description: Vínculos a la documentación de las instrucciones T-SQL admitidas en el grupo de SQL de Synapse.
+description: Vínculos a la documentación de los elementos de lenguaje T-SQL admitidos en el grupo de SQL de Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 5c08da2b3e6a23d247b794f31449f2c2a86d6d79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bccbe67c1ea4b93a7a1938fbab6b6f3d06cb5da3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208814"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289504"
 ---
 # <a name="t-sql-language-elements-supported-in-synapse-sql-pool"></a>Elementos de lenguaje T-SQL admitidos en el grupo de SQL de Synapse
 
@@ -67,7 +67,7 @@ Vínculos a la documentación de los elementos de lenguaje T-SQL admitidos en el
 * [&lt; (Menor que)](/sql/t-sql/language-elements/less-than-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [&gt;= (Mayor o igual que)](/sql/t-sql/language-elements/greater-than-or-equal-to-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [&lt;= (Menor o igual que)](/sql/t-sql/language-elements/less-than-or-equal-to-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [&lt;&gt; (No igual a)](/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [&lt; &gt; (No igual a)](/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [!= (No igual a)](/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [AND](/sql/t-sql/language-elements/and-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [BETWEEN](/sql/t-sql/language-elements/between-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: kumud
-ms.openlocfilehash: a1b2738e3be2e2b8a388ef80ca94764cdae99b08
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e0df698cb431e5e26c69047a9f464904f0546487
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047351"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294244"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Personalización de un modelo de marcas en Video Indexer
 

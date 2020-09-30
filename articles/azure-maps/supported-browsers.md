@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: e6d4ea19e5547adb7bee25f4bdce295eb9a76d44
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 73d875e32f4fcf22551cf6b0946e49c2f826e523
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002930"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085032"
 ---
 # <a name="web-sdk-supported-browsers"></a>Exploradores admitidos por el SDK web
 
-El SDK web de Azure Maps proporciona una función auxiliar denominada [atlas.isSupported](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest#issupported-boolean-). Esta función detecta si un explorador web tiene el conjunto mínimo de características de WebGL necesarias para admitir la carga y la representación del control de mapa. Este es un ejemplo de cómo utilizar la función:
+El SDK web de Azure Maps proporciona una función auxiliar denominada [atlas.isSupported](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas#issupported-boolean-). Esta función detecta si un explorador web tiene el conjunto mínimo de características de WebGL necesarias para admitir la carga y la representación del control de mapa. Este es un ejemplo de cómo utilizar la función:
 
 ```JavaScript
 if (!atlas.isSupported()) {

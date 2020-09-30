@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.custom: mqtt, devx-track-javascript
-ms.openlocfilehash: 469aed46fee5fd01ee0604f266de3d14f8b0fe40
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 65155d9f78cc82eb797c4b655adeeeabb24a8e33
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420760"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019519"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>Carga de archivos de un dispositivo a la nube con IoT Hub (Node.js)
 
@@ -44,6 +44,8 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de Node.js:
 
 > [!NOTE]
 > IoT Hub admite muchas plataformas de dispositivos y lenguajes (incluido C, .NET, JavaScript, Python y Java), mediante los SDK de dispositivo IoT de Azure. Vea el [Centro para desarrolladores de IoT de Azure] para obtener instrucciones paso a paso sobre cómo conectar el dispositivo a Azure IoT Hub.
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 

@@ -1,20 +1,20 @@
 ### YamlMime:Landing
-title: Servidores de Azure Arc (versión preliminar)
-summary: Servidores de Azure Arc
+title: Servidores habilitados para Azure Arc
+summary: Servidores habilitados para Azure Arc
 metadata:
-  title: Servidores de Azure Arc
+  title: Servidores habilitados para Azure Arc
   description: Más información sobre cómo administrar máquinas locales en Azure
   author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
   ms.date: 06/26/2020
   ms.author: magoedte
-  ms.openlocfilehash: 9080f5bb770f5cb86284b5816c340a614843038c
-  ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+  ms.openlocfilehash: f03e869e884fff8a1d196817b658c28bbdc55ca9
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/24/2020
-  ms.locfileid: "88763820"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90908105"
 landingContent:
 - title: Conexión de máquinas a Azure mediante servidores con Azure Arc habilitado
   linkLists:
@@ -22,7 +22,7 @@ landingContent:
     links:
     - text: ¿Qué son los servidores habilitados para Azure Arc?
       url: overview.md
-  - linkListType: quickstart
+  - linkListType: get-started
     links:
     - text: Conexión de máquinas a Azure Arc desde Azure Portal
       url: onboard-portal.md
@@ -30,3 +30,9 @@ landingContent:
       url: onboard-service-principal.md
     - text: Conexión de máquinas a Azure con DSC de PowerShell
       url: onboard-dsc.md
+- title: Inicios rápidos en 10 minutos
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Implementación de un agente de servidores habilitado para Arc
+      url: ./learn/quick-enable-hybrid-vm.md

@@ -10,14 +10,14 @@ metadata:
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma
-  ms.reviewer: carlrab
+  ms.reviewer: sstein
   ms.date: 05/27/2020
-  ms.openlocfilehash: 65ab57b6036ec8a1dd6c47560a37c5e687601ad1
-  ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+  ms.openlocfilehash: 86c1553142e1314b11c665de3a2641aa8e3cc40e
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/19/2020
-  ms.locfileid: "88587249"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91317045"
 landingContent:
 - title: Azure SQL Database
   linkLists:

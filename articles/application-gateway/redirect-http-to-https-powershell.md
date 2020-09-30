@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 0c1baa96c9093e02c54fb70949d1de0ddbda1bcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c65f143552aa14f9e309b68f484f9c0695e8dbd
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804325"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89596069"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con redirección de HTTP a HTTPS mediante Azure PowerShell
 
@@ -20,12 +20,11 @@ Puede usar Azure PowerShell para crear una [puerta de enlace de aplicaciones](ov
 
 En este artículo aprenderá a:
 
-> [!div class="checklist"]
-> * Creación de un certificado autofirmado
-> * Configurar una red
-> * Crear una puerta de enlace de aplicaciones con el certificado
-> * Adición de un agente de escucha y una regla de redireccionamiento
-> * Crear un conjunto de escalado de máquinas virtuales con el grupo de servidores back-end predeterminado
+* Creación de un certificado autofirmado
+* Configurar una red
+* Crear una puerta de enlace de aplicaciones con el certificado
+* Adición de un agente de escucha y una regla de redireccionamiento
+* Crear un conjunto de escalado de máquinas virtuales con el grupo de servidores back-end predeterminado
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

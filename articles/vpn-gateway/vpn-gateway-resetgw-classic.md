@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/09/2020
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9f78b33a95001639abfeaecb381b597f5273c0fc
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: c0313c74b046d4c93c8625eab8659df392041059
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033060"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419816"
 ---
 # <a name="reset-a-vpn-gateway"></a>Restablecimiento de una instancia de VPN Gateway
 

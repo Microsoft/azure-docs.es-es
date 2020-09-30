@@ -4,16 +4,16 @@ description: Aprenda a usar la biblioteca de Azure Queue v12 para Java para cre
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 12/4/2019
+ms.date: 09/10/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 753c245631d2fbdc8122f955c1db6562a1554031
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9b9f68737ca714c0661ffb008347149235886c68
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319378"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015031"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para Java
 
@@ -30,17 +30,17 @@ Use la biblioteca cliente de Azure Queue Storage v12 para Java para realizar lo
 
 Recursos adicionales:
 
-* [Documentación de referencia de API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html)
+* [Documentación de referencia de API](/java/api/overview/azure/storage-queue-readme)
 * [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
 * [Paquete (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
-* [Muestras](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Muestras](/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Kit de desarrollo de Java (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable), versión 8 o posterior
+* [Kit de desarrollo de Java (JDK)](/java/azure/jdk/), versión 8 o posterior
 * [Apache Maven](https://maven.apache.org/download.cgi)
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
-* Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](/azure/storage/common/storage-quickstart-create-account)
 
 ## <a name="setting-up"></a>Instalación
 
@@ -161,10 +161,10 @@ En el siguiente diagrama se muestra la relación entre estos recursos.
 
 Use las siguientes clases de Java para interactuar con estos recursos:
 
-* [QueueClientBuilder](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClientBuilder.html): La clase `QueueClientBuilder` configura y crea instancias de un objeto `QueueClient`.
-* [QueueServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueServiceClient.html): La clase `QueueServiceClient` permite administrar todas las colas de la cuenta de almacenamiento.
-* [QueueClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html): La clase `QueueClient` permite administrar y manipular una cola individual y sus mensajes.
-* [QueueMessageItem](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/models/QueueMessageItem.html): La clase `QueueMessageItem` representa los objetos individuales devueltos al llamar a [receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-) en una cola.
+* [QueueClientBuilder](/java/api/com.azure.storage.queue.queueclientbuilder): La clase `QueueClientBuilder` configura y crea instancias de un objeto `QueueClient`.
+* [QueueServiceClient](/java/api/com.azure.storage.queue.queueserviceclient): La clase `QueueServiceClient` permite administrar todas las colas de la cuenta de almacenamiento.
+* [QueueClient](/java/api/com.azure.storage.queue.queueclient): La clase `QueueClient` permite administrar y manipular una cola individual y sus mensajes.
+* [QueueMessageItem](/java/api/com.azure.storage.queue.models.queuemessageitem): La clase `QueueMessageItem` representa los objetos individuales devueltos al llamar a [receiveMessages](/java/api/com.azure.storage.queue.queueclient.receivemessages) en una cola.
 
 ## <a name="code-examples"></a>Ejemplos de código
 
@@ -204,7 +204,7 @@ Decida un nombre para la nueva cola. El código siguiente anexa un valor de GUID
 > Los nombres de la cola solo puede incluir letras minúsculas, números y guiones y debe empezar por una letra o un número. Antes y después de cada guion debe ir un carácter que no sea otro guión. El nombre debe tener entre 3 y 63 caracteres. Para más información sobre la nomenclatura de las colas, consulte [Asignación de nombres a colas y metadatos](/rest/api/storageservices/naming-queues-and-metadata).
 
 
-Cree una instancia de la clase [QueueClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html). A continuación, llame al método [create](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#create--) para crear la cola en la cuenta de almacenamiento.
+Cree una instancia de la clase [QueueClient](/java/api/com.azure.storage.queue.queueclient). A continuación, llame al método [create](/java/api/com.azure.storage.queue.queueclient.create) para crear la cola en la cuenta de almacenamiento.
 
 Agregue este código al final del método `main`:
 
@@ -227,7 +227,7 @@ queueClient.create();
 
 ### <a name="add-messages-to-a-queue"></a>Adición de mensajes a una cola
 
-El siguiente fragmento de código agrega mensajes a la cola mediante una llamada al método [sendMessage](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#sendMessage-java.lang.String-). También guarda la clase [SendMessageResult](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/models/SendMessageResult.html) devuelta desde una llamada a `sendMessage`. El resultado se utiliza para actualizar el mensaje más adelante en el programa.
+El siguiente fragmento de código agrega mensajes a la cola mediante una llamada al método [sendMessage](/java/api/com.azure.storage.queue.queueclient.sendmessage). También guarda la clase [SendMessageResult](/java/api/com.azure.storage.queue.models.sendmessageresult) devuelta desde una llamada a `sendMessage`. El resultado se utiliza para actualizar el mensaje más adelante en el programa.
 
 Agregue este código al final del método `main`:
 
@@ -244,7 +244,7 @@ SendMessageResult result = queueClient.sendMessage("Third message");
 
 ### <a name="peek-at-messages-in-a-queue"></a>Visualización de los mensajes de una cola
 
-Lea los mensajes de la cola llamando al método [peekMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#peekMessages-java.lang.Integer-java.time.Duration-com.azure.core.util.Context-). El método `peelkMessages` recupera uno o varios mensajes de la parte delantera de la cola, pero no modifica la visibilidad del mensaje.
+Lea los mensajes de la cola llamando al método [peekMessages](/java/api/com.azure.storage.queue.queueclient.peekmessages). El método `peelkMessages` recupera uno o varios mensajes de la parte delantera de la cola, pero no modifica la visibilidad del mensaje.
 
 Agregue este código al final del método `main`:
 
@@ -258,7 +258,7 @@ queueClient.peekMessages(10, null, null).forEach(
 
 ### <a name="update-a-message-in-a-queue"></a>Eliminación de un mensaje de una cola
 
-Actualice el contenido de un mensaje mediante la llamada al método [updateMessage](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#updateMessage-java.lang.String-java.lang.String-java.lang.String-java.time.Duration-). El método `updateMessage` puede cambiar el tiempo de espera de visibilidad y el contenido de un mensaje. El contenido del mensaje debe ser una cadena con codificación UTF-8 de hasta 64 KB de tamaño. Junto con el nuevo contenido del mensaje, pase el identificador de mensaje y la recepción de confirmación mediante `SendMessageResult` que se guardó anteriormente en el código. El identificador de mensaje y la confirmación de extracción identifican el mensaje que se va a actualizar.
+Actualice el contenido de un mensaje mediante la llamada al método [updateMessage](/java/api/com.azure.storage.queue.queueclient.updatemessage). El método `updateMessage` puede cambiar el tiempo de espera de visibilidad y el contenido de un mensaje. El contenido del mensaje debe ser una cadena con codificación UTF-8 de hasta 64 KB de tamaño. Junto con el nuevo contenido del mensaje, pase el identificador de mensaje y la recepción de confirmación mediante `SendMessageResult` que se guardó anteriormente en el código. El identificador de mensaje y la confirmación de extracción identifican el mensaje que se va a actualizar.
 
 ```java
 System.out.println("\nUpdating the third message in the queue...");
@@ -273,7 +273,7 @@ queueClient.updateMessage(result.getMessageId(),
 
 ### <a name="receive-and-delete-messages-from-a-queue"></a>Recepción y eliminación de mensajes de una cola
 
-Descargue los mensajes agregados anteriormente mediante la llamada al método [receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-java.time.Duration-java.time.Duration-com.azure.core.util.Context-). El código de ejemplo también elimina los mensajes de la cola una vez recibidos y procesados. En este caso, el procesamiento solo muestra el mensaje en la consola.
+Descargue los mensajes agregados anteriormente mediante la llamada al método [receiveMessages](/java/api/com.azure.storage.queue.queueclient.receivemessages). El código de ejemplo también elimina los mensajes de la cola una vez recibidos y procesados. En este caso, el procesamiento solo muestra el mensaje en la consola.
 
 La aplicación se detiene para la entrada del usuario mediante una llamada a `System.console().readLine();` antes de recibir y eliminar los mensajes. Compruebe en [Azure Portal](https://portal.azure.com) que los recursos se crearon correctamente, antes de que se eliminen. Los mensajes que no se eliminen explícitamente volverán a estar visibles en la cola para que se procesen.
 
@@ -298,7 +298,7 @@ queueClient.receiveMessages(10).forEach(
 
 ### <a name="delete-a-queue"></a>Eliminación de una cola
 
-El código siguiente limpia los recursos que creó la aplicación; para ello, elimina la cola mediante el método [delete](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#delete--).
+El código siguiente limpia los recursos que creó la aplicación; para ello, elimina la cola mediante el método [delete](/java/api/com.azure.storage.queue.queueclient.delete).
 
 Agregue este código al final del método `main`:
 
@@ -372,6 +372,6 @@ En este inicio rápido, ha aprendido a crear una cola y a agregarle mensajes med
 Para ver tutoriales, ejemplos, artículos de inicio rápido y otra documentación, visite:
 
 > [!div class="nextstepaction"]
-> [Azure para desarrolladores de Java Cloud](https://docs.microsoft.com/azure/developer/java/)
+> [Azure para desarrolladores de Java Cloud](/azure/developer/java/)
 
 * Para ver las aplicaciones de ejemplo de Azure Queue Storage, continúe con los [ejemplos de la biblioteca cliente del SDK de Azure Queue Storage para Java v12](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).

@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a solucionar problemas relacionados c
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: 56593176e705176b87cf955eb116909c1912e723
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 7c8e68da1c5da7b25d1385a82bf7dcc2f876306d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824277"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376288"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Solución de problemas en la copia de seguridad del estado del sistema
 
@@ -66,16 +66,16 @@ Para instalar Copias de seguridad de Windows Server con PowerShell, ejecute el c
 
 Para instalar Copias de seguridad de Windows Server mediante el Administrador del servidor, ejecute los pasos a continuación:
 
-1. En **Administrador del servidor**, haga clic en **Agregar roles y características**. Aparecerá el **Asistente para agregar roles y características**.
+1. En **Administrador del servidor**, seleccione **Agregar roles y características**. Aparecerá el **Asistente para agregar roles y características**.
 
     ![Panel](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
-2. Seleccione **Tipo de instalación** y haga clic en **Siguiente**.
+2. Seleccione **Tipo de instalación** y, después, **Siguiente**.
 
     ![Tipo de instalación](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
 
-3. Seleccione un servidor del grupo de servidores y haga clic en **Siguiente**. En Rol de servidor, deje la selección predeterminada y haga clic en **Siguiente**.
-4. Seleccione **Copias de seguridad de Windows Server** en la pestaña **Características** y haga clic en **Siguiente**.
+3. Seleccione un servidor del grupo de servidores y **Siguiente**. En Rol de servidor, deje la selección predeterminada y seleccione **Siguiente**.
+4. Seleccione **Copias de seguridad de Windows Server** en la pestaña **Características** y, después, **Siguiente**.
 
     ![Ventana Seleccionar características](./media/backup-azure-system-state-troubleshoot/features.png)
 
@@ -137,7 +137,7 @@ Si se produce un error en el trabajo, indica un problema de WSB, lo que daría l
 
 | Síntoma | Solución
 | -- | --
-| - Se produce un error en el agente de MARS con el mensaje de error: Error al realizar la copia de seguridad debido a que el volumen de instantáneas no pudo crecer por la falta de espacio en disco en los volúmenes que contienen los archivos del sistema <br/><br/> - El registro de advertencia o error siguiente aparece en los registros de eventos del sistema de volsnap: "No hay espacio en disco suficiente en el volumen C: para aumentar el almacenamiento de instantáneas para las instantáneas de C: debido a este error, todas las instantáneas del volumen C: corren el riesgo de ser eliminadas" | - Libere espacio en el volumen resaltado en el registro de eventos con el fin de que haya suficiente espacio para que las instantáneas crezcan mientras la copia de seguridad está en curso <br/><br/> - Al configurar el espacio de instantáneas se puede restringir la cantidad de espacio que se usa para las instantáneas. Para más información, consulte este [artículo](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage).
+| - Se produce un error en el agente de MARS con el mensaje de error: Error al realizar la copia de seguridad debido a que el volumen de instantáneas no pudo crecer por la falta de espacio en disco en los volúmenes que contienen los archivos del sistema <br/><br/> - El registro de advertencia o error siguiente aparece en los registros de eventos del sistema de volsnap: "No hay espacio en disco suficiente en el volumen C: para aumentar el almacenamiento de instantáneas para las instantáneas de C: debido a este error, todas las instantáneas del volumen C: corren el riesgo de ser eliminadas" | - Libere espacio en el volumen resaltado en el registro de eventos con el fin de que haya suficiente espacio para que las instantáneas aumenten mientras la copia de seguridad está en curso <br/><br/> - Al configurar el espacio de instantáneas se puede restringir la cantidad de espacio que se usa para las instantáneas. Para más información, consulte este [artículo](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage).
 
 ### <a name="efi-partition-locked"></a>Partición EFI bloqueada
 

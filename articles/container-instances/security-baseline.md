@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 996793f2851949f7474312a18ccff04e88db2232
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: a26581b61a4b99bd11f48a3d431a1bb85148d66b
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259168"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393435"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Base de referencia de seguridad de Azure para Container Instances
 
@@ -97,7 +97,7 @@ Para más información, consulte [Introducción a la línea de base de seguridad
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6: Implemente sistemas de prevención de intrusiones y detección de intrusiones (IDS/IPS) basados en la red
 
-**Instrucciones**: Seleccione una oferta de Azure Marketplace que admita la funcionalidad de IDS/IPS con funcionalidades de inspección de carga. Si la detección y/o la prevención de intrusiones basadas en la inspección de carga no es un requisito, se puede usar Azure Firewall con la inteligencia sobre amenazas. El filtrado basado en inteligencia sobre amenazas de Azure Firewall puede alertar y denegar el tráfico desde y hacia los dominios y las direcciones IP malintencionados conocidos. La direcciones IP y los dominios proceden de la fuente Inteligencia sobre amenazas de Microsoft.
+**Guía**: Seleccione una oferta de Azure Marketplace que admita la funcionalidad de IDS/IPS con funcionalidades de inspección de carga. Si la detección y/o la prevención de intrusiones basadas en la inspección de carga no es un requisito, se puede usar Azure Firewall con la inteligencia sobre amenazas. El filtrado basado en inteligencia sobre amenazas de Azure Firewall puede alertar y denegar el tráfico desde y hacia los dominios y las direcciones IP malintencionados conocidos. La direcciones IP y los dominios proceden de la fuente Inteligencia sobre amenazas de Microsoft.
 
 Implemente la solución de firewall que prefiera en cada uno de los límites de red de su organización para detectar y/o denegar el tráfico malintencionado.
 
@@ -155,7 +155,7 @@ También puede usar grupos de seguridad de aplicaciones para simplificar una con
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: Mantenga las configuraciones de seguridad estándar para dispositivos de red
 
-**Guía**: También puede usar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como plantillas de Azure Resource Manager, controles de RBAC y directivas, en una única definición de plano técnico. Puede aplicar el plano técnico a nuevas suscripciones y ajustar el control y la administración a través del control de versiones. 
+**Guía**: También puede usar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como plantillas de Azure Resource Manager, controles de Azure RBAC y directivas, en una única definición de plano técnico. Puede aplicar el plano técnico a nuevas suscripciones y ajustar el control y la administración a través del control de versiones. 
 
 * [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -360,7 +360,7 @@ Si usa un registro de contenedor de Azure con Azure Container Instances, cree pr
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Use el inicio de sesión único (SSO) con Azure Active Directory
 
-**Guía**: Siempre que sea posible, use el SSO de Azure Active Directory en lugar de configurar credenciales independientes individuales por servicio. Use las recomendaciones de administración de identidades y acceso de Azure Security Center.
+**Instrucciones**: Siempre que sea posible, use el SSO de Azure Active Directory en lugar de configurar credenciales independientes individuales por servicio. Use las recomendaciones de administración de identidades y acceso de Azure Security Center.
 
 * [Descripción del SSO con Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
@@ -407,7 +407,7 @@ Si usa un registro de contenedor de Azure con Azure Container Instances, cree pr
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8: Administre los recursos de Azure solo desde ubicaciones aprobadas
 
-**Instrucciones**: Use ubicaciones con nombre de acceso condicional para permitir el acceso solo desde agrupaciones lógicas específicas de intervalos de direcciones IP o países o regiones.
+**Guía**: Use ubicaciones con nombre de acceso condicional para permitir el acceso solo desde agrupaciones lógicas específicas de intervalos de direcciones IP o países o regiones.
 
 * [Configuración de ubicaciones con nombre en Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
@@ -557,9 +557,9 @@ En el caso de la plataforma subyacente administrada por Microsoft, Microsoft tra
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
-**Guía**: use RBAC de Azure AD para controlar el acceso a los datos y recursos de Azure Container Instances. 
+**Guía**: Utilice el control de acceso basado en rol de Azure (Azure RBAC) para controlar el acceso a los datos y recursos de Azure Container Instances. 
 
-* [Configuración de RBAC en Azure](../role-based-access-control/role-assignments-portal.md)
+* [Configuración de Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 
 **Supervisión de Azure Security Center**: No aplicable
@@ -923,13 +923,13 @@ Use una solución personalizada o de terceros para aplicar revisiones a las imá
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Almacene imágenes de sistema operativo personalizadas de forma segura
 
-**Guía**: almacene imágenes de contenedor en Azure Container Registry y aproveche RBAC para garantizar que solo los usuarios autorizados puedan acceder a las imágenes.
+**Guía**: Guarde imágenes de contenedor en Azure Container Registry y utilice Azure RBAC para garantizar que solo los usuarios autorizados puedan acceder a ellas.
 
-* [Descripción de RBAC en Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Descripción de Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Descripción de RBAC para Container Registry](../container-registry/container-registry-roles.md)
+* [Descripción de Azure RBAC para Container Registry](../container-registry/container-registry-roles.md)
 
-* [Configuración de RBAC en Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Configuración de Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 
 **Supervisión de Azure Security Center**: No aplicable
@@ -988,7 +988,9 @@ Use Azure Policy para establecer restricciones en el tipo de recursos que se pu
 
 * [Creación de un almacén de claves](../key-vault/secrets/quick-create-portal.md)
 
-* [Cómo proporcionar la autenticación de Key Vault con una identidad administrada](../key-vault/general/managed-identity.md)
+* [Autenticación en Azure Key Vault](../key-vault/general/authentication.md)
+
+* [Asignación de una directiva de acceso de Azure Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 * [Cómo utilizar una identidad administrada con Azure Container Instances](./container-instances-managed-identity.md)
 
@@ -1190,7 +1192,7 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: Realice pruebas de penetración periódicas de los recursos de Azure y asegúrese de corregir todos los resultados de seguridad críticos en un plazo de 60 días
 
-**Instrucciones**: Siga las reglas de compromiso de Microsoft para asegurarse de que las pruebas de penetración no infrinjan las directivas de Microsoft. Use la estrategia de Microsoft y la ejecución de pruebas de penetración de sitios activos y ataques simulados en la infraestructura en la nube, los servicios y las aplicaciones administrados por Microsoft.
+**Guía**: Siga las reglas de compromiso de Microsoft para asegurarse de que las pruebas de penetración no infrinjan las directivas de Microsoft. Use la estrategia de Microsoft y la ejecución de pruebas de penetración de sitios activos y ataques simulados en la infraestructura en la nube, los servicios y las aplicaciones administrados por Microsoft.
 
 * [Reglas de interacción de las pruebas de penetración](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 

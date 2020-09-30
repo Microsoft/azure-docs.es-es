@@ -5,23 +5,94 @@ author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 08/03/2020
+ms.date: 09/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: c91237e3a14c60e477f58be0bf62f634b462960b
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: 16d40c334d51a66df4a4d2d56e2fa2379dda3726
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951677"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905399"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-service"></a>Inicio rápido: Aprovisionamiento del servicio Azure Spring Cloud
 
+::: zone pivot="programming-language-csharp"
+En esta guía de inicio rápido, usará la CLI de Azure para aprovisionar una instancia del servicio Azure Spring Cloud.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [SDK de .NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1). El servicio Azure Spring Cloud admite .NET Core 3.1 y versiones posteriores.
+* [CLI de Azure  versión 2.0.67 o superior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* [Git](https://git-scm.com/).
+
+## <a name="install-azure-cli-extension"></a>Instalación de la extensión de la CLI de Azure
+
+Compruebe que la versión de la CLI de Azure sea 2.0.67 o posterior:
+
+```azurecli
+az --version
+```
+
+Instale la extensión de Azure Spring Cloud para la CLI de Azure con el siguiente comando:
+
+```azurecli
+az extension add --name spring-cloud
+```
+
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+
+1. Inicie sesión en la CLI de Azure.
+
+    ```azurecli
+    az login
+    ```
+
+1. Si tiene más de una suscripción, elija la que quiere usar para esta guía de inicio rápido.
+
+   ```azurecli
+   az account list -o table
+   ```
+
+   ```azurecli
+   az account set --subscription <Name or ID of a subscription from the last step>
+   ```
+
+## <a name="provision-an-instance-of-azure-spring-cloud"></a>Aprovisionamiento de una instancia de Azure Spring Cloud
+
+1. Cree un [grupo de recursos](../azure-resource-manager/management/overview.md) que contenga el servicio Azure Spring Cloud. El nombre del grupo de recursos puede incluir caracteres alfanuméricos, carácter de subrayado, paréntesis, guión, punto (excepto al final) y caracteres Unicode.
+
+   ```azurecli
+   az group create --location eastus --name <resource group name>
+   ```
+
+1. Aprovisione una instancia del servicio Azure Spring Cloud. El nombre de la instancia de servicio debe ser único, tener entre 4 y 32 caracteres, y solo puede contener números, letras minúsculas y guiones. El primer carácter del nombre del servicio debe ser una letra y el último debe ser una letra o un número.
+
+    ```azurecli
+    az spring-cloud create -n <service instance name> -g <resource group name>
+    ```
+
+    Este comando puede tardar varios minutos en completarse.
+
+1. Establezca el nombre del grupo de recursos y el nombre de la instancia de servicio predeterminados para no tener que especificar estos valores repetidamente en los comandos siguientes.
+
+   ```azurecli
+   az configure --defaults group=<resource group name>
+   ```
+
+   ```azurecli
+   az configure --defaults spring-cloud=<service instance name>
+   ```
+::: zone-end
+
+::: zone pivot="programming-language-java"
 Puede crear instancias de Azure Spring Cloud mediante Azure Portal o la CLI de Azure.  Ambos métodos se explican en los siguientes procedimientos.
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Instalación de JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
+* [Instalación de JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)
 * [Registro para obtener una suscripción a Azure](https://azure.microsoft.com/free/)
-* (Opcional) [Instale la versión 2.0.67 de la CLI de Azure, o cualquier versión superior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), e instale la extensión de Azure Spring Cloud con el comando `az extension add --name spring-cloud`
+* (Opcional) [Instale la versión 2.0.67 de la CLI de Azure, o cualquier versión superior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true), e instale la extensión de Azure Spring Cloud con el comando `az extension add --name spring-cloud`
 * (Opcional) [Instale Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) e [inicie sesión](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## <a name="provision-an-instance-of-azure-spring-cloud"></a>Aprovisionamiento de una instancia de Azure Spring Cloud
@@ -59,7 +130,7 @@ En el procedimiento siguiente se crea una instancia de Azure Spring Cloud desde 
 
 En el siguiente procedimiento se usa la extensión de la CLI de Azure para aprovisionar una instancia de Azure Spring Cloud.
 
-1. Inicie sesión en la CLI de Azure y elija una suscripción activa. Asegúrese de elegir la suscripción activa que se encuentre en la lista de permitidos para Azure Spring Cloud
+1. Inicie sesión en la CLI de Azure y elija una suscripción activa.
 
     ```azurecli
     az login
@@ -85,9 +156,25 @@ En el siguiente procedimiento se usa la extensión de la CLI de Azure para aprov
 
     La instancia de servicio tardará aproximadamente cinco minutos en implementarse.
 ---
+::: zone-end
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si desea continuar con la siguiente guía de inicio rápido de esta serie, omita este paso.
+
+En esta guía de inicio rápido, ha creado recursos de Azure que seguirán acumulando cargos si permanecen en la suscripción. Si no prevé continuar con la siguiente guía de inicio rápido y espera que no va a necesitar estos recursos en el futuro, elimine el grupo de recursos desde el portal o con el siguiente comando en Cloud Shell:
+
+```azurecli
+az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
+```
+
+En esta guía de inicio rápido, también estableció el nombre del grupo de recursos predeterminado. Si no desea continuar con la siguiente guía de inicio rápido, borre ese nombre predeterminado con el siguiente comando de la CLI:
+
+```azurecli
+az configure --defaults group=
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 > [!div class="nextstepaction"]
 > [Configuración de un servidor de configuración](spring-cloud-quickstart-setup-config-server.md)
-
-

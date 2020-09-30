@@ -5,15 +5,15 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 8/26/2019
+ms.date: 09/01/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 568739ebdce632ae955da5e1cec12635c86af57c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 783e48139cf057bb17278d98e3683cb2b4cbad89
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522863"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279557"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Solución de problemas de Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -1053,6 +1053,11 @@ Para usar **Fiddler** para crear una sesión HTTP de la aplicación web supervis
 1. Vaya a: **Archivo** > **Guardar** > **Todas las sesiones**.
 
 Para más información, consulte [Introducción a Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler)
+
+## <a name="general"></a>General
+
+### <a name="activity-stuck-issue"></a>Problema de bloqueo de actividad
+Si observa que la actividad tarda mucho más tiempo en ejecutarse que sus ejecuciones normales sin apenas progreso, es posible que se haya bloqueado. Puede intentar cancelarla y volver a intentarlo para ver si sirve. Si se trata de una actividad de copia, puede obtener información sobre la solución de problemas y la supervisión de rendimiento en [Solución de problemas de rendimiento de la actividad de copia](copy-activity-performance-troubleshooting.md); si se trata de un flujo de datos, obtenga información en Guía de optimización y [rendimiento de la asignación de instancias de Data Flow](concepts-data-flow-performance.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

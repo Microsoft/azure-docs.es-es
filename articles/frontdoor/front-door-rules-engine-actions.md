@@ -3,21 +3,21 @@ title: Acciones del motor de reglas de Azure Front Door
 description: En este artículo se proporciona una lista de las diversas acciones que puede realizar con el motor de reglas de Azure Front Door.
 services: frontdoor
 documentationcenter: ''
-author: megan-beatty
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/30/2020
-ms.author: mebeatty
-ms.openlocfilehash: 74c0a2617a01e8c24cd93a015b667081250657ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/14/2020
+ms.author: duau
+ms.openlocfilehash: e1893c32ed486772e56432f6263626d0ee1a65df
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521503"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531889"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Acciones del motor de reglas de Azure Front Door
 

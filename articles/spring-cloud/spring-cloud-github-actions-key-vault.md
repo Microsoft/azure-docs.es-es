@@ -5,16 +5,19 @@ author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 01/20/2019
+ms.date: 09/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 433cd9e7b8cfe69ce5008366db884659cccbc149
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 995d10b3c7064e462500e0bec4d5d8aa010afe64
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076010"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888774"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autenticación de Azure Spring Cloud con Key Vault en Acciones de GitHub
+
+**Este artículo se aplica a:** ✔️ Java ✔️ C#
+
 Key Vault es un lugar seguro para almacenar claves. Los usuarios empresariales deben almacenar las credenciales de los entornos de CI/CD en un ámbito que controlen. La clave para obtener las credenciales en Key Vault se debe limitar al ámbito de los recursos.  Solo tiene acceso al ámbito de Key Vault, no a todo el ámbito de Azure. Es como una llave que solo puede abrir una caja fuerte, no una llave maestra que puede abrir todas las puertas de un edificio. Es una forma de obtener una clave con otra clave, lo que es útil en un flujo de trabajo de CI/CD. 
 
 ## <a name="generate-credential"></a>Generación de una credencial

@@ -1,6 +1,6 @@
 ---
 title: Implementación y realización de predicciones con ONNX
-description: Aprenda a entrenar un modelo, convertirlo a ONNX, implementarlo en Azure SQL Edge (versión preliminar) o Azure SQL Managed Instance (versión preliminar) y, después, ejecutar la cláusula PREDICT nativa en los datos con el modelo de ONNX cargado.
+description: Obtenga información sobre cómo entrenar un modelo, convertirlo a ONNX, implementarlo en Azure SQL Edge o Azure SQL Managed Instance (versión preliminar) y, después, ejecutar la cláusula PREDICT nativa en los datos con el modelo de ONNX cargado.
 keywords: implementación de SQL Edge
 ms.prod: sql
 ms.technology: machine-learning
@@ -8,22 +8,22 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 07/14/2020
-ms.openlocfilehash: eeb50f682c8b3b225c6574b5276722b79465a511
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 1e70b48e4c28cdc74c5079e492b0266ea60900ad
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718788"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886824"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model"></a>Implementación y realización de predicciones con un modelo de ONNX
 
-En este inicio rápido, aprenderá a entrenar un modelo, convertirlo a ONNX, implementarlo en [Azure SQL Edge (versión preliminar)](onnx-overview.md) o [Azure SQL Managed Instance (versión preliminar)](../azure-sql/managed-instance/machine-learning-services-overview.md) y, después, ejecutar la cláusula PREDICT nativa en los datos con el modelo de ONNX cargado.
+En este inicio rápido, obtendrá información sobre cómo entrenar un modelo, convertirlo a ONNX, implementarlo en [Azure SQL Edge](onnx-overview.md) o [Azure SQL Managed Instance (versión preliminar)](../azure-sql/managed-instance/machine-learning-services-overview.md) y, después, ejecutar la cláusula PREDICT nativa en los datos con el modelo de ONNX cargado.
 
 Esta guía de inicio rápido se basa en **scikit-learn** y usa el [conjunto de datos de Boston Housing](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-* Si va a usar Azure SQL Edge y no ha implementado un módulo de Azure SQL Edge, siga los pasos que se indican en [Implementación de SQL Edge (versión preliminar) mediante Azure Portal](deploy-portal.md).
+* Si va a usar Azure SQL Edge y no ha implementado un módulo de Azure SQL Edge, siga los pasos que se indican en [Implementación de SQL Edge mediante Azure Portal](deploy-portal.md).
 
 * Instale [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download).
 

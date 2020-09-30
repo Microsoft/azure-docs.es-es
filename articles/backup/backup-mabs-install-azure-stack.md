@@ -3,12 +3,12 @@ title: Instalación de Azure Backup Server en Azure Stack
 description: En este artículo, aprenderá a usar Azure Backup Server para proteger cargas de trabajo o realizar una copia de seguridad de ellas en Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 644aeeb8670c4b8d551ba1d3f6b1b16aa199f4ef
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: a95ee42c3229e642bd48b812eb6bc01636af3ba2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827014"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018134"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalación de Azure Backup Server en Azure Stack
 
@@ -107,7 +107,7 @@ Siempre una Azure Backup Server a un dominio. Si necesita mover Azure Backup Ser
 
 ### <a name="set-storage-replication"></a>Configuración de la replicación de almacenamiento
 
-La opción de replicación de almacenamiento de almacén de Recovery Services permite elegir entre almacenamiento con redundancia geográfica y almacenamiento con redundancia local. De forma predeterminada, los almacenes de Recovery Services usan almacenamiento con redundancia geográfica. Si este almacén es su almacén principal, deje la opción de almacenamiento establecida en almacenamiento con redundancia geográfica. Elija un almacenamiento con redundancia local si desea una opción más económica que sea menos duradera. Para más información sobre las opciones de almacenamiento [con redundancia geográfica](../storage/common/storage-redundancy.md) y [con redundancia local](../storage/common/storage-redundancy.md), consulte [Replicación de Azure Storage](../storage/common/storage-redundancy.md).
+La opción de replicación de almacenamiento de almacén de Recovery Services permite elegir entre almacenamiento con redundancia geográfica y almacenamiento con redundancia local. De forma predeterminada, los almacenes de Recovery Services usan almacenamiento con redundancia geográfica. Si este almacén es su almacén principal, deje la opción de almacenamiento establecida en almacenamiento con redundancia geográfica. Elija un almacenamiento con redundancia local si quiere una opción más económica que sea menos duradera. Para más información sobre las opciones de almacenamiento [con redundancia geográfica](../storage/common/storage-redundancy.md) y [con redundancia local](../storage/common/storage-redundancy.md), consulte [Replicación de Azure Storage](../storage/common/storage-redundancy.md).
 
 Para editar la configuración de replicación de almacenamiento:
 

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 711903b106bf6ff7d8f669e2b1d3489057e09fbc
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 5c100c1b65b2af1201dfc3b52a6d90b2ed26d454
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783304"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460821"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>¿Qué es Azure AD Identity Governance?
 
@@ -68,7 +68,7 @@ Históricamente, otros proveedores concebían el acceso con privilegios como una
 
 ![Ciclo de vida de los accesos con privilegios](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
-[Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) dispone de controles adicionales que están adaptados para proteger los derechos de acceso de los recursos en Azure AD, Azure y otros servicios en línea de Microsoft.  El acceso Just-In-Time y las funcionalidades para enviar alertas cuando cambia un rol que están disponibles en Azure AD PIM, junto con la autenticación multifactor y el acceso condicional, ofrecen un completo conjunto de controles de gobernanza que le ayudan a proteger los recursos de la compañía (roles de recursos de directorio, de Azure y de Office 365). Al igual que con otras formas de acceso, las organizaciones pueden usar las revisiones de acceso para configurar nuevas certificaciones de acceso periódicas para todos los usuarios con roles de administrador.
+[Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) dispone de controles adicionales que están adaptados para proteger los derechos de acceso de los recursos en Azure AD, Azure y otros servicios en línea de Microsoft.  El acceso Just-In-Time y las funcionalidades de envío de alertas cuando cambia un rol disponibles en Azure AD PIM, junto con la autenticación multifactor y el acceso condicional, ofrecen un conjunto completo de controles de gobernanza que ayudan a proteger los recursos de la compañía (roles de recursos de directorio, de Azure y de Microsoft 365). Al igual que con otras formas de acceso, las organizaciones pueden usar las revisiones de acceso para configurar nuevas certificaciones de acceso periódicas para todos los usuarios con roles de administrador.
 
 ## <a name="getting-started"></a>Introducción
 

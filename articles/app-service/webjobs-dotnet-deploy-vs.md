@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp, vs-azure
 ms.date: 07/30/2020
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 14bb693ccaa1b1d16a1d07b7ee1cdeb4493960f5
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: de10903be86b52b3415b57a53be81e7fd1661f63
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212880"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226036"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Desarrollo e implementación de WebJobs mediante Visual Studio
 
@@ -55,7 +55,7 @@ Implemente un proyecto como un WebJob por sí mismo o vincúlelo a un proyecto w
 
 ### <a name="prerequisites"></a>Prerrequisitos
 
-Instale Visual Studio 2017 o Visual Studio 2019 con la [carga de trabajo de desarrollo de Azure](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
+Instale Visual Studio 2017 o Visual Studio 2019 con la [carga de trabajo de desarrollo de Azure](/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
 ### <a name="enable-webjobs-deployment-for-an-existing-console-app-project"></a><a id="convert"></a> Habilitación de la implementación de WebJobs para un proyecto de aplicación de consola existente
 
@@ -184,9 +184,9 @@ Información de implementación de WebJob:
 
 El tipo de un WebJob puede ser *desencadenado* o *continuo*:
 
-- Desencadenado (valor predeterminado): los WebJobs desencadenados se inician en función de un evento de enlace, según una [programación](#scheduling-a-triggered-webjob), o cuando se desencadenan manualmente (a petición). Se ejecuta en todas las instancias en las que se ejecuta la aplicación web, pero existe la opción de restringir el WebJob a una sola instancia.
+- Desencadenado (valor predeterminado): los WebJobs desencadenados se inician en función de un evento de enlace, según una [programación](#scheduling-a-triggered-webjob), o cuando se desencadenan manualmente (a petición). Se ejecuta en una sola instancia en la que se ejecuta la aplicación web.
 
-- Continuo: los WebJobs [continuos](#continuous-execution) se inician inmediatamente cuando se crea el WebJob. Este tipo de WebJob es mejor para trabajos sin enlazar o de larga duración. Si el trabajo finaliza, es posible reiniciarlo.  
+- Continuo: los WebJobs [continuos](#continuous-execution) se inician inmediatamente cuando se crea el WebJob. Se ejecuta en todas las instancias escaladas de la aplicación web de forma predeterminada, pero se puede configurar para que se ejecute como una instancia única a través de *settings.job*.
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 

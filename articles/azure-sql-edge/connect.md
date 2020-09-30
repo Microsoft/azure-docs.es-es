@@ -1,6 +1,6 @@
 ---
-title: Conexión a Azure SQL Edge y consulta (versión preliminar)
-description: Obtenga información sobre cómo conectarse a Azure SQL Edge (versión preliminar) y enviarle consultas.
+title: Conexión a Azure SQL Edge y consulta
+description: Aprenda a conectarse a Azure SQL Edge y enviarle consultas.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,14 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/25/2020
-ms.openlocfilehash: bc7410325bbcf3086c4ac2054b7bc663629a29e5
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 4548d4956b4cd01886fb1be9a530cc1627f76b2c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373120"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888239"
 ---
-# <a name="connect-and-query-azure-sql-edge-preview"></a>Conexión a Azure SQL Edge y consulta (versión preliminar)
+# <a name="connect-and-query-azure-sql-edge"></a>Conexión a Azure SQL Edge y consulta
 
 En Azure SQL Edge, después de implementar un contenedor, puede conectarse al motor de base de datos desde cualquiera de las siguientes ubicaciones:
 

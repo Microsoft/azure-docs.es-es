@@ -80,7 +80,7 @@
     - name: Exportar datos
       expanded: false
       items:
-        - name: Exportación sin identificación
+        - name: Exportar datos
           href: export-data.md
     - name: Búsqueda de identificadores de objetos de identidad
       href: find-identity-object-ids.md

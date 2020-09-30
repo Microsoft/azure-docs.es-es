@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d05de44343d5d530a367286bec3d82ba3d66f0f6
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 0affcb3c1bab6eb5616c69bb15faf423895328b0
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817289"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322524"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 
@@ -398,11 +398,11 @@ No, los discos administrados SSD estándar de cualquier tamaño no se pueden usa
 
 **¿Cuál es el mayor tamaño de disco administrado compatible con discos de datos y sistema operativo?**
 
-El tipo de partición compatible con Azure para un disco del sistema operativo es el registro de arranque maestro (MBR). El formato MBR admite un tamaño de disco de hasta 2 TiB. El tamaño máximo que admite Azure para un disco del sistema operativo es de 2 TiB. Azure admite hasta 32 TiB para discos de datos administrados.
+El tipo de partición compatible con Azure para un disco del sistema operativo es el registro de arranque maestro (MBR). El formato MBR admite un tamaño de disco de hasta 2 TiB. El tamaño máximo que admite Azure para un disco del sistema operativo es de 4 TiB. Azure admite hasta 32 TiB para discos de datos administrados.
 
 **¿Cuál es el mayor tamaño de disco administrado compatible con discos de datos y sistema operativo?**
 
-El tipo de partición compatible con Azure para un disco del sistema operativo es el registro de arranque maestro (MBR). El formato MBR admite un tamaño de disco de hasta 2 TiB. El tamaño máximo que admite Azure para un disco no administrado del sistema operativo es de 2 TiB. Azure admite hasta 4 TiB para discos de datos no administrados.
+El tipo de partición compatible con Azure para un disco del sistema operativo es el registro de arranque maestro (MBR). El formato MBR admite un tamaño de disco de hasta 2 TiB. El tamaño máximo que admite Azure para un disco no administrado del sistema operativo es de 4 TiB. Azure admite hasta 4 TiB para discos de datos no administrados.
 
 **¿Cuál es el mayor tamaño de blob en páginas admitido?**
 

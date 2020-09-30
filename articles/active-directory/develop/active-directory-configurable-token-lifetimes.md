@@ -13,12 +13,12 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: e50b4aa300c74ed5fff9a345f83d41fdda5a1054
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: bbe4328d797f740e124d4944aee889d471393200
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115873"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085610"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Vigencia de tokens configurable en la Plataforma de identidad de Microsoft (versión preliminar)
 
@@ -90,8 +90,8 @@ Una directiva de vigencia del token es un tipo de objeto de directiva que contie
 | Tiempo máximo de inactividad del token de actualización |MaxInactiveTime |Tokens de actualización |90 días |10 minutos |90 días |
 | Antigüedad máxima del token de actualización (un solo factor) |MaxAgeSingleFactor |Tokens de actualización (para los usuarios) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
 | Antigüedad máxima del token de actualización (varios factores) |MaxAgeMultiFactor |Tokens de actualización (para los usuarios) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
-| Antigüedad máxima del token de sesión (un solo factor) |MaxAgeSessionSingleFactor |Tokens de sesión (persistentes y no persistentes) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
-| Antigüedad máxima del token de sesión (varios factores) |MaxAgeSessionMultiFactor |Tokens de sesión (persistentes y no persistentes) |Hasta que se revoca |10 minutos |Hasta que se revoca<sup>1</sup> |
+| Antigüedad máxima del token de sesión (un solo factor) |MaxAgeSessionSingleFactor |Tokens de sesión (persistentes y no persistentes) |Hasta que se revoca |10 minutos |180 días<sup>1</sup> |
+| Antigüedad máxima del token de sesión (varios factores) |MaxAgeSessionMultiFactor |Tokens de sesión (persistentes y no persistentes) |Hasta que se revoca |10 minutos |180 días<sup>1</sup> |
 
 * <sup>1</sup>365 días es la vigencia explícita máxima que se puede establecer para estos atributos.
 * <sup>2</sup>Para que funcione el cliente web de Microsoft Teams, se recomienda establecer AccessTokenLifetime en un valor superior a 15 minutos para Microsoft Teams.

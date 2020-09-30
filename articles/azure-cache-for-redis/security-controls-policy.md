@@ -1,18 +1,18 @@
 ---
 title: Controles de cumplimiento normativo de Azure Policy para Azure Cache for Redis
 description: Enumera los controles de cumplimiento normativo de Azure Policy disponibles para Azure Cache for Redis. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 09/04/2020
+ms.date: 09/16/2020
 ms.topic: sample
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 9979956ef20e83a3c9b6254208c94c50c9a41dc5
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: aeda357b5eb6657ed45b7fb629abc786650215f9
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89484804"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985977"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-cache-for-redis"></a>Controles de cumplimiento normativo de Azure Policy para Azure Cache for Redis
 

@@ -1,0 +1,51 @@
+---
+title: Lista de comprobación previa a la implementación para implementar un dispositivo de Azure Stack Edge Pro con GPU | Microsoft Docs
+description: En este artículo se describe la información que se puede recopilar antes de implementar un dispositivo de Azure Stack Edge Pro con GPU.
+services: databox
+author: alkohli
+ms.service: databox
+ms.subservice: edge
+ms.topic: article
+ms.date: 08/31/2020
+ms.author: alkohli
+ms.openlocfilehash: 82751ea821bb1edfea5dfb353cbb3cdc51fe59d3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903016"
+---
+# <a name="deployment-checklist-for-your-azure-stack-edge-pro-gpu-device"></a>Lista de comprobación para implementación de un dispositivo de Azure Stack Edge Pro con GPU  
+
+En este artículo se describe la información que se puede recopilar antes de la implementación real del dispositivo de Azure Stack Edge Pro. 
+
+Use la lista de comprobación siguiente para asegurarse de tener esta información después de haber hecho un pedido de un dispositivo de Azure Stack Edge Pro y antes de haberlo recibido. 
+
+## <a name="deployment-checklist"></a>Lista de comprobación de la implementación 
+
+| Fase                             | Parámetro                                                                                                                                                                                                                           | Detalles                                                                                                           |
+|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| Administración de dispositivos               | <li>Suscripción a Microsoft Azure</li><li>Graph API de Azure Active Directory</li><li>Cuenta de Microsoft Azure Storage</li>|<li>Habilitada para Azure Stack Edge Pro/Data Box Gateway, permisos de colaborador</li><li>Garantizar el acceso de administrador o de usuario</li><li>Se necesitan credenciales de acceso</li> |
+| Instalación de dispositivos               | Cables de alimentación en el paquete. <br>Para EE. UU., se envía un cable SVE 18/3 con una clasificación de 125 V y 15 A con un conector NEMA de 5-15P a C13 (de entrada a salida).                                                                                                                                                                                                          | Incluido con el dispositivo.<br>Para obtener más información, consulte[Cables de alimentación compatibles por país](azure-stack-edge-technical-specifications-power-cords-regional.md).                                                                                        |
+|                                   | <li>Al menos un cable de red 1 X 1-GbE RJ-45 para el puerto 1  </li><li> Al menos un cable de cobre 1 X 25-GbE SFP+ para el puerto 3, el puerto 4, el puerto 5 o el puerto 6</li>| El cliente debe adquirir estos cables.<br>Para obtener una lista completa de los cables de red, conmutadores y transceptores compatibles con las tarjetas de red de dispositivo, consulte [Cavium FastlinQ 41000 Series Interoperability Matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) (Matriz de interoperabilidad de la serie FastlinQ 41000 de Cavium) y [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products) (Productos compatibles con el adaptador de red de 4 canales, doble puerto 25G ConnectX de Mellanox).| 
+| Primera conexión del dispositivo      | El puerto 1 tiene una dirección IP fija (192.168.100.10/24) para la conexión inicial. <li>Se requiere un equipo portátil para la conexión directa con el puerto 1, con una dirección IP en la red 192.168.100.0/24.</li><li> Use la interfaz de usuario local del dispositivo en: `https://192.168.100.10` para una configuración adicional.</li><li> Una vez finalizada la configuración inicial, se debe usar un conmutador de 1 GbE como mínimo para el dispositivo. La interfaz de usuario web local no será accesible si el conmutador conectado no es de al menos 1 GbE.</li>|                                                                                                                   |
+| Inicio de sesión de dispositivos                      | La contraseña del administrador de dispositivos debe tener entre 8 y 16 caracteres. <br>Esta debe contener tres de los siguientes caracteres: mayúsculas, minúsculas, números y caracteres especiales.                                            | La contraseña predeterminada es *Password1*, que expira al iniciar sesión por primera vez.                                                     |
+| Configuración de red                  | El dispositivo incluye 2 puertos de red de 1 GbE, 4 x 25 GbE. <li>El puerto 1 se usa para configurar las opciones de administración únicamente. Se pueden conectar y configurar uno o varios puertos de datos. </li><li> Al menos una interfaz de red de datos de entre los puertos 2 a 6 debe estar conectada a Internet (para la conectividad a Azure).</li><li> La configuración de IP admite la configuración de DHCP/IPv4 estática. | La configuración de IPv4 estática requiere IP, el servidor DNS y la puerta de enlace predeterminada.                                                                                                                  |
+| Configuración de la red de proceso     | <li>Se requieren dos IP públicas estáticas para los nodos de Kubernetes y, al menos, una IP estática para el servicio de centro de conectividad de Azure Stack Edge Pro a fin de acceder a los módulos de proceso.</li><li>Se requiere una dirección IP por cada servicio o contenedor adicionales al que sea necesario acceder externamente desde fuera del clúster de Kubernetes.</li>                                                                                                                       | Solo se admite la configuración de IPv4 estática.                                                                      |
+| (Opcional) Configuración del proxy web     | <li>IP/FQDN, puerto del servidor proxy web </li><li>Nombre de usuario, contraseña del proxy web</li>                                                                                                                                                                                                    | Actualmente no se admite con la configuración de proceso.                                                                     |
+| Configuración de firewall y puertos        | Use los [patrones y puertos de las direcciones URL enumerados](azure-stack-edge-system-requirements.md#networking-port-requirements) que se permitirán para las direcciones IP de dispositivos.                                                                                                                                                  |                                                                                                                   |
+| (Opcional) Dirección MAC            | Si la dirección MAC se tiene que incluir en una lista de permitidos, obtenga la dirección del puerto conectado desde la interfaz de usuario local del dispositivo. |                                                                                                                   |
+| (Opcional) Puerto de conmutador de red    | El dispositivo hospeda VM de Hyper-V para el proceso. Algunas configuraciones de puerto de conmutador de red no se adaptan a estas configuraciones de manera predeterminada.                                                                                                        |                                                                                                                   |
+| (Recomendado) Configuración de hora       | Configure la zona horaria, el servidor NTP principal, el servidor NTP secundario.                                                                                                                                                                    | Configure el servidor NTP principal y secundario en la red local.<br>Si el servidor local no está disponible, se pueden configurar servidores NTP públicos.                                                    |
+| (Opcional) Configuración del servidor de actualización | <li>Se requiere la dirección IP del servidor de actualización en la red local, ruta de acceso al servidor WSUS. </li> | De manera predeterminada, se usa el servidor público de Windows Update.|
+| Configuración del dispositivo                   | <li>Nombre del dispositivo registrado en la organización DNS </li><li>Dominio DNS</li> |                                                                                                                   |
+| (Opcional) Certificados                      | Use los certificados generados por el dispositivo. <br><br> Si va a aportar sus propios certificados, necesitará lo siguiente: <li>Certificado de firma raíz de confianza en formato DER con *.cer*. </li><li>Certificados de punto de conexión en formato *pfx*.</li>|Los certificados de punto de conexión se incluyen para Azure Resource Manager, Blob Storage, interfaz de usuario web local.                                                                                                                   |
+| Activación                        | Se requiere una clave de activación del recurso de Azure Stack Edge Pro/Data Box Gateway.                                                                                                                                                       | Una vez generada, la clave expira en 3 días.                                                                        |
+
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Prepare para implementar el [dispositivo de Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md).
+
+
+

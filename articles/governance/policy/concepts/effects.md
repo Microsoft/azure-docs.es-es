@@ -1,14 +1,14 @@
 ---
 title: Descripción del funcionamiento de los efectos
 description: Las definiciones de Azure Policy tienen diversos efectos que determinan cómo se administra y notifica el cumplimiento.
-ms.date: 08/17/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0cfa8215d828de6d5426c3883ca1968e7a7cb542
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d2ea27ceda36d2feebcf12cc47ac741093b0729c
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544730"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425541"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprender los efectos de Azure Policy
 
@@ -156,7 +156,8 @@ La propiedad **details** de los efectos de AuditIfNotExists tiene todas las subp
   - Si **details.type** es un tipo de recurso debajo del recurso de condición **if**, la directiva consultará los recursos de este **tipo** que estén dentro del alcance del recurso evaluado. De lo contrario, la directiva realizará consultas dentro del mismo grupo de recursos que el recurso evaluado.
 - **Nombre** (opcional)
   - Especifica el nombre exacto del recurso para coincidir y hace que la directiva recupere un recurso específico en lugar de todos los recursos del tipo especificado.
-  - Cuando los valores de condición para **if.field.type** y **then.details.type** coinciden, entonces el valor **Name** es _necesario_ y debe ser `[field('name')]`. Sin embargo, un efecto [Audit](#audit) debe tenerse en cuenta en su lugar.
+  - Cuando los valores de condición para **if.field.type** y **then.details.type** coinciden, entonces el valor **Name** es _necesario_ y debe ser `[field('name')]`, o `[field('fullName')]` para un recurso secundario.
+    Sin embargo, un efecto [Audit](#audit) debe tenerse en cuenta en su lugar.
 - **ResourceGroupName** (opcional)
   - Permite que la coincidencia del recurso relacionado provenga de un grupo de recursos diferente.
   - No se aplica si **type** es un recurso que estaría debajo del recurso de condición **if**.
@@ -277,7 +278,7 @@ La propiedad **details** del efecto DeployIfNotExists tiene todas las subpropied
   - Comienza tratando de recuperar un recurso debajo del recurso de condición **if** , luego consulta dentro del mismo grupo de recursos que el recurso de condición **if**.
 - **Nombre** (opcional)
   - Especifica el nombre exacto del recurso para coincidir y hace que la directiva recupere un recurso específico en lugar de todos los recursos del tipo especificado.
-  - Cuando los valores de condición para **if.field.type** y **then.details.type** coinciden, entonces el valor **Name** es _necesario_ y debe ser `[field('name')]`.
+  - Cuando los valores de condición para **if.field.type** y **then.details.type** coinciden, entonces el valor **Name** es _necesario_ y debe ser `[field('name')]`, o `[field('fullName')]` para un recurso secundario.
 - **ResourceGroupName** (opcional)
   - Permite que la coincidencia del recurso relacionado provenga de un grupo de recursos diferente.
   - No se aplica si **type** es un recurso que estaría debajo del recurso de condición **if**.
@@ -479,14 +480,33 @@ Ejemplo: Regla de control de admisión de Gatekeeper v2 para permitir solo las i
 
 ## <a name="modify"></a>Modificar
 
-Modify se usa para agregar, actualizar o quitar etiquetas de un recurso durante la creación o actualización. Un ejemplo habitual es la actualización de etiquetas en recursos como costCenter. Una directiva de modificación siempre debe tener `mode` establecido en _Indexed_ a menos que el recurso de destino sea un grupo de recursos. Los recursos no conformes existentes se pueden solucionar con una [tarea de corrección](../how-to/remediate-resources.md). Una sola regla de Modify puede tener cualquier número de operaciones.
+Modify se usa para agregar, actualizar o quitar propiedades o etiquetas de un recurso durante la creación o la actualización.
+Un ejemplo habitual es la actualización de etiquetas en recursos como costCenter. Los recursos no conformes existentes se pueden solucionar con una [tarea de corrección](../how-to/remediate-resources.md). Una sola regla de Modify puede tener cualquier número de operaciones.
+
+Modify admite las operaciones siguientes:
+
+- Agregar, reemplazar o quitar etiquetas de recursos. En el caso de las etiquetas, una directiva Modify siempre debe tener el elemento `mode` establecido en _Indexed_ a menos que el recurso de destino sea un grupo de recursos.
+- Agregar o reemplazar el valor del tipo de identidad administrada (`identity.type`) de máquinas virtuales y conjuntos de escalado de máquinas virtuales.
+- Agregar o reemplazar los valores de determinados alias (versión preliminar).
+  - Use `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`
+    en Azure PowerShell **4.6.0** o superior para obtener una lista de los alias que se pueden usar con Modify.
 
 > [!IMPORTANT]
-> Actualmente, Modify solo se usa con etiquetas. Si está administrando etiquetas, se recomienda usar Modify en lugar de Append, ya que Modify proporciona tipos de operación adicionales y la capacidad de corregir los recursos existentes. Sin embargo, se recomienda Append si no se puede crear una identidad administrada.
+> Si está administrando etiquetas, se recomienda usar Modify en lugar de Append, ya que Modify proporciona tipos de operaciones adicionales y la posibilidad de corregir los recursos existentes. Sin embargo, se recomienda Append si no puede crear una identidad administrada o Modify no es compatible todavía con el alias de la propiedad del recurso.
 
 ### <a name="modify-evaluation"></a>Evaluación de Modify
 
-Modify se evalúa antes de que un proveedor de recursos procese la solicitud durante la creación o actualización de un recurso. Modify agrega o actualiza etiquetas en un recurso cuando se cumple la condición **if** de la regla de directiva.
+Modify se evalúa antes de que un proveedor de recursos procese la solicitud durante la creación o actualización de un recurso. Las operaciones Modify se aplican al contenido de la solicitud cuando se cumple la condición **if** de la regla de la directiva. Cada operación Modify puede especificar una condición que determina cuándo se aplica. Se omiten las operaciones con condiciones que se evalúan como _false_.
+
+Cuando se especifica un alias, se realizan las siguientes comprobaciones adicionales para asegurarse de que la operación Modify no cambia el contenido de la solicitud de tal forma que el proveedor de recursos lo rechace:
+
+- La propiedad a la que se asigna el alias se marca como "modificable" en la versión de API de la solicitud.
+- El tipo de token de la operación Modify coincide con el tipo de token esperado para la propiedad en la versión de API de la solicitud.
+
+Si se produce un error en cualquiera de estas comprobaciones, la evaluación de la directiva recurre al valor de **conflictEffect** especificado.
+
+> [!IMPORTANT]
+> Se recomienda que las definiciones de Modify que incluyen alias usen el **efecto de conflicto** de _auditoría_ para evitar errores en las solicitudes con versiones de API en las que la propiedad asignada no es "modificable". Si el mismo alias se comporta de manera diferente con cada versión de API, se pueden usar operaciones Modify condicionales para determinar la operación Modify usada para cada una.
 
 Cuando una definición de directiva que utiliza el efecto Modify se ejecuta como parte de un ciclo de evaluación, no realiza cambios en los recursos que ya existen. En su lugar, marca cualquier recurso que cumple la condición **if** como no conforme.
 
@@ -498,7 +518,7 @@ La propiedad **details** del efecto Modify tiene todas las subpropiedades que de
   - Esta propiedad debe incluir una matriz de cadenas que coinciden con el identificador de rol de control de acceso basado en rol accesible por la suscripción. Para obtener más información, vea [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition) (corrección: configurar la definición de directiva).
   - El rol definido debe incluir todas las operaciones concedidas al rol [Colaborador](../../../role-based-access-control/built-in-roles.md#contributor).
 - **conflictEffect** (opcional)
-  - Determina qué definición de directiva "gana" en caso de que haya más de una definición de directiva que modifique la misma propiedad.
+  - Determina qué definición de directiva "gana" en caso de que más de una modifique la misma propiedad o cuando la operación Modify no funciona en el alias especificado.
     - En el caso de los recursos nuevos o actualizados, la definición de la directiva con _deny_ tiene prioridad. Las definiciones de directivas con _Audit_ omiten todas las **operaciones**. Si más de una definición de directiva tiene _deny_, la solicitud se deniega como conflicto. Si todas las definiciones de directiva tienen _audit_, no se procesa ninguna de las **operaciones** de las definiciones de directiva en conflicto.
     - En el caso de los recursos existentes, si hay más de una definición de directiva tenga _deny_, el estado de cumplimiento es _Conflict_. Si una o varias definiciones de directivas tienen _deny_, cada asignación devuelve un estado de cumplimiento de _Non-compliant_.
   - Valores disponibles: _audit_, _deny_, _disabled_.
@@ -513,6 +533,9 @@ La propiedad **details** del efecto Modify tiene todas las subpropiedades que de
     - **value** (opcional)
       - Valor en el que se va a establecer la etiqueta.
       - Esta propiedad es necesaria si **operation** es _addOrReplace_ o _Add_.
+    - **condition** (opcional)
+      - Una cadena que contiene una expresión de lenguaje de Azure Policy con [funciones de directiva](./definition-structure.md#policy-functions) que se evalúa como _true_ o _false_.
+      - No admite las siguientes funciones de directiva: `field()`, `resourceGroup()`, `subscription()`.
 
 ### <a name="modify-operations"></a>Operaciones de Modify
 
@@ -548,9 +571,9 @@ La propiedad **operation** tiene las siguientes opciones:
 
 |Operación |Descripción |
 |-|-|
-|addOrReplace |Agrega la etiqueta y el valor definidos al recurso, incluso si la etiqueta ya existe con un valor diferente. |
-|Sumar |Agrega la etiqueta y el valor definidos al recurso. |
-|Remove |Quita la etiqueta definida del recurso. |
+|addOrReplace |Agrega la propiedad o la etiqueta definidas y el valor al recurso, incluso si estas ya existen con un valor diferente. |
+|Sumar |Agrega la propiedad o la etiqueta definidas y el valor al recurso. |
+|Remove |Quita la propiedad o la etiqueta definidas del recurso. |
 
 ### <a name="modify-examples"></a>Ejemplos de Modify
 
@@ -593,6 +616,28 @@ Ejemplo 2: se quita la etiqueta `env` y se agrega la etiqueta `environment` o se
                 "operation": "addOrReplace",
                 "field": "tags['environment']",
                 "value": "[parameters('tagValue')]"
+            }
+        ]
+    }
+}
+```
+
+Ejemplo 3: Asegúrese de que una cuenta de almacenamiento no permita el acceso público a los blobs; la operación Modify solo se aplica cuando se evalúan solicitudes con una versión de API mayor o igual que "2019-04-01":
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/microsoft.authorization/roleDefinitions/17d1049b-9a84-46fb-8f53-869881c3d3ab"
+        ],
+        "conflictEffect": "audit",
+        "operations": [
+            {
+                "condition": "[greaterOrEquals(requestContext().apiVersion, '2019-04-01')]",
+                "operation": "addOrReplace",
+                "field": "Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+                "value": false
             }
         ]
     }

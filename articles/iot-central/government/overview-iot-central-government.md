@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 159691ee101e586419d2fd8df314947af28219dd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1ed5a64a76d27f87b590573894e34f2560a5c2aa
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77016517"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972289"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Creación de soluciones gubernamentales con Azure IoT Central
 
@@ -72,12 +72,10 @@ La plantilla de la aplicación Connected Waste Management consta de los siguient
 
 Empiece a trabajar con el [tutorial de la aplicación Connected Waste Management](./tutorial-connected-waste-management.md).
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Pruebe cualquiera de las plantillas de la aplicación Government en IoT Central de forma gratuita [crear aplicación](https://apps.azureiotcentral.com/build/government)
 * Más información sobre los [conceptos de la supervisión de la calidad del agua](./concepts-waterqualitymonitoring-architecture.md)
 * Más información sobre los [conceptos de la supervisión del consumo de agua](./concepts-waterconsumptionmonitoring-architecture.md)
 * Más información sobre los [conceptos de administración de residuos conectados](./concepts-connectedwastemanagement-architecture.md)  
-* Para más información acerca de IoT Central, consulte [Introducción a IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
- 
+* Para más información acerca de IoT Central, consulte [Introducción a IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central) 

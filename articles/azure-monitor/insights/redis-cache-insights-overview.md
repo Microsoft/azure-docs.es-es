@@ -1,18 +1,18 @@
 ---
-title: Azure Monitor para Azure Cache for Redis (versión preliminar) | Microsoft Docs
+title: Azure Monitor para Azure Cache for Redis | Microsoft Docs
 description: En este artículo describe la característica Azure Monitor para Azure Cache for Redis, que brinda a los propietarios de la caché una descripción rápida de los problemas de rendimiento y uso.
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/21/2020
-ms.openlocfilehash: 70bf39011761bcf59c8270ecdcc0542e326aef42
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/10/2020
+ms.openlocfilehash: e7b8a8e131cf7e0aae051f42043abf0640c927e4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045860"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887017"
 ---
-# <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Explore Azure Monitor para Azure Cache for Redis (versión preliminar)
+# <a name="explore-azure-monitor-for-azure-cache-for-redis"></a>Exploración de Azure Monitor para Azure Cache for Redis
 
 Para todos los recursos de Azure Cache for Redis, Azure Monitor para Azure Cache for Redis (versión preliminar) proporciona una vista interactiva unificada de:
 
@@ -50,7 +50,7 @@ Para ver el uso y el rendimiento de las cuentas de almacenamiento en todas las s
 
     ![Cuadro de búsqueda con la palabra "Monitor" y el resultado de la búsqueda de Servicios que muestra "Monitor" con un símbolo de velocímetro](./media/cosmosdb-insights-overview/search-monitor.png)
 
-1. Seleccione **Azure Cache for Redis (versión preliminar)** . Si esta opción no aparece, seleccione **Más** > **Azure Cache for Redis**.
+1. Seleccione **Azure Cache for Redis**. Si esta opción no aparece, seleccione **Más** > **Azure Cache for Redis**.
 
 ### <a name="overview"></a>Información general
 
@@ -128,9 +128,9 @@ Para acceder a Azure Monitor para Azure Cache for Redis directamente desde un re
 
 1. En Azure Portal, seleccione Azure Cache for Redis.
 
-2. En la lista, elija un recurso individual de Azure Cache for Redis. En la sección de supervisión, seleccione Conclusiones (versión preliminar).
+2. En la lista, elija un recurso individual de Azure Cache for Redis. En la sección de supervisión, seleccione Información.
 
-    ![Captura de pantalla de las opciones de menú con las palabras "Insights (preview)" resaltadas en un cuadro rojo](./media/redis-cache-insights-overview/insights.png)
+    ![Captura de pantalla de las opciones de menú con las palabras "Información" resaltadas en un cuadro rojo.](./media/redis-cache-insights-overview/insights.png)
 
 También se puede acceder a estas vistas seleccionando el nombre del recurso de un recurso de Azure Cache for Redis en el libro de nivel de Azure Monitor.
 
@@ -168,7 +168,7 @@ Para expandir o contraer todas las vistas de un libro, seleccione el símbolo de
 
 ![Un símbolo de expansión de libro resaltado](./media/cosmosdb-insights-overview/expand.png)
 
-## <a name="customize-azure-monitor-for-azure-cache-for-redis-preview"></a>Personalización de Azure Monitor para Azure Cache for Redis (versión preliminar)
+## <a name="customize-azure-monitor-for-azure-cache-for-redis"></a>Personalización de Azure Monitor para Azure Cache for Redis
 
 Como esta experiencia se basa en plantillas de libros de Azure Monitor, puede seleccionar **Personalizar** > **Editar** > **Guardar** para guardar una copia de la versión modificada en un libro personalizado.
 

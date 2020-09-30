@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e9e67dc0da7f81f73d8237769e7aea90f9bc1585
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e5d483af44116274019851f049d6222adfd8dbcd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833426"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904849"
 ---
 # <a name="planning-and-operations-guide"></a>Guía de planeamiento y operaciones
 Esta guía está destinada a profesionales de tecnología de la información (TI), arquitectos de TI, analistas de seguridad de la información y administradores de la nube que planean usar Azure Security Center.
@@ -120,7 +120,7 @@ Las directivas de Security Center contienen los componentes siguientes:
 - [Recopilación de datos](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): configuración de colección de datos y aprovisionamiento de agente.
 - [Directiva de seguridad](https://docs.microsoft.com/azure/security-center/security-center-policies): instancia de [Azure Policy](../governance/policy/overview.md) que determina los controles que Security Center supervisa y recomienda. También puede usar Azure Policy para crear definiciones, definir directivas adicionales y asignar directivas en los grupos de administración.
 - [Notificaciones por correo electrónico](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): configuración de contactos de seguridad y notificaciones.
-- [Nivel de precios](https://docs.microsoft.com/azure/security-center/security-center-pricing): selección de precios de nivel gratuito o estándar, que determina qué características de Security Center están disponibles para los recursos en el ámbito (se puede especificar para suscripciones, grupos de recursos y áreas de trabajo).
+- [Nivel de precios](https://docs.microsoft.com/azure/security-center/security-center-pricing): con o sin Azure Defender, que determina qué características de Security Center están disponibles para los recursos en el ámbito (se puede especificar para suscripciones, grupos de recursos y áreas de trabajo).
 
 > [!NOTE]
 > Al especificar un contacto de seguridad se garantiza que Azure puede llegar a la persona adecuada de su organización si se produce un incidente de seguridad. Consulte [Proporcionar detalles de contacto de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) para más información sobre cómo habilitar esta recomendación.
@@ -158,12 +158,12 @@ En el portal de Azure, puede realizar una exploración para ver una lista de las
 En el caso de las áreas de trabajo creadas por Azure Security Center, los datos se conservan durante 30 días. En las áreas de trabajo existentes, la retención se basa en el plan de tarifa del área de trabajo. Si lo desea, también puede usar un área de trabajo existente.
 
 > [!NOTE]
-> Microsoft está totalmente comprometido a proteger la privacidad y la seguridad de estos datos. Microsoft se adhiere a instrucciones estrictas de seguridad y cumplimiento de normas, desde la codificación hasta la operación de un servicio. Para más información sobre el control de datos y la privacidad, lea [Seguridad de datos de Azure Security Center](security-center-data-security.md).
+> Microsoft está totalmente comprometido con la protección de la privacidad y la seguridad de estos datos. Microsoft se adhiere a instrucciones estrictas de seguridad y cumplimiento de normas, desde la codificación hasta la operación de un servicio. Para más información sobre el control de datos y la privacidad, lea [Seguridad de datos de Azure Security Center](security-center-data-security.md).
 >
 
 ## <a name="onboarding-non-azure-resources"></a>Incorporación de recursos que no son de Azure
 
-Security Center puede supervisar la situación de seguridad de los equipos que no son de Azure, pero para ello antes hay que incorporar esos recursos. Para más información sobre cómo incorporar recursos que no son de Azure, lea [Incorporación a Azure Security Center Estándar para una seguridad mejorada](https://docs.microsoft.com/azure/security-center/security-center-onboarding#onboard-non-azure-computers).
+Security Center puede supervisar la situación de seguridad de los equipos que no son de Azure, pero para ello antes hay que incorporar esos recursos. Para más información sobre cómo incorporar recursos que no son de Azure, lea [Incorporar equipos que no son de Azure](quickstart-onboard-machines.md).
 
 ## <a name="ongoing-security-monitoring"></a>Supervisión continuada de la seguridad
 Después de la configuración inicial y la aplicación de las recomendaciones de Security Center, el siguiente paso consiste en considerar los procesos operativos de Security Center.
@@ -199,7 +199,7 @@ Security Center detecta amenazas y alerta sobre ellas a medida que se producen. 
 
 Aunque el objetivo de este artículo no es ayudarle a crear su propio plan de respuesta a incidentes, vamos a usar las respuestas de seguridad de Microsoft Azure en el ciclo de vida de la nube como base para las fases de la respuesta a incidentes. Estas fases se muestran en el diagrama siguiente:
 
-![Actividad sospechosa](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
+![Fases de la respuesta a incidentes en el ciclo de vida de la nube](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
 
 > [!NOTE]
 > Puede usar la guía [Computer Security Incident Handling Guide](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) sobre el tratamiento de los incidentes de seguridad informática del National Institute of Standards and Technology (NIST) de EE. UU. como ayuda para crear el suyo propio.
@@ -237,4 +237,4 @@ En este documento, ha aprendido a planear la adopción de Security Center. Para 
 * [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md) : obtenga más información sobre cómo supervisar el estado de sus recursos en Azure.
 * [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
 * [Preguntas más frecuentes sobre Azure Security Center](faq-general.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
-* [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/) :  encuentre entradas de blog sobre el cumplimiento y la seguridad en Azure.
+* [Blog de seguridad de Azure](https://docs.microsoft.com/archive/blogs/azuresecurity/) :  encuentre entradas de blog sobre el cumplimiento y la seguridad en Azure.

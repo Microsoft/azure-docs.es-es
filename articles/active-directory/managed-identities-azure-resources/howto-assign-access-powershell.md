@@ -3,7 +3,7 @@ title: 'Asignación de un acceso de identidad administrada a un recurso mediante
 description: Instrucciones paso a paso para asignar una identidad administrada en un recurso y el acceso a otro recurso usando PowerShell.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9fcca72234340a6284dbba5443ae6fb735d4a04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ae2da130f61d31db4904ed2dd5ac18444929950
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608286"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177506"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>Asignación de un acceso de identidad administrada a un recurso mediante PowerShell
 
@@ -36,7 +36,7 @@ Una vez que haya configurado un recurso de Azure con una identidad administrada,
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Instale [la versión más reciente de Azure PowerShell](/powershell/azure/install-az-ps) si aún no lo ha hecho.
 
-## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Uso de RBAC para asignar el acceso de una identidad administrada a otro recurso
+## <a name="use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Uso de Azure RBAC para asignar el acceso de una identidad administrada a otro recurso
 
 Después de habilitar la identidad administrada en un recurso de Azure, [como una máquina virtual de Azure](qs-configure-powershell-windows-vm.md):
 

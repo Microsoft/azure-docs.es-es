@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2020
+ms.date: 09/08/2020
 ms.author: radeltch
-ms.openlocfilehash: f2b4b207aca92cc37b71f3cb12ec579a6b57e832
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1efa00962e63274c2cc02c8758725e5b11d70a9d
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068955"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567833"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en SUSE Linux Enterprise Server
 
@@ -575,7 +575,6 @@ Asegúrese de que el estado del clúster sea el correcto y de que se iniciaron t
 # Full list of resources:
 #
 # stonith-sbd     (stonith:external/sbd): Started hn1-db-0
-# rsc_st_azure    (stonith:fence_azure_arm):      Started hn1-db-1
 # Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
 #     Started: [ hn1-db-0 hn1-db-1 ]
 # Master/Slave Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03]

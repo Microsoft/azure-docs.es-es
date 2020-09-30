@@ -3,14 +3,14 @@ title: Ejecución de runbooks de Azure Automation en una instancia de Hybrid Run
 description: En este artículo se describe cómo ejecutar runbooks en máquinas del centro de datos local o en el proveedor de nube con la instancia de Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/29/2019
+ms.date: 08/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 22ab982abe9f73aa77cb9bb2c8d3eaa383bc42fb
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 13c982dcfab21371ea6017f730065cc5ced4b79e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186221"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959576"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Ejecución de runbooks en Hybrid Runbook Worker
 
@@ -305,8 +305,16 @@ Al iniciar un runbook con PowerShell, use el parámetro `RunOn` con el cmdlet [S
 Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
 
+## <a name="logging"></a>Registro
+
+Para ayudar a solucionar problemas con los runbooks que se ejecutan en un trabajo de runbook híbrido, los registros se almacenan localmente en la siguiente ubicación:
+
+* En Windows en `C:\ProgramData\Microsoft\System Center\Orchestrator\<version>\SMA\Sandboxes` para el registro detallado del proceso en tiempo de ejecución del trabajo. Los eventos de estado de trabajo de runbook de alto nivel se escriben en el registro de eventos **Registros de aplicaciones y servicios\Microsoft-Automation\Operations**.
+
+* En Linux, los registros de trabajo híbridos de usuario y los registros de trabajo de runbook del sistema se pueden encontrar en `/home/nxautomation/run/worker.log` y `/var/opt/microsoft/omsagent/run/automationworker/worker.log`, respectivamente.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Si los runbooks no finalizan correctamente, revise la guía de solución de problemas sobre [errores de ejecución de un runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 * Para obtener más información sobre PowerShell, incluidos los módulos de referencia de lenguaje y aprendizaje, consulte la [documentación de PowerShell](/powershell/scripting/overview).
-* Para obtener una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Para ver una referencia de los cmdlets de PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

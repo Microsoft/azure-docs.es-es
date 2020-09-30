@@ -11,15 +11,15 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: a9ae3d2789758d03405fb5be82181c799d1ea692
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: c86397b20a95f045ac5edfeb2cfa4833982df990
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141132"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897416"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Administración y aumento de las cuotas de los recursos con Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 En este artículo, obtendrá información sobre los límites preconfigurados en los recursos de Azure para la suscripción a [Azure Machine Learning](overview-what-is-azure-ml.md) y las cuotas que puede administrar. Estos límites se establecen para evitar salirse del presupuesto debido a fraudes y para respetar las restricciones de capacidad de Azure. 
 
@@ -99,8 +99,6 @@ Para establecer cuotas en el nivel de área de trabajo, vaya a cualquier área d
 
 
 > [!NOTE]
-> Esta es una característica exclusiva de la edición Enterprise. Si dispone de un área de trabajo de la [edición Basic y de la edición Enterprise](overview-what-is-azure-ml.md#sku) en su suscripción, puede usarla solo para establecer cuotas en las áreas de trabajo Enterprise. Las áreas de trabajo Basic seguirán teniendo la cuota de nivel de suscripción, que es el comportamiento predeterminado.
->
 > Necesita permisos de nivel de suscripción para establecer la cuota en el nivel de área de trabajo. Esto se aplica para que los propietarios de áreas de trabajo individuales no editen ni aumenten sus cuotas y comiencen a utilizar los recursos reservados para otra área de trabajo. Por lo tanto, un administrador de suscripciones es más adecuado para asignar y distribuir estas cuotas entre áreas de trabajo.
 
 

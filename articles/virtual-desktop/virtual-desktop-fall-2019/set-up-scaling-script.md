@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f4092b9d5ee7453533561f5921781fee4d1823eb
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: fd14af6c95654708f339f4a68cd333d0e3162553
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005591"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078187"
 ---
 # <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Escalado de hosts de sesión de Windows Virtual Desktop (clásico) mediante Azure Automation
 
@@ -21,10 +21,6 @@ ms.locfileid: "88005591"
 Puede reducir el costo total de implementación de Windows Virtual Desktop mediante el escalado de las máquinas virtuales. Esto significa que se cierran y desasignan las máquinas virtuales del host de sesión durante las horas de menos uso y, posteriormente, se vuelven a activar y se reasignan durante las horas punta.
 
 En este artículo, obtendrá información sobre la herramienta de escalado creada con la cuenta de Azure Automation y Azure Logic Apps que escala automáticamente las máquinas virtuales del host de sesión en el entorno de Windows Virtual Desktop. Para más información sobre cómo usar la herramienta de escalado, consulte los [requisitos previos](#prerequisites).
-
-## <a name="report-issues"></a>Informar de problemas
-
-En la actualidad, los informes de incidencias de la herramienta de escalado se controlan en GitHub en lugar de Soporte técnico de Microsoft. Si encuentra algún problema con la herramienta de escalado, obtenga la información necesaria tal como se describe en la sección [Informar de problemas](#reporting-issues) y abra una incidencia de GitHub con la etiqueta "4a-WVD-scaling-logicapps" en la [página de RDS de GitHub](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
 
 ## <a name="how-the-scaling-tool-works"></a>Funcionamiento de la herramienta de escalado
 
@@ -362,3 +358,7 @@ Si decidió usar Log Analytics, puede ver todos los datos de registros en un reg
     | where logmessage_s contains "ERROR:" or logmessage_s contains "WARN:"
     | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
     ```
+
+## <a name="report-issues"></a>Informar de problemas
+
+En la actualidad, los informes de incidencias de la herramienta de escalado se controlan en el Soporte técnico de Microsoft. Cuando cree un informe de problemas, asegúrese de seguir las instrucciones descritas en el artículo sobre [informes de problemas](#reporting-issues). Si tiene comentarios sobre la herramienta o desea solicitar nuevas características, abra una incidencia de GitHub con la etiqueta "4-WVD-Scaling-Tool" en la [página RDS de GitHub](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4-WVD-scaling-tool).

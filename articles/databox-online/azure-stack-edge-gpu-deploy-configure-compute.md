@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Filtrado y análisis de los datos con proceso en la GPU de Azure Stack Edge | Microsoft Docs'
-description: Aprenda a configurar el rol de proceso en la GPU de Azure Stack Edge y a usarlo para transformar los datos antes de enviarlos a Azure.
+title: 'Tutorial: Filtrado y análisis de los datos con proceso en Azure Stack Edge Pro con GPU | Microsoft Docs'
+description: Aprenda a configurar el rol de proceso en Azure Stack Edge Pro con GPU y a usarlo para transformar los datos antes de enviarlos a Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,19 +8,19 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: f4a8786c8d86f43d3433dd51fe7696fd523025a9
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
+ms.openlocfilehash: 95c59cff1f47fe720e2dbc65c5b0a69a09be2f2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293575"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903180"
 ---
-# <a name="tutorial-configure-compute-on-azure-stack-edge-gpu-device"></a>Tutorial: Configuración del proceso en un dispositivo de GPU de Azure Stack Edge
+# <a name="tutorial-configure-compute-on-azure-stack-edge-pro-gpu-device"></a>Tutorial: Configuración del proceso en un dispositivo de Azure Stack Edge Pro con GPU
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Este tutorial describe cómo configurar el rol de proceso y crear un clúster de Kubernetes en un dispositivo de Azure Stack Edge. 
+Este tutorial describe cómo configurar el rol de proceso y crear un clúster de Kubernetes en un dispositivo de Azure Stack Edge Pro. 
 
 Este procedimiento tarda aproximadamente entre 20 y 30 minutos en completarse.
 
@@ -34,16 +34,16 @@ En este tutorial, aprenderá a:
  
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de configurar un rol de proceso en el dispositivo de Azure Stack Edge, compruebe lo siguiente:
+Antes de configurar un rol de proceso en el dispositivo de Azure Stack Edge Pro, asegúrese de que:
 
-- Ha activado el dispositivo de Azure Stack Edge tal como se describe en [Activación de Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md).
+- Ha activado un dispositivo Azure Stack Edge Pro como se describe en [Activación de Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 - Asegúrese de que ha seguido las instrucciones de [Habilitación de la red de proceso](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#enable-compute-network) y:
     - Ha habilitado una interfaz de red para proceso.
     - Ha asignado direcciones IP de nodo de Kubernetes y direcciones IP de servicio externo de Kubernetes.
 
 ## <a name="configure-compute"></a>Configurar el proceso
 
-Para configurar el proceso en Azure Stack Edge, creará un recurso de IoT Hub en Azure Portal.
+Para configurar el proceso en Azure Stack Edge Pro, creará un recurso de IoT Hub en Azure Portal.
 
 1. En la instancia de Azure Portal del recurso de Azure Stack Edge, vaya a **Información general**. En el panel derecho, en el icono **Proceso**, seleccione **Comenzar**.
 
@@ -72,17 +72,17 @@ Para configurar el proceso en Azure Stack Edge, creará un recurso de IoT Hub en
     ![Introducción al proceso](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
 
     > [!NOTE]
-    > Si el cuadro de diálogo **Configurar proceso** se cierra antes de que IoT Hub esté asociado con el dispositivo de Azure Stack Edge, la instancia de IoT Hub se crea, pero no se muestra en la configuración de proceso. 
+    > Si el cuadro de diálogo **Configurar proceso** se cierra antes de que IoT Hub esté asociado con el dispositivo de Azure Stack Edge Pro, la instancia de IoT Hub se crea, pero no se muestra en la configuración de proceso. 
     
 Cuando el rol de proceso de Edge está configurado en el dispositivo de Edge, este crea dos dispositivos: uno IoT y el otro IoT Edge. Ambos se pueden ver en el recurso de IoT Hub. Un entorno de ejecución de IoT Edge también se ejecuta en este dispositivo de IoT Edge. En este momento, solo está disponible la plataforma Linux para el dispositivo IoT Edge.
 
 Puede tardar de 20 a 30 minutos en configurar el proceso, ya que en segundo plano se crean las máquinas virtuales y el clúster de Kubernetes. 
 
-Después de haber configurado correctamente el proceso en Azure Portal, existe un clúster de Kubernetes y un usuario predeterminado asociado al espacio de nombres de IoT (un espacio de nombres del sistema controlado por Azure Stack Edge). 
+Después de haber configurado correctamente el proceso en Azure Portal, existe un clúster de Kubernetes y un usuario predeterminado asociado al espacio de nombres de IoT (un espacio de nombres del sistema controlado por Azure Stack Edge Pro). 
 
 ## <a name="get-kubernetes-endpoints"></a>Obtención de los puntos de conexión de Kubernetes
 
-Para configurar un cliente para obtener acceso al clúster de Kubernetes, necesitará el punto de conexión de Kubernetes. Siga estos pasos para obtener el punto de conexión de la API de Kubernetes desde la interfaz de usuario local del dispositivo de Azure Stack Edge.
+Para configurar un cliente para obtener acceso al clúster de Kubernetes, necesitará el punto de conexión de Kubernetes. Siga estos pasos para obtener el punto de conexión de la API de Kubernetes desde la interfaz de usuario local del dispositivo de Azure Stack Edge Pro.
 
 1. En la interfaz de usuario web local del dispositivo, vaya a la página **Dispositivos**.
 2. En **Puntos de conexión del dispositivo**, copie el punto de conexión del **servicio de API de Kubernetes**. Este punto de conexión es una cadena en el formato siguiente: `https://compute.<device-name>.<DNS-domain>[Kubernetes-cluster-IP-address]`. 
@@ -117,7 +117,7 @@ En este tutorial, ha aprendido a:
 > * Obtención de los puntos de conexión de Kubernetes
 
 
-Para aprender a administrar el dispositivo de Azure Stack Edge, consulte:
+Para aprender a administrar el dispositivo de Azure Stack Edge Pro, consulte:
 
 > [!div class="nextstepaction"]
-> [Uso de la interfaz de usuario web local para administrar Azure Stack Edge](azure-stack-edge-manage-access-power-connectivity-mode.md).
+> [Uso de la interfaz de usuario web local para administrar Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md).

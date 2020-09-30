@@ -1,6 +1,6 @@
 ---
 title: Extensión de Azure Sentinel por áreas de trabajo e inquilinos | Microsoft Docs
-description: Uso de varios inquilinos en Azure Sentinel para proveedores de servicios de MSSP
+description: Cómo usar Azure Sentinel para consultar datos y analizarlos entre áreas de trabajo e inquilinos.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2020
+ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 596d0f4870d9331a332dfb81bd7d2d224964a593
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b899069a03b39d068f2b4059cf26d3baf1f3beae
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519020"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905418"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Extender Azure Sentinel por áreas de trabajo e inquilinos
 
@@ -94,6 +94,13 @@ Una función también puede simplificar una unión de uso frecuente. Por ejemplo
 
 Después, puede escribir una consulta en ambas áreas de trabajo empezando por `unionSecurityEvent | where ...`.
 
+#### <a name="scheduled-alerts"></a>Alertas programadas
+
+Las consultas entre áreas de trabajo ahora se pueden incluir en las alertas programadas en las reglas de análisis, en función de las limitaciones siguientes:
+
+- Se pueden incluir hasta 10 áreas de trabajo en una sola consulta.
+- Azure Sentinel debe implementarse en todas las áreas de trabajo a las que se hace referencia en la consulta.
+
 > [!NOTE] 
 > La consulta de varias áreas de trabajo en la misma consulta puede afectar al rendimiento y, por lo tanto, solo se recomienda cuando la lógica requiere esta funcionalidad.
 
@@ -121,13 +128,6 @@ Las funcionalidades de búsqueda entre áreas de trabajo permiten que los buscad
 Para configurar y administrar varias áreas de trabajo de Azure Sentinel, deberá automatizar el uso de la API de administración de Azure Sentinel. Para obtener más información sobre cómo automatizar la implementación de recursos de Azure Sentinel, incluidas reglas de alertas, consultas de búsqueda, libros y guías, consulte [Extensión de Azure Sentinel: API, integración y automatización de la administración](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885).
 
 Consulte también [Implementación y administración de Azure Sentinel como código](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) y [Combinación de Azure Lighthouse con las funcionalidades de DevOps de Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) para obtener una metodología consolidada de colaboración de la comunidad para administrar Azure Sentinel como código y para implementar y configurar recursos desde un repositorio de GitHub privado. 
-
-
-## <a name="whats-not-supported-across-workspaces"></a>¿Qué no se admite en las áreas de trabajo?
-
-No se admiten las siguientes características en las áreas de trabajo:
-
-- Una regla de alerta programada no se puede ejecutar en áreas de trabajo mediante una consulta entre áreas de trabajo.
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Administración de áreas de trabajo en los inquilinos mediante Azure Lighthouse
 

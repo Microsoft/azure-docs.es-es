@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: cc98a0703cf408194c4c3740938399b57a36d468
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: fe1cdf738162fe5c4492ff0585f057256153a838
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835619"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561421"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Redes virtuales y máquinas virtuales en Azure 
 
@@ -147,7 +147,7 @@ En esta tabla se enumeran los métodos que se pueden usar para crear un equilibr
 | Portal de Azure | Puede [equilibrar la carga de tráfico interno con un equilibrador de carga en Azure Portal](../load-balancer/tutorial-load-balancer-standard-internal-portal.md). |
 | [Azure PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md) | Para proporcionar una dirección IP privada en la subred de la red, utilice [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) con el parámetro **-PrivateIpAddress**. Use [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) para crear la configuración del grupo de direcciones de back-end. Use [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) para crear reglas NAT de entrada asociadas a la configuración de la IP de front-end que ha creado. Use [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) para crear los sondeos que necesite. Use [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) para crear la configuración del equilibrador de carga. Use [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) para crear el equilibrador de carga.|
 | [CLI de Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md) | Use el comando [az network lb create](/cli/azure/network/lb) para crear la configuración inicial del equilibrador de carga. Para definir la dirección IP privada, utilice [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip) con el parámetro **--private-ip-address**. Use [az network lb address-pool create](/cli/azure/network/lb/address-pool) para agregar la configuración del grupo de direcciones de back-end. Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule) para agregar reglas NAT. Use [az network lb rule create](/cli/azure/network/lb/rule) para agregar las reglas del equilibrador de carga. Use [az network lb probe create](/cli/azure/network/lb/probe) para agregar los sondeos.|
-| [Plantilla](../load-balancer/load-balancer-get-started-ilb-arm-template.md) | Use [2 VMs in a Load Balancer and configure NAT rules on the LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) (Dos máquinas virtuales en un equilibrador de carga y configurar relas NAT en el equilibrador de carga) como guía para implementar un equilibrador de carga mediante una plantilla. |
+| [Plantilla](../load-balancer/quickstart-load-balancer-standard-internal-template.md) | Use [2 VMs in a Load Balancer and configure NAT rules on the LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) (Dos máquinas virtuales en un equilibrador de carga y configurar relas NAT en el equilibrador de carga) como guía para implementar un equilibrador de carga mediante una plantilla. |
 
 ### <a name="virtual-machine-scale-sets"></a>Conjuntos de escalado de máquinas virtuales
 

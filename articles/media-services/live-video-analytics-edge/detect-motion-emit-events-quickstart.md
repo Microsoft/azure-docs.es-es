@@ -4,18 +4,18 @@ description: En este inicio rápido se muestra cómo usar Live Video Analytics e
 ms.topic: quickstart
 ms.date: 08/10/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 45595e8e6aa53b41d6d8b0d9d11457468dc47013
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 4d8b91529eaf5a9ee93cff28153b28b26fb7e685
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691041"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566927"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>Inicio rápido: Detección de movimiento y emisión de eventos
 
 Este inicio rápido le guiará por los pasos necesarios para empezar a usar Live Video Analytics en IoT Edge. Usa una máquina virtual de Azure como un dispositivo IoT Edge y una secuencia de vídeo en directo simulada. Después de completar los pasos de la configuración, podrá ejecutar una secuencia de vídeo en directo simulada mediante un grafo multimedia que detecta e informa de todos los movimientos de esa secuencia. El siguiente diagrama muestra una representación gráfica de ese grafo multimedia.
 
-![Live Video Analytics basado en la detección de movimiento](./media/analyze-live-video/motion-detection.png) 
+![Live Video Analytics basado en la detección de movimiento](./media/analyze-live-video/motion-detection.svg) 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [header](includes/detect-motion-emit-events-quickstart/csharp/header.md)]

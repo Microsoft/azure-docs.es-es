@@ -20,6 +20,8 @@
       href: set-up-service-alerts.md
 - name: Instrucciones
   items:
+    - name: Migración manual
+      href: manual-migration.md
     - name: Conexión a recursos de Windows Virtual Desktop
       items:
         - name: Conexión con el cliente de Escritorio de Windows

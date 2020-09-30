@@ -2,13 +2,13 @@
 title: Temas del sistema en Azure Event Grid
 description: Describe los temas del sistema en Azure Event Grid.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 655ec5f0ad23b3902c1c99ba75eef2ef428911eb
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 08/27/2020
+ms.openlocfilehash: f5ca472ab5141207222987d476284813c2aacf56
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119929"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019103"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Temas del sistema en Azure Event Grid
 Un tema del sistema en Event Grid representa uno o varios eventos publicados por los servicios de Azure, como Azure Storage y Azure Event Hubs. Por ejemplo, un tema del sistema puede representar **todos los eventos de blobs** o solo los eventos de **blob creado** y **blobs eliminado** publicados para una **cuenta de almacenamiento específica**. En este ejemplo, cuando se carga un blob en la cuenta de almacenamiento, el servicio de Azure Storage publica un evento de **blob creado** en el tema del sistema en Event Grid, que luego reenvía el evento a los [suscriptores](event-handlers.md) del tema que reciben y procesan el evento. 
@@ -57,7 +57,7 @@ Se producirá un error en la creación del tema del sistema si ha configurado la
 ## <a name="location-and-resource-group-for-a-system-topic"></a>Ubicación y grupo de recursos para un tema del sistema
 En el caso de los orígenes del evento de Azure que se encuentran en una región o ubicación específica, el tema del sistema se crea en la misma ubicación que el origen del evento de Azure. Por ejemplo, si crea una suscripción de evento para un almacenamiento de blobs de Azure en la región Este de EE. UU., el tema del sistema se crea en Este de EE. UU. En el caso de los orígenes del evento globales de Azure, como las suscripciones y grupos de recursos de Azure o Azure Maps, Event Grid crea el tema del sistema en una ubicación **global**. 
 
-En general, el tema del sistema se crea en el mismo grupo de recursos en el que se encuentra el origen del evento de Azure. En el caso de las suscripciones de evento creadas en el ámbito de la suscripción de Azure, el tema del sistema se crea en el grupo de recursos **Default-EventGrid**. Si el grupo de recursos no existe, Azure Event Grid lo crea antes de crear el tema del sistema. 
+En general, el tema del sistema se crea en el mismo grupo de recursos en el que se encuentra el origen del evento de Azure. En el caso de las suscripciones de evento creadas en el ámbito de la suscripción de Azure, el tema del sistema se crea en el grupo de recursos **Default-EventGrid** en la región **Oeste de EE. UU. 2**. Si el grupo de recursos no existe, Azure Event Grid lo crea antes de crear el tema del sistema. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea los artículos siguientes: 

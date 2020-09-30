@@ -1,6 +1,7 @@
 ---
-title: Creación, modificación o eliminación de una dirección IP pública de Azure | Microsoft Docs
-description: Cree, modifique o elimine una dirección IP pública. Además, aprenda de qué forma una dirección IP pública es un recurso con sus propios valores de configuración.
+title: Administrar direcciones IP públicas | Microsoft Docs
+titleSuffix: Azure Virtual Network
+description: Administrar direcciones IP públicas.  Además, aprenda de qué forma una dirección IP pública es un recurso con sus propios valores de configuración.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -16,14 +17,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 4c0766dc063932c5fdd41a4e21ac11befd84a0e5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7beff39ed2c37eeb0f07571ba6d611d23a3221e7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265133"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292034"
 ---
-# <a name="create-change-or-delete-a-public-ip-address"></a>Creación, modificación o eliminación de una dirección IP pública
+# <a name="manage-public-ip-addresses"></a>Administración de direcciones IP públicas
 
 Obtenga información sobre una dirección IP pública y cómo crearla, modificarla y eliminarla. Una dirección IP pública es un recurso con sus propios valores de configuración. Asignar una dirección IP pública a un recurso de Azure que admita direcciones IP públicas permite:
 - La comunicación entrante desde Internet a los recursos, como Azure Virtual Machines, Azure Application Gateway, Azure Load Balancer, Azure VPN Gateway y otros. Todavía puede comunicarse con recursos como máquinas virtuales desde Internet, si una máquina virtual no tiene asignada una dirección IP pública, y siempre que la máquina virtual forme parte de un grupo de back-end de un equilibrador de carga, y el equilibrador de carga tenga asignada una dirección IP pública. Para determinar si puede asignarse una dirección IP pública a un recurso para un servicio específico de Azure, o si es posible comunicarse con él a través de la dirección IP pública de otro recurso de Azure, consulte la documentación del servicio.

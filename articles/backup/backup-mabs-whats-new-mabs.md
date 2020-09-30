@@ -3,12 +3,12 @@ title: Novedades de Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server proporciona funcionalidades mejoradas de copia de seguridad para proteger máquinas virtuales, archivos y carpetas, cargas de trabajo, etc.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: fb47d2f14ca686e04cd2d9e3dec27d3ca4a30f5c
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: ca06e52c81b909bb19008fdccfe4b3fdeb7e6248
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893194"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182146"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Novedades de Microsoft Azure Backup Server (MABS)
 

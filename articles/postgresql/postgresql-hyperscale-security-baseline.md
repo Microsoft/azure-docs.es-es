@@ -6,13 +6,13 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: debbc47204aca2fbea1307bd4b692921725e5fd0
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 37ebd1702ed8ef059b38378b89f5a5cb61748568
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563915"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231306"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale"></a>Base de referencia de seguridad de Azure para Azure Database for PostgreSQL: Hiperescala
 
@@ -347,13 +347,13 @@ En algunos casos, las aplicaciones de terceros requieren un archivo de certifica
 
 **Responsabilidad**: Compartido
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Uso del control de acceso basado en rol para controlar el acceso a los recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
-**Guía**: Use el control de acceso basado en rol (RBAC) de Azure para controlar el acceso al plano de control de Hiperescala (Citus) (por ejemplo, Azure Portal). RBAC no afecta a los permisos de usuario de la base de datos.
+**Guía**: Use el control de acceso basado en rol (RBAC de Azure) de Azure para controlar el acceso al plano de control de Hiperescala (Citus) (por ejemplo, Azure Portal). Azure RBAC no afecta a los permisos de usuario en la base de datos.
 
 Para modificar los privilegios de usuario a nivel de base de datos, use los comandos estándar de PostgreSQL con una herramienta como PgAdmin o psql.
 
-- [Configuración de RBAC en Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Configuración de Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 - [Crear usuarios en Azure Database for PostgreSQL - Hiperescala (Citus)](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
 

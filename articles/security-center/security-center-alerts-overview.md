@@ -10,20 +10,20 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: memildin
-ms.openlocfilehash: 25b5569c123a4c7376aecd01b8e36f68b0a8e9b5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b2d5731ea9e8f2fb13d234fc9d951e221c0ab3e5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519614"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905467"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de seguridad en Azure Security Center
 
 En Azure Security Center, existe una amplia variedad de alertas para los numerosos y diversos tipos de recursos. Security Center genera alertas para los recursos implementados en Azure, así como para los recursos implementados en entornos locales y entornos en la nube híbrida.
 
-Una serie de medidas de detección avanzadas se ocupan de desencadenar las alertas de seguridad y solo están disponibles en el nivel Estándar de Azure Security Center. Hay una evaluación gratuita disponible. Puede actualizar su versión desde la página **Precios y configuración**. Obtenga más información sobre los [precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
+Las alertas de seguridad se activan mediante detecciones avanzadas y solo están disponibles con Azure Defender. Hay una evaluación gratuita disponible. Puede actualizar su versión desde la página **Precios y configuración**. Obtenga más información sobre los [precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="responding-to-todays-threats"></a>Respuesta a las amenazas actuales <a name="respond-threats"> </a>
+## <a name="respond-to-todays-threats"></a>Respuesta a las amenazas actuales <a name="respond-threats"> </a>
 
 En los últimos 20 años, las amenazas han cambiado considerablemente. Por lo general, en el pasado, las compañías solo tenían que preocuparse por las alteraciones que atacantes individuales realizaban en sus sitios web, quienes normalmente solo pretendían comprobar “qué es lo que eran capaces de hacer”. Hoy en día, los atacantes son mucho más sofisticados y están más organizados. Normalmente, se mueven por un fin económico o estratégico. También disponen de más recursos, ya que a veces están financiados por estados o por el crimen organizado.
 
@@ -45,7 +45,7 @@ Utilizando los incidentes, Security Center proporciona una vista única de una c
 
 ## <a name="how-does-security-center-detect-threats"></a>¿Cómo detecta Security Center las amenazas? <a name="detect-threats"> </a>
 
-Los investigadores de seguridad de Microsoft trabajan sin descanso para localizar amenazas. Dada la presencia global de Microsoft en la nube y en sistemas locales, tienen acceso a un amplio conjunto de recursos de telemetría. La amplitud y diversidad de estos conjuntos de datos permite detectar nuevos patrones y tendencias de ataque tanto en sus productos locales, destinados a particulares y empresas, como en sus servicios en línea. Como resultado, Security Center es capaz de actualizar rápidamente los algoritmos de detección a medida que los atacantes idean nuevas y más sofisticadas vulnerabilidades de seguridad. Este enfoque le ayuda a mantenerse al día en entornos llenos de amenazas que cambian continuamente.
+Los investigadores de seguridad de Microsoft trabajan sin descanso para localizar amenazas. Dada nuestra presencia global en la nube y en sistemas locales, tenemos acceso a un amplio conjunto de recursos de telemetría. La amplitud y diversidad de estos conjuntos de datos nos permite detectar nuevos patrones y tendencias de ataque tanto en nuestros productos locales, destinados a particulares y empresas, como en nuestros servicios en línea. Como resultado, Security Center es capaz de actualizar rápidamente los algoritmos de detección a medida que los atacantes idean nuevas y más sofisticadas vulnerabilidades de seguridad. Este enfoque le ayuda a mantenerse al día en entornos llenos de amenazas que cambian continuamente.
 
 Para detectar amenazas reales y reducir los falsos positivos, Security Center recopila, analiza e integra los datos de registro de los recursos de Azure y de la red. También funciona con soluciones de asociados conectados, como firewalls y soluciones de protección de puntos de conexión. Security Center analiza estos datos (a menudo, relacionando la información de diferentes orígenes) para identificar las amenazas.
 
@@ -90,6 +90,5 @@ Toda esta combinación de esfuerzos culmina en nuevas y mejoradas técnicas de d
 
 En este artículo, ha aprendido obtenido información sobre los distintos tipos de alertas disponibles en Security Center. Para más información, consulte:
 
-* [Protección contra amenazas en Azure Security Center](threat-protection.md): para una breve descripción de los orígenes de las alertas de seguridad mostradas en Azure Security Center 
-* **Alertas de seguridad en el registro de actividad de Azure**: además de estar disponibles en Azure Portal o mediante programación, las alertas y los incidentes de seguridad se auditan como eventos en el [registro de actividad de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). Para obtener más información sobre el esquema de eventos, consulte el artículo sobre [alertas de seguridad en el registro de actividad de Azure](https://go.microsoft.com/fwlink/?linkid=2114113).
+- **Alertas de seguridad en el registro de actividad de Azure**: además de estar disponibles en Azure Portal o mediante programación, las alertas y los incidentes de seguridad se auditan como eventos en el [registro de actividad de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). Para obtener más información sobre el esquema de eventos, consulte el artículo sobre [alertas de seguridad en el registro de actividad de Azure](https://go.microsoft.com/fwlink/?linkid=2114113).
 

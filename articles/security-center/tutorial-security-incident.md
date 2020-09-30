@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: dc19d74953db48ccf51d4731e2b9feccb2294041
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c508591fe9909578dcc04b0922c0b76691898743
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076389"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901092"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutorial: Respuesta a incidentes de seguridad
 Security Center analiza continuamente las cargas de trabajo de la nube híbrida y usa el análisis avanzado e inteligencia de amenazas para alertarle de cualquier actividad malintencionada. Además, en Security Center se pueden integrar alertas de otros servicios y productos de seguridad, así como crear alertas personalizadas basadas en indicadores u orígenes de inteligencia propios. Una vez que se genera una alerta, es necesario investigarla y tomar las medidas correctoras de inmediato. En este tutorial, aprenderá a:
@@ -32,7 +32,7 @@ Security Center analiza continuamente las cargas de trabajo de la nube híbrida 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Prerrequisitos
-Para recorrer las características que se tratan en este tutorial, es preciso tener el plan de tarifa Estándar de Security Center. Dicho plan se puede probar de forma gratuita. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/). En [Guía de inicio rápido de Azure Security Center](security-center-get-started.md) le explicamos cómo realizar la actualización al plan de tarifa Estándar.
+Para recorrer las características descritas en este tutorial, debe tener habilitado Azure Defender. Puede probar Azure Defender sin costo alguno. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/). La guía de inicio rápido [Introducción a Security Center](security-center-get-started.md) le guiará en la actualización.
 
 ## <a name="scenario"></a>Escenario
 Contoso migró recientemente algunos de sus recursos locales a Azure, incluidas algunas cargas de trabajo empresariales basadas en máquinas virtuales y bases de datos SQL. Actualmente el equipo de respuesta a incidentes de seguridad informática central de Contoso (CSIRT) tiene un problema para investigar asuntos de seguridad, debido a la falta de inteligencia de seguridad integrada en sus herramientas actuales de respuesta a incidentes. Esta falta de integración presenta un problema durante las fases de detección (demasiados falsos positivos), evaluación y diagnóstico. Como parte de esta migración, decidió participar en Security Center para ayudar a solucionar el problema.
@@ -68,13 +68,13 @@ Security Center proporciona una vista unificada de todas las alertas de segurida
 
    ![Alertas de seguridad](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
 
-2. Para más información acerca de este incidente, en la lista de alertas, haga clic en un incidente de seguridad, que es una colección de alertas. Se abre **Security incident detected** (Incidente de seguridad detectado).
+2. En la lista de alertas, seleccione un incidente de seguridad, que es una colección de alertas, para más información acerca de este incidente. Se abre **Security incident detected** (Incidente de seguridad detectado).
 
-   ![Incidente de seguridad](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+   ![Security incident detected (Incidente de seguridad detectado)](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
 
 3. En esta pantalla, la descripción del incidente de seguridad se encuentra en la parte superior y en el resto la lista de alertas que forman parte de este incidente. Para más información, haga clic en la alerta que desea investigar en profundidad.
 
-   ![Incidente de seguridad](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+   ![Detalles de alerta del incidente](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
    El tipo de alerta puede variar. Para más información acerca del tipo de alerta y los posibles pasos para corregirla, lea el artículo [Comprensión de las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). En las alertas que se puedan descartar de forma segura puede hacer clic con el botón derecho en la alerta y seleccione la opción **Descartar**:
 
@@ -99,13 +99,12 @@ Para realizar una búsqueda, abra el panel de **Security Center**, haga clic en 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Otras guías de inicio rápido y tutoriales de esta colección se basan en los valores de esta. Si planea continuar trabajando con los inicios rápidos y tutoriales posteriores, debe seguir ejecutando el plan de tarifa Estándar y mantener el aprovisionamiento automático habilitado. Si no planea continuar o desea volver al nivel Gratis:
+Otras guías de inicio rápido y tutoriales de esta colección se basan en los valores de esta. Si tiene previsto seguir trabajando con las guías de inicio rápido y los tutoriales posteriores, mantenga el aprovisionamiento automático y Azure Defender habilitados. Si no tiene previsto continuar o desea deshabilitar Azure Defender:
 
-1. Vuelva al menú principal de Security Center y seleccione **Directiva de seguridad**.
-2. Seleccione la suscripción o directiva que desea que vuelva al nivel Gratis. Se abre **Directiva de seguridad**.
-3. En **COMPONENTES DE LA DIRECTIVAS**, seleccione **Plan de tarifa**.
-4. Seleccione **Gratis** para cambiar la suscripción del nivel Estándar al Gratis.
-5. Seleccione **Guardar**.
+1. Vuelva al menú principal de Security Center y seleccione **Precios y configuración**.
+1. Seleccione la suscripción para la que desee cambiar a una versión anterior.
+1. Establezca **Azure Defender** en Off (Desactivado).
+1. Seleccione **Guardar**.
 
 Si desea deshabilitar el aprovisionamiento automático:
 

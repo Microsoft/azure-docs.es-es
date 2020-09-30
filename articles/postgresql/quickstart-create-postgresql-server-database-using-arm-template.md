@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: 0661e743fb2493b9eab4b90dcb65297e99c2cc64
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: b73bf82b7fba4c7c618dbae81873efabec61051d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661221"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906436"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Inicio rápido: Uso de una plantilla de Resource Manager para crear una instancia de Azure Database for PostgreSQL: un solo servidor
 
@@ -22,7 +22,7 @@ Azure Database for PostgreSQL es un servicio administrado que usa para ejecutar,
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación en Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -66,7 +66,7 @@ Puede encontrar más ejemplos de plantillas de Azure Database for PostgreSQL en 
 
 Seleccione el siguiente vínculo para implementar la plantilla de servidor de Azure Database for PostgreSQL en Azure Portal:
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación en Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
 En la página **Implementación de Azure Database for PostgreSQL con red virtual**:
 
@@ -76,7 +76,7 @@ En la página **Implementación de Azure Database for PostgreSQL con red virtual
 
 3. Escriba un **nombre de servidor**, **Inicio de sesión del administrador** y **Contraseña de inicio de sesión del administrador**.
 
-    ![Implementación de Azure Database for PostgreSQL con la ventana de red virtual, plantilla de inicio rápido de Azure, Azure Portal](./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png)
+    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="Implementación de Azure Database for PostgreSQL con la ventana de red virtual, plantilla de inicio rápido de Azure, Azure Portal":::
 
 4. Cambie los valores predeterminados si lo desea:
 

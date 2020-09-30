@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 95fa7a8c6abd0ad65b367cacef15b8faa16da640
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: f8127b485d8fea5aedccd472e209a448e3076b5b
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553437"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400082"
 ---
 # <a name="scenario-any-to-any"></a>Escenario: Universal
 
@@ -29,7 +29,7 @@ Para averiguar el número de tablas de rutas que se necesitarán en un escenario
 | Redes virtuales     | &#8594;|      X     |     X    |
 | Ramas   | &#8594;|    X     |     X    |
 
-Cada una de las celdas de la tabla anterior describe si una conexión de Virtual WAN (el lado "From" del flujo, los encabezados de fila de la tabla) aprende un prefijo de destino (el lado "To" del flujo, los encabezados de columna en cursiva de la tabla) para un flujo de tráfico concreto.
+Cada una de las celdas de la tabla anterior describe si una conexión de Virtual WAN (el lado "From" del flujo, los encabezados de fila de la tabla) aprende un prefijo de destino (el lado "To" del flujo, los encabezados de columna en cursiva de la tabla) para un flujo de tráfico concreto, donde una "X" significa que la conectividad la proporciona Virtual WAN.
 
 Dado que todas las conexiones de redes virtuales y ramas (VPN, ExpressRoute y VPN de usuario) tienen los mismos requisitos de conectividad, se requiere una sola tabla de rutas. Como resultado, todas las conexiones se asociarán y se propagarán a la misma tabla de rutas, la tabla de rutas predeterminada:
 

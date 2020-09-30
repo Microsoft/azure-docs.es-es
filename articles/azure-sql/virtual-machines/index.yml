@@ -10,14 +10,14 @@ metadata:
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma
-  ms.reviewer: carlrab
+  ms.reviewer: sstein
   ms.date: 05/27/2020
-  ms.openlocfilehash: 2a7690f4587f9f113bed35e3a30b294b7bd8b5d4
-  ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+  ms.openlocfilehash: 5e5cb6e8ea2b09272ffcf0387312260fc2a6bf1d
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/19/2020
-  ms.locfileid: "88587912"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91293703"
 landingContent:
 - title: SQL Server en máquina virtual de Azure
   linkLists:

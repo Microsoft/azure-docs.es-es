@@ -1,19 +1,19 @@
 ---
 title: Conexión de máquinas híbridas a Azure desde Azure Portal
-description: En este artículo, obtendrá información sobre cómo instalar el agente y conectar máquinas a Azure mediante servidores habilitados para Azure Arc (versión preliminar) desde Azure Portal.
-ms.date: 08/07/2020
+description: En este artículo, obtendrá información sobre cómo instalar el agente y conectar máquinas a Azure mediante servidores habilitados para Azure Arc desde Azure Portal.
+ms.date: 09/02/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 23415bc648ae31b9073adb71d6f066a28c144c9d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7435256dda68b2689aeb19b237f499d50b418055
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213512"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887630"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Conexión de máquinas híbridas a Azure desde Azure Portal
 
-Con el fin de implementar servidores habilitados para Azure Arc (versión preliminar) para una máquina Windows o Linux, o un número reducido de ellas, en su entorno, debe realizar una serie de pasos manualmente. O bien, puede usar un método automatizado mediante la ejecución de un script de plantilla que le proporcionaremos. Este script automatiza la descarga e instalación de ambos agentes.
+Con el fin de implementar en su entorno servidores habilitados para Azure Arc para una máquina Windows o Linux, o un número reducido de ellas, debe realizar una serie de pasos manualmente. O bien, puede usar un método automatizado mediante la ejecución de un script de plantilla que le proporcionaremos. Este script automatiza la descarga e instalación de ambos agentes.
 
 Este método requiere que tenga permisos de administrador en la máquina para instalar y configurar el agente. En Linux, mediante la cuenta raíz, y en Windows, usted es miembro del grupo local de administradores.
 
@@ -27,14 +27,14 @@ El script para automatizar la descarga y la instalación, y para establecer la c
 
 1. En el explorador, vaya a [Azure Portal](https://aka.ms/hybridmachineportal).
 
-1. En la página **Máquinas: Azure Arc**, seleccione **Agregar**, en la parte superior izquierda, o la opción **Crear máquina: Azure Arc** en la parte inferior del panel central.
+1. En la página **Servidores: Azure Arc**, seleccione **Agregar** en la parte superior izquierda.
 
-1. En la página **Seleccionar un método**, seleccione el icono **Agregar máquinas mediante un script interactivo** y, a continuación, seleccione **Generar script**.
+1. En la página **Seleccionar un método**, seleccione el icono **Agregar servidores mediante un script interactivo** y, después, seleccione **Generar script**.
 
 1. En la página **Generar script**, seleccione la suscripción y el grupo de recursos en el que desea que se administre la máquina en Azure. Seleccione la ubicación de Azure en la que se almacenarán los metadatos de la máquina.
 
     >[!NOTE]
-    >Los servidores habilitados para Azure Arc (versión preliminar) solo admiten las siguientes regiones:
+    >Los servidores habilitados para Azure Arc solo admiten las siguientes regiones:
     >- EastUS
     >- WestUS2
     >- Oeste de Europa
@@ -42,15 +42,21 @@ El script para automatizar la descarga y la instalación, y para establecer la c
     >
     >Revise las consideraciones adicionales que se deben tener en cuenta al seleccionar una región [aquí](overview.md#supported-regions), en el artículo de información general.
 
-1. En la página **Generar script**, en la lista desplegable **Sistema operativo**, seleccione el sistema operativo en el que se ejecutará el script.
+1. En la página **Requisitos previos**, revise la información y, luego, seleccione **Siguiente: Detalles del recurso**.
 
-1. Si la máquina se comunica mediante un servidor proxy para conectarse a Internet, seleccione **Siguiente: Servidor proxy**.
+1. En la página **Detalles del recurso**, proporcione lo siguiente:
 
-1. En la pestaña **Servidor proxy**, especifique la dirección IP del servidor proxy o el nombre y el número de puerto que usará la máquina para comunicarse con el servidor proxy. Escriba el valor con el formato `http://<proxyURL>:<proxyport>`.
+    1. En la lista desplegable **Grupo de recursos**, seleccione el grupo de recursos desde el que se administrará la máquina.
+    1. En la lista desplegable **Región**, seleccione la región de Azure en la que se almacenarán los metadatos de los servidores.
+    1. En la lista desplegable **Sistema operativo**, seleccione el sistema operativo en el que se ejecutará el script.
+    1. Si la máquina se comunica mediante un servidor proxy para conectarse a Internet, especifique la dirección IP del servidor proxy o el nombre y el número de puerto que usará la máquina para comunicarse con el servidor proxy. Escriba el valor con el formato `http://<proxyURL>:<proxyport>`.
+    1. Seleccione **Siguiente: Etiquetas**.
 
-1. Seleccione **Revisar y generar**.
+1. En la página **Etiquetas**, revise las **etiquetas de ubicación física** predeterminadas sugeridas y escriba un valor, o bien especifique una o varias **etiquetas personalizadas** para que cumplan sus estándares.
 
-1. En la pestaña **Revisar y generar**, revise la información del resumen y, a continuación, seleccione **Descargar**. Si todavía necesita realizar cambios, seleccione **Anterior**.
+1. Seleccione **Siguiente: Descargar y ejecutar el script**.
+
+1. En la pestaña **Descargar y ejecutar el script**, revise la información del resumen y seleccione **Descargar**. Si todavía necesita realizar cambios, seleccione **Anterior**.
 
 ## <a name="install-and-validate-the-agent-on-windows"></a>Instalación y validación del agente en Windows
 
@@ -147,7 +153,7 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Comprobación de la conexión con Azure Arc
 
-Después de instalar el agente y configurarlo para que se conecte a los servidores habilitados para Azure Arc (versión preliminar), vaya a Azure Portal para comprobar que el servidor se ha conectado correctamente. Vea las máquinas en [Azure Portal](https://aka.ms/hybridmachineportal).
+Después de instalar el agente y configurarlo para que se conecte a los servidores habilitados para Azure Arc, vaya a Azure Portal para comprobar que el servidor se ha conectado correctamente. Vea las máquinas en [Azure Portal](https://aka.ms/hybridmachineportal).
 
 ![Una conexión de servidor correcta](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
@@ -155,4 +161,4 @@ Después de instalar el agente y configurarlo para que se conecte a los servidor
 
 - Obtenga información sobre cómo administrar la máquina con [Azure Policy](../../governance/policy/overview.md) para, por ejemplo, la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de VM, la comprobación de que la máquina informa al área de trabajo de Log Analytics esperada, la habilitación de la supervisión con [Azure Monitor con máquinas virtuales](../../azure-monitor/insights/vminsights-enable-policy.md) y mucho más.
 
-- Más información sobre el [agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). El agente de Log Analytics para Windows y Linux es necesario si desea supervisar de forma proactiva el sistema operativo y las cargas de trabajo que se ejecutan en la máquina, administrarlos mediante runbooks de Automation o soluciones como Update Management, o usar otros servicios de Azure como [Azure Security Center](../../security-center/security-center-intro.md).
+- Obtenga más información sobre el [[agente de Log Analytics]](../../azure-monitor/platform/log-analytics-agent.md). El agente de Log Analytics para Windows y Linux es necesario si quiere recopilar datos de supervisión del sistema operativo y de las cargas de trabajo y administrarlos con runbooks de Automation o con características como Update Management, o bien mediante otros servicios de Azure, como [Azure Security Center](../../security-center/security-center-intro.md).

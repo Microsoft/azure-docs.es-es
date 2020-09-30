@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd189db10b599c0bc6bd5a3dbae2b1bc21b53b0c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 033752eed30e898f5306154f73a9ca6741c1f81c
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795922"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179579"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -310,11 +310,11 @@ Si Azure Active Directory está conectado con la instancia local de Active Direc
 
 #### <a name="inventory-your-privileged-accounts-within-hosted-virtual-machines"></a>Realice un inventario de sus cuentas con privilegios en las máquinas virtuales hospedadas
 
-Normalmente, no es necesario conceder a los usuarios permisos sin restricciones a todas las suscripciones o recursos de Azure. Use los roles de administrador de Azure AD para conceder solo el acceso que los usuarios necesitan para realizar su trabajo. Puede usar los roles de administrador de Azure AD para que un administrador pueda administrar solo las máquinas virtuales de una suscripción, mientras que otro pueda administrar las bases de datos SQL de la misma suscripción. Para más información, consulte [Introducción al control de acceso basado en roles en Azure Portal](../../role-based-access-control/overview.md).
+Normalmente, no es necesario conceder a los usuarios permisos sin restricciones a todas las suscripciones o recursos de Azure. Use los roles de administrador de Azure AD para conceder solo el acceso que los usuarios necesitan para realizar su trabajo. Puede usar los roles de administrador de Azure AD para que un administrador pueda administrar solo las máquinas virtuales de una suscripción, mientras que otro pueda administrar las bases de datos SQL de la misma suscripción. Para más información, consulte [¿Qué es el control de acceso basado en rol de Azure?](../../role-based-access-control/overview.md)
 
 #### <a name="implement-pim-for-azure-ad-administrator-roles"></a>Implemente PIM para los roles de administrador de Azure AD
 
-Use Privileged Identity Management con los roles de administrador de Azure AD para administrar, controlar y supervisar el acceso a los recursos de Azure. El uso de PIM protege mediante la reducción del tiempo de exposición de los privilegios y el aumento de la visibilidad de su uso mediante alertas e informes. Para más información, consulte [Administración del acceso a los recursos de Azure con Privileged Identity Management](../../role-based-access-control/best-practices.md).
+Use Privileged Identity Management con los roles de administrador de Azure AD para administrar, controlar y supervisar el acceso a los recursos de Azure. El uso de PIM protege mediante la reducción del tiempo de exposición de los privilegios y el aumento de la visibilidad de su uso mediante alertas e informes. Para más información, consulte [¿Qué es Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
 
 #### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>Use las integraciones de registros de Azure para enviar los registros de Azure relevantes a los sistemas de SIEM
 

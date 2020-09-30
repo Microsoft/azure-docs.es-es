@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 6beda409f03938f471f089bceebaa97c6d02ae7e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 04a308805dd69c4d9245d287a391f1e7fa7d50f2
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496226"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055573"
 ---
 # <a name="use-file-metadata-in-queries"></a>Uso de metadatos de archivo en consultas
 
-El servicio de consultas de SQL a petición puede tratar varios archivos y carpetas, tal y como se describe en el artículo [Consulta de carpetas y varios archivos](query-folders-multiple-csv-files.md). En este artículo, aprenderá a usar la información de los metadatos sobre los nombres de archivos y carpetas en las consultas.
+SQL a petición puede tratar varios archivos y carpetas, tal y como se describe en el artículo [Consulta de carpetas y varios archivos](query-folders-multiple-csv-files.md). En este artículo, aprenderá a usar la información de los metadatos sobre los nombres de archivos y carpetas en las consultas.
 
 A veces, puede que necesite saber qué origen de archivo o carpeta se correlaciona con una fila específica en el conjunto de resultados.
 

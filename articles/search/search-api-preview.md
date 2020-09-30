@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/09/2020
-ms.openlocfilehash: efcc4aebf16fccc70af7c77f0e8481d24f13b9cd
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: ac0b04db783571b6ef31161adaf18b4220244c6a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935269"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969811"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Características en versión preliminar de Azure Cognitive Search
 
@@ -23,9 +23,8 @@ Se han quitado de la lista las características en versión preliminar que pasan
 
 |Característica&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descripción | Disponibilidad  |
 |---------|------------------|-------------|---------------|
-| [**Aptitud de Azure Machine Learning (AML)** ](cognitive-search-aml-skill.md) | Enriquecimiento con inteligencia artificial| Nuevo tipo de aptitud para integrar un punto de conexión de inferencia desde Azure Machine Learning. Para empezar, realice [este tutorial](cognitive-search-tutorial-aml-custom-skill.md). | Use la [API REST de búsqueda 2020-06-30-Preview](/rest/api/searchservice/) o 2019-05-06-Preview. También está disponible en el portal, en el diseño de aptitudes, suponiendo que Cognitive Search y los servicios Azure Machine Learning estén implementados en la misma suscripción. |
-| [**Parámetro featuresMode**](/rest/api/searchservice/search-documents#featuresmode) | Relevancia (puntuación) | Expansión de puntuación de relevancia para incluir detalles: puntuación de similitud por campo, frecuencia de términos por campo y número de tokens únicos coincidentes por campo. Puede consumir estos puntos de datos en [soluciones de puntuación personalizadas](https://github.com/Azure-Samples/search-ranking-tutorial). | Agregue este parámetro de consulta mediante [Documentos de búsqueda (REST)](/rest/api/searchservice/search-documents) con api-version=2020-06-30-Preview o 2019-05-06-Preview. |
-| [**Identidad de servicio administrada**](search-howto-managed-identities-data-sources.md) | Indexadores, seguridad| Registre un servicio de búsqueda en Azure Active Directory para convertirlo en un servicio de confianza y, a continuación, use los permisos de RBAC en los orígenes de datos de Azure para permitir el acceso de solo lectura mediante un indexador. | Acceda a esta funcionalidad mediante el portal o [Creación de orígenes de datos (REST)](/rest/api/searchservice/create-data-source) con api-version=2020-06-30-Preview o api-version=2019-05-06-Preview. |
+| [**Aptitud de Azure Machine Learning (AML)** ](cognitive-search-aml-skill.md) | Enriquecimiento con inteligencia artificial| Nuevo tipo de aptitud para integrar un punto de conexión de inferencia desde Azure Machine Learning. Para empezar, realice [este tutorial](cognitive-search-tutorial-aml-custom-skill.md). | Use la [API REST de búsqueda 2020-06-30-Preview](https://docs.microsoft.com/rest/api/searchservice/) o 2019-05-06-Preview. También está disponible en el portal, en el diseño de aptitudes, suponiendo que Cognitive Search y los servicios Azure Machine Learning estén implementados en la misma suscripción. |
+| [**Parámetro featuresMode**](https://docs.microsoft.com/rest/api/searchservice/search-documents#featuresmode) | Relevancia (puntuación) | Expansión de puntuación de relevancia para incluir detalles: puntuación de similitud por campo, frecuencia de términos por campo y número de tokens únicos coincidentes por campo. Puede consumir estos puntos de datos en [soluciones de puntuación personalizadas](https://github.com/Azure-Samples/search-ranking-tutorial). | Agregue este parámetro de consulta mediante [Documentos de búsqueda (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) con api-version=2020-06-30-Preview o 2019-05-06-Preview. |
 | [**Sesiones de depuración**](cognitive-search-debug-session.md) | Portal, enriquecimiento con IA (conjunto de aptitudes) | Editor de conjunto de aptitudes en sesión que se usa para investigar y resolver problemas en un conjunto de aptitudes. Las correcciones que se aplican durante una sesión de depuración se pueden guardar en un conjunto de aptitudes en el servicio. | Solo en el portal, mediante los vínculos de página intermedia en la página de información general para abrir una sesión de depuración. |
 | [**Eliminación temporal de blobs nativos**](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) | Indexadores, blobs de Azure| El indexador de Azure Blob Storage en Azure Cognitive Search reconocerá los blobs que se encuentran en un estado de eliminación temporal y quitará el documento de búsqueda correspondiente durante la indexación. | Agregue esta opción de configuración mediante [Creación de indexador (REST)](/rest/api/searchservice/create-indexer) con api-version=2020-06-30-Preview o api-version=2019-05-06-Preview. |
 | [**Aptitud de búsqueda de entidades personalizadas**](cognitive-search-skill-custom-entity-lookup.md ) | Enriquecimiento con IA (conjunto de aptitudes) | Aptitud cognitiva que busca texto de una lista de palabras y frases personalizada definida por el usuario. Con esta lista, se etiquetan todos los documentos con entidades coincidentes. La aptitud también admite un grado de coincidencia aproximada que se puede aplicar para buscar coincidencias similares pero no exactas. | Haga referencia a esta aptitud en versión preliminar con el editor de conjuntos de aptitudes en el portal o [Creación de conjuntos de aptitudes (REST)](/rest/api/searchservice/create-skillset) con api-version=2020-06-30-Preview o api-version=2019-05-06-Preview. |
@@ -35,7 +34,7 @@ Se han quitado de la lista las características en versión preliminar que pasan
 |  [**Indexador de Azure Data Lake Storage Gen2**](search-howto-index-azure-data-lake-storage.md) | Origen de datos del indexador | Indiza contenido y metadatos de Azure Data Lake Storage Gen2.| Es necesario [registrarse](https://aka.ms/azure-cognitive-search/indexer-preview) para que se pueda habilitar el soporte técnico para su suscripción en el back-end. Acceda a este origen de datos mediante [Creación de orígenes de datos (REST)](/rest/api/searchservice/create-data-source) con api-version=2020-06-30-Preview o api-version=2019-05-06-Preview. |
 | [**moreLikeThis**](search-more-like-this.md) | Consultar | Busca documentos que sean pertinentes para un documento específico. Esta característica ha aparecido en versiones anteriores. | Agregue este parámetro de consulta mediante [Documentos de búsqueda (REST)](/rest/api/searchservice/search-documents) con api-version=2020-06-30-Preview, 2019-05-06-Preview, 2016-09-01-Preview o 2017-11-11-Preview. |
 
-## <a name="calling-preview-rest-apis"></a>Llamada a las API de REST en versión preliminar
+## <a name="how-to-call-a-preview-rest-api"></a>Llamada a una API REST en versión preliminar
 
 Azure Cognitive Search siempre publica previamente características experimentales primero a través de la API REST y, después, a través de las versiones preliminares del SDK de .NET.
 
@@ -47,12 +46,14 @@ Aunque algunas características en versión preliminar pueden estar disponibles 
 
 + En el caso de las operaciones de administración, la versión preliminar actual es [ **`2019-10-01-Preview`** ](/rest/api/searchmanagement/index-2019-10-01-preview).
 
-Las vistas previas anteriores siguen funcionando, pero quedarán obsoletas con el paso del tiempo. Si el código llama a `api-version=2019-05-06-Preview` o `api-version=2016-09-01-Preview` o `api-version=2017-11-11-Preview`, dichas llamadas siguen siendo válidas. Sin embargo, solo la versión preliminar más reciente se actualiza con mejoras. 
+Las vistas previas anteriores siguen funcionando, pero quedarán obsoletas con el paso del tiempo. Si el código llama a `api-version=2019-05-06-Preview` o `api-version=2016-09-01-Preview` o `api-version=2017-11-11-Preview`, dichas llamadas siguen siendo válidas. Sin embargo, solo la versión preliminar más reciente se actualiza con mejoras.
 
 En la sintaxis de ejemplo siguiente se ilustra una llamada a la versión de API de versión preliminar.
 
 ```HTTP
-GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2020-06-30-Preview
+POST https://[service name].search.windows.net/indexes/hotels-idx/docs/search?api-version=2020-06-30-Preview  
+  Content-Type: application/json  
+  api-key: [admin key]
 ```
 
 El servicio Azure Cognitive Search está disponible en varias versiones. Para obtener más información, consulte [Versiones de API](search-api-versions.md).

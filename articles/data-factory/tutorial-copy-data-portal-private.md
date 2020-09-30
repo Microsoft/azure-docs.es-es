@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
 ms.author: jingwang
-ms.openlocfilehash: b2e666419a702832243c69bdb059f4447b02d756
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 953dae3c264e76b1e40f0dc07ccea0c00a7464c8
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079462"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024424"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Copia de datos de forma segura desde Azure Blob Storage a SQL Database mediante puntos de conexión privados
 
@@ -57,7 +57,7 @@ Ahora, prepare su instancia de Blob Storage y su base de datos SQL para el tutor
 
 #### <a name="create-a-sink-sql-table"></a>Creación de una tabla SQL receptora
 
-1. Use el siguiente script de SQL para crear la tabla **dbo.emp** en la base de datos SQL:
+Use el siguiente script de SQL para crear la tabla **dbo.emp** en la base de datos SQL:
 
     ```sql
     CREATE TABLE dbo.emp
@@ -70,8 +70,6 @@ Ahora, prepare su instancia de Blob Storage y su base de datos SQL para el tutor
 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
-
-1. Permita que los servicios de Azure accedan a SQL Server. Asegúrese de que **Permitir el acceso a servicios de Azure** esté **Activado** para SQL Server de forma que Data Factory pueda escribir datos en su instancia de SQL Server. Para comprobar y activar esta configuración, vaya a **Azure SQL Server** > **Información general** > **Establecer el firewall del servidor**. Establezca la opción **Permitir el acceso a los servicios de Azure** en **Activado**.
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 En este paso, creará una factoría de datos e iniciará la interfaz de usuario de Data Factory para crear una canalización en la factoría de datos.

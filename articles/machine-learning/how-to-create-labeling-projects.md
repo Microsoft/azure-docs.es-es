@@ -8,16 +8,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 1ba293890f6a6fd165e03486d7da375f2ac53ab1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e74d22d3d45079a6568f6fca35dc5d84e2d7469f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326472"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897973"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de datos y exportación de etiquetas 
 
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Etiquetar datos voluminosos en proyectos de Machine Learning suele ser una tarea compleja. Los proyectos que tienen un componente de Computer Vision (como la clasificación de imágenes o la detección de objetos) normalmente requieren etiquetar miles de imágenes.
  
@@ -78,7 +78,7 @@ Para crear un conjunto de datos a partir de los datos que ya ha almacenado en el
 
 1. Seleccione **Crear un conjunto de datos** > **De almacén de datos**.
 1. En **Nombre**, asigne un nombre al conjunto de datos.
-1. Elija **Archivo** como **Tipo de conjunto de datos**.  
+1. Elija **Archivo** como **Tipo de conjunto de datos**.  Solo se admiten tipos de conjunto de datos de archivo.
 1. Seleccione el almacén de datos.
 1. Si los datos están en una subcarpeta del almacenamiento de blobs, elija **Examinar** para seleccionar la ruta de acceso.
     * Anexe "/**" a la ruta de acceso para incluir todos los archivos que haya en las subcarpetas de la ruta de acceso seleccionada.
@@ -144,13 +144,7 @@ En el caso de los rectángulos de selección, estas son algunas preguntas import
 >[!NOTE]
 > Recuerde que los etiquetadores podrán seleccionar las 9 primeras etiquetas usando las claves numéricas de 1 a 9.
 
-## <a name="use-ml-assisted-labeling-preview"></a>Uso del etiquetado con asistencia de ML (versión preliminar)
-
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
-
-> [!IMPORTANT]
-> El etiquetado con asistencia de ML se encuentra actualmente en versión preliminar pública.
-> Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="use-ml-assisted-labeling"></a>Uso del etiquetado con asistencia de ML
 
 La página **Etiquetado con asistencia de ML** permite desencadenar modelos de Machine Learning automáticos para acelerar la tarea de etiquetado. Al principio del proyecto de etiquetado, las imágenes se presentan en orden aleatorio para reducir el posible sesgo. Sin embargo, los sesgos presentes en el conjunto de datos se reflejarán en el modelo entrenado. Por ejemplo, si el 80 % de las imágenes son de una sola clase, aproximadamente el 80 % de los datos usados para entrenar el modelo serán de esa clase. Este entrenamiento no incluye el aprendizaje activo.
 
@@ -175,9 +169,6 @@ La fase de agrupación en clústeres no aparece para los modelos de detección d
 Después de haber enviado un número suficiente de etiquetas de imagen, se usará un modelo de clasificación para predecir las etiquetas de imagen. O bien, se utilizará un modelo de detección de objetos para predecir los rectángulos de selección. Ahora el etiquetador ve las páginas que contienen etiquetas previstas ya presentes en cada imagen. También se muestran cuadros de predicción para la detección de objetos. La tarea siguiente consiste en revisar estas predicciones y corregir cualquier imagen que se haya etiquetado incorrectamente antes de enviar la página.  
 
 Una vez que se ha entrenado un modelo de Machine Learning con los datos etiquetados manualmente, el modelo se evalúa en un conjunto de pruebas de imágenes etiquetadas manualmente para determinar su precisión en una variedad de distintos umbrales de confianza. Este proceso de evaluación se usa para determinar un umbral de confianza por encima del cual el modelo es lo suficientemente preciso como para mostrar las etiquetas previas. A continuación, el modelo se evalúa con datos sin etiquetar. Las imágenes con predicciones más confiables que este umbral se usan para la etiquetado previo.
-
-> [!NOTE]
-> El etiquetado con asistencia por ML **solo** está disponible en las áreas de trabajo de Enterprise Edition.
 
 ## <a name="initialize-the-labeling-project"></a>Inicialización del proyecto de etiquetado
 

@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0c8134cdb72f8bff74fa68dff81fc9d6f1f5ccc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 491c0aef74b44c0452b4d8d002a81928d80f360b
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830458"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276446"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renovación de certificados de federación para Office 365 y Azure Active Directory
 ## <a name="overview"></a>Información general
@@ -140,7 +140,7 @@ En estos escenarios, cada vez que actualice los certificados de firma de tokens,
 ### <a name="step-1-ensure-that-ad-fs-has-new-token-signing-certificates"></a>Paso 1: Comprobación de que AD FS tiene nuevos certificados de firma de tokens
 **Configuración no predeterminada**
 
-Si está en una configuración no predeterminada de AD FS donde la propiedad **AutoCertificateRollover** está establecida en **False**, probablemente esté utilizando certificados personalizados (no autofirmados). Para más información sobre cómo renovar los certificados de firma de tokens de AD FS, consulte la [guía para clientes que no usan certificados autofirmados AD FS](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
+Si está en una configuración no predeterminada de AD FS donde la propiedad **AutoCertificateRollover** está establecida en **False**, probablemente esté utilizando certificados personalizados (no autofirmados). Para más información sobre cómo renovar los certificados de firma de tokens de AD FS, consulte [Requisitos de certificados para servidores federados](/windows-server/identity/ad-fs/design/certificate-requirements-for-federation-servers).
 
 **Los metadatos de federación no están disponibles públicamente**
 
@@ -188,4 +188,4 @@ De forma predeterminada, AD FS está configurado para generar certificados de fi
 
 Azure AD intenta recuperar un nuevo certificado de los metadatos de servicio de federación 30 días antes de la expiración del certificado actual. Si no hay disponible ningún certificado nuevo en ese momento, Azure AD seguirá supervisando los metadatos a intervalos diarios normales. En cuanto el nuevo certificado esté disponible en los metadatos, la configuración de federación del dominio se actualiza con la información del certificado nuevo. Puede usar `Get-MsolDomainFederationSettings` para comprobar si ver el nuevo certificado en NextSigningCertificate o SigningCertificate.
 
-Para más información acerca de los certificados de firma de tokens en AD FS, consulte [Obtain and Configure Token Signing and Token Decryption Certificates for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs) (Obtención y configuración de certificados de firma y descripción de tokens para AD FS)
+Para más información acerca de los certificados de firma de tokens en AD FS, consulte [Obtain and Configure Token Signing and Token Decryption Certificates for AD FS](/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs) (Obtención y configuración de certificados de firma y descripción de tokens para AD FS)

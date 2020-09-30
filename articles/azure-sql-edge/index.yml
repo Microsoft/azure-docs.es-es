@@ -1,21 +1,21 @@
 ### YamlMime:Landing
-title: Documentación sobre Azure SQL Edge (versión preliminar)
+title: Documentación de Azure SQL Edge
 summary: Azure SQL Edge es un motor de base de datos relacional optimizado orientado a implementaciones de IoT y Edge.
 metadata:
-  title: Documentación sobre Azure SQL Edge (versión preliminar)
-  meta.description: Learn how to use Azure SQL Edge (Preview).
+  title: Documentación de Azure SQL Edge
+  meta.description: Learn how to use Azure SQL Edge.
   services: sql-edge
   ms.service: sql-edge
   ms.topic: landing-page
   author: stevestein
   ms.author: sstein
   ms.date: 05/19/2020
-  ms.openlocfilehash: 97595cd74fa5a584d5d1943ed88ac617fc742569
-  ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+  ms.openlocfilehash: 3a043b3e29352abd44d1b880f366d9fa8ccea4d2
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/31/2020
-  ms.locfileid: "84233193"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90894478"
 landingContent:
 - title: SQL Edge
   linkLists:
@@ -25,8 +25,14 @@ landingContent:
       url: overview.md
   - linkListType: deploy
     links:
-    - text: Implementación de SQL Edge
+    - text: Implementación de SQL Edge mediante Azure Portal
       url: deploy-portal.md
+    - text: Implementación de SQL Edge con Docker
+      url: disconnected-deployment.md
+  - linkListType: tutorial
+    links:
+    - text: Implementación en Kubernetes
+      url: deploy-kubernetes.md
 - title: Sincronización de datos
   linkLists:
   - linkListType: tutorial
@@ -43,6 +49,8 @@ landingContent:
       url: stream-data.md
     - text: Streaming de vistas de catálogo
       url: streaming-catalog-views.md
+    - text: Creación y administración de trabajos de streaming
+      url: create-stream-analytics-job.md
 - title: Machine Learning
   linkLists:
   - linkListType: concept
@@ -53,3 +61,21 @@ landingContent:
     links:
     - text: Implementación de ONNX en SQL Edge
       url: deploy-onnx.md
+- title: Procesamiento de datos de series temporales
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Introducción de los valores que faltan
+      url: imputing-missing-values.md
+    - text: Directiva de retención de datos
+      url: data-retention-overview.md
+    - text: Date_Bucket (Transact-SQL)
+      url: date-bucket-tsql.md
+- title: Configuración de SQL Edge
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Configuración de SQL Edge
+      url: configure.md
+    - text: Configuración de la replicación
+      url: configure-replication.md

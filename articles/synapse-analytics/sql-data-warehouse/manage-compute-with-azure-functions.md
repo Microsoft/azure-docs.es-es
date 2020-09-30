@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 60e79ecd4148829c38b237c0e28d60796e84ac01
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 11cb0c30a1a6ed70cca82e494fcec73936975f39
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543663"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442229"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Uso de Azure Functions para administrar recursos de proceso en el grupo de SQL de Azure Synapse Analytics
 
@@ -54,7 +54,7 @@ Una vez implementada la plantilla, encontrará tres nuevos recursos: un plan gra
 
 3. En este momento, el valor mostrado debería indicar *%ScaleDownTime%* o *%ScaleUpTime%* . Estos valores indican que la programación se basa en los valores definidos en la [Configuración de la aplicación](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Por ahora, puede omitir este valor y cambiar la programación para el momento que prefiera en función de los siguientes pasos.
 
-4. En el área de programación, agregue el tiempo de la expresión CRON que prefiera para reflejar la frecuencia con la que desea que SQL Data Warehouse se reduzca verticalmente.
+4. En el área de programación, agregue el tiempo de la expresión CRON que prefiera para reflejar la frecuencia con la que quiere que Azure Synapse Analytics se escale verticalmente.
 
    ![Cambiar la programación de la función](./media/manage-compute-with-azure-functions/change-schedule.png)
 

@@ -3,12 +3,12 @@ title: Preguntas frecuentes sobre la copia de seguridad de archivos de Azure
 description: En este artículo, encontrará respuestas a preguntas habituales sobre cómo proteger los recursos compartidos de archivos de Azure con el servicio Azure Backup.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0db30de655bfc0b98baa81a4ef20532e697fc1f8
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: c62f8376b220911edd26edbe18955d0103440b81
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824736"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377427"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Preguntas acerca de la copia de seguridad de archivos de Azure
 
@@ -30,7 +30,7 @@ Compruebe si el recurso compartido de archivos de Azure ya está protegido en el
 
 Sí. La protección de recursos compartidos de archivos de Azure conectados a grupos de sincronización está habilitada.
 
-### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-didnt-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Al intentar realizar la copia de seguridad de recursos compartidos de archivos, hice clic en una cuenta de almacenamiento para detectar los recursos compartidos de archivos de ella. Sin embargo, no los he protegido. ¿Cómo puedo proteger estos recursos compartidos de archivos con cualquier otro almacén?
+### <a name="when-trying-to-back-up-file-shares-i-selected-a-storage-account-to-discover-the-file-shares-in-it-however-i-didnt-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Al intentar realizar la copia de seguridad de recursos compartidos de archivos, he seleccionado una cuenta de almacenamiento para detectar los recursos compartidos de archivos de ella. Sin embargo, no los he protegido. ¿Cómo puedo proteger estos recursos compartidos de archivos con cualquier otro almacén?
 
 Al intentar realizar una copia de seguridad, si selecciono una cuenta de almacenamiento para detectar los recursos compartidos que hay en ella, se registra la cuenta de almacenamiento con el almacén desde el que se realiza esto. Si elige proteger los recursos compartidos de archivos con un almacén diferente, [anule el registro](manage-afs-backup.md#unregister-a-storage-account) de la cuenta de almacenamiento seleccionada de este almacén.
 

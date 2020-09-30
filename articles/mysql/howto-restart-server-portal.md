@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: aa79d1ba2cba86bf3f381ff78fd630ce455128d9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d885cc64eeebd4873ad5993b39b48845d1365c23
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107876"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902750"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-azure-portal"></a>Reinicio de un servidor de Azure Database for MySQL mediante Azure Portal
 En este tema se describe cómo reiniciar un servidor de Azure Database for MySQL. Es posible que deba reiniciar el servidor por motivos de mantenimiento, lo que causa una breve interrupción del servicio mientras el servidor realiza la operación.
@@ -32,19 +32,19 @@ Los pasos siguientes reinician el servidor de MySQL:
 
 2. En la barra de herramientas de la página de **información general** del servidor, haga clic en **Restart** (reiniciar).
 
-   ![Azure Database for MySQL - Información general - Botón Reiniciar](./media/howto-restart-server-portal/2-server.png)
+   :::image type="content" source="./media/howto-restart-server-portal/2-server.png" alt-text="Azure Database for MySQL - Información general - Botón Reiniciar":::
 
 3. Haga clic en **Sí** para confirmar el reinicio del servidor.
 
-   ![Azure Database for MySQL - Confirmación del reinicio](./media/howto-restart-server-portal/3-restart-confirm.png)
+   :::image type="content" source="./media/howto-restart-server-portal/3-restart-confirm.png" alt-text="Azure Database for MySQL - Confirmación del reinicio":::
 
 4. Observe que el estado del servidor cambia a "Reiniciando".
 
-   ![Azure Database for MySQL - Estado del reinicio](./media/howto-restart-server-portal/4-restarting-status.png)
+   :::image type="content" source="./media/howto-restart-server-portal/4-restarting-status.png" alt-text="Azure Database for MySQL - Estado del reinicio":::
 
 5. Confirme que el reinicio del servidor es correcto.
 
-   ![Azure Database for MySQL - Reinicio correcto](./media/howto-restart-server-portal/5-restart-success.png)
+   :::image type="content" source="./media/howto-restart-server-portal/5-restart-success.png" alt-text="Azure Database for MySQL - Reinicio correcto":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: duau
-ms.openlocfilehash: 73efae90f4403d1fbab3319ce0288761d3867340
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 3428f092c4b2356e9ea6afa54d1a03fc8b4f9f05
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396172"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566184"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Creación de un circuito de ExpressRoute mediante una plantilla de Azure Resource Manager
 
@@ -63,7 +63,7 @@ Para crear un circuito de ExpressRoute mediante la implementación de una planti
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * El **nivel de SKU** determina si un circuito ExpressRoute es [Local](expressroute-faqs.md#expressroute-local), Estándar o [Premium](expressroute-faqs.md#expressroute-premium). Puede especificar *Local*, *Estándar o *Premium*.
+   * El **nivel de SKU** determina si un circuito ExpressRoute es [Local](expressroute-faqs.md#expressroute-local), Estándar o [Premium](expressroute-faqs.md#expressroute-premium). Puede especificar *Local*, *Estándar o *Premium*. No se puede cambiar la SKU de *Estándar o Premium* a *Local*.
    * La **familia de SKU** determina el tipo de facturación. Puede seleccionar *Metereddata* para el plan de datos limitado y *Unlimiteddata* para el plan de datos ilimitado. Puede cambiar el tipo de facturación de *Metereddata* a *Unlimiteddata*, pero no se puede cambiar el tipo de *Unlimiteddata* a *Metereddata*. Un circuito *Local* solo es *Unlimiteddata*.
    * La **ubicación de emparejamiento** es la ubicación física de emparejamiento con Microsoft.
 

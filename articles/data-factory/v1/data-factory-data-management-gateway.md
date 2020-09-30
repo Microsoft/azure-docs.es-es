@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: a83020af17758b570030a4c6129ffdd7dec58094
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5ef7e79ffa50bc16df9d03dbf530fda98e660557
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087102"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297697"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -150,8 +150,8 @@ En el firewall corporativo, debe configurar los siguientes dominios y puertos de
 En el nivel de Firewall de Windows, normalmente se habilitan estos puertos de salida. De lo contrario, puede configurar los puertos y dominios según corresponda en el equipo de la puerta de enlace.
 
 > [!NOTE]
-> 1. En función del origen y los receptores, quizá deba agregar a la lista de permitidos del firewall corporativo o de Windows más dominios y puertos de salida.
-> 2. En el caso de algunas bases de datos en la nube (por ejemplo: [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access), etc.), puede que necesite agregar a la lista de permitidos de la configuración del firewall la dirección IP de la máquina de la puerta de enlace.
+> 1. En función del origen y los receptores, quizá deba permitir más dominios y puertos de salida en el firewall corporativo o de Windows.
+> 2. En el caso de algunas bases de datos en la nube (por ejemplo: [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access), etc.), puede que necesite permitir la dirección IP de la máquina de la puerta de enlace en la configuración del firewall.
 >
 >
 
@@ -233,7 +233,7 @@ Si selecciona la opción **Usar proxy del sistema** para el proxy HTTP, la puert
 > [!IMPORTANT]
 > No olvide actualizar **ambos**, diahost.exe.config y diawp.exe.config.
 
-Además de estos puntos anteriores, también tiene que asegurarse de que Microsoft Azure se encuentra en la lista blanca de su compañía. Se puede descargar una lista de direcciones IP válidas de Microsoft Azure en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
+Además de estos puntos anteriores, también tiene que asegurarse de que Microsoft Azure se encuentra en la lista de permitidos de su compañía. Se puede descargar una lista de direcciones IP válidas de Microsoft Azure en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Posibles síntomas de problemas relacionados con el firewall y el servidor proxy
 Si se producen errores como los siguientes, es probable que se deban a una configuración incorrecta del servidor proxy o del firewall, que impide que la puerta de enlace se conecte a Data Factory para autenticarse. Consulte la sección anterior para garantizar que el firewall y el servidor proxy están configurados correctamente.

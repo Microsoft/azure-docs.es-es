@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: b024010583ba1c6e0ffdf663f7335011ce212bf1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 177f1992eb0cd93ad871ef3a181460417b1ef523
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414579"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905136"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Aprendizaje profundo frente a aprendizaje automático
 
@@ -96,7 +96,7 @@ En las secciones que tiene a continuación, se describen las tipologías de rede
 
 ### <a name="feedforward-neural-network"></a>Red neuronal del tipo feedforward
 
-La red neuronal de tipo feedforward es el tipo más básico de red neuronal artificial. En una red de tipo feedforward, la información se desplaza solo en una dirección: desde la capa de entrada a la de salida. Las redes neuronales de tipo feedforward transforman una entrada pasándola por una serie de capas ocultas. Cada capa consta de un conjunto de neuronas, donde cada capa está totalmente conectada a todas los neuronas de la capa anterior. Por último, hay una última capa totalmente conectada (la capa de salida) que representa las predicciones generadas.
+La red neuronal de tipo feedforward es el tipo más simple de red neuronal artificial. En una red de tipo feedforward, la información se desplaza solo en una dirección: desde la capa de entrada a la de salida. Las redes neuronales de tipo feedforward transforman una entrada pasándola por una serie de capas ocultas. Cada capa consta de un conjunto de neuronas, donde cada capa está totalmente conectada a todas los neuronas de la capa anterior. Por último, hay una última capa totalmente conectada (la capa de salida) que representa las predicciones generadas.
 
 ### <a name="recurrent-neural-network"></a>Redes neuronales recurrentes
 

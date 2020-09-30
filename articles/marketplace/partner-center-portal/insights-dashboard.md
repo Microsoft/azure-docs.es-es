@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/22/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: cc950c4915a57dd949941fbb9802c51a47c9a00d
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 1a645a333db9b24005639f4adbb2913a2b887b66
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607141"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055675"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Panel de Información de Marketplace en Centro de partners
 
@@ -66,7 +66,10 @@ Vea las métricas de marketplace comercial de varias maneras:
 
 ## <a name="marketplace-insights-summary"></a>Resumen de Información de Marketplace
 
-En la sección Resumen de Información de Marketplace se muestra un recuento de las **visitas a la página**, las **llamadas a la acción** y los **visitantes únicos** para el intervalo de fechas seleccionado.
+En la sección Resumen de información de Marketplace se muestra un recuento de las **visitas a la página**, las **llamadas a la acción** y los **visitantes únicos** para el intervalo de fechas seleccionado.
+
+>[!NOTE]
+>El panel de información de Marketplace se proporciona información de la secuencia de clic, que no debe correlacionarse con los clientes potenciales generados en el punto de conexión de destino del cliente potencial.
 
 ### <a name="page-visits"></a>Visitas a la página
 
@@ -140,7 +143,7 @@ En esta tabla se proporciona una vista de lista de las visitas a la página y la
 - Para ver los gráficos, las tendencias y los valores de datos agregados que resuman la actividad de la oferta en el marketplace, consulte [Panel Resumen de los análisis de marketplace comercial](./summary-dashboard.md).
 - Para información sobre los pedidos en un formato gráfico que se pueda descargar, consulte [Panel Pedidos de los análisis de marketplace comercial](./orders-dashboard.md).
 - Para información sobre las métricas de uso y facturación de las ofertas de máquina virtual, consulte [Panel Uso de los análisis de marketplace comercial](./usage-dashboard.md).
-- Para información detallada sobre los clientes, incluidas las tendencias de crecimiento, consulte [Panel Cliente de los análisis de marketplace comercial](./customer-dashboard.md).
+- Para obtener información detallada acerca de los clientes, incluidas las tendencias de crecimiento, consulte [Panel Cliente de los análisis de marketplace comercial](./customer-dashboard.md).
 - Para ver una lista de las solicitudes de descarga de los últimos 30 días, consulte [Panel Descargas de los análisis de marketplace comercial](./downloads-dashboard.md).
 - Para tener una vista consolidada de comentarios de los clientes sobre las ofertas de Azure Marketplace y AppSource, consulte [Panel Calificaciones y opiniones de los análisis de marketplace comercial](./ratings-reviews.md).
 - Para ver las preguntas más frecuentes sobre los análisis de marketplace comercial y un diccionario completo de términos de datos, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](./faq-terminology.md).

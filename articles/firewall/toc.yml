@@ -4,14 +4,6 @@
   items:
     - name: ¿Qué es Azure Firewall?
       href: overview.md
-- name: Tutoriales
-  items:
-    - name: Implementación y configuración
-      href: tutorial-firewall-deploy-portal.md
-    - name: Implementación en redes híbridas
-      href: tutorial-hybrid-portal.md
-    - name: Filtrado del tráfico de entrada con DNAT
-      href: tutorial-firewall-dnat.md
 - name: Guías de inicio rápido
   expanded: true
   items:
@@ -24,12 +16,18 @@
     - name: 'Implementación con Availability Zones: plantilla de Resource Manager'
       displayName: Resource Manager
       href: deploy-template.md
+- name: Tutoriales
+  items:
+    - name: Implementación y configuración
+      href: tutorial-firewall-deploy-portal.md
+    - name: Implementación en redes híbridas
+      href: tutorial-hybrid-portal.md
+    - name: Filtrado del tráfico de entrada con DNAT
+      href: tutorial-firewall-dnat.md
 - name: Ejemplos
   items:
     - name: Azure PowerShell
       href: sample-powershell.md
-    - name: Registros de Azure Monitor
-      href: log-analytics-samples.md
 - name: Conceptos
   items:
     - name: Características de Azure Firewall
@@ -88,6 +86,10 @@
       href: dns-settings.md
     - name: Supervisión de los registros de diagnóstico
       href: firewall-diagnostics.md
+    - name: Registros de Azure Monitor
+      href: log-analytics-samples.md
+    - name: Libro de Azure Firewall
+      href: firewall-workbook.md
 - name: Referencia
   items:
     - name: Azure CLI

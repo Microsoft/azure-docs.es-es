@@ -280,7 +280,7 @@
               href: vmware-azure-set-up-process-server-azure.md
             - name: Configuración de un servidor de destino maestro de Linux para la conmutación por recuperación
               href: vmware-azure-install-linux-master-target.md
-        - name: Administración
+        - name: Administrar
           items:
             - name: Administrar el agente de movilidad
               href: vmware-physical-manage-mobility-service.md
@@ -326,7 +326,7 @@
                   href: vmware-azure-mobility-install-configuration-mgr.md
         - name: Ejecución de una conmutación por error y una conmutación por recuperación
           href: physical-to-azure-failover-failback.md
-        - name: Administración
+        - name: Administrar
           items:
             - name: Administración del servicio Mobility
               href: vmware-physical-manage-mobility-service.md
@@ -466,6 +466,8 @@
       href: site-recovery-monitor-and-troubleshoot.md
     - name: Supervisión de Site Recovery con registros de Azure Monitor
       href: monitor-log-analytics.md
+    - name: Supervisión de patrones de renovación en Virtual Machines
+      href: monitoring-high-churn.md
     - name: Supervisión de los servidores de procesos
       href: vmware-physical-azure-monitor-process-server.md
 - name: Solución de problemas

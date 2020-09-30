@@ -3,12 +3,12 @@ title: Cambio de la configuración de un clúster de Azure Service Fabric
 description: En este artículo se describe la configuración de Fabric y las directivas de actualización de Fabric que se pueden personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 05b0b132f45e1cc7fbb136c46a7596f480941178
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: fbd6c9503e409473a87c58202eb88d77716441f9
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682991"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055127"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -423,14 +423,14 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |AzureStorageMaxConnections | Int, el valor predeterminado es 5000. |Dinámica|El número máximo de conexiones simultáneas a Azure Storage. |
 |AzureStorageMaxWorkerThreads | Int, el valor predeterminado es 25. |Dinámica|El número máximo de subprocesos de trabajo en paralelo. |
 |AzureStorageOperationTimeout | Tiempo en segundos, el valor predeterminado es 6000. |Dinámica|Especifique el intervalo de tiempo en segundos. Tiempo de espera para que finalice la operación xstore. |
-|CleanupApplicationPackageOnProvisionSuccess|bool, el valor predeterminado es FALSE |Dinámica|Habilita o deshabilita la limpieza automática de paquetes de aplicación cuando el aprovisionamiento es correcto. |
-|CleanupUnusedApplicationTypes|Bool, el valor predeterminado es FALSE |Dinámica|Si esta configuración está habilitada, permite anular automáticamente las versiones del tipo de aplicación sin usar (omitiendo las tres últimas versiones sin usar), con lo que el espacio ocupado por el almacén de imágenes disminuye. La limpieza automática se desencadenará al final de un aprovisionamiento correcto de ese tipo de aplicación específica, y también se ejecuta periódicamente una vez al día para todos los tipos de aplicación. El número de versiones sin usar que se van a omitir es configurable mediante el parámetro "MaxUnusedAppTypeVersionsToKeep". |
-|DisableChecksumValidation | Bool, el valor predeterminado es false. |estática| Esta configuración permite habilitar o deshabilitar la validación de suma de comprobación durante el aprovisionamiento de aplicaciones. |
-|DisableServerSideCopy | Bool, el valor predeterminado es false. |estática|Esta configuración habilita o deshabilita la copia del lado servidor del paquete de aplicación en ImageStore durante el aprovisionamiento de aplicaciones. |
-|ImageCachingEnabled | Bool, el valor predeterminado es true. |estática|Esta configuración permite habilitar o deshabilitar el almacenamiento en caché. |
-|ImageStoreConnectionString |SecureString |estática|Cadena de conexión a la raíz de ImageStore. |
-|ImageStoreMinimumTransferBPS | Int, el valor predeterminado es 1024. |Dinámica|La velocidad mínima de transferencia entre el clúster e ImageStore. Este valor se usa para determinar el tiempo de espera al acceder al elemento ImageStore externo. Cambie este valor solo si la latencia entre el clúster e ImageStore es alta a fin de dar más tiempo al clúster para que se descargue del elemento ImageStore externo. |
-|MaxUnusedAppTypeVersionsToKeep | Int, el valor predeterminado es 3. |Dinámica|Esta configuración define el número de versiones de tipo de aplicación sin usar que se van a omitir de la limpieza. Este parámetro es válido solo si el parámetro CleanupUnusedApplicationTypes está habilitado. |
+|CleanupApplicationPackageOnProvisionSuccess|bool, el valor predeterminado es FALSE |Dinámica|Habilita o deshabilita la limpieza automática de paquetes de aplicación cuando el aprovisionamiento es correcto.
+
+*El procedimiento recomendado es usar `true`.* | |CleanupUnusedApplicationTypes|Bool, el valor predeterminado es FALSE |Dynamic|Si esta configuración está habilitada, permite anular automáticamente las versiones del tipo de aplicación sin usar (omitiendo las tres últimas versiones sin usar), con lo que el espacio ocupado por el almacén de imágenes disminuye. La limpieza automática se desencadenará al final de un aprovisionamiento correcto de ese tipo de aplicación específica, y también se ejecuta periódicamente una vez al día para todos los tipos de aplicación. El número de versiones sin usar que se van a omitir es configurable mediante el parámetro "MaxUnusedAppTypeVersionsToKeep". 
+
+*El procedimiento recomendado es usar `true`.*
+| |DisableChecksumValidation | Bool, el valor predeterminado es false |Static| Esta configuración permite habilitar o deshabilitar la validación de suma de comprobación durante el aprovisionamiento de aplicaciones. | |DisableServerSideCopy | Bool, el valor predeterminado es false |Static|Esta configuración habilita o deshabilita la copia del lado servidor del paquete de aplicación en ImageStore durante el aprovisionamiento de aplicaciones. | |ImageCachingEnabled | Bool, el valor predeterminado es true |Static|Esta configuración permite habilitar o deshabilitar el almacenamiento en caché. | |ImageStoreConnectionString |SecureString |Static|Cadena de conexión a la raíz de ImageStore. | |ImageStoreMinimumTransferBPS | Int, el valor predeterminado es 1024 |Dynamic|La velocidad mínima de transferencia entre el clúster e ImageStore. Este valor se usa para determinar el tiempo de espera al acceder al elemento ImageStore externo. Cambie este valor solo si la latencia entre el clúster e ImageStore es alta a fin de dar más tiempo al clúster para que se descargue del elemento ImageStore externo. | |MaxUnusedAppTypeVersionsToKeep | Int, el valor predeterminado es 3 |Dynamic|Esta configuración define el número de versiones de tipo de aplicación sin usar que se van a omitir de la limpieza. Este parámetro es válido solo si el parámetro CleanupUnusedApplicationTypes está habilitado.
+
+*El procedimiento recomendado general es usar el valor predeterminado (`3`).* |
 
 
 ## <a name="metricactivitythresholds"></a>MetricActivityThresholds

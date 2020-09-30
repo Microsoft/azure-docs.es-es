@@ -3,12 +3,12 @@ title: Detección de movimiento y grabación de vídeo en Azure Media Services
 description: En este inicio rápido se muestra cómo usar Live Video Analytics en IoT Edge para detectar movimiento en una secuencia de vídeo en directo y grabar clips de vídeo en Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 972b85c00aa29cc39dafd03b9945e489680dd9a5
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: d4301a9c0c5684be04ee2cfbace60c1bb1904876
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067689"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569020"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Inicio rápido: Detección de movimiento y grabación de vídeo en Media Services
 
@@ -33,7 +33,8 @@ Puede usar una aplicación como [VLC Player](https://www.videolan.org/vlc/), in�
 
 Cuando realice los pasos que se indican a continuación, habrá utilizado Live Video Analytics en IoT Edge para detectar ese movimiento del coche y grabar un clip de vídeo que empiece en torno a esa marca de los 5 segundos. El diagrama siguiente es la representación visual de todo el flujo.
 
-![Grabación de vídeo basada en eventos en recursos que se basan en eventos de movimiento](./media/quickstarts/topology.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/quickstarts/topology.svg" alt-text="Grabación de vídeo basada en eventos en recursos que se basan en eventos de movimiento":::
 
 ## <a name="use-direct-method-calls"></a>Uso de llamadas de método directo
 

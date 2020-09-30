@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 141ae90805e81d7269a12dcf465389d6a9dcaf55
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a156896faff4262d9b8bd3cef10817a5b919749d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286978"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086155"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Agregar una barra de herramientas de dibujo a un mapa
 
-Este artículo muestra cómo usar el módulo de herramientas de dibujo y mostrar la barra de herramientas de Dibujo en el mapa. El control [DrawingToolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) agrega la barra de herramientas de dibujo en el mapa. Aprenderá a crear mapas con solo una y todas las herramientas de dibujo y cómo personalizar la representación de las formas de dibujo en el administrador de dibujos.
+Este artículo muestra cómo usar el módulo de herramientas de dibujo y mostrar la barra de herramientas de Dibujo en el mapa. El control [DrawingToolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) agrega la barra de herramientas de dibujo en el mapa. Aprenderá a crear mapas con solo una y todas las herramientas de dibujo y cómo personalizar la representación de las formas de dibujo en el administrador de dibujos.
 
 ## <a name="add-drawing-toolbar"></a>Incorporación de la barra de herramientas Dibujo
 
@@ -38,7 +38,7 @@ A continuación se muestra el ejemplo de código de ejecución completo de la fu
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Incorporación de la barra de herramientas Dibujo" src="//codepen.io/azuremaps/embed/ZEzLeRg/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Incorporación de la barra de herramientas Dibujo" src="//codepen.io/azuremaps/embed/ZEzLeRg/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>Adición de una barra de herramientas de dibujo</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -62,7 +62,7 @@ A continuación se muestra el ejemplo de código de ejecución completo de la fu
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Agregar una herramienta de dibujo de polígono" src="//codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Agregar una herramienta de dibujo de polígono" src="//codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>Adición de una herramienta de dibujo de polígono</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -122,7 +122,7 @@ A continuación se muestra el ejemplo de código de ejecución completo de la fu
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Cambiar el estilo de representación de dibujo" src="//codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Cambiar el estilo de representación de dibujo" src="//codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>Cambiar el estilo de representación de dibujo</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -143,10 +143,10 @@ Obtenga información sobre cómo usar características adicionales del módulo d
 Más información sobre las clases y los métodos utilizados en este artículo:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Barra de herramientas de dibujo](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
+> [Barra de herramientas de dibujo](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
 
 > [!div class="nextstepaction"]
-> [Administrador de dibujo](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [Administrador de dibujo](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)

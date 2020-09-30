@@ -6,16 +6,16 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: b169a067f05de422b714e18a4d7ebb9c9e7f0428
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ba7dc3b0f2bc4f62234c480da0af1061dea1f91
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133500"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885560"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Comparación de características de Azure Stream Analytics
 
-Con Azure Stream Analytics, puede crear soluciones de streaming en la nube y en IoT Edge mediante [Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md) y [Visual Studio Code](quick-create-vs-code.md). En las tablas de este artículo se muestran las características que se admiten con cada plataforma en ambos tipos de trabajos.
+Con Azure Stream Analytics, puede crear soluciones de streaming en la nube y en IoT Edge mediante [Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md) y [Visual Studio Code](quick-create-visual-studio-code.md). En las tablas de este artículo se muestran las características que se admiten con cada plataforma en ambos tipos de trabajos.
 
 > [!NOTE]
 > Las herramientas Visual Studio y Visual Studio Code no admiten trabajos de las regiones de Este de China, Norte de China, Centro de Alemania y Noreste de Alemania.

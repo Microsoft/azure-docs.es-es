@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 405beb5cb8c2e74951aa54ba371be04d290ad3a2
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: d8324b0b861829b02b589f8145121559114b7435
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194482"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289586"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de la versión de Data Management Gateway
 > [!NOTE]
@@ -39,14 +39,14 @@ Ya no se conservan las notas de la versión aquí. Puede obtener las notas de la
 ## <a name="earlier-versions"></a>Versiones anteriores
 ## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>Mejoras-
-- Puede agregar entradas DNS a la lista de Service Bus permitidos en vez de incluir todas las direcciones IP de Azure en la lista de permitidas del firewall (en caso necesario). Puede encontrar la entrada DNS correspondiente en Azure Portal (Data Factory -> "Crear e implementar" -> "Puertas de enlace" -> "serviceUrls" (en JSON)
+- Puede agregar entradas DNS para permitir Service Bus en vez de permitir todas las direcciones IP de Azure del firewall (en caso necesario). Puede encontrar la entrada DNS correspondiente en Azure Portal (Data Factory -> "Crear e implementar" -> "Puertas de enlace" -> "serviceUrls" (en JSON)
 - El conector HDFS ahora admite certificados públicos autofirmados al permitirle omitir la validación de TLS.
 - Solucionado: Problema con la puerta de enlace sin conexión durante la actualización (debido a la distorsión del reloj)
 
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>Mejoras-
--   Puede agregar entradas DNS a la lista blanca de Service Bus en vez de incluir todas las direcciones IP de Azure en la lista blanca del firewall (en caso necesario). Más detalles aquí.
+-   Puede agregar entradas DNS para permitir Service Bus en vez de permitir todas las direcciones IP de Azure del firewall (en caso necesario). Más detalles aquí.
 -   Ahora puede copiar hasta 4,75 TB de datos (tamaño máximo admitido para blob en bloques) en un único blob en bloques, y viceversa (el límite anterior era 195 GB).
 -   Solucionado: memoria agotada al descomprimir varios archivos pequeños durante la actividad de copia.
 -   Solucionado: problema de índice fuera de rango al copiar de Document DB a SQL Server con la característica de idempotencia.

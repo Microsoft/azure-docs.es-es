@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: e5ed84c6daaf01deb67d39bd13de1498dca131c5
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: d8779a25b7c6036f3b09badab67733fa55acfee7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750869"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907574"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Caracterización en aprendizaje automático automatizado
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 En esta guía obtendrá información sobre:
 

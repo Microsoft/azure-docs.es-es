@@ -7,12 +7,12 @@ ms.date: 07/07/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4c41edc477460e6d239688aafe6d7219bed36cd4
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: c4a32a5c929e74332e85ceb6f4cff787e237e385
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352084"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069652"
 ---
 # <a name="iot-plug-and-play-components-in-models"></a>Componentes de los modelos de IoT Plug and Play
 
@@ -79,12 +79,12 @@ En el caso de un modelo de DTDL con varios componentes, hay dos o más secciones
 ```json
 {
   "@context": "dtmi:dtdl:context;2",
-  "@id": "dtmi:com:example:Thermostat;1",
+  "@id": "dtmi:com:example:TemperatureController;1",
   "@type": "Interface",
-  "displayName": "Thermostat",
-  "description": "Reports current temperature and provides desired temperature control.",
+  "displayName": "Temperature Controller",
+  "description": "Device with two thermostats and remote reboot.",
   "contents": [
-... 
+...
     {
       "@type" : "Component",
       "schema": "dtmi:com:example:Thermostat;1",

@@ -11,6 +11,8 @@
           href: get-started-netcore-visualstudio.md
     - name: Conceptos
       items:
+        - name: Migración a Bridge to Kubernetes
+          href: migrate-to-bridge-to-kubernetes.md
         - name: Funcionamiento de Dev Spaces
           items:
             - name: Información general

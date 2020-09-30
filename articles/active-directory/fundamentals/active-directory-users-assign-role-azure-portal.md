@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 06/15/2020
+ms.date: 08/31/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77ba802d5e337851b3b5141695e5b2f0c6456719
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: fb7ab83bc9939d2f0b4b0ff0860ea97a0b07f12f
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902361"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321249"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Asignación de roles de administrador y de no administrador a usuarios con Azure Active Directory
 
@@ -28,10 +28,10 @@ Para más información acerca de los roles de Azure AD disponibles, consulte [A
 
 ## <a name="assign-roles"></a>Asignación de roles
 
-Comúnmente, se asignan roles de Azure AD a los usuarios desde la página **Roles asignados** de un usuario. Puede igualmente configurar que se eleve la idoneidad del usuario cuando sea necesario a un rol mediante Privileged Identity Management (PIM). Para obtener más información sobre cómo usar PIM, consulte [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
+Comúnmente, se asignan roles de Azure AD a los usuarios desde la página **Roles asignados** de un usuario. Puede igualmente configurar que se eleve la idoneidad del usuario cuando sea necesario a un rol mediante Privileged Identity Management (PIM). Para obtener más información sobre cómo usar PIM, consulte [Privileged Identity Management](../privileged-identity-management/index.yml).
 
 > [!Note]
-> Si tiene un plan de licencias de Azure AD Premium P2 y ya usa PIM, todas las tareas de administración de roles se realizan en la [experiencia de Privileged Identity Management](../users-groups-roles/directory-manage-roles-portal.md).
+> Si tiene un plan de licencias de Azure AD Premium P2 y ya usa PIM, todas las tareas de administración de roles se realizan en la [experiencia de Privileged Identity Management](../users-groups-roles/directory-manage-roles-portal.md). Esta característica está limitada actualmente a la asignación de un rol a la vez. Actualmente no se pueden seleccionar varios roles y asignarlos a un usuario a la vez.
 >
 > ![Roles de Azure AD administrados en PIM para los usuarios que ya usan PIM y tienen una licencia Premium P2](./media/active-directory-users-assign-role-azure-portal/pim-manages-roles-for-p2.png)
 
@@ -79,6 +79,6 @@ Si necesita quitar la asignación de roles de un usuario, también puede hacerlo
 
 - [Add or change profile information](active-directory-users-profile-azure-portal.md) (Incorporación o modificación de la información del perfil)
 
-- [Adición de usuarios invitados de otro directorio](../b2b/what-is-b2b.md)
+- [Adición de usuarios invitados de otro directorio](../external-identities/what-is-b2b.md)
 
 Consulte la [documentación de administración de usuarios en Azure Active Directory](../users-groups-roles/index.yml) para ver otras tareas de administración de usuarios en detalle.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 112792d4ccee2be7f85e6a5a6c0caf64df9a019e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7046062b1c2e42f47d650df6d616d6fb73c8d1ca
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286077"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033071"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problemas de aplicaciones virtuales de red en Azure
 
@@ -140,7 +140,7 @@ Capture un seguimiento de red simultáneo en la máquina virtual de origen, la a
    sudo tcpdump -s0 -i eth0 -X -w vmtrace.cap
 
 2. Utilice **PsPing** o **Nmap** desde la máquina virtual de origen a la máquina virtual de destino (por ejemplo: `PsPing 10.0.0.4:80` o `Nmap -p 80 10.0.0.4`).
-3. Abra el seguimiento de red desde la máquina virtual de destino mediante el [Monitor de red](https://www.microsoft.com/download/details.aspx?id=4865) o tcpdump. Aplique un filtro de visualización para la IP de la máquina virtual de origen desde la que ejecutó **PsPing** o **Nmap**, como `IPv4.address==10.0.0.4 (Windows netmon)` o `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux).
+3. Abra el seguimiento de red desde la máquina virtual de destino mediante el [Monitor de red](https://cnet-downloads.com/network-monitor) o tcpdump. Aplique un filtro de visualización para la IP de la máquina virtual de origen desde la que ejecutó **PsPing** o **Nmap**, como `IPv4.address==10.0.0.4 (Windows netmon)` o `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux).
 
 ### <a name="analyze-traces"></a>Análisis de seguimientos
 

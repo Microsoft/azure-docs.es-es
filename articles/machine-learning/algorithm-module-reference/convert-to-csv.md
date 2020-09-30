@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: fc2a043e8f1565cf5fe45ba0b072ad015076635e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3b7c781717952765941acd4ea4aa47593d4b8a0f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477687"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898786"
 ---
 # <a name="convert-to-csv-module"></a>Módulo Convertir a CSV
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
 Use este módulo para convertir un conjunto de datos a un formato CSV que se pueda descargar, exportar o compartir con módulos de script de R o Python.
 

@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 06/01/2020
+ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: d0bcd0608796545a4982f72f276399d5f692e765
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: ecfb569f2791b674fe842e1c21cba972a8e9d2a7
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852699"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443014"
 ---
 # <a name="vpn-gateway-design"></a>Diseño de VPN Gateway
 

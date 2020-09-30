@@ -3,17 +3,17 @@ title: Supervisión del uso y el gasto con alertas de costos
 description: En este artículo se describe cómo ayudan las alertas de costes a supervisar el uso y gasto en Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 09/03/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: aeeb630cf15aedd62c085e2070e08fd223656094
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 72e9fd0d5a178897cf84b2babe4c02f7ef920841
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683443"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531345"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Uso de alertas de costes para supervisar el uso y el gasto
 
@@ -25,39 +25,41 @@ Las alertas de presupuesto le envían una notificación cuando el gasto, en func
 
 En Azure Portal, los presupuestos se definen por el coste. Mediante la API de Azure Consumption, los presupuestos se definen por coste o por uso de consumo. Las alertas de presupuesto admiten presupuestos basado en costes o en uso. Las alertas de presupuesto se generan automáticamente cada vez que se cumplen las condiciones de alerta de presupuesto. Puede ver todas las alertas de costes en Azure Portal. Cada vez que se genera una alerta, esta se muestra en las alertas de costes. También se envía un correo electrónico de alerta a las personas de la lista de destinatarios de la alerta del presupuesto.
 
+Puede usar Budgets API para enviar alertas por correo electrónico en otro idioma. Para más información, consulte [Configuraciones regionales admitidas para los correos electrónicos de alertas de presupuesto](manage-automation.md#supported-locales-for-budget-alert-emails).
+
 ## <a name="credit-alerts"></a>Alertas de crédito
 
-Las alertas de crédito le envían una notificación cuando se consumen los compromisos monetarios de su crédito de Azure. Los compromisos monetarios son para organizaciones con contratos Enterprise. Las alertas de crédito se generan automáticamente al 90 % y el 100 % de su balance de crédito de Azure. Cada vez que se genera una alerta, esta se refleja en las alertas de costes y en el correo electrónico que se envía a los propietarios de la cuenta.
+Las alertas de crédito le avisan cuando se consumen los compromisos monetarios de crédito de Azure. Los compromisos monetarios son para organizaciones con contratos Enterprise. Las alertas de crédito se generan de forma automática al 90 % y al 100 % del saldo de crédito de Azure. Cada vez que se genera una alerta, se refleja en las alertas sobre los costos y en el correo electrónico que se envía a los propietarios de la cuenta.
 
 ## <a name="department-spending-quota-alerts"></a>Alertas de cuota de gasto de departamento
 
-Las alertas de cuota de gasto de departamento le informan del momento en que el gasto del departamento alcanza un umbral fijo de la cuota. Las cuotas de gastos se configuran en el portal del contrato Enterprise. Cada vez que se alcanza un umbral, se genera un correo electrónico para los propietarios del departamento y se muestra en las alertas de costes. Por ejemplo, al 50 % o el 75 % de la cuota.
+Las alertas de cuota de gasto de departamento notifican cuándo el gasto del departamento alcanza un umbral fijo de la cuota. Las cuotas de gasto se configuran en el portal de EA. Cada vez que se alcanza un umbral, se genera un correo electrónico para los propietarios del departamento y se muestra en las alertas sobre los costos. Por ejemplo, al 50 % o el 75 % de la cuota.
 
-## <a name="supported-alert-features-by-offer-categories"></a>Características de alertas compatibles por categorías de ofertas
+## <a name="supported-alert-features-by-offer-categories"></a>Características de alerta admitidas por categorías de oferta
 
-La compatibilidad de tipos de alertas depende del tipo de cuenta de Azure que se tiene (oferta de Microsoft). En la tabla siguiente se muestran las características de alerta que varias ofertas de Microsoft admiten. Puede ver la lista completa de ofertas de Microsoft en [Descripción de los datos de Cost Management](understand-cost-mgt-data.md).
+La compatibilidad con los tipos de alerta depende del tipo de cuenta de Azure que tenga (oferta de Microsoft). En la tabla siguiente se muestran las características de alerta que varias ofertas de Microsoft admiten. Puede ver la lista completa de ofertas de Microsoft en [Descripción de los datos de Cost Management](understand-cost-mgt-data.md).
 
 | Tipo de alerta | Contrato Enterprise | Contrato de cliente de Microsoft | Web directa/Pago por uso |
 |---|---|---|---|
 | Presupuesto | ✔ | ✔ | ✔ |
-| Créditos | ✔ |✘ | ✘ |
+| Crédito | ✔ |✘ | ✘ |
 | Cuota de gasto de departamento | ✔ | ✘ | ✘ |
 
 
 
-## <a name="view-cost-alerts"></a>Visualización de alertas de costes
+## <a name="view-cost-alerts"></a>Visualización de alertas sobre los costos
 
-Para ver las alertas sobre los costos, abra el ámbito deseado en Azure Portal y seleccione **Presupuestos** en el menú. Use la píldora **Ámbito** para cambiar a un ámbito diferente. Seleccione **Alertas sobre los costos** en el menú. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
+Para ver las alertas sobre los costos, abra el ámbito que quiera en Azure Portal y seleccione **Presupuestos** en el menú. Use el intervalo **Ámbito** para cambiar a otro ámbito. Seleccione **Alertas sobre los costos** en el menú. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
 ![Imagen de ejemplo de alertas que se muestran en Cost Management](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 
-El número total de alertas activas y descartadas aparece en la página de alertas sobre los costes.
+El número total de alertas activas y descartadas aparece en la página de alertas sobre los costos.
 
 Todas las alertas muestran el tipo de alerta. Una alerta de presupuesto muestra la razón por la que se generó y el nombre del presupuesto al que se aplica. Cada alerta muestra la fecha en se generó, su estado y el ámbito (grupo de administración o suscripción) al que se aplica la alerta.
 
-El posible estado incluye **activo** y **descartado**. El estado activo indica que la alerta sigue siendo pertinente. El estado descartado indica que alguien ha marcado la alerta para indicar que ya no es pertinente.
+El posible estado incluye **activo** y **descartado**. El estado activo indica que la alerta sigue siendo relevante. El estado descartado indica que alguien ha marcado la alerta para establecerla como no relevante.
 
-Seleccione una alerta de la lista para ver los detalles. Los detalles de la alerta muestran más información sobre la alerta. Las alertas de presupuesto incluyen un vínculo al presupuesto. Si hay una recomendación disponible para una alerta de presupuesto, también se muestra un vínculo a la recomendación. Las alertas de cuota de gasto de presupuesto, crédito y departamento tienen un vínculo para analizar los costes donde puede explorar los costes del ámbito de la alerta. El ejemplo siguiente muestra el gasto de un departamento con detalles de alerta.
+Seleccione una alerta en la lista para ver sus detalles. En los detalles de la alerta se muestra más información sobre la alerta. Las alertas de presupuesto incluyen un vínculo al presupuesto. Si hay una recomendación disponible para una alerta de presupuesto, también se muestra un vínculo a la recomendación. Las alertas de presupuesto, crédito y cuota de gasto del departamento tienen un vínculo para analizar en el análisis de costos donde puede explorar los costos para el ámbito de la alerta. El ejemplo siguiente muestra el gasto de un departamento con detalles de alerta.
 
 ![Imagen de ejemplo que muestra el gasto de un departamento con detalles de alerta](./media/cost-mgt-alerts-monitor-usage-spending/dept-spending-selected-with-credits.png)
 
@@ -65,6 +67,6 @@ Al ver los detalles de una alerta descartada, puede reactivarla si es necesario 
 
 ![Imagen de ejemplo que muestra las opciones de descartar y reactivar](./media/cost-mgt-alerts-monitor-usage-spending/Dismiss-reactivate-options.png)
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 - Si aún no ha creado un presupuesto ni ha establecido condiciones de alerta para un presupuesto, complete el tutorial [Creación y administración de presupuestos](tutorial-acm-create-budgets.md).

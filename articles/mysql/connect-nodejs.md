@@ -8,12 +8,12 @@ ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-t
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 1f8f4dee2ed1e6dc5cdf6985c1149db0dcaed7c2
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: ab4783d2bcce6ec42d49ef9a3e70d7a1acf83b8d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185934"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906574"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Inicio rápido: Uso de Node.js para conectar y consultar datos en Azure Database for MySQL
 
@@ -93,7 +93,7 @@ Obtenga la información de conexión necesaria para conectarse a Azure Database 
 2. En el menú izquierdo de Azure Portal, seleccione **Todos los recursos** y, luego, busque el servidor que ha creado, por ejemplo, **mydemoserver**.
 3. Seleccione el nombre del servidor.
 4. En el panel **Información general** del servidor, anote el **nombre del servidor** y el **nombre de inicio de sesión del administrador del servidor**. Si olvida la contraseña, puede restablecerla en este panel.
- ![Nombre del servidor de Azure Database for MySQL](./media/connect-nodejs/server-name-azure-database-mysql.png)
+ :::image type="content" source="./media/connect-nodejs/server-name-azure-database-mysql.png" alt-text="Nombre del servidor de Azure Database for MySQL":::
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>Ejecución del código de JavaScript en Node.js
 

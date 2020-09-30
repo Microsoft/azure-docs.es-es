@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 8/10/2020
-ms.openlocfilehash: 85a1f0dcc2e778a09cf0d19b2a85d6faf371f032
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.date: 9/18/2020
+ms.openlocfilehash: fef873d5122fefb48c85281f71e206f95f3fbe48
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134534"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986718"
 ---
 # <a name="server-group-size"></a>Tamaño del grupo de servidores
 
@@ -40,9 +40,9 @@ Azure Database for PostgreSQL:Hiperescala (Citus) proporciona escalado de autose
 
 ### <a name="add-worker-nodes"></a>Incorporación de nodos de trabajo
 
-Para agregar nodos, vaya a la pestaña **Configurar** en el grupo de servidores de Hiperescala (Citus).  Arrastre el control deslizante de **Números de nodo de trabajo** para cambiar el valor.
+Para agregar nodos, vaya a la pestaña **Compute + storage** (Proceso y almacenamiento) en el grupo de servidores de Hiperescala (Citus).  Arrastre el control deslizante de **Números de nodo de trabajo** para cambiar el valor.
 
-![Controles deslizantes de recursos](./media/howto-hyperscale-scaling/01-sliders-workers.png)
+:::image type="content" source="./media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="Controles deslizantes de recursos":::
 
 Haga clic en el botón **Guardar** para que el valor cambiado surta efecto.
 
@@ -60,9 +60,6 @@ SELECT rebalance_table_shards('distributed_table_name');
 La función `rebalance_table_shards` vuelve a equilibrar todas las tablas del grupo [colocación](concepts-hyperscale-colocation.md)de la tabla nombrada en su argumento. Por lo tanto, no tiene que llamar a la función para cada tabla distribuida, simplemente llámela en una tabla representativa de cada grupo de ubicación.
 
 ### <a name="increase-or-decrease-vcores-on-nodes"></a>Aumentar o disminuir los núcleos virtuales de los nodos
-
-> [!NOTE]
-> Esta funcionalidad actualmente está en su versión preliminar. Para solicitar un cambio en los núcleos virtuales de los nodos del grupo de servidores, [póngase en contacto con el servicio de soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 Además de agregar nodos nuevos, puede aumentar las capacidades de los nodos existentes. Ajustar la capacidad de proceso hacia arriba y hacia abajo puede ser útil en los experimentos de rendimiento, así como en el caso de cambios a corto o largo plazo en las demandas de tráfico.
 

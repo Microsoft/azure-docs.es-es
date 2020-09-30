@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: dc80141d796b66dd7e610342166f7b88df58f530
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d2c309340155bc626d4da94d74aee9be51bde510
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75927959"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606782"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Creación de un espacio de nombres en Azure Portal
 Para empezar a usar entidades de mensajería de Service Bus en Azure, primero hay que crear un espacio de nombres con un nombre que sea único en Azure. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos de Service Bus en la aplicación.
@@ -53,10 +53,10 @@ La creación un nuevo espacio de nombres genera automáticamente una regla de fi
 2. En la ventana del espacio de nombres, haga clic en **Directivas de acceso compartido**.
 3. En la pantalla **Directivas de acceso compartido**, haga clic en **RootManageSharedAccessKey**.
    
-    ![información de conexión](./media/service-bus-create-namespace-portal/connection-info.png)
+    ![La captura de pantalla muestra la ventana de directivas de acceso compartido con una de ellas resaltada.](./media/service-bus-create-namespace-portal/connection-info.png)
 4. En la ventana **Directiva: RootManageSharedAccessKey**, haga clic en el botón Copiar que hay junto a **Cadena de conexión principal** para copiar la cadena de conexión en el portapapeles para su uso posterior. Pegue este valor en el Bloc de notas o cualquier otra ubicación temporal.
    
-    ![connection-string](./media/service-bus-create-namespace-portal/connection-string.png)
+    ![La captura de pantalla muestra una directiva de SAS llamada RootManageSharedAccessKey, que incluye claves y cadenas de conexión.](./media/service-bus-create-namespace-portal/connection-string.png)
 5. Repita el paso anterior, copie y pegue el valor de **clave principal** en una ubicación temporal para su uso posterior.
 
 <!--Image references-->

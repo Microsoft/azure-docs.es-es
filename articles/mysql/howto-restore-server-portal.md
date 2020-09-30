@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 1a10d61c5dc35a19a8b02769a517d9f1c7aac601
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7c9e7cda862fe1112cce7ed8cff270843f0a8475
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119232"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902784"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for MySQL mediante Azure Portal
 
@@ -32,7 +32,7 @@ Elija la configuración del servidor para copias de seguridad con redundancia lo
 
 Al crear un servidor mediante Azure Portal, en la ventana **Plan de tarifa** se selecciona **Redundancia local** o **Redundancia geográfica** para las copias de seguridad del servidor. En esta ventana se selecciona también el **Período de retención de copia de seguridad**, es decir, durante cuánto tiempo se almacenarán las copias de seguridad del servidor.
 
-   ![Plan de tarifa: elija la redundancia de las copias de seguridad](./media/howto-restore-server-portal/pricing-tier.png)
+   :::image type="content" source="./media/howto-restore-server-portal/pricing-tier.png" alt-text="Plan de tarifa: elija la redundancia de las copias de seguridad":::
 
 Para más información acerca de cómo establecer estos valores durante la creación, consulte la [guía de inicio rápido del servidor de Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md).
 
@@ -41,7 +41,7 @@ Para cambiar el período de retención de copia de seguridad en un servidor, sig
 2. Seleccione un servidor de Azure Database for MySQL. Esta acción abre la página **Información general**.
 3. Seleccione **Plan de tarifa** en el menú, en **Configuración**. Con el control deslizante puede cambiar el **Período de retención de copia de seguridad** entre 7 y 35 días.
 En la captura de pantalla siguiente, se ha aumentado a 34 días.
-![Aumento del período de retención de copia de seguridad](./media/howto-restore-server-portal/3-increase-backup-days.png)
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Aumento del período de retención de copia de seguridad":::
 
 4. Haga clic en **Aceptar** para confirmar el cambio.
 
@@ -57,11 +57,11 @@ Los siguientes pasos restauran el servidor de ejemplo a un momento dado:
 
 2. En la barra de herramientas de la página **Información general** del servidor, seleccione **Restaurar**.
 
-   ![Azure Database for MySQL - Información general - Botón Restaurar](./media/howto-restore-server-portal/2-server.png)
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Azure Database for MySQL - Información general - Botón Restaurar":::
 
 3. Rellene el formulario Restaurar con la información necesaria:
 
-   ![Azure Database for MySQL - Información sobre restauración](./media/howto-restore-server-portal/3-restore.png)
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Azure Database for MySQL - Información sobre restauración":::
    - **Punto de restauración**: seleccione el momento al que desea restaurar.
    - **Servidor de destino:** : proporcione un nombre para el nuevo servidor.
    - **Ubicación**: no se puede seleccionar la región. De manera predeterminada, es el mismo que el del servidor de origen.
@@ -72,6 +72,12 @@ Los siguientes pasos restauran el servidor de ejemplo a un momento dado:
 5. Una vez finalizada la restauración, busque el nuevo servidor que se crea para comprobar que los datos se restauraron del modo esperado.
 
 El nuevo servidor creado mediante restauración a un momento dado tiene el mismo nombre de inicio de sesión y contraseña de administrador del servidor que el servidor existente tenía en ese momento dado. Puede cambiar la contraseña en la página **Información general** del nuevo servidor.
+
+Adicionalmente, después de que finalice la operación de restauración, hay dos parámetros de servidor que se restablecen a los valores predeterminados (y no se copian del servidor principal) después de la operación de restauración.
+*   time_zone: este valor se establece en DEFAULT value **SYSTEM**
+*   event_scheduler: este parámetro se establece en **OFF** en el servidor restaurado
+
+Tendrá que copiar el valor del servidor principal y establecerlo en el servidor restaurado, para lo que tendrá que volver a configurar el [parámetro del servidor](howto-server-parameters.md)
 
 El servidor creado durante una restauración no tiene los puntos de conexión de servicio de red virtual que existían en el servidor original. Estas reglas deben configurarse por separado para este nuevo servidor. Se restauran las reglas de firewall del servidor original.
 

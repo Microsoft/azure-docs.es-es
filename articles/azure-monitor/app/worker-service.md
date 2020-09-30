@@ -4,12 +4,12 @@ description: Supervisión de aplicaciones de .NET Core/.NET Framework que no son
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-ms.openlocfilehash: 6f31236e516e44df9f5115e3efeb48db46853e8d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 2ca5fc2d8f5e9e399fd7dfd3238d0ec16056d537
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933280"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007220"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights para las aplicaciones de servicio de trabajo (aplicaciones sin HTTP)
 
@@ -19,7 +19,7 @@ El nuevo SDK no recopila telemetría por sí mismo. En su lugar, ofrece en otros
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
-El [SDK de Application Insights para el servicio de trabajo](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) es más adecuado para aplicaciones sin HTTP, independientemente de dónde y cómo se ejecuten. Si la aplicación se está ejecutando y tiene conectividad de red a Azure, se pueden recopilar datos de telemetría. La supervisión de Application Insights se admite siempre y cuando .NET Core sea compatible. Este paquete se puede usar en el [servicio de trabajo de .NET Core 3.0](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances) presentado recientemente, en [tareas en segundo plano en Asp.Net Core 2.1/2.2](/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2), en aplicaciones de consola (.NET Core/.NET Framework), etc.
+El [SDK de Application Insights para el servicio de trabajo](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) es más adecuado para aplicaciones sin HTTP, independientemente de dónde y cómo se ejecuten. Si la aplicación se está ejecutando y tiene conectividad de red a Azure, se pueden recopilar datos de telemetría. La supervisión de Application Insights se admite siempre y cuando .NET Core sea compatible. Este paquete se puede usar en el [servicio de trabajo de .NET Core 3.0](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances) presentado recientemente, en [tareas en segundo plano en Asp.Net Core 2.1/2.2](/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&preserve-view=true), en aplicaciones de consola (.NET Core/.NET Framework), etc.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -134,7 +134,7 @@ Por lo general, `APPINSIGHTS_INSTRUMENTATIONKEY` especifica la clave de instrume
 
 ## <a name="aspnet-core-background-tasks-with-hosted-services"></a>Tareas en segundo plano de ASP.NET Core con servicios hospedados
 
-En [este](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-2.2) documento se describe cómo crear tareas en segundo plano en la aplicación ASP.NET Core 2.1/2.2.
+En [este](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-2.2&preserve-view=true) documento se describe cómo crear tareas en segundo plano en la aplicación ASP.NET Core 2.1/2.2.
 
 El ejemplo completo se comparte [aquí](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
 
@@ -358,6 +358,7 @@ Configuraciones que se suelen usar en `ApplicationInsightsServiceOptions`
 |EnableAdaptiveSampling | Habilitar o deshabilitar el muestreo adaptable | true
 |EnableHeartbeat | Habilitar o deshabilitar la característica de latidos, que periódicamente (cada 15 minutos de forma predeterminada) envía una métrica personalizada denominada "HeartBeatState" con información sobre el entorno de ejecución, por ejemplo, la versión de .NET, información del entorno de Azure, si procede, etc. | true
 |AddAutoCollectedMetricExtractor | Habilitar o deshabilitar el extractor de AutoCollectedMetrics, que es un elemento TelemetryProcessor que envía métricas previamente agregadas sobre las solicitudes o dependencias antes de que tenga lugar el muestreo. | true
+|EnableDiagnosticsTelemetryModule | Habilitar o deshabilitar `DiagnosticsTelemetryModule`. Si se deshabilita, se omitirá la siguiente configuración; `EnableHeartbeat`, `EnableAzureInstanceMetadataTelemetryModule`, `EnableAppServicesHeartbeatTelemetryModule` | true
 
 Consulte los [valores configurables en `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) para obtener la lista más actualizada.
 
@@ -533,9 +534,9 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 [Aplicación de consola .NET Core](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights): use este ejemplo si usa una aplicación de consola escrita en .NET Core (versión 2.0 o posterior) o .NET Framework (versión 4.7.2 o posterior).
 
-[Tareas en segundo plano de ASP.NET Core con HostedServices](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService): use este ejemplo si está en ASP.NET Core 2.1/2.2 y cree tareas en segundo plano según la orientación oficial que se muestra [aquí](/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2).
+[Tareas en segundo plano de ASP.NET Core con HostedServices](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService): use este ejemplo si está en ASP.NET Core 2.1/2.2 y cree tareas en segundo plano según la orientación oficial que se muestra [aquí](/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&preserve-view=true).
 
-[Servicio de trabajo .NET Core 3.0](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights): use este ejemplo si tiene una aplicación de servicio de trabajo .NET Core 3.0 según las instrucciones oficiales que se muestran [aquí](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-3.0#worker-service-template).
+[Servicio de trabajo .NET Core 3.0](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights): use este ejemplo si tiene una aplicación de servicio de trabajo .NET Core 3.0 según las instrucciones oficiales que se muestran [aquí](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-3.0&preserve-view=true#worker-service-template).
 
 ## <a name="open-source-sdk"></a>SDK de código abierto
 
@@ -547,4 +548,3 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 * [Realice el seguimiento de las dependencias adicionales cuyo seguimiento no se realiza automáticamente](./auto-collect-dependencies.md).
 * [Enriquezca o filtre la telemetría recopilada automáticamente](./api-filtering-sampling.md).
 * [Inserción de dependencias en ASP.NET Core](/aspnet/core/fundamentals/dependency-injection).
-

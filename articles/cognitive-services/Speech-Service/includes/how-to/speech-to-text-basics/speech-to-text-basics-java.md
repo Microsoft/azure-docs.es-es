@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: 314617554abf8fee430e47eb4b0a0ca5db5bc75f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: db2f1a685e3413814878ee1a6a367bd790739d4f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375700"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565009"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -45,34 +45,30 @@ SpeechConfig config = SpeechConfig.fromSubscription("YourSubscriptionKey", "Your
 
 ## <a name="initialize-a-recognizer"></a>Inicialización de un reconocedor
 
-Una vez creado un elemento [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable), el paso siguiente consiste en inicializar un elemento [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable). Al inicializar un elemento [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable), deberá pasar el elemento `config`. Esto proporciona las credenciales que necesita el servicio de voz para validar la solicitud.
-
-Si va a realizar un reconocimiento de voz con el micrófono predeterminado del dispositivo, el elemento [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable) debería ser similar a:
+Una vez creado un elemento [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable), el paso siguiente consiste en inicializar un elemento [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable). Al inicializar [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable), se usa `SpeechConfig`. Esto proporciona las credenciales que necesita el servicio de voz para validar la solicitud.
 
 ```java
 SpeechRecognizer recognizer = new SpeechRecognizer(config);
 ```
 
-Si desea especificar el dispositivo de entrada de audio, deberá crear un elemento [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable) y proporcionar el parámetro `audioConfig` al inicializar el elemento [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable).
+## <a name="recognize-from-microphone-or-file"></a>Reconocimiento desde un micrófono o archivo
 
-> [!TIP]
-> [Obtenga información sobre cómo obtener el identificador de dispositivo del dispositivo de entrada de audio](../../../how-to-select-audio-input-devices.md).
+Si desea especificar el dispositivo de entrada de audio, es preciso que cree [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable) y lo use como parámetro al inicializar [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable).
 
-En primer lugar, agregue las siguientes instrucciones `import`.
+Para reconocer la voz mediante el micrófono del dispositivo, cree un elemento `AudioConfig` mediante `fromDefaultMicrophoneInput()`y, después, utilice la configuración de audio al crear el objeto `SpeechRecognizer`.
 
 ```java
 import java.util.concurrent.Future;
 import com.microsoft.cognitiveservices.speech.*;
-```
 
-A continuación, podrá hacer referencia al objeto `AudioConfig`, como se indica a continuación:
-
-```java
 AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
 SpeechRecognizer recognizer = new SpeechRecognizer(config, audioConfig);
 ```
 
-Si desea proporcionar un archivo de audio en lugar de usar un micrófono, deberá proporcionar un elemento `audioConfig`. Sin embargo, cuando se crea un elemento [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable), en lugar de llamar a `fromDefaultMicrophoneInput`, llamará a `fromWavFileOutput` y pasará el parámetro `filename`.
+> [!TIP]
+> [Obtenga información sobre cómo obtener el identificador de dispositivo del dispositivo de entrada de audio](../../../how-to-select-audio-input-devices.md).
+
+Si desea reconocer la voz de un archivo de audio, en lugar de usar un micrófono, tiene que crear un elemento `AudioConfig`. Sin embargo, al crear [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable), en lugar de llamar a `fromDefaultMicrophoneInput()`, llamará a `fromWavFileInput()` y usará el parámetro `filename`.
 
 ```java
 AudioConfig audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");

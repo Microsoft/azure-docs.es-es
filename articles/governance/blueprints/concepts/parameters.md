@@ -1,14 +1,14 @@
 ---
 title: Uso de parámetros para crear planos técnicos dinámicos
 description: Obtenga información sobre los parámetros estáticos y dinámicos y cómo usarlos para crear planos técnicos seguros y dinámicos.
-ms.date: 04/15/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 831dd69f58130247518ee7465bc1059aed61b319
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: b9c80a50ebb4be8dc530c73544a704035d777225
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970644"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051566"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creación de planos técnicos mediante parámetros
 
@@ -55,11 +55,11 @@ Un valor de parámetro definido en la definición de un plano técnico se denomi
 
 1. Seleccione **Definiciones del plano técnico** en la página de la izquierda.
 
-1. Haga clic en un plano técnico ya existente y, a continuación, haga clic en **Editar plano técnico** o en **+ Crear plano técnico** y rellene la información de la pestaña **Aspectos básicos**.
+1. Seleccione un plano técnico ya existente y, a continuación, seleccione **Editar plano técnico** o **+ Crear plano técnico** y rellene la información de la pestaña **Aspectos básicos**.
 
-1. Haga clic en **Siguiente: Artefactos** o haga clic en la pestaña **Artefactos**.
+1. Seleccione **Siguiente: Artefactos** o seleccione la pestaña **Artefactos**.
 
-1. En los artefactos que se agregaron al plano técnico que tienen opciones de parámetro aparece **X of Y parameters populated** (X de Y parámetros rellenos) en la columna **Parámetros**. Haga clic en la fila del artefacto para editar los parámetros de este.
+1. En los artefactos que se agregaron al plano técnico que tienen opciones de parámetro aparece **X of Y parameters populated** (X de Y parámetros rellenos) en la columna **Parámetros**. Seleccione la fila del artefacto para editar los parámetros de este.
 
    :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Parámetros de plano técnico en una definición de plano técnico" border="false":::
 
@@ -172,7 +172,7 @@ Lo contrario de un parámetro estático es un **parámetro dinámico**. Este par
 
 1. Seleccione **Definiciones del plano técnico** en la página de la izquierda.
 
-1. Haga clic con el botón derecho clic en el plano técnico que desee asignar. Seleccione **Asignar plano técnico** o haga clic en el plano técnico que quiera asignar y, después, haga clic en el botón **Asignar plano técnico**.
+1. Haga clic con el botón derecho clic en el plano técnico que desee asignar. Seleccione **Asignar plano técnico** o seleccione el plano técnico que quiera asignar y, después, use el botón **Asignar plano técnico**.
 
 1. En la página **Asignar plano técnico**, busque la sección **Parámetros del artefacto**. Cada artefacto que tiene al menos un **parámetro dinámico** muestra el artefacto y las opciones de configuración. Proporcione los valores necesarios para los parámetros antes de asignar el plano técnico. En el ejemplo siguiente, _Name_ es un **parámetro dinámico** que se debe definir para completar la asignación del plano técnico.
 
@@ -234,8 +234,8 @@ Para establecer **parámetros dinámicos** durante la asignación, debe escribir
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Vea la lista de [funciones de plano técnico](../reference/blueprint-functions.md).
-- Información acerca del [ciclo de vida del plano técnico](lifecycle.md).
-- Aprenda a personalizar el [orden de secuenciación de planos técnicos](sequencing-order.md).
-- Averigüe cómo usar el [bloqueo de recursos de planos técnicos](resource-locking.md).
+- Información acerca del [ciclo de vida del plano técnico](./lifecycle.md).
+- Aprenda a personalizar el [orden de secuenciación de planos técnicos](./sequencing-order.md).
+- Averigüe cómo usar el [bloqueo de recursos de planos técnicos](./resource-locking.md).
 - Aprenda a [actualizar las asignaciones existentes](../how-to/update-existing-assignments.md).
 - Puede consultar la información de [solución de problemas generales](../troubleshoot/general.md) para resolver los problemas durante la asignación de un plano técnico.

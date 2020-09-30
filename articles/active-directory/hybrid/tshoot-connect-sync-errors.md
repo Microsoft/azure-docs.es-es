@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1279ef9b8767ba05f329678429dff40f9bfed640
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 5bd779c26cd523bbf33fa1be6c87f21b4415c152
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89280120"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016425"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Solución de errores durante la sincronización
 Pueden producirse errores cuando se sincronizan datos de identidad de Windows Server Active Directory (AD DS) con Azure Active Directory (Azure AD). En este artículo se proporciona información general sobre los distintos tipos de errores de sincronización, algunos de los posibles escenarios que provocan dichos errores y las posibles maneras de corregirlos. También se incluyen los tipos de error comunes, pero puede que no cubra todos los posibles errores.
@@ -106,17 +106,17 @@ El informe de errores de sincronización de Azure AD Connect Health para sincron
 >
 
 #### <a name="related-articles"></a>Artículos relacionados
-* [Atributos duplicados o no válidos evitan la sincronización de directorios en Office 365](https://support.microsoft.com/kb/2647098)
+* [Los atributos duplicados o no válidos impiden la sincronización de directorios en Microsoft 365](https://support.microsoft.com/kb/2647098)
 
 ### <a name="objecttypemismatch"></a>ObjectTypeMismatch
 #### <a name="description"></a>Descripción
 Cuando Azure AD intenta realizar una coincidencia parcial de dos objetos, es posible que dos objetos de diferentes "tipos de objeto" (como, Usuario, Grupo, Contacto, etc.) tengan los mismos valores en los atributos que se utilizan para realizar la coincidencia parcial. Dado que no se permite la duplicación de estos atributos en Azure AD, la operación puede provocar un error de sincronización "ObjectTypeMismatch".
 
 #### <a name="example-scenarios-for-objecttypemismatch-error"></a>Escenarios de ejemplo para el error ObjectTypeMismatch
-* Se crea un grupo de seguridad habilitado para correo en Office 365. El administrador agrega un nuevo usuario o un contacto en el entorno de AD local (que aún no se ha sincronizado con Azure AD) con el mismo valor en el atributo ProxyAddresses que el del grupo de Office 365.
+* Se crea un grupo de seguridad habilitado para correo en Microsoft 365. El administrador agrega un nuevo usuario o contacto en el entorno de AD local (que aún no se ha sincronizado con Azure AD) con el mismo valor en el atributo ProxyAddresses que el del grupo de Microsoft 365.
 
 #### <a name="example-case"></a>Caso de ejemplo
-1. Un administrador crea un nuevo grupo de seguridad habilitado para correo en Office 365 para el departamento de impuestos y proporciona la dirección de correo electrónico tax@contoso.com. Este grupo se asigna el valor del atributo ProxyAddresses de **smtp: tax\@contoso.com**.
+1. Un administrador crea un nuevo grupo de seguridad habilitado para correo en Microsoft 365 para el departamento de fiscalidad y proporciona una dirección de correo electrónico como tax@contoso.com. Este grupo se asigna el valor del atributo ProxyAddresses de **smtp: tax\@contoso.com**.
 2. Un usuario nuevo se incorpora a Contoso.com y se crea una cuenta para él en el entorno local con el valor de proxyAddress como **smtp: tax\@contoso.com**.
 3. Cuando Azure AD Connect sincronice la nueva cuenta de usuario, aparecerá el error "ObjectTypeMismatch".
 
@@ -164,7 +164,7 @@ El motivo más común por el que se aparece el error AttributeValueMustBeUnique 
 4. Si el cambio lo ha realizado en el entorno de AD local, deje que Azure AD Connect lo sincronice, ya que así se corregirá el error.
 
 #### <a name="related-articles"></a>Artículos relacionados
--[Atributos duplicados o no válidos evitan la sincronización de directorios en Office 365](https://support.microsoft.com/kb/2647098)
+-[Los atributos duplicados o no válidos impiden la sincronización de directorios en Microsoft 365](https://support.microsoft.com/kb/2647098)
 
 ## <a name="data-validation-failures"></a>Errores de validación de datos
 ### <a name="identitydatavalidationfailed"></a>IdentityDataValidationFailed
@@ -179,7 +179,7 @@ b. El atributo UserPrincipalName no sigue el formato requerido.
 a. Asegúrese de que el atributo userPrincipalName tiene caracteres compatibles y el formato requerido.
 
 #### <a name="related-articles"></a>Artículos relacionados
-* [Preparación del aprovisionamiento de usuarios a Office 365 mediante la sincronización de directorios](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
+* [Preparación del aprovisionamiento de usuarios a Microsoft 365 mediante la sincronización de directorios](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
 #### <a name="description"></a>Descripción

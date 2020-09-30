@@ -1,6 +1,6 @@
 ---
-title: Creación de una instantánea de una unidad de disco duro virtual en Azure
-description: Aprenda a crear una copia de una máquina virtual de Azure como copia de seguridad o para solucionar problemas.
+title: Creación de una instantánea de una unidad de disco duro virtual mediante el portal o PowerShell
+description: Aprenda a crear una copia de una máquina virtual de Azure como copia de seguridad o para solucionar problemas mediante el portal o PowerShell.
 author: roygara
 manager: twooley
 ms.service: virtual-machines-windows
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: e5ecb99c7f64d81d57c5d6d2cb25967913a752b4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c0fddca70ca09f0a3abb3c84672e20a42551ecd5
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074138"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322320"
 ---
-# <a name="create-a-snapshot"></a>Crear una instantánea
+# <a name="create-a-snapshot-using-the-portal-or-powershell"></a>Creación de una instantánea mediante el portal o PowerShell
 
 Una instantánea es una copia completa de solo lectura de un disco duro virtual (VHD). Tome una instantánea de un disco duro virtual de datos o del sistema operativo para realizar una copia de seguridad o para solucionar problemas de la máquina virtual.
 

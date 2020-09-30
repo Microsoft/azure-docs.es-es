@@ -1,6 +1,6 @@
 ---
-title: Administración de recursos compartidos de Azure Stack Edge | Microsoft Docs
-description: En este artículo se describe cómo usar Azure Portal para administrar recursos compartidos en Azure Stack Edge.
+title: Administración de recursos compartidos en Azure Stack Edge Pro | Microsoft Docs
+description: En este artículo se explica cómo usar Azure Portal para administrar recursos compartidos de Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 1aceb9d2fb1d9b5890bc0859d432bc1c5e7e4db4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc9c7dda86d39d31b8c9a6329ac29970888f12d1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339846"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904467"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge"></a>Uso de Azure Portal para administrar recursos compartidos en Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Uso de Azure Portal para administrar recursos compartidos en Azure Stack Edge Pro
 
-En este artículo se describe cómo administrar recursos compartidos en Azure Stack Edge. Azure Stack Edge se puede administrar mediante Azure Portal o la interfaz de usuario web local. Use Azure Portal para agregar, eliminar y actualizar recursos compartidos o sincronizar la clave de almacenamiento para la cuenta de almacenamiento asociada con los recursos compartidos.
+En este artículo se explica cómo administrar recursos compartidos en Azure Stack Edge Pro. Azure Stack Edge Pro se puede administrar con Azure Portal o con la interfaz de usuario web local. Use Azure Portal para agregar, eliminar y actualizar recursos compartidos o sincronizar la clave de almacenamiento para la cuenta de almacenamiento asociada con los recursos compartidos.
 
 ## <a name="about-shares"></a>Acerca de los recursos compartidos
 
-Para transferir datos a Azure, es preciso crear recursos compartidos en Azure Stack Edge. Los recursos compartidos que agrega en el dispositivo de Azure Stack Edge pueden ser recursos compartidos locales o recursos compartidos que insertan datos en la nube.
+Para transferir datos a Azure, es preciso crear recursos compartidos en Azure Stack Edge Pro. Los recursos compartidos que agrega en el dispositivo Azure Stack Edge Pro pueden ser recursos compartidos locales o recursos compartidos que insertan datos en la nube.
 
  - **Recursos compartidos locales**: use estos recursos compartidos cuando quiera procesar los datos localmente en el dispositivo.
  - **Recursos compartidos**: use estos recursos compartidos cuando quiera que los datos del dispositivo se inserten automáticamente en su cuenta de almacenamiento en la nube. Todas las funciones de la nube, como la **actualización** y la **sincronización de claves de almacenamiento** se aplican a los recursos compartidos.
@@ -54,7 +54,7 @@ Siga estos pasos en Azure Portal para crear un recurso compartido.
 5. En la lista desplegable, elija el **servicio de almacenamiento** entre blob en bloques, blob en páginas o archivos. El tipo de servicio elegido depende de en qué formato desea que los datos residan en Azure. Por ejemplo, en este caso, queremos que los datos residan como **blobs en bloques** en Azure y, por tanto, seleccionamos esa opción. Si elige **Blob en páginas**, debe asegurarse de que los datos tienen 512 bytes alineados. Use **Blob en páginas** para VHD o VHDX que siempre tienen 512 bytes alineados.
 
    > [!IMPORTANT]
-   > Asegúrese de que la cuenta de Azure Storage que usa no tiene directivas de inmutabilidad establecidas si la usa con un dispositivo de Azure Stack Edge o Data Box Gateway. Para más información, consulte [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Asegúrese de que la cuenta de Azure Storage que usa no tiene directivas de inmutabilidad establecidas si la usa con un dispositivo Azure Stack Edge Pro o Data Box Gateway. Para más información, consulte [Establecimiento y administración de directivas de inmutabilidad para el almacenamiento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 6. Este paso depende de si está creando un recurso compartido SMB o NFS.
    - **Si crea un recurso compartido SMB**: en el campo **Usuario local con todos los privilegios**, elija entre **Crear nuevo** o **Usar existente**. Si va a crear un nuevo usuario local, indique el **nombre de usuario** y la **contraseña** y, después, confirme la contraseña. Esto asigna los permisos al usuario local. Después de haber asignado los permisos aquí, puede utilizar el Explorador de archivos para modificarlos.
@@ -102,7 +102,7 @@ Siga estos pasos en Azure Portal para crear un recurso compartido.
 
 ## <a name="mount-a-share"></a>Montaje de un recurso compartido
 
-Si creó un recurso compartido antes de configurar el proceso en su dispositivo Azure Stack Edge, deberá montar el recurso compartido. Realice los siguientes pasos para montar un recurso compartido.
+Si creó un recurso compartido antes de configurar el proceso en su dispositivo Azure Stack Edge Pro, deberá montar el recurso compartido. Realice los siguientes pasos para montar un recurso compartido.
 
 1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Puerta de enlace > Recursos compartidos**. En la lista de recursos compartidos, seleccione el que desee montar. En la columna **Usado para el proceso**, el estado del recurso compartido seleccionado aparecerá como **Deshabilitado**.
 

@@ -40,6 +40,10 @@
           href: costs/understand-work-scopes.md
         - name: Agrupar y filtrar opciones
           href: costs/group-filter.md
+        - name: Planificación para administrar costos
+          href: understand/plan-manage-costs.md
+        - name: Prevención de costos inesperados
+          href: understand/analyze-unexpected-charges.md
         - name: Administración de costos con Automation
           href: costs/manage-automation.md
         - name: Cost Management para asociados
@@ -114,6 +118,10 @@
           href: understand/mca-overview.md
         - name: Cuentas de facturación del contrato de Microsoft Partner
           href: understand/mpa-overview.md
+        - name: Acerca de la transferencia de suscripciones
+          href: understand/subscription-transfer.md
+        - name: Transferencia de suscripciones entre asociados (versión preliminar)
+          href: manage/azure-plan-subscription-transfer-partners.md
 - name: Guías paso a paso
   items:
     - name: Configuración de Cost Management + facturación
@@ -122,7 +130,7 @@
           items:
             - name: Tareas de administración de cuentas
               href: manage/account-admin-tasks.md
-            - name: Edición de perfil
+            - name: Edición de la información de contacto de facturación
               href: manage/change-azure-account-profile.md
             - name: Resolución del saldo vencido
               href: manage/resolve-past-due-balance.md
@@ -178,6 +186,8 @@
               href: manage/grant-access-to-create-subscription.md
             - name: Información sobre la exportación de suscripciones
               href: manage/export-subscriptions.md
+            - name: Eliminación de un método de pago de la facturación de Azure
+              href: manage/delete-azure-payment-method.md
             - name: Cambio de la tarjeta de crédito
               href: manage/change-credit-card.md
             - name: Cambio del administrador
@@ -242,8 +252,6 @@
               href: manage/upgrade-azure-subscription.md
     - name: Realización de tareas clave de administración de costos
       items:
-        - name: Prevención de costos inesperados
-          href: manage/getting-started.md
         - name: Cálculo del precio
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Uso del análisis de costos para tareas habituales

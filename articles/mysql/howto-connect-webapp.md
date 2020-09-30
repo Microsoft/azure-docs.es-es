@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: a3f3daa56c782d84cf6ba07223f8cfea15daa8a4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: deb99ea4f674c901974ca219a0e1bf831f5b4e51
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101631"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905841"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Conexión de un servicio existente de Azure App Service a un servidor de Azure Database for MySQL
 En este tema se explica cómo conectar un servicio existente de Azure App Service a un servidor de Azure Database for MySQL.
@@ -26,21 +26,21 @@ Azure Database for MySQL proporciona seguridad de acceso mediante un firewall pa
 
 1. En la hoja del servidor de MySQL, en el encabezado Configuración, haga clic en **Seguridad de conexión** para abrir la hoja Seguridad de conexión para Azure Database for MySQL.
 
-   ![Azure Portal: haga clic en Seguridad de conexión](./media/howto-connect-webapp/1-connection-security.png)
+   :::image type="content" source="./media/howto-connect-webapp/1-connection-security.png" alt-text="Azure Portal: haga clic en Seguridad de conexión":::
 
 2. Seleccione **ON** en **Permitir el acceso a servicios de Azure** y luego **Guardar**.
-   ![Azure Portal: permitir el acceso a Azure](./media/howto-connect-webapp/allow-azure.png)
+   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Azure Portal: permitir el acceso a Azure":::
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>Solución 2: crear una regla de firewall para permitir explícitamente las direcciones IP de salida
 Puede agregar explícitamente todas las IP de salida de su Azure App Service.
 
 1. En la hoja de propiedades de App Service, consulte su **DIRECCIÓN IP DE SALIDA**.
 
-   ![Azure Portal: ver direcciones IP de salida](./media/howto-connect-webapp/2_1-outbound-ip-address.png)
+   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Azure Portal: ver direcciones IP de salida":::
 
 2. En la hoja de Seguridad de conexión de MySQL, agregue las direcciones IP de salida una por una.
 
-   ![Azure Portal: agregar direcciones IP explícitas](./media/howto-connect-webapp/2_2-add-explicit-ips.png)
+   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Azure Portal: agregar direcciones IP explícitas":::
 
 3. No olvide **Guardar** las reglas de firewall.
 

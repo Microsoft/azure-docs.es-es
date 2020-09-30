@@ -7,13 +7,16 @@ ms.date: 05/29/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
-ms.openlocfilehash: 1b90364bee42b31843ac8d84f5a692a3eeb6d3f1
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.custom:
+- mvc
+- device-developer
+- iot-edge
+ms.openlocfilehash: cc612d5dc21594da855799ed965effeb4b547d00
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417607"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018669"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Tutorial: Incorporación de un dispositivo Azure IoT Edge a la aplicación Azure IoT Central
 

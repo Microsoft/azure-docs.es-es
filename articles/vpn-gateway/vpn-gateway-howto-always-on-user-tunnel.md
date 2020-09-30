@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8cfe1d6434c0f5765196776ae9f6712fe14c52a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99d21222a62ed6b27a6a1b2a73b704f4cb26457b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984120"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435803"
 ---
 # <a name="configure-an-always-on-vpn-user-tunnel"></a>Configuración de un túnel de usuario de VPN para Grupos de disponibilidad AlwaysOn
 

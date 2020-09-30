@@ -1,20 +1,20 @@
 ---
 title: Cifrado de datos en reposo de Custom Vision
 titleSuffix: Azure Cognitive Services
-description: Cifrado de datos en reposo de Custom Vision.
+description: Microsoft ofrece claves de cifrado administradas por Microsoft y también le permite administrar las suscripciones de Cognitive Services con sus propias claves, llamadas claves administradas por el cliente (CMK). En este artículo, encontrará información sobre el cifrado de datos en reposo de Custom Vision y cómo habilitar y administrar CMK.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 85cf251db69d33f02e928eaea6a848f20ae7d923
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 39257419f179bdce8c94f2ddb3a7cd8f5ac2d34f
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310298"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077762"
 ---
 # <a name="custom-vision-encryption-of-data-at-rest"></a>Cifrado de datos en reposo de Custom Vision
 

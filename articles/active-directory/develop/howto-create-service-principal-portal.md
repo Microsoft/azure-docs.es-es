@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: c8f9bc283d88121ad4b6144b8ac9463510349212
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3b060d7caff425414cc7f4e8bbea5d9a29572094
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117233"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178950"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
@@ -87,7 +87,7 @@ Ha creado una aplicación de Azure AD y una entidad de servicio.
 
 ## <a name="assign-a-role-to-the-application"></a>Asignación de un rol a la aplicación
 
-Para acceder a los recursos de la suscripción, debe asignar un rol a la aplicación. Decida qué rol ofrece los permisos adecuados para la aplicación. Para obtener más información sobre los roles disponibles, vea [RBAC: Roles integrados](../../role-based-access-control/built-in-roles.md).
+Para acceder a los recursos de la suscripción, debe asignar un rol a la aplicación. Decida qué rol ofrece los permisos adecuados para la aplicación. Para obtener información sobre los roles disponibles, consulte [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md).
 
 Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o recurso. Los permisos se heredan en los niveles inferiores del ámbito. Por ejemplo, el hecho de agregar una aplicación al rol *Lector* para un grupo de recursos significa que esta puede leer el grupo de recursos y los recursos que contiene.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: b18717b78a271bd390bc221e9ed0723cb02079ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8739da859c00a9caf08ac833f7b4ae7ae52e392
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484299"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084318"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Recomendaciones y procedimientos recomendados para Azure Active Directory B2C
 
@@ -44,6 +44,7 @@ Defina la arquitectura de aplicaciones y servicios, los sistemas actuales de inv
 | Facilidad de uso frente a seguridad | La solución debe lograr el equilibrio adecuado entre la facilidad de uso de la aplicación y el nivel de riesgo aceptable de la organización. |
 | Traslado de dependencias locales a la nube | Para ayudar a garantizar una solución resistente, considere la posibilidad de mover las dependencias de aplicaciones existentes a la nube. |
 | Migración de aplicaciones existentes a b2clogin.com | La retirada de login.microsoftonline.com se aplicará para todos los inquilinos de Azure AD B2C del 4 de diciembre de 2020. [Más información](b2clogin.md). |
+| Uso de Identity Protection y acceso condicional | Use estas funcionalidades para un mayor control sobre las autenticaciones de riesgo y las directivas de acceso. Se requiere Azure AD B2C P2. [Más información](conditional-access-identity-protection-overview.md). |
 
 ## <a name="implementation"></a>Implementación
 
@@ -54,7 +55,6 @@ Durante la fase de implementación, tenga en cuenta las siguientes recomendacion
 | Edición de las directivas personalizadas con la extensión de Azure AD B2C para Visual Studio Code | Descargue Visual Studio Code y esta [extensión creada por la comunidad desde Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c). Aunque no es un producto oficial de Microsoft, la extensión de Azure AD B2C para Visual Studio Code incluye varias características que ayudan a facilitar el trabajo con directivas personalizadas. |
 | Más información acerca de cómo solucionar problemas de Azure AD B2C | Obtenga información acerca de cómo [solucionar problemas de las directivas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) durante el desarrollo. Obtenga información sobre el aspecto de un flujo de autenticación normal y use herramientas para detectar anomalías y errores. Por ejemplo, use [Application Insights](troubleshoot-with-application-insights.md) para revisar los registros de salida de los recorridos del usuario. |
 | Aprovechamiento de nuestra biblioteca de patrones de directivas personalizadas probadas | Busque [ejemplos](https://github.com/azure-ad-b2c/samples) de varios recorridos del usuario de administración de identidades y acceso de clientes (CIAM) mejorados de Azure AD B2C. |
-
 
 ## <a name="testing"></a>Prueba
 
@@ -78,11 +78,10 @@ Administre el entorno de Azure AD B2C.
 |--|--|
 | Creación de múltiples entornos | Para facilitar la implementación de las operaciones e implementaciones, cree entornos independientes para desarrollo, pruebas, preproducción y producción. Cree inquilinos de Azure AD B2C para cada uno. |
 | Uso del control de versiones para las directivas personalizadas | Considere la posibilidad de usar GitHub, Azure Repos u otro sistema de control de versiones basado en la nube para las directivas personalizadas de Azure AD B2C. |
-| Uso de Microsoft Graph API para automatizar la administración de los inquilinos de B2C | Microsoft Graph API:<br/>Administre [Identity Experience Framework](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta) (directivas personalizadas).<br/>[Claves](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta)<br/>[Flujos de usuario](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta) |
+| Uso de Microsoft Graph API para automatizar la administración de los inquilinos de B2C | Microsoft Graph API:<br/>Administre [Identity Experience Framework](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta&preserve-view=true) (directivas personalizadas).<br/>[Claves](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)<br/>[Flujos de usuario](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta&preserve-view=true) |
 | Integración con Azure DevOps | Una canalización de [CI/CD](deploy-custom-policies-devops.md) facilita el traslado de código entre distintos entornos y garantiza la preparación de la producción en todo momento.   |
 | Integración con Azure Monitor | Los [eventos de registro de auditoría](view-audit-logs.md) solo se conservan durante siete días. Realice la [integración con Azure Monitor](azure-monitor.md) para conservar los registros para su uso a largo plazo o integrarlos en herramientas de Administración de eventos e información de seguridad (SIEM) de terceros para sacar conclusiones sobre su entorno. |
 | Configuración de supervisión y alertas activas | [Siga el comportamiento del usuario](active-directory-b2c-custom-guide-eventlogger-appins.md) en Azure AD B2C mediante Application Insights. |
-
 
 ## <a name="support-and-status-updates"></a>Actualizaciones de compatibilidad y estado
 

@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/28/2020
-ms.openlocfilehash: 4f3c9d739f959670700182baf80c4a08e53d8587
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5aa760c661fd596c55693edd537ca7820c7d7f58
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89259071"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489908"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutorial: Uso compartido de datos mediante Azure Data Share  
 
@@ -40,7 +40,7 @@ En este tutorial, aprenderá a:
 
 ### <a name="share-from-a-sql-based-source"></a>Recurso compartido de un origen basado en SQL:
 
-* Una instancia de Azure SQL Database o Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse) con las tablas y vistas que desee compartir.
+* Una instancia de Azure SQL Database o Azure Synapse Analytics (anteriormente SQL Data Warehouse) con las tablas y vistas que desea compartir.
 * Permisos para escribir en las bases de datos de SQL Server, que se encuentra en *Microsoft.Sql/servers/databases/write*. Este permiso existe en el rol de colaborador.
 * Permiso para que el recurso compartido acceda al almacenamiento de datos. Esto se puede hacer mediante los siguientes pasos: 
     1. Establézcase como administrador de Azure Active Directory para SQL Server.
@@ -113,7 +113,7 @@ Cree un recurso de Azure Data Share en un grupo de recursos de Azure.
 
     ![Adición de conjuntos de datos al recurso compartido](./media/datasets.png "Conjuntos de datos")
 
-1. Seleccione el tipo de conjunto de datos que desea agregar. Verá una lista diferente de tipos de conjuntos de datos en función del tipo de recurso compartido (instantánea o en contexto) que haya seleccionado en el paso anterior. Si comparte desde Azure SQL Database o Azure SQL Data Warehouse, se le pedirán credenciales de SQL. Realice la autenticación con el usuario que ha creado como parte de los requisitos previos.
+1. Seleccione el tipo de conjunto de datos que desea agregar. Verá una lista diferente de tipos de conjuntos de datos en función del tipo de recurso compartido (instantánea o en contexto) que haya seleccionado en el paso anterior. Si comparte desde Azure SQL Database o Azure Synapse Analytics, se le pedirán credenciales de SQL. Realice la autenticación con el usuario que ha creado como parte de los requisitos previos.
 
     ![AddDatasets](./media/add-datasets.png "Incorporación de conjuntos de datos")    
 

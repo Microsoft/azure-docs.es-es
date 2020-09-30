@@ -1,6 +1,6 @@
 ---
 title: 'Información general sobre la verificación del publicador: plataforma de identidad de Microsoft | Azure'
-description: Proporciona información general sobre el programa de verificación del publicador (versión preliminar) para la plataforma de identidad de Microsoft. Enumera las ventajas, los requisitos del programa y las preguntas más frecuentes. Cuando una aplicación está marcada como comprobada por el publicador, significa que el publicador ha comprobado su identidad con una cuenta de Microsoft Partner Network que ha completado el proceso de verificación y ha asociado esta cuenta de MPN con el registro de aplicación.
+description: Proporciona información general sobre el programa de verificación del editor (versión preliminar) para la plataforma de identidad de Microsoft. Enumera las ventajas, los requisitos del programa y las preguntas más frecuentes. Cuando una aplicación está marcada como comprobada por el publicador, significa que el publicador ha comprobado su identidad con una cuenta de Microsoft Partner Network que ha completado el proceso de verificación y ha asociado esta cuenta de MPN con el registro de aplicación.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,16 +12,16 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: f611eefc50fede2ef4d738cd5abfd6afcc08b9ff
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0c30b5305fb5496db86a20be7a37f36b894ecc8b
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120786"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089758"
 ---
-# <a name="publisher-verification-preview"></a>Comprobación del publicador (versión preliminar)
+# <a name="publisher-verification"></a>Verificación del editor
 
-La verificación del publicador (versión preliminar) ayuda a los administradores y usuarios finales a comprender la autenticidad de los desarrolladores de aplicaciones que se integran con la plataforma de identidad de Microsoft. Cuando una aplicación se marca como comprobada por el publicador, significa que el publicador ha comprobado su identidad con una cuenta de [Microsoft Partner Network](https://partner.microsoft.com/membership) que ha completado el proceso de [verificación](/partner-center/verification-responses) y ha asociado esta cuenta de MPN con el registro de aplicación. 
+La verificación del editor ayuda a los administradores y a los usuarios finales a reconocer la autenticidad de los desarrolladores de aplicaciones que se integran en la plataforma de identidad de Microsoft. Cuando una aplicación se marca como comprobada por el publicador, significa que el publicador ha comprobado su identidad con una cuenta de [Microsoft Partner Network](https://partner.microsoft.com/membership) que ha completado el proceso de [verificación](/partner-center/verification-responses) y ha asociado esta cuenta de MPN con el registro de aplicación. 
 
 Aparece una notificación "comprobado" de color azul en la petición de consentimiento de Azure AD y en otras pantallas: ![Petición de consentimiento](./media/publisher-verification-overview/consent-prompt.png)
 
@@ -33,7 +33,7 @@ La verificación del publicador proporciona las ventajas siguientes:
 
 - **Personalización de marca mejorada**: aparece una notificación "comprobado" en la [petición de consentimiento](application-consent-experience.md) de Azure AD, la página Aplicaciones empresariales y las superficies de experiencia de usuario adicionales que usan los usuarios finales y los administradores. 
 
-- **Adopción empresarial más fluida**: los administradores pueden configurar nuevas directivas de consentimiento del usuario, y el estado de verificación del publicador será uno de los criterios de la directiva principal. 
+- **Adopción empresarial más fluida**: los administradores pueden configurar [directivas de consentimiento del usuario](../manage-apps/configure-user-consent.md) y que sea el estado de verificación del editor uno de los criterios principales de la directiva. 
 
 - **Evaluación de riesgos mejorada**: las detecciones que Microsoft lleve a cabo de solicitudes de consentimiento "arriesgadas" incluirán la verificación del publicador como una señal. 
 
@@ -42,16 +42,18 @@ Hay algunos requisitos previos para la verificación del publicador, algunos de 
 
 -  Un id. de MPN de una cuenta de [Microsoft Partner Network](https://partner.microsoft.com/membership) válida que haya completado el proceso de [verificación](/partner-center/verification-responses). Esta cuenta de MPN debe ser la [cuenta global de asociado (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) de su organización. 
 
--  Un inquilino de Azure AD con un [dominio personalizado](../fundamentals/add-custom-domain.md) verificado por DNS. El dominio personalizado debe coincidir con el dominio de la dirección de correo electrónico utilizada durante la comprobación en el paso anterior. 
+-  Una aplicación registrada en un inquilino de Azure AD, con un [dominio de publicador](howto-configure-publisher-domain.md) configurado.
 
--  Una aplicación registrada en un inquilino de Azure AD, con un [dominio de publicador](howto-configure-publisher-domain.md) configurado con el mismo dominio que se usó anteriormente. 
+-  El dominio de la dirección de correo electrónico que se usa durante la comprobación de la cuenta MPN debe coincidir con el dominio del publicador que se configuró en la aplicación o con un [dominio personalizado](../fundamentals/add-custom-domain.md) comprobado por DNS que se haya agregado al inquilino de Azure AD. 
 
 -  El usuario que realiza la comprobación debe estar autorizado para realizar cambios en el registro de aplicación en Azure AD y en la cuenta de MPN del Centro de partners. 
 
-    -  En Azure AD, este usuario debe ser el propietario de la aplicación o tener uno de los siguientes [roles](../users-groups-roles/directory-assign-admin-roles.md): Administrador de aplicaciones, administrador de aplicaciones en la nube o administrador global. 
+    -  En Azure AD, este usuario debe ser miembro de alguno de los siguientes [roles](../users-groups-roles/directory-assign-admin-roles.md): Administrador de aplicaciones, administrador de aplicaciones en la nube o administrador global. 
 
     -  En el Centro de partners, este usuario debe tener uno de los siguientes [roles](/partner-center/permissions-overview): Administrador de MPN, administrador de cuentas o administrador global (se trata de un rol compartido que se controla en Azure AD).
     
+-  El usuario que realiza la verificación debe iniciar sesión con la [autenticación multifactor](../authentication/howto-mfa-getstarted.md).
+
 -  El publicador acepta las [Condiciones de uso de la plataforma de identidad de Microsoft para desarrolladores](/legal/microsoft-identity-platform/terms-of-use).
 
 Los desarrolladores que ya han cumplido estos requisitos previos pueden comprobarse en cuestión de minutos. Si no se cumplen los requisitos, la configuración es gratuita. 

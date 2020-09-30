@@ -7,14 +7,18 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 8cc8f347330904bfab980b79cf5c5f351ce16629
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fa66f17c6f96ac7f70188c5a28c0b180ed2f03e0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089488"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906890"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Uso del panel de Circuit Breaker con Azure Spring Cloud
+
+**Este artículo se aplica a:** ✔️ Java
+
+::: zone pivot="programming-language-java"
 Spring [Cloud Netflix Turbine](https://github.com/Netflix/Turbine) se usa con frecuencia para agregar varias secuencias de métricas [Hystrix](https://github.com/Netflix/Hystrix), de modo que las secuencias se puedan supervisar en una sola vista mediante el panel de Hystrix. En este tutorial se muestra cómo usarlas en Azure Spring Cloud.
 > [!NOTE]
 > Netflix Hystrix se usa ampliamente en muchas aplicaciones de Spring Cloud existentes, pero ya no está en desarrollo activo. Si está desarrollando un proyecto nuevo, utilice en su lugar implementaciones de Spring Cloud Circuit Breaker como [resilience4j](https://github.com/resilience4j/resilience4j). A diferencia de Turbine que se muestra en este tutorial, el nuevo marco de Spring Cloud Circuit Breaker unifica todas las implementaciones de su canalización de datos de métricas en Micrometer. Aún estamos trabajando en la compatibilidad con Micrometer en Azure Spring Cloud, por lo que no se tratará este aspecto en el tutorial.
@@ -80,3 +84,4 @@ Como aplicación web, el panel de Hystrix debe estar funcionando en `test-endpoi
 ## <a name="next-steps"></a>Pasos siguientes
 * [Aprovisionamiento de una instancia de servicio en la CLI de Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#provision-a-service-instance-on-the-azure-cli)
 * [Preparación de una aplicación Java Spring para su implementación en Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment)
+::: zone-end

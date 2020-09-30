@@ -8,12 +8,12 @@ ms.author: victliu
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a1304ad05e05285aa75167ec21519ec90d157662
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9e8625724f67caac99ae799674f9db9399e11ad8
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922895"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294261"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Configuración de una conexión desde un indexador de Búsqueda cognitiva de Azure a Instancia administrada de SQL
 
@@ -27,7 +27,7 @@ Cree una Instancia administrada de SQL con la opción **Habilitar el punto de co
 ## <a name="enable-azure-sql-managed-instance-public-endpoint"></a>Habilitación del punto de conexión público para una Instancia administrada de SQL de Azure
 También puede habilitar el punto de conexión público en una Instancia administrada de SQL existente en **Seguridad** > **Red virtual** > **Punto de conexión público**  > **Habilitar**.
 
-   ![Habilitar el punto de conexión público](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Habilitar el punto de conexión público")
+   ![Habilitar un punto de conexión público mediante la red virtual de una instancia administrada](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "Habilitar el punto de conexión público")
 
 ## <a name="verify-nsg-rules"></a>Comprobación de reglas de NSG
 Compruebe que el grupo de seguridad de red tiene las **reglas de seguridad de entrada** correctas que permiten las conexiones de los servicios de Azure.

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 34553c1b211b9e2c4b13a083f5c3a6732fb65472
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4aee41bc0188676ac0bd168474f1842199af9620
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502705"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595271"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Redirección del tráfico web en función de la dirección URL mediante la CLI de Azure
 
@@ -23,13 +23,12 @@ Como administrador de IT que administra el tráfico web, desea ayudar a los clie
 
 En este artículo aprenderá a:
 
-> [!div class="checklist"]
-> * Crear un grupo de recursos para los recursos de red que necesitará
-> * Crear los recursos de red
-> * Crear una puerta de enlace de aplicaciones para el tráfico que procede de la aplicación
-> * Especificar granjas de servidores y reglas de enrutamiento para los distintos tipos de tráfico
-> * Crear un conjunto de escalado para cada granja para que esta se pueda escalar de forma automática
-> * Ejecutar una prueba para comprobar que los distintos tipos de tráfico van a la granja correcta
+* Crear un grupo de recursos para los recursos de red que necesitará
+* Crear los recursos de red
+* Crear una puerta de enlace de aplicaciones para el tráfico que procede de la aplicación
+* Especificar granjas de servidores y reglas de enrutamiento para los distintos tipos de tráfico
+* Crear un conjunto de escalado para cada granja para que esta se pueda escalar de forma automática
+* Ejecutar una prueba para comprobar que los distintos tipos de tráfico van a la granja correcta
 
 Si lo prefiere, puede completar este procedimiento con [Azure PowerShell](tutorial-url-route-powershell.md) o [Azure Portal](create-url-route-portal.md).
 

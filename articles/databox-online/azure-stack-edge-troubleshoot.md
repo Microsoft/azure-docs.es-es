@@ -1,6 +1,6 @@
 ---
-title: Uso de Azure Portal para solucionar problemas de Azure Stack Edge | Microsoft Docs
-description: Aprenda a solucionar problemas relacionados con Azure Stack Edge. Puede ejecutar diagnósticos, recopilar información de soporte técnico y usar registros para solucionar problemas.
+title: Uso de Azure Portal para solucionar problemas de Azure Stack Edge Pro | Microsoft Docs
+description: Aprenda a solucionar problemas relacionados con Azure Stack Edge Pro. Puede ejecutar diagnósticos, recopilar información de soporte técnico y usar registros para solucionar problemas.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: f9dabdfd9df77822f06c41fa4355a1657bceb76c
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: bc4afa0d26f6ba256354d3802a0c4f9b9b04088e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134571"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903662"
 ---
-# <a name="troubleshoot-your-azure-stack-edge-issues"></a>Solución de problemas de Azure Stack Edge
+# <a name="troubleshoot-your-azure-stack-edge-pro-issues"></a>Solución de problemas de Azure Stack Edge Pro
 
-En este artículo se describe cómo solucionar los problemas de Azure Stack Edge. 
+En este artículo se describe cómo solucionar los problemas de Azure Stack Edge Pro. 
 
 En este artículo aprenderá a:
 
@@ -65,7 +65,7 @@ Los errores encontrados durante los procesos de carga y actualización se incluy
 
       ![Conexión y visualización del contenido del recurso compartido](media/azure-stack-edge-troubleshoot/troubleshoot-logs-1.png)
 
-2. Seleccione la _carpeta de Microsoft Azure Stack Edge_. Esta carpeta tiene dos subcarpetas:
+2. Seleccione la _carpeta de Microsoft Azure Stack Edge Pro_. Esta carpeta tiene dos subcarpetas:
 
     * Cargue la que contiene los archivos de registro de errores de carga.
     * Actualice la carpeta para ver los errores durante la actualización.

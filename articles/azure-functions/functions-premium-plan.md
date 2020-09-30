@@ -3,15 +3,15 @@ title: Plan prémium de Azure Functions
 description: Detalles y opciones de configuración (red virtual, arranques no en frío, duración de ejecución ilimitada, etc) del plan Premium de Azure Functions.
 author: jeffhollan
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 08/28/2020
 ms.author: jehollan
 ms.custom: references_regions
-ms.openlocfilehash: 5ab506c57a78c67b33b888f1f50d83fe9813d0af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4f6e2008cad66ce7cd68016d3873ecbc18b1961c
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506203"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145763"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan prémium de Azure Functions
 
@@ -36,21 +36,42 @@ Con el plan creado, puede usar [az functionapp create](/cli/azure/functionapp#az
 
 Las siguientes características están disponibles para las aplicaciones de funciones implementadas en planes Premium.
 
-### <a name="pre-warmed-instances"></a>Instancias activadas previamente
+### <a name="always-ready-instances"></a>Instancias siempre preparadas
 
 Si hay un día en que no tiene lugar ningún evento ni ejecución en el plan de consumo, la aplicación puede reducirse horizontalmente a cero instancias. Cuando se produzcan nuevos eventos, será necesario especializar una nueva instancia con la aplicación que se ejecute en ella.  La especialización de nuevas instancias puede tardar algún tiempo dependiendo de la aplicación.  Esta latencia adicional de la primera llamada también suele denominarse "arranque en frío basado en la aplicación".
 
-En el plan Premium, puede tener la aplicación previamente activada en un número concreto de instancias hasta alcanzar el tamaño mínimo del plan.  Las instancias activadas previamente también permiten escalar una aplicación de forma anticipada antes de que llegue una carga elevada. Cuando la aplicación realiza el escalado horizontal, primero escala las instancias activadas previamente. Otras instancias seguirán preparándose y calentando motores en previsión de la nueva operación de escalado. Al contar con una serie de instancias activadas previamente, se pueden evitar eficazmente las latencias de los arranques en frío.  Las instancias activadas previamente son una característica del plan Premium que requiere que haya al menos una instancia en ejecución disponible siempre que el plan esté activo.
+En el plan Premium, puede hacer que la aplicación previamente activada esté siempre preparada en un número concreto de instancias.  El número máximo de instancias siempre preparadas es 20.  Cuando los eventos empiezan a desencadenar la aplicación, siempre se enrutan primero a las instancias siempre preparadas.  A medida que la función se activa, las instancias adicionales se activarán como búferes.  Este búfer evita que las nuevas instancias necesarias durante el escalado se arranquen en frío.  Estas instancias almacenadas en búfer se denominan [instancias activadas previamente](#pre-warmed-instances).  Con la combinación de las instancias siempre preparadas y un búfer activado previamente, la aplicación puede eliminar eficazmente los arranques en frío.
 
-Puede configurar el número de instancias activadas previamente en Azure Portal. Para ello, seleccione una aplicación de funciones en **Function App**, vaya a la pestaña **Características de la plataforma** y seleccione las opciones de **Escalar horizontalmente**. En la ventana de edición de la aplicación de funciones, las instancias activadas previamente que aparecen son específicas de esa aplicación, pero el número mínimo y máximo de instancias se aplica a todo el plan.
+> [!NOTE]
+> Todos los planes Premium tendrán al menos una instancia activa y facturada en todo momento.
+
+Puede configurar el número de instancias siempre preparadas en Azure Portal. Para ello, seleccione una aplicación de funciones en **Function App**, vaya a la pestaña **Características de la plataforma** y seleccione las opciones para **Escalar horizontalmente**. En la ventana de edición de la aplicación de funciones, las instancias siempre preparadas son específicas para esa aplicación.
 
 ![Configuración del escalado elástico](./media/functions-premium-plan/scale-out.png)
 
-Las instancias activadas previamente para una aplicación también se pueden configurar con la CLI de Azure.
+Las instancias siempre preparadas para una aplicación también se pueden configurar con la CLI de Azure.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites 
 ```
+
+#### <a name="pre-warmed-instances"></a>Instancias activadas previamente
+
+Las instancias activadas previamente son el número de instancias que se han activado como búferes durante los eventos de escalado y activación.  Las instancias activadas previamente siguen almacenándose en el búfer hasta que se alcanza el límite máximo de escalabilidad horizontal.  El número predeterminado de instancias activadas previamente es 1 y, para la mayoría de los escenarios, debería dejarse en 1.  Si una aplicación tiene un período de activación largo (como una imagen de contenedor personalizada), quizá debería aumentar el tamaño de búfer.  Una instancia activada previamente solo se activará después de que todas las instancias activas se hayan usado lo suficiente.
+
+Tenga en cuenta este ejemplo que muestra cómo trabajan juntas las instancias siempre preparadas y las instancias activadas previamente.  Una aplicación de funciones Premium tiene configuradas cinco instancias siempre preparadas, y un valor predeterminado de una instancia activada previamente.  Cuando la aplicación está inactiva y no se desencadena ningún evento, la aplicación se aprovisionará y se ejecutará con cinco instancias.  
+
+En cuanto se desencadene el primer desencadenador, las cinco instancias siempre preparadas se activarán y se asignará una instancia activada previamente adicional.  La aplicación se está ejecutando ahora con seis instancias aprovisionadas: las cinco instancias siempre preparadas y la sexta instancia de búfer inactiva y activada previamente.  Si la tasa de ejecuciones sigue aumentando, con el tiempo se usarán las cinco instancias activas.  Cuando la plataforma decide escalarse más allá de cinco instancias, se escala para usar la instancia activada previamente.  Cuando esto suceda, habrá seis instancias activas y se aprovisionará una séptima instancia de forma instantánea para rellenar el búfer activado previamente.  Esta secuencia de escalado y activación previa continuará hasta que se alcance el recuento de instancias máximo de la aplicación.  No se activará previamente ni se activará ninguna instancia que supere el número máximo.
+
+Puede modificar el número de instancias activadas previamente para una aplicación mediante la CLI de Azure.
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites 
+```
+
+#### <a name="maximum-instances-for-an-app"></a>Número máximo de instancias para una aplicación
+
+Además del [recuento de instancias máximo de un plan](#plan-and-sku-settings), puede configurar un máximo por aplicación.  El máximo de la aplicación se puede configurar mediante el [límite de escalabilidad de aplicaciones](./functions-scale.md#limit-scale-out).
 
 ### <a name="private-network-connectivity"></a>Conectividad de red privada
 
@@ -68,16 +89,13 @@ Para más información sobre el funcionamiento del escalado, consulte este artí
 
 ### <a name="longer-run-duration"></a>Duración de la ejecución más larga
 
-Azure Functions en un plan de consumo que impone un límite de 10 minutos en cada ejecución.  En el plan Premium, la duración de ejecución predeterminada es de 30 minutos para evitar ejecuciones descontroladas. Sin embargo, puede [modificar la configuración de host.json](./functions-host-json.md#functiontimeout) para que sea ilimitada en las aplicaciones del plan Premium (60 minutos garantizados).
+Azure Functions en un plan de consumo que impone un límite de 10 minutos en cada ejecución.  En el plan Premium, la duración de ejecución predeterminada es de 30 minutos para evitar ejecuciones descontroladas. Sin embargo, puede [modificar la configuración de host.json](./functions-host-json.md#functiontimeout) para que la duración sea ilimitada en las aplicaciones del plan Premium (60 minutos garantizados).
 
 ## <a name="plan-and-sku-settings"></a>Configuración del plan y la SKU
 
-Cuando se crea un plan, hay que configurar dos opciones: el número mínimo de instancias (o tamaño de plan) y el límite máximo de ráfaga.  Las instancias mínimas están reservadas y siempre en ejecución.
+Cuando se crea un plan, hay dos configuraciones de tamaño de plan: el número mínimo de instancias (o tamaño de plan) y el límite máximo de ráfaga.
 
-> [!IMPORTANT]
-> Se le cobrará por cada instancia especificada en el número mínimo de instancias independientemente de si las funciones se ejecutan o no.
-
-Si la aplicación necesita instancias que superan el tamaño del plan, puede seguir realizando el escalado horizontal hasta que el número de instancias alcance el límite máximo de ráfaga.  Las instancias que superen el tamaño del plan solo se cobrarán cuando estén en ejecución y las tenga alquiladas.  Haremos todo lo posible para escalar horizontalmente la aplicación con arreglo al límite máximo definido y garantizaremos siempre que el uso de las instancias mínimas del plan para la aplicación.
+Si la aplicación necesita instancias que superan las instancias siempre preparadas, puede seguir realizando el escalado horizontal hasta que el número de instancias alcance el límite máximo de ráfaga.  Las instancias que superen el tamaño del plan solo se cobrarán cuando estén en ejecución y las tenga alquiladas.  Se hará todo lo posible por escalar horizontalmente la aplicación hasta el límite máximo definido.
 
 Puede configurar el tamaño del plan y establecer valores máximos en Azure Portal seleccionando las opciones **Escalar horizontalmente** en el plan o una aplicación de funciones implementada en el plan (en **Características de la plataforma**).
 
@@ -85,6 +103,19 @@ También puede aumentar el límite máximo de ráfaga mediante la CLI de Azure:
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
+```
+
+El mínimo de cada plan será al menos una instancia.  El número mínimo real de instancias se configurará automáticamente en función de las instancias siempre preparadas que hayan solicitado las aplicaciones del plan.  Por ejemplo, si la aplicación A solicita cinco instancias siempre preparadas y la aplicación B solicita dos instancias de este tipo en el mismo plan, el tamaño mínimo del plan se calculará como cinco.  La aplicación A se ejecutará en las 5 y la aplicación B solo se ejecutará en 2.
+
+> [!IMPORTANT]
+> Se le cobrará por cada instancia especificada en el número mínimo de instancias independientemente de si las funciones se ejecutan o no.
+
+En la mayoría de los casos, este mínimo que se calculó automáticamente debe ser suficiente.  Sin embargo, el escalado que supere el mínimo se realiza de la mejor manera posible.  Es posible, aunque poco probable, que en una ocasión específica se retrase el escalado horizontal si las instancias adicionales no están disponibles.  Al establecer un valor mínimo superior al mínimo calculado automáticamente, se reservan instancias antes del escalado horizontal.
+
+El aumento del mínimo calculado para un plan se puede realizar mediante la CLI de Azure.
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity=<desired_min_instances> --resource-type Microsoft.Web/serverfarms 
 ```
 
 ### <a name="available-instance-skus"></a>SKU de instancias disponibles

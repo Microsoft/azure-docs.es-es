@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: bc0d5b0cdf616904ee7ed61fdc681ba60bff8f75
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 705c7dd602d9c908ec9048d131ba66b21c5b2103
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480295"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006523"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introducción a los grupos de disponibilidad Always On de SQL Server en Azure Virtual Machines
 
@@ -41,8 +41,9 @@ Para aumentar la redundancia y la alta disponibilidad, las máquinas virtuales d
 
 |  | Versión de Windows Server | SQL Server Version | Edición de SQL Server | Configuración de quórum WSFC | Recuperación ante desastres con varias regiones | Compatibilidad con varias subredes | Compatibilidad con un dominio de aplicación existente | Recuperación ante desastres con la misma región multizona | Compatibilidad de Dist-AG sin ningún dominio de AD | Compatibilidad de Dist-AG sin ningún clúster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| **[CLI de la máquina virtual de SQL](availability-group-az-cli-configure.md)** | 2016 | 2017 </br>2016   | Ent | Testigo en la nube | No | Sí | Sí | Sí | No | No |
-| **[Plantillas de inicio rápido](availability-group-quickstart-template-configure.md)** | 2016 | 2017</br>2016  | Ent | Testigo en la nube | No | Sí | Sí | Sí | No | No |
+| **[Azure Portal](availability-group-azure-portal-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | Ent | Testigo en la nube | No | Sí | Sí | Sí | No | No |
+| **[CLI de Azure/PowerShell](availability-group-az-cli-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | Ent | Testigo en la nube | No | Sí | Sí | Sí | No | No |
+| **[Plantillas de inicio rápido](availability-group-quickstart-template-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016  | Ent | Testigo en la nube | No | Sí | Sí | Sí | No | No |
 | **[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | All | All | All | All | Sí | Sí | Sí | Sí | Sí | Sí |
 
 La plantilla **SQL Server AlwaysOn Cluster (preview)** se ha quitado de Azure Marketplace y ya no está disponible. 

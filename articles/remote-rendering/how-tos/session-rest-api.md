@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 4e65655f1809c6badc50e39a2a5e932516ef99d2
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0af9d6906e038a4b9285a2c302fc0c98345fdbd9
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509848"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023761"
 ---
 # <a name="use-the-session-management-rest-api"></a>Uso de la API REST de administración de sesión
 
@@ -117,7 +117,14 @@ La respuesta de la solicitud anterior incluye un **sessionId**, que necesita par
 $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 ```
 
-## <a name="update-a-session"></a>Actualización de una sesión
+## <a name="modify-and-query-session-properties"></a>Modificación y consulta de las propiedades de sesión
+
+Hay algunos comandos para consultar o modificar los parámetros de las sesiones existentes.
+
+> [!CAUTION]
+> En el caso de todas las llamadas REST, enviar estos comandos con demasiada frecuencia hará que el servidor se limite y devuelva un error con el tiempo. El código de error en este caso es 429 ("demasiadas solicitudes"). Como regla general, debería haber un retraso de entre **5 y 10 segundos entre las llamadas subsiguientes**.
+
+### <a name="update-session-parameters"></a>Actualización de los parámetros de sesión
 
 Este comando actualiza los parámetros de una sesión. Actualmente solo se puede ampliar el tiempo de concesión de una sesión.
 
@@ -138,7 +145,7 @@ Este comando actualiza los parámetros de una sesión. Actualmente solo se puede
 |-----------|:-----------|:-----------|
 | 200 | | Correcto |
 
-### <a name="example-script-update-a-session"></a>Script de ejemplo: actualización de una sesión
+#### <a name="example-script-update-a-session"></a>Script de ejemplo: actualización de una sesión
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId" -Method Patch -ContentType "application/json" -Body "{ 'maxLeaseTime': '5:0:0' }" -Headers @{ Authorization = "Bearer $token" }
@@ -160,7 +167,7 @@ Headers           : {[MS-CV, Fe+yXCJumky82wuoedzDTA.0], [Content-Length, 0], [Da
 RawContentLength  : 0
 ```
 
-## <a name="get-active-sessions"></a>obtención de sesiones activas
+### <a name="get-active-sessions"></a>obtención de sesiones activas
 
 Este comando devuelve una lista de las sesiones activas.
 
@@ -174,7 +181,7 @@ Este comando devuelve una lista de las sesiones activas.
 |-----------|:-----------|:-----------|
 | 200 | - sessions: matriz de propiedades de sesión | Vea la sección "Obtención de las propiedades de sesión" para obtener una descripción de las propiedades de la sesión. |
 
-### <a name="example-script-query-active-sessions"></a>Script de ejemplo: consulta de las sesiones activas
+#### <a name="example-script-query-active-sessions"></a>Script de ejemplo: consulta de las sesiones activas
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions" -Method Get -Headers @{ Authorization = "Bearer $token" }
@@ -203,7 +210,7 @@ ParsedHtml        : mshtml.HTMLDocumentClass
 RawContentLength  : 2
 ```
 
-## <a name="get-sessions-properties"></a>obtención de las propiedades de la sesión
+### <a name="get-sessions-properties"></a>obtención de las propiedades de la sesión
 
 Este comando devuelve información sobre una sesión, como el nombre de host de la máquina virtual.
 
@@ -217,7 +224,7 @@ Este comando devuelve información sobre una sesión, como el nombre de host de 
 |-----------|:-----------|:-----------|
 | 200 | - message: string<br/>- sessionElapsedTime: timespan<br/>- sessionHostname: string<br/>- sessionId: string<br/>- sessionMaxLeaseTime: timespan<br/>- sessionSize: enum<br/>- sessionStatus: enum | enum sessionStatus { starting, ready, stopping, stopped, expired, error}<br/>Si el estado es "error" o "expired" (expirado), el mensaje contendrá más información |
 
-### <a name="example-script-get-session-properties"></a>Script de ejemplo: Obtiene propiedades de una sesión.
+#### <a name="example-script-get-session-properties"></a>Script de ejemplo: Obtiene propiedades de una sesión.
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId/properties" -Method Get -Headers @{ Authorization = "Bearer $token" }

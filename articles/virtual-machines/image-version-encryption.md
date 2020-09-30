@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 21e6dc5a975f43456a077559eebafd975cea66a1
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 91f485d03717ab80bac26abd16da165d7b0dead7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816497"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291932"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Vista previa: uso de claves administradas por el cliente para el cifrado de imágenes
 
@@ -149,7 +149,7 @@ az provider register -n Microsoft.Compute
 ```
 
 
-Para especificar un disco para una versión de imagen, use [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) con el parámetro `--target-region-encryption`. El formato de `--target-region-encryption` es una lista de claves separadas por espacios para cifrar los discos del sistema operativo y de datos. Debería ser parecido a este: `<encryption set for the OS disk>,<Lun number of the data disk>, <encryption set for the data disk>, <Lun number for the second data disk>, <encryption set for the second data disk>`. 
+Para especificar un disco para una versión de imagen, use [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) con el parámetro `--target-region-encryption`. El formato de `--target-region-encryption` es una lista de claves separadas por comas para cifrar los discos de sistema operativo y de datos. Debería ser parecido a este: `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>`. 
 
 Si el origen del disco del sistema operativo es un disco administrado o una máquina virtual, use `--managed-image` para especificar el origen de la versión de la imagen. En este ejemplo, el origen es una imagen administrada que tiene un disco del sistema operativo y un disco de datos en LUN 0. El disco del sistema operativo se cifrará con DiskEncryptionSet1 y el de datos con DiskEncryptionSet2.
 

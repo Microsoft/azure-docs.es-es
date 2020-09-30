@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 1ec4dbb1ce55919fda6c73d198100db34f5f57ea
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 61c085cb721f9e1a8d9c44146a9d96cd5a08562c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121262"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085321"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Creación de un localizador de almacén mediante Azure Maps
 
@@ -385,7 +385,7 @@ Llegados a este punto, todo está configurado en la interfaz de usuario. Ahora, 
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Agregue código a *index.js*. El código siguiente inicializa el mapa. Hemos agregado un [cliente de escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para esperar hasta que la página termine de cargarse. A continuación, se realiza una conexión de los eventos para supervisar la carga del mapa y se proporciona la funcionalidad para el botón Buscar y el botón Mi ubicación.
+1. Agregue código a *index.js*. El código siguiente inicializa el mapa. Hemos agregado un [cliente de escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) para esperar hasta que la página termine de cargarse. A continuación, se realiza una conexión de los eventos para supervisar la carga del mapa y se proporciona la funcionalidad para el botón Buscar y el botón Mi ubicación.
 
    Cuando el usuario selecciona el botón de búsqueda o escribe una ubicación en el cuadro de búsqueda y presiona Entrar, se inicia una búsqueda aproximada con la consulta del usuario. Pase una matriz de valores de país o región ISO 2 a la opción `countrySet` para limitar los resultados de la búsqueda a esos países o regiones. Limitar los países y regiones de búsqueda ayuda a aumentar la precisión de los resultados que se devuelven. 
   
@@ -935,7 +935,7 @@ En este tutorial, aprenderá a crear un localizador de almacén básico mediante
 > * Agregar la capacidad de [establecer filtros](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property) 
 > * Agregar compatibilidad para especificar un valor inicial de búsqueda mediante una cadena de consulta Al incluir esta opción en el localizador de almacén, los usuarios pueden marcar y compartir búsquedas. También proporciona un método sencillo de pasar las búsquedas a esta página desde otra página.  
 > * Implementar el localizador de almacén como una [aplicación web de Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-html) 
-> * Almacenar los datos en una base de datos y buscar ubicaciones cercanas Para más información, consulte [Información general de los tipos de datos espaciales de SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) y [Consultar datos espaciales para el vecino más próximo](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
+> * Almacenar los datos en una base de datos y buscar ubicaciones cercanas Para más información, consulte [Información general de los tipos de datos espaciales de SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview) y [Consultar datos espaciales para el vecino más próximo](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor).
 
 > [!div class="nextstepaction"]
 > [Ver el código fuente completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)

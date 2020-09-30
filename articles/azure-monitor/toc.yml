@@ -146,7 +146,7 @@
           href: app/data-retention-privacy.md
     - name: Alertas
       items:
-        - name: Información general
+        - name: Introducción
           href: platform/alerts-overview.md
         - name: Alertas de métricas
           href: platform/alerts-metric-overview.md
@@ -224,12 +224,10 @@
               href: log-query/get-started-queries.md
         - name: Datos de registro
           items:
-            - name: Estructura de datos de registros
-              href: log-query/logs-structure.md
             - name: Ámbito de la consulta
               href: log-query/scope.md
-            - name: Propiedades estándar
-              href: platform/log-standard-properties.md
+            - name: Columnas estándar
+              href: platform/log-standard-columns.md
             - name: Grupos de equipos
               href: platform/computer-groups.md
         - name: Lenguaje de consulta
@@ -294,7 +292,7 @@
               href: log-query/query-optimization.md
             - name: Análisis de datos de texto
               href: log-query/parse-text.md
-        - name: Áreas de trabajo
+        - name: Áreas de trabajo y clústeres
           items:
             - name: Diseño de una implementación de área de trabajo
               href: platform/design-logs-deployment.md
@@ -314,6 +312,8 @@
               href: platform/service-providers.md
             - name: Administración del acceso
               href: platform/manage-access.md
+            - name: Clústeres dedicados
+              href: log-query/logs-dedicated-clusters.md
     - name: Explorador de métricas
       items:
         - name: Introducción al Explorador de métricas
@@ -402,7 +402,7 @@
               href: insights/solution-agenthealth.md
         - name: Extensión de Diagnósticos de Azure
           items:
-            - name: Información general
+            - name: Introducción
               href: platform/diagnostics-extension-overview.md
             - name: Windows
               displayname: diagnostics extension
@@ -419,7 +419,7 @@
                   items:
                     - name: Máquina virtual
                       href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-                    - name: Conjunto de escalado de máquinas virtuales
+                    - name: Conjunto de escalado de máquina virtual
                       href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
                     - name: Máquina virtual clásica
                       href: platform/collect-custom-metrics-guestos-vm-classic.md
@@ -471,7 +471,7 @@
           href: platform/autoscale-custom-metric.md
         - name: Escalado de conjuntos de escalado de máquinas virtuales
           href: ../virtual-machine-scale-sets/tutorial-autoscale-powershell.md?toc=/azure/azure-monitor/toc.json
-        - name: Escalado de conjuntos de escalado de máquinas virtuales con plantillas de Resource Manager
+        - name: Escalado de conjuntos de escalado de máquinas virtuales mediante plantillas de Resource Manager
           href: platform/autoscale-virtual-machine-scale-sets.md
         - name: Uso de notificaciones por correo electrónico y webhooks
           href: platform/autoscale-webhook-email.md
@@ -499,14 +499,16 @@
               href: platform/alerts-troubleshoot-metric.md
         - name: Reglas de alertas de registro
           items:
-            - name: Configuración de alertas en las consultas de análisis
+            - name: Administración de alertas del registro
               href: platform/alerts-log.md
-            - name: Consultas
+            - name: Optimización de consultas de alerta
               href: platform/alerts-log-query.md
-            - name: Acciones de webhook
-              href: platform/alerts-log-webhook.md
+            - name: Uso de la plantilla de Resource Manager
+              href: platform/alerts-log-create-templates.md
             - name: Solución de problemas de alertas del registro
               href: platform/alerts-troubleshoot-log.md
+            - name: Acciones de webhook
+              href: platform/alerts-log-webhook.md
         - name: Reglas de alertas de registro de actividad
           items:
             - name: Alerta de un evento del registro de actividades
@@ -566,6 +568,8 @@
               href: platform/itsmc-overview.md
             - name: Conexiones de IT Service Management
               href: platform/itsmc-connections.md
+            - name: Integración con exportación segura
+              href: platform/it-service-management-connector-secure-webhook-connections.md
             - name: Creación de aplicación web de Service Manager
               href: platform/itsmc-service-manager-script.md
             - name: Solución de problemas de sincronización de ITSM de ServiceNow
@@ -677,7 +681,7 @@
           items:
             - name: Información general
               href: app/codeless-overview.md
-            - name: Máquina virtual y conjunto de escalado de Azure
+            - name: Máquina virtual de Azure y conjunto de escalado de máquinas virtuales
               href: app/azure-vm-vmss-apps.md
             - name: Azure App Service
               displayname: 'App Service, web app, PaaS, Azure web app'
@@ -720,10 +724,16 @@
                       href: app/monitor-performance-live-website-now.md
                 - name: Java
                   href: app/java-on-premises.md
+        - name: OpenTelemetry
+          items:
+            - name: Preguntas más frecuentes
+              href: faq.md#opentelemetry
         - name: Creación de un recurso (clásico)
           href: app/create-new-resource.md
         - name: Creación de un recurso (basado en el área de trabajo)
           href: app/create-workspace-resource.md
+        - name: Migración a un recurso basado en área de trabajo
+          href: app/convert-classic-resource.md
         - name: Panel de la aplicación
           displayname: 'dashboard, Application Insights dashboard'
           href: app/overview-dashboard.md
@@ -1006,10 +1016,10 @@
               href: insights/container-insights-region-mapping.md
         - name: Supervisión del rendimiento
           href: insights/container-insights-analyze.md
-        - name: Supervisión del mantenimiento
-          href: insights/container-insights-health.md
         - name: Supervisión del rendimiento de GPU
           href: insights/container-insights-gpu-monitoring.md
+        - name: Supervisión de implementaciones y HPA
+          href: insights/container-insights-deployment-hpa-metrics.md
         - name: Visualización de datos en directo
           items:
             - name: Introducción a los datos en directo (versión preliminar)
@@ -1036,8 +1046,6 @@
           href: insights/container-insights-agent-config.md
         - name: Actualización para habilitar las métricas
           href: insights/container-insights-update-metrics.md
-        - name: Configuración de supervisión de estado
-          href: insights/container-insights-health-monitors-config.md
         - name: Administración de costo y uso
           href: insights/container-insights-cost.md
         - name: Deshabilitar la supervisión
@@ -1056,7 +1064,7 @@
       items:
         - name: Azure Cache for Redis (versión preliminar)
           href: insights/redis-cache-insights-overview.md
-        - name: "Azure Cosmos\_DB"
+        - name: Azure Cosmos DB
           href: insights/cosmosdb-insights-overview.md
         - name: Redes
           href: insights/network-insights-overview.md
@@ -1128,7 +1136,23 @@
           displayname: Workbooks
           href: platform/workbooks-overview.md
         - name: Visualizaciones
-          href: platform/workbooks-visualizations.md
+          items:
+            - name: Texto
+              href: platform/workbooks-text-visualizations.md
+            - name: Gráfico
+              href: platform/workbooks-chart-visualizations.md
+            - name: Cuadrícula
+              href: platform/workbooks-grid-visualizations.md
+            - name: Tile
+              href: platform/workbooks-tile-visualizations.md
+            - name: Árbol
+              href: platform/workbooks-tree-visualizations.md
+            - name: Grafo
+              href: platform/workbooks-graph-visualizations.md
+            - name: Panal
+              href: platform/workbooks-honey-comb.md
+            - name: Barra compuesta
+              href: platform/workbooks-composite-bar.md
         - name: Orígenes de datos
           href: platform/workbooks-data-sources.md
         - name: Parámetros
@@ -1227,8 +1251,6 @@
           href: app/auto-collect-dependencies.md
         - name: Correlación de telemetría
           href: app/correlation.md
-        - name: Paquetes NuGet
-          href: app/nuget.md
         - name: Compatibilidad con plataformas
           href: app/platforms.md
         - name: Invalidaciones de puntos de conexión
@@ -1306,7 +1328,7 @@
           href: ./platform/classic-api-retirement-metrics-autoscale.md
         - name: Alertas y supervisión clásicas
           href: platform/monitoring-classic-retirement.md
-        - name: Cambio en la preferencia de API de la alerta de registro
+        - name: Cambio a la API de alertas de registro actual
           href: platform/alerts-log-api-switch.md
         - name: Solución de análisis de aplicaciones web
           href: insights/azure-web-apps-analytics.md

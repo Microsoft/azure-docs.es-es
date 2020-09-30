@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2f90ba0bb732930b4cf3b1c832c6954683119f5f
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: e6ee8ce065361ac27bba0e80349eb5e1d1877526
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585872"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532297"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guía del desarrollador de Azure Key Vault
 
@@ -24,7 +24,7 @@ Key Vault le permite acceder de forma segura a información confidencial desde s
 - La aplicación puede usar claves para firma y cifrado y aun así que la administración de claves sea externa a la aplicación, lo que le permite ser adecuada como aplicación distribuida geográficamente.
 - Administre certificados de Key Vault. Para obtener más información, consulte [Certificados](../certificates/about-certificates.md).
 
-Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Key Vault?](overview.md)
+Para obtener más información sobre Azure Key Vault, consulte [¿Qué es Key Vault?](overview.md).
 
 ## <a name="public-previews"></a>Versiones preliminares públicas
 
@@ -67,7 +67,7 @@ Antes de trabajar con claves, secretos o certificados en el almacén de claves, 
 - [Establecimiento y recuperación de un certificado con la CLI](../certificates/quick-create-cli.md)
 - [Establecimiento y recuperación de un certificado con PowerShell](../certificates/quick-create-powershell.md)
 - [Establecimiento y recuperación de un certificado con Azure Portal](../certificates/quick-create-portal.md)
-- [Operaciones con certificados con REST](/rest/api/keyvault/#certificate-operations)
+- [Certificación de operaciones con REST](/rest/api/keyvault/#certificate-operations)
 - [Establecimiento y recuperación de un certificado con Python](../certificates/quick-create-python.md)
 
 ## <a name="coding-with-key-vault"></a>Codificación con Key Vault
@@ -125,7 +125,7 @@ Los artículos y escenarios siguientes proporcionan instrucciones específicas d
 - [Uso de Key Vault para la administración extensible de claves con SQL Server](https://msdn.microsoft.com/library/dn198405.aspx). El Conector de SQL Server para Azure Key Vault permite que SQL Server y SQL en una VM use el servicio Azure Key Vault como un proveedor de administración extensible de claves (EKM) con el fin de proteger sus claves de cifrado para el vínculo de aplicaciones; cifrado de datos transparente, cifrado de copia de seguridad y cifrado de nivel de columna.
 - [Implementación de certificados en máquinas virtuales desde Key Vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/): una aplicación de nube que se ejecute en una máquina virtual de Azure necesita un certificado. Sepa cómo añadirlo a la máquina virtual hoy mismo.
 - [Deploying Azure Web App Certificate through Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) (Implementación de certificado Azure Web App a través de Key Vault) proporciona instrucciones paso a paso para implementar certificados almacenados en Key Vault como parte de la oferta de [App Service Certificate](https://azure.microsoft.com/blog/internals-of-app-service-certificate/).
-- [Concesión de permisos para que muchas aplicaciones tengan acceso a almacén de claves](group-permissions-for-apps.md) La directiva de control de acceso de Key Vault admite hasta 1024 entradas. Sin embargo, puede crear un grupo de seguridad de Azure Active Directory. Agregue todas las entidades de servicio asociadas a este grupo de seguridad y, luego, conceda acceso a este grupo de seguridad a Key Vault.
+- Asignación de una directiva de acceso ([CLI](assign-access-policy-cli.md) | [PowerShell](assign-access-policy-powershell.md) | [Azure Portal](assign-access-policy-portal.md)). Key Vault admite hasta 1024 entradas de directivas de acceso. Para permanecer dentro de este límite con los usuarios, cree grupos de seguridad de Azure Active Directory, agregue todas las entidades de servicio asociadas al grupo concreto y, después, conceda al grupo acceso a Key Vault.
 - Para obtener más instrucciones específicas sobre las tareas de integración y el uso de los almacenes de claves con Azure, consulte los [ejemplos de plantillas de Azure Resource Manager de Ryan Jones para Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 - [Uso de la eliminación temporal de Key Vault con la CLI](soft-delete-cli.md) le guiará por el uso y ciclo de vida de un almacén de claves y de varios objetos de almacén de claves con la eliminación temporal habilitada.
 - [Uso de la eliminación temporal de Key Vault con PowerShell](soft-delete-powershell.md) le guiará por el uso y ciclo de vida de un almacén de claves y de varios objetos de almacén de claves con la eliminación temporal habilitada.

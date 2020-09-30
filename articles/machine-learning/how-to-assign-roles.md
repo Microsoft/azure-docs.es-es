@@ -11,15 +11,14 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: afffdd0267cde8ffc841587748e51dd27e021369
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: d36c0ab78f9f96a051e6cb0a53b756c7409ca142
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079593"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893397"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Administración del acceso a un área de trabajo de Azure Machine Learning
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 En este artículo, obtendrá información sobre cómo administrar el acceso a un área de trabajo de Azure Machine Learning. El [control de acceso basado en rol de Azure (RBAC de Azure)](/azure/role-based-access-control/overview) se utiliza para administrar el acceso a los recursos de Azure. Se asignan roles específicos a los usuarios de Azure Active Directory que les conceden acceso a los recursos. Azure proporciona tanto roles integrados como la capacidad de crear roles personalizados.
 
@@ -135,7 +134,6 @@ En la tabla siguiente se proporciona un resumen de las actividades de Azure Mach
 | Actividad | Ámbito a nivel de supervisión | Ámbito a nivel de grupo de recursos | Ámbito a nivel de área de trabajo |
 | ----- | ----- | ----- | ----- |
 | Crear área de trabajo nueva | No se requiere | Propietario o colaborador | N/A (se convierte en Propietario o hereda el rol del ámbito superior después de la creación) |
-| Actualización de la edición del área de trabajo | No se requiere | No se requiere | Propietario, colaborador o rol personalizado que permita: `/workspaces/write` |
 | Solicitud de cuota de Amlcompute de nivel de suscripción o establecimiento de cuota de nivel de área de trabajo | Propietario, colaborador o rol personalizado </br>que permite `/locations/updateQuotas/action`</br> en el ámbito de suscripción | No autorizado | No autorizado |
 | Crear un clúster de proceso | No se requiere | No se requiere | Propietario, colaborador o rol personalizado que permita: `/workspaces/computes/write` |
 | Crear una instancia de proceso | No se requiere | No se requiere | Propietario, colaborador o rol personalizado que permita: `/workspaces/computes/write` |
@@ -301,7 +299,6 @@ Sí, estos son algunos escenarios comunes con definiciones de roles propuestos p
 
     * Crear una nueva área de trabajo
     * Asignación de cuotas de nivel de suscripción o de área de trabajo
-    * Actualización de la edición del área de trabajo
 
     El administrador del área de trabajo tampoco puede crear un nuevo rol. Solo puede asignar roles integrados o personalizados existentes dentro del ámbito de su área de trabajo:
 
@@ -415,11 +412,7 @@ Debe tener permisos en todo el ámbito de la nueva definición de roles. Por eje
 
 > [!NOTE]
 > Las actualizaciones de roles pueden tardar entre 15 minutos y una hora en aplicarse a todas las asignaciones de roles de ese ámbito.
-### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>Q. ¿Puedo definir un rol que impida la actualización de la edición del área de trabajo? 
 
-Sí, puede definir un rol que impida la actualización de la edición del área de trabajo. Dado que la actualización del área de trabajo es una llamada PATCH en el objeto del área de trabajo, puede hacerlo colocando la siguiente acción en la matriz `"NotActions"` en la definición de JSON: 
-
-`"Microsoft.MachineLearningServices/workspaces/write"`
 
 ### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>Q. ¿Qué permisos son necesarios para realizar operaciones de cuota en un área de trabajo? 
 
@@ -429,6 +422,6 @@ Necesita permisos de nivel de suscripción para realizar cualquier operación re
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Introducción a la seguridad en la empresa](concept-enterprise-security.md)
-- [Ejecución de experimentos y realización de inferencias/puntuaciones de forma segura en una red virtual](how-to-enable-virtual-network.md)
+- [Información general sobre la privacidad y el aislamiento de la red virtual](how-to-network-security-overview.md)
 - [Tutorial: Entrenamiento de modelos](tutorial-train-models-with-aml.md)
 - [Operaciones del proveedor de recursos](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

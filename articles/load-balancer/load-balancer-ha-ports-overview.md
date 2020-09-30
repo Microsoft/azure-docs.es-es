@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: ab11060924c29dbddc965aa94064d0091a7b348e
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 5115190d944e78d476f369442dccdbda394e46ba
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88639858"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564056"
 ---
 # <a name="high-availability-ports-overview"></a>Introducción a los puertos de alta disponibilidad
 
@@ -99,5 +99,5 @@ Puede configurar *un* recurso de una instancia pública de Load Balancer estánd
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Aprenda a configurar los puertos de alta disponibilidad para su ILB mediante Azure Portal](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule), [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), [la CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)o [plantillas](load-balancer-get-started-ilb-arm-template.md).
+- [Aprenda a configurar los puertos de alta disponibilidad para su ILB mediante Azure Portal](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule), [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), [la CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)o [plantillas](quickstart-load-balancer-standard-internal-template.md).
 - [Más información sobre Load Balancer estándar](load-balancer-standard-overview.md)

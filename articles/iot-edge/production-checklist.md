@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 6f5698c5390a341df505bf5a1f849e121bd754a2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7cabae837656611813d44017ce2e1112f06066ef
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258787"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669608"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparación para implementar la solución IoT Edge en producción
 
@@ -41,7 +41,7 @@ Los dispositivos IoT Edge pueden ser cualquier cosa, desde un dispositivo Raspbe
 Cada dispositivo IoT Edge en producción necesita un certificado de la entidad de certificación (CA) instalado en él. Este certificado de entidad de certificación se declara en el entorno de ejecución de Azure IoT Edge en el archivo config.yaml. En escenarios de desarrollo y prueba, el entorno de ejecución de IoT Edge crea certificados temporales si no se declara ningún certificado en el archivo config.yaml. Sin embargo, estos certificados temporales expiran después de tres meses y no son seguros para escenarios de producción. En el caso de los escenarios de producción, debe proporcionar su propio certificado de CA de dispositivo, ya sea de una entidad de certificación autofirmada o adquirido de una entidad de certificación comercial.
 
 > [!NOTE]
-> Actualmente, una limitación en libiothsm impide el uso de certificados que expiran el 1 de enero de 2050 o en una fecha posterior.
+> Actualmente, una limitación en libiothsm impide el uso de certificados que expiran el 1 de enero de 2038 o en una fecha posterior.
 
 Para comprender el rol del certificado de entidad de certificación del dispositivo, consulte [Información de uso de los certificados de Azure IoT Edge](iot-edge-certs.md).
 
@@ -321,9 +321,9 @@ Puede hacerlo en el elemento **createOptions** de cada módulo. Por ejemplo:
 
 ### <a name="consider-tests-and-cicd-pipelines"></a>Considerar la posibilidad de pruebas y canalizaciones de CI/CD
 
-Para el escenario de implementación más eficiente de IoT Edge, considere la posibilidad de integrar la implementación de producción en las canalizaciones de pruebas y de CI/CD. Azure IoT Edge admite varias plataformas de CI/CD, incluida Azure DevOps. Para más información, consulte [Integración continua e implementación continua en Azure IoT Edge](how-to-ci-cd.md).
+Para el escenario de implementación más eficiente de IoT Edge, considere la posibilidad de integrar la implementación de producción en las canalizaciones de pruebas y de CI/CD. Azure IoT Edge admite varias plataformas de CI/CD, incluida Azure DevOps. Para más información, consulte [Integración continua e implementación continua en Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Más información acerca de la [implementación automática de IoT Edge](module-deployment-monitoring.md).
-* Consulte como IoT Edge admite la [integración continua e implementación continua](how-to-ci-cd.md).
+* Consulte como IoT Edge admite la [integración continua e implementación continua](how-to-continuous-integration-continuous-deployment.md).

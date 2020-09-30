@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8342ffc122f56f4e2a3a41e249007b2ceaad22a6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4fe353467a11e9581db76ec495194878414f4dfb
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034658"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230694"
 ---
 # <a name="storage-account-overview"></a>Introducción a las cuentas de almacenamiento
 
@@ -174,7 +174,7 @@ Azure Storage Data Movement Library for .NET se basa en el marco de movimiento d
 
 ### <a name="rest-api-or-client-library"></a>API de REST o biblioteca de cliente
 
-Puede crear una aplicación personalizada para migrar los datos desde una cuenta de almacenamiento de uso general v1 a una cuenta de Blob Storage. Use una de las bibliotecas de cliente de Azure o la API REST de servicios de almacenamiento de Azure. Azure Storage proporciona bibliotecas de cliente enriquecidas para varios lenguajes y aplicaciones como .NET, Java, C++, Node.JS, PHP, Ruby y Python. Las bibliotecas de cliente ofrecen capacidades avanzadas, como lógica de reintentos, registro y cargas paralelas. También se puede desarrollar directamente en la API de REST, a la que se puede llamar con cualquier lenguaje que genere solicitudes HTTP/HTTPS.
+Puede crear una aplicación personalizada para migrar los datos desde una cuenta de almacenamiento de uso general v1 a una cuenta de Blob Storage. Use una de las bibliotecas de cliente de Azure o la API REST de servicios de Azure Storage. Azure Storage proporciona bibliotecas de cliente enriquecidas para varios lenguajes y aplicaciones como .NET, Java, C++, Node.JS, PHP, Ruby y Python. Las bibliotecas de cliente ofrecen capacidades avanzadas, como lógica de reintentos, registro y cargas paralelas. También se puede desarrollar directamente en la API de REST, a la que se puede llamar con cualquier lenguaje que genere solicitudes HTTP/HTTPS.
 
 Para obtener más información sobre la API REST de Azure Storage, consulte [Azure Storage Services REST API Reference](https://docs.microsoft.com/rest/api/storageservices/) (Referencia de la API REST de Azure Storage).
 

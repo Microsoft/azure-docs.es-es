@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: fab6422300dd3db7dd0d02055721bd57354668bf
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 32aad7bc350c2ee8ca55d340623c3c3e44820d43
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322286"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527146"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Creación y administración de presupuestos de Azure
 
@@ -106,7 +106,7 @@ Después de configurar el importe del presupuesto, haga clic en **Siguiente** pa
 
 Si desea recibir correos electrónicos, agregue azure-noreply@microsoft.com a la lista de remitentes aprobados, con el fin de que los correos electrónicos no vayan a la carpeta de correo no deseado. Para más información acerca de las notificaciones, consulte [Use cost alerts](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md) (Uso de alertas de costos).
 
-En el siguiente ejemplo, se genera una alerta por correo electrónico cuando se alcanza el 90 % del presupuesto. Si crea un presupuesto con API Budgets, también puede asignar roles a los usuarios para que reciban alertas. No se admite la asignación de roles a personas en Azure Portal. Para más información sobre la API de presupuestos de Azure, consulte [API Budgets](/rest/api/consumption/budgets).
+En el siguiente ejemplo, se genera una alerta por correo electrónico cuando se alcanza el 90 % del presupuesto. Si crea un presupuesto con API Budgets, también puede asignar roles a los usuarios para que reciban alertas. No se admite la asignación de roles a personas en Azure Portal. Para más información sobre la API de presupuestos de Azure, consulte [API Budgets](/rest/api/consumption/budgets). Si desea recibir una alerta por correo electrónico en otro idioma, consulte [Configuraciones regionales admitidas para los correos electrónicos de alertas de presupuesto](manage-automation.md#supported-locales-for-budget-alert-emails).
 
 Los límites de alerta admiten un intervalo de 0,01 a 1000 % del umbral del presupuesto que ha proporcionado.
 

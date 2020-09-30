@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4bf5b9b6f683783a39b7d34c430f1c6671c35885
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 541f3e5ada69568506969f6406564a8ff59c0ba6
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236376"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613229"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Qué es SQL Server en Azure Virtual Machines (Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,6 +30,9 @@ ms.locfileid: "88236376"
 [SQL Server en Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) le permite usar versiones completas de SQL Server en la nube sin tener que administrar todo el hardware local. SQL Server en Azure Virtual Machines también simplifica los costos de licencia cuando se paga por uso.
 
 Las máquinas virtuales de Azure se ejecutan en distintas [regiones geográficas](https://azure.microsoft.com/regions/) en todo el mundo. También ofrecen diversos [tamaños de máquina](../../../virtual-machines/windows/sizes.md). La galería de imágenes de máquina virtual le permite crear una máquina virtual con SQL Server con la versión, la edición y el sistema operativo correctos. Esto hace que las máquinas virtuales sean una buena opción para muchas cargas de trabajo de SQL Server diferentes.
+
+Si no está familiarizado con SQL Server en máquinas virtuales de Azure, consulte el vídeo de *introducción a SQL Server en una máquina virtual de Azure*  en la detallada [serie de vídeos sobre Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
+> [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61/player]
 
 ## <a name="automated-updates"></a>Actualizaciones automatizadas
 

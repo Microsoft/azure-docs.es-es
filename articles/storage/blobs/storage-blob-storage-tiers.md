@@ -3,17 +3,17 @@ title: 'Niveles de acceso frecuente, esporádico y de archivo para blobs: Azure 
 description: Lea información sobre los niveles de acceso frecuente, esporádico y de archivo para Azure Blob Storage. Revise las cuentas de almacenamiento que admiten niveles. Compare opciones de almacenamiento de blob en bloques.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 03/23/2019
+ms.date: 08/27/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: a46597087a3eee03f7c5b8d1c9746f968ea1980d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 59a0433a3b22877808fbe2b8371258e00f214d10
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849733"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226189"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo
 
@@ -68,6 +68,9 @@ Entre los ejemplos de escenarios de uso del nivel de acceso de archivo se incluy
 - Copia de seguridad a largo plazo, copia de seguridad secundaria y conjuntos de datos de archivado
 - Datos originales (sin procesar) que deben conservarse, incluso después de que se han procesado en un formato útil final.
 - Datos de cumplimiento y archivado que se deben almacenar durante un largo período de tiempo y a los que casi nunca se accede.
+
+> [!NOTE]
+> El nivel de archivo no se admite actualmente en las cuentas de ZRS, GZRS o RA-GZRS.
 
 ## <a name="account-level-tiering"></a>Almacenamiento por niveles de cuenta
 
@@ -153,7 +156,7 @@ En esta sección se muestran los siguientes escenarios mediante Azure Portal y P
 
 1. Haga clic en **Guardar** en la parte superior.
 
-![Cambio del nivel de cuenta de almacenamiento](media/storage-tiers/account-tier.png)
+![Cambio del nivel de cuenta predeterminado en Azure Portal](media/storage-tiers/account-tier.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 El siguiente script de PowerShell puede utilizarse para cambiar el nivel de cuenta. La variable `$rgName` se debe inicializar con el nombre del grupo de recursos. La variable `$accountName` se debe inicializar con el nombre de la cuenta de almacenamiento. 
@@ -183,7 +186,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 1. En la parte inferior, seleccione **Guardar**.
 
-![Cambio del nivel de cuenta de almacenamiento](media/storage-tiers/blob-access-tier.png)
+![Cambio del nivel de blob en Azure Portal](media/storage-tiers/blob-access-tier.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 El siguiente script de PowerShell puede utilizarse para cambiar el nivel de blob. La variable `$rgName` se debe inicializar con el nombre del grupo de recursos. La variable `$accountName` se debe inicializar con el nombre de la cuenta de almacenamiento. La variable `$containerName` se debe inicializar con el nombre del contenedor. La variable `$blobName` se debe inicializar con el nombre del blob. 
@@ -216,6 +219,8 @@ Todas las cuentas de almacenamiento usan un modelo de precios para el almacenami
 - **Costos de transferencia de datos de replicación geográfica**: este cargo solo se aplica a las cuentas con replicación geográfica configurada, incluidas GRS y RA-GRS. La transferencia de datos de replicación geográfica incurre en un cargo por gigabyte.
 - **Costos de transferencia de datos salientes**: las transferencias de datos salientes (los datos que se transfieren fuera de una región de Azure) conllevan un cargo por el uso del ancho de banda por gigabyte, lo que es coherente con las cuentas de almacenamiento de uso general.
 - **Cambio del nivel de acceso**: El cambio del nivel de acceso de cuenta comportará cargos por cambio de nivel para los blobs _access tier inferred_ almacenados en la cuenta que no tengan un nivel explícito establecido. Para más información sobre cómo cambiar el nivel de acceso de un solo blob, consulte [Facturación del almacenamiento por niveles de blob](#blob-level-tiering-billing).
+
+    Cambiar el nivel de acceso de un blob cuando el control de versiones está habilitado, o si el blob tiene instantáneas, puede dar lugar a cargos adicionales. Para más información sobre cómo se factura cuando el control de versiones de blobs está habilitado y se cambia explícitamente el nivel de un blob, consulte [Precios y facturación](versioning-overview.md#pricing-and-billing) del control de versiones de blobs en la documentación. Para más información sobre cómo se factura cuando el blob tiene instantáneas y se cambia explícitamente el nivel del blob, consulte [Precios y facturación](snapshots-overview.md#pricing-and-billing) de las instantáneas de blob en la documentación.
 
 > [!NOTE]
 > Para más información sobre los precios de los blobs en bloque, consulte la página [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/). Para más información acercas los cargos por la transferencia de datos salientes, consulte la página [Detalles de precios de ancho de banda](https://azure.microsoft.com/pricing/details/data-transfers/).

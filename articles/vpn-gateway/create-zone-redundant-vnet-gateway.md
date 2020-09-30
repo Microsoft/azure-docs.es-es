@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1404f5201ff5f543e34c6a4c8e5713cab3a4c51b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 2eaf1470e2d861ecfc1c1bc96f6040a1c3e0a644
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033485"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425235"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Crear una puerta de enlace de red virtual con redundancia de zona en Azure Availability Zones
 

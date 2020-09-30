@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: 104654a721912324cdc8ea636e8b4e75765e73f7
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: ce47bc5e880f15eaa1bbf07477673d2475e5a10a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268900"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489925"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceptación y recepción de datos con Azure Data Share  
 
@@ -41,7 +41,7 @@ Asegúrese de que se cumplen todos los requisitos previos antes de aceptar una i
 ### <a name="receive-data-into-a-sql-based-target"></a>Recepción de datos en un destino basado en SQL:
 
 * Permisos para escribir en las bases de datos de SQL Server, que se encuentra en *Microsoft.Sql/servers/databases/write*. Este permiso existe en el rol de colaborador. 
-* Permisos para que la identidad administrada del recurso compartido de datos acceda a Azure SQL Database o Azure SQL Data Warehouse. Esto se puede hacer mediante los siguientes pasos: 
+* Permisos para que la identidad administrada del recurso compartido de datos acceda a Azure SQL Database o Azure Synapse Analytics. Esto se puede hacer mediante los siguientes pasos: 
     1. Establézcase como administrador de Azure Active Directory para SQL Server.
     1. Conéctese a Azure SQL Database o Data Warehouse mediante Azure Active Directory.
     1. Use el editor de consultas (versión preliminar) para ejecutar el siguiente script para agregar la identidad administrada de Data Share como "db_datareader, db_datawriter, db_ddladmin". Debe conectarse mediante Active Directory y no con la autenticación de SQL Server. 

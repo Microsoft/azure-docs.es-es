@@ -2,18 +2,18 @@
 title: Tutorial de exportación de datos de Azure Data Box | Microsoft Docs
 description: Obtenga información acerca de los requisitos previos de implementación y de cómo exportar datos de Azure Data Box
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.author: twooley
-ms.openlocfilehash: 0ddadd8d2bddda0fdff6a126fe6c09d863139b44
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/10/2020
+ms.author: alkohli
+ms.openlocfilehash: 5494c2dd57220888ad846aaf69fde2f7a59353e4
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783627"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053061"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Tutorial: Creación de un pedido de exportación para Azure Data Box (versión preliminar)
 
@@ -115,9 +115,20 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
 
    Para ver un ejemplo de la entrada XML, consulte [Entrada XML de ejemplo](data-box-deploy-export-ordered.md#sample-xml-file).
 
-9. En **Selección de datos**, revise la configuración y seleccione **Siguiente: <detalles de contacto>** .
+9. En **Selección de datos**, revise la configuración y seleccione **Siguiente: Seguridad>** .
 
    ![Detalles de contacto](media/data-box-deploy-export-ordered/azure-data-box-export-05.png)
+
+1. En **Seguridad**, si quiere habilitar el cifrado doble basado en software, seleccione **Enable double encryption for the order** (Habilitar el cifrado doble para el pedido). 
+
+   El cifrado basado en software se realiza junto con el cifrado AES de 256 bits de los datos en Data Box.
+
+   > [!NOTE]
+   > La habilitación de esta opción puede hacer que el procesamiento de pedidos y la copia de datos tarden más. Esta opción no se puede cambiar después de crear el pedido.
+
+   ![Pantalla de seguridad para la importación de Data Box, cifrado doble](media/data-box-deploy-export-ordered/azure-data-box-export-05b.png)
+
+   Seleccione **Siguiente: Detalles de contacto** para continuar.
 
 10. En **Detalles de contacto**, seleccione **+ Agregar dirección de envío** para especificar la información de envío.
 

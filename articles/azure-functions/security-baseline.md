@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 32905383b046148893492640fe42fc721d1944dd
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 21e2b197c31a30ab8a249e2e8e398072a624154c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810248"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394098"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Base de referencia de seguridad de Azure para Azure Functions
 
@@ -179,7 +179,7 @@ Existen también otras opciones en el mercado, como el WAF de Barracuda para Azu
 - Acceso a Function App solo a través de HTTPS
 - La versión más reciente de TLS debe usarse en la aplicación de funciones.
 
-También puede utilizar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como plantillas de Azure Resource Manager (ARM), control de acceso basado en rol (RBAC) y directivas, en una única definición de plano técnico. Aplique fácilmente el plano técnico a nuevas suscripciones y entornos, y ajuste el control y la administración mediante el control de versiones.
+También puede utilizar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como las plantillas de Azure Resource Manager, el control de acceso basado en roles de Azure (Azure RBAC) y las directivas, en una única definición de un plano técnico. Aplique fácilmente el plano técnico a nuevas suscripciones y entornos, y ajuste el control y la administración mediante el control de versiones.
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -595,9 +595,9 @@ En el caso de la plataforma subyacente administrada por Microsoft, Microsoft tra
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
-**Guía**: Use el control de acceso basado en roles (RBAC) de Azure Active Directory (AD) para controlar el acceso al plano de control de Azure Functions (Azure Portal). 
+**Instrucciones**: Utilice el control de acceso basado en roles de Azure (Azure RBAC) para controlar el acceso al plano de control de Azure Functions (Azure Portal). 
 
-- [Configuración de RBAC en Azure](../role-based-access-control/role-assignments-portal.md)
+- [Configuración de Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -960,7 +960,9 @@ Creación de un ASE interno:
 
 - [Cómo usar identidades administradas para App Service y Azure Functions](../app-service/overview-managed-identity.md)
 
-- [Cómo proporcionar la autenticación de Key Vault con una identidad administrada](../key-vault/general/managed-identity.md)
+* [Autenticación en Azure Key Vault](../key-vault/general/authentication.md)
+
+* [Asignación de una directiva de acceso de Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 - [Uso de referencias de Key Vault para App Service y Azure Functions](../app-service/app-service-key-vault-references.md)
 

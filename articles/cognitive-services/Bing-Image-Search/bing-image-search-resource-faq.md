@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 2d919640431ce014d34372812d9c07bb84d750b2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 19c5c5280b8ff4fb997366375b4300958d694d6c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184062"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293666"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Preguntas más frecuentes (P+F) sobre Bing Image Search API
 
@@ -35,7 +35,7 @@ Es especialmente importante conservar el identificador de cliente y devolverlo c
 
 Sin embargo, cuando se llama a Bing Image Search API desde JavaScript, las características de seguridad integradas de su explorador (CORS) podrían impedirle acceder a los valores de estos encabezados.
 
-Para acceder a los encabezados, puede realizar la solicitud de Bing Image Search API mediante un proxy CORS. La respuesta de un proxy de este tipo tiene un encabezado `Access-Control-Expose-Headers` que agrega los encabezados de respuesta a listas blancas y hace que estén disponibles para JavaScript.
+Para acceder a los encabezados, puede realizar la solicitud de Bing Image Search API mediante un proxy CORS. La respuesta de un proxy de este tipo tiene un encabezado `Access-Control-Expose-Headers` que filtra los encabezados de respuesta y hace que estén disponibles para JavaScript.
 
 Es fácil instalar un proxy CORS para permitir que nuestra [aplicación de tutorial](tutorial-bing-image-search-single-page-app.md) obtenga acceso a los encabezados de cliente opcionales. En primer lugar, si aún no lo tiene, [instale Node.js](https://nodejs.org/en/download/). A continuación, escriba el siguiente comando en un símbolo del sistema.
 

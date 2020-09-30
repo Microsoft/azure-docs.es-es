@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04e265ea0128411eb483c84b1317051089a0550a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 3b0bb70b82e8c34c50743bf56069488e2d4c4e39
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260244"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968777"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Uso de una identidad asignada por el sistema de una máquina virtual Linux para acceder a Azure Storage con las credenciales de SAS
 
@@ -154,7 +154,7 @@ echo "This is a test file." > test.txt
 
 A continuación, autentíquese con el comando `az storage` de la CLI con la credencial SAS y cargue el archivo en el contenedor de blobs. Para este paso, necesitará [instalar la CLI de Azure más reciente](/cli/azure/install-azure-cli) en su máquina virtual, si no lo ha hecho ya.
 
-```azurecli-interactive
+```azurecli
  az storage blob upload --container-name 
                         --file 
                         --name
@@ -176,7 +176,7 @@ Además, puede descargar el archivo usando la CLI de Azure y autenticándose con
 
 Solicitud: 
 
-```azurecli-interactive
+```azurecli
 az storage blob download --container-name
                          --file 
                          --name 

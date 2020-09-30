@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/06/2019
-ms.openlocfilehash: 02ec26c80a8a64f88a30ded2067a377c292d621d
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.date: 09/11/2020
+ms.openlocfilehash: 41153c488825e87583284b23a287353f63ff8db8
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475607"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085100"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Modo de depuración de flujos de datos de asignación
 
@@ -33,6 +33,11 @@ Cuando el modo de depuración está activado, creará interactivamente el flujo 
 
 En la mayoría de los casos, se recomienda crear instancias de Data Flow en modo de depuración para poder validar la lógica de negocios y ver las transformaciones de datos antes de publicar el trabajo en Azure Data Factory. Use el botón "Depurar" del panel de la canalización para probar el flujo de datos en una canalización.
 
+![Visualización de sesiones de depuración del flujo de datos](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
+
+> [!NOTE]
+> Cada sesión de depuración que un usuario inicia desde su interfaz de usuario del explorador de ADF es una sesión nueva con su propio clúster de Spark. Puede usar la vista de supervisión en las sesiones de depuración anteriores para ver y administrar las sesiones de depuración por fábrica.
+
 ## <a name="cluster-status"></a>Estado del clúster
 
 El indicador de estado del clúster en la parte superior de la superficie de diseño se pone de color verde cuando el clúster esté listo para realizar la depuración. Si el clúster ya está activo, el indicador verde aparecerá casi al instante. Si el clúster no se está ejecutando cuando se entra en el modo de depuración, tendrá que esperar 5-7 minutos para que se ponga en marcha. El indicador girará hasta que esté listo.
@@ -41,13 +46,15 @@ Cuando haya terminado la depuración, desactive el conmutador de depuración par
 
 ## <a name="debug-settings"></a>Configuración de depuración
 
-Para editar las opciones de depuración, haga clic en "Configuración de depuración" en la barra de herramientas del lienzo de Data Flow. Puede seleccionar los límites de fila o el origen de archivos que se usarán en cada transformación de origen. Los límites de fila de esta configuración solo son para la sesión de depuración actual. También puede seleccionar el servicio vinculado de almacenamiento provisional para usarlo con un origen de SQL Data Warehouse. 
+Una vez activado el modo de depuración, puede editar la forma en que un flujo de datos obtiene una vista previa de los datos. Para editar las opciones de depuración, haga clic en "Configuración de depuración" en la barra de herramientas del lienzo de Data Flow. Puede seleccionar los límites de fila o el origen de archivos que se usarán en cada transformación de origen. Los límites de fila de esta configuración solo son para la sesión de depuración actual. También puede seleccionar el servicio vinculado de almacenamiento provisional que se va a usar como origen de Azure Synapse Analytics. 
 
 ![Configuración de depuración](media/data-flow/debug-settings.png "Configuración de depuración")
 
 Si tiene parámetros en su instancia de Data Flow o cualquiera de los conjuntos de datos a los que se hace referencia, puede especificar los valores que se van usar durante la depuración seleccionando la pestaña **Parámetros**.
 
 ![Parámetros de configuración de depuración](media/data-flow/debug-settings2.png "Parámetros de configuración de depuración")
+
+El valor predeterminado de IR usado para el modo de depuración en los flujos de datos de ADF es un único nodo de trabajo de 4 núcleos con un nodo de un solo controlador de 4 núcleos. Este valor funciona bien con ejemplos más pequeños de datos al probar la lógica del flujo de datos. Si expande los límites de fila en la configuración de depuración durante la vista previa de los datos o establece un número mayor de filas muestreadas en el origen durante la depuración de la canalización, es posible que quiera considerar la posibilidad de configurar un entorno de proceso más grande en una nueva instancia de Azure Integration Runtime. Después, puede reiniciar la sesión de depuración con el entorno de proceso más grande.
 
 ## <a name="data-preview"></a>Vista previa de datos
 
@@ -59,6 +66,8 @@ Con la depuración activada, la pestaña Vista previa de datos se ilumina en el 
 > Los orígenes de archivo solo limitan las filas que se ven, no las filas que se leen. En el caso de conjuntos de datos grandes, se recomienda que tome una pequeña parte de ese archivo y la use para las pruebas. Puede seleccionar un archivo temporal en Configuración de depuración para cada origen que sea un tipo de conjunto de datos de archivo.
 
 Cuando se ejecuta en el modo de depuración en Data Flow, no se escribirán los datos en el receptor de transformación. Una sesión de depuración está diseñada para que funcione como una herramienta de ejecución de pruebas para las transformaciones. Los receptores no son necesarios durante la depuración y se omiten en el flujo de datos. Si quiere probar a escribir los datos en el receptor, ejecute la instancia de Data Flow desde una canalización de Azure Data Factory y use la ejecución de la depuración desde una canalización.
+
+La vista previa de los datos es una instantánea de los datos transformados mediante los límites de fila y el muestreo de datos de las tramas de datos en la memoria de Spark. Por lo tanto, los controladores de receptor no se usan ni se prueban en este escenario.
 
 ### <a name="testing-join-conditions"></a>Condiciones de combinación de pruebas
 

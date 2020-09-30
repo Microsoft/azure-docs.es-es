@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: sngun
-ms.openlocfilehash: ae1d2743934c5ae8df9f2a1514bdda9b34262b9d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 691c6ec0559eceb60d57bf04819701edebbffd83
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023694"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462452"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Auditoría de operaciones de plano de control de Azure Cosmos DB
 
@@ -69,17 +69,17 @@ Después de activar el registro, siga estos pasos para realizar un seguimiento d
 
 Las capturas de pantalla siguientes capturan registros cuando se cambia un nivel de coherencia para una cuenta de Azure Cosmos:
 
-:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Registros del plano de control cuando se agrega una red virtual":::
+:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Habilitación del registro de solicitudes del plano de control":::
 
 Las capturas de pantalla siguientes capturan los registros cuando se crea el espacio de claves o una tabla de una cuenta de Cassandra, y cuando se actualiza el rendimiento. Los registros del plano de control para las operaciones de creación y actualización en la base de datos y en el contenedor se registran por separado, tal como se muestra en la siguiente captura de pantalla:
 
-:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Registros de plano de control cuando se actualiza el rendimiento":::
+:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Habilitación del registro de solicitudes del plano de control":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>Identificar la identidad asociada con una operación específica
 
 Si quiere depurar más, puedes identificar una operación específica en el **Registro de actividad** mediante el identificador de actividad o la marca de tiempo de la operación. La marca de tiempo se usa para algunos clientes de Resource Manager cuando el identificador de actividad no se pasa explícitamente. El registro de actividad proporciona detalles sobre la identidad con la que se inició la operación. En la captura de pantalla siguiente se muestra cómo usar el identificador de la actividad y buscar las operaciones asociadas con él en el registro de actividad:
 
-:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Uso del identificador de actividad y búsqueda de las operaciones":::
+:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Habilitación del registro de solicitudes del plano de control":::
 
 ## <a name="control-plane-operations-for-azure-cosmos-account"></a>Operaciones del plano de control para la cuenta de Azure Cosmos
 
@@ -193,6 +193,22 @@ AzureDiagnostics 
 AzureDiagnostics 
 | where Category =="ControlPlaneRequests"
 | where  OperationName startswith "SqlContainersThroughputUpdate"
+```
+
+Realice una consulta para obtener el parámetro activityId y el autor de la llamada que inició la operación de eliminación del contenedor:
+
+```kusto
+(AzureDiagnostics
+| where Category == "ControlPlaneRequests"
+| where OperationName == "SqlContainersDelete"
+| where TimeGenerated >= todatetime('9/3/2020, 5:30:29.300 PM')
+| summarize by activityId_g )
+| join (
+AzureActivity
+| parse HTTPRequest with * "clientRequestId\": \"" activityId_g "\"" * 
+| summarize by Caller, HTTPRequest, activityId_g)
+on activityId_g
+| project Caller, activityId_g
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

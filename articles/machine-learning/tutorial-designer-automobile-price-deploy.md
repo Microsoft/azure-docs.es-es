@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Implementación de modelos de aprendizaje automático con el diseñador (versión preliminar)'
+title: 'Tutorial: Implementación de modelos de ML con el diseñador'
 titleSuffix: Azure Machine Learning
-description: En este tutorial se indica cómo crear una solución de análisis predictivo en el diseñador de Azure Machine Learning (versión preliminar). Entrene, puntúe e implemente un modelo de Machine Learning mediante módulos de arrastrar y colocar.
+description: En este tutorial se indica cómo crear una solución de análisis predictivo en el diseñador de Azure Machine Learning. Entrene, puntúe e implemente un modelo de Machine Learning mediante módulos de arrastrar y colocar.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -10,15 +10,15 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 453971d776a0953a344d147bca387a81f65ac73c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a4923e48c890a50d642d937f014e466e998171cf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287970"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896630"
 ---
-# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutorial: Implementación de un modelo de Machine Learning con el diseñador (versión preliminar)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implementación de un modelo de Machine Learning con el diseñador
+
 
 Puede implementar el modelo predictivo desarrollado en la [parte uno del tutorial](tutorial-designer-automobile-price-train-score.md) para que otros usuarios puedan usarlo. En la parte 1, ha entrenado el modelo. Ahora, es momento de generar predicciones basadas en los datos que escriba el usuario. En esta parte del tutorial, va a realizar lo siguiente:
 

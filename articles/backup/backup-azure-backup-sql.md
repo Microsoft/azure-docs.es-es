@@ -3,12 +3,12 @@ title: Realización de una copia de seguridad de SQL Server en Azure como una ca
 description: Introducción a la copia de seguridad de bases de datos de SQL Server mediante el servicio Azure Backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: ef8ffcb2445a7be27f7fd3da2115f76fe961fd74
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: e7877d9104fe1263368083eaabd99eae3bdc657b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876315"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017318"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Realización de una copia de seguridad de SQL Server en Azure como una carga de trabajo DPM
 
@@ -38,7 +38,7 @@ Para realizar una copia de seguridad de una base de datos de SQL Server en Azur
   * DPM detecta una conmutación por error y continúa la protección de la base de datos.
   * DPM es compatible con configuraciones de clúster de varios sitios para una instancia de SQL Server.
 * Al proteger las bases de datos que utilizan la característica Always On, DPM tiene las siguientes limitaciones:
-  * DPM respetará la directiva de copia de seguridad para grupos de disponibilidad establecida en SQL Server según las preferencias de copia de seguridad, como se indica a continuación:
+  * DPM respetará la directiva de copia de seguridad para grupos de disponibilidad establecida en SQL Server según las preferencias de copia de seguridad, como se indica a continuación:
     * Preferir secundaria: las copias de seguridad se deben realizar en una réplica secundaria, excepto cuando la réplica principal sea la única réplica en línea. Si hay varias réplicas secundarias disponibles, se seleccionará el nodo con la mayor prioridad de copia de seguridad para realizar la copia de seguridad. En el caso de que solo esté disponible la réplica principal, la copia de seguridad se deberá realizar en ella.
     * Solo secundaria: la copia de seguridad no se debe realizar en la réplica principal. Si la réplica principal es la única en línea, no se deberá realizar la copia de seguridad.
     * Principal: las copias de seguridad se deben realizar siempre en la réplica principal.

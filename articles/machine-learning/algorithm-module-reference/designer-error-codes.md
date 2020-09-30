@@ -1,7 +1,7 @@
 ---
-title: Solución de problemas en los módulos del diseñador (versión preliminar)
+title: Solución de problemas en los módulos del diseñador
 titleSuffix: Azure Machine Learning
-description: Solucione los códigos de error de módulos en el diseñador de Azure Machine Learning (versión preliminar)
+description: Solucione los códigos de error de módulos en el diseñador de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 023a28c6f1d89d0975ff8ecac2466c51c05fa9da
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: c0a55780687b4c03d6809d1d740bf0b0afcd63fd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876927"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908096"
 ---
-# <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Excepciones y códigos de error para el diseñador (versión preliminar)
+# <a name="exceptions-and-error-codes-for-the-designer"></a>Excepciones y códigos de error para el diseñador
 
-En este artículo se describen los mensajes de error y los códigos de excepción en el diseñador de Azure Machine Learning (versión preliminar) para ayudarle a solucionar problemas de las canalizaciones de aprendizaje automático.
+En este artículo se describen los mensajes de error y los códigos de excepción del diseñador de Azure Machine Learning para ayudarle a solucionar problemas de las canalizaciones de aprendizaje automático.
 
 Puede encontrar el mensaje de error en el diseñador si sigue estos pasos:  
 

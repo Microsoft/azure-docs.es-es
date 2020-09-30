@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: e26d4070bc9fabeb3467e7bdc805faad4e6646c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bae0eb91460bf7ab72abbaa7fa56b2515367d37d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526510"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436194"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Solución de problemas de inicio de máquinas virtuales Linux debido a errores del sistema de archivos
 
@@ -83,7 +83,7 @@ Para resolver este problema, arranque la máquina virtual en modo de emergencia 
 
    > [!Note]
    > Para más información sobre el uso de la consola serie para Linux, consulte:
-   > * [Uso de la consola serie para acceder a GRUB y al modo de usuario único](../linux/serial-console-grub-single-user-mode.md)
+   > * [Uso de la consola serie para acceder a GRUB y al modo de usuario único](serial-console-grub-single-user-mode.md)
    > * [Uso de la consola serie para llamadas SysRq y NMI](./serial-console-nmi-sysrq.md)
 
 2. Seleccione el botón del icono de encendido y, luego, seleccione Reiniciar máquina virtual. (Si la consola serie no está habilitada o no está conectada correctamente, no verá el botón).

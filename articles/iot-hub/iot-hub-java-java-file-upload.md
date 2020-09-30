@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 38816b616179ec16e06e987f82b498085c34ba3f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e6006444e933dd93467dde01affd29c5d0c4a146
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327589"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019553"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>Carga de archivos de un dispositivo a la nube con IoT Hub (Java)
 
@@ -47,6 +47,8 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de Java:
 
 > [!NOTE]
 > IoT Hub admite muchas plataformas de dispositivos y lenguajes (incluido C, .NET y JavaScript), mediante los SDK de dispositivo IoT de Azure. Consulte el [Centro para desarrolladores de IoT de Azure](https://azure.microsoft.com/develop/iot) para obtener instrucciones paso a paso sobre cómo conectar el dispositivo a Azure IoT Hub.
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 

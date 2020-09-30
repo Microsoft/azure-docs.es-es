@@ -1,20 +1,20 @@
 ---
 title: Cifrado de datos en reposo de Traductor
 titleSuffix: Azure Cognitive Services
-description: Cifrado de datos en reposo de Traductor.
+description: Microsoft le permite administrar las suscripciones de Cognitive Services con sus propias claves, llamadas claves administradas por el cliente (CMK). En este artículo se trata el cifrado de datos en reposo de Traductor y cómo habilitar y administrar las CMK.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: bc328efd648eb3dd522f5233e2a5c440911ac58c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: ce7ff6ae134835de23a0d2670e8b4f44783654f8
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310842"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079207"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Cifrado de datos en reposo de Traductor
 
@@ -34,7 +34,7 @@ En el caso de las suscripciones que solo admiten claves de cifrado administradas
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Claves administradas por el cliente con Azure Key Vault
 
-También tiene una opción para administrar su suscripción con sus propias claves. Las claves administradas por el cliente (CMK), también conocidas como Bring Your Own Key (BYOK), ofrecen más flexibilidad para crear, girar, deshabilitar y revocar controles de acceso. También permite auditar las claves de cifrado que se usan para proteger los datos.
+De forma predeterminada, su suscripción usa claves de cifrado administradas por Microsoft. También puede administrar la suscripción con sus propias claves, que se denominan claves administradas por el cliente (CMK). Las CMK ofrecen mayor flexibilidad para crear, rotar, deshabilitar y revocar los controles de acceso. También permite auditar las claves de cifrado que se usan para proteger los datos. Si la opción CMK está configurada en su suscripción, dispondrá de un cifrado doble, lo que constituye un segundo nivel de protección, y al mismo tiempo podrá controlar la clave de cifrado mediante Azure Key Vault.
 
 > [!IMPORTANT]
 > Las claves administradas por el cliente están disponibles en todos los planes de tarifa del servicio Traductor. Para solicitar la capacidad de usar claves administradas por el cliente, rellene y envíe el [formulario de solicitud de claves administradas por el cliente de Traductor](https://aka.ms/cogsvc-cmk). Tardará entre 3 y 5 días laborables en conocer el estado de la solicitud. En función de la demanda, es posible que se coloque en una cola y se apruebe a medida que haya espacio disponible. Una vez que se apruebe el uso de CMK con el servicio Traductor, necesitará crear un nuevo recurso de Traductor. Una vez creado el recurso de Traductor, puede usar Azure Key Vault para configurar la identidad administrada.
@@ -44,8 +44,6 @@ Siga estos pasos para habilitar las claves administradas por el cliente para Tra
 1. Cree su nuevo recurso Traductor regional o Cognitive Services regional. Esto no funcionará con un recurso global.
 2. Habilite la identidad administrada en Azure Portal y agregue la información de las claves administradas por el cliente.
 3. Cree un área de trabajo en Traductor personalizado y asocie esta información de suscripción.
-
-[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
 ### <a name="enable-customer-managed-keys"></a>Habilitar claves administradas del cliente
 

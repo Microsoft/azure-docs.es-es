@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b4e7d8c5c518e4ba4a2a9116898be2bba7df0b06
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 77becbf4777d0668991adcd74b722cd28ac36f03
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022452"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031184"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Lenguaje de consulta de IoT Hub para dispositivos y módulos gemelos, trabajos y enrutamiento de mensajes
 
@@ -234,7 +234,7 @@ El objeto query expone varios valores **Next**, en función de la opción de des
 ### <a name="limitations"></a>Limitaciones
 
 > [!IMPORTANT]
-> Los resultados de las consultas pueden demorarse unos minutos con respecto a los valores más recientes en los dispositivos gemelos. Si se consultan dispositivos gemelos individuales por su identificador, use la [API de REST Get Twin](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin). Esta API siempre devuelve los últimos valores y tiene límites restrictivos más altos. Puede emitir la API de REST directamente o usar la funcionalidad equivalente en uno de los [SDK del servicio Azure IoT Hub](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> Los resultados de las consultas pueden demorarse unos minutos con respecto a los valores más recientes en los dispositivos gemelos. Si se consultan dispositivos gemelos individuales por su identificador, use la [API de REST Get Twin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.devicetwin?view=azure-java-stable). Esta API siempre devuelve los últimos valores y tiene límites restrictivos más altos. Puede emitir la API de REST directamente o usar la funcionalidad equivalente en uno de los [SDK del servicio Azure IoT Hub](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Actualmente, las comparaciones solo se admiten entre tipos primitivos (no objetos), por ejemplo `... WHERE properties.desired.config = properties.reported.config` solo se admite si esas propiedades tienen valores primitivos.
 

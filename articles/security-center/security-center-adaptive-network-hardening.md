@@ -13,15 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: 1f69fe027772dc2d008a567723a5b3c04f3ee51b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e8aea9b8abb5926fdb73df7c140ecfec1114f7a0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378209"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894756"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Protección de red adaptable en Azure Security Center
 Obtenga información sobre cómo configurar la protección de red adaptable en Azure Security Center.
+
+## <a name="availability"></a>Disponibilidad
+|Aspecto|Detalles|
+|----|:----|
+|Estado de la versión:|Disponible con carácter general|
+|Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).|
+|Roles y permisos necesarios:|Permisos de escritura en los NSG de la máquina|
+|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
+|||
 
 ## <a name="what-is-adaptive-network-hardening"></a>¿Qué es la protección de red adaptable?
 La aplicación de [grupos de seguridad de red (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) para filtrar el tráfico hacia y desde los recursos mejora la postura de seguridad de red. Sin embargo, aún puede haber algunos casos en los que el tráfico real que fluye a través del NSG es un subconjunto de las reglas de NSG definidas. En estos casos, puede mejorar la postura de seguridad al proteger aún más las reglas de NSG, según los patrones de tráfico real.
@@ -37,15 +46,6 @@ Por ejemplo, supongamos que la regla de NSG existente es permitir el tráfico de
 ![Vista de la protección de red](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
 
 
-## <a name="availability"></a>Disponibilidad
-
-|Aspecto|Detalles|
-|----|:----|
-|Estado de la versión:|Disponibilidad general|
-|Precios:|Nivel Standard|
-|Roles y permisos necesarios:|Permisos de escritura en los NSG de la máquina|
-|Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
-|||
 
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Visualización de las alertas y reglas de protección de red adaptable
@@ -56,7 +56,7 @@ Por ejemplo, supongamos que la regla de NSG existente es permitir el tráfico de
    * **Recursos sin analizar** : VM en las que no se puede ejecutar el algoritmo de protección de red adaptable debido a uno de los motivos siguientes:
       * **Las VM son VM clásicas**: solo se admiten VM de Azure Resource Manager.
       * **No hay suficientes datos disponibles**: para generar recomendaciones de protección de tráfico precisas, Security Center requiere al menos 30 días de datos de tráfico.
-      * **La VM no está protegida por el estándar de ASC**: solo las máquinas virtuales que están establecidas en el plan de tarifa estándar de Security Center son aptas para esta característica.
+      * **La VM no está protegida por Azure Defender**: Solo las máquinas virtuales protegidas con [Azure Defender para servidores](defender-for-servers-introduction.md) son válidas para esta característica.
 
      ![Recursos con estado incorrecto](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
@@ -106,14 +106,14 @@ Instrucciones importantes a la hora de modificar una regla de protección de red
 
 1. Para modificar algunos de los parámetros de una regla, en la pestaña **Reglas**, haga clic en los puntos suspensivos (…) al final de la fila de la regla y seleccione **Editar**.
 
-   ![Editar regla](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
+   ![Edición de reglas](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
 
 1. En la ventana **Editar regla**, actualice los detalles que desea cambiar y haga clic en **Guardar**.
 
    > [!NOTE]
-   > Después de hacer clic **Guardar**, habrá cambiado la regla correctamente. *Sin embargo, no la ha aplicado al NSG.* Para ello, debe seleccionar la regla de la lista y hacer clic en **Aplicar** (tal como se explica en el paso siguiente).
+   > Después de hacer clic **Guardar**, habrá cambiado la regla correctamente. *Sin embargo, no la ha aplicado al NSG.* Para ello, debe seleccionar la regla de la lista y seleccionar en **Exigir** (tal como se explica en el paso siguiente).
 
-   ![Editar regla](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
+   ![Seleccionar Guardar](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
 
 3. Para aplicar la regla actualizada, en la lista, seleccione la regla actualizada y haga clic en **Aplicar**.
 
@@ -150,4 +150,4 @@ Cuando sea necesario, puede eliminar una regla recomendada de la sesión actual.
 
 1. En la pestaña **Reglas**, haga clic en los puntos suspensivos (…) al final de la fila de la regla y seleccione **Eliminar**.  
 
-    ![Reglas de protección](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
+    ![Eliminar una regla](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)

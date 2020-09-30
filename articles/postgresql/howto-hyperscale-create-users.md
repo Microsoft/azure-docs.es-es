@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
-ms.openlocfilehash: 8a1b38b9f673669adb0b5fcf67d9d560c24d5c2a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 84f5a8f638e4a9525b330277ff1eaa26ba035e1a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825963"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907417"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Crear usuarios en Azure Database for PostgreSQL - Hiperescala (Citus)
 
@@ -48,11 +48,11 @@ Como se ha mencionado, la cuenta de administrador `citus` carece de permiso para
 
 1. Vaya a la página de **Roles** del grupo Servidor de hiperescala y haga clic en **+ Agregar**:
 
-   ![Página de roles](media/howto-hyperscale-create-users/1-role-page.png)
+   :::image type="content" source="media/howto-hyperscale-create-users/1-role-page.png" alt-text="Página de roles":::
 
 2. Introduzca el nombre y la contraseña del rol. Haga clic en **Save**(Guardar).
 
-   ![Agregar rol](media/howto-hyperscale-create-users/2-add-user-fields.png)
+   :::image type="content" source="media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="Agregar rol":::
 
 El usuario se creará en el nodo coordinador del grupo de servidores y se propagará a todos los nodos de trabajo. Los roles creados a través de Azure Portal tienen el atributo `LOGIN`, lo que significa que son verdaderos usuarios que pueden iniciar sesión en la base de datos.
 
@@ -77,7 +77,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 
 Para actualizar un usuario, visite la página **Roles** del grupo de servidores de Hiperescala y haga clic en los puntos suspensivos **...**  junto al usuario. Los puntos suspensivos abrirán un menú para eliminar el usuario o restablecer su contraseña.
 
-   ![Editar un rol](media/howto-hyperscale-create-users/edit-role.png)
+   :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="Editar un rol":::
 
 El rol `citus` tiene privilegios y no se puede eliminar.
 

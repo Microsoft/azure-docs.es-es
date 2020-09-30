@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 675f25107a2e4f0ddedf468dc06afea36ffc6151
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2f811c504f8871b06805d5578ed2d70c651be25d
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327759"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029841"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Descripción del registro de identidades de un centro de IoT
 
@@ -84,7 +84,7 @@ Use operaciones asincrónicas en el [punto de conexión del proveedor de recurso
 
 Para más información sobre las API de importación y exportación, consulte [API REST del proveedor de recursos de IoT Hub](/rest/api/iothub/iothubresource). Para más información sobre la ejecución de trabajos de importación y exportación, consulte [Administración de identidades de dispositivos de IoT Hub de forma masiva](iot-hub-bulk-identity-mgmt.md).
 
-Las identidades de dispositivo también se pueden exportar e importar desde una instancia de IoT Hub a través de la API de servicio a través de la [API REST](/rest/api/iothub/service/jobclient/createimportexportjob) de o uno de los [SDK de servicio](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks) de IoT Hub.
+Las identidades de dispositivo también se pueden exportar e importar desde una instancia de IoT Hub a través de la API de servicio a través de la [API REST](/rest/api/iothub/service/jobs/createimportexportjob) de o uno de los [SDK de servicio](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks) de IoT Hub.
 
 ## <a name="device-provisioning"></a>Aprovisionamiento de dispositivos
 

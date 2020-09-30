@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5546fc63b01d1da6b4033e071ac071574ab9699a
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: f233aedf8b51967264994f5a4081f8f4cd99df01
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987223"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400014"
 ---
 # <a name="scenario-route-traffic-through-nvas---custom-preview"></a>Escenario: Enrutamiento del tráfico a través de NVA: personalizado (versión preliminar)
 
@@ -40,7 +40,7 @@ En la siguiente matriz de conectividad se resumen los flujos admitidos en este e
 | **VNet perimetral** | &#8594;|       X |            X |      X    |      X       |
 | **Ramas** | &#8594;|  estática |            X |      X    |      X       |
 
-En cada una de las celdas de la matriz de conectividad se describe si una conexión de Virtual WAN (el lado "De" del flujo, los encabezados de fila) conoce un prefijo de destino (el lado "A" del flujo, los encabezados de columna en cursiva) de un flujo de tráfico concreto. Vamos a profundizar en las diferentes filas:
+En cada una de las celdas de la matriz de conectividad se describe si una conexión de Virtual WAN (el lado "De" del flujo, los encabezados de fila) conoce un prefijo de destino (el lado "A" del flujo, los encabezados de columna en cursiva) de un flujo de tráfico concreto. Una "X" significa que la conectividad se proporciona de forma nativa por Virtual WAN y "estática" significa que la conectividad se proporciona mediante Virtual WAN mediante rutas estáticas. Vamos a profundizar en las diferentes filas:
 
 * Radios de NVA:
   * los radios llegarán a otros radios directamente a través de los concentradores de Virtual WAN.

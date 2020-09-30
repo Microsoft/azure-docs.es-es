@@ -9,23 +9,23 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a10732790d52ac21ada53970ce2dd028f8d08f14
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6d647b81147f56d6eb81fd04cb562e34ac1497dd
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282847"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090710"
 ---
 # <a name="get-shape-data"></a>Obtención de datos de forma
 
-En este artículo se muestra cómo obtener datos de formas que se dibujan en el mapa. Usamos la función **drawingManager.getSource()** dentro del [administrador de dibujos](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#getsource--). Hay varios escenarios en los que quiere extraer datos GeoJSON de una forma dibujada y utilizarlos en otro lugar.  
+En este artículo se muestra cómo obtener datos de formas que se dibujan en el mapa. Usamos la función **drawingManager.getSource()** dentro del [administrador de dibujos](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#getsource--). Hay varios escenarios en los que quiere extraer datos GeoJSON de una forma dibujada y utilizarlos en otro lugar.  
 
 
 ## <a name="get-data-from-drawn-shape"></a>Obtenga datos de la forma dibujada
 
 La función siguiente obtiene los datos de origen de la forma dibujada y los muestra en la pantalla. 
 
-```Javascript
+```javascript
 function getDrawnShapes() {
     var source = drawingManager.getSource();
 
@@ -37,7 +37,7 @@ A continuación se muestra el ejemplo de código de ejecución completo, donde p
 
 <br/>
 
-<iframe height="686" title="Obtención de datos de forma" src="//codepen.io/azuremaps/embed/xxKgBVz/?height=265&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/xxKgBVz/'>Obtención de datos de forma</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+<iframe height="686" title="Obtención de datos de forma" src="//codepen.io/azuremaps/embed/xxKgBVz/?height=265&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true" style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/xxKgBVz/'>Obtención de datos de forma</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
@@ -54,10 +54,10 @@ Obtenga información sobre cómo usar características adicionales del módulo d
 Más información sobre las clases y los métodos utilizados en este artículo:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Administrador de dibujo](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [Administrador de dibujo](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [Barra de herramientas de dibujo](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
+> [Barra de herramientas de dibujo](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

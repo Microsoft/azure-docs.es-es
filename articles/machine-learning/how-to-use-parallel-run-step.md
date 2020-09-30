@@ -11,15 +11,15 @@ ms.author: tracych
 author: tracychms
 ms.date: 08/14/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: 04d1e531f3041ef0a6231607cc795c67168ebf2e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8e8d0a13bc01e95311345154648ecb00b624c4bf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651206"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905608"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Ejecución de la inferencia por lotes en grandes cantidades de datos mediante Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 En este artículo se muestra cómo ejecutar el modelo de Azure Machine Learning en paralelo y evaluar rápidamente grandes cantidades de datos. 
 
@@ -67,7 +67,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-compute-target"></a>Creación de un destino de proceso
 
-En Azure Machine Learning, el *proceso* (o *destino de proceso*) se refiere a las máquinas o clústeres que realizarán los pasos del cálculo en su canal de aprendizaje automático. Ejecute el código siguiente para crear un destino [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) basado en CPU.
+En Azure Machine Learning, el *proceso* (o *destino de proceso*) se refiere a las máquinas o clústeres que realizarán los pasos del cálculo en su canal de aprendizaje automático. Ejecute el código siguiente para crear un destino [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) basado en CPU.
 
 ```python
 from azureml.core.compute import AmlCompute, ComputeTarget
@@ -134,9 +134,9 @@ def_data_store = ws.get_default_datastore()
 
 ### <a name="create-the-data-inputs"></a>Creación de las entradas de datos
 
-Las entradas de la inferencia por lotes son los datos que desea dividir en particiones para el procesamiento en paralelo. Una canalización de inferencia por lotes acepta entradas de datos con [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py).
+Las entradas de la inferencia por lotes son los datos que desea dividir en particiones para el procesamiento en paralelo. Una canalización de inferencia por lotes acepta entradas de datos con [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true).
 
-`Dataset` es una clase para explorar, transformar y administrar datos en Azure Machine Learning. Hay dos tipos: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) y [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py). En este ejemplo, se usa `FileDataset` como entradas. `FileDataset` permite descargar o montar los archivos en el proceso. Al crear un conjunto de datos, se crea una referencia a la ubicación del origen de datos. Si aplicó alguna transformación de subconjunto al conjunto de datos, también se almacenará en el conjunto de datos. Los datos se mantienen en la ubicación existente, por lo que no se genera ningún costo de almacenamiento adicional.
+`Dataset` es una clase para explorar, transformar y administrar datos en Azure Machine Learning. Hay dos tipos: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) y [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true). En este ejemplo, se usa `FileDataset` como entradas. `FileDataset` permite descargar o montar los archivos en el proceso. Al crear un conjunto de datos, se crea una referencia a la ubicación del origen de datos. Si aplicó alguna transformación de subconjunto al conjunto de datos, también se almacenará en el conjunto de datos. Los datos se mantienen en la ubicación existente, por lo que no se genera ningún costo de almacenamiento adicional.
 
 Para más información sobre los conjuntos de datos de Azure Machine Learning, consulte [Creación de conjuntos de datos y acceso a ellos (versión preliminar)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 
@@ -147,7 +147,7 @@ path_on_datastore = mnist_blob.path('mnist/')
 input_mnist_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
 ```
 
-Para usar entradas de datos dinámicas al ejecutar la canalización de inferencia por lotes, puede definir las entradas `Dataset` como [`PipelineParameter`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py). Puede especificar el conjunto de datos de entradas cada vez que vuelva a enviar una ejecución de canalización de inferencia por lotes.
+Para usar entradas de datos dinámicas al ejecutar la canalización de inferencia por lotes, puede definir las entradas `Dataset` como [`PipelineParameter`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py&preserve-view=true). Puede especificar el conjunto de datos de entradas cada vez que vuelva a enviar una ejecución de canalización de inferencia por lotes.
 
 ```python
 from azureml.data.dataset_consumption_config import DatasetConsumptionConfig
@@ -159,7 +159,7 @@ input_mnist_ds_consumption = DatasetConsumptionConfig("minist_param_config", pip
 
 ### <a name="create-the-output"></a>Creación de la salida
 
-Los objetos [`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) se usan para transferir los datos intermedios entre los pasos de la canalización. En este ejemplo, se usa para la salida de la inferencia.
+Los objetos [`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) se usan para transferir los datos intermedios entre los pasos de la canalización. En este ejemplo, se usa para la salida de la inferencia.
 
 ```python
 from azureml.pipeline.core import Pipeline, PipelineData
@@ -353,7 +353,7 @@ parallelrun_step = ParallelRunStep(
 ```
 ### <a name="create-and-run-the-pipeline"></a>Creación y ejecución de la canalización
 
-Ahora ejecute la canalización. En primer lugar, cree un objeto [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) con la referencia al área de trabajo y el paso de canalización que creó. El parámetro `steps` es una matriz de pasos. En este caso, la inferencia por lotes consta de un solo paso. Para compilar canalizaciones con varios pasos, colóquelos en orden en esta matriz.
+Ahora ejecute la canalización. En primer lugar, cree un objeto [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py&preserve-view=true) con la referencia al área de trabajo y el paso de canalización que creó. El parámetro `steps` es una matriz de pasos. En este caso, la inferencia por lotes consta de un solo paso. Para compilar canalizaciones con varios pasos, colóquelos en orden en esta matriz.
 
 Luego, use la función `Experiment.submit()` para enviar la canalización para su ejecución.
 
@@ -371,7 +371,7 @@ pipeline_run = experiment.submit(pipeline)
 Un trabajo de inferencias por lotes puede tardar mucho tiempo. En este ejemplo se supervisa el progreso mediante un widget de Jupyter. También puede administrar el progreso del trabajo mediante:
 
 * Azure Machine Learning Studio. 
-* La salida de la consola del objeto [`PipelineRun`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py).
+* La salida de la consola del objeto [`PipelineRun`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py&preserve-view=true).
 
 ```python
 from azureml.widgets import RunDetails

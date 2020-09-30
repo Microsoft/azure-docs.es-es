@@ -1,7 +1,7 @@
 ---
 title: Acceso seguro a datos en la nube
 titleSuffix: Azure Machine Learning
-description: Obtenga información acerca de cómo conectarse de forma segura a los datos en Azure Machine Learning y cómo usar conjuntos de datos y almacenes de datos para tareas de Machine Learning. Los almacenes de datos pueden almacenar datos de blobs de Azure, Azure Data Lake Gen 1 y 2, bases de datos SQL, Databricks, etc.
+description: Obtenga información acerca de cómo conectarse de forma segura a los datos en Azure Machine Learning y cómo usar conjuntos de datos y almacenes de datos para tareas de Machine Learning. Los almacenes de datos pueden almacenar datos de blobs de Azure, Azure Data Lake Gen 1 y 2, bases de datos SQL y Azure Databricks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 04/24/2020
+ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: dadd3a8316efc5bf090a84a738c8f6da223d4572
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 85aa78223b8db76cfb430341b19878bc6bbe87d7
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651801"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651172"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acceso seguro a datos en Azure Machine Learning
 
 Azure Machine Learning facilita la conexión con los datos en la nube.  Proporciona una capa de abstracción en el servicio de almacenamiento subyacente, por lo que puede acceder de forma segura a los datos y trabajar con ellos sin tener que escribir código específico para su tipo de almacenamiento. Azure Machine Learning también ofrece las siguientes funcionalidades de datos:
 
+*    Interoperabilidad con DataFrames de Pandas y Spark
 *    Control de versiones y seguimiento del linaje de datos
 *    Etiquetado de datos 
 *    Supervisión del desfase de datos
-*    Interoperabilidad con DataFrames de Pandas y Spark
-
+    
 ## <a name="data-workflow"></a>Flujo de trabajo de datos
 
 Cuando esté listo para usar los datos de la solución de almacenamiento basada en la nube, se recomienda el siguiente flujo de trabajo de entrega de datos. En este flujo de trabajo se supone que tiene una [cuenta de Azure Storage ](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) y datos en un servicio de almacenamiento basado en la nube en Azure. 
@@ -67,17 +67,23 @@ A continuación se indican los servicios de almacenamiento basados en la nube de
 
 ## <a name="datasets"></a>Conjuntos de datos
 
-Los conjuntos de datos de Azure Machine Learning son referencias que apuntan a los datos del servicio de almacenamiento. No son copias de los datos, por lo que no se incurre en ningún costo de almacenamiento adicional ni se arriesga la integridad de los orígenes de datos originales.
+Los conjuntos de datos de Azure Machine Learning son referencias que apuntan a los datos del servicio de almacenamiento. No son copias de sus datos. Mediante la creación de un conjunto de datos de Azure Machine Learning, creará una referencia a la ubicación del origen de datos, junto con una copia de sus metadatos. 
 
- Para interactuar con los datos del almacenamiento, [cree un conjunto de datos](how-to-create-register-datasets.md) para empaquetar los datos en un objeto consumible para las tareas de aprendizaje automático. Registre el conjunto de datos en el área de trabajo para compartirlo y reutilizarlo en distintos experimentos sin las complejidades de la ingesta de datos.
+Dado que los conjuntos de datos se evalúan de forma diferida y los datos permanecen en su ubicación existente, usted:
 
-Los conjuntos de datos se pueden crear a partir de archivos locales, direcciones URL públicas, instancias de [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) o servicios de almacenamiento de Azure mediante almacenes de datos. Para crear un conjunto de datos a partir de un dataframe de Pandas en memoria, escriba los datos en un archivo local —como un parquet— y cree el conjunto de datos a partir de ese archivo.  
+* No generará ningún costo de almacenamiento adicional.
+* No se arriesgará de forma no intencionada cambiando sus orígenes de datos originales.
+* Mejorará las velocidades de rendimiento del flujo de trabajo de ML.
 
-Se admiten dos tipos de conjuntos de datos: 
+Para interactuar con los datos del almacenamiento, [cree un conjunto de datos](how-to-create-register-datasets.md) para empaquetar los datos en un objeto consumible para las tareas de aprendizaje automático. Registre el conjunto de datos en el área de trabajo para compartirlo y reutilizarlo en distintos experimentos sin las complejidades de la ingesta de datos.
 
-+ [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) hace referencia a uno o varios archivos de los almacenes de datos o direcciones URL públicas. Si los datos ya están limpios y listos para su uso en experimentos de entrenamiento, puede [descargar o montar archivos](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) a los que hacen referencia los objetos FileDataset en el destino de proceso.
+Los conjuntos de datos se pueden crear a partir de archivos locales, direcciones URL públicas, instancias de [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) o servicios de almacenamiento de Azure mediante almacenes de datos. 
 
-+ [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representa los datos en formato tabular mediante el análisis del archivo o la lista de archivos proporcionados. Puede cargar un objeto TabularDataset en un dataframe de Pandas o Spark para manipularlo o limpiarlo mejor. Para obtener una lista completa de formatos de datos a partir de los cuales se pueden crear objetos TabularDataset, consulte la [clase TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
+Hay 2 tipos de conjuntos de datos: 
+
++ [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py&preserve-view=true) hace referencia a uno o varios archivos de los almacenes de datos o direcciones URL públicas. Si los datos ya están limpios y listos para su uso en experimentos de entrenamiento, puede [descargar o montar archivos](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) a los que hacen referencia los objetos FileDataset en el destino de proceso.
+
++ [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) representa los datos en formato tabular mediante el análisis del archivo o la lista de archivos proporcionados. Puede cargar un objeto TabularDataset en un dataframe de Pandas o Spark para manipularlo o limpiarlo mejor. Para obtener una lista completa de formatos de datos a partir de los cuales se pueden crear objetos TabularDataset, consulte la [clase TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
 
 En la siguiente documentación se pueden encontrar funcionalidades adicionales de los conjuntos de datos:
 

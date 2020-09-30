@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 28a6ea4ed40df909b4d74ff52703babb8e8cd949
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6ddfa1f6db06c2ca06b94efec7f890c2a714b2a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791759"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883864"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Administración de incidentes de seguridad en Azure Security Center
 
@@ -62,6 +62,5 @@ En Security Center, un incidente de seguridad es la suma de todas las alertas de
 
 En esta página se han explicado las capacidades de incidentes de seguridad de Security Center. Para obtener información relacionada, consulte las páginas siguientes:
 
-* [Protección contra amenazas en Security Center](threat-protection.md)
-* [Alertas de seguridad en Security Center](security-center-alerts-overview.md)
-* [Administración de las alertas de seguridad y respuesta a ellas](security-center-managing-and-responding-alerts.md)
+- [Alertas de seguridad en Security Center](security-center-alerts-overview.md)
+- [Administración de las alertas de seguridad y respuesta a ellas](security-center-managing-and-responding-alerts.md)

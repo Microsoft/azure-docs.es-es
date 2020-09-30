@@ -1,6 +1,6 @@
 ---
 title: Instalación de TmaxSoft OpenFrame en Azure Virtual Machines
-description: Rehospede las cargas de trabajo del sistema central IBM z/OS con el entorno TmaxSoft OpenFrame en Azure Virtual Machines (VM).
+description: Obtenga información sobre cómo configurar un entorno OpenFrame en Azure adecuado para cargas de trabajo de desarrollo, demostraciones, pruebas o producción.
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 41b31d5c4a01183d4620dcd6ec6f4729f078d382
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bd5b20d8e713e07b52eb1d6cbc57f01b9e5c1a95
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082399"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987487"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Instalación TmaxSoft OpenFrame en Azure
 

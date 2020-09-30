@@ -1,16 +1,16 @@
 ---
 title: Configuración de materiales de representación con representación física en Maya
 description: En este artículo se explica cómo configurar materiales con representación física en Maya y exportarlos en formato FBX.
-author: muxanickms
-ms.author: misams
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: 72742ff4f6aa19fda092b44d8d2237e7d49dd816
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 43c11575be084354e4c9287b44b5847d4d086aff
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85373255"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084403"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-maya"></a>Tutorial: Configuración de materiales de representación con representación física en Maya
 

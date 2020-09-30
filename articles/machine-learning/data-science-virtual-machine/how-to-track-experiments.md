@@ -1,7 +1,7 @@
 ---
 title: Seguimiento de experimentos e implementación de modelos
 titleSuffix: Azure Data Science Virtual Machine
-description: Obtenga información sobre cómo realizar el seguimiento y el registro de experimentos desde DSVM con Azure Machine Learning Service o MLFlow.
+description: Obtenga información sobre cómo realizar el seguimiento y el registro de experimentos desde Data Science Virtual Machine con Azure Machine Learning o MLFlow.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -9,14 +9,14 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 687cd6570a9518be6f398a40fcd2d0e10a9634f2
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 205aed1811c3d9d21a10be7bc4f01c73eb7295b7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817257"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254807"
 ---
-# <a name="track-experiments-and-deploy-models-in-azureml"></a>Seguimiento de experimentos e implementación de modelos en AzureML
+# <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Seguimiento de experimentos e implementación de modelos en Azure Machine Learning
 
 Realice el seguimiento de sus experimentos y supervise las métricas de ejecución para mejorar el proceso de creación del modelo. En este artículo, aprenderá a agregar código de registro a un script de entrenamiento con [MLflow](https://mlflow.org/) API y a realizar un seguimiento del experimento en Azure Machine Learning.
 
@@ -131,7 +131,7 @@ En esta sección, se describe cómo implementar en Azure Machine Learning los mo
 
 ### <a name="step-1-create-inference-compute"></a>Paso 1: Crear procesos de inferencia
 
-En el menú de la izquierda de [AzureML Studio](https://ml.azure.com), haga clic en __Proceso__ y, a continuación, en la pestaña __Clústeres de inferencia__. A continuación, haga clic en __+ Nuevo__ como se indica a continuación:
+En el menú de la izquierda de [AzureML Studio](https://ml.azure.com), haga clic en __Proceso__ y, a continuación, en la pestaña __Clústeres de inferencia__. A continuación, haga clic en __+ Nuevo__ como se describe a continuación:
 
 ![Crear procesos de inferencia](./media/how-to-track-experiments/mlflow-experiments-6.png)
 
@@ -200,7 +200,7 @@ print(output)
 
 ### <a name="step-4-clean-up"></a>Paso 4: Limpieza
 
-Debe eliminar el proceso de inferencia que creó en el paso 1 para no incurrir en gastos de proceso continuos. En el menú de la izquierda, en Azure Machine Learning Studio, haga clic en Proceso > Clústeres de inferencia > Seleccione el proceso > Eliminar.
+Elimine el proceso de inferencia que creó en el paso 1 para no incurrir en gastos de proceso continuos. En el menú de la izquierda, en Azure Machine Learning Studio, haga clic en Proceso > Clústeres de inferencia > Seleccione el proceso > Eliminar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

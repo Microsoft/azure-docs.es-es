@@ -6,15 +6,15 @@ author: linda33wj
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 08/31/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 334d5b5113dba17c5abc2b4f2520bde0d16e4c06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a729d470cccd4121523c767ada9077a51361c061
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007457"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181990"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Información general sobre el conector de Azure Data Factory
 
@@ -25,6 +25,17 @@ Azure Data Factory admite los siguientes almacenes de datos y formatos a través
 ## <a name="supported-data-stores"></a>Almacenes de datos compatibles
 
 [!INCLUDE [Connector overview](../../includes/data-factory-v2-connector-overview.md)]
+
+## <a name="integrate-with-more-data-stores"></a>Integración con más almacenes de datos
+
+Azure Data Factory puede llegar a un conjunto más amplio de almacenes de datos que la lista mencionada anteriormente. Si necesita trasladar datos a o desde un almacén de datos que no está en la lista de conectores integrados de Azure Data Factory, estas son algunas opciones extensibles:
+- En el caso de bases de datos y almacenamiento de datos, normalmente puede encontrar un controlador ODBC correspondiente, con el que puede usar un [conector ODBC genérico](connector-odbc.md).
+- Para las aplicaciones SaaS:
+    - Si proporciona API de RESTful, puede usar un [conector de REST genérico](connector-rest.md).
+    - Si tiene fuentes de OData, puede usar un [conector OData genérico](connector-odata.md).
+    - Si proporciona API de SOAP, puede usar un [conector HTTP genérico](connector-http.md).
+    - Si tiene un controlador ODBC, puede usar un [conector ODBC genérico](connector-odbc.md).
+- Para otros, compruebe si puede cargar o exponer datos como con cualquier almacén de datos compatible con ADF; por ejemplo, blobs de Azure, archivos, FTP, SFTP, etc. A continuación, deje que el ADF se recoja desde allí. Puede invocar un mecanismo de carga de datos personalizado a través de [funciones de Azure Functions](control-flow-azure-function-activity.md), [actividades personalizadas](transform-data-using-dotnet-custom-activity.md), [Databricks](transform-data-databricks-notebook.md)/[HDInsight](transform-data-using-hadoop-hive.md), [actividades web](control-flow-web-activity.md), etc.
 
 ## <a name="supported-file-formats"></a>Formatos de archivos admitidos
 

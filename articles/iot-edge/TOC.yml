@@ -101,6 +101,8 @@
           href: iot-edge-security-manager.md
         - name: Certificados de IoT Edge
           href: iot-edge-certs.md
+        - name: Computación confidencial
+          href: deploy-trusted-applications.md
     - name: Compatibilidad con plataformas
       href: support.md
     - name: Lista de comprobación de implementación de producción
@@ -159,7 +161,7 @@
       items:
         - name: Implementación en dispositivos individuales
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: how-to-deploy-modules-portal.md
             - name: Azure CLI
               href: how-to-deploy-modules-cli.md
@@ -167,7 +169,7 @@
               href: how-to-deploy-modules-vscode.md
         - name: Implementación a escala
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: how-to-deploy-at-scale.md
             - name: Azure CLI
               href: how-to-deploy-cli-at-scale.md

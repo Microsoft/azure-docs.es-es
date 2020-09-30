@@ -4,12 +4,12 @@ description: Solucionar problemas de instalación, registro de Azure Backup Serv
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: cc62418ed1dec3cbcc944d9b66c691062ca552f8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 70431ee42566d1cbba5ed239b9da55c2ff7a2afe
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893024"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999230"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Solución de problemas de Azure Backup Server
 
@@ -83,7 +83,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Operación | Detalles del error | Solución alternativa |
 | --- | --- | --- |
-| Restauración | **Código de error**: CBPServerRegisteredVaultDontMatchWithCurrent/Error en las credenciales del almacén: 100110 <br/> <br/>**Mensaje de error**: Los servidores DPM originales y externos deben estar registrados en el mismo almacén | **Causa**: Este problema se produce al intentar restaurar archivos en un servidor alternativo desde el servidor original mediante la opción de recuperación del DPM externo, y si el servidor que se va a recuperar y el servidor original desde donde se realiza la copia de seguridad de los datos no están asociados al mismo almacén de Recovery Services.<br/> <br/>**Solución alternativa**: para resolver este problema, asegúrese de que tanto el servidor original como el servidor alternativo están registrados en el mismo almacén.|
+| Restauración | **Código de error**: CBPServerRegisteredVaultDontMatchWithCurrent/Error en las credenciales del almacén: 100110 <br/> <br/>**Mensaje de error**: Los servidores DPM originales y externos deben estar registrados en el mismo almacén | **Causa**: Este problema se produce al intentar restaurar archivos en un servidor alternativo desde el servidor original mediante la opción de recuperación del DPM externo, y si el servidor que se va a recuperar y el servidor original desde donde se realiza la copia de seguridad de los datos no están asociados al mismo almacén de Recovery Services.<br/> <br/>**Solución alternativa**: Para resolver este problema, asegúrese de que tanto el servidor original como el servidor alternativo están registrados en el mismo almacén.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>Hubo un error en los trabajos de creación de puntos de recuperación en línea para la máquina virtual de VMware.
 

@@ -8,14 +8,14 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
-ms.date: 09/23/2019
+ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 83f83922b3bed19e98566002cbf9ad084ba66cb9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fe2a632901b32993d46e723ab73fce045bfa9f84
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496220"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889133"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Inicio rápido: Introducción a Azure Sentinel
 
@@ -34,7 +34,7 @@ Para visualizar y obtener análisis de lo que sucede en su entorno, primero eche
 
 - La barra de herramientas de la parte superior le indica cuántos eventos obtuvo durante el período de tiempo seleccionado y lo compara con las 24 horas anteriores. A partir de estos eventos, la barra de herramientas le indica las alertas que se desencadenaron (el número pequeño representa los cambios en las últimas 24 horas) y, luego, le indica cuántos de esos eventos están abiertos, en curso y cerrados. Compruebe que no haya un ascenso o descenso destacables en el número de eventos. Si se produce un descenso, es posible que una de las conexiones haya dejado de informar a Azure Sentinel. Si hay un ascenso, puede que haya ocurrido algo sospechoso. Vea si tiene nuevas alertas.
 
-   ![Embudo de Azure Sentinel](./media/qs-get-visibility/funnel.png)
+   ![Contadores de Azure Sentinel](./media/qs-get-visibility/funnel.png)
 
 El cuerpo principal de la página de información general ofrece conclusiones de un vistazo sobre el estado de seguridad del área de trabajo:
 
@@ -42,14 +42,13 @@ El cuerpo principal de la página de información general ofrece conclusiones de
 
 - **Posibles eventos malintencionados**: cuando se detecta tráfico desde orígenes que se sabe que son malintencionados, Azure Sentinel le avisa en el mapa. Si la alerta es naranja, se trata del tráfico entrante: alguien está intentando acceder a su organización desde una dirección IP malintencionada conocida. Si observa actividad saliente (rojo), significa que los datos de la red se están transmitiendo fuera de la organización a una dirección IP malintencionada conocida.
 
-   ![Mapa de Azure Sentinel](./media/qs-get-visibility/map.png)
+   ![Mapa de tráfico malintencionado](./media/qs-get-visibility/map.png)
 
-
-- **Incidentes recientes**: para ver los incidentes recientes, su gravedad y el número de alertas asociadas con el incidente. Si observa como un pico repentino en un tipo de alerta específico, podría significar que hay un ataque activado actualmente en ejecución. Por ejemplo, si tiene un pico repentino de 20 eventos Pass-the-hash procedentes de Azure ATP, es posible que alguien esté intentando atacarle.
+- **Incidentes recientes**: para ver los incidentes recientes, su gravedad y el número de alertas asociadas con el incidente. Si observa como un pico repentino en un tipo de alerta específico, podría significar que hay un ataque activado actualmente en ejecución. Por ejemplo, si tiene un pico repentino de 20 eventos Pass-the-hash procedentes de Microsoft Defender for Identity (anteriormente, Azure ATP), es posible que alguien esté intentando atacarle.
 
 - **Anomalías del origen de datos**: los analistas de datos de Microsoft crean modelos que examinan constantemente los datos de los orígenes de datos en busca de anomalías. Si no hay ninguna anomalía, no se muestra nada. Si se detectan anomalías, debe analizarlas a fondo para ver lo que ha sucedido. Por ejemplo, haga clic en el pico de actividad de Azure. Puede hacer clic en **Chart** (Gráfico) para ver el pico que ha ocurrido y, luego, filtrar por las actividades que se han producido durante ese período de tiempo para ver la causa.
 
-   ![Mapa de Azure Sentinel](./media/qs-get-visibility/anomolies.png)
+   ![Orígenes de datos anómalos](./media/qs-get-visibility/anomolies.png)
 
 ## <a name="use-built-in-workbooks"></a>Uso de libros integrados<a name="dashboards"></a>
 
@@ -67,7 +66,7 @@ Los libros integrados proporcionan datos integrados procedentes de orígenes de 
       ![Panel Palo Alto](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Puede personalizar los libros mediante la edición de la consulta principal ![button](./media/qs-get-visibility/edit-query-button.png). Puede hacer clic en el botón ![button](./media/qs-get-visibility/go-to-la-button.png) para ir a [Log Analytics y editar ahí la consulta](../azure-monitor/log-query/get-started-portal.md), y puede seleccionar el botón de puntos suspensivos (...) y, después, **Personalizar los datos del icono** , que le permite editar el filtro de tiempo principal o quitar iconos concretos del libro.
+Puede personalizar los libros mediante la edición de la consulta principal ![botón Editar consulta](./media/qs-get-visibility/edit-query-button.png). Puede hacer clic en el botón ![botón Log Analytics](./media/qs-get-visibility/go-to-la-button.png) para ir a [Log Analytics y editar ahí la consulta](../azure-monitor/log-query/get-started-portal.md), y puede seleccionar el botón de puntos suspensivos (...) y, después, **Personalizar los datos del icono**, que le permite editar el filtro de tiempo principal o quitar iconos concretos del libro.
 
 Para más información sobre cómo trabajar con consultas, consulte [Tutorial: Visualización de datos en Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 

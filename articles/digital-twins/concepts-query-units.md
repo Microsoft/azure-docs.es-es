@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 5334a1196ac8044c56e615cf8894b44646b48fb4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: c68cb8cc0ecf759b9af0e313e09663cdbc327917
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88615098"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89067712"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Unidades de consulta en Azure Digital Twins 
 
@@ -20,7 +20,9 @@ Una **unidad de consulta** de Azure Digital Twins es una unidad de cálculo a pe
 
 Abstrae los recursos del sistema, como CPU, IOPS y memoria, que son necesarios para realizar operaciones de consulta admitidas por Azure Digital Twins, lo que le permite realizar un seguimiento del uso en unidades de consulta en su lugar.
 
-La complejidad de la consulta afecta a la cantidad de unidades de consulta que se consumen para ejecutar esa consulta. 
+La cantidad de unidades de consulta consumidas para ejecutar una consulta se ve afectada por...
+* la complejidad de la consulta 
+* el tamaño del conjunto de resultados (por lo que una consulta que devuelve diez resultados consumirá más unidades de consulta que una consulta de complejidad similar que devuelve solo un resultado)
 
 En este artículo se explica cómo comprender las unidades de consulta y realizar el seguimiento del consumo de la unidad de consulta.
 

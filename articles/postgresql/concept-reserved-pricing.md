@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 9c5d6359ce0e79fce2e80911ff78d19cc88162b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81180cc0d9cc7754e5a3e935c09441995f16c56a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208712"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907564"
 ---
 # <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso servidor único de Azure Database for PostgreSQL con capacidad reservada
 
@@ -46,7 +46,7 @@ Por ejemplo, imagine que ejecuta una base de datos PostgreSQL de propósito gene
 4. Rellene todos los campos obligatorios. Las bases de datos existentes o nuevas que coincidan con los atributos seleccionados serán aptas para el descuento en la capacidad reservada. El número real de servidores de Azure Database for PostgreSQL que obtienen el descuento depende del ámbito y la cantidad seleccionados.
 
 
-![Información general sobre los precios reservados](media/concepts-reserved-pricing/postgresql-reserved-price.png)
+:::image type="content" source="media/concepts-reserved-pricing/postgresql-reserved-price.png" alt-text="Información general sobre los precios reservados":::
 
 
 En la siguiente tabla se describen los campos obligatorios.

@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: a4c2051a3f52ae363d8dc704aef790d8ce77efbd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bc731f6f6a5a60bce0851bf8fe5874f7149f3899
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116206"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901455"
 ---
 # <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>Optimización de la recopilación de estadísticas de consulta en Azure Database for PostgreSQL con un único servidor
 En este artículo se describe cómo optimizar la recopilación de estadísticas de consulta en un servidor de Azure Database for PostgreSQL.
@@ -27,7 +27,7 @@ Para establecer `pg_stat_statements.track = NONE`:
 
 - En Azure Portal, vaya a la [página de administración de PostgreSQL y seleccione la hoja de parámetros del servidor](howto-configure-server-parameters-using-portal.md).
 
-  ![Hoja de parámetros del servidor de PostgreSQL](./media/howto-optimize-query-stats-collection/pg_stats_statements_portal.png)
+  :::image type="content" source="./media/howto-optimize-query-stats-collection/pg_stats_statements_portal.png" alt-text="Hoja de parámetros del servidor de PostgreSQL":::
 
 - Con la [CLI de Azure](howto-configure-server-parameters-using-cli.md), establezca la configuración de az postgres server en `--name pg_stat_statements.track --resource-group myresourcegroup --server mydemoserver --value NONE`.
 

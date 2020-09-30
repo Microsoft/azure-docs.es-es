@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 390f44ffebb6531fde2f819fad0d4e9399cba218
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fbb6a7dbe73444ac9049573705e4d04bd868a806
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287522"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884556"
 ---
 # <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Advanced Threat Protection en Azure Database for PostgreSQL con un único servidor
 
@@ -29,7 +29,7 @@ Threat Protection forma parte de la oferta Advanced Threat Protection (ATP), que
 
 Advanced Threat Protection para Azure Database for PostgreSQL proporciona una nueva capa de seguridad, que permite a los clientes detectar posibles amenazas y responder a ellas cuando se producen, gracias a que proporciona alertas de seguridad sobre actividades anómalas. Los usuarios reciben una alerta sobre actividades sospechosas en las bases de datos, posibles puntos vulnerables, así como sobre patrones anómalos de consulta y acceso a las bases de datos. Advanced Threat Protection para Azure Database for PostgreSQL integra las alertas con [Azure Security Center](https://azure.microsoft.com/services/security-center/), que incluye detalles de actividades sospechosas y recomienda acciones sobre cómo investigar y mitigar la amenaza. Advanced Threat Protection para Azure Database for PostgreSQL facilita la solución de posibles amenazas a la base de datos sin necesidad de ser un experto en seguridad ni tener que administrar sistemas de supervisión de seguridad avanzada. 
 
-![Concepto de Advanced Threat Protection](media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png)
+:::image type="content" source="media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png" alt-text="Concepto de Advanced Threat Protection":::
 
 ## <a name="advanced-threat-protection-alerts"></a>Alertas de Advanced Threat Protection 
 Advanced Threat Protection para Azure Database for PostgreSQL detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de acceder a bases de datos, o de vulnerar su seguridad, y puede desencadenar las siguientes alertas:

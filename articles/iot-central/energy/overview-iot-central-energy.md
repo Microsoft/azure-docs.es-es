@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 13b626945743c17bad8df58fba77e1c960e90ef3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1a7502a77f8dca526c95e92302f0ca0a06a1dd32
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77016569"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970447"
 ---
 # <a name="build-energy-solutions-with-iot-central"></a>Creación de soluciones de energía con IoT Central 
 
@@ -62,7 +62,6 @@ Después de implementar la aplicación, verá los datos de los paneles solares s
 
 > [!div class="mx-imgBorder"]
 > ![Panel de la aplicación de paneles solares](media/overview-iot-central-energy/solar-panel-app-dashboard.png)
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para empezar a crear una solución energética:

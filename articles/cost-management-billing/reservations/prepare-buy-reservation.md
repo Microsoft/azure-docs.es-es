@@ -89,7 +89,7 @@ Ahora puede pagar las reservas mensualmente. A diferencia de la compra por adela
 
 Si la reserva se adquiere mediante un contrato de cliente de Microsoft (MCA), el importe del pago mensual puede variar en función de la tasa de cambio actual del mercado correspondiente a su moneda local.
 
-Los pagos mensuales están disponibles para: Databricks, reservas de SUSE Linux, planes de Red Hat y licencias de Red Hat OpenShift en Azure.
+Los pagos mensuales no están disponibles para: Databricks, reservas de SUSE Linux, planes de Red Hat y licencias de Red Hat OpenShift en Azure.
 
 ### <a name="view-payments-made"></a>Visualización de los pagos realizados
 

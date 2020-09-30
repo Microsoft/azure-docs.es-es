@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 93401ee32da8218fa53568a3f46cae3805a5d939
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 18bbecbe811a9f0bc6a56194830c7e92d8770979
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875326"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890174"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Opciones de ingesta de datos para flujos de trabajo de Azure Machine Learning
 
@@ -25,7 +25,7 @@ En este artículo, obtendrá información sobre las ventajas y desventajas de la
 Elija entre las siguientes opciones:
 + [Azure Data Factory](#azure-data-factory) canalizaciones, creadas específicamente para extraer, cargar y transformar datos.
 
-+ [SDK de Python de Azure Machine Learning](#azure-machine-learning-python-sdk), proporciona una solución de código personalizada para las tareas básicas de ingesta de datos.
++ [SDK de Python de Azure Machine Learning](#azure-machine-learning-python-sdk), proporciona una solución de código personalizada para las tareas de ingesta de datos.
 
 + Una combinación de ambas opciones.
 
@@ -70,7 +70,7 @@ Configuración de sus propios scripts de Python. | No admite de forma nativa el 
 Preparación de datos como parte de cada ejecución de entrenamiento del modelo.|Requiere aptitudes de desarrollo para crear un script de ingesta de datos.
 Admite scripts de preparación de datos en varios destinos de procesos, incluido el [proceso de Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed). |No proporciona una interfaz de usuario para crear el mecanismo de ingesta.
 
-En el siguiente diagrama, la canalización de Azure Machine Learning consta de dos pasos: la ingesta de datos y el entrenamiento del modelo. El paso de ingesta de datos abarca tareas que se pueden realizar con bibliotecas de Python y el SDK de Python, como la extracción de datos de orígenes web o locales, y transformaciones básicas de datos, como la imputación de valores que faltan. En el paso de entrenamiento se usan datos preparados como entrada del script de entrenamiento para entrenar el modelo de Machine Learning. 
+En el siguiente diagrama, la canalización de Azure Machine Learning consta de dos pasos: la ingesta de datos y el entrenamiento del modelo. El paso de ingesta de datos abarca tareas que se pueden realizar con bibliotecas de Python y el SDK de Python, como la extracción de datos de orígenes web o locales, y transformaciones de datos, como la imputación de valores que faltan. En el paso de entrenamiento se usan datos preparados como entrada del script de entrenamiento para entrenar el modelo de Machine Learning. 
 
 ![Canalización de Azure + ingesta de datos del SDK](media/concept-data-ingestion/data-ingest-option-two.png)
 

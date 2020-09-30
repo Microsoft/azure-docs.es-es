@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3abef3324bee61f2d7eb96c80750ad589b15f342
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 018d67b3e4e730cd46eb524a8927b3a6d68d74e8
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987042"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958667"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Flujo con derechos delegados de OAuth 2.0 y Plataforma de identidad de Microsoft
 
@@ -153,7 +153,7 @@ En el ejemplo siguiente se muestra una respuesta correcta a una solicitud de un 
 ```
 
 > [!NOTE]
-> El token de acceso anterior es un token con formato v1.0 para Microosft Graph. Esto se debe a que el formato del token se basa en el **recurso** al que se accede y no está relacionado con los puntos de conexión usados para solicitarlo. Microsoft Graph se configura para aceptar tokens v1.0, por lo que la Plataforma de identidad de Microsoft genera tokens de acceso v1.0 cuando un cliente solicita tokens para Microsoft Graph. Otras aplicaciones pueden indicar que quieren tokens con formato v2.0, tokens con formato v1.0 o incluso formatos de tokens de propiedad o cifrados.  Los puntos de conexión v1.0 y v2.0 pueden emitir cualquier formato de token: de este modo, el recurso siempre puede obtener el formato correcto del token, independientemente de cómo o dónde el cliente solicitó el token. 
+> El token de acceso anterior es un token con formato v1.0 para Microsoft Graph. Esto se debe a que el formato del token se basa en el **recurso** al que se accede y no está relacionado con los puntos de conexión usados para solicitarlo. Microsoft Graph se configura para aceptar tokens v1.0, por lo que la Plataforma de identidad de Microsoft genera tokens de acceso v1.0 cuando un cliente solicita tokens para Microsoft Graph. Otras aplicaciones pueden indicar que quieren tokens con formato v2.0, tokens con formato v1.0 o incluso formatos de tokens de propiedad o cifrados.  Los puntos de conexión v1.0 y v2.0 pueden emitir cualquier formato de token: de este modo, el recurso siempre puede obtener el formato correcto del token, independientemente de cómo o dónde el cliente solicitó el token. 
 >
 > Solo las aplicaciones deben revisar los tokens de acceso. Los clientes **no deben** inspeccionarlos. Al inspeccionar los tokens de acceso de otras aplicaciones en el código, la aplicación se interrumpirá inesperadamente cuando la aplicación cambie el formato de sus tokens o empiece a cifrarlos. 
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 88425e2c875b3cce7c63cd66fd034e5a7af56ec7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b5ccd1281e50ca10b8edd7d7567a000b97107901
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117039"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907436"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Use Azure Portal para configurar alertas métricas en Azure Database for PostgreSQL - Hiperescala (Citus)
 
@@ -35,19 +35,19 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 
 2. En la sección **Supervisión** de la barra lateral, seleccione **Alertas**, tal y como se muestra a continuación:
 
-   ![Selección de Reglas de alerta](./media/howto-hyperscale-alert-on-metric/2-alert-rules.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/2-alert-rules.png" alt-text="Selección de Reglas de alerta":::
 
 3. Seleccione **Nueva regla de alertas** (icono +).
 
 4. Se abre la página **Crear regla**, tal y como se muestra a continuación. Rellene la información necesaria:
 
-   ![Formulario de adición de alerta de métrica](./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="Formulario de adición de alerta de métrica":::
 
 5. En la sección de **Condición**, seleccione **Agregar**.
 
 6. Seleccione una métrica de la lista de señales sobre las que desea recibir alertas. En este ejemplo, seleccione "Porcentaje de almacenamiento".
    
-   ![Selección de la métrica](./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="Selección de la métrica":::
 
 7. Configure la lógica de alertas:
 
@@ -58,13 +58,13 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
    
    Seleccione **Listo** cuando haya terminado.
 
-   ![Selección de la métrica](./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="Selección de la métrica":::
 
 8. En la sección **Grupos de acciones**, seleccione **Crear nuevo** para crear un grupo en el que recibir las notificaciones sobre la alerta.
 
 9. Rellene el formulario "Agregar grupo de acciones" con un nombre, un nombre corto, la suscripción y el grupo de recursos.
 
-    ![Grupo de acciones](./media/howto-hyperscale-alert-on-metric/9-add-action-group.png)
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="Grupo de acción":::
 
 10. Configure el tipo de acción **Correo electrónico/SMS/Push/Voz**.
     
@@ -72,11 +72,11 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
    
     Cuando haya terminado, seleccione **Aceptar**.
 
-    ![Grupo de acciones](./media/howto-hyperscale-alert-on-metric/10-action-group-type.png)
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="Grupo de acciones":::
 
 11. Especifique el nombre de la regla de alertas, la descripción y la gravedad.
 
-    ![Grupo de acciones](./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png) 
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="Grupo de acciones"::: 
 
 12. Seleccione **Crear regla de alerta** para crear la alerta.
 

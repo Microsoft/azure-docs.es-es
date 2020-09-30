@@ -8,23 +8,23 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: c62044582cb488a5ef2d20b3f407c0865b3994ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bffdb7b33fc7da38b6985edc3948b848f417a497
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877988"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982084"
 ---
 > [!NOTE]
 > Los requisitos y las recomendaciones se basan en pruebas comparativas con una única solicitud por segundo, con una imagen de 8 MB de una carta comercial digitalizada que contiene 29 líneas y un total de 803 caracteres.
 
 En la tabla siguiente se describe la asignación mínima y recomendada de recursos para cada contenedor de lectura.
 
-| Contenedor | Mínima | Recomendado |TPS<br>(mínimo, máximo)|
-|-----------|---------|-------------|--|
-| Lectura | 1 núcleo, 8 GB de memoria, 0,24 TPS | 8 núcleos, 16 GB de memoria, 1,17 TPS | 0,24, 1,17 |
+| Contenedor | Mínima | Recomendado |
+|-----------|---------|-------------|
+| Read 3.0: versión preliminar | 8 núcleos, 16 GB de memoria | 8 núcleos, 24 GB de memoria |
+| Read 3.1: versión preliminar | 8 núcleos, 16 GB de memoria | 8 núcleos, 24 GB de memoria |
 
 * Cada núcleo debe ser de 2,6 gigahercios (GHz) como mínimo.
-* TPS: transacciones por segundo
 
 El núcleo y la memoria se corresponden con los valores de `--cpus` y `--memory` que se usan como parte del comando `docker run`.

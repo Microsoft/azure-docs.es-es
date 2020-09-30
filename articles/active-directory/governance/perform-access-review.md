@@ -15,12 +15,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b672cca97e70c97a5dccb1ca54daccd6c171932
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efab031ac2ad96524ce12e6d1c4a942f01ce2344
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85077976"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299973"
 ---
 # <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Revisión del acceso a los grupos y las aplicaciones en las revisiones de acceso de Azure AD
 
@@ -33,7 +33,7 @@ Puede iniciar el proceso de revisión de acceso desde el correo electrónico de 
 - **Correo electrónico**:
 
 >[!IMPORTANT]
-> Puede que haya retrasos en la recepción del correo electrónico que, en algunos casos, podrían ser de hasta 24 horas. Incluya azure-noreply@microsoft.com en la lista blanca para asegurarse de recibir todos los correos electrónicos.
+> Puede que haya retrasos en la recepción del correo electrónico que, en algunos casos, podrían ser de hasta 24 horas. Agregue azure-noreply@microsoft.com a la lista de destinatarios seguros para asegurarse de recibir todos los correos electrónicos.
 
 1. Busque un correo electrónico de Microsoft en el que se le pide que revise el acceso. Este es un ejemplo de un correo electrónico para revisar el acceso de un grupo.
 
@@ -129,7 +129,7 @@ Puede acceder a la nueva experiencia de revisor con la interfaz de usuario actua
 ### <a name="email"></a>Email
 
   >[!IMPORTANT]
-> Puede que haya retrasos en la recepción del correo electrónico que, en algunos casos, podrían ser de hasta 24 horas. Incluya azure-noreply@microsoft.com en la lista blanca para asegurarse de recibir todos los correos electrónicos.
+> Puede que haya retrasos en la recepción del correo electrónico que, en algunos casos, podrían ser de hasta 24 horas. Agregue azure-noreply@microsoft.com a la lista de destinatarios seguros para asegurarse de recibir todos los correos electrónicos.
 
    1. Busque un correo electrónico de Microsoft en el que se le pide que revise el acceso. Puede ver un mensaje de correo electrónico de ejemplo a continuación:
 
@@ -206,4 +206,3 @@ Para aceptar recomendaciones para todos los usuarios, asegúrese de que no haya 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Completar una revisión de acceso de grupos o aplicaciones](complete-access-review.md)
-

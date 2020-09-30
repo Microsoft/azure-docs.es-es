@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 8df54adf8f3aeaa58e30d6d9218cec8bec8c1121
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 94947499452c7f1b8515fee56996b13120232f34
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525928"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462384"
 ---
 # <a name="speech-service-release-notes"></a>Notas de la versión del servicio Voz
 
@@ -250,7 +250,7 @@ Y sigan sanos.
 
 **Muestras**
 - **Go**: Se han agregado inicios rápidos para el [reconocimiento de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone?pivots=programming-language-go) y el [asistente de Voz personalizada](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-go). Encuentre el código de ejemplo [aquí](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples). 
-- **JavaScript**: Se han agregado inicios rápidos para la [conversión de texto a voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech?pivots=programming-language-javascript), la [traducción de texto a voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/translate-speech-to-text?pivots=programming-language-javascript) y el [reconocimiento de intenciones](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition?pivots=programming-language-javascript).
+- **JavaScript**: Se han agregado inicios rápidos para la [conversión de texto a voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech?pivots=programming-language-javascript), la [traducción de texto a voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-speech-translation?tabs=script&pivots=programming-language-csharp) y el [reconocimiento de intenciones](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition?pivots=programming-language-javascript).
 - Ejemplos de reconocimiento de palabras clave para [C\#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) y [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer) (Android).  
 
 **Pruebas reducidas ante la COVID-19:** Debido al trabajo de forma remota en las últimas semanas, no pudimos realizar tantas pruebas manuales de comprobación de como normalmente hacemos. No hemos hecho ningún cambio que creemos que pueda haber generado algún error y se han superado todas las pruebas automatizadas. En el improbable caso de que falte algo, háganoslo saber en [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>

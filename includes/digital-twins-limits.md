@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 22b00b41c7fce0af57fd9f92b0f42bbd9412afda
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 2ea607b22bfa1eebdf6b63adcd14a5d1bb1ca9d0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87771037"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89304057"
 ---
 ### <a name="functional-limits"></a>Límites funcionales
 
@@ -42,7 +42,7 @@ Esta tabla refleja los límites de frecuencia de distintas API.
 | API de modelos | Número de solicitudes por segundo | 100 | Sí |
 | API de Digital Twins | Número de solicitudes por segundo | 1,000 | Sí |
 | API de consulta | Número de solicitudes por segundo | 500 | Sí |
-| API de consulta | Unidades de consulta por segundo | 4\.000 | Sí |
+| API de consulta | [Unidades de consulta](../articles/digital-twins/concepts-query-units.md) por segundo | 4\.000 | Sí |
 | API de rutas de eventos | Número de solicitudes por segundo | 100 | Sí |
 
 ### <a name="other-limits"></a>Otros límites

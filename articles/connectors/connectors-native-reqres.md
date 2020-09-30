@@ -5,18 +5,20 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 08/27/2020
 tags: connectors
-ms.openlocfilehash: ae34840c04c3a1d2fb3646046792c97ed6f521a0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 05ce944d195cf43f860fc2b39975a736a4454c05
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289443"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226521"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recepción y respuesta de solicitudes HTTPS entrantes en Azure Logic Apps
 
-Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador de solicitud y la acción de respuesta integrados, puede crear tareas y flujos de trabajo automatizados que reciben solicitudes HTTP entrantes y responden a ellas. Por ejemplo, puede hacer que la aplicación lógica:
+Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador de solicitud y la acción de respuesta integrados, puede crear tareas y flujos de trabajo automatizados que pueden recibir solicitudes entrantes a través de HTTPS. Para enviar solicitudes salientes en su lugar, use el [desencadenador HTTP o la acción HTTP](../connectors/connectors-native-http.md) integrados.
+
+Por ejemplo, puede hacer que la aplicación lógica:
 
 * Reciba una solicitud HTTP de datos en una base de datos local, y responda a ella.
 
@@ -24,47 +26,28 @@ Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador
 
 * Reciba una llamada HTTPS de otra aplicación lógica, y responda e ella.
 
-El desencadenador de solicitud admite [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) para autorizar llamadas entrantes a la aplicación lógica. Para obtener más información sobre la habilitación de esta autenticación, vea [Proteger el acceso y los datos en Azure Logic Apps - Habilitación de la autenticación Azure AD OAuth](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+En este artículo se muestra cómo usar el desencadenador de solicitud y la acción de respuesta para que la aplicación lógica pueda recibir y responder a las llamadas entrantes.
+
+Para información sobre el cifrado, la seguridad y la autorización de llamadas entrantes para la aplicación lógica, como la [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), conocida anteriormente como Capa de sockets seguros (SSL) o la [Autenticación abierta de Azure Active Directory Azure (Azure AD OAuth)](../active-directory/develop/index.yml), consulte [Proteger el acceso y los datos: Acceso de llamadas entrantes para desencadenadores basados en solicitud](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Suscripción a Azure. Si no tiene una suscripción, puede [registrarse para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
+* Una cuenta y una suscripción de Azure. Si no tiene una suscripción, puede [registrarse para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
-* Conocimientos básicos sobre [aplicaciones lógicas](../logic-apps/logic-apps-overview.md). Si es la primera vez que interactúa con las aplicaciones lógicas, consulte el artículo sobre [cómo crear la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-
-<a name="tls-support"></a>
-
-## <a name="transport-layer-security-tls"></a>Seguridad de la capa de transporte (TLS)
-
-* Las llamadas de entrada *solo* admiten Seguridad de la capa de transporte (TLS) 1.2. Si obtiene errores de protocolo de enlace TLS, asegúrese de usar TLS 1.2. Para más información, consulte [Solución del problema de TLS 1.0](/security/solving-tls1-problem). Las llamadas de salida admiten TLS 1.0, 1.1 y 1.2, en función de la capacidad del punto de conexión de destino.
-
-* Las llamadas de entrada admiten estos conjuntos de cifrado:
-
-  * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-
-  * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-
-  * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-
-  * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-
-  * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-
-  * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-
-  * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-
-  * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+* Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md). Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 <a name="add-request"></a>
 
 ## <a name="add-request-trigger"></a>Agregar un desencadenador de solicitud
 
-Este desencadenador integrado crea un punto de conexión HTTPS invocable manualmente que *solo* puede recibir solicitudes HTTPS entrantes. Cuando se produce este evento, el desencadenador se activa y ejecuta la aplicación lógica. Para obtener más información sobre la definición JSON subyacente del desencadenador y sobre cómo llamar a este desencadenador, vea [Tipo de desencadenador de solicitud](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) y [Flujos de trabajo de llamada, desencadenador o anidamiento con puntos de conexión HTTP en Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+Este desencadenador integrado crea un punto de conexión invocable manualmente que *solo* puede administrar solicitudes entrantes través de HTTPS. Cuando un autor de llamada envía una solicitud a este punto de conexión, el [desencadenador de solicitud](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) se activa y ejecuta la aplicación lógica. Para más información sobre cómo llamar a este desencadenador, consulte [Llamada, desencadenamiento o anidamiento de aplicaciones lógicas con puntos de conexión HTTPS en Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+
+La aplicación lógica solo mantiene abierta una solicitud entrante durante un [tiempo limitado](../logic-apps/logic-apps-limits-and-config.md#request-limits). Suponiendo que la aplicación lógica incluya una [acción de respuesta](#add-response), si la aplicación lógica no envía ninguna respuesta al autor de la llamada después de que transcurra este tiempo, la aplicación lógica devuelve un estado `504 GATEWAY TIMEOUT` al autor de la llamada. Si la aplicación lógica no incluye una acción de respuesta, 
+> devuelve inmediatamente un estado `202 ACCEPTED` al autor de la llamada.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). Crear una aplicación lógica en blanco.
 
-1. Cuando se abra el Diseñador de aplicación lógica, en el cuadro de búsqueda, especifique `http request` como filtro. En la lista de desencadenadores, seleccione el desencadenador **Cuando se recibe una solicitud HTTP**, que es el primer paso del flujo de trabajo de la aplicación lógica.
+1. Cuando se abra el Diseñador de aplicación lógica, en el cuadro de búsqueda, especifique `http request` como filtro. En la lista de desencadenadores, seleccione el desencadenador **Cuando se recibe una solicitud HTTP**.
 
    ![Seleccionar desencadenador de solicitud](./media/connectors-native-reqres/select-request-trigger.png)
 
@@ -144,11 +127,11 @@ Este desencadenador integrado crea un punto de conexión HTTPS invocable manualm
 
    1. En el desencadenador de solicitud, seleccione **Use sample payload to generate schema** (Usar una carga de ejemplo para generar el esquema).
 
-      ![Generar un esquema a partir de la carga](./media/connectors-native-reqres/generate-from-sample-payload.png)
+      ![Captura de pantalla con la opción "Usar una carga de ejemplo para generar el esquema" seleccionada](./media/connectors-native-reqres/generate-from-sample-payload.png)
 
    1. Escriba la carga de ejemplo y seleccione **Listo**.
 
-      ![Generar un esquema a partir de la carga](./media/connectors-native-reqres/enter-payload.png)
+      ![Especificación de una carga de ejemplo para generar el esquema](./media/connectors-native-reqres/enter-payload.png)
 
       Este es el ejemplo de la carga:
 
@@ -210,11 +193,9 @@ Este desencadenador integrado crea un punto de conexión HTTPS invocable manualm
 
 1. Para desencadenar la aplicación lógica, envíe una solicitud HTTP POST a la URL generada.
 
-   Por ejemplo, puede usar una herramienta como [Postman](https://www.getpostman.com/) para enviar HTTP POST. Si ha [habilitado Azure Active Directory Open Authentication](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) (Azure AD OAuth) para autorizar llamadas entrantes al desencadenador de solicitud, llame al desencadenador mediante una [dirección URL de Firma de acceso compartido (SAS)](../logic-apps/logic-apps-securing-a-logic-app.md#sas) o mediante un token de autenticación, pero no es posible usar ambos. El token de autenticación debe especificar el tipo `Bearer` en el encabezado de autorización. Para obtener más información, vea [Proteger el acceso y los datos en Azure Logic Apps - Acceso a desencadenadores de solicitud](../logic-apps/logic-apps-securing-a-logic-app.md#secure-triggers).
+   Por ejemplo, puede usar una herramienta como [Postman](https://www.getpostman.com/) para enviar HTTP POST. Para obtener más información sobre la definición JSON subyacente del desencadenador y sobre cómo llamar a este desencadenador, vea estos temas: [Tipo de desencadenador de solicitud](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) y [Llamada, desencadenamiento o anidamiento de aplicaciones lógicas con puntos de conexión HTTP en Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
-Para obtener más información sobre la definición JSON subyacente del desencadenador y sobre cómo llamar a este desencadenador, vea estos temas: [Tipo de desencadenador de solicitud](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) y [Llamada, desencadenamiento o anidamiento de aplicaciones lógicas con puntos de conexión HTTP en Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
-
-### <a name="trigger-outputs"></a>Salidas del desencadenador
+## <a name="trigger-outputs"></a>Salidas del desencadenador
 
 Aquí encontrará más información sobre las salidas del desencadenador de solicitud:
 
@@ -228,9 +209,7 @@ Aquí encontrará más información sobre las salidas del desencadenador de soli
 
 ## <a name="add-a-response-action"></a>Adición de una acción de respuesta
 
-Puede usar la acción de respuesta para responder con una carga (datos) a una solicitud HTTP entrante, pero solo en una aplicación lógica que se desencadene mediante una solicitud HTTP. Puede agregar la acción de respuesta en cualquier punto del flujo de trabajo. Para obtener más información sobre la definición JSON subyacente de este desencadenador, consulte la sección [Tipo de acción de respuesta](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
-
-La aplicación lógica solo mantiene abierta la solicitud entrante durante un [tiempo limitado](../logic-apps/logic-apps-limits-and-config.md#request-limits). Suponiendo que el flujo de trabajo de la aplicación lógica incluye una acción de respuesta, si la aplicación lógica no devuelve ninguna respuesta después de que transcurra este tiempo, la aplicación lógica devuelve `504 GATEWAY TIMEOUT` al autor de llamada. De lo contrario, si la aplicación lógica no incluye ninguna acción de respuesta, dicha aplicación lógica devuelve inmediatamente una respuesta `202 ACCEPTED` al autor de la llamada.
+Al usar el desencadenador de solicitud para administrar las solicitudes entrantes, puede modelar la respuesta y devolver los resultados de la carga al autor de la llamada mediante la [acción de respuesta](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action) integrada. Puede usar la acción de respuesta *solo* con el desencadenador de solicitud. Esta combinación con el desencadenador de solicitud y la acción de respuesta crea el [patrón de solicitud-respuesta](https://en.wikipedia.org/wiki/Request%E2%80%93response). Excepto dentro de los bucles Foreach, los bucles Until y las ramas paralelas, se puede agregar una acción de respuesta en cualquier lugar del flujo de trabajo.
 
 > [!IMPORTANT]
 > Si una acción de respuesta incluye estos encabezados, Logic Apps quita estos encabezados del mensaje de respuesta generado sin mostrar ninguna advertencia o error:
@@ -253,7 +232,7 @@ La aplicación lógica solo mantiene abierta la solicitud entrante durante un [t
 
    Para agregar una acción entre un paso y otro, mueva el puntero por encima de la flecha entre ellos. Seleccione el signo más ( **+** ) que aparece y, luego, seleccione **Agregar una acción**.
 
-1. En **Elegir una acción**, en el cuadro de búsqueda, escriba "respuesta" como filtro y seleccione la acción **Respuesta**.
+1. En **Elegir una acción**, en el cuadro de búsqueda, escriba `response` como filtro y seleccione la acción **Respuesta**.
 
    ![Seleccionar la acción Respuesta](./media/connectors-native-reqres/select-response-action.png)
 
@@ -286,5 +265,5 @@ La aplicación lógica solo mantiene abierta la solicitud entrante durante un [t
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* [Proteger el acceso y datos: Acceso de llamadas entrantes para desencadenadores basados en solicitud](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
 * [Conectores de Logic Apps](../connectors/apis-list.md)
-

@@ -6,22 +6,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: b2a621a23a81e4fb4f47e7c99d780211973e30a0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 50926074c09ef8f438b0abb53a4eb5f1813871b3
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81275084"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321057"
 ---
 El contenedor proporciona [API de punto de conexión basadas en REST](../rest-text-to-speech.md). Hay muchos [proyectos de código fuente de ejemplo](https://github.com/Azure-Samples/Cognitive-Speech-TTS) disponibles para las variaciones de lenguaje, marco y plataforma.
 
-Con el contenedor *Conversión de texto a voz estándar*, debe basarse en la configuración regional y en la voz de la etiqueta de imagen que descargó. Por ejemplo, si descargó la etiqueta `latest`, la configuración regional predeterminada es `en-US` y la voz `JessaRUS`. El argumento `{VOICE_NAME}` sería [`en-US-JessaRUS`](../language-support.md#standard-voices). Vea el SSML de ejemplo siguiente:
+Con los contenedores de texto a voz estándar y texto a voz neuronal, debe utilizar como base la configuración regional y la voz de la etiqueta de imagen que descargó. Por ejemplo, si descargó la etiqueta `latest`, la configuración regional predeterminada es `en-US` y la voz `AriaRUS`. El argumento `{VOICE_NAME}` sería [`en-US-AriaRUS`](../language-support.md#standard-voices). Vea el SSML de ejemplo siguiente:
 
 ```xml
 <speak version="1.0" xml:lang="en-US">
-    <voice name="en-US-JessaRUS">
+    <voice name="en-US-AriaRUS">
         This text will get converted into synthesized speech.
     </voice>
 </speak>

@@ -1,25 +1,25 @@
 ---
-title: Control de versiones de blobs (versión preliminar)
+title: Control de versiones de blobs
 titleSuffix: Azure Storage
-description: El control de versiones de Blob Storage (versión preliminar) conserva automáticamente las versiones anteriores de un objeto y las identifica con marcas de tiempo. Puede restaurar las versiones anteriores de un blob para recuperar los datos si se modifican o eliminan erróneamente.
+description: El control de versiones de almacenamiento de blobs conserva automáticamente las versiones anteriores de un objeto y las identifica con marcas de tiempo. Puede restaurar las versiones anteriores de un blob para recuperar los datos si se modifican o eliminan erróneamente.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 494c1fc1c1c91538240258ab0517c7ff79bdfa74
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 2e3cfd27d36558587ca35cc1c573999a48092b0d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056540"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297681"
 ---
-# <a name="blob-versioning-preview"></a>Control de versiones de blobs (versión preliminar)
+# <a name="blob-versioning"></a>Control de versiones de blobs
 
-Puede habilitar el control de versiones de Blob Storage (versión preliminar) para conservar automáticamente las versiones anteriores de un objeto.  Cuando el control de versiones de blobs está habilitado, puede restaurar una versión anterior de un blob para recuperar los datos si se modifican o eliminan por error.
+Puede habilitar el control de versiones de almacenamiento de blobs para conservar automáticamente las versiones anteriores de un objeto.  Cuando el control de versiones de blobs está habilitado, puede restaurar una versión anterior de un blob para recuperar los datos si se modifican o eliminan por error.
 
 El control de versiones de blobs está habilitado en la cuenta de almacenamiento y se aplica a todos los blobs de dicha cuenta. Después de habilitar el control de versiones de blobs para una cuenta de almacenamiento, Azure Storage conserva automáticamente las versiones de todos los blobs de la cuenta de almacenamiento.
 
@@ -30,6 +30,8 @@ Para obtener información sobre cómo habilitar el control de versiones de blobs
 > [!IMPORTANT]
 > El control de versiones de blobs no puede ayudarle a recuperar una eliminación accidental de una cuenta de almacenamiento o un contenedor. Para evitar dicha eliminación, configure el bloqueo **CannotDelete** en el recurso de la cuenta de almacenamiento. Para obtener más información sobre el bloqueo de recursos de Azure, vea [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/management/lock-resources.md).
 
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
+
 ## <a name="how-blob-versioning-works"></a>Funcionamiento del control de versiones de blobs
 
 Una versión captura el estado de un blob en un momento dado. Cuando el control de versiones de blobs está habilitado para una cuenta de almacenamiento, Azure Storage crea automáticamente una nueva versión de un blob cada vez que este se modifica o se elimina.
@@ -39,6 +41,10 @@ Cuando crea un blob con el control de versiones habilitado, este pasa a ser la v
 Cuando elimine un blob con el control de versiones habilitado, Azure Storage creará una versión que capturará su estado antes de la eliminación. De este modo, se elimina la versión actual del blob, pero se conservan sus versiones, de modo que se puede volver a crear si es necesario. 
 
 Las versiones del blob son inmutables. No puede modificar el contenido ni los metadatos de la versión de un blob existente.
+
+El control de versiones de blobs está disponible para las cuentas de uso general V2, blob en bloques y almacenamiento de blobs. Actualmente, no se admiten las cuentas de almacenamiento con un espacio de nombres jerárquico habilitado para usarse con Azure Data Lake Storage Gen2.
+
+La versión 2019-10-10 y las posteriores de la API REST de Azure Storage admiten el control de versiones de blobs.
 
 ### <a name="version-id"></a>Id. de la versión
 
@@ -106,7 +112,7 @@ Para automatizar el proceso de trasladar blobs en bloques al nivel adecuado, use
 
 ## <a name="enable-or-disable-blob-versioning"></a>Habilitación o deshabilitación del control de versiones de blobs
 
-Para obtener información sobre cómo habilitar o deshabilitar el control de versiones de blobs, consulte [Habilitación o deshabilitación del control de versiones de blobs](versioning-enable.md).
+Para obtener información sobre cómo habilitar el control de versiones de blobs, consulte [Habilitación y administración del control de versiones de blob (versión preliminar)](versioning-enable.md).
 
 Al deshabilitar el control de versiones de blobs, no se eliminan los blobs, las versiones ni las instantáneas existentes. Cuando desactiva el control de versiones de blobs, todas las versiones existentes permanecen accesibles en la cuenta de almacenamiento. No se crean nuevas versiones posteriormente.
 
@@ -194,134 +200,99 @@ En la tabla siguiente se muestra el permiso necesario en un SAS para eliminar un
 |----------------|----------------|------------------------|
 | Eliminar         | x              | Eliminar una versión de un blob |
 
-## <a name="about-the-preview"></a>Acerca de la versión preliminar
-
-El control de versiones de blobs está disponible en versión preliminar en las siguientes regiones:
-
-- Este de EE. UU. 2
-- Centro de EE. UU.
-- Norte de Europa
-- Oeste de Europa
-- Centro de Francia
-- Este de Canadá
-- Centro de Canadá
-
-> [!IMPORTANT]
-> La versión preliminar del control de versiones de blobs está pensada para entornos que no son el de producción. En este momento no hay contratos de nivel de servicio de producción disponibles.
-
-La versión 2019-10-10 y las posteriores de la API REST de Azure Storage admiten el control de versiones de blobs.
-
-### <a name="storage-account-support"></a>Compatibilidad con la cuenta de almacenamiento
-
-El control de versiones de blobs está disponible para los siguientes tipos de cuentas de almacenamiento:
-
-- Cuentas de almacenamiento de uso general v2
-- Cuentas de almacenamiento de blob en bloques
-- Cuentas de Almacenamiento de blobs
-
-Si la cuenta de almacenamiento es una cuenta de uso general v1, use Azure Portal para realizar la actualización a una cuenta de uso general v2. Para más información sobre las cuentas de almacenamiento, vea [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).
-
-Actualmente, no se admiten las cuentas de almacenamiento con un espacio de nombres jerárquico habilitado para usarse con Azure Data Lake Storage Gen2.
-
-### <a name="register-for-the-preview"></a>Registro para obtener la versión preliminar
-
-Para inscribirse para obtener la versión preliminar del control de versiones de blobs, use PowerShell o la CLI de Azure a fin de enviar una solicitud para registrar la característica con su suscripción. Una vez aprobada la solicitud, puede habilitar el control de versiones de blobs con las cuentas de almacenamiento nuevas o existentes de blobs en bloque prémium, Blob Storage o de uso general v2.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Para registrarse con PowerShell, llame al comando [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature).
-
-```powershell
-# Register for blob versioning (preview)
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-
-# Refresh the Azure Storage provider namespace
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-
-Para registrarse con la CLI de Azure, llame al comando [az feature register](/cli/azure/feature#az-feature-register).
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name Versioning
-az provider register --namespace 'Microsoft.Storage'
-```
-
----
-
-### <a name="check-the-status-of-your-registration"></a>Comprobación del estado del registro
-
-Para comprobar el estado del registro, use PowerShell o la CLI de Azure.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Para comprobar el estado del registro con PowerShell, llame al comando [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature).
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-```
-
-# <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
-
-Para comprobar el estado del registro con la CLI de Azure, llame al comando [az feature](/cli/azure/feature#az-feature-show).
-
-```azurecli
-az feature show --namespace Microsoft.Storage --name Versioning
-```
-
----
-
 ## <a name="pricing-and-billing"></a>Precios y facturación
 
 La habilitación del control de versiones de blobs puede dar lugar a cargos de almacenamiento de datos adicionales en su cuenta. Al diseñar una aplicación, es importante tener en cuenta cómo se pueden acumular estos gastos para que pueda de minimizar los costos.
 
-Las versiones de blobs, como las instantáneas de blobs, se facturan con la misma tarifa que los datos activos. Si una versión comparte bloques o páginas con su blob base, solo pagará por los bloques o páginas adicionales que no se compartan entre la versión y el blob base.
+Las versiones de blobs, como las instantáneas de blobs, se facturan con la misma tarifa que los datos activos. La forma en que se facturan las versiones depende de si ha establecido explícitamente el nivel para el blob de base o para cualquiera de sus versiones (o instantáneas). Para más información sobre los niveles de blobs, consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md).
+
+Si no ha cambiado el nivel de un blob o de una versión, se le facturarán los bloques únicos de datos en ese blob, sus versiones y las instantáneas que pueda tener. Para más información, consulte [Facturación cuando el nivel de blob no se ha establecido explícitamente](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+Si ha cambiado el nivel de un blob o de una versión, se le facturará por todo el objeto, independientemente de que el blob y la versión estén en el mismo nivel de nuevo. Para más información, consulte [Facturación cuando el nivel de blob se ha establecido explícitamente](#billing-when-the-blob-tier-has-been-explicitly-set).
 
 > [!NOTE]
 > Habilitar el control de versiones de los datos que se sobrescriben con frecuencia puede provocar un aumento de los cargos por capacidad de almacenamiento y una mayor latencia durante las operaciones de enumeración. A fin de mitigar estos problemas, almacene los datos que se sobrescriben con frecuencia en una cuenta de almacenamiento independiente con el control de versiones deshabilitado.
 
-### <a name="important-billing-considerations"></a>Consideraciones importantes sobre facturación
+Para más información sobre los detalles de facturación de las instantáneas de blobs, consulte [Instantáneas de blob](snapshots-overview.md).
 
-Asegúrese de tener en cuenta los siguientes puntos cuando habilite el control de versiones de blobs:
+### <a name="billing-when-the-blob-tier-has-not-been-explicitly-set"></a>Facturación cuando el nivel de blob no se ha establecido explícitamente
 
-- La cuenta de almacenamiento genera cargos para páginas o bloques únicos, tanto si se encuentran en el blob cono en una versión anterior del blob. La cuenta no generará gastos adicionales para versiones asociadas a un blob hasta que actualice el blob en el que se basan. Después de actualizar el blob, este difiere de sus versiones anteriores. Cuando esto sucede, se le cobra por las páginas o bloques únicos en cada blob o versión.
-- Al reemplazar un bloque en un blob en bloques, ese bloque será considerado como un bloque único a la hora de aplicar cargos. Esto es así aunque el bloque tenga el mismo identificador de bloque y los mismos datos que tiene en la versión. Cuando se vuelva a confirmar el bloque, diferirá de su equivalente en cualquier versión y se le aplicarán cargos por sus datos. Lo mismo sucede con una página de un blob en páginas que se haya actualizado con datos idénticos.
-- Blob Storage no dispone de medios para determinar si dos bloques contienen datos idénticos. Cada bloque que se carga y confirma se trata como único, incluso si tiene los mismos datos y el mismo identificador de bloque. Dado que las cargas se incrementan con los bloques únicos, es importante considerar que cuando se actualiza un blob con el control de versiones habilitado se generarán más bloques únicos y se aplicarán cargos adicionales.
-- Cuando el control de versiones de blobs esté habilitado, diseñe las operaciones de actualización en blobs en bloques para que actualicen el menor número posible de bloques. Las operaciones de escritura que permiten un control más exhaustivo de los bloques son [Put Block](/rest/api/storageservices/put-block) y [Put Block List](/rest/api/storageservices/put-block-list). Por otro lado, la operación [Put Blob](/rest/api/storageservices/put-blob) reemplaza todo el contenido de un blob, lo que puede dar lugar a cargos adicionales.
+Si no ha establecido explícitamente el nivel del blob para un blob base o cualquiera de sus versiones, se le cobrará por bloques o páginas únicos en el blob, sus versiones y las instantáneas que pueda tener. Los datos que se comparten entre un blob y sus versiones se cobran solo una vez. Cuando se actualiza un blob, los datos de un blob base difieren de los datos almacenados en sus versiones y se cobran los datos únicos por bloque o página.
 
-### <a name="versioning-billing-scenarios"></a>Escenarios de facturación del control de versiones
+Al reemplazar un bloque en un blob en bloques, ese bloque será considerado como un bloque único a la hora de aplicar cargos. Esto es así aunque el bloque tenga el mismo identificador de bloque y los mismos datos que tiene en la versión anterior. Cuando se vuelva a confirmar el bloque, diferirá de su equivalente en la versión anterior y se le aplicarán cargos por sus datos. Lo mismo sucede con una página de un blob en páginas que se haya actualizado con datos idénticos.
 
-En las siguientes situaciones, se muestra cómo se ven incrementados los cargos de un blob en bloques y sus versiones.
+Blob Storage no dispone de medios para determinar si dos bloques contienen datos idénticos. Cada bloque que se carga y confirma se trata como único, incluso si tiene los mismos datos y el mismo identificador de bloque. Dado que las cargas se incrementan con los bloques únicos, es importante considerar que, cuando se actualiza un blob con el control de versiones habilitado, se generarán más bloques únicos y se aplicarán cargos adicionales.
+
+Cuando el control de versiones de blobs esté habilitado, diseñe las operaciones de actualización en blobs en bloques para que actualicen el menor número posible de bloques. Las operaciones de escritura que permiten un control más exhaustivo de los bloques son [Put Block](/rest/api/storageservices/put-block) y [Put Block List](/rest/api/storageservices/put-block-list). Por otro lado, la operación [Put Blob](/rest/api/storageservices/put-blob) reemplaza todo el contenido de un blob, lo que puede dar lugar a cargos adicionales.
+
+En los siguientes escenarios se muestra cómo se incrementan los cargos para un blob en bloques y sus versiones cuando el nivel del blob no se ha establecido explícitamente.
 
 #### <a name="scenario-1"></a>Escenario 1
 
 En el escenario 1, el blob tiene una versión anterior. Este no se ha actualizado desde que se creó la versión, así que se generarán cargos únicamente para los bloques únicos 1, 2 y 3.
 
-![Recursos de Azure Storage](./media/versioning-overview/versions-billing-scenario-1.png)
+![Diagrama 1 que muestra la facturación de los bloques únicos en el blob base y la versión anterior.](./media/versioning-overview/versions-billing-scenario-1.png)
 
 #### <a name="scenario-2"></a>Escenario 2
 
 En el escenario 2, se ha actualizado un bloque (bloque 3 en el diagrama) en el blob. Aunque dicho bloque actualizado contiene los mismos datos y el mismo identificador, no es igual que el bloque 3 de la versión anterior. Como resultado, se aplicarán cargos a la cuenta por cuatro bloques.
 
-![Recursos de Azure Storage](./media/versioning-overview/versions-billing-scenario-2.png)
+![Diagrama 2 que muestra la facturación de los bloques únicos en el blob base y la versión anterior.](./media/versioning-overview/versions-billing-scenario-2.png)
 
 #### <a name="scenario-3"></a>Escenario 3
 
 En el escenario 3, el blob se ha actualizado, pero la versión no. El bloque 3 se reemplazó por el bloque 4 en el blob base, pero la versión anterior sigue reflejando el bloque 3. Como resultado, se aplicarán cargos a la cuenta por cuatro bloques.
 
-![Recursos de Azure Storage](./media/versioning-overview/versions-billing-scenario-3.png)
+![Diagrama 3 que muestra la facturación de los bloques únicos en el blob base y la versión anterior.](./media/versioning-overview/versions-billing-scenario-3.png)
 
 #### <a name="scenario-4"></a>Escenario 4
 
-En la situación 4, el blob de base se ha actualizado totalmente y no contiene ninguno de los bloques originales. Como resultado, los cargos de la cuenta se aplicarán por los ocho bloques únicos, cuatro de los cuales se encuentran en el blob base y, los demás, en la versión anterior. Este escenario puede producirse si escribe en un blob con la operación Put Blob, ya que reemplaza todo el contenido del blob base.
+En la situación 4, el blob de base se ha actualizado totalmente y no contiene ninguno de los bloques originales. Como resultado, los cargos de la cuenta se aplicarán por los ocho bloques únicos, cuatro de los cuales se encuentran en el blob base y, los demás, en la versión anterior. Este escenario puede producirse si escribe en un blob con la operación [Put Blob](/rest/api/storageservices/put-blob), ya que reemplaza todo el contenido del blob base.
 
-![Recursos de Azure Storage](./media/versioning-overview/versions-billing-scenario-4.png)
+![Diagrama 4 que muestra la facturación de los bloques únicos en el blob base y la versión anterior.](./media/versioning-overview/versions-billing-scenario-4.png)
+
+### <a name="billing-when-the-blob-tier-has-been-explicitly-set"></a>Facturación cuando el nivel de blob se ha establecido explícitamente
+
+Si ha establecido explícitamente el nivel de blob para un blob o una versión (o instantánea), se le cobrará la longitud completa del contenido del objeto en el nuevo nivel, con independencia de si comparte bloques con un objeto en el nivel original. También se le cobrará por la longitud de contenido completo de la versión más antigua en el nivel original. Las demás versiones o instantáneas anteriores que permanecen en el nivel original se cobran por los bloques únicos que pueden compartir, tal como se describe en [Facturación cuando el nivel de blob no se ha establecido explícitamente](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+#### <a name="moving-a-blob-to-a-new-tier"></a>Traslado de un blob a un nuevo nivel
+
+En la tabla siguiente se describe el comportamiento de facturación de un blob o una versión cuando se mueve a un nuevo nivel.
+
+| Cuando el nivel de blob se establece explícitamente en... | A continuación, se le facturará por... |
+|-|-|
+| Un blob base con una versión anterior | El blob base en el nuevo nivel y la versión más antigua del nivel original, además de los bloques únicos de otras versiones.<sup>1</sup> |
+| Un blob base con una versión anterior y una instantánea | El blob base en el nuevo nivel, la versión más antigua en el nivel original y la instantánea más antigua en el nivel original, además de los bloques únicos en otras versiones o instantáneas<sup>1</sup>. |
+| Una versión anterior | La versión del nuevo nivel y el blob base en el nivel original, además de los bloques únicos de otras versiones.<sup>1</sup> |
+
+<sup>1</sup>Si hay otras versiones o instantáneas anteriores que no se han migrado desde su nivel original, esas versiones o instantáneas se cobran en función del número de bloques únicos que contienen, tal como se describe en [Facturación cuando el nivel del blob no se ha establecido explícitamente](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+En el diagrama siguiente se muestra cómo se facturan los objetos cuando un blob con versión se mueve a un nivel diferente.
+
+:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="Diagrama que muestra cómo se facturan los objetos cuando un blob con versión está explícitamente organizado en niveles.":::
+
+No se puede deshacer si se establece explícitamente el nivel de un blob, una versión o una instantánea. Si mueve un blob a un nuevo nivel y luego lo vuelve a su nivel original, se le cobrará la longitud completa del contenido del objeto incluso si comparte bloques con otros objetos en el nivel original.
+
+Las operaciones que establecen explícitamente el nivel de un blob, una versión o una instantánea incluyen:
+
+- [Set Blob Tier](/rest/api/storageservices/set-blob-tier)
+- [Put Blob](/rest/api/storageservices/put-blob) con el nivel especificado
+- [Put Block List](/rest/api/storageservices/put-block-list) con el nivel especificado
+- [Copy Blob](/rest/api/storageservices/copy-blob) con el nivel especificado
+
+#### <a name="deleting-a-blob-when-soft-delete-is-enabled"></a>Eliminación de un blob cuando está habilitada la eliminación temporal
+
+Cuando la eliminación temporal del blob está habilitada, si elimina o sobrescribe un blob base que se ha establecido explícitamente en el nivel, las versiones anteriores del blob eliminado temporalmente se facturan con la longitud del contenido completo. Para obtener más información sobre el uso conjunto del control de versiones de blobs y la eliminación temporal, consulte [Control de versiones de blobs y eliminación temporal](#blob-versioning-and-soft-delete).
+
+En la tabla siguiente se describe el comportamiento de facturación de un blob que se elimina temporalmente, en función de si el control de versiones está habilitado o deshabilitado. Cuando se habilita el control de versiones, se crea una versión cuando un blob se elimina temporalmente. Cuando se deshabilita el control de versiones, la eliminación temporal de un blob crea una instantánea de eliminación temporal.
+
+| Cuando sobrescribe un blob base con su nivel establecido explícitamente... | A continuación, se le facturará por... |
+|-|-|
+| Si la eliminación temporal de blobs y el control de versiones están habilitados | Todas las versiones existentes en la longitud del contenido completo independientemente del nivel. |
+| Si la eliminación temporal de blobs está habilitada, pero el control de versiones está deshabilitado | Todas las instantáneas de eliminación temporal existentes con una longitud de contenido completo independientemente del nivel. |
 
 ## <a name="see-also"></a>Consulte también
 
-- [Habilitación del control de versiones de blobs](versioning-enable.md)
+- [Habilitar y administrar las versiones de blob](versioning-enable.md)
 - [Creación de una instantánea de un blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 - [Eliminación temporal de blobs de Azure Storage](storage-blob-soft-delete.md)

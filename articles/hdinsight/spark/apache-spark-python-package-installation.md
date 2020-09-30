@@ -8,18 +8,14 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 59de3eb2370029ab9edcb609298c7b1fdf5f8ff8
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 09d1063f704c37eb31546be08765f2b5b6fb8632
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873762"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060754"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Administración segura del entorno de Python en Azure HDInsight mediante la acción de scripts
-
-> [!div class="op_single_selector"]
-> * [Uso de magic cell](apache-spark-jupyter-notebook-use-external-packages.md)
-> * [Uso de acciones de script](apache-spark-python-package-installation.md)
 
 HDInsight tiene dos instalaciones de Python integradas en el clúster de Spark: Anaconda Python 2.7 y Python 3.5. Es posible que los clientes necesiten personalizar el entorno de Python, como la instalación de paquetes de Python externos u otra versión de Python. En este artículo, se muestra el procedimiento recomendado de administración segura de entornos de Python para clústeres de Apache Spark en HDInsight.
 
@@ -132,7 +128,7 @@ El clúster de HDInsight depende del entorno integrado de Python, tanto Python 2
 
     4. Guarde los cambios y reinicie los servicios afectados. Estos cambios necesitan el reinicio del servicio Spark2. La UI de Ambari le mostrará un aviso de reinicio obligatorio, haga clic en Restart para reiniciar todos los servicios afectados.
 
-        ![Cambiar la configuración de Spark a través de Ambari](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+        ![Reiniciar los servicios](./media/apache-spark-python-package-installation/ambari-restart-services.png)
 
 4. Si desea usar el nuevo entorno virtual creado en Jupyter, cambie las configuraciones de Jupyter y reinicie Jupyter. Ejecute las acciones de script en todos los nodos de encabezado con la siguiente instrucción para apuntar Jupyter al nuevo entorno virtual creado. Asegúrese de modificar la ruta de acceso al prefijo que especificó para el entorno virtual. Después de ejecutar esta acción de script, reinicie el servicio de Jupyter a través de la UI de Ambari para que este cambio esté disponible.
 

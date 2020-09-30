@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: a5264c14294f84858cd489f5892b8cdd19e117d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b3a0b904d65e6597c058ccf05ec837696e9ca20e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79455917"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893627"
 ---
 # <a name="select-columns-transform"></a>Seleccionar transformación de columnas
 
-En este artículo se describe cómo usar el módulo Select Columns Transform (Seleccionar transformación de columnas) en el diseñador de Azure Machine Learning (versión preliminar). El propósito del módulo Select Columns Transform (Seleccionar transformación de columnas) es asegurarse de que siempre se usa un conjunto de columnas coherente y predecible en las operaciones de aprendizaje automático de nivel inferior.
+En este artículo se describe cómo usar el módulo Select Columns Transform (Seleccionar transformación de columnas) en el diseñador de Azure Machine Learning. El propósito del módulo Select Columns Transform (Seleccionar transformación de columnas) es asegurarse de que siempre se usa un conjunto de columnas coherente y predecible en las operaciones de aprendizaje automático de nivel inferior.
 
 Este módulo es útil para tareas como puntuación, que requiere columnas específicas. Los cambios en las columnas disponibles pueden interrumpir la canalización o cambiar los resultados.
 

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 43ae9bd0e844a23adabf52e7fbb4b8cd077d23bd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 80efd92560bc7fb5c8bf16b524752e7dbfcdc74b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326722"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526670"
 ---
 # <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Tutorial: Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos y servicios Java y las inscripciones de grupos para el servicio Azure IoT Hub Device Provisioning
 
@@ -260,4 +260,4 @@ Si piensa seguir trabajando con el ejemplo de cliente de dispositivo y explorán
 En este tutorial, creó un dispositivo simulado X.509 en su máquina Windows y lo aprovisionó con IoT Hub mediante el servicio Azure IoT Hub Device Provisioning y los grupos de inscripción. Para más información sobre el dispositivo X.509, continúe con los conceptos de dispositivo. 
 
 > [!div class="nextstepaction"]
-> [Conceptos de dispositivos del servicio IoT Hub Device Provisioning](concepts-device.md)
+> [Conceptos del servicio IoT Hub Device Provisioning](concepts-service.md)

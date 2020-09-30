@@ -8,12 +8,12 @@ ms.reviewer: yashesvi
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: f67cbb70d7064b894b9042bba42f48e4fb6a6b5e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d032937fe79b9f51818ce8917c36fa1cc30397c0
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684786"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400133"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Administración de reservas para los recursos de Azure
 
@@ -73,7 +73,7 @@ Para delegar la administración de acceso en una reserva:
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>División de una reserva única en dos
 
- Si se compran varias instancias de recursos en una reserva, se pueden asignar algunas de las instancias de la reserva a distintas suscripciones. De forma predeterminada, todas las instancias tienen un ámbito, que puede ser de suscripción única o compartida. Pongamos por ejemplo que se han comprado diez instancias de reserva y como ámbito se ha especificado la suscripción A. En caso de que le interese, se puede establecer el ámbito de siete reservas en la suscripción A y el de las tres restantes en la suscripción B. Dividir una reserva le permite distribuir las instancias para lograr una administración más pormenorizada del ámbito. Si quiere simplificar la asignación a las suscripciones, elija el ámbito compartido. Sin embargo, para la administración de costos o fines presupuestarios, puede asignar las cantidades a suscripciones concretas.
+ Si se compran varias instancias de recursos en una reserva, se pueden asignar algunas de las instancias de la reserva a distintas suscripciones. De forma predeterminada, todas las instancias tienen un ámbito, que puede ser de suscripción única o compartida, o un grupo de recursos. Supongamos que ha hecho una reserva de diez instancias de máquina virtual y que ha especificado que el ámbito sea la suscripción A. Sin embargo, ahora desea cambiar dicho ámbito, desea que en siete siga siendo la suscripción A, pero en las tres restantes sea la suscripción B. Para realizar dicho cambio hay que usar la división de reservas. Tras dividir una reserva, se cancela el identificador de reserva original y se crean dos reservas. La división no afecta al orden de la reserva (no hay ninguna transacción comercial nueva con división y las reservas nuevas tienen la misma fecha de finalización que la que se dividió).
 
  Una reserva se puede dividir en dos mediante PowerShell, CLI o la API.
 

@@ -3,18 +3,18 @@ title: Documentación de la plataforma de identidad de Microsoft
 summary: La plataforma de identidad de Microsoft es un servicio de autenticación, bibliotecas de código abierto y herramientas de administración de aplicaciones. Aprenda a crear soluciones de autenticación modernas y basadas en estándares con nuestros inicios rápidos, tutoriales y ejemplos de código. Cree aplicaciones en que los usuarios y los clientes inician sesión para usar sus identidades de Microsoft o cuentas de redes sociales, y autorice el acceso a las API o a las API de Microsoft como Microsoft Graph.
 metadata:
   ms.topic: landing-page
-  ms.date: 08/11/2020
+  ms.date: 09/26/2020
   author: mmacy
   ms.author: marsma
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: 115c2b7058941512bf75f2b45b17d4a0a806c1af
-  ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+  ms.openlocfilehash: d80d722594e717319bda473e2cb86551acc8d9f0
+  ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/20/2020
-  ms.locfileid: "88690296"
+  ms.lasthandoff: 09/28/2020
+  ms.locfileid: "91403150"
 landingContent:
 - title: Acerca de la plataforma de identidad de Microsoft
   linkLists:
@@ -64,8 +64,8 @@ landingContent:
       url: quickstart-v2-aspnet-webapp.md
     - text: ASP.NET Core
       url: quickstart-v2-aspnet-core-webapp.md
-    - text: Python
-      url: quickstart-v2-python-webapp.md
+    - text: Servidor Blazor
+      url: tutorial-blazor-server.md
 - title: Aplicaciones móviles y nativas
   linkLists:
   - linkListType: get-started
@@ -83,7 +83,7 @@ landingContent:
     - text: ASP.NET
       url: quickstart-v2-dotnet-native-aspnet.md
     - text: ASP.NET Core
-      url: /samples/azure-samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/calling-a-web-api-in-an-aspnet-core-web-application-using-azure-ad/
+      url: quickstart-v2-aspnet-core-web-api.md
 - title: Microsoft Graph
   linkLists:
   - linkListType: get-started
@@ -120,9 +120,21 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
+    - text: 'Tutorial: Blazor Server'
+      url: tutorial-blazor-server.md
+    - text: 'Inicio rápido: Protección de una API web de ASP.NET Core'
+      url: quickstart-v2-aspnet-core-web-api.md
+    - text: Referencia de Python API de MSAL
+      url: /python/api/msal/
+    - text: 'Inicio rápido: Registro de una aplicación (reescribir)'
+      url: quickstart-register-app.md
+    - text: 'Inicio rápido: Exposición de una API web (reescribir)'
+      url: quickstart-configure-app-expose-web-apis.md
+    - text: 'Inicio rápido: Acceso a una API web (reescribir)'
+      url: quickstart-configure-app-access-web-apis.md
+    - text: Migración de una aplicación con agente Android de Xamarin a MSAL.NET
+      url: msal-net-migration-android-broker.md
     - text: 'Control de errores y excepciones: Android'
       url: msal-android-handling-exceptions.md
     - text: Atributos de extensión de esquema de directorio en notificaciones
       url: active-directory-schema-extensions.md
-    - text: Código de autenticación de MSAL.js 2.0 + PKCE y CORS
-      url: quickstart-v2-javascript-auth-code.md

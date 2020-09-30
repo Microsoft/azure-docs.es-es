@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/25/2020
 ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 036b3af03dec2bdaa7feacc94abca930ebd9b317
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 4d6e5fb765125a4cf68c4939e7350feb84509bf2
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235390"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068105"
 ---
 # <a name="workday-attribute-reference"></a>Referencia de atributos de Workday
 
@@ -147,7 +147,7 @@ Para configurar XPATHs adicionales, consulte la sección [Tutorial: Administraci
 | 18 | CountryRegionReference                | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Business\_Site\_Summary\_Data/wd:Address\_Data/wd:Country\_Region\_Descriptor/text\(\)                                                                                                                                                                                   |
 | 19 | EmailAddress                          | wd:Worker/wd:Worker\_Data/wd:Personal\_Data/wd:Contact\_Data/wd:Email\_Address\_Data\[wd:Usage\_Data/@wd:Public='1' and string\(wd:Usage\_Data/wd:Type\_Data/wd:Type\_Reference/wd:ID\[@wd:type='Communication\_Usage\_Type\_ID'\]\)='WORK'\]/wd:Email\_Address/text\(\)                                                                                                               |
 | 20 | EmployeeID                            | wd:Worker/wd:Worker\_Reference/wd:ID\[@wd:type='Employee\_ID'\]/text\(\)                                                                                                                                                                                                                                                                                                               |
-| 21 | FacilityLocation                      | wd:Worker/wd:Worker\_Data/wd:Organization\_Data/wd:Worker\_Organization\_Data\[translate\(string\(wd:Organization\_Data/wd:Organization\_Type\_Reference/wd:ID\[@wd:type='Organization\_Type\_ID'\]\),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ'\)='FACILITY'\]/wd:Organization\_Reference/@wd:Descriptor                                 0                                                                                                                                                                                                                                                                                                                                      |
+| 21 | FacilityLocation                      | wd:Worker/wd:Worker\_Data/wd:Organization\_Data/wd:Worker\_Organization\_Data\[translate\(string\(wd:Organization\_Data/wd:Organization\_Type\_Reference/wd:ID\[@wd:type='Organization\_Type\_ID'\]\),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ'\)='FACILITY'\]/wd:Organization\_Reference/@wd:Descriptor                                                                                                                                                                                                                                                                                                                                                                       |
 | 22 | Fax                                   | wd:Worker/wd:Worker\_Data/wd:Personal\_Data/wd:Contact\_Data/wd:Phone\_Data\[wd:Usage\_Data/@wd:Public='1' and string\(wd:Usage\_Data/wd:Type\_Data/wd:Type\_Reference/wd:ID\[@wd:type='Communication\_Usage\_Type\_ID'\]\)='WORK' and string\(wd:Phone\_Device\_Type\_Reference/wd:ID\[@wd:type='Phone\_Device\_Type\_ID'\]\)='Fax'\]/@wd:Workday_Traditional_Formatted_Phone      |
 | 23 | Nombre                             | wd:Worker/wd:Worker\_Data/wd:Personal\_Data/wd:Name\_Data/wd:Legal\_Name\_Data/wd:Name\_Detail\_Data/wd:First\_Name/text\(\)                                                                                                                                                                                                                                                           |
 | 24 | JobClassificationID                   | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Job\_Classification\_Summary\_Data/wd:Job\_Classification\_Reference/wd:ID\[@wd:type='Job\_Classification\_Reference\_ID'\]/text\(\)                                                                                                                                     |

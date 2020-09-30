@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/24/2020
-ms.openlocfilehash: 508e2d229c067ac84d4c8d6338e658df8d3fa932
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2bd698d9513310571c0e8c53136f85c62532df43
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113214"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905878"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql-in-the-azure-portal"></a>Configuración de los registros de auditoría de Azure Database for MySQL y acceso a ellos en Azure Portal
 
@@ -35,35 +35,35 @@ Habilite y configure el registro de auditoría.
 1. Seleccione un servidor de Azure Database for MySQL.
 
 1. En la sección **Configuración**, seleccione **Parámetros del servidor**.
-    ![Parámetros del servidor](./media/howto-configure-audit-logs-portal/server-parameters.png)
+    :::image type="content" source="./media/howto-configure-audit-logs-portal/server-parameters.png" alt-text="Parámetros del servidor":::
 
 1. Actualice el parámetro **audit_log_enabled** a ACTIVADO.
-    ![Habilitar los registros de auditoría](./media/howto-configure-audit-logs-portal/audit-log-enabled.png)
+    :::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-enabled.png" alt-text="Habilitar los registros de auditoría":::
 
 1. Seleccione los [tipos de eventos](concepts-audit-logs.md#configure-audit-logging) que se registrarán actualizando el parámetro **audit_log_events**.
-    ![Eventos del registro de auditoría](./media/howto-configure-audit-logs-portal/audit-log-events.png)
+    :::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-events.png" alt-text="Eventos del registro de auditoría":::
 
 1. Agregue a cualquier usuario de MySQL que se excluya del registro actualizando el parámetro **audit_log_exclude_users**. Especifique los usuarios proporcionando su nombre de usuario de MySQL.
-    ![Excluir usuarios del registro de auditoría](./media/howto-configure-audit-logs-portal/audit-log-exclude-users.png)
+    :::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-exclude-users.png" alt-text="Excluir usuarios del registro de auditoría":::
 
 1. Cuando haya cambiado los parámetros, haga clic en **Guardar**. O bien puede **descartar** los cambios.
-    ![Guardar](./media/howto-configure-audit-logs-portal/save-parameters.png)
+    :::image type="content" source="./media/howto-configure-audit-logs-portal/save-parameters.png" alt-text="Guardar":::
 
 ## <a name="set-up-diagnostic-logs"></a>Configuración de registros de diagnósticos
 
 1. En la sección **Supervisión** de la barra lateral, seleccione **Configuración de diagnóstico**.
 
-1. Haga clic en "+ Agregar configuración de diagnóstico" ![Agregar configuración de diagnóstico](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
+1. Haga clic en "+ Agregar configuración de diagnóstico" :::image type="content" source="./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png" alt-text="Agregar configuración de diagnóstico":::
 
 1. Proporcione un nombre de configuración de diagnóstico.
 
 1. Especifique qué datos se enviarán para enviar los registros de auditoría (cuenta de almacenamiento, centro de eventos y área de trabajo de Log Analytics).
 
 1. Seleccione "MySqlAuditLogs" como el tipo de registro.
-![Configurar las opciones de diagnóstico](./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png)
+:::image type="content" source="./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png" alt-text="Configurar las opciones de diagnóstico":::
 
 1. Una vez que haya configurado los receptores de datos para canalizar los registros de auditoría, puede hacer clic en **Guardar**.
-![Guardar la configuración de diagnóstico](./media/howto-configure-audit-logs-portal/save-diagnostic-setting.png)
+:::image type="content" source="./media/howto-configure-audit-logs-portal/save-diagnostic-setting.png" alt-text="Guardar la configuración de diagnóstico":::
 
 1. Acceda a los registros de auditoría mediante los receptores de datos que configuró. Los registros pueden tardar hasta 10 minutos en aparecer.
 

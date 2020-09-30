@@ -6,17 +6,17 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: a92d73941aac045534b6708c4b92d741c39ff781
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 789976949f23467801589343483ebcad11fa5c56
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494974"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032901"
 ---
 # <a name="table-data-types-in-synapse-sql"></a>Tipos de datos de tabla en SQL de Synapse
 

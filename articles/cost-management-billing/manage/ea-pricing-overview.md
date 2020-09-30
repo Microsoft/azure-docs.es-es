@@ -6,14 +6,14 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/03/2020
 ms.author: banders
-ms.openlocfilehash: b54127a0578f9753a969d302ac86525c1c6f1a93
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 4195ab701bb0829cf2d006e9646290bdf25ea10e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686996"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442418"
 ---
 # <a name="azure-ea-pricing"></a>Precios del Contrato Enterprise de Azure
 

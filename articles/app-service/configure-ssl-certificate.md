@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: d45852326a7f771b2cf79e20c784e2c441fef0d6
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: c8ede3c4a186b4b24d56651deb8172fdcde8e5ed
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401493"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420887"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Incorporación de un certificado TLS/SSL en Azure App Service
 
@@ -188,6 +188,13 @@ Cuando se complete la operación, verá el certificado en la lista **Certificado
 
 Si usa Azure Key Vault para administrar los certificados, puede importar un certificado PKCS12 de Key Vault en App Service, siempre que [cumpla los requisitos](#private-certificate-requirements).
 
+### <a name="authorize-app-service-to-read-from-the-vault"></a>Autorización a App Service para leer desde el almacén
+De forma predeterminada, el proveedor de recursos de App Service no tiene acceso al almacén de claves. Para usar un almacén de claves para la implementación de un certificado, debe [autorizar al proveedor de recursos acceso de lectura al almacén de claves](../key-vault/general/group-permissions-for-apps.md#grant-access-to-your-key-vault). 
+
+`abfa0a7c-a6b6-4736-8310-5855508787cd` es el nombre de la entidad de seguridad de servicio del proveedor de recursos para App Service y es el mismo para todas las suscripciones de Azure. Para un entorno en la nube de Azure Government, use `6a02c803-dafd-4136-b4c3-5a6f318b4714` en lugar del nombre de la entidad de seguridad de servicio del proveedor de recursos.
+
+### <a name="import-a-certificate-from-your-vault-to-your-app"></a>Importación de un certificado desde el almacén a la aplicación
+
 En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, en el menú de la izquierda, seleccione **App Services** >  **\<app-name>** .
 
 En el panel izquierdo de la aplicación, seleccione **Configuración de TLS/SSL** > **Certificados de clave privada (.pfx)**  > **Importar certificado de Key Vault**.
@@ -205,6 +212,9 @@ Use la tabla siguiente como ayuda para seleccionar el certificado.
 Cuando se complete la operación, verá el certificado en la lista **Certificados de clave privada**. Si se produce un error en la importación, indica que el certificado no cumple los [requisitos para App Service](#private-certificate-requirements).
 
 ![Importación del certificado de Key Vault finalizada](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
+
+> [!NOTE]
+> Si actualiza el certificado en Key Vault con un nuevo certificado, App Service sincronizará automáticamente el certificado en un plazo de 48 horas.
 
 > [!IMPORTANT] 
 > Para proteger un dominio personalizado con este certificado, todavía debe crear un enlace de certificado. Siga los pasos descritos en [Creación del enlace](configure-ssl-bindings.md#create-binding).

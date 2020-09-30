@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: a78e1b9cc1d9ca8a815fdb586287983020232fd1
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 6be16c7726b979ec7a6dfb58f4bff5a82a0f6c43
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782947"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299106"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Monitor
 
@@ -660,7 +660,7 @@ Puede ver el siguiente error: **la dirección URL de respuesta especificada en l
 
 Si, después de habilitar Azure Monitor para contenedores en un clúster de AKS, elimina el área de trabajo de Log Analytics a la que el clúster enviaba datos, se producirá un error cuando intente actualizar dicho clúster. Para solucionar este problema, tendrá que deshabilitar la supervisión y, después, volver a habilitarla, pero de forma que haga referencia a otra área de trabajo válida de la suscripción. Tras ello, cuando intente llevar a cabo la actualización del clúster de nuevo, debería procesarse y completarse correctamente.  
 
-### <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>¿Qué puertos y dominios es necesario abrir o incluir en la lista blanca del agente?
+### <a name="which-ports-and-domains-do-i-need-to-openallow-for-the-agent"></a>¿Qué puertos y dominios debo abrir o permitir para el agente?
 
 Consulte los [requisitos del firewall de red](insights/container-insights-onboard.md#network-firewall-requirements) para obtener la información de configuración del servidor proxy y el firewall necesaria para el agente en contenedor con las nubes de Azure, Azure US Government y Azure China 21Vianet.
 

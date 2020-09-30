@@ -1,15 +1,15 @@
 ---
 title: Definiciones de directivas integradas en Azure Backup
 description: Se enumeran las definiciones de directivas integradas de Azure Policy en Azure Backup. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 07/10/2020
+ms.date: 09/16/2020
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 0f46f3cef7cc3daa7d1fd155fc37bf2685fc9490
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: e5fdce9e78f5b87ba1415e2411120e106e0dbf02
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89301225"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985105"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-backup"></a>Definiciones integradas de Azure Policy para Azure Backup
 

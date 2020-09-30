@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: duongau
   ms.author: duau
-  ms.date: 03/03/2020
-  ms.openlocfilehash: 9ecba8b92524ec6494cd210e53392bdadf228fa0
-  ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+  ms.date: 09/09/2020
+  ms.openlocfilehash: 844a2e070f5918352044c878657dc2dcee1902d4
+  ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/02/2020
-  ms.locfileid: "89398722"
+  ms.lasthandoff: 09/10/2020
+  ms.locfileid: "89657252"
 landingContent:
 - title: Información sobre Azure Front Door
   linkLists:
@@ -23,8 +23,6 @@ landingContent:
     links:
     - text: ¿Qué es Azure Front Door?
       url: front-door-overview.md
-    - text: Novedades
-      url: front-door-whats-new.md
 - title: Creación de una instancia de Front Door
   linkLists:
   - linkListType: quickstart

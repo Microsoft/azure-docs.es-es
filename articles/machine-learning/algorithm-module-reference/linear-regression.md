@@ -9,15 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 9d83a9ffb9dc334ef959b7a8039b9a9c4a1fced7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 51a9b0ec0fc19b6b6efa0453d698a5a978dacabc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137467"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907831"
 ---
 # <a name="linear-regression-module"></a>Módulo de regresión lineal
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
 Utilice este módulo para crear un modelo de regresión lineal para usarlo en una canalización.  La regresión lineal intenta establecer una relación lineal entre una o más variables independientes y un resultado numérico o la variable dependiente. 
 
@@ -25,7 +25,7 @@ Utilice este módulo para definir un método de regresión lineal y entrenar un 
 
 ## <a name="about-linear-regression"></a>Acerca de la regresión lineal
 
-La regresión lineal es un método estadístico habitual que se han adoptado en Machine Learning y se ha mejorado con muchos métodos nuevos de ajuste de las líneas y medición de los errores. En el sentido más básico, la regresión se refiere a la predicción de un objetivo numérico. La regresión lineal sigue siendo una buena opción cuando se desee un modelo simple para una tarea de predicción básica. La regresión lineal también suele funcionar bien en conjuntos de datos muy dimensionales, dispersos y sin complejidad.
+La regresión lineal es un método estadístico habitual que se han adoptado en Machine Learning y se ha mejorado con muchos métodos nuevos de ajuste de las líneas y medición de los errores. Simplemente, la regresión se refiere a la predicción de un objetivo numérico. La regresión lineal sigue siendo una buena opción cuando se desee un modelo simple para una tarea de predicción básica. La regresión lineal también suele funcionar bien en conjuntos de datos muy dimensionales, dispersos y sin complejidad.
 
 Azure Machine Learning admite una variedad de modelos de regresión, además de la regresión lineal. Sin embargo, el término "regresión" se puede interpretar de manera imprecisa y algunos tipos de regresión que se proporcionan en otras herramientas no se admiten.
 

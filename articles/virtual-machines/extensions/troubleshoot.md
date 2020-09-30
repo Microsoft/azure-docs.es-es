@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: 2fa87e860d0f5f5117840b9e230e383cdd6aae7c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ad3197f20428ec751b4e3520af72dc5f8eb9ad28
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187564"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180362"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Solución de problemas de la extensión de máquina virtual de Microsoft Azure.
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -63,6 +63,7 @@ Extensions:  {
 ```
 
 ## <a name="troubleshooting-extension-failures"></a>Solución de problemas de errores de extensión
+
 ### <a name="rerun-the-extension-on-the-vm"></a>Volver a ejecutar la extensión en la máquina virtual
 Si está ejecutando los scripts en la máquina virtual mediante la extensión de script personalizada, a veces podría recibir un error en el que la máquina virtual se creó correctamente, pero en el que el script ha generado un error. En estas condiciones, la manera que se recomienda para recuperarse de este error es quitar la extensión y volver a ejecutar la plantilla.
 Nota: En el futuro, esta funcionalidad se mejoraría para eliminar la necesidad de desinstalar la extensión.
@@ -74,3 +75,28 @@ Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomS
 
 Cuando se ha quitado la extensión, la plantilla puede volver a ejecutarse para ejecutar los scripts en la máquina virtual.
 
+### <a name="trigger-a-new-goalstate-to-the-vm"></a>Desencadenamiento de un nuevo GoalState en la máquina virtual
+Es posible que observe que una extensión no se ha ejecutado o que no se puede ejecutar porque falta el "generador de certificados CRP de Windows Azure" (ese certificado se utiliza para proteger el transporte de la configuración protegida de la extensión).
+Ese certificado se volverá a generar automáticamente al reiniciar el agente invitado de Windows desde dentro de la máquina virtual:
+- Abra el Administrador de tareas.
+- Vaya a la pestaña Detalles.
+- Busque el proceso WindowsAzureGuestAgent.exe.
+- Haga clic con el botón derecho y seleccione "Finalizar tarea". El proceso se reiniciará de forma automática.
+
+
+También puede desencadenar un nuevo objeto GoalState en la máquina virtual mediante la ejecución de una "actualización vacía":
+
+Azure PowerShell:
+
+```azurepowershell
+$vm = Get-AzureRMVM -ResourceGroupName <RGName> -Name <VMName>  
+Update-AzureRmVM -ResourceGroupName <RGName> -VM $vm  
+```
+
+CLI de Azure:
+
+```azurecli
+az vm update -g <rgname> -n <vmname>
+```
+
+Si no funcionó una "actualización vacía", puede agregar un nuevo disco de datos vacío a la máquina virtual desde el portal de administración de Azure y, después, quitarlo cuando el certificado se haya agregado de nuevo.

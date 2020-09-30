@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: ec59383f9ca2b71ec9f4b6df3ab2e24c6b52473b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfb9cb80bdcd2854a3ddd5b273806fbcdda916b0
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80881373"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705646"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Inquilinos en Azure Active Directory
 
@@ -35,8 +35,8 @@ En Azure Portal, puede configurar la aplicación para que sea de inquilino únic
 | Público | Inquilino único/multiinquilino | Quién puede iniciar sesión | 
 |----------|--------| ---------|
 | Solo las cuentas de este directorio | Un solo inquilino | Todas las cuentas de usuario y de invitados del directorio pueden usar la aplicación o la API.<br>*Esta opción se usa si la audiencia de destino está dentro de la organización.* |
-| Las cuentas de cualquier directorio de Azure AD | Multiinquilino | Todos los usuarios e invitados con una cuenta profesional o educativa de Microsoft pueden usar la aplicación o API, incluidos los centros educativos y las empresas que usen Office 365.<br>*Use esta opción si la audiencia de destino son clientes empresariales o del sector educativo.* |
-| Las cuentas de cualquier directorio de Azure AD y las cuentas personales de Microsoft (por ejemplo, las de Skype, Xbox, Outlook.com) | Multiinquilino | Cualquier usuario con una cuenta profesional o educativa, o bien con una cuenta Microsoft personal puede usar la aplicación o API, se incluyen los centros educativos y las empresas que usen Office 365, así como las cuentas personales que se usan para iniciar sesión en servicios como Xbox y Skype.<br>*Use esta opción para establecer como destino el mayor conjunto posible de cuentas de Microsoft.* | 
+| Las cuentas de cualquier directorio de Azure AD | Multiinquilino | Todos los usuarios e invitados con una cuenta profesional o educativa de Microsoft pueden usar la aplicación o API, incluidos los centros educativos y las empresas que usen Microsoft 365.<br>*Use esta opción si la audiencia de destino son clientes empresariales o del sector educativo.* |
+| Las cuentas de cualquier directorio de Azure AD y las cuentas personales de Microsoft (por ejemplo, las de Skype, Xbox, Outlook.com) | Multiinquilino | Cualquier usuario con una cuenta profesional o educativa, o bien con una cuenta Microsoft personal puede usar la aplicación o API, incluidos los centros educativos y las empresas que usen Microsoft 365, así como las cuentas personales que se usan para iniciar sesión en servicios como Xbox y Skype.<br>*Use esta opción para establecer como destino el mayor conjunto posible de cuentas de Microsoft.* | 
 
 ## <a name="best-practices-for-multi-tenant-apps"></a>Procedimientos recomendados para aplicaciones multiinquilino
 

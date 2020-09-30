@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: dc3daf28a4e8dd4ebf1fcedddd1a46986ac80cc4
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: cbd15819fc03eb80b3647f6ffede93f851e295d4
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400609"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649741"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Escalabilidad automática y Application Gateway con redundancia de zona v2 
 
@@ -100,7 +100,7 @@ En esta sección se describen las características y limitaciones de la SKU v2 q
 |--|--|
 |Certificado de autenticación|No compatible.<br>Para más información, consulte [Introducción a TLS de un extremo a otro con Application Gateway](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
 |Combinación de Application Gateway Standard y Standard_v2 en la misma subred|No compatible|
-|Ruta definida por el usuario (UDR) en la subred de Application Gateway|Se admite (escenarios específicos). En versión preliminar.<br> Para obtener más información sobre los escenarios admitidos, consulte [Introducción a la configuración de Application Gateway](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).|
+|Ruta definida por el usuario (UDR) en la subred de Application Gateway|Se admite (escenarios específicos). En versión preliminar.<br> Para obtener más información sobre los escenarios admitidos, consulte [Introducción a la configuración de Application Gateway](configuration-infrastructure.md#supported-user-defined-routes).|
 |NSG para el intervalo de puertos de entrada| - 65200 a 65535 para la SKU Standard_v2<br>- 65503 a 65534 para la SKU Standard.<br>Para más información, consulte las [preguntas más frecuentes](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Registros de rendimiento en Azure Diagnostics|No compatible.<br>Se deben usar las métricas de Azure.|
 |Facturación|La facturación está programada para que comience el 1 de julio de 2019.|

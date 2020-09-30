@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 72f68b35d171503bb07fc5e6f58a858ceea4c6cf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: contperfq1
+ms.openlocfilehash: 773c5f95cdbec6961b063720106794e6ec00451d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749676"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299939"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introducción a los discos administrados de Azure
 
@@ -91,7 +92,7 @@ Un disco de datos es un disco administrado que se asocia a una máquina virtual 
 
 Cada máquina virtual tiene un disco de sistema operativo acoplado. Ese disco del sistema operativo tiene un sistema operativo instalado previamente, que se seleccionó cuando se creó la máquina virtual. Este disco contiene el volumen de arranque.
 
-Su capacidad máxima es de 2048 GiB.
+El disco tiene una capacidad máxima de 4095 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporal
 

@@ -23,7 +23,7 @@
       href: cognitive-services-apis-create-account-client-library.md
     - name: Creación de un recurso mediante una plantilla de ARM
       displayName: Resource Manager
-      href: resource-manager-template.md
+      href: create-account-resource-manager-template.md
     - name: Registro de diagnóstico
       href: diagnostic-logging.md
 - name: Seguridad

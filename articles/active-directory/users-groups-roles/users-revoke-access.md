@@ -1,6 +1,6 @@
 ---
 title: Revocación del acceso de usuario en un emergencia de Azure Active Directory | Microsoft Docs
-description: Adición de usuarios en bloque en el Centro de administración de Azure AD de Azure Active Directory
+description: Revocación de todo el acceso de un usuario en Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.reviewer: krbain
 ms.date: 07/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cc4a29c9d4b5ae93df81de5b77cb6355947813d
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 76a2e4cb170ca5bee41c0ae8f3e0557eab19562e
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798421"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89147140"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Revocación del acceso de usuario en Azure Active Directory
 
@@ -38,7 +38,7 @@ Los tokens de acceso y los tokens de actualización se usan con frecuencia con a
 
 A continuación, Azure AD vuelve a evaluar sus directivas de autorización. Si el usuario sigue autorizado, Azure AD emite un nuevo token de acceso y un token de actualización.
 
-Los tokens de acceso pueden ser un problema de seguridad si el acceso se debe revocar en un período de tiempo menor que la duración del token, que suele ser de una hora aproximadamente. Por esta razón, Microsoft trabaja activamente para incorporar la [evaluación del acceso continua](../fundamentals/concept-fundamentals-continuous-access-evaluation.md) a las aplicaciones de Office 365, lo que ayuda a garantizar la invalidación de los tokens de acceso casi en tiempo real.  
+Los tokens de acceso pueden ser un problema de seguridad si el acceso se debe revocar en un período de tiempo menor que la duración del token, que suele ser de una hora aproximadamente. Por esta razón, Microsoft trabaja activamente para incorporar la [evaluación del acceso continua](../conditional-access/concept-continuous-access-evaluation.md) a las aplicaciones de Office 365, lo que ayuda a garantizar la invalidación de los tokens de acceso casi en tiempo real.  
 
 ## <a name="session-tokens-cookies"></a>Tokens de sesión (cookies)
 

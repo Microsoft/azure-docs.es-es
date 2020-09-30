@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo solucionar problemas y resolver pr
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: a65e5e2b507f45fe51a8f6406edae4d96affe227
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 855e5e5e23371f600a7e73139f2e6da1eebc91d0
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056525"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068836"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -98,6 +98,10 @@ El motivo de las advertencias es que el clúster tiene habilitado RBAC y el acce
 
 Asegúrese de que los puertos 22, 9000 y 1194 están abiertos para conectarse al servidor de la API. Compruebe si el pod `tunnelfront` o `aks-link` se ejecutan en el espacio de nombres *kube-system* mediante el comando `kubectl get pods --namespace kube-system`. Si no se está ejecutando, debe forzar la eliminación del pod y se reiniciará.
 
+## <a name="im-getting-tls-client-offered-only-unsupported-versions-from-my-client-when-connecting-to-aks-api-what-should-i-do"></a>Recibo `"tls: client offered only unsupported versions"` de mi cliente al conectarse a la API de AKS.   ¿Qué debo hacer?
+
+La versión de TLS mínima admitida en AKS es TLS 1.2.
+
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Estoy intentando actualizar o escalar y recibo el error `"Changing property 'imageReference' is not allowed"`. ¿Cómo se corrige este problema?
 
 Es posible que reciba este error porque se han modificado las etiquetas de los nodos de agente dentro del clúster de AKS. Modificar y eliminar etiquetas y otras propiedades de recursos en el grupo de recursos MC_* puede provocar resultados inesperados. La modificación de los recursos en el grupo MC_* en el clúster de AKS invalida el objetivo de nivel de servicio (SLO).
@@ -176,9 +180,9 @@ Para resolver este problema, use las siguientes soluciones alternativas:
 * Si se usan scripts de automatización, agregue demoras entre la creación de la entidad de servicio y la creación del clúster de AKS.
 * Si se usa Azure Portal, vuelva a la configuración del clúster durante la creación y reintente la página de validación pocos minutos después.
 
+## <a name="im-getting-aadsts7000215-invalid-client-secret-is-provided-when-using-aks-api-what-should-i-do"></a>Recibo `"AADSTS7000215: Invalid client secret is provided."` al usar la API de AKS.   ¿Qué debo hacer?
 
-
-
+Esto suele deberse a la expiración de las credenciales de la entidad de servicio. [Actualice las credenciales de un clúster de AKS.](update-credentials.md)
 
 ## <a name="im-receiving-errors-after-restricting-egress-traffic"></a>Recibo errores después de restringir el tráfico de salida
 
@@ -446,3 +450,15 @@ En las versiones de Kubernetes **anteriores a 1.15.0**, puede recibir un error s
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md
 [cluster-autoscaler]: cluster-autoscaler.md
+
+### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>¿Por qué se produce un error en las actualizaciones a Kubernetes 1.16 al usar etiquetas de nodo con un prefijo kubernetes.io?
+
+A partir de Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) [, el kubelet solo puede aplicar un subconjunto definido de etiquetas con el prefijo kubernetes.io](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal) a los nodos. AKS no puede quitar etiquetas activas en su nombre sin consentimiento, ya que puede provocar tiempo de inactividad en las cargas de trabajo afectadas.
+
+Como resultado, para mitigar este problema, puede:
+
+1. Actualizar el plano de control del clúster a 1.16 o superior
+2. Agregar un nuevo grupo de nodos en 1.16 o una versión posterior sin las etiquetas de kubernetes.io no compatibles
+3. Eliminar el antiguo grupo de nodos
+
+AKS está investigando la capacidad de mutar etiquetas activas en un grupo de nodos para mejorar esta mitigación.

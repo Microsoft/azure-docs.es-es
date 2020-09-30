@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ecca67cab486c8f3524c8c8d4c221d52689cf62a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dedf0795e72c4bdace430ba2dd07ade9d792f13c
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070105"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459546"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Puntos de conexión privados administrados de Synapse (versión preliminar)
 
@@ -23,7 +23,7 @@ En este artículo se explican los puntos de conexión privados administrados en 
 
 Los puntos de conexión privados se crean en Microsoft Azure Virtual Network del área de trabajo administrada y establecen un vínculo privado a los recursos de Azure. Azure Synapse administra estos puntos de conexión privados en su nombre.
 
-Azure Synapse admite vínculos privados. Los vínculos privados permiten acceder de forma segura a los servicios de Azure (por ejemplo, Azure Storage, Azure Cosmos DB y Azure SQL Data Warehouse) y a los servicios de asociados o clientes hospedados por Azure desde la red virtual de Azure.
+Azure Synapse admite vínculos privados. Private Link le permite acceder tanto a los servicios de Azure (como Azure Storage y Azure Cosmos DB) como a los servicios de cliente o asociado hospedados por Azure desde su red virtual de Azure de forma segura.
 
 Cuando se usa un vínculo privado, el tráfico entre la red virtual y el área de trabajo atraviesa completamente la red troncal de Microsoft. Private Link protege frente a los riesgos de la filtración de datos. El vínculo privado a un recurso se establece mediante la creación de un punto de conexión privado.
 

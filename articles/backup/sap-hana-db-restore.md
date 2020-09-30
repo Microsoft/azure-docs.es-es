@@ -3,12 +3,12 @@ title: Restauración de bases de datos de SAP HANA en máquinas virtuales de Azu
 description: En este artículo se describe cómo restaurar bases de datos de SAP HANA que se ejecutan en máquinas virtuales de Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 41ee95fc65ed7bdf79388089e27c6d6249132bfd
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 68858db6f89221e1a3a8f0955d5e009d56e2d365
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763293"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375319"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Restauración de bases de datos de SAP HANA en máquinas virtuales de Azure
 
@@ -28,7 +28,7 @@ Azure Backup puede restaurar bases de datos de SAP HANA que se ejecutan en máqu
 
 Antes de restaurar una base de datos, tenga en cuenta lo siguiente:
 
-* Solo puede restaurar la base de datos en una instancia de SAP HANA que se encuentre en la misma región.
+* Solo puede restaurar la base de datos en una instancia de SAP HANA que se encuentre en la misma región.
 
 * La instancia de destino debe estar registrada en el mismo almacén que la de origen.
 
@@ -46,11 +46,11 @@ Antes de restaurar una base de datos, tenga en cuenta lo siguiente:
 
       ![Elección de SAP HANA en Azure VM](media/sap-hana-db-restore/sap-hana-backup.png)
 
-  1. En **Detectar bases de datos en máquinas virtuales**, haga clic en **Ver detalles**.
+  1. En **Detectar bases de datos en máquinas virtuales**, Seleccione **Ver detalles**.
 
       ![Ver detalles](media/sap-hana-db-restore/view-details.png)
 
-  1. Revise el estado de **Preparación para la copia de seguridad** de la máquina virtual de destino.
+  1. Revise el estado de **preparación para la copia de seguridad** de la máquina virtual de destino.
 
       ![Los servidores protegidos.](media/sap-hana-db-restore/protected-servers.png)
 

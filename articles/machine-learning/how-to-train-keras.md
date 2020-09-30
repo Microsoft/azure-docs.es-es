@@ -11,15 +11,15 @@ ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ab0b90e08d51602979e31486a1a446731f66e5ba
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7c049b56bd72a0b59862e655da3b79f63c264fbf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320942"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882791"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Entrenamiento y registro de un modelo de clasificación Keras con Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 En este artículo se muestra cómo entrenar y registrar un modelo de clasificación Keras creado en TensorFlow con Azure Machine Learning. Se usa el popular [conjunto de datos MNIST](http://yann.lecun.com/exdb/mnist/) para clasificar dígitos escritos a mano mediante una red neuronal profunda (DNN) creada con la [biblioteca Keras de Python](https://keras.io) que se ejecuta sobre [TensorFlow](https://www.tensorflow.org/overview).
 
@@ -40,7 +40,7 @@ Ejecute este código en cualquiera de estos entornos:
 
  - Su propio servidor de Jupyter Notebook
 
-    - [Instalación del SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+    - [Instalación del SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
     - [Cree un archivo de configuración del área de trabajo](how-to-configure-environment.md#workspace).
     - [Descarga de los archivos de script de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` y `utils.py`
 
@@ -65,7 +65,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Inicialización de un área de trabajo
 
-El [área de trabajo de Azure Machine Learning](concept-workspace.md) es el recurso de nivel superior para el servicio. Proporciona un lugar centralizado para trabajar con todos los artefactos que cree. En el SDK de Python, puede acceder a los artefactos del área de trabajo mediante la creación de un objeto [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py).
+El [área de trabajo de Azure Machine Learning](concept-workspace.md) es el recurso de nivel superior para el servicio. Proporciona un lugar centralizado para trabajar con todos los artefactos que cree. En el SDK de Python, puede acceder a los artefactos del área de trabajo mediante la creación de un objeto [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true).
 
 Cree un objeto de área de trabajo a partir del archivo `config.json` creado en la [sección de requisitos previos](#prerequisites).
 
@@ -133,7 +133,7 @@ Para más información sobre los destinos de proceso, vea el artículo [¿Qué e
 
 ## <a name="create-a-tensorflow-estimator-and-import-keras"></a>Creación de un estimador de TensorFlow e importación de Keras
 
-El [estimador de TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) proporciona una manera sencilla de iniciar trabajos de entrenamiento de TensorFlow en el destino de proceso. Como Keras se ejecuta sobre TensorFlow, puede usar el estimador de TensorFlow e importar la biblioteca de Keras mediante el argumento `pip_packages`.
+El [estimador de TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py&preserve-view=true) proporciona una manera sencilla de iniciar trabajos de entrenamiento de TensorFlow en el destino de proceso. Como Keras se ejecuta sobre TensorFlow, puede usar el estimador de TensorFlow e importar la biblioteca de Keras mediante el argumento `pip_packages`.
 
 En primer lugar, obtenga los datos del almacén de datos del área de trabajo mediante la clase `Dataset`.
 
@@ -144,7 +144,7 @@ dataset = Dataset.get_by_name(ws, 'mnist dataset')
 dataset.to_path()
 ```
 
-El estimador de TensorFlow se implementa a través de la clase genérica [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py), que se puede usar para admitir cualquier marco de trabajo. Además, cree un diccionario `script_params` que contenga la configuración del hiperparámetro DNN. Para obtener más información sobre cómo entrenar modelos con el estimador genérico, consulte [Entrenamiento de modelos con Azure Machine Learning mediante un objeto Estimator](how-to-train-ml-models.md).
+El estimador de TensorFlow se implementa a través de la clase genérica [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py&preserve-view=true), que se puede usar para admitir cualquier marco de trabajo. Además, cree un diccionario `script_params` que contenga la configuración del hiperparámetro DNN. Para obtener más información sobre cómo entrenar modelos con el estimador genérico, consulte [Entrenamiento de modelos con Azure Machine Learning mediante un objeto Estimator](how-to-train-ml-models.md).
 
 ```python
 from azureml.train.dnn import TensorFlow
@@ -167,7 +167,7 @@ est = TensorFlow(source_directory=script_folder,
 
 ## <a name="submit-a-run"></a>Envío de una ejecución
 
-El [objeto Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) proporciona la interfaz para el historial de ejecución mientras se ejecuta el trabajo y cuando se ha completado.
+El [objeto Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) proporciona la interfaz para el historial de ejecución mientras se ejecuta el trabajo y cuando se ha completado.
 
 ```Python
 run = exp.submit(est)

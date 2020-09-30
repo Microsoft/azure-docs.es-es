@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 37a687a17df266fe0589c24b392c0527e001f976
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 18389f3058bcc60c22f8598040f4fea4b036f1ee
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683902"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298919"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Generaciones anteriores de tamaños de máquina virtual
 
@@ -59,7 +59,7 @@ Almacenamiento en caché de Premium Storage:  Compatible
 
 MBps = 10^6 bytes por segundo y GiB = 1024^3 bytes.
 
-<sup>1</sup> El rendimiento de disco máximo (IOPS o MBps) posible con una máquina virtual de la serie Fs puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados.  Para obtener más información, consulte [Diseño para un alto rendimiento(./premium-storage-performance.md).
+<sup>1</sup> El rendimiento de disco máximo (IOPS o MBps) posible con una máquina virtual de la serie Fs puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados.  Para información detallada, consulte [Diseño de alto rendimiento](premium-storage-performance.md).
 
 
 ## <a name="nvv2-series"></a>Serie NVv2
@@ -267,7 +267,7 @@ Almacenamiento en caché de Premium Storage:  Compatible
 | Standard_DS13 | 8  | 56  | 112 | 32 | 32000/256 (288) | 25600/256 | 8/4000 |
 | Standard_DS14 | 16 | 112 | 224 | 64 | 64000/512 (576) | 51200/512 | 8/8000 |
 
-<sup>1</sup> El rendimiento de disco máx. (E/S por segundo o Mbps) posible con una VM de la serie DS puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados.  Para obtener más información, consulte [Diseño para un alto rendimiento(./premium-storage-performance.md).
+<sup>1</sup> El rendimiento de disco máx. (E/S por segundo o Mbps) posible con una VM de la serie DS puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados.  Para información detallada, consulte [Diseño de alto rendimiento](premium-storage-performance.md).
 <sup>2</sup> La familia de máquinas virtuales se puede ejecutar en una de las CPU siguientes: 2.2 GHz Intel Xeon® E5-2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) de 2,3 GHz Intel XEON® o E5-2673 v4 (Broadwell)  
 
 <br>
@@ -293,7 +293,7 @@ Almacenamiento en caché de Premium Storage:  No compatible
 | Standard_L16s  | 16 | 128 | 2807 | 64 | 80000/800 | 20000/500 | 8/16000 |
 | Standard_L32s&nbsp;<sup>1</sup> | 32 | 256 | 5630 | 64 | 160000/1600 | 40000/1000 | 8/20000 |
 
-El rendimiento máximo de disco que es posible con una VM de la serie Ls puede estar limitado por el número, el tamaño y la fragmentación de cualquier disco asociado. Para obtener más información, consulte [Diseño para un alto rendimiento(./premium-storage-performance.md).
+El rendimiento máximo de disco que es posible con una VM de la serie Ls puede estar limitado por el número, el tamaño y la fragmentación de cualquier disco asociado. Para información detallada, consulte [Diseño de alto rendimiento](premium-storage-performance.md).
 
 <sup>1</sup> La instancia está aislada en el hardware dedicado a un solo cliente.
 
@@ -315,7 +315,7 @@ Almacenamiento en caché de Premium Storage:  Compatible
 | Standard_GS4&nbsp;<sup>3</sup> | 16 | 224 | 448 | 64 | 80000/800 (2112) | 40000/1000 | 8/16000 |
 | Standard_GS5&nbsp;<sup>2,&nbsp;3</sup> | 32 | 448 |896 | 64 |160000/1600 (4224) | 80000/2000 | 8/20000 |
 
-<sup>1</sup> El rendimiento de disco máx. (E/S por segundo o Mbps) posible con una VM de la serie GS puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados. Para obtener más información, consulte [Diseño para un alto rendimiento(./premium-storage-performance.md).
+<sup>1</sup> El rendimiento de disco máx. (E/S por segundo o Mbps) posible con una VM de la serie GS puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados. Para información detallada, consulte [Diseño de alto rendimiento](premium-storage-performance.md).
 
 <sup>2</sup> La instancia está aislada en el hardware dedicado a un solo cliente.
 

@@ -1,28 +1,29 @@
 ---
-title: Traducción de voz con el servicio de voz
+title: 'Introducción a la traducción de voz: servicio Voz'
 titleSuffix: Azure Cognitive Services
-description: El servicio de voz le permite agregar a sus aplicaciones, herramientas y dispositivos una traducción de voz completa, de varios idiomas y en tiempo real. La misma API puede usarse para la traducción de voz a voz y de voz a texto.
+description: La traducción de voz le permite incorporar en sus aplicaciones, herramientas y dispositivos una traducción de voz completa, en varios idiomas y en tiempo real. La misma API puede usarse para la traducción de voz a voz y de voz a texto. En este artículo encontrará información general sobre las ventajas y las funcionalidades del servicio de traducción de voz.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 09/01/2020
 ms.author: erhopf
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 670d7f160285283bd44371b893c63904b2685926
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
+keywords: traducción de voz
+ms.openlocfilehash: 67bb418926932ebb7e443e77c65dd12c7352049d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934504"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401221"
 ---
 # <a name="what-is-speech-translation"></a>¿Qué es la traducción de voz?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-La traducción de voz del servicio de voz permite la traducción de voz a voz y voz a texto de secuencias de audio en varios idiomas en tiempo real. Con el SDK de voz, sus aplicaciones, herramientas y los dispositivos tienen acceso a las transcripciones de origen y a las salidas de traducción del audio proporcionadas. Se devuelven resultados provisionales de transcripción y traducción cuando se detecta la voz y los resultados finales se pueden convertir en voz sintetizada.
+En esta introducción, descubrirá las ventajas y funcionalidades del servicio de traducción de voz, un servicio que le permite agregar a las secuencias de audio traducciones de voz a voz y de voz a texto en varios idiomas y en tiempo real. Con el SDK de voz, sus aplicaciones, herramientas y los dispositivos tienen acceso a las transcripciones de origen y a las salidas de traducción del audio proporcionadas. A medida que se detecta la voz, se van devolviendo resultados provisionales de transcripción y traducción. Asimismo, los resultados finales pueden convertirse en voz sintetizada.
 
 El motor de traducción de Microsoft usa tecnología de dos enfoques diferentes: traducción automática estadística (SMT) y traducción automática neuronal (NMT). SMT usa análisis estadísticos avanzados para estimar las mejores traducciones posibles dado el contexto de unas pocas palabras. Con NMT, las redes neuronales se utilizan para proporcionar traducciones más precisas y naturales mediante el contexto completo de las oraciones para traducir palabras.
 
@@ -30,25 +31,14 @@ En la actualidad, Microsoft utiliza NMT para la traducción a los idiomas más p
 
 ## <a name="core-features"></a>Características principales
 
-Estas son las características disponibles en el SDK de voz y las API REST de Speech Services:
+* Traducción de voz a texto con resultados de reconocimiento.
+* Traducción de voz a voz.
+* Compatibilidad para traducir a varios idiomas de destino.
+* Resultados de reconocimiento y traducción provisionales.
 
-| Caso de uso | SDK | REST |
-|----------|-----|------|
-| Traducción de voz a texto con resultados de reconocimiento. | Sí | No |
-| Traducción de voz a voz. | Sí | No |
-| Resultados de reconocimiento y traducción provisionales. | Sí | No |
+## <a name="get-started"></a>Introducción 
 
-## <a name="get-started-with-speech-translation"></a>Introducción a la traducción de voz
-
-Le ofrecemos inicios rápidos diseñados para que ejecute el código en menos de 10 minutos. Esta tabla incluye una lista de inicios rápidos de traducción de voz ordenados por idioma.
-
-| Guía de inicio rápido | Plataforma | Referencia de API |
-|------------|----------|---------------|
-| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
-| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
+Consulte la [guía de inicio rápido](get-started-speech-translation.md) para empezar a usar la traducción de voz. El servicio de traducción de voz está disponible con el [SDK de Voz](speech-sdk.md) y la [CLI de Voz](spx-overview.md).
 
 ## <a name="sample-code"></a>Código de ejemplo
 
@@ -72,5 +62,6 @@ Si sus aplicaciones, herramientas o productos usan [Translator Speech API](https
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* Complete la [guía de inicio rápido](get-started-speech-translation.md) de traducción de voz
 * [Obtenga una clave de suscripción gratuita a los servicios de Voz](get-started.md)
 * [Obtención del SDK de voz](speech-sdk.md)

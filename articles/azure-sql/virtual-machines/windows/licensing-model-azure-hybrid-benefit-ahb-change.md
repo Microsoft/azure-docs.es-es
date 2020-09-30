@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f02f31e0fc8943682af77ca6f506d15f36e88146
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 208b900de20a89a9ecc819ef1254c08fcc628f82
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668909"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010229"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Cambio del modelo de licencia de una máquina virtual de SQL en Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -156,7 +156,9 @@ El cambio del modelo de licencia:
 
 ## <a name="known-errors"></a>Errores conocidos
 
-### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>No se encontró el recurso "Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>" en el grupo de recursos "\<resource-group>".
+Revise los siguientes errores conocidos y sus soluciones. 
+
+**No se encontró el recurso "Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>" en el grupo de recursos "\<resource-group>".**
 
 Este error se produce al intentar cambiar el modelo de licencia en una máquina virtual con SQL Server que no se ha registrado con el proveedor de recursos de máquina virtual con SQL.
 
@@ -165,7 +167,7 @@ Este error se produce al intentar cambiar el modelo de licencia en una máquina 
 Tendrá que registrar la suscripción con el proveedor de recursos y, después, [registrar la máquina virtual de SQL Server con el proveedor de recursos](sql-vm-resource-provider-register.md). 
 
 
-### <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>La máquina virtual "\<vmname\>" tiene más de una NIC asociada
+**La máquina virtual "\<vmname\>" tiene más de un adaptador de red asociado**
 
 Este error se produce en máquinas virtuales que tienen más de una NIC. Quite una de las NIC antes de cambiar el modelo de licencia. Aunque puede volver a agregar la NIC a la máquina virtual después de cambiar el modelo de licencia, ya no se admitirán operaciones en Azure Portal como la copia de seguridad y la revisión automáticas. 
 

@@ -7,14 +7,17 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 2e001e5e927d9d4c5dc4c3eb74f7b5ad33617b99
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1472da4c87dc4579a30290460fb7811cf228be47
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037583"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892490"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Controles de seguridad para el servicio Azure Spring Cloud
+
+**Este artículo se aplica a:** ✔️ Java ✔️ C#
+
 Los controles de seguridad están integrados en el servicio Azure Spring Cloud.
 
 Un control de seguridad es una cualidad o característica de un servicio de Azure que ayuda a dicho servicio a prevenir y detectar vulnerabilidades de seguridad, así como a responder a ellas.  En cada control, utilizamos *Sí* o *No* para indicar si actualmente está disponible para el servicio.  Usamos *N/D* para un control que no se pueda aplicar al servicio. 
@@ -32,3 +35,7 @@ Un control de seguridad es una cualidad o característica de un servicio de Azur
 | Control de seguridad | Sí/No | Notas | Documentación |
 |:-------------|:-------|:-------------------------------|:----------------------|
 | Etiqueta de servicio | Sí | Use la etiqueta de servicio **AzureSpringCloud** para definir controles de acceso de red de salida en [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) o [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags) para permitir el tráfico a las aplicaciones de Azure Spring Cloud.<br><br>*Nota:* Actualmente, solo las instancias del servicio Azure Spring Cloud creadas después del 14/07/2020 admiten la etiqueta de servicio **AzureSpringCloud**. | [Etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) |
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Inicio rápido: Implementación de la primera aplicación de Azure Spring Cloud](spring-cloud-quickstart.md)

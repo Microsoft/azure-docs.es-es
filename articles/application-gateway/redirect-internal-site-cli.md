@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: d889d0c13c911e02d73bb1de76b7c3d1aa240027
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0730148a3da41d0d72961ea521577fa370b183d
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806814"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89596097"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con redireccionamiento interno mediante la CLI de Azure
 
@@ -21,12 +21,11 @@ Puede usar la CLI de Azure para configurar el [redireccionamiento del tráfico w
 
 En este artículo aprenderá a:
 
-> [!div class="checklist"]
-> * Configuración de la red
-> * Creación de una puerta de enlace de aplicaciones
-> * Incorporación de agentes de escucha y una regla de redireccionamiento
-> * Creación de un conjunto de escalado de máquinas virtuales con el grupo de back-end
-> * Creación de un registro CNAME en el dominio
+* Configuración de la red
+* Creación de una puerta de enlace de aplicaciones
+* Incorporación de agentes de escucha y una regla de redireccionamiento
+* Creación de un conjunto de escalado de máquinas virtuales con el grupo de back-end
+* Creación de un registro CNAME en el dominio
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

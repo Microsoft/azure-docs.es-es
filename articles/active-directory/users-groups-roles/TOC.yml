@@ -9,8 +9,8 @@
     - name: Adición de usuarios a Azure AD
       href: ../fundamentals/add-users-azure-active-directory.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
     - name: Asignación de licencias a usuarios
-      href: ../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
-    - name: Concesión de permisos para registros de aplicaciones ilimitados
+      href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Creación de registros de aplicaciones ilimitadas
       href: roles-quickstart-app-registration-limits.md
     - name: Establecimiento de la expiración de grupos
       href: groups-quickstart-expiration.md
@@ -165,18 +165,24 @@
           href: directory-manage-roles-portal.md
         - name: Roles personalizados
           items:
-            - name: Roles personalizados
+            - name: Introducción a los roles personalizados
               href: roles-custom-overview.md
             - name: Crear un rol personalizado
               href: roles-create-custom.md
             - name: Visualización de las asignaciones de roles personalizados
               href: roles-view-assignments.md
-            - name: Asignación de roles en el centro de administración de Azure AD
+            - name: Asignación de roles personalizados en Azure Portal
               href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
             - name: Asignación de roles personalizados en PowerShell
               href: roles-assign-powershell.md
+            - name: Asignación de roles personalizados para aplicaciones empresariales
+              href: custom-enterprise-apps.md
             - name: Permisos de roles personalizados
-              href: roles-custom-available-permissions.md
+              items:
+                - name: Permisos del registro de aplicaciones
+                  href: roles-custom-available-permissions.md
+                - name: Permisos de aplicaciones empresariales
+                  href: custom-enterprise-app-permissions.md
             - name: Delegación de permisos de administración de aplicaciones
               href: roles-delegate-app-roles.md
         - name: Uso de grupos para las asignaciones de roles

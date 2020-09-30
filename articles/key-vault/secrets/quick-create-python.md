@@ -3,151 +3,65 @@ title: 'Inicio rápido: biblioteca cliente de Azure Key Vault para Python, admin
 description: Obtenga información sobre cómo crear, recuperar y eliminar secretos desde una instancia de Azure Key Vault mediante la biblioteca cliente de Python
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 10/20/2019
+ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: f1f044eb3af35019eaf010e118bc4a5814269e9e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: cd8a5751c018b9b3b3b2ef96765545f2edab685b
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378564"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489211"
 ---
 # <a name="quickstart-azure-key-vault-secrets-client-library-for-python"></a>Inicio rápido: Biblioteca cliente d secretos de Azure Key Vault para Python
 
-Introducción a la biblioteca cliente de Azure Key Vault para Python. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
-
-Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por servicios y aplicaciones en la nube. Use la biblioteca cliente de Key Vault para Python para:
-
-- Aumentar la seguridad y el control sobre claves y contraseñas
-- Crear e importar claves de cifrado en minutos
-- Reducir la latencia con escala en la nube y redundancia global
-- Simplificar y automatizar tareas para certificados TLS/SSL
-- Utilizar módulos HSM con certificación FIPS 140-2 nivel 2
+Introducción a la biblioteca cliente de Azure Key Vault para Python. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. Si usa Key Vault para almacenar secretos, no tendrá que almacenarlos en el código, lo que aumenta la seguridad de las aplicaciones.
 
 [Documentación de referencia de API](/python/api/overview/azure/keyvault-secrets-readme?view=azure-python) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets) | [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-keyvault-secrets/)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="set-up-your-local-environment"></a>Configuración de un entorno local
 
-- Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Python 2.7, 3.5.3 o versiones posteriores
-- [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/)
+[!INCLUDE [Set up your local environment](../../../includes/key-vault-python-qs-setup.md)]
 
-En esta guía de inicio rápido se supone que está ejecutando la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) en una ventana de terminal de Linux.
+7. Instale la biblioteca de secretos de Key Vault:
 
-## <a name="setting-up"></a>Instalación
+    ```terminal
+    pip install azure-keyvault-secrets
+    ```
 
-### <a name="install-the-package"></a>Instalar el paquete
+## <a name="create-a-resource-group-and-key-vault"></a>Creación de un grupo de recursos y de un almacén de claves
 
-En la ventana de la consola, instale la biblioteca de secretos de Azure Key Vault para Python.
+[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-python-qs-rg-kv-creation.md)]
 
-```console
-pip install azure-keyvault-secrets
-```
+## <a name="give-the-service-principal-access-to-your-key-vault"></a>Acceso de la entidad de servicio al almacén de claves
 
-Para este inicio rápido, deberá instalar también el paquete azure.identity:
+Ejecute el siguiente comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) para autorizar a la entidad de servicio para realizar las operaciones get, list y set en los secretos. Este comando utiliza las variables de entorno `KEY_VAULT_NAME` y `AZURE_CLIENT_ID` creadas en los pasos anteriores.
 
-```console
-pip install azure.identity
-```
-
-### <a name="create-a-resource-group-and-key-vault"></a>Creación de un grupo de recursos y de un almacén de claves
-
-[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
-
-### <a name="create-a-service-principal"></a>Creación de una entidad de servicio
-
-[!INCLUDE [Create a service principal](../../../includes/key-vault-sp-creation.md)]
-
-#### <a name="give-the-service-principal-access-to-your-key-vault"></a>Acceso de la entidad de servicio al almacén de claves
-
-[!INCLUDE [Give the service principal access to your key vault](../../../includes/key-vault-sp-kv-access.md)]
-
-#### <a name="set-environmental-variables"></a>Establecimiento de variables de entorno
-
-[!INCLUDE [Set environmental variables](../../../includes/key-vault-set-environmental-variables.md)]
-
-## <a name="object-model"></a>Modelo de objetos
-
-La biblioteca cliente de Azure Key Vault para Python le permite administrar las claves y los recursos relacionados, como certificados y secretos. Los ejemplos de código siguientes le mostrarán cómo crear un cliente y cómo establecer, recuperar y eliminar un secreto.
-
-La aplicación de ejemplo que muestra operaciones similares a las que se muestran en este artículo, así como otras características de Key Vault, está disponible en [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets/samples).
-
-## <a name="code-examples"></a>Ejemplos de código
-
-### <a name="add-directives"></a>Adición de directivas
-
-Agregue las siguientes directivas al principio del código:
-
-```python
-import os
-from azure.keyvault.secrets import SecretClient
-from azure.identity import DefaultAzureCredential
-```
-
-### <a name="authenticate-and-create-a-client"></a>Autenticación y creación de un cliente
-
-La autenticación en el almacén de claves y la creación de un cliente de almacén de claves depende de las variables de entorno en el paso [Establecimiento de variables de entorno](#set-environmental-variables) anterior. El nombre del almacén de claves se expande al URI del almacén de claves, con el formato "https://<nombre-de-su-almacén-de-claves>.vault.azure.net".
-
-```python
-credential = DefaultAzureCredential()
-
-client = SecretClient(vault_url=KVUri, credential=credential)
-```
-
-### <a name="save-a-secret"></a>Almacenamiento de un secreto
-
-Ahora que la aplicación se ha autenticado, puede colocar un secreto en el almacén de claves mediante el [método client.set_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#set-secret-name--value----kwargs-). Esto requiere un nombre para el secreto; en este ejemplo, se usará "mySecret".  
-
-```python
-client.set_secret(secretName, secretValue)
-```
-
-Puede comprobar que el secreto se ha establecido con el comando [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show):
+# <a name="cmd"></a>[cmd](#tab/cmd)
 
 ```azurecli
-az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
+az keyvault set-policy --name %KEY_VAULT_NAME% --spn %AZURE_CLIENT_ID% --resource-group KeyVault-PythonQS-rg --secret-permissions delete get list set 
 ```
 
-### <a name="retrieve-a-secret"></a>Recuperación de un secreto
-
-Ahora puede recuperar el valor previamente establecido con el [método get_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#get-secret-name--version-none----kwargs-).
-
-```python
-retrieved_secret = client.get_secret(secretName)
- ```
-
-El secreto se guarda ahora como `retrieved_secret.value`.
-
-### <a name="delete-a-secret"></a>Eliminación de un secreto
-
-Por último, se va a eliminar el secreto del almacén de claves con el [método begin_delete_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#begin-delete-secret-name----kwargs-).
-
-```python
-client.begin_delete_secret(secretName)
-```
-
-Puede comprobar que el secreto ya no está con el comando [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show):
+# <a name="bash"></a>[bash](#tab/bash)
 
 ```azurecli
-az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
+az keyvault set-policy --name $KEY_VAULT_NAME --spn $AZURE_CLIENT_ID --resource-group KeyVault-PythonQS-rg --secret-permissions delete get list set 
 ```
 
-## <a name="clean-up-resources"></a>Limpieza de recursos
+---
 
-Cuando ya no lo necesite, puede usar la CLI de Azure o Azure PowerShell para quitar el almacén de claves y el grupo de recursos correspondiente.
+Este comando utiliza las variables de entorno `KEY_VAULT_NAME` y `AZURE_CLIENT_ID` creadas en los pasos anteriores.
 
-```azurecli
-az group delete -g "myResourceGroup"
-```
+Para más información, consulte [Asignación de una directiva de acceso: CLI ](../general/assign-access-policy-cli.md).
 
-```azurepowershell
-Remove-AzResourceGroup -Name "myResourceGroup"
-```
+## <a name="create-the-sample-code"></a>Creación del código de ejemplo
 
-## <a name="sample-code"></a>Código de ejemplo
+La biblioteca cliente de Azure Key Vault para Python permite administrar tanto secretos como recursos similares, como certificados y claves criptográficas. El siguiente código de ejemplo muestra cómo crear un cliente y cómo establecer, recuperar y eliminar un secreto.
+
+Cree un archivo llamado *kv_secrets.py* que contenga este código.
 
 ```python
 import os
@@ -161,20 +75,14 @@ KVUri = f"https://{keyVaultName}.vault.azure.net"
 credential = DefaultAzureCredential()
 client = SecretClient(vault_url=KVUri, credential=credential)
 
-secretName = "mySecret"
+secretName = input("Input a name for your secret > ")
+secretValue = input("Input a value for your secret > ")
 
-print("Input the value of your secret > ")
-secretValue = raw_input()
-
-print(f"Creating a secret in {keyVaultName} called '{secretName}' with the value '{secretValue}` ...")
+print(f"Creating a secret in {keyVaultName} called '{secretName}' with the value '{secretValue}' ...")
 
 client.set_secret(secretName, secretValue)
 
 print(" done.")
-
-print("Forgetting your secret.")
-secretValue = ""
-print(f"Your secret is {secretValue}.")
 
 print(f"Retrieving your secret from {keyVaultName}.")
 
@@ -183,15 +91,88 @@ retrieved_secret = client.get_secret(secretName)
 print(f"Your secret is '{retrieved_secret.value}'.")
 print(f"Deleting your secret from {keyVaultName} ...")
 
-client.begin_delete_secret(secretName)
+poller = client.begin_delete_secret(secretName)
+deleted_secret = poller.result()
 
 print(" done.")
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="run-the-code"></a>Ejecución del código
 
-En este inicio rápido, ha creado un almacén de claves, ha almacenado un secreto en él y, posteriormente, lo ha recuperado. Para más información sobre Key Vault y cómo integrarlo con las aplicaciones, continúe con los artículos siguientes.
+Asegúrese de que el código de la sección anterior se encuentra en un archivo llamado *kv_secrets.py*. Luego, ejecute el código con el siguiente comando:
+
+```terminal
+python kv_secrets.py
+```
+
+- Si se producen errores de permisos, asegúrese de que ha ejecutado el comando [`az keyvault set-policy`](#give-the-service-principal-access-to-your-key-vault).
+- Al volver a ejecutar el código con el mismo nombre de secreto, se puede producir el error "(Conflict) Secret <name> is currently in a deleted but recoverable state" [(Conflicto) El secreto <name> se ha eliminado, pero se puede recuperar]. Use otro nombre de secreto.
+
+## <a name="code-details"></a>Detalles del código
+
+### <a name="authenticate-and-create-a-client"></a>Autenticación y creación de un cliente
+
+En el código anterior, el objeto [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) usa las variables de entorno que ha creado para la entidad de servicio. Esta credencial se proporciona siempre que se crea un objeto de cliente desde una biblioteca de Azure, como [`SecretClient`](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python), junto con el identificador URI del recurso con el que desea trabajar a través de ese cliente:
+
+```python
+credential = DefaultAzureCredential()
+client = SecretClient(vault_url=KVUri, credential=credential)
+```
+
+### <a name="save-a-secret"></a>Almacenamiento de un secreto
+
+Una vez que haya obtenido el objeto de cliente para el almacén de claves, puede almacenar un secreto mediante el método [set_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#set-secret-name--value----kwargs-): 
+
+```python
+client.set_secret(secretName, secretValue)
+```
+
+La llamada a `set_secret` genera una llamada a la API REST de Azure para el almacén de claves.
+
+Durante el control de la solicitud, Azure autentica la identidad del autor de la llamada (la entidad de servicio) mediante el objeto de credencial que proporcionó al cliente.
+
+También comprueba que el autor de la llamada tiene la autorización necesaria para realizar la acción solicitada. Esta autorización se la concedió a la entidad de servicio anteriormente mediante el comando [`az keyvault set-policy`](#give-the-service-principal-access-to-your-key-vault).
+
+### <a name="retrieve-a-secret"></a>Recuperación de un secreto
+
+Para leer un secreto de Key Vault, use el método [get_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#get-secret-name--version-none----kwargs-):
+
+```python
+retrieved_secret = client.get_secret(secretName)
+ ```
+
+El valor de secreto se incluye en `retrieved_secret.value`.
+
+Los secretos también se pueden recuperar con el comando [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) de la CLI de Azure.
+
+### <a name="delete-a-secret"></a>Eliminación de un secreto
+
+Para eliminar un secreto, use el método [begin_delete_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#begin-delete-secret-name----kwargs-):
+
+```python
+poller = client.begin_delete_secret(secretName)
+deleted_secret = poller.result()
+```
+
+El método `begin_delete_secret` es asincrónico y devuelve un objeto de sondeador. La llamada al método `result` del sondeador espera hasta su finalización.
+
+Para comprobar que el secreto se ha establecido, utilice el comando [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) de la CLI de Azure.
+
+Aun después de haberse eliminado, los secretos permanecen en estado eliminado, pero recuperable, durante un tiempo. Si vuelve a ejecutar el código, use otro nombre de secreto.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si también desea experimentar con [certificados](../certificates/quick-create-python.md) y [claves](../keys/quick-create-python.md), puede volver a usar la instancia de Key Vault que se ha creado en este artículo.
+
+De lo contrario, cuando haya terminado con los recursos creados en este artículo, utilice el siguiente comando para eliminar el grupo de recursos y todos los recursos que contiene:
+
+```azurecli
+az group delete --resource-group KeyVault-PythonQS-rg
+```
+
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Información general de Azure Key Vault](../general/overview.md)
 - [Guía del desarrollador de Azure Key Vault](../general/developers-guide.md)
 - [Procedimientos recomendados de Azure Key Vault](../general/best-practices.md)
+- [Autenticación con Key Vault](../general/authentication.md)

@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 6884062bc5107ecb1e31fc6826a9d847e4d31e89
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: d77cc4cc65eb73aa85a1d54202627cd18d5747b3
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400439"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595995"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Solución de problemas de las directivas de acceso de Azure Key Vault
 
@@ -25,6 +25,14 @@ Después de crear uno o varios almacenes de claves, es probable que desee superv
 ### <a name="how-can-i-monitor-vault-availability-service-latency-periods-or-other-performance-metrics-for-key-vault"></a>¿Cómo se puede supervisar la disponibilidad del almacén, los períodos de latencia del servicio u otras métricas de rendimiento para el almacén de claves?
 
 Cuando empiece a escalar el servicio, aumentará el número de solicitudes que se envían al almacén de claves. Es probable que dicha demanda aumente la latencia de las solicitudes y, en casos extremos, puede hacer que las solicitudes se limiten, lo cual afectará al rendimiento del servicio. Puede supervisar las métricas de rendimiento del almacén de claves y recibir alertas de umbrales específicos en la guía paso a paso para configurar la supervisión [aquí](https://docs.microsoft.com/azure/key-vault/general/alert).
+
+### <a name="i-am-not-able-to-modify-access-policy-how-can-it-be-enabled"></a>No puedo modificar la directiva de acceso, ¿cómo se puede habilitar?
+El usuario debe tener permisos de AAD suficientes para modificar la directiva de acceso. En este caso, el usuario debe tener un rol de colaborador o superior.
+
+### <a name="i-am-seeing-unkwown-policy-error-what-does-that-mean"></a>Aparece el error "Directiva desconocida". ¿Qué significa?
+Hay dos posibilidades diferentes de ver la directiva de acceso en la sección Desconocido:
+* Puede haber un usuario anterior que tuviera acceso y, por alguna razón, que el usuario no exista.
+* Si se ha agregado la directiva de acceso mediante PowerShell y la directiva de acceso se ha agregado para el identificador de objeto de la aplicación en lugar de la entidad de servicio.
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>¿Cómo se puede asignar el control de acceso para cada objeto de almacén de claves? 
 

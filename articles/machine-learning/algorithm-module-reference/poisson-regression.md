@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: 6682d9426ed3fe011fe5c493ec34fcdf0a2b35b7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a1a09357c7f80d4af0198a33a2e0007782ef232f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095143"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905250"
 ---
 # <a name="poisson-regression"></a>Regresión de Poisson
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
 Utilice este módulo para crear un modelo de regresión de Poisson en una canalización. La regresión de Poisson está pensada para predecir valores numéricos, normalmente recuentos. Por lo tanto, debe usar este módulo para crear el modelo de regresión solo si los valores que está intentando predecir se ajustan a las siguientes condiciones:
 
@@ -49,7 +49,7 @@ Dado que la variable de respuesta tiene una distribución de Poisson, el modelo 
 
 ## <a name="how-to-configure-poisson-regression"></a>Configuración de la regresión de Poisson
 
-1. Agregue el módulo **Regresión de Poisson** a su canalización en el diseñador (versión preliminar). Puede encontrar este módulo en **Machine Learning Algorithms** (Algoritmos de aprendizaje automático), en la categoría **Regresión**.
+1. Agregue el módulo **Regresión de Poisson** a su canalización en el diseñador. Puede encontrar este módulo en **Machine Learning Algorithms** (Algoritmos de aprendizaje automático), en la categoría **Regresión**.
 
 2. Agregue un conjunto de datos que contenga datos de entrenamiento del tipo correcto. 
 

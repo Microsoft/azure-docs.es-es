@@ -1,6 +1,6 @@
 ---
-title: Implementación de Azure SQL Edge (versión preliminar) mediante Azure Portal
-description: Información sobre cómo implementar Azure SQL Edge (versión preliminar) mediante Azure Portal
+title: Implementación de Azure SQL Edge mediante Azure Portal
+description: Obtenga información sobre cómo implementar Azure SQL Edge mediante Azure Portal
 keywords: implementación de SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -8,17 +8,17 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: 7af4264860f8d9950515cd5302f03822e7cbac39
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/22/2020
+ms.openlocfilehash: ffd967797a4e586387a0385169672220727f78a7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816871"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886768"
 ---
-# <a name="deploy-azure-sql-edge-preview"></a>Implementación de Azure SQL Edge (versión preliminar) 
+# <a name="deploy-azure-sql-edge"></a>Implementación de Azure SQL Edge 
 
-Azure SQL Edge (versión preliminar) es un motor de base de datos relacional optimizado para implementaciones de IoT y Azure IoT Edge. Proporciona funcionalidades para crear una capa de procesamiento y almacenamiento de datos de alto rendimiento para las aplicaciones y soluciones de IoT. Esta guía de inicio rápido le muestra cómo comenzar a crear un módulo de Azure SQL Edge a través de Azure IoT Edge mediante Azure Portal.
+Azure SQL Edge es un motor de base de datos relacional optimizado para implementaciones de IoT y Azure IoT Edge. Proporciona funcionalidades para crear una capa de procesamiento y almacenamiento de datos de alto rendimiento para las aplicaciones y soluciones de IoT. Esta guía de inicio rápido le muestra cómo comenzar a crear un módulo de Azure SQL Edge a través de Azure IoT Edge mediante Azure Portal.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -28,7 +28,7 @@ Azure SQL Edge (versión preliminar) es un motor de base de datos relacional opt
 * Registre un [dispositivo IoT Edge desde Azure Portal](../iot-edge/how-to-register-device-portal.md).
 * Prepare el dispositivo IoT Edge para [implementar un módulo de IoT Edge desde Azure Portal](../iot-edge/how-to-deploy-modules-portal.md).
 
-> [!NOTE]
+> [!NOTE]   
 > Para implementar una máquina virtual Linux de Azure como un dispositivo IoT Edge, consulte esta [guía de inicio rápido](../iot-edge/quickstart-linux.md).
 
 ## <a name="deploy-sql-edge-module-from-azure-marketplace"></a>Implementación del módulo de SQL Edge desde Azure Marketplace
@@ -51,75 +51,73 @@ Azure Marketplace es un mercado de aplicaciones y servicios en línea en el que 
    |IoT Hub   |  Nombre del IoT Hub en el que está registrado el dispositivo IoT Edge y, a continuación, seleccione la opción "Implementar en un dispositivo"|
    |Nombre de dispositivo IoT Edge  |  Nombre del dispositivo IoT Edge en el que se implementará SQL Edge |
 
-4. En la página **Establecer módulos**, vaya a la sección sobre módulos de implementación y haga clic en **Configurar** en el módulo de SQL Edge. 
+4. En la página **Establecer módulos en el dispositivo**, haga clic en el módulo de Azure SQL Edge en **Módulos de IoT Edge**. El nombre del módulo predeterminado se establece en *AzureSQLEdge*. 
 
-5. En el panel de **Módulos personalizados de IoT Edge**, especifique los valores que desee para las variables de entorno o personalice las opciones de creación y las propiedades deseadas para el módulo. Para obtener una lista completa de las variables de entorno admitidas, consulte [variables de entorno de un contenedor de SQL Server](/sql/linux/sql-server-linux-configure-environment-variables/).
+5. En la sección *configuración del módulo de*  de la hoja **Actualizar módulo IoT Edge**, especifique los valores que desee para *Nombre del módulo IoT Edge*, *Directiva de reinicio* y *Estado deseado*. 
+
+   > [!IMPORTANT]    
+   > No cambie ni actualice la configuración de **URI de la imagen** del módulo.
+
+6. En la sección *Variables de entorno* de la hoja **Actualizar módulo IoT Edge**, especifique los valores que desee para las variables de entorno. Para obtener una lista completa de las variables de entorno de Azure SQL Edge, consulte [Configuración mediante variables de entorno](configure.md#configure-by-using-environment-variables). Se han definido las siguientes variables de entorno predeterminadas para el módulo. 
 
    |**Parámetro**  |**Descripción**|
    |---------|---------|
    | Nombre | Nombre del módulo. |
-   |SA_PASSWORD  | Especifica una contraseña segura para la cuenta de administrador de SQL Edge. |
-   |MSSQL_LCID   | Establece el identificador de idioma que se usará para SQL Server. Por ejemplo, 1036 es francés. |
-   |MSSQL_COLLATION | Establece la intercalación predeterminada para SQL Server. Esta configuración invalida la asignación predeterminada de identificador de idioma (LCID) a la intercalación. |
+   | MSSQL_SA_PASSWORD  | Cambie el valor predeterminado para especificar una contraseña segura para la cuenta de administrador de SQL Edge. |
+   | MSSQL_LCID   | Cambie el valor predeterminado para establecer el identificador de idioma deseado que se va a usar para SQL Edge. Por ejemplo, 1036 es francés. |
+   | MSSQL_COLLATION | Cambie el valor predeterminado para establecer la intercalación predeterminada para SQL Edge. Esta configuración invalida la asignación predeterminada de identificador de idioma (LCID) a la intercalación. |
 
-   > [!NOTE]
-   > No cambie ni actualice el **URI de la imagen** o la configuración de **ACCEPT_EULA** del módulo.
+   > [!IMPORTANT]    
+   > No cambie ni actualice la variable de entorno **ACCEPT_EULA** para el módulo.
 
-6. En el panel de **Módulos personalizados de IoT Edge**, actualice el valor deseado de las opciones de creación del contenedor para el **puerto del host**. Si necesita implementar más de un módulo de SQL DB Edge, asegúrese de actualizar la opción de montajes para crear un nuevo origen y par de destino para el volumen persistente. Para obtener más información sobre los montajes y el volumen, consulte el artículo sobre cómo [usar volúmenes](https://docs.docker.com/storage/volumes/) en la documentación de Docker. 
-
-   ```json
-       {
-         "HostConfig": {
-           "Binds": [
-             "sqlvolume:/sqlvolume"
-           ],
-           "PortBindings": {
-             "1433/tcp": [
-               {
-                 "HostPort": "1433"
-               }
-             ]
-           },
-           "Mounts": [
-             {
-               "Type": "volume",
-               "Source": "sqlvolume",
-               "Target": "/var/opt/mssql"
-             }
-           ]
-         },
-         "Env": [
-           "MSSQL_AGENT_ENABLED=TRUE",
-           "MSSQL_PID=Developer"
-         ]
-       }
-   ```
-
-7. En el panel de **módulos personalizados de IoT Edge**, actualice las *propiedades deseadas del módulo gemelo establecido* para que incluyan la ubicación del paquete SQL y la información del trabajo de análisis de streaming. Estos dos campos son opcionales y deben usarse si quiere implementar el módulo de SQL Edge con una base de datos y un trabajo de streaming.
+7. En la sección *Opciones de creación del contenedor* de la hoja **Actualizar módulo IoT Edge**, actualice las siguientes opciones según sea necesario. 
+   - **Puerto de host:**  Asigne el puerto de host especificado al puerto 1433 (puerto SQL predeterminado) en el contenedor.
+   - **Enlaces** y **Montajes:** Si necesita implementar más de un módulo de SQL Edge, asegúrese de actualizar la opción de montajes a fin de crear un nuevo par de origen y destino para el volumen persistente. Para obtener más información sobre los montajes y el volumen, consulte el artículo sobre cómo [usar volúmenes](https://docs.docker.com/storage/volumes/) en la documentación de Docker. 
 
    ```json
-       {
-         "properties.desired":
-         {
-           "SqlPackage": "<Optional_DACPAC_ZIP_SAS_URL>",
-           "ASAJobInfo": "<Optional_ASA_Job_ZIP_SAS_URL>"
-         }
-       }
+   {
+    "HostConfig": {
+        "CapAdd": [
+            "SYS_PTRACE"
+        ],
+        "Binds": [
+            "sqlvolume:/sqlvolume"
+        ],
+        "PortBindings": {
+            "1433/tcp": [
+                {
+                    "HostPort": "1433"
+                }
+            ]
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Source": "sqlvolume",
+                "Target": "/var/opt/mssql"
+            }
+        ]
+    },
+    "Env": [
+        "MSSQL_AGENT_ENABLED=TRUE",
+        "ClientTransportType=AMQP_TCP_Only",
+        "PlanId=asde-developer-on-iot-edge"
+    ]
+   }
    ```
-
-8. En el panel de **Módulos personalizados de IoT Edge**, establezca *Directiva de reinicio* en siempre y *Estado deseado* en ejecución.
-9. En el panel de **Módulos personalizados de IoT Edge**, haga clic en **Guardar**.
-10. En la página **Establecer módulos**, haga clic en **Siguiente**.
-11. En la sección **Especificar ruta (opcional)** de la página **Establecer módulos**, especifique las rutas para la comunicación entre módulo y módulo o entre módulo y IoT Edge Hub; consulte [Implementación de módulos y establecimiento de rutas en IoT Edge](../iot-edge/module-composition.md).
-12. Haga clic en **Next**.
-13. Haga clic en **Enviar**.
+   > [!IMPORTANT]    
+   > No cambie la variable de entorno `PlanId` definida en la opción de crear configuración. Si se cambia este valor, el contenedor de Azure SQL Edge no se iniciará. 
+   
+8. En el panel **Actualizar módulo IoT Edge**, haga clic en **Actualizar**.
+9. En la página **Establecer módulos en el dispositivo**, haga clic en **Siguiente: Rutas >** si necesita definir rutas para su implementación. De lo contrario, haga clic en **Revisar + crear**. Para obtener más información sobre la configuración de rutas, vea [Implementación de módulos y establecimiento de rutas en IoT Edge](../iot-edge/module-composition.md).
+11. En el panel **Actualizar módulo IoT Edge**, haga clic en **Crear**.
 
 ## <a name="connect-to-azure-sql-edge"></a>Conexión a Azure SQL Edge
 
 En los pasos siguientes, se usa la herramienta de línea de comandos de Azure SQL Edge, **sqlcmd**, dentro del contenedor para conectarse a Azure SQL Edge.
 
-> [!NOTE]
-> La herramienta sqlcmd no está disponible en la versión ARM64 de los contenedores de SQL Edge.
+> [!NOTE]      
+> Las herramientas de línea de comandos (sqlcmd) de SQL no están disponibles en la versión ARM64 de los contenedores perimetrales de Azure SQL Edge.
 
 1. Use el comando `docker exec -it` para iniciar un shell de Bash interactivo dentro de su contenedor en ejecución. En el ejemplo siguiente, `azuresqledge` es el nombre especificado por el parámetro `Name` del módulo de IoT Edge.
 
@@ -133,14 +131,14 @@ En los pasos siguientes, se usa la herramienta de línea de comandos de Azure SQ
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"
    ```
 
-   > [!TIP]
+   > [!TIP]    
    > Puede omitir la contraseña en la línea de comandos para que se le solicite escribirla.
 
 3. Si se realiza correctamente, debe ver un símbolo de sistema de **sqlcmd**: `1>`.
 
 ## <a name="create-and-query-data"></a>Creación y consulta de datos
 
-Las secciones siguientes le guían en el uso de **sqlcmd** y Transact-SQL para crear una base de datos, agregar datos y ejecutar una consulta simple.
+En las secciones siguientes se le guía por el uso de **sqlcmd** y Transact-SQL para crear una base de datos, agregar datos y ejecutar una consulta.
 
 ### <a name="create-a-new-database"></a>Creación de una base de datos
 
@@ -222,6 +220,7 @@ Con esta guía de inicio rápido, ha implementado un módulo de SQL Edge en un d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Aprendizaje automático e inteligencia artificial con ONNX en SQL Edge](onnx-overview.md).
-- [Creación de una solución de IoT de un extremo a otro con SQL Edge mediante IoT Edge](tutorial-deploy-azure-resources.md).
+- [Aprendizaje automático e inteligencia artificial con ONNX en SQL Edge](onnx-overview.md)
+- [Creación de una solución de IoT de un extremo a otro con SQL Edge mediante IoT Edge](tutorial-deploy-azure-resources.md)
 - [Streaming de datos en Azure SQL Edge](stream-data.md)
+- [Solución de errores de implementación](troubleshoot.md)

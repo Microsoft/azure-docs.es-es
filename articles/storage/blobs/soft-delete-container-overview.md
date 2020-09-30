@@ -10,12 +10,12 @@ ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 60c7ac6a86c963a4a133f06ba6d9d602cb9090d0
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f41caf61ac23b05ba0ff95d785be2e7449adf75d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854534"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228637"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Eliminación temporal de contenedores (versión preliminar)
 
@@ -25,7 +25,7 @@ Para una protección integral de los datos de blobs, Microsoft recomienda habili
 
 - Eliminación temporal de contenedores, para proteger frente a la eliminación o sobrescritura accidentales de un contenedor. Para obtener información sobre cómo habilitar la eliminación temporal de contenedores, consulte [Habilitación y administración de la eliminación temporal de contenedores](soft-delete-container-enable.md).
 - Eliminación temporal de blobs, para proteger frente a la eliminación o sobrescritura accidentales de un blob individual. Para obtener información sobre cómo habilitar la eliminación temporal de blobs, consulte [Eliminación temporal para blobs](soft-delete-blob-overview.md).
-- Control de versiones de blobs (versión preliminar), para conservar automáticamente las versiones anteriores de un blob. Cuando el control de versiones de blobs está habilitado, puede restaurar una versión anterior de un blob para recuperar los datos si se modifican o eliminan por error. Para obtener información sobre cómo habilitar el control de versiones de blobs, consulte [Habilitación y administración del control de versiones de blobs](versioning-enable.md).
+- Control de versiones de blobs, para conservar automáticamente las versiones anteriores de un blob. Cuando el control de versiones de blobs está habilitado, puede restaurar una versión anterior de un blob para recuperar los datos si se modifican o eliminan por error. Para obtener información sobre cómo habilitar el control de versiones de blobs, consulte [Habilitación y administración del control de versiones de blobs](versioning-enable.md).
 
 > [!WARNING]
 > No se puede deshacer la eliminación de una cuenta de almacenamiento. La eliminación temporal no protege contra la eliminación de una cuenta de almacenamiento. Para evitar la eliminación accidental de una cuenta de almacenamiento, configure el bloqueo **CannotDelete** en el recurso de la cuenta de almacenamiento. Para obtener más información sobre el bloqueo de recursos de Azure, vea [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/management/lock-resources.md).
@@ -123,4 +123,4 @@ No hay ningún cargo adicional para habilitar la eliminación temporal de conten
 
 - [Configuración de la eliminación temporal de contenedores](soft-delete-container-enable.md)
 - [Eliminación temporal para blobs](soft-delete-blob-overview.md)
-- [Versiones de blobs (versión preliminar)](versioning-overview.md)
+- [Control de versiones de blobs](versioning-overview.md)

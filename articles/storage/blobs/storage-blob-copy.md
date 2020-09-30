@@ -4,24 +4,25 @@ description: Obtenga información sobre cómo copiar un blob en la cuenta de Azu
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/20/2019
+ms.date: 09/01/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: ce0c16d43e6de9bada5d747949e370eb83f85826
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a7ca195bdfb05baff6100b3481903f9ca0841dc6
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446862"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320671"
 ---
 # <a name="copy-a-blob-with-net"></a>Copia de un blob con .NET
 
-En este artículo se muestra cómo copiar un blob con una cuenta de Azure Storage. También se muestra cómo anular una operación de copia asincrónica. El código de ejemplo usa la [biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+En este artículo se muestra cómo copiar un blob con una cuenta de Azure Storage. También se muestra cómo anular una operación de copia asincrónica. El código de ejemplo usa la [biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage).
 
 ## <a name="about-copying-blobs"></a>Acerca de la copia de blobs
 
-Cuando se copia un blob en la misma cuenta de almacenamiento, se trata de una operación sincrónica. Cuando la copia se realiza entre cuentas, se trata de una operación asincrónica. Los métodos [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) y [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) devuelven un valor de Id. de copia que se usa para comprobar el estado de la operación de copia o anularla.
+Cuando se copia un blob en la misma cuenta de almacenamiento, se trata de una operación sincrónica. Cuando la copia se realiza entre cuentas, se trata de una operación asincrónica.
 
 El blob de origen para una operación de copia puede ser un blob en bloques, un blob en anexos, un blob en páginas o una instantánea. Si el blob de destino ya existe, debe ser del mismo tipo que el blob de origen. Si existe un blob de destino, se sobrescribirá.
 
@@ -30,8 +31,6 @@ No se puede modificar el blob de destino mientras haya una operación de copia e
 Siempre se copia el blob o el archivo de origen completo, ya que no se admite la copia de un intervalo de bytes o un conjunto de bloques.
 
 Cuando se copia un blob, las propiedades del sistema al que pertenece se copian en el blob de destino con los mismos valores.
-
-Para todos los tipos de blob, puede comprobar la propiedad [CopyState.Status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet) en el blob de destino para obtener el estado de la operación de copia. El blob final se confirmará cuando se complete la copia.
 
 Una operación de copia puede tomar cualquiera de las siguientes formas:
 
@@ -43,12 +42,29 @@ Una operación de copia puede tomar cualquiera de las siguientes formas:
 
 ## <a name="copy-a-blob"></a>Copia de un blob
 
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
 Para crear un blob, llame a uno de los métodos siguientes:
 
-- [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet)
-- [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet)
+- [StartCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuri)
+- [StartCopyFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuriasync)
 
-En el ejemplo de código siguiente se obtiene una referencia a un blob creado previamente y esta se copia en un nuevo blob del mismo contenedor:
+Los métodos **StartCopyFromUri** y **StartCopyFromUriAsync** devuelven un objeto [CopyFromUriOperation](/dotnet/api/azure.storage.blobs.models.copyfromurioperation) que contiene información sobre la operación de copia.
+
+En el ejemplo de código siguiente se obtiene un objeto [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) que representa un blob creado previamente y se copia en un nuevo blob del mismo contenedor:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CopyBlob.cs" id="Snippet_CopyBlob":::
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
+Para crear un blob, llame a uno de los métodos siguientes:
+
+- [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy)
+- [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync)
+
+Los métodos **StartCopy** y **StartCopyAsync** devuelven un valor de Id. de copia que se usa para comprobar el estado de la operación de copia o anularla.
+
+En el ejemplo de código siguiente se obtiene una referencia a un blob creado previamente y se copia en un nuevo blob del mismo contenedor:
 
 ```csharp
 private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
@@ -62,7 +78,8 @@ private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
         // Get a block blob from the container to use as the source.
         sourceBlob = container.ListBlobs().OfType<CloudBlockBlob>().FirstOrDefault();
 
-        // Lease the source blob for the copy operation to prevent another client from modifying it.
+        // Lease the source blob for the copy operation 
+        // to prevent another client from modifying it.
         // Specifying null for the lease interval creates an infinite lease.
         leaseId = await sourceBlob.AcquireLeaseAsync(null);
 
@@ -82,7 +99,6 @@ private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
             Console.WriteLine("Completion time: {0}", destBlob.CopyState.CompletionTime);
             Console.WriteLine("Bytes copied: {0}", destBlob.CopyState.BytesCopied.ToString());
             Console.WriteLine("Total bytes: {0}", destBlob.CopyState.TotalBytes.ToString());
-            Console.WriteLine();
         }
     }
     catch (StorageException e)
@@ -107,13 +123,29 @@ private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
 }
 ```
 
+---
+
 ## <a name="abort-a-blob-copy-operation"></a>Anulación de una operación de copia de blobs
 
-Al anular una operación de copia, se obtiene un blob de destino con una longitud cero para los blobs en bloques, anexos y páginas. Sin embargo, los metadatos del blob de destino contendrán los nuevos valores ya que se copiarán desde el blob de origen o se establecerán de forma explícita en la llamada a [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) o [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet). Para conservar los metadatos originales anteriores a la copia, cree una instantánea del blob de destino antes de llamar a `StartCopy` o `StartCopyAsync`.
+Al anular una operación de copia, se obtiene un blob de destino con una longitud cero para los blobs en bloques, anexos y páginas. Sin embargo, los nuevos valores de los metadatos del blob de destino se copiarán del blob de origen o se establecerán explícitamente en la llamada a la operación de copia. Para conservar los metadatos originales anteriores a la copia, cree una instantánea del blob de destino antes de llamar a uno de los métodos de copia.
 
-Cuando se anula una operación de copia de blobs en curso, el valor de [CopyState.Status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet#Microsoft_Azure_Storage_Blob_CopyState_Status) del blob de destino se establece en [CopyStatus.Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus?view=azure-dotnet).
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-Los métodos [AbortCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopy?view=azure-dotnet) y [AbortCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopyasync?view=azure-dotnet) cancelan una operación de copia de blobs en curso y dejan un blob de destino con longitud cero y metadatos completos.
+Puede comprobar la propiedad [BlobProperties.CopyStatus](/dotnet/api/azure.storage.blobs.models.blobproperties.copystatus) en el blob de destino para obtener el estado de la operación de copia. El blob final se confirmará cuando se complete la copia.
+
+Cuando se anula una operación de copia de blobs en curso, el estado de copia del blob se establece en [CopyState.Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus).
+
+Los métodos [AbortCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.abortcopyfromuri) y [AbortCopyFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.abortcopyfromuriasync) cancelan una operación de copia de blobs en curso.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CopyBlob.cs" id="Snippet_StopBlobCopy":::
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
+Puede comprobar la propiedad [CopyState.Status](/dotnet/api/microsoft.azure.storage.blob.copystate.status) en el blob de destino para obtener el estado de la operación de copia. El blob final se confirmará cuando se complete la copia.
+
+Cuando se anula una operación de copia de blobs en curso, el estado de copia del blob se establece en [CopyState.Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus).
+
+Los métodos [AbortCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopy) y [AbortCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopyasync) cancelan una operación de copia de blobs en curso.
 
 ```csharp
 // Fetch the destination blob's properties before checking the copy state.
@@ -126,6 +158,8 @@ if (destBlob.CopyState.Status == CopyStatus.Pending)
     Console.WriteLine("Copy operation {0} has been aborted.", copyId);
 }
 ```
+
+---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 

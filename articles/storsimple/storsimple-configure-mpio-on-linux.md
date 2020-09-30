@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 3ce84d3c03c2a24406629b8687c4fb8973809166
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 75ccfe7a8e62e519b1df89792211433260a6abf6
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183642"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294720"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configuración de MPIO en un host de StorSimple que ejecuta CentOS
 Este artículo explica los pasos necesarios para configurar E/S de múltiples rutas (MPIO) en el servidor host de Centos 6.6. El servidor host está conectado al dispositivo de Microsoft Azure StorSimple para una alta disponibilidad a través de los iniciadores iSCSI. Describe detalladamente la detección automática de dispositivos de múltiples rutas de acceso y el programa de instalación específico solo para los volúmenes de StorSimple.
@@ -377,9 +377,9 @@ Repita este comando para todas las interfaces de red conectada en el destino iSC
 `iscsiadm -m node --login -T <TARGET_IQN>`
 
 
-Q. No estoy seguro de si el dispositivo está en la lista blanca.
+Q. No sé con certeza si mi dispositivo está permitido.
 
-A. Para comprobar si el dispositivo se encuentra en la lista blanca, use el siguiente comando interactivo para solucionar problemas:
+A. Para comprobar si el dispositivo está permitido, use el siguiente comando interactivo para solucionar problemas:
 
 ```console
 multipathd -k
@@ -449,4 +449,3 @@ Cuando está configurando MPIO en el host Linux, es posible que tenga que hacer 
 
 * [Configuración de MPIO en CentOS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)
 * [Guía de aprendizaje de Linux](http://linux-training.be/linuxsys.pdf)
-

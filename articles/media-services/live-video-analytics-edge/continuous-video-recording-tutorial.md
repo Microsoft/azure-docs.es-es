@@ -3,12 +3,12 @@ title: 'Tutorial de grabación continua de vídeo en la nube y reproducción des
 description: En este tutorial aprenderá a usar Azure Live Video Analytics en Azure IoT Edge para grabar continuamente vídeo en la nube y transmitir cualquier parte de ese vídeo con Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 60b93aac3a0da4bbc49f83c5cbd43191693cae50
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c94f87068d003fc260d861cb99c60326d4a53258
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043481"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566810"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Grabación continua de vídeo en la nube y reproducción desde la nube
 
@@ -61,7 +61,8 @@ Como se explica en el artículo [Concepto de grafo multimedia](media-graph-conce
  
  Para lograr la CVR, debe capturar el vídeo desde una cámara compatible con RTSP y grabarlo continuamente en un [recurso de Azure Media Services](terminology.md#asset). El diagrama muestra una representación gráfica de ese grafo multimedia.
 
-![Grafo multimedia](./media/continuous-video-recording-tutorial/continuous-video-recording-overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/continuous-video-recording-tutorial/continuous-video-recording-overview.svg" alt-text="Grafo de elementos multimedia":::
 
 En este tutorial, usará un módulo IoT Edge creado con [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) para simular una cámara RTSP. Dentro del grafo multimedia, usará un nodo de [origen RTSP](media-graph-concept.md#rtsp-source) para obtener la fuente en directo y enviar ese vídeo al [nodo receptor del recurso](media-graph-concept.md#asset-sink), que graba el vídeo en un recurso.
 
@@ -352,7 +353,7 @@ Puede examinar el recurso de Media Services que creó el grafo multimedia; para 
 1. Busque la cuenta de Media Services entre los recursos que tiene en la suscripción y abra el panel de cuentas.
 1. Seleccione **Recursos** en la lista de **Media Services**.
 
-    ![Recursos](./media/continuous-video-recording-tutorial/assets.png)
+    ![Recursos de Media Services](./media/continuous-video-recording-tutorial/assets.png)
 1. Encontrará un recurso que aparece con el nombre sampleAsset-CVRToAMSAsset-Sample-Graph-1. Este es el patrón de nomenclatura elegido en el archivo de topología del grafo.
 1. Seleccione el recurso.
 1. En la página de detalles del recurso, seleccione **Crear nuevo** bajo el cuadro de texto **Dirección URL de streaming**.

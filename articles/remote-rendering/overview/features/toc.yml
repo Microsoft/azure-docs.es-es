@@ -4,6 +4,8 @@
   href: debug-rendering.md
 - name: Invalidación de estado jerárquico
   href: override-hierarchical-state.md
+- name: Cámara
+  href: camera.md
 - name: Espacio provisional
   href: stage-space.md
 - name: Reproyección de fase tardía

@@ -1,19 +1,19 @@
 ---
 title: Creación de directivas de copia de seguridad mediante la API REST
-description: En este artículo obtendrá información sobre cómo crear y administrar directivas de copia de seguridad (programación y retención) mediante la API REST.
+description: En este artículo, aprenderá a crear y administrar directivas de copia de seguridad (programación y retención) mediante la API REST.
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 6a045ff1653c58a3a583b6c64941fff26f480861
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e4e6f5b5cf28c3830a91a494ea60680eee1546f6
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826399"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179613"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Creación de directivas de copia de seguridad de Azure Recovery Services mediante API REST
 
-Los pasos para crear una directiva de copia de seguridad para un almacén de Azure Recovery Services se describen en el [documento de API REST de directiva](/rest/api/backup/protectionpolicies/createorupdate). Vamos a usar este documento como referencia para crear una directiva para la copia de seguridad de Azure VM.
+Los pasos para crear una directiva de copia de seguridad para un almacén de Azure Recovery Services se describen en el [documento de API REST de directiva](/rest/api/backup/protectionpolicies/createorupdate). Vamos a usar este documento como referencia para crear una directiva de copia de seguridad de máquinas virtuales de Azure.
 
 ## <a name="create-or-update-a-policy"></a>Creación o actualización de una directiva
 

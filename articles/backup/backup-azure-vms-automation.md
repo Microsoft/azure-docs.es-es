@@ -3,12 +3,12 @@ title: Copia de seguridad y recuperación de máquinas virtuales con PowerShell
 description: Describe cómo realizar una copia de seguridad y llevar a cabo la recuperación de máquinas virtuales de Azure mediante Azure Backup con PowerShell.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: f34dc0b5ce4b230b3bc2408bd011180cb855cf17
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: e4564ba2b6109296a7383fb4b056c2f4b1890fda
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892412"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178138"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Copia de seguridad y restauración de máquinas virtuales de con PowerShell
 

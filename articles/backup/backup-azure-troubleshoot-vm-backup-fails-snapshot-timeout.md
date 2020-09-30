@@ -4,12 +4,12 @@ description: Síntomas, causas y soluciones de errores de Azure Backup relaciona
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: a3fe61bf5d116d257ed7aeb32226a437d0193c54
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: e5fc26231cc5d3ad412371c2f8c187b2d0033ee4
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892395"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182044"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -31,7 +31,7 @@ Los errores de copia de seguridad más comunes se pueden resolver automáticamen
 - **Asegúrese de que el servicio de agente invitado de la máquina virtual de Azure se ha iniciado y actualizado**:
   - En una máquina virtual de Windows:
     - Vaya a **services.msc** y asegúrese de que el **servicio de agente invitado de la máquina virtual de Azure de Windows** esté en funcionamiento. Además, asegúrese de que esté instalada la [versión más reciente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Para más información, consulte el artículo sobre [problemas del agente invitado de la máquina virtual de Windows](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms).
-    - El agente de máquina virtual de Azure se instala de forma predeterminada en cualquier máquina virtual Windows a partir de una imagen de Azure Marketplace desde el portal, PowerShell, la interfaz de la línea de comandos o una plantilla de Azure Resource Manager. Es posible que sea necesaria una [instalación manual del agente](../virtual-machines/extensions/agent-windows.md#manual-installation) cuando crea una imagen de máquina virtual personalizada que se implementa en Azure.
+    - El agente de máquina virtual de Azure se instala de forma predeterminada en cualquier máquina virtual Windows a partir de una imagen de Azure Marketplace desde el portal, PowerShell, la interfaz de la línea de comandos o una plantilla de Azure Resource Manager. Cuando se crea una imagen de máquina virtual personalizada que se implementa en Azure, es posible que sea necesaria una [instalación manual del agente](../virtual-machines/extensions/agent-windows.md#manual-installation).
     - Revise la matriz de compatibilidad para comprobar si la máquina virtual se ejecuta en el [sistema operativo Windows compatible](backup-support-matrix-iaas.md#operating-system-support-windows).
   - En una máquina virtual de Linux,
     - Asegúrese de que el servicio de agente invitado de la máquina virtual de Azure se está ejecutando mediante el comando `ps-e`. Además, asegúrese de que esté instalada la [versión más reciente](../virtual-machines/extensions/update-linux-agent.md). Para más información, consulte el artículo sobre [problemas del agente invitado de la máquina virtual de Linux](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
@@ -65,7 +65,7 @@ Azure Backup usa la Extensión de instantánea de máquina virtual para realizar
 
 - **Asegúrese de que el servicio de escritura de VSS esté en funcionamiento**: Siga estos pasos para [solucionar problemas de escritura de VSS](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state).
 - **Siga las directrices de los procedimientos recomendados de copia de seguridad**: Revise los [procedimientos recomendados para habilitar la copia de seguridad de las máquinas virtuales de Azure](backup-azure-vms-introduction.md#best-practices).
-- **Revise las directrices de los discos cifrados**: Si va a habilitar la copia de seguridad de las máquinas virtuales con un disco cifrado, asegúrese de haber proporcionado todos los permisos necesarios. Para más información, consulte el artículo sobre la [copia de seguridad y restauración de las máquinas virtuales cifradas de Azure](backup-azure-vms-encryption.md).
+- **Revise las directrices de los discos cifrados**: si va a habilitar la copia de seguridad de las máquinas virtuales con un disco cifrado, asegúrese de haber proporcionado todos los permisos necesarios. Para más información, consulte el artículo sobre la [copia de seguridad y restauración de las máquinas virtuales cifradas de Azure](backup-azure-vms-encryption.md).
 
 ## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable: El agente de máquina virtual no se puede comunicar con Azure Backup
 

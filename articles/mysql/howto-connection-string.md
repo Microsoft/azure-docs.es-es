@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-python, devx-track-javascript
-ms.openlocfilehash: 2dc701b15b0fd30af0f4a28e39153c0ee77ae128
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 289a33d6544e3b8930059ad58115673193a1c89b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850345"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905807"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Conexión de aplicaciones a Azure Database for MySQL
 En este documento se enumeran todos los tipos de cadena de conexión que Azure Database for MySQL admite, junto con plantillas y ejemplos. Su cadena de conexión puede tener otros parámetros y configuraciones.
@@ -63,7 +63,7 @@ client = Mysql2::Client.new(username: {username@servername}, password: {your_pas
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Obtención de los detalles de la cadena de conexión de Azure Portal
-En [Azure Portal](https://portal.azure.com), vaya al servidor de Azure Database for MySQL y haga clic en **Cadenas de conexión** para obtener la lista de cadenas para la instancia: ![Panel Cadenas de conexión en Azure Portal](./media/howto-connection-strings/connection-strings-on-portal.png)
+En [Azure Portal](https://portal.azure.com), vaya al servidor de Azure Database for MySQL y haga clic en **Cadenas de conexión** para obtener la lista de cadenas para la instancia: :::image type="content" source="./media/howto-connection-strings/connection-strings-on-portal.png" alt-text="Panel Cadenas de conexión en Azure Portal":::
 
 La cadena proporciona detalles como el controlador, el servidor y otros parámetros de conexión de base de datos. Modifique estos ejemplos para usar sus propios parámetros, como un nombre de base de datos, una contraseña, etc. Luego puede usar esta cadena para conectarse al servidor desde su código y sus aplicaciones.
 

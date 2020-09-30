@@ -2,13 +2,13 @@
 title: Creación de archivo de parámetros
 description: Creación de un archivo de parámetros para pasar valores durante la implementación de una plantilla de Azure Resource Manager
 ms.topic: conceptual
-ms.date: 06/19/2020
-ms.openlocfilehash: 8039b63978e52b69b0f8ffb4dd4e052769f3c5e6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/01/2020
+ms.openlocfilehash: 2b6d942b21594fa608127bb8f403e72295671005
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082943"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276667"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Creación de un archivo de parámetros de Resource Manager
 
@@ -148,6 +148,8 @@ Por último, examine los valores permitidos y las restricciones, como la longitu
 }
 ```
 
+El archivo de parámetros solo puede contener valores para los parámetros que se definan en la plantilla. Si el archivo de parámetros contiene parámetros adicionales que no coinciden con los de la plantilla, recibirá un error.
+
 ## <a name="parameter-type-formats"></a>Formatos de tipo de parámetro
 
 En el ejemplo siguiente se muestran los formatos de distintos tipos de parámetros.
@@ -184,10 +186,30 @@ En el ejemplo siguiente se muestran los formatos de distintos tipos de parámetr
 
 ## <a name="deploy-template-with-parameter-file"></a>Implementación de la plantilla con el archivo de parámetros
 
-Consulte:
+Para pasar un archivo de parámetros local mediante la CLI de Azure, utilice @ y el nombre del archivo de parámetros.
 
-- [Implementación de recursos con plantillas de ARM y la CLI de Azure](./deploy-cli.md#parameters)
-- [Implementación de recursos con las plantillas de ARM y Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
+```azurecli
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-file storage.json \
+  --parameters @storage.parameters.json
+```
+
+Para más información, consulte [Implementación de recursos con plantillas de ARM y la CLI de Azure](./deploy-cli.md#parameters).
+
+Para pasar un archivo de parámetros local mediante Azure PowerShell, utilice el parámetro `TemplateParameterFile`.
+
+```azurepowershell
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile c:\MyTemplates\azuredeploy.json `
+  -TemplateParameterFile c:\MyTemplates\storage.parameters.json
+```
+
+Para más información, consulte [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](./deploy-powershell.md#pass-parameter-values).
+
+> [!NOTE]
+> No es posible usar un archivo de parámetros con la hoja de plantilla personalizada en el portal.
 
 ## <a name="file-name"></a>Nombre de archivo
 
@@ -199,7 +221,7 @@ Para realizar la implementación en entornos diferentes, cree más de un archivo
 
 Puede usar parámetros en línea y un archivo de parámetros local en la misma operación de implementación. Por ejemplo, puede especificar algunos valores en el archivo de parámetros local y agregar otros valores en línea durante la implementación. Si proporciona valores para un parámetro en el archivo de parámetros local y en línea, el valor en línea tiene prioridad.
 
-Es posible usar un archivo de parámetros externo proporcionando el URI al archivo. Al hacerlo, no puede pasar otros valores insertados o desde un archivo local. Se omiten todos los parámetros insertados. Proporcione todos los valores de parámetro en el archivo externo.
+Es posible usar un archivo de parámetros externo proporcionando el URI al archivo. Cuando se utiliza un archivo de parámetros externo, no se pueden pasar otros valores, tanto si se hace en línea como desde un archivo local. Se omiten todos los parámetros insertados. Proporcione todos los valores de parámetro en el archivo externo.
 
 ## <a name="parameter-name-conflicts"></a>Conflictos de nombres de parámetro
 

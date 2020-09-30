@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 5fcc50670973c361d830e4e6bbf2ce26101b8582
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: f8c7e2cfb17ca48a67a009f532a9cbb6894cc05d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213375"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442605"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure Private Link para Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "88213375"
 Private Link permite conectarse a varios servicios PaaS en Azure mediante un **punto de conexión privado**. Para obtener una lista de los servicios PaaS que admiten la funcionalidad Private Link, vaya a la página de la [documentación de Private Link](../../private-link/index.yml). Un punto de conexión privado es una dirección IP privada dentro de una [red virtual](../../virtual-network/virtual-networks-overview.md) y una subred específicas.
 
 > [!IMPORTANT]
-> Este tema se aplica tanto a Azure SQL Database como a Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse). Para simplificar, el término "base de datos" hace referencia a las bases de datos de Azure SQL Database y a las de Azure Synapse Analytics. Del mismo modo, todas las referencias a "servidor" indican el [servidor de SQL Server lógico](logical-servers.md) que hospeda Azure SQL Database y Azure Synapse Analytics. Este artículo *no* se aplica a **Instancia administrada de Azure SQL**.
+> Este tema se aplica tanto a Azure SQL Database como a Azure Synapse Analytics (anteriormente SQL Data Warehouse). Para simplificar, el término "base de datos" hace referencia a las bases de datos de Azure SQL Database y a las de Azure Synapse Analytics. Del mismo modo, todas las referencias a "servidor" indican el [servidor de SQL Server lógico](logical-servers.md) que hospeda Azure SQL Database y Azure Synapse Analytics. Este artículo *no* se aplica a **Instancia administrada de Azure SQL**.
 
 ## <a name="data-exfiltration-prevention"></a>Prevención de la filtración de datos
 

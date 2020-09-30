@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3c7e4887610f30113b81421396500416d04c5e5e
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: e9a78690128c2406277ab4e8fb6e6e4625d2787f
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078519"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280101"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configuración de una instancia de Azure Digital Twins y autenticación (CLI)
 
@@ -118,7 +118,7 @@ A continuación, cargará este archivo a Cloud Shell. En la ventana de Cloud She
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Ventana de Cloud Shell que muestra la selección de la opción Cargar":::
 Vaya al archivo *manifest.json* que acaba de crear y seleccione "Abrir".
 
-A continuación, ejecute el siguiente comando para crear un registro de la aplicación (reemplazando los marcadores de posición según sea necesario):
+A continuación, ejecute el siguiente comando para crear un registro de aplicación, con una dirección URL de respuesta *Cliente público/nativo (móvil y escritorio)* de `http://localhost`. Reemplace los marcadores de posición según sea necesario:
 
 ```azurecli
 az ad app create --display-name <name-for-your-app-registration> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
@@ -150,5 +150,9 @@ Tome nota del *Id. de la aplicación (cliente)* y el *Id. de directorio (inquili
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte cómo conectar la aplicación cliente a la instancia mediante la escritura del código de autenticación de la aplicación cliente:
+Pruebe las llamadas individuales de la API de REST en su instancia mediante los comandos de la CLI de Azure Digital Twins: 
+* [Referencia de az dt](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
+
+O bien, consulte cómo conectar la aplicación cliente a la instancia mediante la escritura del código de autenticación de la aplicación cliente:
 * [*Procedimiento: Escritura de código de autenticación de aplicación*](how-to-authenticate-client.md)

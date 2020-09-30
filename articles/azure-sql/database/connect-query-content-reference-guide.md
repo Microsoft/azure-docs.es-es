@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 12d91e43576647b2ffbc1e78d2e059871dbe8a3a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2a6aa0aa22fce5ba0f763f98fec37f607d0ce8a1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033180"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441782"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Artículos acerca de la consulta y la conexión a Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,7 +60,7 @@ Puede que los controladores que no son de Microsoft no usen TLS de forma predete
 
 Puede usar varias bibliotecas y marcos para conectarse a Azure SQL Database o Instancia administrada de Azure SQL. Vea nuestros [tutoriales de introducción](https://aka.ms/sqldev) para iniciarse rápidamente en los lenguajes de programación como C#, Java, Node.js, PHP y Python. A continuación, compile una aplicación mediante el uso de SQL Server en Linux o Windows o Docker en macOS.
 
-En la siguiente tabla se enumeran las bibliotecas de conectividad o *controladores* que las aplicaciones cliente pueden utilizar desde una variedad de lenguajes para conectarse y que usan SQL Server de forma local o en la nube. Puede utilizarlas en Docker, Windows o Linux y usarlas para conectarse a Azure SQL Database, Instancia administrada de Azure SQL y Azure SQL Data Warehouse.
+En la siguiente tabla se enumeran las bibliotecas de conectividad o *controladores* que las aplicaciones cliente pueden utilizar desde una variedad de lenguajes para conectarse y que usan SQL Server de forma local o en la nube. Puede utilizarlas en Linux, Windows o Docker y usarlas para conectarse a Azure SQL Database, Azure SQL Managed Instance y Azure Synapse Analytics (anteriormente SQL Data Warehouse).
 
 | Idioma | Plataforma | Recursos adicionales | Descargar | Introducción |
 | :-- | :-- | :-- | :-- | :-- |

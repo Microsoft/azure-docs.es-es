@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: jgao
-ms.openlocfilehash: 4094e610bb290fc11656dc192f3d0a495f679dc5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fb6d1c9e0e2ca545be850af22df15b342cf8d82c
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291799"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667502"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Uso de scripts de implementación en plantillas (versión preliminar)
 
@@ -217,7 +217,7 @@ Tiene la responsabilidad de garantizar la integridad de los scripts a los que ha
 
 ## <a name="use-supporting-scripts"></a>Uso de scripts auxiliares
 
-Puede separar las lógicas complicadas en uno o varios archivos de script auxiliar. En caso necesario, la propiedad `supportingScriptURI` le permite especificar una matriz de identificadores URI para los archivos de script auxiliar:
+Puede separar las lógicas complicadas en uno o varios archivos de script auxiliar. En caso necesario, la propiedad `supportingScriptUris` le permite especificar una matriz de identificadores URI para los archivos de script auxiliar:
 
 ```json
 "scriptContent": "

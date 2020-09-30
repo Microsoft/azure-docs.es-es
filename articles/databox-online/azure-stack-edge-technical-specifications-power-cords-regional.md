@@ -1,23 +1,23 @@
 ---
-title: Especificaciones técnicas de los cables de alimentación de Microsoft Azure Stack Edge basadas en la ubicación | Microsoft Docs
-description: Conozca las especificaciones técnicas de los cables de alimentación de Azure Stack Edge.
+title: Especificaciones técnicas de los cables de alimentación de Microsoft Azure Stack Edge Pro basadas en la ubicación | Microsoft Docs
+description: Descubra las especificaciones técnicas de los cables de alimentación de Azure Stack Edge Pro.
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
 ms.date: 04/16/2020
-ms.author: twooley
-ms.openlocfilehash: 8248f0a8e003351449186638fd4914c6b6fe4bed
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 76d8c84fd1dd403c88e8261cf49e3620f3a6ec14
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783984"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903615"
 ---
-# <a name="azure-stack-edge-power-cord-specifications"></a>Especificaciones de los cables de alimentación de Azure Stack Edge
+# <a name="azure-stack-edge-pro-power-cord-specifications"></a>Especificaciones de los cables de alimentación de Azure Stack Edge Pro
 
-El dispositivo Azure Stack Edge necesitará un cable de alimentación que variará en función de la región de Azure.
+El dispositivo Azure Stack Edge Pro necesitará un cable de alimentación que variará en función de la región de Azure.
 
 ## <a name="supported-power-cords"></a>Cables de alimentación compatibles
 
@@ -158,4 +158,4 @@ Puede usar la siguiente tabla para buscar las especificaciones de cable correcta
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Especificaciones técnicas de Azure Stack Edge](data-box-edge-technical-specifications-compliance.md)
+[Especificaciones técnicas de Azure Stack Edge Pro](data-box-edge-technical-specifications-compliance.md)

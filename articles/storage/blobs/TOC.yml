@@ -17,7 +17,7 @@
       items:
         - name: Uso de blobs
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: storage-quickstart-blobs-portal.md
             - name: Explorador de Storage
               href: storage-quickstart-blobs-storage-explorer.md
@@ -137,14 +137,14 @@
             - name: Cifrado en reposo de Azure Storage
               href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               items:
-                - name: Claves administradas por el cliente con Azure Key Vault
-                  href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Claves proporcionadas por el cliente en la solicitud
-                  href: ../common/encryption-customer-provided-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Cifrado con claves administradas por el cliente
+                  href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Cifrado en la solicitud con claves proporcionadas por el cliente
+                  href: encryption-customer-provided-keys.md
+                - name: Ámbitos de cifrado
+                  href: encryption-scope-overview.md
             - name: Blobs inalterables
               href: storage-blob-immutable-storage.md
-            - name: Protección contra amenazas avanzada
-              href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Controles de seguridad integrados
               href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Uso de puntos de conexión privados de Azure
@@ -207,7 +207,7 @@
           href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Búsqueda y comprensión de datos de blobs
           items:
-            - name: Uso de un índice de blobs para administrar y buscar datos de blobs
+            - name: Uso de un índice de blobs para administrar y buscar datos de blob
               href: storage-manage-find-blobs.md
             - name: Uso de la inteligencia artificial para comprender los datos de los blobs
               href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -251,8 +251,12 @@
                       href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Preguntas más frecuentes
                   href: ../common/storage-import-export-service-faq.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: API DE REST
-                  href: /rest/api/storageimportexport/jobs
+                - name: Referencia
+                  items:
+                    - name: API DE REST
+                      href: /rest/api/storageimportexport/jobs
+                    - name: Azure PowerShell
+                      href: /powershell/module/Az.ImportExport
                 - name: Ponerse en contacto con el servicio de soporte técnico
                   href: ../common/storage-import-export-contact-microsoft-support.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Archivar
@@ -310,16 +314,18 @@
               href: storage-blobs-list.md
             - name: Administración de propiedades y metadatos de blobs (.NET)
               href: storage-blob-properties-metadata.md
-            - name: Copia de un BLOB (.NET)
+            - name: Copia de un blob (SDK)
               href: storage-blob-copy.md
+            - name: Utilización de un índice de blobs
+              href: storage-blob-index-how-to.md
         - name: Autorización del acceso a datos de blob
           items:
             - name: Opciones de autorización para los usuarios
               items:
                 - name: Portal
-                  href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                  href: authorize-blob-access-portal.md
                 - name: PowerShell
-                  href: ../common/authorize-active-directory-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                  href: authorize-active-directory-powershell.md
                 - name: Azure CLI
                   href: ../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Administración de derechos de acceso con RBAC
@@ -380,19 +386,17 @@
                   items:
                     - name: Comprobación del modelo de clave de cifrado de la cuenta
                       href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: Configuración de las claves de cifrado administradas por el cliente
+                    - name: Configuración del cifrado con claves que administra el cliente
                       items:
-                        - name: Portal
-                          href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                        - name: PowerShell
-                          href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                        - name: Azure CLI
-                          href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                        - name: Almacenamiento de claves administradas por el cliente en Key Vault
+                          href: ../common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                        - name: Almacenamiento de claves administradas por el cliente en HSM administrado
+                          href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Especificación de una clave de cifrado en una solicitud
                   href: storage-blob-customer-provided-key.md
                 - name: Administración de ámbitos de cifrado
                   href: encryption-scope-manage.md
-                - name: Habilitación del cifrado de infraestructura en una cuenta de almacenamiento
+                - name: Habilitación del cifrado de infraestructura en la cuenta
                   href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Configuración del cifrado en el lado de cliente
               items:
@@ -414,6 +418,8 @@
                       href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Configuración de la versión de TLS para una aplicación cliente
                       href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Configuración de Azure Defender para la protección contra amenazas
+              href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Establecimiento y administración de directivas de inmutabilidad
               href: storage-blob-immutability-policies-manage.md
         - name: Administración de la redundancia de datos
@@ -460,8 +466,6 @@
           href: storage-custom-domain-name.md
         - name: Enrutamiento de eventos a un punto de conexión personalizado
           href: storage-blob-event-quickstart.md
-        - name: Uso de un índice de blobs
-          href: storage-blob-index-how-to.md
         - name: Transferencia de datos
           items:
             - name: AzCopy

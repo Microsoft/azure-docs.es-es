@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 046cd30c0f93a468287c73573a3d18f4ba66221b
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6cf77aa41a9a485ba70519fed33c1b6aec736525
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690228"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470075"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Creación de una copia de seguridad de aplicaciones del clúster de Red Hat OpenShift en Azure 4
 
@@ -23,7 +23,7 @@ En este artículo, prepará el entorno para crear una copia de seguridad de apli
 > * Configurar los requisitos previos e instalar las herramientas necesarias
 > * Creación de una copia de seguridad de aplicaciones de Red Hat OpenShift 4 en Azure
 
-Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.6.0, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.6.0, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 

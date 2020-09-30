@@ -10,12 +10,12 @@ metadata:
   author: georgewallace
   ms.author: gwallace
   ms.date: 03/08/2020
-  ms.openlocfilehash: a1c16e8dd2a9b00e726dd527137bde4c059edae2
-  ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+  ms.openlocfilehash: 64e0d0e7837cd03e2761d8e79653d9ac8b68f41d
+  ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/11/2020
-  ms.locfileid: "86243025"
+  ms.lasthandoff: 09/13/2020
+  ms.locfileid: "90052824"
 landingContent:
 - title: Acerca de API Management
   linkLists:
@@ -29,10 +29,14 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Azure portal
+    - text: CLI de Azure
+      url: get-started-create-service-instance-cli.md
+    - text: Azure Portal
       url: get-started-create-service-instance.md
     - text: Azure PowerShell
       url: powershell-create-service-instance.md
+    - text: Visual Studio Code
+      url: vscode-create-service-instance.md
 - title: Administración de API Management
   linkLists:
   - linkListType: tutorial

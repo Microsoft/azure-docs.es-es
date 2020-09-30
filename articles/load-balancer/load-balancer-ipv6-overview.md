@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: d2966f32fcf7f8be2a93d1639f0a63f49768c306
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 443e8c09ea46c0c20b557d77d6ed7bd63db00085
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80981858"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058757"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Información general de IPv6 para Azure Load Balancer
 
@@ -79,7 +79,7 @@ Limitaciones
 * El punto de conexión de IPv6 en la máquina virtual no se conecta directamente a Internet. Lo hace a través de un equilibrador de carga. Solo los puertos especificados en las reglas de equilibrador de carga son accesibles a través de IPv6.
 * El cambio del parámetro IdleTimeout de IPv6 **no se admite actualmente**. El valor predeterminado es de cuatro minutos.
 * El cambio del parámetro loadDistributionMethod de IPv6 **no se admite actualmente**.
-* Las direcciones IP de reserva de IPv6 (donde IPAllocationMethod = static) **no se admiten actualmente**.
+* IPv6 para Load Balancer de nivel básico está bloqueado para usar una SKU **dinámica**.  IPv6 para Standard Load Balancer está bloqueado para usar una SKU **estática**.
 * NAT64 (traducción de IPv6 a IPv4) no se admite.
 * **Actualmente no se admite** la conexión de un adaptador de red secundario que haga referencia a una subred IPv6 de un grupo de back-end.
 

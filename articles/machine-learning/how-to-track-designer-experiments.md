@@ -1,5 +1,5 @@
 ---
-title: Métricas de registro en el diseñador (versión preliminar)
+title: Registro de las métricas en el diseñador
 titleSuffix: Azure Machine Learning
 description: Supervise los experimentos del diseñador de aprendizaje automático de Azure. Habilite el registro mediante el módulo Execute Python Script (Ejecutar script de Python) y vea los resultados registrados en Studio.
 services: machine-learning
@@ -11,15 +11,15 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 20845a6f1238095b40c9b05b5f5d8d85217b6db5
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: bffbf32cf5faa936a00444f1f39facaf226b8ef2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950415"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885978"
 ---
-# <a name="enable-logging-in-azure-machine-learning-designer-preview-pipelines"></a>Habilitación del registro en canalizaciones del diseñador de Azure Machine Learning (versión preliminar)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Habilitación del registro en canalizaciones del diseñador de Azure Machine Learning
+
 
 En este artículo, aprenderá a agregar código de registro a las canalizaciones del diseñador. También aprenderá a ver esos registros mediante el portal web de Azure Machine Learning Studio.
 
@@ -78,5 +78,6 @@ Una vez completada la ejecución de la canalización, puede ver *Mean_Absolute_E
 
 En este artículo, aprendió a usar registros en el diseñador. Para conocer los pasos siguientes, consulte estos artículos relacionados:
 
-* Consulte [Depuración y solución de problemas de las canalizaciones de aprendizaje automático](how-to-debug-pipelines.md#logging-in-azure-machine-learning-designer-preview) para aprender a solucionar problemas con las canalizaciones del diseñador.
+
+* Consulte [Depuración y solución de problemas de las canalizaciones de aprendizaje automático](how-to-debug-pipelines.md#azure-machine-learning-designer) para aprender a solucionar problemas con las canalizaciones del diseñador.
 * Consulte [Habilitación del registro en ejecuciones de entrenamiento de Azure ML](how-to-track-experiments.md) para aprender a usar el SDK de Python para registrar las métricas en la experiencia de creación del SDK.

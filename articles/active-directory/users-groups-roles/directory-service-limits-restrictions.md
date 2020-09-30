@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: reference
 ms.workload: identity
-ms.date: 02/21/2019
+ms.date: 09/10/2019
 ms.author: curtand
 ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ee40748b8b23295ccca276012cd0a35c965da03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de0047c46864e20947e4e0dd14441f640d48e334
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728799"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005993"
 ---
 # <a name="azure-ad-service-limits-and-restrictions"></a>Restricciones y límites del servicio Azure AD
 
@@ -29,5 +29,6 @@ Este artículo contiene las restricciones de uso y otros límites de servicio pa
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Registro en Azure como una organización](../fundamentals/sign-up-organization.md)
 * [Cómo se asocian las suscripciones a Azure con Azure AD](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

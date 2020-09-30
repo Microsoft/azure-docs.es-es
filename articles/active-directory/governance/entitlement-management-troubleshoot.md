@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 216cff03ac6ce64dee9aae1e9daa4a86385eeb0e
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: e230d3a4029d97a328280f581c126c7ec2d0bdb3
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783338"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460803"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Solución de problemas de la administración de derechos de Azure AD
 
@@ -47,7 +47,7 @@ En este artículo se describen algunos elementos que debe comprobar que le ayuda
 
 * Cuando se quita un miembro de un equipo, también se quita del grupo de Microsoft 365. Puede pasar algún tiempo hasta que se elimine la funcionalidad de chat del equipo. Para más información, consulte [Pertenencia a grupos](/microsoftteams/office-365-groups#group-membership).
 
-* Asegúrese de que el directorio no esté configurado para ubicaciones multigeográficas. La administración de derechos no admite actualmente ubicaciones multigeográficas en SharePoint Online. Los sitios de SharePoint Online deben estar en la ubicación geográfica predeterminada para regirse por la administración de derechos. Para más información, consulte [Capacidades multigeográficas de OneDrive y SharePoint Online](/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
+* Asegúrese de que el directorio no esté configurado para ubicaciones multigeográficas. La administración de derechos no admite actualmente ubicaciones multigeográficas en SharePoint Online. Los sitios de SharePoint Online deben estar en la ubicación geográfica predeterminada para regirse por la administración de derechos. Para más información, consulte [Capacidades multigeográficas de OneDrive y SharePoint Online](/Microsoft 365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
 
 ## <a name="access-packages"></a>Paquetes de acceso
 

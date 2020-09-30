@@ -11,17 +11,17 @@ ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 07/16/2020
-ms.openlocfilehash: 0b914059567e9a513b605ce733407465b625a909
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 010843f4249909e23ffac3b41fb3acaf9c91eb17
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950024"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889999"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Depuración y solución de problemas de ParallelRunStep
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este artículo aprenderá a depurar y resolver los problemas de la clase [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py) con el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+
+En este artículo aprenderá a depurar y resolver los problemas de la clase [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py&preserve-view=true) con el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 
 ## <a name="testing-scripts-locally"></a>Prueba de scripts de forma local
 
@@ -29,7 +29,7 @@ Consulte la [sección Prueba de scripts de forma local](how-to-debug-pipelines.m
 
 ## <a name="debugging-scripts-from-remote-context"></a>Depuración de scripts desde un contexto remoto
 
-La transición de la depuración de un script de puntuación de forma local, a la depuración de un script de puntuación en una canalización real puede resultar difícil. Para información sobre cómo buscar los registros en el portal, consulte la [sección de canalizaciones de aprendizaje automático en la depuración de scripts desde un contexto remoto](how-to-debug-pipelines.md#finding-and-reading-pipeline-log-files). La información de esa sección también se aplica a ParallelRunStep.
+La transición de la depuración de un script de puntuación de forma local, a la depuración de un script de puntuación en una canalización real puede resultar difícil. Para información sobre cómo buscar los registros en el portal, consulte la [sección de canalizaciones de aprendizaje automático en la depuración de scripts desde un contexto remoto](how-to-debug-pipelines.md). La información de esa sección también se aplica a ParallelRunStep.
 
 Por ejemplo, el archivo de registro `70_driver_log.txt` contiene información del controlador que inicia el código de ParallelRunStep.
 
@@ -90,7 +90,7 @@ def run(mini_batch):
 
 El usuario puede pasar datos de referencia al script mediante el parámetro side_inputs de ParalleRunStep. Todos los conjuntos de datos proporcionados como side_inputs se montarán en cada nodo de trabajo. El usuario puede obtener la ubicación del montaje pasando el argumento.
 
-Construya un [conjunto de datos](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) que contenga los datos de referencia y regístrelo con su área de trabajo. Páselo al parámetro `side_inputs` de `ParallelRunStep`. Además, puede agregar su ruta de acceso en la sección `arguments` para acceder fácilmente a su ruta de acceso montada:
+Construya un [conjunto de datos](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) que contenga los datos de referencia y regístrelo con su área de trabajo. Páselo al parámetro `side_inputs` de `ParallelRunStep`. Además, puede agregar su ruta de acceso en la sección `arguments` para acceder fácilmente a su ruta de acceso montada:
 
 ```python
 label_config = label_ds.as_named_input("labels_input")
@@ -116,6 +116,6 @@ labels_path = args.labels_dir
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Vea la referencia del SDK para obtener ayuda con el paquete [azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py). Vea la [documentación](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py) de referencia de la clase ParallelRunStep.
+* Vea la referencia del SDK para obtener ayuda con el paquete [azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true). Vea la [documentación](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py&preserve-view=true) de referencia de la clase ParallelRunStep.
 
 * Realice el [tutorial avanzado](tutorial-pipeline-batch-scoring-classification.md) sobre cómo usar canalizaciones con ParallelRunStep. En este tutorial se explica cómo pasar otro archivo como entrada lateral. 

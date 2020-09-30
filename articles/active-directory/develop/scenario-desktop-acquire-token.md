@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 300bc6acbe7821841b578dcc2166ecfc498ad750
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: ab6842fe6787b9e1a61b3c25fabb6c64c2597b9a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141302"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032816"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicación de escritorio que llama a API web: Adquisición de un token
 
@@ -38,7 +38,7 @@ La API web se define mediante sus `scopes`. Sea cual sea la experiencia que prop
 AuthenticationResult result;
 var accounts = await app.GetAccountsAsync();
 IAccount account = ChooseAccount(accounts); // for instance accounts.FirstOrDefault
-                                            // if the app manages is at most one account  
+                                            // if the app manages is at most one account
 try
 {
  result = await app.AcquireTokenSilent(scopes, account)
@@ -183,7 +183,7 @@ En Android, también debe especificar la actividad principal mediante `.WithPare
 
 #### <a name="withparentactivityorwindow"></a>WithParentActivityOrWindow
 
-La interfaz de usuario es importante porque es interactiva. `AcquireTokenInteractive` tiene un parámetro opcional específico que permite determinar, en las plataformas que lo admiten, la interfaz de usuario principal. Cuando se usa en una aplicación de escritorio, `.WithParentActivityOrWindow` tiene un tipo diferente que depende de la plataforma.
+La interfaz de usuario es importante porque es interactiva. `AcquireTokenInteractive` tiene un parámetro opcional específico que permite determinar, en las plataformas que lo admiten, la interfaz de usuario principal. Cuando se usa en una aplicación de escritorio, `.WithParentActivityOrWindow` tiene un tipo diferente que depende de la plataforma. También, si no quiere controlar dónde aparece el cuadro de diálogo de inicio de sesión en la pantalla, puede omitir el parámetro opcional de ventana principal para crear una ventana. Esta opción sería aplicable a las aplicaciones basadas en línea de comandos que se usan para pasar llamadas a cualquier otro servicio back-end y no necesitan ventanas para la interacción del usuario. 
 
 ```csharp
 // net45
@@ -370,7 +370,7 @@ if accounts:
 if not result:
     result = app.acquire_token_by_authorization_code(
          request.args['code'],
-         scopes=config["scope"])    
+         scopes=config["scope"])
 
 ```
 
@@ -433,7 +433,7 @@ Para iniciar la sesión de un usuario de dominio en un equipo unido a un dominio
   - O bien, el administrador de inquilinos debe haber consentido anteriormente que todos los usuarios del inquilino usen la aplicación.
   - En otras palabras:
     - Usted como desarrollador ha hecho clic en el botón **Conceder** de Azure Portal.
-    - O bien, un administrador de inquilinos ha hecho clic en el botón **Conceder o revocar consentimiento del administrador para {dominio del inquilino}** de la pestaña **Permisos de API** del registro de la aplicación. Para más información, consulte [Adición de permisos para acceder a las API web](./quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+    - O bien, un administrador de inquilinos ha hecho clic en el botón **Conceder o revocar consentimiento del administrador para {dominio del inquilino}** de la pestaña **Permisos de API** del registro de la aplicación. Para más información, consulte [Adición de permisos para acceder a la API web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
     - O bien, ha proporcionado una manera para que los usuarios den su consentimiento a la aplicación. Para más información, consulte [Solicitud de consentimiento de usuario individual](./v2-permissions-and-consent.md#requesting-individual-user-consent).
     - O bien, ha proporcionado una forma para que el administrador de inquilinos otorgue su consentimiento a la aplicación. Para más información, consulte [Consentimiento del administrador](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
@@ -925,7 +925,7 @@ Este flujo no se admite en MSAL para macOS.
 
 Si va a escribir una herramienta de línea de comandos que no tenga controles web y no puede o no quiere usar los flujos anteriores, debe usar el flujo de código de dispositivo.
 
-La autenticación interactiva con Azure AD requiere un explorador web. Para más información, consulte [Uso de exploradores web](https://aka.ms/msal-net-uses-web-browser). Para autenticar a los usuarios en dispositivos o sistemas operativos que no proporcionan un explorador web, el flujo de código de dispositivo permite al usuario usar otro dispositivo, como un equipo o un teléfono móvil, para iniciar sesión de forma interactiva. Con el flujo de código de dispositivo, la aplicación obtiene tokens mediante un proceso de dos pasos diseñado para estos dispositivos o sistemas operativos. Ejemplos de estas aplicaciones son aquellas que se ejecutan en iOT o herramientas de línea de comandos (CLI). La idea es la siguiente:
+La autenticación interactiva con Azure AD requiere un explorador web. Para más información, consulte [Uso de exploradores web](https://aka.ms/msal-net-uses-web-browser). Para autenticar a los usuarios en dispositivos o sistemas operativos que no proporcionan un explorador web, el flujo de código de dispositivo permite al usuario usar otro dispositivo, como un equipo o un teléfono móvil, para iniciar sesión de forma interactiva. Al usar flujo de código de dispositivo, la aplicación obtiene los tokens mediante un proceso de dos pasos diseñado para estos dispositivos o sistemas operativos. Ejemplos de estas aplicaciones son aquellas que se ejecutan en iOT o herramientas de línea de comandos (CLI). La idea es la siguiente:
 
 1. Cada vez que se necesita autenticación de usuario, la aplicación proporciona un código para el usuario. Se pide al usuario que use otro dispositivo, como un smartphone conectado a Internet, para ir a una dirección URL, por ejemplo, `https://microsoft.com/devicelogin`. Luego se pide al usuario que escriba el código. Una vez hecho eso, la página web lleva al usuario a una experiencia de autenticación normal, que incluye peticiones de consentimiento y autenticación multifactor, en caso necesario.
 
@@ -978,7 +978,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
         // If you want to provide a more complex user experience, check out ex.Classification
 
         return await AcquireByDeviceCodeAsync(pca);
-    }         
+    }
 }
 
 private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientApplication pca)

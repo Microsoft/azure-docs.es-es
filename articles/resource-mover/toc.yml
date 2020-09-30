@@ -1,0 +1,50 @@
+- name: Documentación de Azure Resource Mover
+  href: index.yml
+- name: Información general
+  items:
+    - name: Acerca de Azure Resource Mover
+      href: overview.md
+    - name: Selección de una herramienta para mover recursos
+      href: select-move-tool.md
+    - name: Preguntas frecuentes
+      href: common-questions.md
+- name: Tutoriales
+  items:
+    - name: Traslado de máquinas virtuales de Azure a otra región
+      href: tutorial-move-region-virtual-machines.md
+    - name: Traslado de recursos de SQL a otra región
+      href: tutorial-move-region-sql.md
+- name: Conceptos
+  items:
+    - name: Introducción a los traslados
+      href: about-move-process.md
+    - name: 'Soporte técnico: traslado de máquinas virtuales de Azure entre regiones'
+      href: support-matrix-move-region-azure-vm.md
+    - name: 'Soporte técnico: traslado de Azure SQL entre regiones'
+      href: support-matrix-move-region-sql.md
+- name: Guías de procedimientos
+  items:
+    - name: Traslado entre regiones
+      items:
+        - name: Traslado entre regiones con PowerShell
+          href: move-region-powershell.md
+        - name: Traslado de máquinas virtuales de Azure a zonas de disponibilidad
+          href: move-region-availability-zone.md
+        - name: Traslado entre regiones (desde un grupo de recursos)
+          href: move-region-within-resource-group.md
+    - name: Administración de traslados entre regiones
+      items:
+        - name: Modificación de la configuración de destino
+          href: modify-target-settings.md
+        - name: Eliminación de recursos de una colección de desplazamiento
+          href: remove-move-resources.md
+        - name: Administración de los recursos creados durante el traslado
+          href: manage-resources-created-move-process.md
+- name: Recursos
+  items:
+    - name: Migración en Cloud Adoption Framework
+      href: /azure/cloud-adoption-framework/migrate/
+    - name: Plantilla de Resource Manager
+      href: /azure/templates/microsoft.migrate/allversions
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'

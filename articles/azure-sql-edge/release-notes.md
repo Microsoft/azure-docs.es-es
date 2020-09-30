@@ -9,28 +9,74 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 07/27/2020
-ms.openlocfilehash: 74e9772ada010d79e81ef36cae89ba586db73077
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.date: 09/22/2020
+ms.openlocfilehash: 3306e51fe2fdbb2586be9684432d8f8c310afe95
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553417"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900599"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notas de la versión de Azure SQL Edge 
 
 En este artículo se describen las novedades y los cambios en cada nueva compilación de Azure SQL Edge.
 
+## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge: 1.0.0 (RTM)
+
+### <a name="sql-engine-build-number---15020001549"></a>Número de compilación del motor de SQL: 15.0.2000.1549
+
+### <a name="whats-new"></a>Novedades
+1. Imágenes de contenedor basadas en Ubuntu 18.04. 
+2. Compatibilidad con la sintaxis de `IGNORE NULL` y `RESPECT NULL` con funciones `LAST_VALUE()` y `FIRST_VALUE()`. 
+3. Mejoras de confiabilidad de PREDICT con ONNX.
+4. Compatibilidad con la limpieza basada en directivas de retención de datos.      
+   - Compatibilidad con la limpieza optimizada para los índices de almacén de columnas en clúster.
+5. Compatibilidad de nuevas características 
+   - Recuperación rápida
+   - Optimización automática de consultas
+
+### <a name="fixes"></a>Correcciones
+1. Mensajes de error adicionales y detalles para solucionar problemas de operaciones de streaming de TSQL. 
+2. Mejoras para conservar la duración de la batería en modo inactivo. 
+3. Correcciones del motor de streaming de TSQL: 
+   - Limpieza del trabajo de streaming detenido 
+   - Correcciones de mejoras en la localización y el control de Unicode
+4. Limpieza basada en directivas de retención de datos
+   - Correcciones para escenarios de creación y limpieza de directivas de retención.
+5. Correcciones en tareas de temporizador en segundo plano para mejorar el ahorro de energía para el modo de baja energía.
+
+
+## <a name="ctp-23"></a>CTP 2.3
+### <a name="sql-engine-build-number---15020001549"></a>Número de compilación del motor de SQL: 15.0.2000.1549
+### <a name="whats-new"></a>Novedades
+1. Compatibilidad con orígenes personalizados en la función Date_Bucket(). 
+2. Compatibilidad con archivos BacPac como parte de la implementación de SQL.
+3. Compatibilidad con la limpieza basada en directivas de retención de datos.      
+   - Compatibilidad de DDL para habilitar la directiva de retención 
+   - Limpieza procedimientos almacenados y tarea de limpieza en segundo plano
+   - Eventos extendidos para supervisar tareas de limpieza
+
+### <a name="fixes"></a>Correcciones
+1. Mensajes de error adicionales y detalles para solucionar problemas de operaciones de streaming de TSQL. 
+2. Mejoras para conservar la duración de la batería en modo inactivo. 
+3. Correcciones del motor de streaming de TSQL: 
+   - Corrección del problema de marca de agua atascada con la ventana de salto de subtransmisión 
+   - Corrección del control de excepciones del marco para asegurarse de que se recopila como un error que se pueda procesar por el usuario
+
+
 ## <a name="ctp-22"></a>CTP 2.2
 ### <a name="sql-engine-build-number---15020001546"></a>Número de compilación del motor de SQL: 15.0.2000.1546
-### <a name="fixes"></a>Correcciones
+### <a name="whats-new"></a>Novedades
 1. Compatibilidad con contenedores que no son raíz 
 2. Compatibilidad con la recopilación de datos de uso y diagnóstico 
 3. Actualizaciones de streaming de T-SQL
    - Compatibilidad con los caracteres Unicode para nombres de objetos de secuencia
+
+### <a name="fixes"></a>Correcciones
+1. Actualizaciones de streaming de T-SQL
    - Mejoras en la limpieza del proceso
    - Mejoras en el registro y los diagnósticos
-4. Mejora del rendimiento de la ingesta de datos
+2. Mejora del rendimiento de la ingesta de datos
 
 ## <a name="ctp-21"></a>CTP 2.1 
 ### <a name="sql-engine-build-number---15020001545"></a>Número de compilación del motor de SQL: 15.0.2000.1545

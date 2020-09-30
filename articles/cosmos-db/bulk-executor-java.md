@@ -10,12 +10,12 @@ ms.date: 08/26/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: 5adc15eb7beab4d54156456ee447a7e6039b6c6d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: a9501df45d598c85f8c694c5d07db4f959615c00
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892616"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968179"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Uso de la biblioteca BulkExecutor en Java para realizar operaciones en masa con datos de Azure Cosmos DB
 
@@ -27,9 +27,9 @@ Actualmente, la biblioteca Bulk Executor solo es compatible con las cuentas de A
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.  
 
-* También puede [probar gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin ninguna suscripción a Azure, de forma gratuita y sin compromiso. O bien, puede usar el [emulador de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) con el punto de conexión `https://localhost:8081`. La clave principal se proporciona en [Authenticating requests](local-emulator.md#authenticating-requests) (Autenticación de solicitudes).  
+* También puede [probar gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin ninguna suscripción a Azure, de forma gratuita y sin compromiso. O bien, puede usar el [emulador de Azure Cosmos DB](/azure/cosmos-db/local-emulator) con el punto de conexión `https://localhost:8081`. La clave principal se proporciona en [Authenticating requests](local-emulator.md#authenticate-requests) (Autenticación de solicitudes).  
 
-* [Kit de desarrollo de Java (JDK) 1.7+](/java/azure/jdk/?view=azure-java-stable)  
+* [Kit de desarrollo de Java (JDK) 1.7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)  
   - En Ubuntu, ejecute `apt-get install default-jdk` para instalar el JDK.  
 
   - Asegúrese de establecer la variable de entorno JAVA_HOME para que apunte a la carpeta donde está instalado el JDK.
@@ -94,7 +94,7 @@ El repositorio clonado contiene dos ejemplos "bulkimport" y "bulkupdate" relacio
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
    ```
-   La API de importación en bloque acepta una colección de documentos JSON serializados y presenta la siguiente sintaxis; para más detalles, vea la [documentación de la API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor):
+   La API de importación en bloque acepta una colección de documentos JSON serializados y presenta la siguiente sintaxis; para más detalles, vea la [documentación de la API](/java/api/com.microsoft.azure.documentdb.bulkexecutor):
 
    ```java
    public BulkImportResponse importAll(
@@ -131,16 +131,16 @@ El repositorio clonado contiene dos ejemplos "bulkimport" y "bulkupdate" relacio
 6. Una vez generadas las dependencias de destino, puede invocar la aplicación de importador en bloque con el siguiente comando:  
 
    ```bash
-   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>*  -masterKey *<Fill in your Azure Cosmos DB's master key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
+   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>*  -masterKey *<Fill in your Azure Cosmos DB's primary key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
    El importador en bloque crea una base de datos y una colección con el nombre de la base de datos, el nombre de la colección y los valores de la capacidad de proceso especificados en el archivo App.config. 
 
 ## <a name="bulk-update-data-in-azure-cosmos-db"></a>Actualización de datos en masa en Azure Cosmos DB
 
-Puede actualizar los documentos existentes con el uso de la API BulkUpdateAsync. En este ejemplo, se establece el nuevo valor en el campo de nombre y se elimina el campo de descripción de los documentos existentes. Para consultar el conjunto completo de operaciones admitidas de actualización de campos, vea la [documentación de la API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor). 
+Puede actualizar los documentos existentes con el uso de la API BulkUpdateAsync. En este ejemplo, se establece el nuevo valor en el campo de nombre y se elimina el campo de descripción de los documentos existentes. Para consultar el conjunto completo de operaciones admitidas de actualización de campos, vea la [documentación de la API](/java/api/com.microsoft.azure.documentdb.bulkexecutor). 
 
-1. Define los elementos de actualización junto con las operaciones de actualización de campos correspondientes. En este ejemplo, usará SetUpdateOperation para actualizar el campo de nombre y UnsetUpdateOperation para eliminar el campo de descripción de todos los documentos. También puede realizar otras operaciones, como incrementar un campo de documento con un valor determinado, insertar valores específicos en un campo de matriz o quitar un valor concreto de un campo de matriz. Para obtener información sobre los distintos métodos proporcionados por la API de actualización en masa, vea la [documentación de la API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor).  
+1. Define los elementos de actualización junto con las operaciones de actualización de campos correspondientes. En este ejemplo, usará SetUpdateOperation para actualizar el campo de nombre y UnsetUpdateOperation para eliminar el campo de descripción de todos los documentos. También puede realizar otras operaciones, como incrementar un campo de documento con un valor determinado, insertar valores específicos en un campo de matriz o quitar un valor concreto de un campo de matriz. Para obtener información sobre los distintos métodos proporcionados por la API de actualización en masa, vea la [documentación de la API](/java/api/com.microsoft.azure.documentdb.bulkexecutor).  
 
    ```java
    SetUpdateOperation<String> nameUpdate = new SetUpdateOperation<>("Name","UpdatedDocValue");
@@ -162,7 +162,7 @@ Puede actualizar los documentos existentes con el uso de la API BulkUpdateAsync.
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
    ```
 
-   La API de actualización en masa acepta la actualización de una colección de elementos. Cada elemento de actualización especifica la lista de las operaciones de actualización de campos que se realizarán en un documento que se identifica mediante un identificador y un valor con clave de partición. Para más información, vea la [documentación de la API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor):
+   La API de actualización en masa acepta la actualización de una colección de elementos. Cada elemento de actualización especifica la lista de las operaciones de actualización de campos que se realizarán en un documento que se identifica mediante un identificador y un valor con clave de partición. Para más información, vea la [documentación de la API](/java/api/com.microsoft.azure.documentdb.bulkexecutor):
 
    ```java
    public BulkUpdateResponse updateAll(
@@ -195,7 +195,7 @@ Puede actualizar los documentos existentes con el uso de la API BulkUpdateAsync.
 4. Una vez generadas las dependencias de destino, puede invocar la aplicación de actualización en masa con el siguiente comando:
 
    ```bash
-   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB's endpoint>* -masterKey **<Fill in your Azure Cosmos DB's master key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
+   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB's endpoint>* -masterKey **<Fill in your Azure Cosmos DB's primary key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
    ```
 
 ## <a name="performance-tips"></a>Consejos de rendimiento 

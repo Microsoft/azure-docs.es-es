@@ -5,15 +5,15 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 09/03/2020
 ms.author: yushwang
 ms.reviewer: cherylmc
-ms.openlocfilehash: 3747be15f7a15d3d47af2d3495eea2315d40a044
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 022ccaab0b210cd2d656b69f505791d1a2aa963f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419910"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440786"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configuración de conexiones VPN S2S activo-activo con Azure VPN Gateway
 

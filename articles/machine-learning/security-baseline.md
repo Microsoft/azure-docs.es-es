@@ -6,13 +6,13 @@ ms.service: machine-learning
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 9d288c8d3f521467c8d15e027e2530ff879b37af
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 4a7132221d2db58e4dea0e41f2761f4f395b9632
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642541"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401408"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Base de referencia de seguridad de Azure Machine Learning
 
@@ -270,9 +270,9 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel.
 
 Azure Machine Learning tiene distintas modalidades de soporte técnico en los diferentes recursos de proceso e incluso en sus propios recursos de proceso. En el caso de los recursos de proceso que son propiedad de su organización, habilite la recopilación de eventos antimalware de Microsoft Antimalware para Azure Cloud Services y Virtual Machines.
 
-- [Configuración de Microsoft Antimalware para una máquina virtual](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmmicrosoftantimalwareextension?view=azuresmps-4.0.0)
+- [Configuración de Microsoft Antimalware para una máquina virtual](/powershell/module/servicemanagement/azure.service/set-azurevmmicrosoftantimalwareextension)
 
-- [Configuración de la extensión de Microsoft Antimalware para Cloud Services](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
+- [Configuración de la extensión de Microsoft Antimalware para Cloud Services](/powershell/module/servicemanagement/azure.service/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
 
 - [Descripción de Microsoft Antimalware](../security/fundamentals/antimalware.md)
 
@@ -979,7 +979,9 @@ Use Azure Key Vault para pasar secretos a las ejecuciones remotas de forma segur
 
 - [Creación de un almacén de claves](/azure/key-vault/quick-create-portal)
 
-- [Cómo proporcionar la autenticación de Key Vault con una identidad administrada](/azure/key-vault/managed-identity)
+- [Autenticación en Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+- [Asignación de una directiva de acceso de Key Vault](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 **Supervisión de Azure Security Center**: Sí
 

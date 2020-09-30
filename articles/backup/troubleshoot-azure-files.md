@@ -3,12 +3,12 @@ title: Solución de problemas de copia de seguridad de recursos compartidos de a
 description: Este artículo contiene información para solución de problemas que se producen al proteger recursos compartidos de archivos de Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b6f4c74f6e2e8c463d1bcbd78d6ff79d3fb6ee56
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 4908b8ed97bad43d9d24427660a8691ee43d7eaf
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889815"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376985"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Solución de problemas al realizar copias de seguridad de recursos compartidos de archivos de Azure
 
@@ -51,7 +51,7 @@ Vuelva a intentar el registro. Si el problema persiste, póngase en contacto con
 
 ### <a name="unable-to-delete-the-recovery-services-vault-after-unprotecting-a-file-share"></a>No se puede eliminar el almacén de Recovery Services después de desproteger un recurso compartido de archivos
 
-En Azure Portal, abra su **Almacén** > **Infraestructura de Backup** > **Cuentas de almacenamiento** y haga clic en **Anular el registro** para quitar las cuentas de almacenamiento del almacén de Recovery Services.
+En Azure Portal, abra **Almacén** > **Infraestructura de Backup** > **Cuentas de almacenamiento**. Seleccione **Anular el registro** para quitar las cuentas de almacenamiento del almacén de Recovery Services.
 
 >[!NOTE]
 >Un almacén de Recovery Services solo se puede eliminar después de anular el registro de todas las cuentas de almacenamiento registradas en el almacén.

@@ -4,18 +4,18 @@ description: Funcionalidad de restauración instantánea de Azure y preguntas fr
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: ddc8e8fa460943c09f80ebb462b1dbd578f9b23b
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 69348a9902224f9f73f80d5b1900143c885d20ee
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892633"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000386"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Rendimiento mejorado de la copia de seguridad y la restauración con la funcionalidad de restauración instantánea de Azure Backup
 
 > [!NOTE]
 > De acuerdo con los comentarios de los usuarios, hemos cambiado el nombre de **Pila de copia de seguridad de VM V2** a **Restauración instantánea** para reducir la confusión con la funcionalidad de Azure Stack.
-> Todos los usuarios de Azure Backup ya se actualizaron a **la restauración instantánea**.
+> Todos los usuarios de Azure Backup ya se actualizaron a la **restauración instantánea**.
 
 El nuevo modelo de restauración instantánea proporciona las siguientes mejoras en la característica:
 
@@ -108,9 +108,9 @@ Si el tipo de recuperación es "Instantánea y almacén", la restauración se re
 
 El nuevo modelo no permite eliminar el punto de restauración (nivel 2), a menos que se elimine la instantánea (nivel 1). Se recomienda programar un período de retención del punto de restauración (nivel 2) superior al período de retención de instantáneas.
 
-### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>¿Por qué continúa existiendo mi instantánea incluso una vez expirado el tiempo de retención establecido en la directiva de copia de seguridad?
+### <a name="why-does-my-snapshot-still-exist-even-after-the-set-retention-period-in-backup-policy"></a>¿Por qué mi instantánea existe todavía incluso una vez expirado el tiempo de retención establecido en la directiva de copia de seguridad?
 
-Si el punto de recuperación tiene instantáneas y si es el más reciente disponible, se conserva hasta que se realice correctamente la siguiente copia de seguridad. Esto atiende a lo estipulado en el diseño de la actual directiva de "recolección de elementos no utilizados" (GC), que exige que haya al menos un punto de recuperación siempre presente en caso de que se produzca un error en todas las copias de seguridad por un problema en la máquina virtual. En escenarios normales, los puntos de recuperación se eliminan en un máximo de 24 horas después de su expiración.
+Si el punto de recuperación tiene una instantánea y es el más reciente disponible, se conserva hasta que se realice correctamente la siguiente copia de seguridad. Esto se debe a la directiva de "recolección de elementos no utilizados" (GC) designada. Esta determina que siempre esté presente, como mínimo, el punto de recuperación más reciente, en caso de que se produzca un error en todas las copias de seguridad posteriores debido a un problema en la máquina virtual. En los escenarios normales, los puntos de recuperación se limpian a lo sumo 24 horas después de que expiran.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>No necesito la característica de restauración instantánea. ¿Se puede deshabilitar?
 

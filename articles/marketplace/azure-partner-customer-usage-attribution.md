@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 04/14/2020
+ms.date: 09/01/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: c5fc239c32037354547c6818fd507a7a8cfd3657
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 50e9eb6d5024d83e841532ed64e84b477a261c9a
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031445"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320977"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Atribución de uso de partners y clientes de marketplace comercial
 
@@ -97,9 +97,9 @@ Para agregar un identificador único global (GUID), se realizas una modificació
 
 1. Abra la plantilla de Resource Manager.
 
-1. Agregue un nuevo recurso en el archivo de plantilla principal. El recurso solo debe estar en los archivos **mainTemplate.json** o **azuredeploy.json**, no en ninguna de las plantillas vinculadas o anidadas.
+1. Agregue un nuevo recurso de tipo [Microsoft.Resources/deployments](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments) en el archivo de plantilla principal. El recurso solo debe estar en los archivos **mainTemplate.json** o **azuredeploy.json**, no en ninguna de las plantillas vinculadas o anidadas.
 
-1. Escriba el valor del GUID después del prefijo `pid-` (por ejemplo, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Como nombre del recurso, escriba el valor de GUID después del prefijo `pid-`. Por ejemplo, si el GUID es eb7927c8-dd66-43e1-b0cf-c346a422063, el nombre del recurso será _pid-eb7927c8-dd66-43e1-b0cf-c346a422063_.
 
 1. Compruebe si la plantilla tiene errores.
 
@@ -112,11 +112,11 @@ Para agregar un identificador único global (GUID), se realizas una modificació
 Para habilitar el seguimiento de recursos de la plantilla, deberá agregar los siguientes recursos adicionales en la sección de recursos. Asegúrese de modificar el siguiente código de ejemplo con sus propias entradas cuando lo agregue al archivo de plantilla principal.
 El recurso solo se debe agregar al archivo **mainTemplate.json** o **azuredeploy.json**, y no a plantillas vinculadas o anidadas.
 
-```
+```json
 // Make sure to modify this sample code with your own inputs where applicable
 
 { // add this resource to the resources section in the mainTemplate.json (do not add the entire file)
-    "apiVersion": "2018-02-01",
+    "apiVersion": "2020-06-01",
     "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
     "properties": {
@@ -153,6 +153,20 @@ Para Python, use el atributo **config**. El atributo solo se puede agregar a un 
 
 > [!NOTE]
 > Agregue el atributo a cada cliente. No hay ninguna configuración estática global. Puede etiquetar una fábrica de cliente para asegurarse de que todos los clientes realizan el seguimiento. Para más información, consulte este [ejemplo de fábrica de cliente en GitHub](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79).
+
+#### <a name="example-the-net-sdk"></a>Ejemplo: SDK de .NET
+
+Para .NET, asegúrese de establecer el agente de usuario. La biblioteca [Microsoft.Azure.Management.Fluent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) puede usarse para establecer el agente de usuario con el código siguiente (ejemplo en C#):
+
+```csharp
+
+var azure = Microsoft.Azure.Management.Fluent.Azure
+    .Configure()
+    // Add your pid in the user agent header
+    .WithUserAgent("pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", String.Empty) 
+    .Authenticate(/* Credentials created via Microsoft.Azure.Management.ResourceManager.Fluent.SdkContext.AzureCredentialsFactory */)
+    .WithSubscription("<subscription ID>");
+```
 
 #### <a name="tag-a-deployment-by-using-the-azure-powershell"></a>Etiquetado de una implementación mediante Azure PowerShell
 
@@ -339,7 +353,7 @@ Puede crear una oferta de máquina virtual en Marketplace mediante el disco duro
 
 **¿No se pudo actualizar la propiedad *contentVersion* para la plantilla principal?**
 
-A veces se puede producir un error al implementar la plantilla mediante TemplateLink desde otra plantilla que espere una versión de contentVersion anterior por alguna razón. La solución alternativa es usar la propiedad de metadatos:
+A veces se puede producir un error al implementar la plantilla mediante TemplateLink desde otra plantilla que, por algún motivo, espera una versión de contentVersion anterior. La solución alternativa es usar la propiedad de metadatos:
 
 ```
 "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

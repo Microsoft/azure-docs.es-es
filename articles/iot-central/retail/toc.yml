@@ -66,7 +66,7 @@
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
 - name: Guías paso a paso
   items:
-    - name: Conexión de dispositivos
+    - name: Conexión y desarrollo de dispositivos
       items:
         - name: Preparación y conexión a Rigado Cascade 500
           href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json

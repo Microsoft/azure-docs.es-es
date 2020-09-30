@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 0498823e1b730db6425d255b6de4b826dd05a6a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa90fcb9ebc17be9a658b08873234eada98b0fba
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749500"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898463"
 ---
 # <a name="pca-based-anomaly-detection-module"></a>Módulo PCA-Based Anomaly Detection
 
-En este artículo se describe cómo usar el módulo PCA-Based Anomaly Detection (Detección de anomalías basada en PCA) en Azure Machine Learning Designer (versión preliminar) para crear un modelo de detección de anomalías basado en el análisis de componentes principales (PCA).
+En este artículo se describe cómo usar el módulo Detección de anomalías basada en PCA en el diseñador de Azure Machine Learning para crear un modelo de detección de anomalías basado en el análisis de componentes principales (PCA).
 
 Este módulo ayuda a compilar un modelo en escenarios en los que es sencillo obtener datos de entrenamiento de una clase, como las transacciones válidas, pero es difícil obtener suficientes muestras de las anomalías de destino. 
 
@@ -109,4 +109,4 @@ Para cada entrada nueva, el detector de anomalías calcula su proyección de los
 
 Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 
 
-Consulte [Excepciones y códigos de error para el diseñador (versión preliminar)](designer-error-codes.md) para ver una lista de errores específica de los módulos del diseñador.
+Consulte [Excepciones y códigos de error para el diseñador](designer-error-codes.md) para ver una lista de errores específicos de los módulos del diseñador.

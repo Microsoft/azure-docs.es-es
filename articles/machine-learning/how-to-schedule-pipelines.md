@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 11/12/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 351d52128660c25c557c536f2835e0e71c0115f7
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: ac1df12b10e32f35e8edbd52c3488b2d38db638a
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87842967"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650809"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Programación de canalizaciones de aprendizaje automático con el SDK de Azure Machine Learning para Python
 
@@ -66,7 +66,7 @@ from azureml.pipeline.core.schedule import ScheduleRecurrence, Schedule
 
 ### <a name="create-a-time-based-schedule"></a>Creación de una programación basada en el tiempo
 
-El constructor `ScheduleRecurrence` tiene un argumento `frequency` necesario que debe ser una de las cadenas siguientes: "Minute", "Hour", "Day" "Week" o "Month". También requiere un argumento `interval` de entero que especifique el número de unidades de `frequency` que debe transcurrir entre inicios de programación. Los argumentos opcionales le permiten ser más específico sobre las horas de inicio, como se detalla en los [documentos del SDK de ScheduleRecurrence](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py).
+El constructor `ScheduleRecurrence` tiene un argumento `frequency` necesario que debe ser una de las cadenas siguientes: "Minute", "Hour", "Day" "Week" o "Month". También requiere un argumento `interval` de entero que especifique el número de unidades de `frequency` que debe transcurrir entre inicios de programación. Los argumentos opcionales le permiten ser más específico sobre las horas de inicio, como se detalla en los [documentos del SDK de ScheduleRecurrence](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py&preserve-view=true).
 
 Cree un elemento `Schedule` que inicie una ejecución cada 15 minutos:
 
@@ -83,11 +83,11 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 Las canalizaciones que se desencadenan por cambios en los archivos pueden ser más eficaces que las basadas en el tiempo. Por ejemplo, puede realizar un paso de preprocesamiento cuando cambie un archivo o cuando se agrega un nuevo archivo a un directorio de datos. Puede supervisar los cambios en un almacén de datos o aquellos que tienen lugar dentro de un directorio específico del almacén de datos. Si supervisa un directorio específico, los cambios en los subdirectorios de ese directorio _no_ desencadenarán una ejecución.
 
-Para crear un elemento `Schedule` reactivo a los archivos, debe establecer el parámetro `datastore` en la llamada a [Schedule.create](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Para supervisar una carpeta, establezca el argumento `path_on_datastore`.
+Para crear un elemento `Schedule` reactivo a los archivos, debe establecer el parámetro `datastore` en la llamada a [Schedule.create](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#&preserve-view=truecreate-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Para supervisar una carpeta, establezca el argumento `path_on_datastore`.
 
 El argumento `polling_interval` permite expresar (en minutos) la frecuencia con la que se comprueba si hay cambios en el almacén de datos.
 
-Si la canalización se construyó con [DataPath](https://docs.microsoft.com/python/api/azureml-core/azureml.data.datapath.datapath?view=azure-ml-py) [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py), puede establecer esa variable en el nombre del archivo cambiado mediante el argumento `data_path_parameter_name`.
+Si la canalización se construyó con [DataPath](https://docs.microsoft.com/python/api/azureml-core/azureml.data.datapath.datapath?view=azure-ml-py&preserve-view=true) [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py&preserve-view=true), puede establecer esa variable en el nombre del archivo cambiado mediante el argumento `data_path_parameter_name`.
 
 ```python
 datastore = Datastore(workspace=ws, name="workspaceblobstore")

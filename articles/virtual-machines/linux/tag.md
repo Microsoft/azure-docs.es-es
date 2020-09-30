@@ -1,25 +1,20 @@
 ---
-title: Procedimiento para etiquetar una máquina virtual Linux en Azure
-description: Infórmese sobre el etiquetado de una máquina virtual Linux de Azure creada con el modelo de implementación de Resource Manager.
-services: virtual-machines-linux
-documentationcenter: ''
-author: mmccrory
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ca0e17e5-d78e-42e6-9dad-c1e8f1c58027
-ms.service: virtual-machines-linux
+title: Cómo etiquetar una máquina virtual de Azure mediante la CLI
+description: Más información sobre cómo etiquetar una máquina virtual con la CLI de Azure
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
 ms.topic: how-to
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
-ms.author: memccror
+ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a830f6eb604bb1173a7a552ad5f81c936f02d5fd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1a417e7cff4c7afb601861ddfe09eec171f0cf15
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500528"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320620"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Etiquetado de una máquina virtual Linux en Azure
 En este artículo se describen diferentes maneras de etiquetar una máquina virtual en Azure el modelo de implementación de Resource Manager. Las etiquetas son pares clave-valor definidos por el usuario que se pueden colocar directamente en un recurso o un grupo de recursos. Actualmente, Azure admite un máximo de 50 etiquetas por recurso y grupo de recursos. Las etiquetas se pueden colocar en un recurso en el momento de su creación, o bien se pueden agregar a un recurso existente. Tenga en cuenta que las etiquetas solo son compatibles con los recursos creados mediante el modelo de implementación de Resource Manager.
@@ -62,5 +57,5 @@ Ahora que hemos aplicado etiquetas a nuestros recursos a través de PowerShell, 
 [Azure CLI environment]: ../../azure-resource-manager/management/manage-resources-cli.md
 [Azure Resource Manager Overview]: ../../azure-resource-manager/management/overview.md
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/management/tag-resources.md
-[Understanding your Azure Bill]:../../cost-management-billing/understand/review-individual-bill.md
-[Gain insights into your Microsoft Azure resource consumption]:../../cost-management-billing/manage/usage-rate-card-overview.md
+[Understanding your Azure Bill]: ../../cost-management-billing/understand/review-individual-bill.md
+[Gain insights into your Microsoft Azure resource consumption]: ../../cost-management-billing/manage/usage-rate-card-overview.md

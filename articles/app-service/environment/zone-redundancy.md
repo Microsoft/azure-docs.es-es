@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 15b129db56a9c6854bc3c1f2814a8776ec39adc6
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 1e88aac4209f7960b2589cf43f59ead4bd129134
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961574"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605080"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Compatibilidad de zonas de disponibilidad con instancias de App Service Environment
 
@@ -29,11 +29,15 @@ A menos que se sigan los pasos descritos en este artículo, las instancias de AS
 
 Las instancias de ASE de ILB de zona se pueden crear en cualquiera de estas regiones:
 
+- Este de Australia
+- Sur de Brasil
+- Centro de Canadá
 - Centro de EE. UU.
 - Este de EE. UU.
 - Este de EE. UU. 2
 - Este de EE. UU. 2 (EUAP)
 - Centro de Francia 
+- Centro-oeste de Alemania
 - Japón Oriental
 - Norte de Europa
 - Oeste de Europa

@@ -10,13 +10,13 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 04/30/2020
-ms.openlocfilehash: 4de682bd315eef100bdbf8dd24faa128c5b8c2a1
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 08/31/2020
+ms.openlocfilehash: 582a9eb4c98e89602e35e2ee424a00adc54a88e3
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815817"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229555"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integración y entrega continuas en Azure Data Factory
 
@@ -335,6 +335,16 @@ A continuación se muestra la plantilla de parametrización predeterminada actua
 
 ```json
 {
+    "Microsoft.DataFactory/factories": {
+        "properties": {
+            "globalParameters": {
+                "*": {
+                    "value": "="
+                }
+            }
+        },
+        "location": "="
+    },
     "Microsoft.DataFactory/factories/pipelines": {
     },
     "Microsoft.DataFactory/factories/dataflows": {
@@ -390,7 +400,6 @@ A continuación se muestra la plantilla de parametrización predeterminada actua
             "typeProperties": {
                 "scope": "="
             }
-
         }
     },
     "Microsoft.DataFactory/factories/linkedServices": {
@@ -427,7 +436,8 @@ A continuación se muestra la plantilla de parametrización predeterminada actua
                     "aadResourceId": "=",
                     "sasUri": "|:-sasUri:secureString",
                     "sasToken": "|",
-                    "connectionString": "|:-connectionString:secureString"
+                    "connectionString": "|:-connectionString:secureString",
+                    "hostKeyFingerprint": "="
                 }
             }
         },
@@ -450,8 +460,8 @@ A continuación se muestra la plantilla de parametrización predeterminada actua
                     "fileName": "="
                 }
             }
-        }}
-}
+        }
+    }
 ```
 
 ### <a name="example-parameterizing-an-existing-azure-databricks-interactive-cluster-id"></a>Ejemplo: Parametrización de un identificador de clúster interactivo de Azure Databricks existente
@@ -460,6 +470,16 @@ En el ejemplo siguiente se muestra cómo agregar un único valor a la plantilla 
 
 ```json
 {
+    "Microsoft.DataFactory/factories": {
+        "properties": {
+            "globalParameters": {
+                "*": {
+                    "value": "="
+                }
+            }
+        },
+        "location": "="
+    },
     "Microsoft.DataFactory/factories/pipelines": {
     },
     "Microsoft.DataFactory/factories/dataflows": {
@@ -625,6 +645,8 @@ Si usa la integración de Git con la factoría de datos y tiene una canalizació
 
     - Las entidades de Data Factory dependen unas de otras. Por ejemplo, los desencadenadores dependen de las canalizaciones y las canalizaciones dependen de los conjuntos de datos y otras canalizaciones. La publicación selectiva de un subconjunto de recursos podría provocar comportamientos y errores inesperados.
     - En casos excepcionales, cuando necesite la publicación selectiva, considere la posibilidad de usar una revisión. Para más información, vea [Entorno de producción de revisión](#hotfix-production-environment).
+
+- El equipo de Azure Data Factory no recomienda asignar controles de RBAC a entidades individuales (canalizaciones, conjuntos de datos, etc.) en una factoría de datos. Por ejemplo, si un desarrollador tiene acceso a una canalización o un conjunto de datos, debe poder acceder a todas las canalizaciones o conjuntos de datos de la factoría de datos. Si cree que necesita implementar muchos roles de RBAC en una factoría de datos, vea la implementación de una segunda factoría de datos.
 
 -   No es posible publicar desde ramas privadas.
 

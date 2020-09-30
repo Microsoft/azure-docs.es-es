@@ -13,12 +13,12 @@ ms.date: 11/8/2019
 ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 43ed0bfed1dbe48c4f66a820ecad6fedf11115fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13242a41e1d10b0df031bf10fd646d9ec3cf47c3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478168"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437775"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>Nueva experiencia de los registros de aplicaciones de Azure Portal
 
@@ -77,12 +77,12 @@ En la nueva experiencia, se ha cambiado el nombre **Secretos de aplicación** a 
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Plataformas/Autenticación: direcciones URL de respuesta e identificadores URI de redirección
 En la experiencia anterior, una aplicación tenía una sección Plataformas para tipos web, nativos y de API web con el objetivo de configurar direcciones URL de redireccionamiento, direcciones URL de cierre de sesión y el flujo implícito.
 
-En la nueva experiencia, las direcciones URL de respuesta se encuentran en la sección Autenticación de una aplicación. Además, se hace referencia a ellos como identificadores URI de redirección y el formato de los identificadores URI de redirección ha cambiado. Estos deben estar asociados con un tipo de aplicación (web o cliente público: móvil y escritorio). [Más información](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+En la nueva experiencia, las direcciones URL de respuesta se encuentran en la sección Autenticación de una aplicación. Además, se hace referencia a ellos como identificadores URI de redirección y el formato de los identificadores URI de redirección ha cambiado. Estos deben estar asociados con un tipo de aplicación (web o cliente público: móvil y escritorio). [Más información](quickstart-register-app.md#add-a-redirect-uri)
 
 Las API web se configuran en la página Exponer una API.
 
 > [!NOTE]
-> Pruebe la nueva experiencia de configuración de autenticación, donde puede configurar su aplicación según la plataforma o dispositivo que tenga como destino. [Más información](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
+> Pruebe la nueva experiencia de configuración de autenticación, donde puede configurar su aplicación según la plataforma o dispositivo que tenga como destino. [Más información](quickstart-register-app.md#configure-platform-settings)
 
 ## <a name="microsoft-graph-permissionsapi-permissions"></a>Permisos de Microsoft Graph/Permisos de API
 

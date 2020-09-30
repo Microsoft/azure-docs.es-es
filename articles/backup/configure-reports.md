@@ -3,12 +3,12 @@ title: Configuración de informes de Azure Backup
 description: Configure y vea informes para Azure Backup mediante Log Analytics y libros de Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 4e5e9258540e5cdab14e438cde96cd89aad7498d
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 0ede2c8507032811eda26cfcb4d90f18578f3700
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826861"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180293"
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 
@@ -109,11 +109,11 @@ Use esta pestaña para obtener visibilidad sobre las posibles oportunidades de o
 
 ###### <a name="inactive-resources"></a>Recursos inactivos
 
-Con esta vista, puede identificar los elementos de copia de seguridad para los que no se ha efectuado una copia de seguridad correctamente durante un período de tiempo considerable. Esto puede significar que la máquina subyacente de la que se hace una copia de seguridad ya no existe (y, por lo tanto, se produce un error en las copias de seguridad) o hay algún problema con la máquina que impide que las copias de seguridad se realicen de forma confiable.
+Con esta vista, puede identificar los elementos de copia de seguridad para los que no se ha efectuado una copia de seguridad correctamente durante un período de tiempo considerable. Esto puede significar que la máquina subyacente de la que se ha hecho una copia de seguridad ya no existe (por lo tanto, se produce un error en las copias de seguridad), o bien que hay algún problema con la máquina que impide que las copias de seguridad se realicen de forma confiable.
 
 Para ver los recursos inactivos, vaya a la pestaña **Optimizar** y seleccione el icono **Inactive Resources** (Recursos inactivos). Al seleccionar este icono, se muestra una cuadrícula con los detalles de todos los recursos inactivos que existen en el ámbito seleccionado. De forma predeterminada, la cuadrícula muestra los elementos que no han tenido un punto de recuperación en los últimos siete días. Para buscar recursos inactivos correspondientes a un intervalo de tiempo distinto, puede ajustar el filtro **Intervalo de tiempo** en la parte superior de la pestaña.
 
-Una vez que haya identificado un recurso inactivo, puede investigar el problema en el panel de elementos de copia de seguridad o en el panel de recursos de Azure correspondiente a ese recurso (siempre que sea aplicable). En función de su escenario, puede elegir entre detener la copia de seguridad de la máquina (si ya no existe) y eliminar las copias de seguridad innecesarias, con lo que se ahorra costos, o bien puede corregir los problemas en la máquina para asegurarse de que las copias de seguridad se realicen de forma confiable.
+Una vez que haya identificado un recurso inactivo, puede investigar el problema más a fondo. Para ello, vaya al panel de elementos de copia de seguridad o al panel de recursos de Azure para el recurso correspondiente (si procede). En función de su escenario, puede elegir entre detener la copia de seguridad de la máquina (si ya no existe) y eliminar las copias de seguridad innecesarias, con lo que se ahorra costos, o bien puede corregir los problemas en la máquina para asegurarse de que las copias de seguridad se realicen de forma confiable.
 
 ![Pestaña Optimización: Recursos inactivos](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
 
@@ -175,7 +175,7 @@ Los widgets del informe de Backup se basan en consultas de Kusto, que se ejecuta
 
 - La versión anterior de la plantilla de Power BI para la creación de informes, que tiene como origen de los datos una cuenta de Azure Storage, está en una ruta de desuso. Se recomienda comenzar a enviar los datos de diagnóstico del almacén a Log Analytics para ver los informes.
 
-- Además, el [esquema V1](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema) de envío de datos de diagnóstico a una cuenta de almacenamiento o a un área de trabajo de LA también se encuentra en una ruta de degradación. Esto significa que, si ha escrito consultas personalizadas o automatizaciones basadas en el esquema v1, se recomienda actualizar estas consultas para usar el esquema v2 actualmente admitido.
+- Además, el [esquema V1](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema) de envío de datos de diagnóstico a una cuenta de almacenamiento o a un área de trabajo de LA también se encuentra en una ruta de degradación. Esto significa que, si ha escrito consultas personalizadas o automatizaciones basadas en el esquema V1, se recomienda actualizar las consultas para usar el esquema V2 admitido actualmente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

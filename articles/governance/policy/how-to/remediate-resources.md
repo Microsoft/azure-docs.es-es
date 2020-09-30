@@ -1,18 +1,18 @@
 ---
 title: Corrección de recursos no compatibles
 description: En esta guía se explica la corrección de los recursos que no son conformes con las directivas de Azure Policy.
-ms.date: 06/09/2020
+ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: be55f16734a94acfcc89d632f4cb79f550fa74d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1274b049d7ce19601968697b22da38f0eb2cb5ff
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636315"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958752"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corregir los recursos no conformes con Azure Policy
 
-Los recursos que no son conformes con un directiva **deployIfNotExists** o **modify** se pueden colocar en un estado conforme a través de la **Corrección**. La corrección se consigue indicando a Azure Policy que ejecute el efecto **deployIfNotExists** o la etiqueta **operations** de la directiva asignada en los recursos existentes, independientemente de que la asignación sea a un grupo de administración, una suscripción, un grupo de recursos o un recurso individual. En este artículo se muestran los pasos necesarios para comprender y realizar correcciones con Azure Policy.
+Los recursos que no son conformes con un directiva **deployIfNotExists** o **modify** se pueden colocar en un estado conforme a través de la **Corrección**. La corrección se consigue indicando a Azure Policy que ejecute el efecto **deployIfNotExists** o las **operaciones de modificación** de la directiva asignada en los recursos existentes, independientemente de que la asignación sea a un grupo de administración, una suscripción, un grupo de recursos o un recurso individual. En este artículo se muestran los pasos necesarios para comprender y realizar correcciones con Azure Policy.
 
 ## <a name="how-remediation-security-works"></a>Cómo funciona la seguridad de corrección
 

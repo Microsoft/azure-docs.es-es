@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: e1a4a366b3e4fa045df69683d6e72b157ccf0a1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ffb739affac68898f6ed5ff1d972d3fd4a70df2f
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003634"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055267"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Creación de una FCI con discos compartidos de Azure (SQL Server en VM de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -213,7 +213,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configuración de la conectividad 
 
-Para enrutar el tráfico de forma adecuada al nodo principal actual, configure la opción de conectividad apropiada para su entorno. Puede crear un [equilibrador de carga de Azure](hadr-vnn-azure-load-balancer-configure.md) o bien, si usa SQL Server 2019 y Windows Server 2019, puede obtener una versión preliminar de la característica [nombre de red distribuida](hadr-distributed-network-name-dnn-configure.md) en su lugar. 
+Para enrutar el tráfico de forma adecuada al nodo principal actual, configure la opción de conectividad apropiada para su entorno. Puede crear un [equilibrador de carga de Azure](hadr-vnn-azure-load-balancer-configure.md) o bien, si usa SQL Server 2019 y Windows Server 2016 (o posterior), puede obtener una versión preliminar de la característica [nombre de red distribuida](hadr-distributed-network-name-dnn-configure.md) en su lugar. 
 
 ## <a name="limitations"></a>Limitaciones
 

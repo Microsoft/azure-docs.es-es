@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: 3c097260812e72dfaa3678a4aade556a337e6a6c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: fadcefb0b802ec3064ac917ab98320f61f24ae5c
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272907"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033530"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Compatibilidad de IoT Hub con redes virtuales mediante Private Link e identidad administrada
 
@@ -226,6 +226,8 @@ Ahora el punto de conexión de Service Bus personalizado está configurado para 
 
 La característica de carga de archivos de IoT Hub permite a los dispositivos cargar archivos en una cuenta de almacenamiento propiedad del cliente. Para permitir que la carga de archivos funcione, tanto los dispositivos como IoT Hub deben tener conectividad con la cuenta de almacenamiento. Si se aplican restricciones de firewall a la cuenta de almacenamiento, los dispositivos deben usar cualquiera de los mecanismos de la cuenta de almacenamiento admitida (como [puntos de conexión privados](../private-link/create-private-endpoint-storage-portal.md), [puntos de conexión de servicio](../virtual-network/virtual-network-service-endpoints-overview.md) o [configuración directa de firewall](../storage/common/storage-network-security.md)) para obtener conectividad. Del mismo modo, si se aplican restricciones de firewall en la cuenta de almacenamiento, IoT Hub se debe configurar para acceder al recurso de almacenamiento a través de la excepción de servicios de confianza de Microsoft. Con este propósito, la instancia de IoT Hub debe tener una identidad administrada. Después de aprovisionar una identidad administrada, realice los pasos siguientes para conceder el permiso RBAC a la identidad de recursos de la instancia de IoT Hub para acceder a su cuenta de almacenamiento.
 
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
+
 1. En Azure Portal, vaya a la pestaña **Control de acceso (IAM)** de la cuenta de almacenamiento y haga clic en **Agregar** en la sección **Agregar una asignación de roles**.
 
 2. Seleccione **Colaborador de datos de Storage Blob** ([*no* Colaborador ni Colaborador de la cuenta de almacenamiento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) como **rol**, el **usuario, grupo o entidad de servicio de Azure AD** en **Asignando acceso a** y seleccione el nombre del recurso de IoT Hub en la lista desplegable. Haga clic en el botón **Save** (Guardar).
@@ -250,7 +252,7 @@ Esta funcionalidad requiere conectividad de IoT Hub a la cuenta de almacenamient
 
 3. Vaya a la pestaña **Firewalls y redes virtuales** de la cuenta de almacenamiento y habilite la opción **Allow access from selected networks** (Permitir acceso desde redes seleccionadas). En la lista **Excepciones**, active la casilla situada junto a **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento**. Haga clic en el botón **Save** (Guardar).
 
-Ahora puede usar la API REST de Azure IoT para [crear trabajos de importación y exportación](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjobs) a fin de obtener información sobre cómo usar la funcionalidad de importación y exportación en bloque. Tenga en cuenta que tendrá que proporcionar el objeto `storageAuthenticationType="identityBased"` en el cuerpo de la solicitud y usar `inputBlobContainerUri="https://..."` y `outputBlobContainerUri="https://..."` como las direcciones URL de entrada y salida de la cuenta de almacenamiento, respectivamente.
+Ahora puede usar la API REST de Azure IoT para [crear trabajos de importación y exportación](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjobs) a fin de obtener información sobre cómo usar la funcionalidad de importación y exportación en bloque. Tenga en cuenta que tendrá que proporcionar el objeto `storageAuthenticationType="identityBased"` en el cuerpo de la solicitud y usar `inputBlobContainerUri="https://..."` y `outputBlobContainerUri="https://..."` como las direcciones URL de entrada y salida de la cuenta de almacenamiento, respectivamente.
 
 Los SDK de Azure IoT Hub también admiten esta funcionalidad en el administrador del Registro del cliente del servicio. El fragmento de código siguiente muestra cómo iniciar un trabajo de importación o exportación al usar el SDK de C#.
 

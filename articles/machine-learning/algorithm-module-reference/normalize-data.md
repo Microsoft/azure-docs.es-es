@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: a740c81aa165e221bca19987c7b3c62da56b0402
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: de0a23ca9dea210d91fe259b06622226549ba3b2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477534"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890448"
 ---
 # <a name="normalize-data-module"></a>Módulo Normalize Data
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
 Use este módulo para transformar un conjunto de datos a través de la *normalización*.
 

@@ -1,5 +1,5 @@
 ---
-title: Uso de las características de accesibilidad del diseñador (versión preliminar)
+title: Uso de las características de accesibilidad del diseñador
 titleSuffix: Azure Machine Learning
 description: Obtenga información sobre los métodos abreviados de teclado y las características de accesibilidad del lector de pantalla disponibles en el diseñador.
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
 ms.custom: designer
-ms.openlocfilehash: 5d91dc212eb2f856f0252261f2ddfc8a5a4d70ee
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 86cb5260a59f864658fbb7ac1c1da2d943c6253e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210366"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893427"
 ---
-# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Uso del diseñador de Azure Machine Learning mediante el teclado (versión preliminar)
+# <a name="use-a-keyboard-to-use-azure-machine-learning-designer"></a>Uso del diseñador de Azure Machine Learning mediante el teclado
 
 Aprenda a usar el diseñador de Azure Machine Learning con un teclado y un lector de pantalla. Para obtener una lista de métodos abreviados de teclado que funcionen en cualquier lugar de Azure Portal, consulte [Métodos abreviados de teclado de Azure Portal](../azure-portal/azure-portal-keyboard-shortcuts.md)
 

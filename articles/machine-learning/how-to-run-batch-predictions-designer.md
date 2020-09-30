@@ -1,24 +1,24 @@
 ---
-title: Ejecución de predicciones por lotes mediante el diseñador de Azure Machine Learning (versión preliminar)
+title: Ejecución de predicciones por lotes mediante el diseñador de Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Aprenda a entrenar un modelo y a configurar una canalización de predicción por lotes mediante el diseñador. Implemente la canalización como servicio web con parámetros que se pueda desencadenar desde cualquier biblioteca HTTP.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: peterlu
-author: peterclu
-ms.date: 02/24/2020
+ms.author: keli19
+author: likebupt
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 61465210c9ad476c6d8d2987330498aa0efa39d4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 21dad66670da7a538039ae795d6be87cc4dbce96
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319616"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883081"
 ---
-# <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Ejecución de predicciones por lotes mediante el diseñador de Azure Machine Learning (versión preliminar)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Ejecución de predicciones por lotes mediante el diseñador de Azure Machine Learning
+
 
 En este artículo, aprenderá a usar el diseñador para crear una canalización de predicción por lotes. La predicción por lotes permite puntuar continuamente grandes conjuntos de valores a petición mediante un servicio web que se puede desencadenar desde cualquier biblioteca HTTP.
 
@@ -71,7 +71,10 @@ En esta sección, se crea un parámetro de conjunto de datos para especificar ot
    
     Escriba el nombre del parámetro o acepte el valor predeterminado.
 
-## <a name="publish-your-batch-inferencing-pipeline"></a>Publicación de una canalización de inferencias por lotes
+    > [!div class="mx-imgBorder"]
+    > ![Establecer el conjunto de datos como parámetro de la canalización](./media/how-to-run-batch-predictions-designer/set-dataset-as-pipeline-parameter.png)
+
+## <a name="publish-your-batch-inference-pipeline"></a>Publicación de la canalización de inferencias por lotes
 
 Ya está listo para implementar la canalización de inferencias. Así se implementará la canalización y se pondrá a disposición de otros usuarios.
 
@@ -126,9 +129,7 @@ Puede encontrar información sobre cómo consumir puntos de conexión de canaliz
 
 El punto de conexión de REST de un punto de conexión de canalización en el panel de información general de la ejecución. Al llamar al punto de conexión, consume su canalización publicada predeterminada.
 
-También puede consumir una canalización publicada en la página **Published pipelines** (Canalizaciones publicadas). Seleccione una canalización publicada y busque su punto de conexión de REST. 
-
-![Detalles de punto de conexión de REST](./media/how-to-run-batch-predictions-designer/rest-endpoint-details.png)
+También puede consumir una canalización publicada en la página **Published pipelines** (Canalizaciones publicadas). Seleccione una canalización publicada. Puede encontrar el punto de conexión de REST en el panel **Información general sobre una canalización publicada** a la derecha del gráfico. 
 
 Para hacer una llamada a REST, necesitará un encabezado de autenticación de tipo portador de OAuth 2.0. Consulte la siguiente [sección de tutorial](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) para más información sobre la configuración de la autenticación en el área de trabajo y la realización de una llamada a REST con parámetros.
 
@@ -142,7 +143,7 @@ Si publica una canalización, puede elegir que sea la nueva canalización predet
 
 También puede establecer una canalización predeterminada nueva en la pestaña **Published pipelines** (Canalizaciones publicadas) del punto de conexión.
 
-![Establecimiento de la canalización predeterminada](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
+![Establecer la canalización predeterminada en la página de canalizaciones publicadas](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentación sobre External Identities
-summary: External Identities es un conjunto de funcionalidades que permiten a las organizaciones proteger y administrar a todos los usuarios externos, incluidos clientes y asociados. Al basarse en la colaboración B2B, External Identities aporta funcionalidades adicionales para interactuar y conectarse con usuarios ajenos a la organización.
+summary: External Identities es un conjunto de funcionalidades que permiten a las organizaciones proteger y administrar a todos los usuarios externos, incluidos clientes y asociados. Al basarse en la colaboración B2B, External Identities proporciona más formas de interactuar y conectarse con usuarios ajenos a la organización.
 metadata:
   title: Documentación sobre External Identities
-  description: External Identities es un conjunto de funcionalidades que permiten a las organizaciones proteger y administrar a todos los usuarios externos, incluidos clientes y asociados. Al basarse en la colaboración B2B, External Identities aporta funcionalidades adicionales para interactuar y conectarse con usuarios ajenos a la organización.
+  description: External Identities es un conjunto de funcionalidades que permiten a las organizaciones proteger y administrar a todos los usuarios externos, incluidos clientes y asociados. Al basarse en la colaboración B2B, External Identities proporciona más formas de interactuar y conectarse con usuarios ajenos a la organización.
   ms.service: active-directory
   ms.subservice: B2B
   ms.workload: identity
@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 694b5fee19a1c0dca752e02259e3cc398ae6e55e
-  ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+  ms.openlocfilehash: bad40c34db9f597320a05f46be92baae6632d93e
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/06/2020
-  ms.locfileid: "87906765"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91265619"
 landingContent:
 - title: Acerca de External Identities
   linkLists:
@@ -25,77 +25,63 @@ landingContent:
     links:
     - text: Comparación de las soluciones de External Identities
       url: compare-with-b2c.md
-    - text: ¿Qué es el acceso de usuarios invitados de B2B?
+    - text: ¿Qué es la colaboración B2B de Azure AD?
       url: what-is-b2b.md
-- title: Registro de autoservicio (versión preliminar)
+    - text: ¿Qué es la identidad de Azure AD B2C (negocio a consumidor)?
+      url: https://docs.microsoft.com/azure/active-directory-b2c/overview
+- title: Colaboración con usuarios ajenos a su organización (colaboración B2B)
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Descripción del usuario invitado de B2B
+      url: user-properties.md
+    - text: Cómo canjea un invitado de B2B una invitación
+      url: redemption-experience.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configuración de los valores de colaboración externa
+      url: delegate-invitations.md
+    - text: Configuración de la federación directa (versión preliminar)
+      url: direct-federation.md
+    - text: Configuración de códigos de acceso de un solo uso (versión preliminar)
+      url: one-time-passcode.md
+    - text: Adición e invitación a usuarios invitados
+      url: add-users-administrator.md
+    - text: Salir de una organización como usuario invitado
+      url: leave-the-organization.md
+- title: Escalado de aplicaciones a consumidores y clientes (Azure AD B2C)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Acerca de Azure AD B2C
+      url: https://docs.microsoft.com/azure/active-directory-b2c/overview
+    - text: Información técnica y sobre características
+      url: https://docs.microsoft.com/azure/active-directory-b2c/technical-overview
+    - text: Vea toda la documentación de Azure AD B2C
+      url: https://docs.microsoft.com/azure/active-directory-b2c/
+  - linkListType: concept
+    links:
+    - text: Flujos de usuario de Azure AD B2C
+      url: https://docs.microsoft.com/azure/active-directory-b2c/user-flow-overview
+    - text: Directivas personalizadas de Azure AD B2C
+      url: https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview
+  - linkListType: tutorial
+    links:
+    - text: Creación de flujos de usuario en Azure AD B2C
+      url: https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows
+- title: Flujos de registro de autoservicio para usuarios invitados de B2B (versión preliminar)
   linkLists:
   - linkListType: overview
     links:
     - text: ¿Qué es el registro de autoservicio?
       url: self-service-sign-up-overview.md
+  - linkListType: sample
+    links:
+    - text: Ejemplos de código de conectores de API para flujos de usuario
+      url: code-samples-self-service-sign-up.md
   - linkListType: how-to-guide
     links:
     - text: Incorporación de un flujo de usuario de registro de autoservicio
       url: self-service-sign-up-user-flow.md
     - text: Definición de atributos personalizados para flujos de usuario
       url: user-flow-add-custom-attributes.md
-- title: Invitación a usuarios invitados de B2B
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Cómo canjea un invitado de B2B una invitación
-      url: redemption-experience.md
-  - linkListType: quickstart
-    links:
-    - text: Adición de un usuario invitado a su directorio
-      url: b2b-quickstart-add-guest-users-portal.md
-    - text: Incorporación de un usuario invitado con PowerShell
-      url: b2b-quickstart-invite-powershell.md
-  - linkListType: how-to-guide
-    links:
-    - text: Cómo invitan los administradores a los invitados
-      url: add-users-administrator.md
-    - text: Cómo invitan los usuarios a invitados
-      url: add-users-information-worker.md
-- title: Personalización de la colaboración B2B
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Habilitar colaboración B2B
-      url: delegate-invitations.md
-  - linkListType: deploy
-    links:
-    - text: Configuración de la federación directa (versión preliminar)
-      url: direct-federation.md
-    - text: Configuración de la federación de Google
-      url: google-federation.md
-    - text: Configuración de la autenticación con código de acceso de un solo uso (versión preliminar)
-      url: one-time-passcode.md
-  - linkListType: tutorial
-    links:
-    - text: Aplicación de Multi-Factor Authentication
-      url: b2b-tutorial-require-mfa.md
-  - linkListType: reference
-    links:
-    - text: Código de colaboración B2B y ejemplos de PowerShell
-      url: code-samples.md
-- title: Administración de los usuarios invitados
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Descripción del usuario invitado de B2B
-      url: user-properties.md
-    - text: Grupos dinámicos e invitados de B2B
-      url: use-dynamic-groups.md
-  - linkListType: how-to-guide
-    links:
-    - text: Auditoría e informes sobre usuarios invitados de B2B
-      url: auditing-and-reporting.md
-    - text: Concesión de permisos a invitados de B2B
-      url: add-guest-to-role.md
-    - text: Permitir o bloquear organizaciones
-      url: allow-deny-list.md
-  - linkListType: deploy
-    links:
-    - text: Configuración de aplicaciones de SaaS para la colaboración B2B
-      url: configure-saas-apps.md

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: e6dfc0eb704b0b35ab4e181076d8f97fd3e8c9d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e367851c4d709acbc0eb94a47d7e20d4d3c1cc46
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080761"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904818"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatización de la incorporación de Azure Security Center mediante PowerShell
 
@@ -29,9 +29,9 @@ La incorporación de Azure Security Center mediante PowerShell permite automatiz
 
 En este artículo se proporciona un script de PowerShell de ejemplo que se puede modificar y usar en su entorno para implementar el centro de seguridad en sus suscripciones. 
 
-En este ejemplo, se habilitará Security Center en una suscripción con el identificador: d07c0080-170c-4c24-861d-9c817742786c y se aplicará la configuración recomendada que proporciona un alto nivel de protección; para ello, se implementará el nivel estándar de Security Center, que ofrece funcionalidades avanzadas de detección y protección contra amenazas:
+En este ejemplo, se habilitará Security Center en una suscripción con el identificador: d07c0080-170c-4c24-861d-9c817742786c y se aplicará la configuración recomendada que proporciona un alto nivel de protección habilitando Azure Defender, que ofrece funcionalidades avanzadas de detección y protección contra amenazas:
 
-1. Establezca el [nivel de protección estándar de Security Center](https://azure.microsoft.com/pricing/details/security-center/). 
+1. Habilite [Azure Defender](azure-defender.md). 
  
 2. Establezca el área de trabajo de Log Analytics a la que el agente de Log Analytics enviará los datos que recopila de las máquinas virtuales asociadas con la suscripción; en este ejemplo, un área de trabajo definida por el usuario existente (myWorkspace).
 
@@ -61,7 +61,7 @@ Estos pasos deben realizarse antes de ejecutar los cmdlets de Security Center:
 
     ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security'```
 
-1. Opcional: establezca el nivel de cobertura (plan de tarifa) de las suscripciones (si no se ha definido, el plan de tarifa se establece como gratuito):
+1. Opcional: Establezca el nivel de cobertura (Azure defender activado/desactivado) de las suscripciones. Si no está definido, Defender está desactivado:
 
     ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
 

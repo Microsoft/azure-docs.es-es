@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/22/2020
-ms.openlocfilehash: c98935781699510d84247f80367d5c57cb388f6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 09/03/2020
+ms.openlocfilehash: 9870b5366ac629fe1b10cfde15a58b85c7c6fbc3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137644"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907725"
 ---
 # <a name="two-class-decision-forest-module"></a>Módulo de bosque de decisión de dos clases
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
 Utilice este módulo para crear un modelo de Machine Learning basado en el algoritmo de bosques de decisión.  
 
@@ -76,7 +76,6 @@ Para obtener más información, consulte [Bosques de decisión](https://go.micro
   
 5.  En **Maximum depth of the decision trees** (Profundidad máxima de los árboles de decisión), escriba un número para limitar la profundidad máxima de cualquier árbol de decisión. Al aumentar la profundidad del árbol podría aumentar la precisión, a riesgo de que se produzca un sobreajuste y aumente el tiempo de entrenamiento.
   
-6.  En **Number of random splits per node** (Número de divisiones aleatorias por nodo), escriba el número de divisiones que se usarán al crear cada nodo del árbol. Una *división* significa que las características de cada nivel del árbol (nodo) se dividen al azar.
   
 7.  En **Minimum number of samples per leaf node** (Número mínimo de muestras por nodo hoja), indique el número mínimo de casos que son necesarios para crear cualquier nodo terminal (hoja) en un árbol.
   

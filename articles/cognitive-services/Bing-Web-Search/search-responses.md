@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 284f8c8432d732fdfa7e16b43a47578437bcf0ba
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a5e69fe855f0c1e99dc3672425d9aeea13d4e827
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202243"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297797"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipos y estructura de las respuestas de Bing Web Search API  
 
@@ -445,7 +445,7 @@ Es especialmente importante conservar el identificador de cliente y devolverlo c
 
 Sin embargo, cuando se llama a Bing Web Search API desde JavaScript, las características de seguridad integradas de su explorador (CORS) podrían impedirle acceder a los valores de estos encabezados.
 
-Para acceder a los encabezados, puede realizar la solicitud de Bing Web Search API mediante un proxy CORS. La respuesta de un proxy de este tipo tiene un encabezado `Access-Control-Expose-Headers` que agrega los encabezados de respuesta a listas blancas y hace que estén disponibles para JavaScript.
+Para acceder a los encabezados, puede realizar la solicitud de Bing Web Search API mediante un proxy CORS. La respuesta de un proxy de este tipo tiene un encabezado `Access-Control-Expose-Headers` que filtra los encabezados de respuesta y hace que estén disponibles para JavaScript.
 
 Es fácil instalar un proxy CORS para permitir que nuestra [aplicación de tutorial](tutorial-bing-web-search-single-page-app.md) obtenga acceso a los encabezados de cliente opcionales. En primer lugar, si aún no lo tiene, [instale Node.js](https://nodejs.org/en/download/). A continuación, escriba el siguiente comando en un símbolo del sistema.
 

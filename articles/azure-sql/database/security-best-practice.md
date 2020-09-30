@@ -8,14 +8,14 @@ ms.custom: sqldbrb=2
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
-ms.date: 02/20/2020
+ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: 6630b924decacc5ff59611c657e1d7e38b1813a7
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: e418e64fe9fbe98fbd8da4e75a81c05d5e3d118d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541726"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885177"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Cuaderno de estrategias para abordar requisitos de seguridad comunes con Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ En este documento se proporcionan instrucciones sobre cómo resolver los requisi
 
 ### <a name="deployment-offers-not-covered-in-this-guide"></a>Ofertas de implementación que no se describen en esta guía
 
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics (anteriormente SQL Data Warehouse)
 - Máquinas virtuales de Azure SQL (IaaS)
 - SQL Server
 
@@ -647,7 +647,7 @@ La protección de amenazas avanzada le permite detectar posibles amenazas y resp
 
 **Procedimientos recomendados**:
 
-- Configure [Advanced Data Security (ADS)](advanced-data-security.md#getting-started-with-ads) para un servidor específico o una instancia administrada. También puede configurar ADS para todos los servidores y las instancias administradas de una suscripción. Para ello, cambie al [nivel estándar de Azure Security Center](../../security-center/security-center-pricing.md).
+- configure [Azure Defender for SQL](azure-defender-for-sql.md)  para un servidor o una instancia administrada concretos. También puede configurarlo para todos los servidores y las instancias administradas de una suscripción. Para ello, cambie al [nivel estándar de Azure Security Center](../../security-center/security-center-pricing.md).
 
 - Para obtener una experiencia de investigación completa, se recomienda habilitar  [SQL Database Auditing](../../azure-sql/database/auditing-overview.md). Con la auditoría, puede realizar un seguimiento de los eventos de base de datos y escribirlos en un registro de auditoría en una cuenta de Azure Storage o en el área de trabajo de Azure Log Analytics.
 

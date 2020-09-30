@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 597e322536703560fad8a0ba562cc70ce3aa1775
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebd71eae77c75d490585c27d7bc04c069d006009
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357416"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398540"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronización de Azure Active Directory Connect: Configuración de la ubicación de datos preferida para los recursos de Office 365
 El objetivo de este tema es guiarle por la configuración del atributo de la ubicación de datos preferida en la sincronización de Azure Active Directory (Azure AD) Connect. Cuando alguien usa las funcionalidades multigeográficas de Office 365, este atributo se usa para designar la ubicación geográfica de los datos de Office 365 del usuario. (Los términos *región* y *geoárea* se usan indistintamente).
@@ -32,7 +32,7 @@ De forma predeterminada, los recursos de Office 365 para los usuarios se encuent
 Es posible definir la geoárea de un usuario si se establece el atributo **preferredDataLocation**. Puede tener los recursos de Office 365 del usuario, como el buzón de correo y OneDrive, en la misma geoárea que el usuario y, aún así, tener un inquilino para toda la organización.
 
 > [!IMPORTANT]
-> La replicación geográfica múltiple está disponible actualmente para los clientes con un Contrato Enterprise y un mínimo de 500 suscripciones a los servicios de Office 365. Póngase en contacto con su representante de Microsoft para más información.
+> La replicación geográfica múltiple está disponible actualmente para los clientes con un Contrato Enterprise y un mínimo de 250 suscripciones a los servicios de Office 365. Póngase en contacto con su representante de Microsoft para más información.
 >
 >
 

@@ -15,10 +15,15 @@
   items:
     - name: Implementación de SQL Edge
       href: deploy-portal.md
+    - name: Implementación con Docker
+      href: disconnected-deployment.md
     - name: Implementación de modelos de ONNX en SQL Edge
       href: deploy-onnx.md
 - name: Tutoriales
+  expanded: true
   items:
+    - name: Implementación en Kubernetes
+      href: deploy-kubernetes.md
     - name: Sincronización de datos con Azure Data Factory
       href: tutorial-sync-data-factory.md
     - name: "Sincronización de datos con SQL\_Data\_Sync"
@@ -31,36 +36,42 @@
           href: tutorial-set-up-iot-edge-modules.md
         - name: Implementación de un modelo en SQL Edge
           href: tutorial-run-ml-model-on-sql-edge.md
-- name: Procedimientos
-  items:
-    - name: Implementación de trabajos de Stream Analytics
-      href: stream-analytics.md
-    - name: Configuración de la replicación
-      href: configure-replication.md
-    - name: Seguimiento de cambios de datos
-      href: track-data-changes.md
-    - name: Administración de trabajos de streaming de T-SQL
-      href: create-stream-analytics-job.md
-    - name: Conexión con SQL Edge
-      href: connect.md
-    - name: Configuración de SQL Edge
-      href: configure.md
-    - name: Implementación de un paquete DAC
-      href: deploy-dacpac.md
 - name: Conceptos
   items:
-    - name: Aprendizaje automático e IA con ONNX
-      href: onnx-overview.md
-    - name: Copia de seguridad y restauración
-      href: backup-restore.md
-    - name: Streaming de datos en SQL Edge
+    - name: Implementar
+      items:
+        - name: Implementación mediante Azure Portal
+          href: deploy-portal.md
+        - name: Implementación con Docker
+          href: disconnected-deployment.md
+        - name: Implementación en Kubernetes
+          href: deploy-kubernetes.md
+        - name: Implementación con Azure Data Studio
+          href: 'https://docs.microsoft.com/sql/azure-data-studio/deploy-azure-sql-edge?toc=/azure/azure-sql-edge/toc.json'
+    - name: Machine Learning
+      items:
+        - name: Aprendizaje automático e IA con ONNX
+          href: onnx-overview.md
+        - name: Implementación de modelos de ONNX
+          href: deploy-onnx.md
+    - name: Rendimiento
+      items:
+        - name: Directrices de rendimiento
+          href: performance-best-practices.md
+    - name: Configurar la continuidad empresarial
+      items:
+        - name: Copia de seguridad y restauración
+          href: backup-restore.md
+        - name: Alta disponibilidad para contenedores
+          href: high-availability-sql-edge-containers.md
+    - name: Streaming de datos
       items:
         - name: Datos de streaming
           href: stream-data.md
+        - name: Creación y administración de trabajos de streaming
+          href: create-stream-analytics-job.md
         - name: Creación de una secuencia externa (Transact-SQL)
           href: create-external-stream-transact-sql.md
-        - name: Alteración de una secuencia externa (Transact-SQL)
-          href: alter-external-stream-transact-sql.md
         - name: Colocación de una secuencia externa (Transact-SQL)
           href: drop-external-stream-transact-sql.md
         - name: Streaming de vistas y DMV
@@ -69,11 +80,65 @@
               href: streaming-catalog-views.md
             - name: sys.external_job_streams (Transact-SQL)
               href: sys-external-job-streams.md
-            - name: sys.external-streaming_jobs (Transact-SQL)
+            - name: sys.external_streaming_jobs (Transact-SQL)
               href: sys-external-streaming-jobs.md
             - name: sys.external_streams (Transact-SQL)
               href: sys-external-streams.md
     - name: Procesamiento de datos de series temporales
       items:
-        - name: Date_Bucket (Transact-SQL)
+        - name: Intervalos de tiempo y valores que faltan
+          href: imputing-missing-values.md
+        - name: DATE_BUCKET (Transact-SQL)
           href: date-bucket-tsql.md
+        - name: FIRST_VALUE (Transact-SQL)
+          href: 'https://docs.microsoft.com/sql/t-sql/functions/first-value-transact-sql?toc=/azure/azure-sql-edge/toc.json'
+        - name: LAST_VALUE (Transact-SQL)
+          href: 'https://docs.microsoft.com/sql/t-sql/functions/last-value-transact-sql?toc=/azure/azure-sql-edge/toc.json'
+        - name: Retención y limpieza de datos
+          items:
+            - name: Introducción a la retención de datos
+              href: data-retention-overview.md
+            - name: Habilitación o deshabilitación de la retención de datos
+              href: data-retention-enable-disable.md
+            - name: Limpieza de la retención de datos
+              href: data-retention-cleanup.md
+            - name: sys.sp_cleanup_data_retention (Transact-SQL)
+              href: sys-sp-cleanup-data-retention.md
+    - name: Seguridad
+      items:
+        - name: Introducción a la seguridad
+          href: security-overview.md
+        - name: Características de seguridad
+          href: 'https://docs.microsoft.com/sql/linux/sql-server-linux-security-get-started?toc=/azure/azure-sql-edge/toc.json'
+        - name: Cifrado de conexiones
+          href: 'https://docs.microsoft.com/sql/linux/sql-server-linux-encrypted-connections?toc=/azure/azure-sql-edge/toc.json'
+        - name: Azure Security Center for IoT
+          href: 'https://docs.microsoft.com/azure/asc-for-iot/overview?toc=/azure/azure-sql-edge/toc.json&bc=/azure/azure-sql-edge/breadcrumb/toc.json'
+- name: Procedimientos
+  items:
+    - name: Configuración de SQL Edge
+      items:
+        - name: Configuración mediante variables de entorno
+          href: configure.md#configure-by-using-environment-variables
+        - name: Configuración mediante el archivo mssql.conf
+          href: configure.md#configure-by-using-an-mssqlconf-file
+        - name: Ejecución como usuario no raíz
+          href: configure.md#run-azure-sql-edge-as-non-root-user
+        - name: Conservación de datos
+          href: configure.md#persist-your-data
+        - name: Configuración de la replicación
+          href: configure-replication.md
+    - name: Conexión con SQL Edge
+      href: connect.md
+    - name: Implementación de un paquete DAC
+      href: deploy-dacpac.md
+    - name: Seguimiento de cambios de datos
+      href: track-data-changes.md
+    - name: Administración de trabajos de streaming de T-SQL
+      href: create-stream-analytics-job.md
+    - name: Solución de problemas de implementación
+      href: troubleshoot.md
+- name: Referencia
+  items:
+    - name: Referencia de Transact-SQL (T-SQL)
+      href: 'https://docs.microsoft.com/sql/t-sql/language-reference'

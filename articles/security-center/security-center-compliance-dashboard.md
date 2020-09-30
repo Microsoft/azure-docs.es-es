@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2019
 ms.author: memildin
-ms.openlocfilehash: a636acab42d14925f507568e8a9fff4693c8f71c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7f235f9255df49c096e224e1754ad2bbdf664423
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519650"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895822"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Mejora del cumplimiento normativo
 ---
@@ -35,8 +35,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para recorrer las características que se tratan en este tutorial debe tener el plan de tarifa Estándar de Security Center. Dicho plan se puede probar de forma gratuita.
-Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/). En [Guía de inicio rápido de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started) le explicamos cómo realizar la actualización al plan de tarifa Estándar.
+Para recorrer las características descritas en este tutorial, [Azure Defender](azure-defender.md) debe estar habilitado. Puede probar Azure Defender gratis durante 30 días.
 
 ##  <a name="assess-your-regulatory-compliance"></a>Mejora del cumplimiento de reglamentaciones
 
@@ -72,13 +71,13 @@ Dada la información del panel de cumplimiento de reglamentaciones, puede mejora
 
 1.  Puede seleccionar un recurso concreto para ver más detalles y resolver la recomendación del mismo. <br>Por ejemplo, en la pestaña **Azure CIS standard** (Estándar Azure CIS), puede hacer clic en la recomendación **Require secure transfer to storage account** (Requerir transferencia segura a la cuenta de almacenamiento).
 
-    ![recomendación de cumplimiento](./media/security-center-compliance-dashboard/compliance-recommendation.png)
+    ![Selección de la recomendación **Requerir transferencia segura a la cuenta de almacenamiento**](./media/security-center-compliance-dashboard/compliance-recommendation.png)
 
 1. Al hacer clic en la información de la recomendación y seleccionar un recurso incorrecto, le lleva directamente a la habilitación de la **transferencia segura de almacenamiento** en Azure Portal.
 
     Para más información sobre cómo aplicar las recomendaciones, consulte [Implementación de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md).
 
-    ![recomendación de cumplimiento](./media/security-center-compliance-dashboard/compliance-remediate-recommendation.png)
+    ![Configuración de la cuenta de almacenamiento](./media/security-center-compliance-dashboard/compliance-remediate-recommendation.png)
 
 1.  Después de realizar las acciones necesarias para resolver las recomendaciones, verá su repercusión en informe del panel de cumplimiento, ya que la puntuación de cumplimiento mejora.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: a9145c7c26f4d6caa1679052035b36f1ae88f878
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 948fbcd57514f4ef77483b05c60324e867e0e3ed
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714787"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293649"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Diseño del uso del asistente en Windows 10
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: bea9e163e9dde6c42de87048379d663222cb56e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77c4f627668b91c4bc21ad73b3511c1775943229
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82734627"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460208"
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>El tamaño predeterminado de la carpeta TEMP es demasiado pequeño en un rol de trabajo o web de servicio en la nube.
 El directorio temporal predeterminado de un rol web o de trabajo de servicio de nube tiene un tamaño máximo de 100 MB, que puede llenarse en algún momento. En este artículo se describe cómo evitar quedarse sin espacio para el directorio temporal.
@@ -70,8 +70,8 @@ namespace WorkerRole1
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Lea el blog que describe [cómo aumentar el tamaño de la carpeta temporal de ASP.NET del rol web de Azure](https://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx).
+Lea el blog que describe [cómo aumentar el tamaño de la carpeta temporal de ASP.NET del rol web de Azure](https://docs.microsoft.com/archive/blogs/kwill/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder).
 
 Vea más [artículos de solución de problemas](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview) para servicios en la nube.
 
-Para más información acerca de cómo solucionar los problemas de los roles de los servicios en la nube mediante el uso de datos de diagnóstico de equipos de PaaS de Azure, consulte la [serie de blogs de Kevin Williamson](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Para más información acerca de cómo solucionar los problemas de los roles de los servicios en la nube mediante el uso de datos de diagnóstico de equipos de PaaS de Azure, consulte la [serie de blogs de Kevin Williamson](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

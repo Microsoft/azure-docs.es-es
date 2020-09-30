@@ -3,24 +3,24 @@ title: SDK de Python para Azure Data Lake Storage Gen2 para archivos y ACL
 description: Use Python para administrar directorios y listas de control de acceso (ACL) de archivos y directorios en cuentas de almacenamiento que tengan habilitado un espacio de nombres jerárquico (HNS).
 author: normesta
 ms.service: storage
-ms.date: 08/26/2020
+ms.date: 09/10/2020
 ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-python
-ms.openlocfilehash: 3056e167a7482cb2967a68bbf1cd40e4bad49093
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fc99bc645b48739d6d6339111780047496c1984d
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923847"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017122"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Uso de Python para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2
 
 En este artículo se muestra cómo usar Python para crear y administrar directorios, archivos y permisos en cuentas de almacenamiento que tengan habilitado un espacio de nombres jerárquico (HNS). 
 
-[Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-storage-file-datalake/) | [Muestras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples) | [Referencia de API](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0/azure.storage.filedatalake.html) | [Asignación de Gen1 a Gen2](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Envíenos sus comentarios](https://github.com/Azure/azure-sdk-for-python/issues)
+[Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-storage-file-datalake/) | [Muestras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples) | [Referencia de API](/python/api/azure-storage-file-datalake/azure.storage.filedatalake) | [Asignación de Gen1 a Gen2](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Envíenos sus comentarios](https://github.com/Azure/azure-sdk-for-python/issues)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -213,7 +213,7 @@ def upload_file_to_directory():
         directory_client = file_system_client.get_directory_client("my-directory")
         
         file_client = directory_client.create_file("uploaded-file.txt")
-        local_file = open("C:\\file-to-upload.txt",'r')
+        local_file = open("C:\\file-to-upload.txt",'rb')
 
         file_contents = local_file.read()
 
@@ -242,7 +242,7 @@ def upload_file_to_directory_bulk():
         
         file_client = directory_client.get_file_client("uploaded-file.txt")
 
-        local_file = open("C:\\file-to-upload.txt",'r')
+        local_file = open("C:\\file-to-upload.txt",'rb')
 
         file_contents = local_file.read()
 
@@ -339,7 +339,7 @@ Puede agregar, actualizar y quitar las ACL de forma recursiva para los elementos
 
 ## <a name="see-also"></a>Consulte también
 
-* [Documentación de referencia de API](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html)
+* [Documentación de referencia de API](/python/api/azure-storage-file-datalake/azure.storage.filedatalake)
 * [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-storage-file-datalake/)
 * [Muestras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
 * [Asignación de Gen1 a Gen2](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)

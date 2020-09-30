@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: a581678fdd05dade336f7ca9fcbcf5ad4c92d49a
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 1ba383b99b8265e01cf757bfb1589a86a934e0e3
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300177"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053878"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Creación de un clúster de la versión 4 de Red Hat OpenShift en Azure
 
@@ -22,9 +22,9 @@ En este tutorial, el primero de un conjunto de tres, preparará el entorno para 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.6.0, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.6.0, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Red Hat OpenShift en Azure requiere 40 núcleos como mínimo para crear y ejecutar un clúster de OpenShift. La cuota predeterminada de recursos de Azure para una suscripción nueva de Azure no cumple este requisito. Para solicitar un aumento del límite de recursos, consulte [Cuota estándar: Aumento de los límites por serie de máquinas virtuales](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+Red Hat OpenShift en Azure requiere 40 núcleos como mínimo para crear y ejecutar un clúster de OpenShift. La cuota predeterminada de recursos de Azure para una suscripción nueva de Azure no cumple este requisito. Para solicitar un aumento del límite de recursos, consulte [Cuota estándar: Aumento de los límites por serie de máquinas virtuales](../azure-portal/supportability/per-vm-quota-requests.md).
 
 ### <a name="verify-your-permissions"></a>Comprobación de los permisos
 
@@ -35,13 +35,31 @@ Para crear un clúster de Red Hat OpenShift en Azure, compruebe los siguientes p
 |**Administrador de acceso de usuario**|X|X| |
 |**Colaborador**|X|X|X|
 
-### <a name="register-the-resource-provider"></a>Registrar el proveedor de recursos
+### <a name="register-the-resource-providers"></a>Registro de los proveedores de recursos
 
-A continuación, es preciso que registre el proveedor de recursos `Microsoft.RedHatOpenShift` en su suscripción.
+1. Si tiene varias suscripciones de Azure, especifique el identificador de la relevante:
 
-```azurecli-interactive
-az provider register -n Microsoft.RedHatOpenShift --wait
-```
+    ```azurecli-interactive
+    az account set --subscription <SUBSCRIPTION ID>
+    ```
+
+1. Registre el proveedor de recursos `Microsoft.RedHatOpenShift`:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.RedHatOpenShift --wait
+    ```
+    
+1. Registre el proveedor de recursos `Microsoft.Compute`:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Compute --wait
+    ```
+    
+1. Registre el proveedor de recursos `Microsoft.Storage`:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Storage --wait
+    ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Obtención de un secreto de extracción de Red Hat (opcional)
 
@@ -86,20 +104,22 @@ A continuación, creará una red virtual que contenga dos subredes vacías.
    CLUSTER=cluster                 # the name of your cluster
    ```
 
-1. **Cree un grupo de recursos.** .
+2. **Cree un grupo de recursos.** .
 
-    Un grupo de recursos de Azure es un grupo lógico en el que se implementan y administran recursos de Azure. Cuando se crea un grupo de recursos, se le pide que especifique una ubicación. Dicha ubicación es donde se almacenan los metadatos del grupo de recursos, así como el lugar en el que los recursos se ejecutan en Azure si no se especifica otra región al crear los recursos. Cree un grupo de recursos con el comando [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create).
+Un grupo de recursos de Azure es un grupo lógico en el que se implementan y administran recursos de Azure. Cuando se crea un grupo de recursos, se le pide que especifique una ubicación. Dicha ubicación es donde se almacenan los metadatos del grupo de recursos, así como el lugar en el que los recursos se ejecutan en Azure si no se especifica otra región al crear los recursos. Cree un grupo de recursos con el comando [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create).
     
-> [!NOTE]
+> [!NOTE] 
 > Red Hat OpenShift en Azure no está disponible en todas las regiones en las que se puede crear un grupo de recursos de Azure. Consulte [Regiones disponibles](https://docs.openshift.com/aro/4/welcome/index.html#available-regions) para obtener información sobre dónde se admite Red Hat OpenShift en Azure.
 
-    ```azurecli-interactive
-    az group create --name $RESOURCEGROUP --location $LOCATION
-    ```
+```azurecli-interactive
+az group create \
+  --name $RESOURCEGROUP \
+  --location $LOCATION
+```
 
-    The following example output shows the resource group created successfully:
+En la siguiente salida de ejemplo se muestra que los recursos se crearon correctamente:
 
-    ```json
+```json
     {
     "id": "/subscriptions/<guid>/resourceGroups/aro-rg",
     "location": "eastus",
@@ -110,24 +130,24 @@ A continuación, creará una red virtual que contenga dos subredes vacías.
     },
     "tags": null
     }
-    ```
+```
 
-2. **Cree una red virtual.**
+3. **Cree una red virtual.**
 
-    Los clústeres de Red Hat OpenShift en Azure que ejecutan OpenShift 4 requieren una red virtual con dos subredes vacías, una para los nodos maestros y otra para los nodos de trabajo.
+Los clústeres de Red Hat OpenShift en Azure que ejecutan OpenShift 4 requieren una red virtual con dos subredes vacías, una para los nodos maestros y otra para los nodos de trabajo.
 
-    Cree una red virtual en el mismo grupo de recursos que creó anteriormente:
+Cree una red virtual en el mismo grupo de recursos que creó anteriormente:
 
-    ```azurecli-interactive
-    az network vnet create \
-    --resource-group $RESOURCEGROUP \
-    --name aro-vnet \
-    --address-prefixes 10.0.0.0/22
-    ```
+```azurecli-interactive
+az network vnet create \
+   --resource-group $RESOURCEGROUP \
+   --name aro-vnet \
+   --address-prefixes 10.0.0.0/22
+```
 
-    En la siguiente salida de ejemplo se muestra la red virtual creada correctamente:
+En la siguiente salida de ejemplo se muestra la red virtual creada correctamente:
 
-    ```json
+```json
     {
     "newVNet": {
         "addressSpace": {
@@ -143,9 +163,9 @@ A continuación, creará una red virtual que contenga dos subredes vacías.
         "type": "Microsoft.Network/virtualNetworks"
     }
     }
-    ```
+```
 
-3. **Agregue una subred vacía para los nodos maestros.**
+4. **Agregue una subred vacía para los nodos maestros.**
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -156,7 +176,7 @@ A continuación, creará una red virtual que contenga dos subredes vacías.
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-4. **Agregue una subred vacía para los nodos de trabajo.**
+5. **Agregue una subred vacía para los nodos de trabajo.**
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -167,7 +187,7 @@ A continuación, creará una red virtual que contenga dos subredes vacías.
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-5. **[Deshabilite las directivas de punto de conexión privado](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) en la subred maestra.** Esto es necesario para poder conectarse al clúster y administrarlo.
+6. **[Deshabilite las directivas de punto de conexión privado](../private-link/disable-private-link-service-network-policy.md) en la subred maestra.** Esto es necesario para poder conectarse al clúster y administrarlo.
 
     ```azurecli-interactive
     az network vnet subnet update \

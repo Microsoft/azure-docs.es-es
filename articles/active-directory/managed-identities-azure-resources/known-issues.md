@@ -17,12 +17,12 @@ ms.date: 08/06/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 4bcd36a1ce38d4d9eb6a0faec470f7427852894b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 0d8c835cdc501061607dc05d0b40ebf95deb36a8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260227"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969157"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Preguntas frecuentes y problemas conocidos con identidades administradas para recursos de Azure
 
@@ -33,15 +33,13 @@ ms.locfileid: "89260227"
 > [!NOTE]
 > Identidades administradas para recursos de Azure es el nombre con el que ahora se conoce al servicio Managed Service Identity (MSI).
 
-
 ### <a name="how-can-you-find-resources-that-have-a-managed-identity"></a>¿Cómo se pueden encontrar los recursos que tienen una identidad administrada?
 
 Puede encontrar la lista de recursos con una identidad administrada asignada por el sistema mediante el siguiente comando de la CLI de Azure: 
 
-`az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table`
-
-
-
+```azurecli-interactive
+az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table
+```
 
 ### <a name="do-managed-identities-have-a-backing-app-object"></a>¿Las identidades administradas tienen un objeto de aplicación de respaldo?
 
@@ -72,8 +70,6 @@ El límite de seguridad de la identidad es el recurso al que está asociada. Por
 - Si la identidad administrada asignada por el sistema no está habilitada, y solo existe una identidad administrada asignada por el usuario, IMDS será la identidad administrada asignada de manera predeterminada a ese único usuario. 
 - Si la identidad administrada asignada por el sistema no está habilitada y existen varias identidades administradas asignadas por el usuario, es necesario especificar una identidad administrada en la solicitud.
 
-
-
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>¿Se van a volver a crear automáticamente las identidades administradas si muevo una suscripción a otro directorio?
 
 No. Si mueve una suscripción a otro directorio, tendrá que volver a crearlas manualmente y volver a asignar los roles de Azure.
@@ -88,7 +84,6 @@ No. Las identidades administradas no admiten actualmente escenarios entre direct
 
 - Identidad administrada asignada por el sistema: Se necesitan permisos de escritura sobre el recurso. Por ejemplo, para las máquinas virtuales es necesario Microsoft.Compute/virtualMachines/write. Esta acción se incluye en los roles integrados específicos del recurso como, por ejemplo, [Colaborador de máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 - Identidad administrada asignada por el usuario: Se necesitan permisos de escritura sobre el recurso. Por ejemplo, para las máquinas virtuales es necesario Microsoft.Compute/virtualMachines/write. Además de la asignación de roles [Operador de identidad administrada](../../role-based-access-control/built-in-roles.md#managed-identity-operator) sobre la identidad administrada.
-
 
 
 ## <a name="known-issues"></a>Problemas conocidos
@@ -112,7 +107,7 @@ Si mueve una máquina virtual en estado de ejecución, continúa ejecutándose d
 Desencadene una actualización en la máquina virtual para que pueda obtener los valores correctos para las identidades administradas para recursos de Azure. Puede hacer un cambio de propiedad de máquina virtual para actualizar la referencia a la identidad referente a las identidades administradas para recursos de Azure. Por ejemplo, puede establecer un nuevo valor de etiqueta en la máquina virtual con el siguiente comando:
 
 ```azurecli-interactive
- az  vm update -n <VM Name> -g <Resource Group> --set tags.fixVM=1
+az vm update -n <VM Name> -g <Resource Group> --set tags.fixVM=1
 ```
  
 Este comando establece una nueva etiqueta "fixVM" con un valor de 1 en la máquina virtual. 
@@ -124,8 +119,6 @@ Una vez que se inicia la máquina virtual, la etiqueta puede quitarse con el com
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
-
-
 
 ### <a name="transferring-a-subscription-between-azure-ad-directories"></a>Transferencia de una suscripción entre directorios de Azure AD
 

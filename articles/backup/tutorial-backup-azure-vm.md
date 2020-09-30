@@ -4,12 +4,12 @@ description: En este tutorial se detalla la copia de seguridad de varias máquin
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 33090a0156d147fee5ab362b284ec503039617c4
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 53a5df430a3ea57201ecb19bac68ef9f073beb14
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181738"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980968"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Copia de seguridad de máquinas virtuales de Azure con PowerShell
 
@@ -48,7 +48,7 @@ En este tutorial, aprenderá a:
 Un [almacén de Recovery Services](backup-azure-recovery-services-vault-overview.md) es un contenedor lógico que almacena los datos de copia de seguridad de los recursos protegidos, como las máquinas virtuales de Azure. Cuando se ejecuta un trabajo de copia de seguridad, se crea un punto de recuperación en el almacén de Recovery Services. Posteriormente, se puede usar uno de estos puntos de recuperación para restaurar los datos a un momento dado en el tiempo.
 
 * En este tutorial, puede crear el almacén en el mismo grupo de recursos y ubicación que la máquina virtual de la que desea realizar la copia de seguridad.
-* Azure Backup administra automáticamente el almacenamiento de los datos de los que se ha hecho la copia de seguridad. De forma predeterminada, el almacén usa el [almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy.md). El almacenamiento con redundancia geográfica garantiza que se repliquen los datos de copia de seguridad en una región de Azure secundaria que se encuentra a cientos de kilómetros de distancia de la región primaria.
+* Azure Backup administra automáticamente el almacenamiento de los datos de los que se ha hecho la copia de seguridad. De forma predeterminada, el almacén usa el [almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). El almacenamiento con redundancia geográfica garantiza que se repliquen los datos de copia de seguridad en una región de Azure secundaria que se encuentra a cientos de kilómetros de distancia de la región primaria.
 
 Cree el almacén como se indica a continuación:
 

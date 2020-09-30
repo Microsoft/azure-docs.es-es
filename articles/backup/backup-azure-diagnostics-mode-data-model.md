@@ -3,12 +3,12 @@ title: Modelo de datos de registros de Azure Monitor
 description: En este artículo, obtendrá información acerca de los detalles del modelo de datos de Log Analytics de Azure Monitor para los datos de Azure Backup.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 7822f88c9ea3e0cd83b7e600d63984a8a51becb1
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 1fcb4eb0c584f792132f19c8c4d66289342aa36e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890270"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020956"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de datos de Log Analytics para datos de Azure Backup
 
@@ -159,8 +159,8 @@ Esta tabla proporciona detalles acerca de los campos relacionados con los trabaj
 | DataTransferredInMB_s | Number |Datos transferidos en MB para este trabajo|
 | JobUniqueId_g |Texto |Identificador único que identifica el trabajo. |
 | RecoveryJobDestination_s |Texto | Destino de un trabajo de recuperación, donde se recuperan los datos. |
-| RecoveryJobRPDateTime_s |DateTime | La fecha y hora cuando se creó el punto de recuperación que se va a recuperar. |
-| RecoveryJobRPLocation_s |Texto | La ubicación donde se almacenó el punto de recuperación que se va a recuperar.|
+| RecoveryJobRPDateTime_s |DateTime | Fecha y hora en que se creó el punto de recuperación que se va a recuperar. |
+| RecoveryJobRPLocation_s |Texto | Ubicación donde se almacenó el punto de recuperación que se va a recuperar.|
 | SourceSystem |Texto |Sistema de origen de los datos actuales: Azure |
 | ResourceId |Texto |Identificador de recursos de datos que se recopilan. Por ejemplo, el identificador del recurso del almacén de Recovery Services.|
 | SubscriptionId |Texto |Identificador de la suscripción del recurso (p. ej., Almacén de Recovery Services) para el que se recopilan los datos |
@@ -472,7 +472,7 @@ Vea la tercera columna "Descripción" del [modelo de datos](#using-azure-backup-
 
 Dado que el esquema V1 está en proceso de degradación, se recomienda usar solo el esquema V2 en todas las consultas personalizadas en los datos de diagnóstico de Azure Backup. A continuación se muestra un ejemplo de cómo actualizar las consultas para quitar la dependencia del esquema v1:
 
-1. Identifique si la consulta está usando cualquier campo que solo sea aplicable al esquema v1. Suponga que tiene una consulta para enumerar todos los elementos de copia de seguridad y sus servidores protegidos asociados como se indica a continuación:
+1. Identifique si la consulta está usando cualquier campo que solo sea aplicable al esquema v1. Suponga que tiene una consulta para enumerar todos los elementos de copia de seguridad y sus servidores protegidos asociados como se indica a continuación:
 
     ````Kusto
     AzureDiagnostics

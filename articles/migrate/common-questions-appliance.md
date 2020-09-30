@@ -3,12 +3,12 @@ title: Preguntas más frecuentes sobre el dispositivo de Azure Migrate
 description: Respuestas a preguntas comunes sobre el dispositivo de Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 9c3547667ed91331d3cb4d319279c9494eb7a3d2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: de34bba40b9200c198f3c07262bd6b7a00b62060
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530124"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050682"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de Azure Migrate: Preguntas frecuentes
 
@@ -39,10 +39,14 @@ El dispositivo se puede implementar así:
 - Si no desea usar una plantilla o está en Azure Government, puede implementar el dispositivo para VMware o Hyper-V mediante un script de PowerShell.
 - En el caso de los servidores físicos, el dispositivo siempre se implementa mediante un script.
 
-
 ## <a name="how-does-the-appliance-connect-to-azure"></a>¿Cómo se conecta el dispositivo a Azure?
 
-El dispositivo puede conectarse a través de Internet, o mediante Azure ExpressRoute con emparejamiento público o de Microsoft.
+El dispositivo puede conectarse a través de Internet, o mediante Azure ExpressRoute.
+
+- Para usar Azure ExpressRoute para el tráfico de replicación de Azure Migrate, se requiere del emparejamiento de Microsoft, o de un emparejamiento público existente (el emparejamiento público está en desuso para las creaciones nuevas de ExpressRoute).
+- No se admite la replicación a través de Azure ExpressRoute con (solo) el emparejamiento privado habilitado.
+
+Azure ExpressRoute con el emparejamiento de Microsoft configurado es el dominio de enrutamiento recomendado para el tráfico de replicación.
 
 ## <a name="does-appliance-analysis-affect-performance"></a>¿Afecta el análisis del dispositivo al rendimiento?
 
@@ -53,7 +57,6 @@ El dispositivo de Azure Migrate genera perfiles de máquinas locales continuamen
 Cuando usa la plantilla descargada para crear la máquina virtual del dispositivo, puede agregar componentes (por ejemplo, un antivirus) a la plantilla, siempre que las reglas de firewall y de comunicación necesarias para el dispositivo de Azure Migrate no se modifiquen.
 
 ## <a name="what-network-connectivity-is-required"></a>¿Qué conectividad de red se necesita?
-
 
 El dispositivo necesita acceso a las direcciones URL de Azure. [Examine](migrate-appliance.md#url-access) la lista de direcciones URL.
 
@@ -99,9 +102,11 @@ En estos pasos se describe cómo se conecta el dispositivo a VMware vCenter Serv
 No. Hay una asignación unívoca entre un [dispositivo Azure Migrate](migrate-appliance.md) y vCenter Server. Para detectar máquinas virtuales en varias instancias de vCenter Server, tiene que implementar varios dispositivos. 
 
 ## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>¿Puede un proyecto Azure Migrate tener varios dispositivos?
+
 Un proyecto puede tener varios dispositivos conectados. Sin embargo, un dispositivo solo se puede asociar a un proyecto. 
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>¿El dispositivo de Azure Migrate o el dispositivo de replicación puede conectarse al mismo vCenter?
+
 Sí. Puede agregar el dispositivo de Azure Migrate (que se usa para la evaluación y la migración de VMware sin agente) y el dispositivo de replicación (que se usa para la migración basada en agente de máquinas virtuales de VMware) al mismo servidor vCenter.
 
 

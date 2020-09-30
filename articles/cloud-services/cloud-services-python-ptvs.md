@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: tagore
 ms.custom: devx-track-python
-ms.openlocfilehash: 7025d042fa021c6ee5311566d66bfd090dbd06cd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 503e37d0e339cacc9c21a2b2f3ad739e1385c955
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851586"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443201"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Roles web y de trabajo de Python con herramientas de Python para Visual Studio
 
@@ -288,7 +288,7 @@ else
 #### <a name="pscmd"></a>ps.cmd
 Las plantillas de Visual Studio deben haber creado un archivo **ps.cmd** en la carpeta **./bin**. Este script de shell llama a los scripts anteriores del contenedor de PowerShell y proporciona un registro basado en el nombre del contenedor de PowerShell que se ha llamado. Si no se ha creado este archivo, esto es lo que debería haber en él. 
 
-```bat
+```cmd
 @echo off
 
 cd /D %~dp0

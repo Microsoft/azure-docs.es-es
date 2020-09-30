@@ -3,19 +3,19 @@ title: Inicio rápido de la biblioteca cliente de Node.js para Lector inmersivo
 titleSuffix: Azure Cognitive Services
 description: En este inicio rápido, va a crear una aplicación web desde cero y a agregar la funcionalidad de la API de Lector inmersivo.
 services: cognitive-services
-author: pasta
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
-ms.author: pasta
+ms.author: nitinme
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 91adff9a8330defb6c2b9f1e915c46886649fed3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bbef435bc7cf0bf146009859044bcabe3c0f55ee
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88602433"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505423"
 ---
 El [Lector inmersivo](https://www.onenote.com/learningtools) es una herramienta diseñada de forma inclusiva que implementa técnicas demostradas para mejorar la comprensión lectora.
 

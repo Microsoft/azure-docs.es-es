@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8acdf714f459ae604ccd7788b021aee3ee037935
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 19b65554801a22954499219e43ed021a7cc8c121
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87482590"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258442"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Configuración de tokens en Azure Active Directory B2C
 
@@ -119,7 +119,7 @@ El encabezado del token contiene información acerca del método de cifrado y la
 }
 ```
 
-El valor de la notificación **alg** es el algoritmo que se usó para firmar el token. El valor de la notificación **kid** es la clave pública que se usó para firmar el token. En cualquier momento, Azure AD B2C puede firmar un token mediante cualquier opción de un conjunto de pares de claves pública y privada. Azure AD B2C gira los posibles conjuntos de claves periódicamente. La aplicación debe escribirse para controlar automáticamente esos cambios de clave. Una frecuencia razonable para buscar actualizaciones para las claves públicas que usa Azure AD B2C es cada 24 horas.
+El valor de la notificación **alg** es el algoritmo que se usó para firmar el token. El valor de la notificación **kid** es la clave pública que se usó para firmar el token. En cualquier momento, Azure AD B2C puede firmar un token mediante cualquier opción de un conjunto de pares de claves pública y privada. Azure AD B2C gira los posibles conjuntos de claves periódicamente. La aplicación debe escribirse para controlar automáticamente esos cambios de clave. Una frecuencia razonable para buscar actualizaciones para las claves públicas que usa Azure AD B2C es cada 24 horas. Para controlar los cambios de clave inesperados, se debe escribir la aplicación para volver a recuperar las claves públicas si recibe un valor de **Kid** inesperado.
 
 Azure AD B2C tiene un punto de conexión de metadatos OpenID Connect. Con este punto de conexión, las aplicaciones pueden solicitar información acerca de Azure AD B2C en tiempo de ejecución. En esta información se incluyen los extremos, los contenidos del token y las claves de firma de los token. Hay un documento de metadatos JSON para cada directiva en su inquilino de Azure AD B2C. El documento de metadatos es un objeto JSON que contiene varias piezas de información útiles. Los metadatos contienen **jwks_uri**, que ofrece la ubicación del conjunto de claves públicas que se usan para firmar los tokens. La ubicación se proporciona aquí, pero es mejor capturarla dinámicamente mediante el documento de metadatos y el análisis de **jwks_uri**:
 

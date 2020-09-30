@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 95039573c607f516755f08f1ebad8b968416ec8b
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 98b1842f81703041f419850be17c0c05a24b7c6b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80631470"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440905"
 ---
 # <a name="using-openfaas-on-aks"></a>Uso de OpenFaaS en AKS
 
@@ -91,7 +91,8 @@ alertmanager-config  1     20s
 NOTES:
 To verify that openfaas has started, run:
 
-  kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
+```console
+kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
 ```
 
 Se crea una dirección IP pública para tener acceso a la puerta de enlace de OpenFaaS. Para recuperar esta dirección IP, use el comando [kubectl get service][kubectl-get]. La asignación de la dirección IP al servicio puede tardar hasta un minuto.

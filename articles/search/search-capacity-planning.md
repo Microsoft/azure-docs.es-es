@@ -7,32 +7,48 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.openlocfilehash: 476af7dd40cd1f31d03f3bd80affac0ce10ef900
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/08/2020
+ms.openlocfilehash: 76084a9ddd6842194bb4c6b25d62e62c2ed2d4a8
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927211"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660320"
 ---
-# <a name="adjust-capacity-in-azure-cognitive-search"></a>Ajuste de la capacidad en Azure Cognitive Search
+# <a name="adjust-the-capacity-of-an-azure-cognitive-search-service"></a>Ajuste de la capacidad de un servicio de Azure Cognitive Search
 
-Antes de [aprovisionar un servicio de búsqueda](search-create-service-portal.md) y de adquirir un plan de tarifa específico, dedique unos minutos a comprender el papel de las réplicas y particiones en un servicio y cómo puede ajustar un servicio para acomodar los picos y caídas que se producen en la demanda de recursos.
+Antes de [aprovisionar un servicio de búsqueda](search-create-service-portal.md) y de adquirir un plan de tarifa específico, dedique unos minutos a comprender cómo funciona la capacidad y cómo se pueden ajustar las réplicas y las particiones para acomodar la fluctuación de cargas de trabajo.
 
-La capacidad depende del [plan que elija](search-sku-tier.md) (los planes determinan las características del hardware) y la combinación de réplicas y particiones necesaria para las cargas de trabajo proyectadas. Según el plan y el tamaño del ajuste, el aumento o reducción de la capacidad puede tardar desde 15 minutos a varias horas. 
+La capacidad depende del [plan que elija](search-sku-tier.md) (los planes determinan las características del hardware) y la combinación de réplicas y particiones necesaria para las cargas de trabajo proyectadas. Puede aumentar o reducir el número de réplicas o particiones de forma individual. Según el plan y el tamaño del ajuste, el aumento o reducción de la capacidad puede tardar desde 15 minutos a varias horas.
 
 Al modificar la asignación de réplicas y particiones, se recomienda usar Azure Portal. El portal aplica límites a las combinaciones permitidas que se mantengan por debajo de los límites máximos de un plan. No obstante, si necesita un enfoque de aprovisionamiento basado en script o en código, [Azure PowerShell](search-manage-powershell.md) o la [API REST de administración](/rest/api/searchmanagement/services) son soluciones alternativas.
 
-## <a name="terminology-replicas-and-partitions"></a>Terminología: réplicas y particiones
+## <a name="concepts-search-units-replicas-partitions-shards"></a>Conceptos: unidades de búsqueda, réplicas, particiones y particiones de base de datos
 
-|||
-|-|-|
-|*Particiones* | Proporciona almacenamiento de índices y E/S para realizar operaciones de lectura y escritura (por ejemplo, volver a generar o actualizar un índice). Cada partición tiene una parte del índice total. Si asigna tres particiones, el índice se divide en tercios. |
-|*Réplicas* | Instancias del servicio de búsqueda, que se utilizan principalmente para equilibrar la carga de las operaciones de consulta. Cada réplica es una copia de un índice. Si asigna tres réplicas, tendrá tres copias de un índice disponibles para atender las solicitudes de consulta.|
+La capacidad se expresa en *unidades de búsqueda*, que se pueden asignar en combinaciones de *particiones* y *réplicas* mediante un mecanismo de *particionamiento* subyacente para admitir configuraciones flexibles:
+
+| Concepto  | Definición|
+|----------|-----------|
+|*Unidad de búsqueda* | Un único incremento de la capacidad total disponible (36 unidades). También es la unidad de facturación de un servicio de Azure Cognitive Search. Se requiere un mínimo de una unidad para ejecutar el servicio.|
+|*Réplica* | Instancias del servicio de búsqueda, que se utilizan principalmente para equilibrar la carga de las operaciones de consulta. Cada réplica hospeda una copia de un índice. Si asigna tres réplicas, tendrá tres copias de un índice disponibles para atender las solicitudes de consulta.|
+|*Partición* | Almacenamiento físico y E/S para operaciones de lectura y escritura (por ejemplo, al volver a compilar o actualizar un índice). Cada partición tiene un segmento del índice total. Si asigna tres particiones, el índice se divide en tercios. |
+|*Partición de base de datos* | Un fragmento de un índice. Azure Cognitive Search divide cada índice en particiones de base de datos para que el proceso de agregar particiones sea más rápido (al mover las particiones de base de datos a nuevas unidades de búsqueda).|
+
+En el siguiente diagrama se muestra la relación entre réplicas, particiones, particiones de base de datos y unidades de búsqueda. Muestra un ejemplo de cómo se distribuye un solo índice entre cuatro unidades de búsqueda de un servicio con dos réplicas y dos particiones. Cada una de las cuatro unidades de búsqueda almacena solo la mitad de las particiones de base de datos del índice. Las unidades de búsqueda de la columna izquierda almacenan la primera mitad de las particiones de base de datos, que comprende la primera partición, mientras que las de la columna derecha almacenan la segunda mitad de las particiones de base de datos, que comprende la segunda partición. Dado que hay dos réplicas, hay dos copias de cada partición de base de datos del índice. Las unidades de búsqueda de la fila superior almacenan una copia, que comprende la primera réplica, mientras que las de la fila inferior almacenan otra copia, que comprende la segunda réplica.
+
+:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Los índices de búsqueda se particionan entre particiones.&quot;:::
+
+El diagrama anterior es solo un ejemplo. Hay muchas combinaciones de particiones y réplicas posibles, hasta un máximo de 36 unidades de búsqueda totales.
+
+En Cognitive Search, la administración de particiones de base de datos es un detalle de implementación y no es configurable, pero el saber que un índice está particionado ayuda a comprender las anomalías ocasionales en los comportamientos de clasificación y Autocompletar:
+
++ Anomalías de clasificación: las puntuaciones de búsqueda se calculan primero en el nivel de partición de base de datos y luego se suman en un único conjunto de resultados. En función de las características del contenido de la partición de base de datos, las coincidencias de una partición de base de datos pueden tener una clasificación mayor que las de otra. Si observa clasificaciones no intuitivas en los resultados de búsqueda, lo más probable es que se deba a los efectos del particionamiento, especialmente si los índices son pequeños. Puede evitar estas anomalías de clasificación si opta por [calcular las puntuaciones de forma global en todo el índice](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), aunque esto conlleva una penalización de rendimiento.
+
++ Anomalías de Autocompletar: las consultas de tipo Autocompletar, donde las coincidencias se realizan según los primeros caracteres de un término especificado parcialmente, aceptan un parámetro aproximado que perdona pequeñas desviaciones de ortografía. En Autocompletar, la coincidencia aproximada se restringe a los términos de la partición de base de datos actual. Por ejemplo, si una partición de base de datos contiene &quot;Microsoft&quot; y se escribe un término parcial &quot;micor&quot;, el motor de búsqueda combinará con &quot;Microsoft" en esa partición de base de datos, pero no en otras particiones de base de datos que contengan las partes restantes del índice.
 
 ## <a name="when-to-add-nodes"></a>Cuándo agregar nodos
 
-Inicialmente, se asigna un servicio a un nivel mínimo de recursos que consta de una partición y una réplica. 
+Inicialmente, se asigna un servicio a un nivel mínimo de recursos que consta de una partición y una réplica.
 
 Un único servicio debe tener recursos suficientes para controlar todas las cargas de trabajo (indexación y consultas). Ninguna carga de trabajo se ejecuta en segundo plano. Puede programar la indexación en horas en las que las solicitudes de consulta son menos frecuentes por naturaleza, pero el servicio no dará prioridad a una tarea sobre otra. Además, una determinada cantidad de redundancia suaviza el rendimiento de la consulta cuando los servicios o nodos se están actualizando internamente.
 
@@ -59,7 +75,7 @@ Como norma general, las aplicaciones de búsqueda tienden a necesitar más répl
 
    ![Adición de réplicas y particiones](media/search-capacity-planning/2-add-2-each.png "Adición de réplicas y particiones")
 
-1. Haga clic en **Guardar** para confirmar los cambios.
+1. Seleccione **Guardar** para confirmar los cambios.
 
    ![Confirmación de cambios en la escala y facturación](media/search-capacity-planning/3-save-confirm.png "Confirmación de cambios en la escala y facturación")
 

@@ -1,5 +1,5 @@
 ---
-title: Creación de una instantánea de un disco duro virtual en Azure
+title: Creación de una instantánea de un disco duro virtual con la CLI de Azure
 description: Aprenda a crear una copia de un disco duro virtual en Azure como copia de seguridad o para solucionar problemas.
 author: roygara
 manager: twooley
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7f4489b3073462a93319886ee5560ed5a6660111
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6374108247b9bfb950c42495b13b501ded8a02d2
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659955"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318002"
 ---
-# <a name="create-a-snapshot"></a>Crear una instantánea 
+# <a name="create-a-snapshot-using-the-portal-or-azure-cli"></a>Creación de una instantánea con el portal o la CLI de Azure
 
 Tome una instantánea de un disco de datos o del sistema operativo para realizar una copia de seguridad o para solucionar problemas de la máquina virtual. Una instantánea es una copia completa de solo lectura de un disco duro virtual. 
 

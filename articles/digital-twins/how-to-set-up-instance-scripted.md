@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 86597521f762237b5c4bc9a7a5268d7dae1303b4
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 605df0f26600f962bda7a0a0def800a91d74b022
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588007"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563002"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configuración de una instancia de Azure Digital Twins y autenticación (con scripts)
 
@@ -38,7 +38,7 @@ En la carpeta de ejemplo descargada, el script de implementación se encuentra e
 
 Estos son los pasos para ejecutar el script de implementación en Cloud Shell.
 1. Vaya a una ventana de [Azure Cloud Shell](https://shell.azure.com/) en el explorador. Inicie sesión con este comando:
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
     Si la CLI puede abrir el explorador predeterminado, lo hará y cargará una página de inicio de sesión de Azure. En caso contrario, abra una página del explorador en *https://aka.ms/devicelogin* y escriba el código de autorización que se muestra en el terminal.
@@ -55,9 +55,16 @@ Estos son los pasos para ejecutar el script de implementación en Cloud Shell.
     * Por ejemplo, el nombre de un *grupo de recursos*. Puede usar un grupo de recursos existente o escribir un nuevo nombre para crear uno.
     * Por ejemplo, un *nombre* para la instancia de Azure Digital Twins. El nombre de la nueva instancia debe ser único dentro de la región de la suscripción (lo que significa que si la suscripción tiene otra instancia de Azure Digital Twins en la región que ya usa el nombre elegido, se le solicitará que elija otro nombre).
     * Para el registro de la aplicación, un *nombre para mostrar de una aplicación de Azure AD* para asociar al registro. Este registro de la aplicación es donde se configuran los permisos de acceso a las [API de Azure Digital Twins](how-to-use-apis-sdks.md). Más tarde, la aplicación cliente se autentica en el registro de la aplicación y, como resultado, se le conceden los permisos de acceso configurados a las API.
-    * Para el registro de la aplicación, un *URL de respuesta de aplicación de Azure AD* para la aplicación de Azure AD. Puede usar `http://localhost`.
+    * Para el registro de la aplicación, un *URL de respuesta de aplicación de Azure AD* para la aplicación de Azure AD. Use `http://localhost`. El script configurará un *URI de cliente público/nativo (para escritorio y aplicaciones móviles*).
 
 El script creará una instancia de Azure Digital Twins, asignará al usuario de Azure el rol de *Propietario de Azure Digital Twins (versión preliminar)* en la instancia y configurará un registro de aplicación de Azure AD para que lo use la aplicación cliente.
+
+>[!NOTE]
+>Actualmente hay un **problema conocido** con la instalación con scripts, por el que algunos usuarios (especialmente los usuarios de las [cuentas de Microsoft personales o MSA](https://account.microsoft.com/account)) pueden encontrar que no se creó la **asignación de roles para el _Propietario de Azure Digital Twins (versión preliminar)_**.
+>
+>Puede comprobar la asignación de roles mediante la sección [*Comprobación de la asignación de roles de usuario*](#verify-user-role-assignment) que aparece más adelante en este artículo y, si es necesario, configurar la asignación de roles manualmente mediante [Azure Portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) o la [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
+>
+>Para más información, consulte [*Solución de problemas: Problemas conocidos en Azure Digital Twins*](troubleshoot-known-issues.md#missing-role-assignment-after-scripted-setup).
 
 A continuación se muestra un extracto del registro de salida del script:
 
@@ -127,5 +134,9 @@ En primer lugar, compruebe que la configuración de permisos de Azure Digital Tw
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte cómo conectar la aplicación cliente a la instancia mediante la escritura del código de autenticación de la aplicación cliente:
+Pruebe las llamadas individuales de la API REST en su instancia mediante los comandos de la CLI de Azure Digital Twins: 
+* [az dt reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
+
+O bien, consulte cómo conectar la aplicación cliente a la instancia mediante la escritura del código de autenticación de la aplicación cliente:
 * [*Procedimiento: Escritura de código de autenticación de aplicación*](how-to-authenticate-client.md)

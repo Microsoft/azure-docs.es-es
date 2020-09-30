@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6948d4d786e918e5f3e32e6bdf2f7e23940f6815
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a4c68454807cb26ac62799b598f146680e37c42
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445447"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230184"
 ---
 # <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>Habilitación y administración de la restauración a un momento dado para blobs en bloques (versión preliminar)
 
@@ -184,4 +184,4 @@ $job | Wait-Job
 - [Restauración a un momento dado para blobs en bloques (versión preliminar)](point-in-time-restore-overview.md)
 - [Eliminación temporal](soft-delete-overview.md)
 - [Fuente de cambios (versión preliminar)](storage-blob-change-feed.md)
-- [Control de versiones de blobs (versión preliminar)](versioning-overview.md)
+- [Control de versiones de blobs y eliminación temporal](versioning-overview.md)

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.openlocfilehash: 52f333a8e39dfd8f68666e6438a7d40414b6f958
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 445cd7c55de58b6e5266f76a06d2cbabc75c18b4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701420"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907167"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Datos de flujo como entrada en Stream Analytics
 
@@ -30,12 +30,12 @@ Stream Analytics admite la compresión en todos los orígenes de entrada del flu
 
 ## <a name="create-edit-or-test-inputs"></a>Creación, edición o prueba de entradas
 
-Puede usar [Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), y [Visual Studio Code](quick-create-vs-code.md) para agregar, ver o editar entradas existentes en su trabajo de streaming. También puede probar conexiones de entrada y [probar consultas](stream-analytics-manage-job.md#test-your-query) a partir de datos de ejemplo desde Azure Portal, [Visual Studio](stream-analytics-vs-tools-local-run.md) y [Visual Studio Code](visual-studio-code-local-run.md). Al escribir una consulta, se muestra una lista de las entradas en la cláusula FROM. Puede obtener la lista de las entradas disponibles en la página **Consulta** del portal. Si desea usar varias entradas, puede utilizar `JOIN` o escribir varias consultas `SELECT`.
+Puede usar [Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), y [Visual Studio Code](quick-create-visual-studio-code.md) para agregar, ver o editar entradas existentes en su trabajo de streaming. También puede probar conexiones de entrada y [probar consultas](stream-analytics-manage-job.md#test-your-query) a partir de datos de ejemplo desde Azure Portal, [Visual Studio](stream-analytics-vs-tools-local-run.md) y [Visual Studio Code](visual-studio-code-local-run.md). Al escribir una consulta, se muestra una lista de las entradas en la cláusula FROM. Puede obtener la lista de las entradas disponibles en la página **Consulta** del portal. Si desea usar varias entradas, puede utilizar `JOIN` o escribir varias consultas `SELECT`.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Datos de flujo de Event Hubs
 
-Azure Event Hubs ofrece consumidores de eventos de publicación y suscripción muy escalables. Un centro de eventos puede recopilar millones de eventos por segundo, por lo que se pueden procesar y analizar las grandes cantidades de datos que generan las aplicaciones y los dispositivos conectados. Juntos, Event Hubs y Stream Analytics proporcionan una solución de un extremo a otro para realizar análisis en tiempo real. Event Hubs le permite suministrar eventos a Azure en tiempo real y los trabajos de Stream Analytics pueden procesarlos también en tiempo real. Por ejemplo, se pueden enviar clics de web, lecturas de sensor o eventos de registro en línea a Event Hubs. Luego se pueden crear trabajos de Stream Analytics que usen Event Hubs como los flujos de datos de entrada para su filtrado, agregación y correlación en tiempo real.
+Azure Event Hubs ofrece servicios de ingesta de eventos de publicación y suscripción muy escalables. Un centro de eventos puede recopilar millones de eventos por segundo, por lo que se pueden procesar y analizar las grandes cantidades de datos que generan las aplicaciones y los dispositivos conectados. Juntos, Event Hubs y Stream Analytics proporcionan una solución de un extremo a otro para realizar análisis en tiempo real. Event Hubs le permite suministrar eventos a Azure en tiempo real y los trabajos de Stream Analytics pueden procesarlos también en tiempo real. Por ejemplo, se pueden enviar clics de web, lecturas de sensor o eventos de registro en línea a Event Hubs. Luego se pueden crear trabajos de Stream Analytics que usen Event Hubs como los flujos de datos de entrada para su filtrado, agregación y correlación en tiempo real.
 
 `EventEnqueuedUtcTime` es la marca de tiempo de la llegada de un evento a un centro de eventos y es la marca de tiempo predeterminada de los eventos procedentes de Event Hubs hacia Stream Analytics. Para procesar los datos como un flujo con una marca de tiempo en la carga del evento, se debe usar la palabra clave [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics).
 

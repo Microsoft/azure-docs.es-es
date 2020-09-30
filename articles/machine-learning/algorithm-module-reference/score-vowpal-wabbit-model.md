@@ -8,15 +8,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 02f4fe4f97d3e976675757835e3931666d1c6410
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 23dfee7b78f2606c54525391e1260af69a9b0779
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857716"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898398"
 ---
 # <a name="score-vowpal-wabbit-model"></a>Puntuación del modelo de Vowpal Wabbit
-En este artículo se describe cómo usar el módulo **Puntuación del modelo de Vowpal Wabbit** en el diseñador de Azure Machine Learning (versión preliminar) para generar puntuaciones para un conjunto de datos de entrada, utilizando un modelo de Vowpal Wabbit entrenado existente.  
+En este artículo se describe cómo usar el módulo **Puntuación del modelo de Vowpal Wabbit** en el diseñador de Azure Machine Learning para generar puntuaciones para un conjunto de datos de entrada mediante un modelo de Vowpal Wabbit entrenado existente.  
 
 Este módulo proporciona la versión más reciente del marco de Vowpal Wabbit, versión 8.8.1. Use este módulo para puntuar los datos mediante un modelo entrenado guardado con el formato VW, versión 8.  
 

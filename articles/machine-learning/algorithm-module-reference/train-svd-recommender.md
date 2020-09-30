@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 417ef716c391126982809574fc16f6681115cac3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a5740e851fbd8f7ba82e179f7e5299d6c7090596
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477415"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890243"
 ---
 # <a name="train-svd-recommender"></a>Entrenamiento del recomendador SVD
 
-En este artículo se describe cómo usar el módulo Entrenar recomendador de SVD del diseñador de Azure Machine Learning (versión preliminar). Use este módulo para entrenar un modelo de recomendación basado en el algoritmo de descomposición en valores singulares (SVD).  
+En este artículo se describe cómo usar el módulo Entrenar recomendador de SVD del diseñador de Azure Machine Learning. Use este módulo para entrenar un modelo de recomendación basado en el algoritmo de descomposición en valores singulares (SVD).  
 
 El módulo Entrenar recomendador de SVD lee un conjunto de datos de tripletas usuario-elemento-clasificación. Devuelve un recomendador SVD entrenado. Después, puede usar el modelo entrenado para predecir las clasificaciones o generar recomendaciones con el uso del módulo [ de puntuación del recomendador SVD](score-svd-recommender.md).  
 

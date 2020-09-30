@@ -6,16 +6,16 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: ad03538cafcce9c1d660d0f2ac5eb3c6ae5f4f38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 775aa44043e9c8900bd0c040ab603736314ea34e
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84694912"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469990"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Creación de un inquilino de Azure AD para Red Hat OpenShift en Azure
 
-Red Hat OpenShift en Microsoft Azure requiere un inquilino de [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) en el que crear el clúster. Un *inquilino* es una instancia dedicada de Azure AD que reciben una organización o un desarrollador de aplicaciones cuando crean una relación con Microsoft, como al registrarse en Azure, Microsoft Intune o Microsoft 365. Cada inquilino de Azure AD es distinto e independiente de los demás inquilinos de Azure AD y tiene sus propias identidades de trabajo y educativa y registros de aplicaciones.
+Red Hat OpenShift en Microsoft Azure requiere un inquilino de [Azure Active Directory (Azure AD)](../active-directory/develop/quickstart-create-new-tenant.md) en el que crear el clúster. Un *inquilino* es una instancia dedicada de Azure AD que reciben una organización o un desarrollador de aplicaciones cuando crean una relación con Microsoft, como al registrarse en Azure, Microsoft Intune o Microsoft 365. Cada inquilino de Azure AD es distinto e independiente de los demás inquilinos de Azure AD y tiene sus propias identidades de trabajo y educativa y registros de aplicaciones.
 
 Si aún no tiene un inquilino de Azure AD, siga estas instrucciones para crear uno.
 
@@ -39,7 +39,7 @@ Para crear un inquilino:
 
 ## <a name="resources"></a>Recursos
 
-Consulte la [documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) para más información sobre los [inquilinos de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+Consulte la [documentación de Azure Active Directory](../active-directory/index.yml) para más información sobre los [inquilinos de Azure AD](../active-directory/develop/quickstart-create-new-tenant.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

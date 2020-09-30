@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fe328de9460efb743037f697c7f564e2c628278d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc2b72779460c2b7e3999204ace50ca57388b9a2
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388942"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594193"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Integración de intercambios de notificaciones de la API de REST en la directiva personalizada de Azure AD B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Identity Experience Framework, que subyace a Azure Active Directory B2C (Azure AD B2C), permite la integración en API de RESTful dentro de un recorrido del usuario. En este artículo se muestra cómo crear un recorrido de usuario que interactúe con un servicio RESTful mediante un [perfil técnico de RESTful](https://identitydivision.visualstudio.com/defaultcollection/Identity%20CXP/_git/GTP?path=%2Fyoelh%2Fdocs%2Frest-api%2Frestful-technical-profile.md&version=GBmaster).
+Identity Experience Framework, que subyace a Azure Active Directory B2C (Azure AD B2C), permite la integración en API de RESTful dentro de un recorrido del usuario. En este artículo se muestra cómo crear un recorrido de usuario que interactúe con un servicio RESTful mediante un [perfil técnico de RESTful](restful-technical-profile.md).
 
 Mediante Azure AD B2C, puede agregar su propia lógica de negocios a un recorrido del usuario mediante una llamada a su propio servicio RESTful. Identity Experience Framework puede enviar y recibir datos del servicio RESTful para intercambiar notificaciones. Por ejemplo, puede:
 
@@ -125,9 +125,9 @@ Las notificaciones de salida deben tener un aspecto similar al siguiente:
 
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="contacts.0.person.name" />
-  <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="contacts.0.person.emails.0.email" />
-  <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="contacts.0.person.loyaltyNumber" />
+  <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="contacts[0].person.name" />
+  <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="contacts[0].person.emails[0].email" />
+  <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="contacts[0].person.loyaltyNumber" />
 </OutputClaims>
 ```
 

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: b2d43e970012209acb6ed7fbbaafbb1719617280
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1899baa927bffdaedd1d7ee00f442c449480fc04
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533876"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986849"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Inicio rápido: Creación de una instancia administrada de SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -124,7 +124,7 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.m
 > 3. Seleccione la operación de implementación de la instancia administrada de SQL en curso.
 
 > [!IMPORTANT]
-> - La creación de SQL Managed Instance es una operación que puede tardar varias horas en finalizar, en función de determinadas circunstancias. Para saber el tiempo que habitualmente tarde en crearse, consulte la sección [Duración de las operaciones de administración](management-operations-overview.md#management-operations-duration).
+> - La creación de SQL Managed Instance es una operación que puede tardar varias horas en finalizar, en función de determinadas circunstancias. Para saber el tiempo que habitualmente tarde en crearse, consulte la sección [Duración de las operaciones de administración](management-operations-overview.md#duration).
 > - El inicio de la creación de SQL Managed Instance se puede retrasar cuando existan otras operaciones que afecten a la ejecución prolongada, como operaciones de restauración o escalado de larga duración en otras instancias administradas de la misma subred. Para más información, consulte la sección [Impacto de las operaciones de administración](management-operations-overview.md#management-operations-cross-impact).
 > - Para poder obtener el estado de creación de instancia administrada, tiene que tener **permisos de lectura** para el grupo de recursos. Si no tiene este permiso o lo revoca mientras la instancia administrada se encuentra en proceso de creación, es posible que SQL Managed Instance no se vea en la lista de implementaciones del grupo de recursos.
 >

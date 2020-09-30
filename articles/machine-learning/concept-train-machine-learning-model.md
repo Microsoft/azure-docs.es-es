@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 186839425e6ab2fb5430a82650615425bb93d51a
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: b0a0420b470ee6bf0c7fbb9885e496eaabaf7ef4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651767"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893537"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Entrenamiento de modelos con Azure Machine Learning
 
@@ -32,7 +32,7 @@ Azure Machine Learning proporciona varias maneras de entrenar los modelos, desde
 
 + [SDK de Azure Machine Learning para R](#r-sdk): el SDK para R usa el paquete de reticulate para enlazar con el SDK de Python de Azure Machine Learning. Esto permite acceder a los objetos y métodos principales implementados en el SDK de Python desde cualquier entorno de R.
 
-+ **Diseñador**: el diseñador de Azure Machine Learning (versión preliminar) proporciona un punto de entrada sencillo al aprendizaje automático para crear una prueba de conceptos o para los usuarios que no tengan mucha experiencia en la codificación. Permite entrenar modelos mediante una interfaz de usuario basada en web de arrastrar y colocar. Puede usar el código de Python como parte del diseño o entrenar modelos sin necesidad de escribir nada de código.
++ **Diseñador**: el diseñador de Azure Machine Learning proporciona un punto de entrada sencillo al aprendizaje automático para crear una prueba de conceptos o para los usuarios que no tengan mucha experiencia en la codificación. Permite entrenar modelos mediante una interfaz de usuario basada en web de arrastrar y colocar. Puede usar el código de Python como parte del diseño o entrenar modelos sin necesidad de escribir nada de código.
 
 + **CLI**: la CLI de Machine Learning proporciona comandos para tareas comunes con Azure Machine Learning y se usa a menudo para **scripting y automatizar tareas**. Por ejemplo, una vez que haya creado una canalización o un script de entrenamiento, puede usar la CLI para iniciar una ejecución de entrenamiento según una programación o cuando se actualicen los archivos de datos usados para el entrenamiento. En el caso de los modelos de entrenamiento, proporciona comandos que envían trabajos de entrenamiento. Puede enviar trabajos mediante configuraciones de ejecución o canalizaciones.
 
@@ -42,20 +42,20 @@ Cada uno de estos métodos de entrenamiento puede usar distintos tipos de recurs
 
 El SDK de Azure Machine Learning para Python permite compilar y ejecutar flujos de trabajo de aprendizaje automático con Azure Machine Learning. Puede interactuar con el servicio desde una sesión de Python interactiva, instancias de Jupyter Notebook, Visual Studio Code u otro IDE.
 
-* [¿Qué es el SDK de Azure Machine Learning para Python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-* [Instalación o actualización del SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* [¿Qué es el SDK de Azure Machine Learning para Python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
+* [Instalación o actualización del SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * [Configuración de un entorno de desarrollo para Azure Machine Learning](how-to-configure-environment.md)
 
 ### <a name="run-configuration"></a>Configuración de ejecución
 
-Se puede definir un trabajo de entrenamiento genérico con Azure Machine Learning mediante [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py). A continuación, se usa la configuración de ejecución junto con los scripts de entrenamiento para entrenar un modelo en un destino de proceso.
+Se puede definir un trabajo de entrenamiento genérico con Azure Machine Learning mediante [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true). A continuación, se usa la configuración de ejecución junto con los scripts de entrenamiento para entrenar un modelo en un destino de proceso.
 
 Puede empezar con una configuración de ejecución para el equipo local y, a continuación, cambiar a una para un destino de proceso basado en la nube según sea necesario. Al cambiar el destino de proceso, solo se cambia la configuración de ejecución que se usa. Una ejecución también registra información sobre el trabajo de entrenamiento, como las entradas, las salidas y los registros.
 
 * [¿En qué consiste una configuración de ejecución?](concept-azure-machine-learning-architecture.md#run-configurations)
 * [Tutorial: Entrenamiento del primer modelo de Machine Learning](tutorial-1st-experiment-sdk-train.md)
 * [Ejemplos: ejemplos de Jupyter Notebook del entrenamiento de modelos](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training)
-* [Cómo: Configuración y uso de destinos de proceso para el entrenamiento del modelo](how-to-set-up-training-targets.md)
+* [Cómo: Uso de los destinos de proceso para el entrenamiento de modelos](how-to-set-up-training-targets.md)
 
 ### <a name="automated-machine-learning"></a>Automated Machine Learning
 
@@ -160,4 +160,4 @@ Puede usar la extensión de VS Code para ejecutar y administrar los trabajos de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a [configurar los entornos de entrenamiento](how-to-set-up-training-targets.md).
+Más información sobre el [uso de destinos de proceso para el entrenamiento del modelo](how-to-set-up-training-targets.md).

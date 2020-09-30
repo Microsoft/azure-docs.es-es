@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: fd2742744ef4f2f616e772c8f387887e113b132a
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 4112e8aae485e229beb16d21e90280750e1465e1
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88861744"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462673"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>Inicio rápido: Implementación de un centro de Azure IoT Hub y una cuenta de almacenamiento mediante una plantilla de ARM
 
@@ -32,8 +32,8 @@ La plantilla usada en esta guía de inicio rápido se llama `101-iothub-auto-rou
 :::code language="json" source="~/quickstart-templates/101-iothub-auto-route-messages/azuredeploy.json":::
 
 En la plantilla se definen dos recursos de Azure: 
-* [Microsoft.Devices/Iothubs](/azure/templates/microsoft.iothubs)
-* [Microsoft.Storage/](/azure/templates/microsoft.storage)
+* [Microsoft.Devices/Iothubs](/azure/templates/microsoft.devices/iothubs)
+* [Microsoft.Storage/](/azure/templates/microsoft.storage/allversions)
 
 ## <a name="deploy-the-template-and-run-the-sample-app"></a>Implementación de la plantilla y ejecución de la aplicación de ejemplo
 
@@ -46,7 +46,7 @@ En esta sección se proporcionan los pasos para implementar la plantilla, crear 
 
     [![Implementar en Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
 
-1. Descargue y descomprima los [ejemplos de IoT en C#](https://Azure-Samples/azure-iot-samples-csharp).
+1. Descargue y descomprima los [ejemplos de IoT en C#](https://docs.microsoft.com/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
 
 1. Abra una ventana de comandos y vaya a la carpeta en la que descomprimió los ejemplos de IoT en C#. Busque la carpeta con el archivo arm-read-write.csproj. En esta ventana de comandos se crean las variables de entorno. Inicie sesión en Azure Portal (https://portal.azure.com ) para obtener las claves. Seleccione **Grupos de recursos** y, a continuación, el grupo de recursos que se usa para esta guía de inicio rápido.
 

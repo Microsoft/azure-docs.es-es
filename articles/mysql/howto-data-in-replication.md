@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 8/7/2020
-ms.openlocfilehash: f8dbdf87eef193540fd5c1bf9d9e7f3794ae46ce
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 8ebb524a5297380fca575ce6849fe4c5f15507cb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168225"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903990"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Configuración de la replicación de datos internos de Azure Database for MySQL
 
@@ -105,15 +105,15 @@ En los siguientes pasos se prepara y configura el servidor MySQL en el entorno l
 
    Para crear el rol de replicación en MySQL Workbench, abra el panel **Users and Privileges** (Usuarios y privilegios) desde el panel **Management** (Administración). A continuación, haga clic en **Add Account** (Agregar cuenta). 
  
-   ![Usuarios y privilegios](./media/howto-data-in-replication/users_privileges.png)
+   :::image type="content" source="./media/howto-data-in-replication/users_privileges.png" alt-text="Usuarios y privilegios":::
 
    Escriba el nombre de usuario en el campo **Login Name** (Nombre de inicio de sesión). 
 
-   ![Usuario de sincronización](./media/howto-data-in-replication/syncuser.png)
+   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Usuario de sincronización":::
  
    Haga clic en el panel **Administrative Roles** (Roles administrativos) y seleccione **Replication Slave** (Servidor subordinado de replicación) en la lista **Global Privileges** (Privilegios globales). A continuación, haga clic en **Apply** (Aplicar) para crear el rol de replicación.
 
-   ![Servidor subordinado de replicación](./media/howto-data-in-replication/replicationslave.png)
+   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Servidor subordinado de replicación":::
 
 1. Establecer el servidor maestro en el modo de solo lectura
 
@@ -133,7 +133,7 @@ En los siguientes pasos se prepara y configura el servidor MySQL en el entorno l
    ```
    Los resultados deben ser como el siguiente. Asegúrese de anotar el nombre del archivo binario que se utilizará en pasos posteriores.
 
-   ![Resultados de estado del maestro](./media/howto-data-in-replication/masterstatus.png)
+   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Resultados de estado del maestro":::
  
 ## <a name="dump-and-restore-master-server"></a>Volcar y restaurar el servidor maestro
 

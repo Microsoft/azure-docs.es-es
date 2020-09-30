@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: memildin
-ms.openlocfilehash: bb45e1d1ee17a6daf16bd688982f79fda986bde5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d336c58971b16875d9861f85dde9529de8c734e2
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73664410"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278092"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Comparación de las líneas de base mediante la supervisión de la integridad de los archivos (FIM)
 
@@ -41,7 +41,7 @@ Los valores predeterminados del súbarbol del registro de FIM permiten supervisa
 >[!NOTE]
 > Las comprobaciones recursivas solo se aplican a los subárboles de seguridad recomendados, no a las rutas de acceso al registro personalizadas.  
 
-## <a name="adding-a-custom-registry-check"></a>Incorporación de una comprobación de registro personalizada
+## <a name="add-a-custom-registry-check"></a>Incorporación de una comprobación de registro personalizada
 
 Las líneas de base de FIM comienzan identificando las características de un estado correcto conocido para el sistema operativo y admitiendo la aplicación.  En este ejemplo, nos centraremos en las configuraciones de directiva de contraseña para Windows Server 2008 y versiones posteriores.
 
@@ -73,14 +73,14 @@ Las líneas de base de FIM comienzan identificando las características de un es
 
       ![Habilitación de FIM en un registro](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
 
-## <a name="tracking-changes-to-windows-files"></a>Seguimiento de cambios en los archivos de Windows
+## <a name="track-changes-to-windows-files"></a>Seguimiento de cambios en los archivos de Windows
 
 1. En la ventana **Agregar Registro de Windows para el seguimiento de cambios**, en el cuadro de texto **Indicar ruta de acceso**, especifique la carpeta que contiene los archivos de los que quiere hacer un seguimiento. En el ejemplo de la siguiente ilustración, **Contoso Web App** reside en la unidad D:\ dentro de la estructura de carpetas **ContosWebApp**.  
 1. Cree una entrada de archivo de Windows personalizada especificando un nombre de la clase de configuración, habilitando la recursión y especificando la carpeta principal con un sufijo de carácter comodín (*).
 
     ![Habilitación de FIM en un archivo](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
 
-## <a name="retrieving-change-data"></a>Recuperación de los datos de cambios
+## <a name="retrieve-change-data"></a>Recuperación de datos modificados
 
 Los datos de la supervisión de la integridad de archivos residen en el conjunto de tablas de Azure Log Analytics/ConfigurationChange.  
 

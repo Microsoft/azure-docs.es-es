@@ -1,18 +1,18 @@
 ---
 title: Controles de Cumplimiento normativo de Azure Policy para Azure Stream Analytics
 description: En este artículo se muestran los controles de Cumplimiento normativo de Azure Policy disponibles para Azure Stream Analytics. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 09/04/2020
+ms.date: 09/16/2020
 ms.topic: sample
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 2920babf507ffd7322b278a26b0fbd5ccbaa5069
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 08192bc0e6ab0364d7b64c4b939a380dc3c51a08
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89481913"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979537"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-stream-analytics"></a>Controles de Cumplimiento normativo de Azure Policy para Azure Stream Analytics
 

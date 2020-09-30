@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/08/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.openlocfilehash: 0dbd7eb9203f31b580f586a8a7d1fa216533628c
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 4a902ed53e92cd073d81626e80bdb3c8629ad072
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170520"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437877"
 ---
 # <a name="authentication-flows"></a>Flujos de autenticación
 
@@ -219,7 +219,7 @@ Dado que IWA es un flujo silencioso, debe cumplirse uno de los siguientes requis
 Esto significa que una de las siguientes condiciones es verdad:
 
 - Usted, como desarrollador, seleccionó **Conceder** en Azure Portal para usted mismo.
-- Un administrador de inquilinos seleccionó la pestaña **Conceder o revocar consentimiento del administrador para {dominio del inquilino}** en la pestaña **Permisos de API** del registro de la aplicación en Azure Portal (consulte [Adición de permisos para acceder a las API web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)).
+- Un administrador de inquilinos ha seleccionado la pestaña **Conceder o revocar consentimiento del administrador para {dominio del inquilino}** en la pestaña **Permisos de API** del registro de la aplicación en Azure Portal (consulte [Adición de permisos para acceder a las API web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)).
 - Proporcionó una manera para que los usuarios den su consentimiento a la aplicación. Consulte [Solicitud de consentimiento de usuario individual](v2-permissions-and-consent.md#requesting-individual-user-consent).
 - Proporcionó una forma para que el administrador de inquilinos dé su consentimiento para la aplicación. Consulte [Consentimiento de administrador](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 

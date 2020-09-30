@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 01706b3f6850d49240b9c84997cbbec528045200
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3343f0e21cdf8873447bd448c200102940b632e8
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923881"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077099"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Uso de PowerShell para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2
 
@@ -125,6 +126,8 @@ $dir.Owner
 $dir.Properties
 $dir.Properties.Metadata
 ```
+> [!NOTE]
+> Para obtener el directorio raíz del contenedor, omita el parámetro `-Path`.
 
 ## <a name="rename-or-move-a-directory"></a>Cambio de nombre o traslado de un directorio
 
@@ -202,7 +205,8 @@ $properties.Group
 $properties.Owner
 ```
 
-Para mostrar el contenido de un contenedor, omita el parámetro `-Path` del comando.
+> [!NOTE]
+> Para mostrar el contenido del directorio raíz del contenedor, omita el parámetro `-Path`.
 
 ## <a name="upload-a-file-to-a-directory"></a>Carga de un archivo en un directorio
 
@@ -227,6 +231,9 @@ $file1.Properties
 $file1.Properties.Metadata
 
 ```
+
+> [!NOTE]
+> Para cargar un archivo en el directorio raíz del contenedor, omita el parámetro `-Path`.
 
 ## <a name="show-file-properties"></a>Visualización de las propiedades del archivo
 

@@ -3,12 +3,12 @@ title: Uso de Azure DevTest Labs para entrenamiento | Microsoft Docs
 description: En este artículo se proporcionan pasos detallados que puede seguir para configurar un laboratorio para entrenamiento en Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 1a4b39d104d2ffdb45c23db2ad16cc4ee4627fb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2de9550c62f04286a4f9ad42238bfefb9846477
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85484152"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294856"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Uso de Azure DevTest Labs para entrenamiento
 Azure DevTest Labs se puede utilizar para implementar muchos escenarios claves además de los de desarrollo y pruebas. Uno de estos escenarios es la configuración de un laboratorio para entrenamiento. Azure DevTest Labs le permite crear un laboratorio en el que puede proporcionar plantillas personalizadas que cada aprendiz puede usar para crear entornos idénticos y aislados con fines de entrenamiento. Puede aplicar directivas para garantizar que los entornos de entrenamiento estarán disponibles para cada aprendiz solo cuando sea necesario y cuando contengan los suficientes recursos necesarios como, por ejemplo, máquinas virtuales, para el entrenamiento. Por último, puede compartir fácilmente el laboratorio con los aprendices y estos podrán acceder fácilmente a él con un solo clic.
@@ -44,7 +44,7 @@ En este artículo, aprenderá acerca de las diversas características de Azure D
    
    | Tarea | Conocimientos que adquirirá |
    | --- | --- |
-   | [Configuración de imágenes de Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Aprenda a incluir imágenes de Azure Marketplace en una lista de permitidos y haga que estén disponibles para su selección solo las imágenes que desee para el entrenamiento. |
+   | [Configuración de imágenes de Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Aprenda a permitir imágenes de Azure Marketplace y haga que estén disponibles para su selección solo las imágenes que desee para el entrenamiento. |
    | [Creación de una imagen personalizada](devtest-lab-create-template.md) |Cree una imagen personalizada instalando previamente el software que necesita para el entrenamiento para que los aprendices puedan crear rápidamente una máquina virtual con la imagen personalizada. |
 3. **Creación de plantillas reutilizables para las máquinas de entrenamiento** 
    
@@ -91,4 +91,3 @@ En este artículo, aprenderá acerca de las diversas características de Azure D
    | [Creación de un laboratorio mediante una plantilla de Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Cree laboratorios en Azure DevTest Labs mediante plantillas de Resource Manager. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-

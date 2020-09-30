@@ -1,6 +1,6 @@
 ---
 title: Referencia de módulos y algoritmos
-description: Conozca los módulos disponibles en el diseñador de Azure Machine Learning (versión preliminar).
+description: Obtenga información sobre los módulos disponibles en el diseñador de Azure Machine Learning
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: a588c58c74ab9632f3c3c61e223dd37704103714
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9a2e21696409c320b89d1fed54fefad953b955e1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048106"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886399"
 ---
-# <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Referencia de módulo y algoritmo para el diseñador de Azure Machine Learning (versión preliminar)
+# <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Referencia de módulo y algoritmo para el diseñador de Azure Machine Learning
 
-Este contenido de referencia proporciona el contexto técnico de cada uno de los algoritmos y módulos de aprendizaje automático disponibles en el diseñador de Azure Machine Learning (versión preliminar).
+Este contenido de referencia proporciona el contexto técnico de cada uno de los algoritmos y módulos de aprendizaje automático disponibles en el diseñador de Azure Machine Learning.
 
 Cada módulo representa un conjunto de código que puede ejecutarse de forma independiente y realizar una tarea de aprendizaje automático, dadas las entradas necesarias. Un módulo puede contener un algoritmo en particular o realizar una tarea que sea importante para el aprendizaje automático, como el reemplazo de un valor que falta o análisis estadísticos.
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: c260643d7d553e407d0758f286aac76c91ae08d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 403576454615effeb53651b51679681422b08e9e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137695"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890365"
 ---
 # <a name="neural-network-regression-module"></a>Módulo Regresión de red neuronal
 
@@ -24,7 +24,7 @@ ms.locfileid: "82137695"
   
 ## <a name="module-overview"></a>Información general sobre el módulo  
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
 Utilice este módulo para crear un modelo de regresión usando un algoritmo de red neuronal personalizable.
   

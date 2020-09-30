@@ -10,12 +10,12 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: e1a018b06b7ee7230612d2ee6a582214a817547b
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4a1cfcbf110ab375a0fb357c1856fd0567a1c57a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985231"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459426"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Solución de problemas de conectividad y otros errores con Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -194,7 +194,7 @@ Para resolver este problema, pruebe uno de los métodos siguientes:
 2. Determine el **búfer de entrada** para el bloqueador de encabezado.
 3. Optimice la consulta del bloqueador de encabezado.
 
-   Para un procedimiento de solución de problemas detallado, consulte [¿Se ejecuta correctamente mi consulta en la nube?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)
+   Para un procedimiento de solución de problemas detallado, consulte [¿Se ejecuta correctamente mi consulta en la nube?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)
 
 Si la base de datos alcanza el límite constantemente a pesar del bloqueo y las consultas de ejecución prolongada, considere la posibilidad de actualizar a una edición con más recursos en [Ediciones](https://azure.microsoft.com/pricing/details/sql-database/).
 
@@ -261,7 +261,7 @@ Si se encuentra con frecuencia este mensaje de error, siga estos pasos para inte
 
 Considere también el procesamiento por lotes de las consultas. Para más información sobre el procesamiento por lotes, consulte [Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance).
 
-Para un procedimiento de solución de problemas detallado, consulte [¿Se ejecuta correctamente mi consulta en la nube?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)
+Para un procedimiento de solución de problemas detallado, consulte [¿Se ejecuta correctamente mi consulta en la nube?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>Error 40551: La sesión ha terminado debido al uso excesivo de TEMPDB
 
@@ -292,7 +292,7 @@ Intente reducir el número de filas que en las que se trabaja inmediatamente al 
 
 Para solucionar este problema, intente optimizar la consulta.
 
-Para un procedimiento de solución de problemas detallado, consulte [¿Se ejecuta correctamente mi consulta en la nube?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)
+Para un procedimiento de solución de problemas detallado, consulte [¿Se ejecuta correctamente mi consulta en la nube?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)
 
 ### <a name="table-of-additional-resource-governance-error-messages"></a>Tabla de mensajes de error adicionales de gobernanza de recursos
 
@@ -356,7 +356,7 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-Cuando se produce la excepción por problemas de consulta, observará una pila de llamadas similar a la siguiente (observe la referencia a la clase **SqlCommand**). En esta situación, [optimice las consultas ](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+Cuando se produce la excepción por problemas de consulta, observará una pila de llamadas similar a la siguiente (observe la referencia a la clase **SqlCommand**). En esta situación, [optimice las consultas ](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()

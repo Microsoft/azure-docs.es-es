@@ -1,14 +1,14 @@
 ---
 title: Bloqueo de recursos
 description: Obtenga más información sobre las opciones de bloqueo de Azure Blueprints para proteger los recursos cuando asigne un plano técnico.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 94ed8efd0d6c654cba129dfc69fbfe5add7a0824
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 5e60724a276bce94770c5fdc33ee0c8b4e7712fe
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383592"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051509"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprensión del bloqueo de recursos en planos técnicos de Azure Blueprint
 
@@ -28,7 +28,7 @@ Los recursos creados por los artefactos en una asignación de plano técnico tie
 |-|-|-|-|
 |No bloquear|*|Sin bloquear|Los recursos no están protegidos por Azure Blueprints. Este estado también se usa para los recursos que se agregan a un artefacto del grupo de recursos de **Solo lectura** o **No eliminar** a partir de fuera de una asignación de plano técnico.|
 |Solo lectura|Resource group|No se puede editar o eliminar|El grupo de recursos es de solo lectura, y no se pueden modificar las etiquetas en el grupo de recursos. Los recursos **Sin bloquear** se pueden agregar, mover, cambiar o elimina de este grupo de recursos.|
-|Solo lectura|Grupo que no son de recursos|Solo lectura|El recurso no se puede modificar de ninguna manera, no se puede cambiar ni eliminar.|
+|Solo lectura|Grupo que no son de recursos|Solo lectura|No se puede modificar el recurso de ninguna manera. No se puede eliminar ningún cambio.|
 |No eliminar|*|No se puede eliminar|Los recursos se pueden modificar, pero no se pueden eliminar. Los recursos **Sin bloquear** se pueden agregar, mover, cambiar o elimina de este grupo de recursos.|
 
 ## <a name="overriding-locking-states"></a>Sustitución de los estados de bloqueo
@@ -182,8 +182,8 @@ Aunque **excludedPrincipals** debe ser explícito, las entradas de **excludedAct
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Siga el tutorial sobre la [protección de los nuevos recursos](../tutorials/protect-new-resources.md).
-- Información acerca del [ciclo de vida del plano técnico](lifecycle.md).
-- Descubra cómo utilizar [parámetros estáticos y dinámicos](parameters.md).
-- Aprenda a personalizar el [orden de secuenciación de planos técnicos](sequencing-order.md).
+- Información acerca del [ciclo de vida del plano técnico](./lifecycle.md).
+- Descubra cómo utilizar [parámetros estáticos y dinámicos](./parameters.md).
+- Aprenda a personalizar el [orden de secuenciación de planos técnicos](./sequencing-order.md).
 - Aprenda a [actualizar las asignaciones existentes](../how-to/update-existing-assignments.md).
 - Puede consultar la información de [solución de problemas generales](../troubleshoot/general.md) para resolver los problemas durante la asignación de un plano técnico.

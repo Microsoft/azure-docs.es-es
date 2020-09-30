@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 443ac9ee1c2f05cf90e866793449220d71e37b89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b72694f93ed5b712a0f684887df5b69a7b35c72
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210668"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441687"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Límites de memoria y simultaneidad de Azure Synapse Analytics
 
@@ -125,7 +125,7 @@ En la tabla siguiente se muestra el número máximo de consultas simultáneas y 
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-Cuando no hay suficientes espacios de simultaneidad libres para iniciar la ejecución de consulta, las consultas se ponen en cola y se ejecutan en función de su importancia.  En caso de una importancia equivalente, las consultas se ejecutan según el criterio primero en entrar, primero en salir.  A medida que las consultas finalizan y el número de consultas y espacios desciende por debajo de los límites, SQL Data Warehouse libera las consultas en cola.
+Cuando no hay suficientes espacios de simultaneidad libres para iniciar la ejecución de consulta, las consultas se ponen en cola y se ejecutan en función de su importancia.  En caso de una importancia equivalente, las consultas se ejecutan según el criterio primero en entrar, primero en salir.  A medida que las consultas finalizan y el número de consultas y espacios desciende por debajo de los límites, Azure Synapse Analytics libera las consultas en cola.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

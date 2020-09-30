@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 52488eb43377978d7f936ba0aa452cc872f8d899
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: db1b73e36a4917f1a10754424b472284094b563e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519361"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894579"
 ---
 # <a name="working-with-security-policies"></a>Uso de directivas de seguridad
 
@@ -33,14 +33,14 @@ Azure Security Center realiza sus recomendaciones de seguridad en función de la
 
 Security Center le ofrece las siguientes opciones para trabajar con directivas de seguridad:
 
-* **Ver y editar la directiva predeterminada integrada**: al habilitar Security Center, una iniciativa integrada denominada "ASC default" se asigna automáticamente a todas las suscripciones registradas de Security Center (planes de tarifa gratis o estándar). Para personalizar esta iniciativa, puede habilitar o deshabilitar las directivas individuales de la misma. Consulte la lista de [directivas de seguridad integradas](security-center-policy-definitions.md) para comprender las opciones disponibles.
+* **Ver y editar la directiva predeterminada integrada**: al habilitar Security Center, una iniciativa integrada denominada "Predeterminada de ASC" se asigna automáticamente a todas las suscripciones registradas de Security Center. Para personalizar esta iniciativa, puede habilitar o deshabilitar las directivas individuales de la misma. Consulte la lista de [directivas de seguridad integradas](security-center-policy-definitions.md) para comprender las opciones disponibles.
 
 * **Agregue sus propias directivas personalizadas**: si quiere personalizar las iniciativas de seguridad que se aplican a su suscripción, puede hacerlo en Security Center. A continuación, recibirá recomendaciones si las máquinas no siguen las directivas que creó. Para obtener instrucciones sobre la creación y asignación de directivas personalizadas, consulte [Uso de las directivas de seguridad personalizadas](custom-security-policies.md).
 
 * **Agregar directivas de cumplimiento normativo**: el panel de cumplimiento normativo de Security Center muestra el estado de todas las evaluaciones del entorno, en el contexto de una normativa o estándar determinado (por ejemplo, Azure CIS, NIST SP 800-53 R4 o SWIFT CSP CSCF-v2020). Para obtener más información, consulte [Mejora del cumplimiento normativo](security-center-compliance-dashboard.md).
 
 
-## <a name="managing-your-security-policies"></a>Administración de las directivas de seguridad
+## <a name="manage-your-security-policies"></a>Administración de las directivas de seguridad
 
 Para ver las directivas de seguridad de Security Center:
 
@@ -54,7 +54,7 @@ Para ver las directivas de seguridad de Security Center:
 
 1. Aparecerá la página de directiva de seguridad de la suscripción o el grupo de administración. Esta muestra las directivas disponibles y asignadas.
 
-   ![pantalla de la directiva](./media/tutorial-security-policy/security-policy-page.png)
+   ![página de directiva](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
     > Si hay una etiqueta "MG Inherited" junto a la directiva predeterminada, significa que la directiva se ha asignado a un grupo de administración y que la ha heredado la suscripción que está viendo.
@@ -111,11 +111,11 @@ Para más información sobre las recomendaciones, consulte [Administración de l
 
 1. Seleccione**Ver directiva efectiva**.
 
-   ![deshabilitar la directiva](./media/tutorial-security-policy/view-effective-policy.png)
+   ![visualización de directiva](./media/tutorial-security-policy/view-effective-policy.png)
 
 1. Seleccione la directiva asignada.
 
-   ![deshabilitar la directiva](./media/tutorial-security-policy/security-policy.png)
+   ![selección de directiva](./media/tutorial-security-policy/security-policy.png)
 
 1. En la sección **PARÁMETROS**, busque la directiva que invoca la recomendación que quiere deshabilitar y, en la lista desplegable, seleccione **Deshabilitado**
 

@@ -9,19 +9,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: a3db0e2ffdd4a75f02634ca2227c3c41416d4f65
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 549ecf940c53267db6b3caa576c4c24db414337a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588423"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906044"
 ---
 #### <a name="docker-pull-for-the-sentiment-analysis-v3-container"></a>Docker pull para el contenedor de Análisis de sentimiento v3
 
 El contenedor de Análisis de sentimiento v3 está disponible en varios idiomas. Para descargar el contenedor en inglés, use el siguiente comando. 
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-en
+docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-en
 ```
 
 Para descargar el contenedor para otro idioma, reemplace `en` por uno de los siguientes códigos de idioma. 

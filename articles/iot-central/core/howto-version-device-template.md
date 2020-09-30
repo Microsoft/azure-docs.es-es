@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 772521a8d3181721270d7fe4dbd11b7807c8d90e
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.custom: device-developer
+ms.openlocfilehash: 2025b127a428afa478cfe839c7619df2d7d688d3
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583655"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015966"
 ---
 # <a name="create-a-new-device-template-version"></a>Creación de una nueva versión de plantilla de dispositivo
 

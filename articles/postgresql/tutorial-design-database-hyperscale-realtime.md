@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Diseño de un panel en tiempo real: Hiperescala (Citus): Azure Database for PostgreSQL'
-description: Este tutorial muestra cómo crear, rellenar y consultar tablas distribuidas en Azure Database for PostgreSQL Hiperescala (Citus).
+description: 'En este tutorial se muestra cómo paralelizar consultas en tiempo real con Azure Database for PostgreSQL: Hiperescala (Citus).'
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: db3cd95c5a833b299ee85c1e68b15644ae0e0226
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 41ac1cb856011d9730f7b49bbf85350f4dbccdbd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387581"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895244"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutorial: Diseño de un panel de análisis en tiempo real on Azure Database for PostgreSQL: Hiperescala (Citus)
 
@@ -226,6 +226,5 @@ En los pasos anteriores, creó recursos de Azure en un grupo de servidores. Si n
 
 En este tutorial, aprendió a aprovisionar un grupo de servidores Hiperescala (Citus). Se conectó a él con psql, creó un esquema y distribuyó datos. Ha aprendido a consultar datos en formato sin procesar, a agregar esos datos de manera habitual, a consultar las tablas de agregados y a hacer expirar los datos antiguos.
 
-A continuación, conozca los conceptos de hiperescala.
-> [!div class="nextstepaction"]
-> [Tipos de nodo de hiperescala](https://aka.ms/hyperscale-concepts)
+- Más información acerca de los [tipos de nodo](https://aka.ms/hyperscale-concepts) del grupo de servidores.
+- Determine el mejor [tamaño inicial](howto-hyperscale-scaling.md#picking-initial-size) para el grupo de servidores.

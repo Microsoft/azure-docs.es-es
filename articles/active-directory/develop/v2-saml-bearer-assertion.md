@@ -2,7 +2,7 @@
 title: Plataforma de identidad de Microsoft y flujo de aserción de portador SAML | Azure
 description: Obtenga información acerca de cómo capturar datos de Microsoft Graph sin pedir al usuario las credenciales mediante el flujo de aserción de portador SAML.
 services: active-directory
-author: umeshbarapatre
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.custom: aaddev
-ms.openlocfilehash: e0db5bec00ce864536b3559eda160acdada5e157
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 6e7e4dd6383b1f264ff2da7893d9f86a3708217d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114700"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227923"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Plataforma de identidad de Microsoft y flujo de aserción de portador SAML de OAuth 2.0
 El flujo de aserción de portador SAML de OAuth 2.0 le permite solicitar un token de acceso de OAuth mediante una aserción SAML cuando un cliente tiene que usar una relación de confianza existente. La firma aplicada a la aserción SAML proporciona la autenticación de la aplicación autorizada. Una aserción SAML es un token de seguridad XML emitido por un proveedor de identidades y consumido por un proveedor de servicios. El proveedor de servicios se basa en su contenido para identificar el asunto de la aserción con fines relacionados con la seguridad.
@@ -28,7 +27,7 @@ El flujo de aserción de portador SAML es útil cuando se recuperan datos de Mic
 
 En el caso de las aplicaciones con un inicio de sesión interactivo basado en explorador para obtener una aserción SAML y luego quieren agregar acceso a una API protegida de OAuth (como Microsoft Graph), puede hacer una solicitud de OAuth para obtener un token de acceso para la API. Cuando el explorador se redirige a Azure AD para autenticar al usuario, el explorador seleccionará la sesión desde el inicio de sesión de SAML, y el usuario no tendrá que escribir sus credenciales.
 
-También se admite el flujo de aserción de portador SAML de OAuth para los usuarios que se autentican con proveedores de identidades, como Servicios de federación de Active Directory (ADFS), federados para Azure Active Directory.  La aserción SAML obtenida de ADFS puede usarse en un flujo de OAuth para autenticar al usuario.
+El flujo de aserción de portador SAML de OAuth solo se admite para los usuarios que se autentican con proveedores de identidades, como Servicios de federación de Active Directory (AD FS), federados para Azure Active Directory.  La aserción SAML obtenida de ADFS puede usarse en un flujo de OAuth para autenticar al usuario.
 
 ![Flujo de OAuth](./media/v2-saml-bearer-assertion/1.png)
 

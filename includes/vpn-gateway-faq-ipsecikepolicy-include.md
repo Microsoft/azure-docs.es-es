@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f7134d0e8087d17e78a13c958298006e321bd192
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 754a47b3692847957de7f3d666f4dc09dc309d25
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84346252"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91025397"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>¿Se admite la directiva de IPsec o IKE personalizada en todas las SKU de Azure VPN Gateway?
 La directiva de IPsec o IKE personalizada se admite en todas las SKU de Azure, excepto la SKU básica.
@@ -31,7 +31,7 @@ En la tabla siguiente se enumeran los algoritmos criptográficos y los niveles d
 | ---              | ---                                                                           |
 | Cifrado IKEv2 | AES256, AES192, AES128, DES3, DES                                             |
 | Integridad de IKEv2  | SHA384, SHA256, SHA1, MD5                                                     |
-| Grupo DH         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, Ninguno |
+| Grupo DH         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, Ninguno  |
 | Cifrado IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, No      |
 | Integridad de IPsec  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
 | Grupo PFS        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, No                              |
@@ -99,6 +99,9 @@ Sí, puede aplicar directivas personalizadas en las conexiones entre entornos de
 
 ### <a name="do-i-need-to-specify-the-same-policy-on-both-vnet-to-vnet-connection-resources"></a>¿Es preciso especificar la misma directiva en los dos recursos de la conexión entre redes virtuales?
 Sí. Un túnel entre redes virtuales consta de dos recursos de conexión en Azure, una para cada dirección. Asegúrese de que los dos recursos de conexión tienen la misma directiva, ya que, de no ser así, la conexión entre redes virtuales no se establecerá.
+
+### <a name="what-is-the-default-dpd-timeout-value-can-i-specify-a-different-dpd-timeout"></a>¿Cuál es el valor predeterminado del tiempo de espera de DPD? ¿Se puede especificar otro tiempo de espera de DPD?
+El tiempo de espera de DPD predeterminado es de 45 segundos. Se puede especificar otro valor del tiempo de espera de DPD diferente en cada IPsec y en cada conexión de red virtual a red virtual. Dicho valor debe oscilar entre 9 y 3600 segundos.
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>¿Funciona la directiva de IPsec o IKE personalizada en una conexión ExpressRoute?
 No. La directiva de IPsec o IKE solo funciona en conexiones entre redes virtuales a través de las puertas de enlace de VPN de Azure y VPN de S2S.

@@ -50,6 +50,8 @@
       items:
         - name: Matriz de compatibilidad de Azure Backup
           href: backup-support-matrix.md
+        - name: Matriz de compatibilidad del Centro de copias de seguridad
+          href: backup-center-support-matrix.md
         - name: Matriz de compatibilidad de copia de seguridad de máquinas virtuales de Azure
           href: backup-support-matrix-iaas.md
         - name: Matriz de compatibilidad para DPM o Azure Backup Server (MABS)
@@ -68,6 +70,8 @@
       items:
         - name: Preguntas más frecuentes sobre los almacenes de Recovery Services
           href: backup-azure-backup-faq.md
+        - name: Preguntas más frecuentes sobre el Centro de copia de seguridad
+          href: backup-center-faq.md
         - name: Preguntas más frecuentes sobre la copia de seguridad de máquina virtual de Azure
           href: backup-azure-vm-backup-faq.md
         - name: Preguntas más frecuentes sobre el agente de MARS
@@ -88,18 +92,36 @@
       href: guidance-best-practices.md
 - name: Guías de procedimientos
   items:
-    - name: Almacén de Recovery Services
+    - name: Almacenes
+      items:
+        - name: Almacén de Recovery Services
+          items:
+            - name: Información general
+              href: backup-azure-recovery-services-vault-overview.md
+            - name: Crear
+              href: backup-create-rs-vault.md
+            - name: Eliminar
+              href: backup-azure-delete-vault.md
+            - name: Move
+              href: backup-azure-move-recovery-services-vault.md
+            - name: Administrar
+              href: backup-azure-manage-windows-server.md
+        - name: Almacén de Backup
+          items:
+            - name: Información general
+              href: backup-vault-overview.md
+    - name: Centro de copia de seguridad
       items:
         - name: Información general
-          href: backup-azure-recovery-services-vault-overview.md
-        - name: Crear
-          href: backup-create-rs-vault.md
-        - name: Eliminar
-          href: backup-azure-delete-vault.md
-        - name: Move
-          href: backup-azure-move-recovery-services-vault.md
-        - name: Administrar
-          href: backup-azure-manage-windows-server.md
+          href: backup-center-overview.md
+        - name: Supervisión y funcionamiento
+          href: backup-center-monitor-operate.md
+        - name: Obtención de información
+          href: backup-center-obtain-insights.md
+        - name: Control del entorno
+          href: backup-center-govern-environment.md
+        - name: Realización de acciones
+          href: backup-center-actions.md
     - name: Copia de seguridad de máquina virtual de Azure
       items:
         - name: Información general
@@ -150,6 +172,10 @@
           href: restore-sql-database-azure-vm.md
         - name: Administrar
           href: manage-monitor-sql-database-backup.md
+    - name: Copia de seguridad de Azure Database for PostgreSQL
+      items:
+        - name: Backup
+          href: backup-azure-database-postgresql.md
     - name: Copia de seguridad de Windows mediante el agente de MARS
       items:
         - name: Información general
@@ -412,7 +438,7 @@
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
     - name: Azure CLI
-      href: /cli/azure/backup?view=azure-cli-latest
+      href: /cli/azure/backup
     - name: Azure PowerShell
       href: /powershell/module/az.recoveryservices
     - name: 'PowerShell: agente de Azure Backup'

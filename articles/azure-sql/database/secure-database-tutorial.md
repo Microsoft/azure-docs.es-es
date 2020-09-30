@@ -7,15 +7,15 @@ ms.subservice: security
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: carlrab
-ms.date: 09/03/2019
+ms.reviewer: ''
+ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 12c3a35e12e3f432345ea788893d0d0ae6e6433f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bec60875561a9d821642d850c27e47d4f906aba3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496923"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885418"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutorial: Protección de una base de datos en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ En este tutorial, aprenderá a:
 > - Crear reglas de firewall de nivel de servidor y de base de datos.
 > - Configurar un administrador de Azure Active Directory (Azure AD).
 > - Administrar el acceso de usuario con la autenticación de SQL, la autenticación de Azure AD y cadenas de conexión seguras.
-> - Habilitar características de seguridad, como la seguridad avanzada para los datos, la auditoría, el enmascaramiento de datos y el cifrado.
+> - Habilitar características de seguridad, como Azure Defender para SQL, la auditoría, el enmascaramiento de datos y el cifrado.
 
 Azure SQL Database protege los datos, al permitirle:
 
@@ -233,30 +233,30 @@ Para copiar una cadena de conexión segura:
 
 ## <a name="enable-security-features"></a>Habilitar características de seguridad
 
-Azure SQL Database proporciona características de seguridad que son accesibles mediante Azure Portal. Estas características están disponibles tanto para la base de datos como para el servidor, excepto el enmascaramiento de datos, que solo está disponible en la base de datos. Para más información, consulte [Advanced Data Security](advanced-data-security.md), [Auditoría](../../azure-sql/database/auditing-overview.md), [Enmascaramiento dinámico de datos](dynamic-data-masking-overview.md) y [Cifrado de datos transparente](transparent-data-encryption-tde-overview.md).
+Azure SQL Database proporciona características de seguridad que son accesibles mediante Azure Portal. Estas características están disponibles tanto para la base de datos como para el servidor, excepto el enmascaramiento de datos, que solo está disponible en la base de datos. Para más información, consulte [Azure Defender para SQL](azure-defender-for-sql.md), [Auditoría](../../azure-sql/database/auditing-overview.md), [Enmascaramiento dinámico de datos](dynamic-data-masking-overview.md) y [Cifrado de datos transparente](transparent-data-encryption-tde-overview.md).
 
-### <a name="advanced-data-security"></a>Advanced Data Security
+### <a name="azure-defender-for-sql"></a>Azure Defender para SQL
 
-La característica Advanced Data Security detecta amenazas a medida que se producen y proporciona alertas de seguridad sobre actividades anómalas. Los usuarios pueden explorar los eventos sospechosos con la característica de autoría y determinar si el evento pretendía acceder a los datos de la base de datos, infringir su seguridad o aprovechar sus vulnerabilidades. Los usuarios también obtienen una visión general de la seguridad que incluye una evaluación de las vulnerabilidades y la herramienta de detección y clasificación de datos.
+La característica Azure Defender para SQL detecta amenazas a medida que se producen y proporciona alertas de seguridad sobre actividades anómalas. Los usuarios pueden explorar los eventos sospechosos con la característica de autoría y determinar si el evento pretendía acceder a los datos de la base de datos, infringir su seguridad o aprovechar sus vulnerabilidades. Los usuarios también obtienen una visión general de la seguridad que incluye una evaluación de las vulnerabilidades y la herramienta de detección y clasificación de datos.
 
 > [!NOTE]
 > Un ejemplo de amenaza es la inyección de código SQL, un proceso mediante el cual los atacantes insertan SQL malintencionado en los datos de entrada de la aplicación. Después, una aplicación puede ejecutar el código SQL malintencionado sin saberlo y permitir el acceso de los atacantes para infringir la seguridad o modificar los datos de la base de datos.
 
-Para habilitar Advanced Data Security:
+Para habilitar Azure Defender para SQL:
 
 1. En Azure Portal, seleccione **Bases de datos SQL** en el menú de la izquierda y seleccione la base de datos en la página **Bases de datos SQL**.
 
 1. En la página **Información general**, seleccione el vínculo **Nombre de servidor**. Se abrirá la página del servidor.
 
-1. En la página **Servidor SQL Server**, busque la sección **Seguridad** y seleccione **Advanced Data Security**.
+1. En la página **Servidor SQL Server**, busque la sección **Seguridad** y seleccione **Centro de seguridad**.
 
-   1. Seleccione **ACTIVADA** en **Advanced Data Security** para habilitar la característica. Elija una cuenta de almacenamiento para guardar los resultados de la evaluación de vulnerabilidad. Después, seleccione **Guardar**.
+   1. Seleccione **Activado** en **Azure Defender para SQL** para habilitar la característica. Elija una cuenta de almacenamiento para guardar los resultados de la evaluación de vulnerabilidad. Después, seleccione **Guardar**.
 
       ![Panel de navegación](./media/secure-database-tutorial/threat-settings.png)
 
       También puede configurar mensajes de correo electrónico para recibir las alertas de seguridad, los detalles de almacenamiento y los tipos de detección de amenazas.
 
-1. Vuelva a la página **Bases de datos SQL** de la base de datos y seleccione **Advanced Data Security** en la sección **Seguridad**. Aquí encontrará varios indicadores de seguridad disponibles para la base de datos.
+1. Vuelva a la página **Bases de datos SQL** de la base de datos y seleccione **Security Center** (Centro de seguridad) en la sección **Seguridad**. Aquí encontrará varios indicadores de seguridad disponibles para la base de datos.
 
     ![Estado de amenaza](./media/secure-database-tutorial/threat-status.png)
 
@@ -347,7 +347,7 @@ En este tutorial, ha aprendido a mejorar la seguridad de una base de datos con u
 > - Crear reglas de firewall de nivel de servidor y de base de datos.
 > - Configurar un administrador de Azure Active Directory (Azure AD).
 > - Administrar el acceso de usuario con la autenticación de SQL, la autenticación de Azure AD y cadenas de conexión seguras.
-> - Habilitar características de seguridad, como la seguridad avanzada para los datos, la auditoría, el enmascaramiento de datos y el cifrado.
+> - Habilitar características de seguridad, como Azure Defender para SQL, la auditoría, el enmascaramiento de datos y el cifrado.
 
 En el siguiente tutorial aprenderá a implementar una distribución geográfica.
 

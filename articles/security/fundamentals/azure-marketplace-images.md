@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: terrylan
-ms.openlocfilehash: 6058b0d72eafe3a44ebdbabf291af05c08e772b3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7c317a0b4fea0c981b227bace00c1b8924fd582c
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038280"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536389"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Recomendaciones de seguridad para imágenes de Azure Marketplace
 
@@ -65,11 +65,3 @@ Ejecute siempre una detección de vulnerabilidades de seguridad en la imagen ant
 
 Incluso si su organización no tiene imágenes en Azure Marketplace, considere la posibilidad de comprobar las configuraciones de imagen de Windows y Linux con estas recomendaciones.
 
-## <a name="contacting-customers"></a>Ponerse en contacto con los clientes
-
-Para identificar a los clientes y sus mensajes de correo electrónico de contacto:
-
-1.  En Cloud Partner Portal, en el raíl izquierdo, seleccione **Insights**.
-2.  En la pestaña **Pedidos y uso**, use los campos **Fecha de inicio** y **Fecha de finalización** para consultar el uso dentro del intervalo de fechas requerido. Esto muestra las suscripciones de Azure que se usaron para la oferta cada día. Exporte estos datos. 
-3.  Del mismo modo, en la pestaña **Cliente**, consulte y exporte la base de clientes.
-4.  Haga coincidir el identificador de suscripción del paso 2 al identificador de suscripción del paso 3 para encontrar la información necesaria del cliente.

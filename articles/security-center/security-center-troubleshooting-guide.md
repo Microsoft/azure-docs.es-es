@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e26744c2003bd55b33b638b15775c52abbe1dc32
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: e2922d19dbcad7da2808a86896e39d21420e73d5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836012"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904749"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guía de solución de problemas de Azure Security Center
 
@@ -29,7 +29,7 @@ Tipos de alerta:
 
 * Análisis del comportamiento de la máquina virtual (VMBA)
 * Análisis de red
-* Análisis de SQL Database y SQL Data Warehouse
+* Análisis de SQL Database y Azure Synapse Analytics (anteriormente SQL Data Warehouse)
 * Información contextual
 
 Dependiendo de los tipos de alerta, los clientes pueden obtener la información necesaria para investigarla mediante el uso de los siguientes recursos:
@@ -151,4 +151,4 @@ En este documento ha aprendido a configurar directivas de seguridad en Azure Sec
 * [Funcionalidades de detección de Azure Security Center](security-center-detection-capabilities.md)
 * [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
 * [Preguntas más frecuentes sobre Azure Security Center](faq-general.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
-* [Blog de seguridad de Azure](https://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.
+* [Blog de seguridad de Azure](https://docs.microsoft.com/archive/blogs/azuresecurity/): encuentre entradas de blog sobre el cumplimiento y la seguridad de Azure.

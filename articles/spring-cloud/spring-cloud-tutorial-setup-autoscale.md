@@ -7,14 +7,17 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/22/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6e4494762c4652d3db66940dddebb13c3ab03af3
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 5ca0c498e9fd03ce6397824465f9e1e006eeccc1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449501"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905394"
 ---
 # <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Tutorial: Configuración de la escalabilidad automática para aplicaciones de microservicios
+
+**Este artículo se aplica a:** ✔️ Java ✔️ C#
+
 El escalado automático es una característica integrada de Azure Spring Cloud que ayuda a las aplicaciones de microservicios a lograr el máximo rendimiento cuando la demanda cambia. Para ello se pueden modificar el número de CPU virtuales, la memoria y las instancias de las aplicaciones. En este artículo se describe cómo configurar el escalado automático en las aplicaciones mediante Azure Portal o la CLI de Azure.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -68,4 +71,4 @@ Si está en el nivel Básico y se le imponen uno o varios de estos limites, pued
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Introducción a la escalabilidad automática en Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
-* [Supervisión de la escalabilidad automática con la CLI de Azure](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest)
+* [Supervisión de la escalabilidad automática con la CLI de Azure](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)

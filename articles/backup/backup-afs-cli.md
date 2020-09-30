@@ -3,12 +3,12 @@ title: Copia de seguridad de recursos compartidos de archivos de Azure con la CL
 description: Aprenda a utilizar la CLI de Azure para hacer copias de seguridad de recursos compartidos de archivos de Azure en el almacén de Recovery Services.
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 9afd1e866c85770a8797493c3f89e531e2ef72fc
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: cc4422a7d20dbd231729922bd013549d5276deb1
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763267"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182214"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Copia de seguridad de recursos compartidos de archivos de Azure con la CLI
 
@@ -74,7 +74,7 @@ Name                                  ResourceGroup
 0caa93f4-460b-4328-ac1d-8293521dd928  azurefiles
 ```
 
-El atributo **Name** de la salida se corresponde con el nombre del trabajo creado por el servicio de copia de seguridad para la operación de **habilitación de copia de seguridad**. Para realizar el seguimiento del estado del trabajo, use el cmdlet [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show).
+El atributo **Name** de la salida corresponde al nombre del trabajo creado por el servicio de copia de seguridad para la operación de **habilitación de copia de seguridad**. Para realizar el seguimiento del estado del trabajo, use el cmdlet [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show).
 
 ## <a name="trigger-an-on-demand-backup-for-file-share"></a>Desencadenamiento de una copia de seguridad a petición para recursos compartidos de archivos
 
@@ -98,7 +98,7 @@ Name                                  ResourceGroup
 9f026b4f-295b-4fb8-aae0-4f058124cb12  azurefiles
 ```
 
-El atributo **Name** de la salida se corresponde con el nombre del trabajo creado por el servicio de copia de seguridad para la operación de "copia de seguridad a petición". Para realizar el seguimiento del estado de un trabajo, use el cmdlet [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show).
+El atributo **Name** de la salida corresponde al nombre del trabajo creado por el servicio de copia de seguridad para la operación de "copia de seguridad a petición". Para realizar el seguimiento del estado de un trabajo, use el cmdlet [az backup job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

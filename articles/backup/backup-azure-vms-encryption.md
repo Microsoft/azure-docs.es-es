@@ -3,12 +3,12 @@ title: Copia de seguridad y restauración de VM de Azure cifradas
 description: Se describe cómo realizar una copia de seguridad de máquinas virtuales de Azure cifradas, y cómo restaurarlas, con el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: 74658f695387a776fe12cef97887075ae0bc161d
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 6ce0068203c91d9d2031ce2f8735cccf94172dd8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611303"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014921"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Copia de seguridad y restauración de máquinas virtuales de Azure cifradas
 

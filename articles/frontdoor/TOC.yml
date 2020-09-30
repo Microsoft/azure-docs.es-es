@@ -7,8 +7,14 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Creación de una instancia de Front Door
+    - name: 'Creación de una instancia de Front Door: Azure Portal'
       href: quickstart-create-front-door.md
+    - name: 'Creación de una instancia de Front Door: PowerShell'
+      href: quickstart-create-front-door-powershell.md
+    - name: 'Creación de una instancia de Front Door: CLI'
+      href: quickstart-create-front-door-cli.md
+    - name: 'Creación de una instancia de Front Door: plantilla de Resource Manager'
+      href: quickstart-create-front-door-template.md
 - name: Tutoriales
   items:
     - name: Incorporación de un dominio personalizado a Front Door

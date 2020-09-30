@@ -95,6 +95,10 @@
       items:
         - name: ¿Qué son las zonas perimetrales?
           href: ../networking/edge-zones-overview.md
+    - name: Documentación de Azure Orbital
+      items:
+        - name: ¿Qué es Azure Orbital?
+          href: ../networking/azure-orbital-overview.md
 - name: Recuperación ante desastres
   items:
     - name: Uso de Azure Site Recovery

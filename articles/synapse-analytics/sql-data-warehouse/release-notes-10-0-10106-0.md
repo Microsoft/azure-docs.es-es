@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 4873c1c998f62b6180df73a04852704665a4125d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f7af74cce6bbafea7924d505f768503c7b1f108
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075834"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89457998"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Notas de la versión de Azure Synapse Analytics
 
@@ -35,16 +35,23 @@ Para obtener mejoras de las herramientas, asegúrese de tener instalada la versi
 > ```sql
 > SELECT SERVERPROPERTY('ProductVersion')
 >
-> --To return engine edition, use this command that returns 6 for Azure Synapse Analytics (Formerly SQL Data Warehouse):
+> --To return engine edition, use this command that returns 6 for Azure Synapse Analytics (formerly SQL Data Warehouse):
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="aug-2020"></a>Agosto de 2020
+
+| Mejoras en el servicio | Detalles |
+| --- | --- |
+|**Administración de cargas de trabajo: experiencia del portal**|Los usuarios pueden configurar y administrar su configuración de administración de cargas de trabajo a través de Azure Portal. Se pueden configurar [grupos de cargas de trabajo](/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-portal) y [clasificadores de cargas de trabajo](/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) con importancia.|
+|**Vista de catálogo de asignaciones de tablas mejorada**|La nueva vista de catálogo [sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) asigna **object_ids** de tablas de usuario permanentes a sus nombres de tabla físicos.|
 
 ## <a name="july-2020"></a>Julio de 2020
 
 | Mejoras en el servicio | Detalles |
 | --- | --- |
-|**Cifrado de nivel de columna (Versión preliminar pública)**|Proteja la información confidencial en el almacenamiento de datos de Synapse SQL mediante la aplicación de cifrado simétrico a una columna de datos con Transact-SQL. El cifrado de nivel de columna tiene funciones integradas que se pueden usar para cifrar datos mediante claves simétricas que se protegen todavía más con un certificado, una contraseña, una clave simétrica o una clave asimétrica. Para obtener más información, visite [Cifrado de una columna de datos](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest).|
+|**Cifrado de nivel de columna (Versión preliminar pública)**|Proteja la información confidencial en su instancia de Azure Synapse Analytics mediante la aplicación de cifrado simétrico a una columna de datos con Transact-SQL. El cifrado de nivel de columna tiene funciones integradas que se pueden usar para cifrar datos mediante claves simétricas que se protegen todavía más con un certificado, una contraseña, una clave simétrica o una clave asimétrica. Para obtener más información, visite [Cifrado de una columna de datos](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest).|
 |**Compatibilidad con el nivel de compatibilidad (GA)**|Con esta versión, los usuarios ya pueden establecer un nivel de compatibilidad de la base de datos para obtener los comportamientos de procesamiento de consultas y lenguaje de Transact-SQL de una versión específica del motor de SQL de Synapse. Para obtener más información, consulte [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) y [el comando Alter Database Scoped Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
 |**Seguridad de nivel de fila**|Esta versión incluye una mejora de las operaciones de actualización y eliminación de filas en las que se ha aplicado RLS. Con esta versión, las operaciones de actualización y eliminación con funciones intrínsecas como "is_rolemember" se realizarán correctamente si la función intrínseca no hace referencia a ninguna columna de la tabla de destino de DML. Antes de esta mejora, se producía un error en esas operaciones debido a la limitación de las operaciones de DML subyacentes.|
 |**DBCC SHRINKDATABASE (GA)**|Ya puede reducir el tamaño de los archivos de datos y de registro en la base de datos especificada. Para más información, consulte la [documentación](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=sql-server-ver15).|

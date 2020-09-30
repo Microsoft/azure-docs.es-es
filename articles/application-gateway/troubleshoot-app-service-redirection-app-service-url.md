@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 2af52d1e7c211ccc0b5c18ed1ecda66d46d80786
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3a3ba3ee908204668ad9d7201ddfddec0a26f28
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806492"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595951"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Solución de problemas de App Service en Application Gateway
 
@@ -23,9 +23,8 @@ Obtenga información acerca de cómo diagnosticar y resolver los problemas que p
 
 En este artículo aprenderá a resolver los siguientes problemas:
 
-> [!div class="checklist"]
-> * La dirección URL de App Service se expone en el explorador cuando hay un redireccionamiento.
-> * Dominio de la cookie ARRAffinity de App Service establecido en el nombre de host de App Service (example.azurewebsites.net) en lugar del host original.
+* La dirección URL de App Service se expone en el explorador cuando hay un redireccionamiento.
+* Dominio de la cookie ARRAffinity de App Service establecido en el nombre de host de App Service (example.azurewebsites.net) en lugar del host original.
 
 Cuando una aplicación back-end envía una respuesta de redireccionamiento, es posible que le interese redirigir el cliente a una dirección URL diferente de la especificada por la aplicación back-end. Es posible que quiera hacerlo cuando un servicio de aplicaciones se hospeda detrás de una puerta de enlace de aplicaciones y requiere que el cliente realice un redireccionamiento a su ruta de acceso relativa. Un ejemplo es un redireccionamiento de contoso.azurewebsites.net/path1 a contoso.azurewebsites.net/path2. 
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: devx-track-csharp
 ms.reviewer: sdash
-ms.openlocfilehash: d4067b23c4ff365857c37d7dfdce6dc42e129989
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 642a382f2ec5da7821c9d709bd27d592ced31c8d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936612"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974028"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicación: Evaluación de prioridades de las aplicaciones distribuidas
 
@@ -34,7 +34,7 @@ Al hacer clic en "Update map components" (Actualizar componentes del mapa), el m
 
 Si todos los componentes son roles dentro de un único recurso de Application Insights, este paso de detección no es necesario. La carga inicial para este tipo de aplicación tendrá todos sus componentes.
 
-![Captura de pantalla de mapa de aplicación](media/app-map/app-map-001.png)
+![Captura de pantalla que muestra un ejemplo del mapa de aplicación.](media/app-map/app-map-001.png)
 
 Uno de los objetivos principales de la experiencia es poder visualizar topologías complejas con cientos de componentes.
 

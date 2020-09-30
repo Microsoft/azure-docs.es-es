@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 3be302019c712c13bd29d7ed3781151a1648e847
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 674c906a4316ec92101f3f2028a57aa82db3f504
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80879316"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982009"
 ---
 # <a name="configure-computer-vision-docker-containers"></a>Configuración de contenedores de Docker de Computer Vision
 
@@ -28,6 +28,15 @@ El entorno de ejecución del contenedor de Computer Vision se configura mediante
 
 > [!IMPORTANT]
 > Las opciones [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) y [`Eula`](#eula-setting) se usan en conjunto y debe proporcionar valores válidos para las tres; en caso contrario, no se inicia el contenedor. Para obtener más información sobre el uso de estas opciones de configuración para crear instancias de un contenedor, consulte [Facturación](computer-vision-how-to-install-containers.md).
+
+El contenedor también tiene los siguientes valores de configuración específicos del contenedor:
+
+|Obligatorio|Configuración|Propósito|
+|--|--|--|
+|No|ReadEngineConfig:ResultExpirationPeriod|Período de expiración del resultado en horas. El valor predeterminado es 48 horas. Este valor especifica cuándo debe borrar el sistema los resultados de reconocimiento. Por ejemplo, si es `resultExpirationPeriod=1`, el sistema borra el resultado del reconocimiento 1 hora después del proceso. Si es `resultExpirationPeriod=0`, el sistema borra el resultado del reconocimiento una vez recuperado el resultado.|
+|No|Cache:Redis|Habilita el almacenamiento en Redis para guardar los resultados. Se *necesita* una memoria caché si se colocan varios contenedores de lectura detrás de un equilibrador de carga.|
+|No|Queue:RabbitMQ|Habilita RabbitMQ para el envío de tareas. Este valor resulta útil cuando se colocan varios contenedores de lectura detrás de un equilibrador de carga.|
+|No|Storage::DocumentStore::MongoDB|Habilita MongoDB para el almacenamiento de resultados permanente.|
 
 ## <a name="apikey-configuration-setting"></a>Opción de configuración ApiKey
 
@@ -108,26 +117,55 @@ Reemplace {_argument_name_} por sus propios valores:
 
 Los siguientes ejemplos de Docker son del contenedor Lectura.
 
+
+# <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
+
 ### <a name="basic-example"></a>Ejemplo básico
 
-  ```docker
-  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-read \
-  Eula=accept \
-  Billing={ENDPOINT_URI} \
-  ApiKey={API_KEY} 
-  ```
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.0 \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
 
 ### <a name="logging-example"></a>Ejemplo de registro 
 
-  ```docker
-  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-read \
-  Eula=accept \
-  Billing={ENDPOINT_URI} \
-  ApiKey={API_KEY} \
-  Logging:Console:LogLevel:Default=Information
-  ```
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.0 \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+Logging:Console:LogLevel:Default=Information
+```
+
+# <a name="version-31-preview"></a>[Versión 3.1: versión preliminar](#tab/version-3-1)
+
+### <a name="basic-example"></a>Ejemplo básico
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+
+```
+
+### <a name="logging-example"></a>Ejemplo de registro 
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+Logging:Console:LogLevel:Default=Information
+```
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

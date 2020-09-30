@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 62b969ebde1ab5d52968189a6f0865fdb646f6b2
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b0df359a25810f09d530b5f0cca9cabbd485c795
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374140"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461993"
 ---
 # <a name="data-warehouse-units-dwus"></a>Unidades de almacenamiento de datos (DWU)
 
@@ -51,7 +51,7 @@ El objetivo de nivel de servicio (SLO) es la opción de escalabilidad que determ
 El objetivo de nivel de servicio (SLO) es la opción de escalabilidad que determina el nivel de costo y rendimiento del grupo de SQL. Los niveles de servicio del grupo SQL Gen2 se miden en unidades de almacenamiento de datos (DWU); por ejemplo, DW2000c.
 
 > [!NOTE]
-> Azure SQL Data Warehouse Gen2 ha agregado recientemente funcionalidades de escalado adicionales compatibles con niveles de proceso tan bajos como 100 cDWU. Los almacenes de datos existentes actualmente en Gen1 que requieren los niveles de proceso más bajos ahora pueden actualizarse a Gen2 en las regiones que están actualmente disponibles sin ningún costo adicional.  Si esto no se admite aún en su región, aún puede actualizar a una región admitida. Para obtener más información, vea [Actualización a Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+> Azure Synapse Analytics Gen2 ha agregado recientemente funcionalidades de escalado adicionales compatibles con niveles de proceso tan bajos como 100 cDWU. Los almacenes de datos existentes actualmente en Gen1 que requieren los niveles de proceso más bajos ahora pueden actualizarse a Gen2 en las regiones que están actualmente disponibles sin ningún costo adicional.  Si esto no se admite aún en su región, aún puede actualizar a una región admitida. Para obtener más información, vea [Actualización a Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 En T-SQL, el valor de SERVICE_OBJECTIVE determina el nivel de servicio y el nivel de rendimiento del grupo SQL.
 
@@ -141,7 +141,7 @@ Para cambiar las DWU, use el cmdlet de PowerShell [Set-AzSqlDatabase](/powershel
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
-Para obtener más información, vea [Cmdlets de PowerShell y API REST para SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para más información, consulte los [cmdlets de PowerShell para Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
 ### <a name="t-sql"></a>T-SQL
 
@@ -173,7 +173,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-Para obtener más ejemplos de API REST, consulte [API REST para Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para ver más ejemplos de API REST, consulte el artículo sobre las [API REST para Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ## <a name="check-status-of-dwu-changes"></a>Comprobar el estado de los cambios de DWU
 

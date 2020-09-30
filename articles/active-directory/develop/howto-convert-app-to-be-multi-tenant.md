@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 966149cf1a4f40ccc565b22e9d5afdd599997b4e
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 7ff1e6e3b422f55da332e206aea184ca1b5902a6
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141371"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705901"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedimientos: Inicio de sesión de cualquier usuario de Azure Active Directory mediante el patrón de aplicación multiinquilino
 
@@ -153,7 +153,7 @@ Esto se demuestra en un ejemplo de llamada a la API web de un cliente nativo de 
 
 #### <a name="multiple-tiers-in-multiple-tenants"></a>Múltiples niveles en varios inquilinos
 
-Un caso parecido tiene lugar si los diferentes niveles de una aplicación se registran en distintos inquilinos. Por ejemplo, considere el caso de la creación de una aplicación cliente nativa que llama a la API de Office 365 Exchange Online. Para desarrollar la aplicación nativa y, más tarde, para que se ejecute en el inquilino de un cliente, la entidad de servicio de Exchange Online debe existir. En este caso, el desarrollador y el cliente tienen que comprar Exchange Online para que la entidad de servicio se cree en sus inquilinos.
+Un caso parecido tiene lugar si los diferentes niveles de una aplicación se registran en distintos inquilinos. Por ejemplo, considere el caso de la creación de una aplicación cliente nativa que llama a la API de Exchange Online. Para desarrollar la aplicación nativa y, más tarde, para que se ejecute en el inquilino de un cliente, la entidad de servicio de Exchange Online debe existir. En este caso, el desarrollador y el cliente tienen que comprar Exchange Online para que la entidad de servicio se cree en sus inquilinos.
 
 Si se trata de una API creada por una organización que no sea Microsoft, el desarrollador de la API debe proporcionar una forma de que sus clientes acepten dar su consentimiento a la aplicación en los inquilinos del cliente. El diseño recomendado tiene la finalidad de que el desarrollador de terceros cree la API de tal forma que también pueda funcionar como un cliente web para implementar el registro. Para ello, siga estos pasos:
 
@@ -181,7 +181,7 @@ Las aplicaciones multiempresa también pueden obtener tokens de acceso para llam
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo ha aprendido a crear una aplicación que puede hacer que un usuario inicie sesión desde cualquier inquilino de Azure AD. Después de habilitar el inicio de sesión único (SSO) entre la aplicación y Azure AD, también puede actualizar la aplicación para acceder a las API expuestas por recursos de Microsoft, como Office 365. Esto le permite ofrecer una experiencia personalizada en su aplicación, por ejemplo, que muestre información contextual a los usuarios, como su imagen de perfil o su próxima cita de calendario. Para más información sobre cómo realizar llamadas API a Azure AD y los servicios de Office 365, como Exchange, SharePoint, OneDrive, OneNote, Planner, Excel. etc., visite [Microsoft Graph API][MSFT-Graph-overview].
+En este artículo ha aprendido a crear una aplicación que puede hacer que un usuario inicie sesión desde cualquier inquilino de Azure AD. Después de habilitar el inicio de sesión único (SSO) entre la aplicación y Azure AD, también puede actualizar la aplicación para acceder a las API expuestas por recursos de Microsoft, como Microsoft 365. Esto le permite ofrecer una experiencia personalizada en su aplicación, por ejemplo, que muestre información contextual a los usuarios, como su imagen de perfil o su próxima cita de calendario. Para más información sobre cómo realizar llamadas API a Azure AD y los servicios de Microsoft 365, como Exchange, SharePoint, OneDrive, OneNote, etc., visite [Microsoft Graph API][MSFT-Graph-overview].
 
 ## <a name="related-content"></a>Contenido relacionado
 

@@ -27,6 +27,8 @@
       items:
         - name: Planeamiento de una implementación de Azure Files
           href: storage-files-planning.md
+        - name: Protocolos de recurso compartido de archivos disponibles
+          href: storage-files-compare-protocols.md
         - name: Autenticación y autorización basadas en identidad
           href: storage-files-active-directory-overview.md
         - name: Consideraciones de red para el acceso directo
@@ -68,7 +70,7 @@
     - name: Cifrado en reposo
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Cifrado en reposo con claves administradas por el cliente
-      href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Objetivos de escalabilidad y rendimiento
       href: storage-files-scale-targets.md
     - name: Ofertas de cumplimiento
@@ -79,12 +81,14 @@
   items:
     - name: Crear
       items:
-        - name: Creación de un recurso compartido de archivos
+        - name: Crear un recurso compartido de archivos SMB
           href: storage-how-to-create-file-share.md
         - name: Habilitación de recursos compartidos de archivos grandes
           href: storage-files-how-to-create-large-file-share.md
         - name: Creación de un recurso compartido de archivos premium
           href: storage-how-to-create-premium-fileshare.md
+        - name: Creación de un recurso compartido NFS
+          href: storage-files-how-to-create-nfs-shares.md
     - name: Implementación
       items:
         - name: Implementación de Azure Files
@@ -95,11 +99,13 @@
           href: ../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Montaje
       items:
-        - name: Uso de Azure Files con Windows
+        - name: Montaje de un recurso compartido de archivos SMB en Windows
           href: storage-how-to-use-files-windows.md
-        - name: Uso de Azure Files con Linux
+        - name: Montaje de un recurso compartido de archivos SMB en Linux
           href: storage-how-to-use-files-linux.md
-        - name: Uso de Azure Files con macOS
+        - name: Montaje de un recurso compartido de archivos NFS en Linux
+          href: storage-files-how-to-mount-nfs-shares.md
+        - name: Montaje de un recurso compartido de archivos SMB en macOS
           href: storage-how-to-use-files-mac.md
     - name: Red
       items:
@@ -237,18 +243,16 @@
           items:
             - name: Comprobación del modelo de clave de cifrado de la cuenta
               href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Configuración de las claves de cifrado administradas por el cliente
+            - name: Configuración del cifrado con claves que administra el cliente
               items:
-                - name: Portal
-                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-                - name: PowerShell
-                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-                - name: Azure CLI
-                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Habilitación del cifrado de infraestructura en una cuenta de almacenamiento
+                - name: Almacenamiento de claves administradas por el cliente en Key Vault
+                  href: ../common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+                - name: Almacenamiento de claves administradas por el cliente en HSM administrado
+                  href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Habilitación del cifrado de infraestructura en la cuenta
           href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Protección contra amenazas avanzada
-          href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Configuración de Azure Defender para la protección contra amenazas
+          href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Configuración de firewalls y redes virtuales
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Requerir transferencia segura
@@ -269,12 +273,14 @@
           href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Solución de problemas
       items:
-        - name: Solución de problemas de Azure Files en Windows
+        - name: Solución de problemas de Azure Files en Windows (SMB)
           href: storage-troubleshoot-windows-file-connection-problems.md
-        - name: Solución de problemas de Azure Files en Linux
+        - name: Solución de problemas de Azure Files en Linux (SMB)
           href: storage-troubleshoot-linux-file-connection-problems.md
         - name: Solución de problemas de rendimiento de Azure Files
           href: storage-troubleshooting-files-performance.md
+        - name: Solución de problemas de Azure Files en Linux (NFS)
+          href: storage-troubleshooting-files-nfs.md
         - name: Solución de problemas de Azure Files Sync
           href: storage-sync-files-troubleshoot.md
         - name: Solución de problemas en la eliminación de Azure Files

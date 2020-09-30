@@ -8,22 +8,41 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 06/29/2020
+ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 0b432a224aa32edf762f6610990027451abe9acc
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: f007ddf2625bf9e8b9d4365902ac1511ea95fa81
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759213"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904093"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novedades de Computer Vision
 
 Conozca las novedades del servicio. Estos elementos pueden ser notas de la versión, vídeos, entradas de blogs y otros tipos de información. Agregue esta página a sus marcadores para mantenerse actualizado con el servicio.
 
+## <a name="september-2020"></a>Septiembre de 2020
+
+### <a name="spatial-analysis-container-preview"></a>Versión preliminar del contenedor de análisis espacial
+
+El [contenedor de análisis espacial](spatial-analysis-container.md) ahora está en versión preliminar. La característica de análisis espacial de Computer Vision permite analizar vídeo de streaming en tiempo real para comprender las relaciones espaciales entre las personas y su movimiento en entornos físicos. El análisis espacial es un contenedor de Docker que puede usar de forma local. 
+
+### <a name="read-api-v31-public-preview-adds-ocr-for-japanese"></a>La versión preliminar pública de Read API v3.1 agrega OCR para el idioma japonés
+La versión preliminar pública de Read API v3.1 de Computer Vision agrega estas funcionalidades:
+* OCR para el idioma japonés
+* En cada línea de texto, indique si la apariencia es escritura a mano o estilo de impresión, junto con una puntuación de confianza (solo en idiomas procedentes del latín).
+* En un documento de varias páginas, extraiga texto solo de las seleccionadas o de un intervalo.
+
+* Esta versión preliminar de Read API admite los idiomas inglés, holandés, francés, alemán, italiano, portugués, chino simplificado y español.
+
+Consulte [Introducción a Read API](concept-recognizing-text.md) para obtener más información.
+
+> [!div class="nextstepaction"]
+> [Más información sobre la versión preliminar pública 2 de Read API v3.1](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)
+
 ## <a name="july-2020"></a>Julio de 2020
 
-### <a name="read-api-v31-public-preview-adds-simplified-chinese-support"></a>La versión preliminar pública de Read API v3.1 agrega compatibilidad con chino simplificado
+### <a name="read-api-v31-public-preview-with-ocr-for-simplified-chinese"></a>Versión preliminar pública de Read API v3.1 con OCR para chino simplificado
 La versión preliminar de Read API v3.1 de Computer Vision agrega compatibilidad con chino simplificado.
 
 * Esta versión preliminar de Read API admite los idiomas inglés, holandés, francés, alemán, italiano, portugués, chino simplificado y español.
@@ -31,7 +50,7 @@ La versión preliminar de Read API v3.1 de Computer Vision agrega compatibilidad
 Consulte [Introducción a Read API](concept-recognizing-text.md) para obtener más información.
 
 > [!div class="nextstepaction"]
-> [Más información sobre la versión preliminar pública de Read API v3.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
+> [Más información sobre la versión preliminar pública 1 de Read API v3.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## <a name="may-2020"></a>Mayo de 2020
 Computer Vision API v3.0 entró en disponibilidad general, con actualizaciones para [Read API](concept-recognizing-text.md):

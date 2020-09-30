@@ -1,0 +1,125 @@
+- name: Documentación de Azure Defender para IoT
+  href: index.yml
+- name: Información general
+  href: overview.md
+  items:
+    - name: Arquitectura de la solución
+      href: architecture.md
+    - name: Módulo de seguridad para Azure RTOS
+      href: iot-security-azure-rtos.md
+    - name: Agentes de seguridad
+      href: security-agent-architecture.md
+    - name: Módulo de seguridad de Edge
+      href: security-edge-architecture.md
+    - name: Requisitos previos de servicios
+      href: service-prerequisites.md
+    - name: Introducción a Azure Defender para IoT
+      href: getting-started.md
+      items:
+        - name: IoT Hub
+          href: iot-hub-integration.md
+        - name: Agentes de seguridad
+          href: security-agents.md
+- name: Guías de inicio rápido
+  expanded: true
+  items:
+    - name: Configuración de un módulo de seguridad para Azure RTOS
+      href: quickstart-azure-rtos-security-module.md
+    - name: Incorporación de Azure Defender para IoT en IoT Hub
+      href: quickstart-onboard-iot-hub.md
+    - name: Configuración de la solución
+      href: quickstart-configure-your-solution.md
+    - name: Creación de un módulo gemelo de Azure Defender para IoT
+      href: quickstart-create-security-twin.md
+    - name: Investigación de recomendaciones de seguridad
+      href: quickstart-investigate-security-recommendations.md
+    - name: Creación de alertas de seguridad personalizadas
+      href: quickstart-create-custom-alerts.md
+    - name: Investigación de alertas de seguridad
+      href: quickstart-investigate-security-alerts.md
+- name: Conceptos
+  items:
+    - name: Módulo de seguridad para Azure RTOS
+      items:
+        - name: Descripción del módulo de seguridad para Azure RTOS
+          href: concept-rtos-security-module.md
+        - name: Alertas y recomendaciones para el módulo de seguridad de Azure RTOS
+          href: concept-rtos-security-alerts-recommendations.md
+    - name: Autenticación del agente de seguridad
+      href: concept-security-agent-authentication-methods.md
+    - name: Módulo de seguridad
+      href: concept-security-module.md
+    - name: Alertas de seguridad
+      href: concept-security-alerts.md
+    - name: Alertas de seguridad personalizables
+      href: concept-customizable-security-alerts.md
+    - name: Recomendaciones de seguridad
+      href: concept-recommendations.md
+    - name: Línea base
+      href: concept-baseline.md
+    - name: Agregación de datos
+      href: event-aggregation.md
+    - name: Precios y costos asociados
+      href: concept-pricing.md
+- name: Guías paso a paso
+  items:
+    - name: Trabajo con el módulo de seguridad para Azure RTOS
+      href: how-to-azure-rtos-security-module.md
+    - name: ¿Qué agente debo implementar?
+      items:
+        - name: Selección de un agente para su implementación
+          href: how-to-deploy-agent.md
+        - name: Implementación de un agente de seguridad basado en C# en un dispositivo Windows
+          href: how-to-deploy-windows-cs.md
+        - name: Implementación de un agente de seguridad basado en C# en un dispositivo Linux
+          href: how-to-deploy-linux-cs.md
+        - name: Implementación de un agente de seguridad basado en C en un dispositivo Linux
+          href: how-to-deploy-linux-c.md
+    - name: Solución de problemas de un agente de seguridad
+      items:
+        - name: Solución de problemas de un agente de seguridad de Linux de Azure Defender para IoT
+          href: troubleshoot-agent.md
+        - name: Configuración local en C
+          href: azure-iot-security-local-configuration-c.md
+        - name: Configuración local en C#
+          href: azure-iot-security-local-configuration-csharp.md
+    - name: Implementación del módulo de seguridad de Edge
+      href: how-to-deploy-edge.md
+    - name: Configuración de agentes de seguridad
+      href: how-to-agent-configuration.md
+    - name: Envío de sus propios mensajes de seguridad
+      href: how-to-send-security-messages.md
+    - name: Acceso a datos de seguridad sin procesar
+      href: how-to-security-data-access.md
+    - name: Investigación de un dispositivo
+      href: how-to-investigate-device.md
+    - name: Conexión a Azure Sentinel
+      href: how-to-configure-with-sentinel.md
+    - name: Personalización de su solución
+      href: how-to-customize-solution.md
+- name: Referencias
+  items:
+    - name: API del módulo de seguridad para Azure RTOS
+      href: azure-rtos-security-module-api.md
+    - name: Preguntas más frecuentes
+      href: resources-frequently-asked-questions.md
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+- name: Recursos
+  items:
+    - name: Creación de las aptitudes de seguridad con Microsoft Learn
+      href: 'https://docs.microsoft.com/learn/browse/?term=securityS&terms=securityS'
+    - name: Documentación de Azure Security Center
+      href: 'https://docs.microsoft.com/azure/security-center/'
+    - name: Documentación de Azure Security Center
+      href: 'https://docs.microsoft.com/azure/security/'
+    - name: Módulo de seguridad de Azure RTOS en Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module'
+    - name: 'Blog sobre seguridad, privacidad y cumplimiento de Azure IoT'
+      href: 'https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity'
+    - name: Disponibilidad regional
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/security-center/'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest'

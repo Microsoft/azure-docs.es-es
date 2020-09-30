@@ -10,16 +10,16 @@ ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 0ddfb0c9b10d96acd511b7bfaee4c6ef85d04812
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7cb40df6a4619e11694e65020bfcb560cf695795
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306424"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897453"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Capacidad de interpretación: explicaciones de los modelos en el aprendizaje automático automatizado (versión preliminar)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 En este artículo, obtendrá información sobre cómo obtener explicaciones del aprendizaje automático (ML) automatizado con Azure Machine Learning. El aprendizaje automático automatizado le permite reconocer la importancia de las características diseñadas. 
 
@@ -39,6 +39,14 @@ En este artículo aprenderá a:
 ## <a name="interpretability-during-training-for-the-best-model"></a>Interpretación durante el entrenamiento del mejor modelo
 
 Recupere la explicación de `best_run`, que incluye explicaciones de las características diseñadas.
+
+> [!Warning]
+> La interpretabilidad, la mejor explicación del modelo, no está disponible para los experimentos de previsión de ML automático que recomiendan los algoritmos siguientes como el mejor modelo: 
+> * ForecastTCN
+> * Media 
+> * Naive
+> * Media estacional 
+> * Naive estacional
 
 ### <a name="download-engineered-feature-importance-from-artifact-store"></a>Descargue la importancia de las características diseñadas de la tienda de artefactos
 
@@ -112,7 +120,7 @@ engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=au
 print(engineered_explanations.get_feature_importance_dict())
 ```
 
-### <a name="interpretability-during-inference"></a>Interpretación durante la inferencia
+## <a name="interpretability-during-inference"></a>Interpretación durante la inferencia
 
 En esta sección, obtendrá información sobre cómo operar un modelo de aprendizaje automático automatizado con el explicador, que se utilizó para calcular las explicaciones de la sección anterior.
 

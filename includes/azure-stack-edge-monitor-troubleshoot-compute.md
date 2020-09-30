@@ -2,16 +2,51 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 08/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 350d41980e3128a8747a673ebea82afbe4fab49b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92ccb6127e624ace9e719ffd23324b3a1b971f72
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85313206"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89272156"
 ---
-En un dispositivo de Azure Stack Edge que tenga el rol de proceso configurado, está disponible un subconjunto de comandos de Docker para supervisar o solucionar problemas de los módulos. Para ver una lista de comandos disponibles, [conéctese a la interfaz de PowerShell](#connect-to-the-powershell-interface) y utilice la función `dkrdbe`.
+En un dispositivo Azure Stack Edge que tenga configurado el rol de proceso, puede solucionar problemas o supervisar el dispositivo con dos conjuntos diferentes de comandos.
+
+- Uso de comandos de `iotedge` Estos comandos están disponibles para las operaciones básicas del dispositivo.
+- Uso de comandos de `dkrdbe` Estos comandos están disponibles para un amplio conjunto de operaciones para el dispositivo.
+
+Para ejecutar cualquiera de los comandos anteriores, debe [conectarse a la interfaz de PowerShell](#connect-to-the-powershell-interface).
+
+### <a name="use-iotedge-commands"></a>Usar comandos `iotedge`
+
+Para ver una lista de comandos disponibles, [conéctese a la interfaz de PowerShell](#connect-to-the-powershell-interface) y utilice la función `iotedge`.
+
+```powershell
+[10.100.10.10]: PS>iotedge -?                                                                                                                                                                                                 Usage: iotedge COMMAND
+
+Commands:
+   check
+   list
+   logs
+   restart
+
+[10.100.10.10]: PS>
+```
+
+En la tabla siguiente se proporciona una breve descripción de los comandos disponibles para `iotedge`:
+
+|command  |Descripción |
+|---------|---------|
+|`check`     | Realiza comprobaciones automatizadas de problemas comunes de configuración y conectividad.       |
+|`list`     | Enumere los módulos         |
+|`logs`     | Captura los registros de un módulo.        |
+|`restart`     | Detiene y reinicia un módulo.         |
+
+
+### <a name="use-dkrdbe-commands"></a>Usar comandos `dkrdbe`
+
+Para ver una lista de comandos disponibles, [conéctese a la interfaz de PowerShell](#connect-to-the-powershell-interface) y utilice la función `dkrdbe`.
 
 ```powershell
 [10.100.10.10]: PS>dkrdbe -?
@@ -89,10 +124,10 @@ Para obtener la lista de todos los contenedores (incluidos aquellos que están e
 ```powershell
 [10.100.10.10]: P> dkrdbe ps -a
 CONTAINER ID        IMAGE                                                COMMAND                   CREATED             STATUS              PORTS                                                                  NAMES
-d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ&euro;¦"    2 days ago          Up 2 days                                                                                  movefile
-0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ&euro;¦"    2 days ago          Up 2 days                                                                                  filemove
-2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â&euro;¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
-acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â&euro;¦"   2 days ago          Up 2 days                                                                                  edgeAgent
+d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  movefile
+0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  filemove
+2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
+acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days                                                                                  edgeAgent
 [10.100.10.10]: PS>
 ```
 
@@ -127,10 +162,10 @@ Para obtener los registros de un contenedor específico, primero enumere el cont
     ```powershell
     [10.100.10.10]: P> dkrdbe ps
     CONTAINER ID        IMAGE                                                COMMAND                   CREATED             STATUS              PORTS                                                                  NAMES
-    d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ&euro;¦"    2 days ago          Up 2 days                                                                                  movefile
-    0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ&euro;¦"    2 days ago          Up 2 days                                                                                  filemove
-    2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â&euro;¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
-    acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â&euro;¦"   2 days ago          Up 2 days                                                                                  edgeAgent
+    d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  movefile
+    0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  filemove
+    2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
+    acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days                                                                                  edgeAgent
     ```
 
 3. Anote el identificador del contenedor para el que necesita los registros.

@@ -1,14 +1,14 @@
 ---
 title: Detalles de la estructura de asignaciones de directivas
 description: Describe la definición de asignación de directiva utilizada por Azure Policy para relacionar las definiciones de directiva y los parámetros con los recursos para su evaluación.
-ms.date: 08/17/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 969274d72724c8d0a8f10f86f614fe2c50d066f7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e930e9ddcc04846a35c8db7784a349007c71580b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520720"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904074"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estructura de asignaciones de Azure Policy
 
@@ -70,7 +70,10 @@ Si **enforcementMode** no se especifica en una definición de directiva o inicia
 
 ## <a name="excluded-scopes"></a>Ámbitos excluidos
 
-El **ámbito** de la asignación incluye todos los contenedores de recursos secundarios y los recursos secundarios. Si la definición no debe aplicarse a un contenedor de recursos secundario o un recurso secundario, se puede excluir cada uno de ellos de la evaluación estableciendo **notScopes**. Esta propiedad es una matriz que permite excluir de la evaluación a uno o varios contenedores de recursos o recursos. **notScopes** se puede agregar o actualizar después de la creación de la asignación inicial.
+El **ámbito** de la asignación incluye todos los contenedores de recursos secundarios y los recursos secundarios. Si la definición no debe aplicarse a un contenedor de recursos secundario o a un recurso secundario, se puede _excluir_ cada uno de ellos de la evaluación estableciendo **notScopes**. Esta propiedad es una matriz que permite excluir de la evaluación a uno o varios contenedores de recursos o recursos. **notScopes** se puede agregar o actualizar después de la creación de la asignación inicial.
+
+> [!NOTE]
+> Un recurso _excluido_ no es lo mismo que un recurso _exento_. Para más información, consulte [Descripción del ámbito en Azure Policy](./scope.md).
 
 ## <a name="policy-definition-id"></a>Identificador de la definición de directiva
 

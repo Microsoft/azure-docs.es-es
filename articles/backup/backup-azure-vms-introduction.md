@@ -3,12 +3,12 @@ title: Acerca de la copia de seguridad de máquina virtual de Azure
 description: En este artículo, aprenderá cómo el servicio Azure Backup realiza copias de seguridad de las máquinas virtuales de Azure y cómo seguir los procedimientos recomendados.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 04ea9fa49d95ced3245f88fee58a23ba67aaa0d7
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: f9da75a66d25896e8d977910e2eb7fbe6ea69ca1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587504"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014649"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Información general sobre la copia de seguridad de máquinas virtuales de Azure
 

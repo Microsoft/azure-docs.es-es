@@ -1,30 +1,28 @@
 ---
 title: Notificaciones push seguras de Azure Notification Hubs para Windows
 description: Obtenga información acerca de cómo enviar notificaciones de inserción seguras en Azure. Ejemplos de código escritos en C# con la API de .NET.
-documentationcenter: windows
 author: sethmanheim
 manager: femila
-editor: jwargo
+editor: thsomasu
 services: notification-hubs
-ms.assetid: 5aef50f4-80b3-460e-a9a7-7435001273bd
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 09/14/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4c75af054a342e74606696f09c227822f385e096
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 98e587103e63cd5cc26eab5b00864d00e0b9007f
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017998"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089960"
 ---
-# <a name="securely-push-notifications-from-azure-notification-hubs"></a>Inserción de notificaciones de forma segura desde Azure Notification Hubs
+# <a name="send-secure-push-notifications-from-azure-notification-hubs"></a>Envío de notificaciones push seguras desde Azure Notification Hubs
 
 > [!div class="op_single_selector"]
 > * [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
@@ -48,10 +46,10 @@ A un alto nivel, el flujo es el siguiente:
 
 Es importante tener en cuenta que en el flujo anterior (y en este tutorial), asumimos que el dispositivo almacena un token de autenticación localmente y, después, el usuario inicia sesión. Esto garantiza una experiencia sin ningún problema, ya que el dispositivo puede recuperar la carga segura de la notificación usando este token. Si la aplicación no almacena tokens de autenticación en el dispositivo, o si estos tokens han expirado, la aplicación del dispositivo, al recibir la notificación, debe mostrar una notificación genérica pidiendo al usuario que inicie la aplicación. Después, la aplicación autentica al usuario y muestra la carga de la notificación.
 
-Este tutorial Inserción segura muestra cómo enviar una notificación de inserción de forma segura. El tutorial se basa en el tutorial [Notificar a los usuarios](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) , por lo que debe completar los pasos de ese tutorial primero.
+En este tutorial se muestra cómo enviar una notificación push de forma segura. Se basa en el tutorial [Notificación a los usuarios](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md), por lo que primero debe completar los pasos de ese tutorial.
 
 > [!NOTE]
-> En este tutorial se supone que ha creado y configurado el centro de notificaciones tal como se describe en [Introducción a Notification Hubs (Tienda Windows)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
+> En este tutorial se supone que ha creado y configurado el centro de notificaciones tal como se describe en [Envío de notificaciones a aplicaciones de la Plataforma universal de Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
 > Asimismo, tenga en cuenta que Windows Phone 8.1 requiere credenciales de Windows (no de Windows Phone) y que las tareas en segundo plano no funcionan en Windows Phone 8.0 o Silverlight 8.1. Para aplicaciones de la Tienda Windows, puede recibir notificaciones a través de una tarea en segundo plano solamente si la aplicación tiene la pantalla de bloqueo habilitada (haga clic en la casilla en el manifiesto de la aplicación).
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
@@ -63,6 +61,7 @@ Este tutorial Inserción segura muestra cómo enviar una notificación de inserc
     ```csharp
     RegisterBackgroundTask();
     ```
+
 2. Todavía en App.xaml.cs, agregue el siguiente código inmediatamente después del método `OnLaunched()` :
 
     ```csharp
@@ -80,12 +79,14 @@ Este tutorial Inserción segura muestra cómo enviar una notificación de inserc
         }
     }
     ```
+
 3. Agregue las siguientes instrucciones `using` en la parte superior del archivo App.xaml.cs:
 
     ```csharp
     using Windows.Networking.PushNotifications;
     using Windows.ApplicationModel.Background;
     ```
+
 4. En el menú **Archivo** de Visual Studio, haga clic en **Guardar todo**.
 
 ## <a name="create-the-push-background-component"></a>Creación del componente de segundo plano de inserción
@@ -143,6 +144,7 @@ El paso siguiente es crear el componente de segundo plano de inserción.
             }
         }
     ```
+
 5. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **PushBackgroundComponent (Windows Phone 8.1)** y, después, seleccione **Administrar paquetes de NuGet**.
 6. A la izquierda, haga clic en **En línea**.
 7. En el cuadro **Buscar**, escriba **Cliente http**.
@@ -160,6 +162,7 @@ El paso siguiente es crear el componente de segundo plano de inserción.
     using Windows.UI.Notifications;
     using Windows.Data.Xml.Dom;
     ```
+
 11. En el Explorador de soluciones, en el proyecto **NotifyUserWindowsPhone (Windows Phone 8.1)** , haga clic con el botón derecho en **Referencias** y, después, haga clic en **Agregar referencia…** En el diálogo Administrador de referencias, active la casilla junto a **PushBackgroundComponent** y, después, haga clic en **Aceptar**.
 12. En el Explorador de soluciones, haga doble clic en **Package.appxmanifest** en el proyecto **NotifyUserWindowsPhone (Windows Phone 8.1)** . En **Notificaciones**, establezca la opción **Capacidad de aviso** en **Sí**.
 

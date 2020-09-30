@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 581feff516e0f0cd820c94290d4aaa729cc4d3a4
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 081c07be49178be2415edccbfc2026336eb8a8a5
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889947"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604417"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Uso de áreas de trabajo detrás de un firewall en Azure Machine Learning
 
@@ -33,6 +33,10 @@ En el firewall, cree una _regla de aplicación_ que permita el tráfico entrante
 >
 > Para más información sobre la configuración de Azure Firewall, consulte [Implementación y configuración de Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
+## <a name="routes"></a>Rutas
+
+Al configurar la ruta de salida de la subred que contiene recursos de Azure Machine Learning, use las instrucciones de la sección sobre la [tunelización forzada](how-to-secure-training-vnet.md#forced-tunneling) para proteger el entorno de entrenamiento.
+
 ## <a name="microsoft-hosts"></a>Hosts de Microsoft
 
 Si no está configurado correctamente, el firewall puede provocar problemas al usar el área de trabajo. Hay una serie de nombres de host que se usan en el área de trabajo de Azure Machine Learning.
@@ -41,6 +45,8 @@ Los hosts de esta sección son propiedad de Microsoft y proporcionan servicios n
 
 | **Nombre de host** | **Propósito** |
 | ---- | ---- |
+| **login.microsoftonline.com** | Autenticación |
+| **management.azure.com** | Se usa para obtener información del área de trabajo. |
 | **\*.batchai.core.windows.net** | Clústeres de entrenamiento |
 | **ml.azure.com** | Azure Machine Learning Studio |
 | **default.exp-tas.com** | Se usa por Azure Machine Learning Studio. |
@@ -59,13 +65,16 @@ Los hosts de esta sección son propiedad de Microsoft y proporcionan servicios n
 | **\*.notebooks.azure.net** | Se necesita en los cuadernos de Azure Machine Learning Studio. |
 | **graph.windows.net** | Necesario para cuadernos |
 
+> [!TIP]
+> Si tiene previsto usar la identidad federada, siga el artículo [Procedimientos recomendados para proteger los Servicios de federación de Active Directory (AD FS)](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs).
+
 ## <a name="python-hosts"></a>Hosts de Python
 
 Los hosts de esta sección se usan para instalar paquetes de Python. Son necesarios durante el desarrollo, el entrenamiento y la implementación. 
 
 | **Nombre de host** | **Propósito** |
 | ---- | ---- |
-| **anaconda.com** | Se usa para instalar paquetes predeterminados. |
+| **anaconda.com**</br>**\*.anaconda.com** | Se usa para instalar paquetes predeterminados. |
 | **\*.anaconda.org** | Se usa para obtener datos del repositorio. |
 | **pypi.org** | Se usa para enumerar las dependencias del índice predeterminado, si hay alguna, y el índice no se sobrescribe con la configuración del usuario. Si el índice se sobrescribe, también debe permitir **\*.pythonhosted.org**. |
 
@@ -92,4 +101,4 @@ Direcciones URL necesarias para regiones Azure Government.
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal](../firewall/tutorial-firewall-deploy-portal.md)
-* [Protección de los trabajos de experimentación e inferencia de ML en una instancia de Azure Virtual Network](how-to-enable-virtual-network.md)
+* [Protección de los trabajos de experimentación e inferencia de ML en una instancia de Azure Virtual Network](how-to-network-security-overview.md)

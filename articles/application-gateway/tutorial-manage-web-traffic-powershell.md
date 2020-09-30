@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/19/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cb45f4a19cf36fe291ffe7299a46a44a245fbb8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f29b31b09c2532c336ef2a2d574fab5e000b3e4b
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806206"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595893"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Administrar el tráfico web con una puerta de enlace de aplicaciones mediante Azure PowerShell
 
@@ -21,10 +21,9 @@ La puerta de enlace de aplicaciones se utiliza para administrar y proteger el tr
 
 En este artículo aprenderá a:
 
-> [!div class="checklist"]
-> * Configuración de la red
-> * Creación de una puerta de enlace de aplicaciones
-> * Crear un conjunto de escalado de máquinas virtuales con el grupo de servidores back-end predeterminado
+* Configuración de la red
+* Creación de una puerta de enlace de aplicaciones
+* Crear un conjunto de escalado de máquinas virtuales con el grupo de servidores back-end predeterminado
 
 Si lo prefiere, puede realizar los pasos de este procedimiento mediante la [CLI de Azure](tutorial-manage-web-traffic-cli.md).
 

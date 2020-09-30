@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: daffcbf0a2ceb6f28cbb539906d4c6387840aa20
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 5b26054ae8dfb73dea8d064292beb73220be5e09
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752104"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433456"
 ---
 # <a name="configure-an-aks-cluster"></a>Configuración de un clúster de AKS
 
@@ -218,7 +218,7 @@ az extension update --name aks-preview
 ### <a name="use-gen2-vms-on-new-clusters-preview"></a>Uso de máquinas virtuales Gen2 en clústeres nuevos (versión preliminar)
 Configure el clúster para que use las máquinas virtuales Gen2 seleccionadas cuando se cree el clúster. Use la marca `--aks-custom-headers` para establecer Gen2 como la generación de las máquinas virtuales en un nuevo clúster.
 
-```azure-cli
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_D2s_v3 --aks-custom-headers usegen2vm=true
 ```
 
@@ -227,7 +227,7 @@ Si desea crear un clúster normal con máquinas virtuales de generación 1 (Gen
 ### <a name="use-gen2-vms-on-existing-clusters-preview"></a>Uso de máquinas virtuales Gen2 en clústeres existentes (versión preliminar)
 Configure un grupo de nodos nuevo para usar máquinas virtuales Gen2. Use la marca `--aks-custom-headers` para establecer Gen2 como la generación de las máquinas virtuales de ese grupo de nodos.
 
-```azure-cli
+```azurecli
 az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_D2s_v3 --aks-custom-headers usegen2vm=true
 ```
 
@@ -276,7 +276,7 @@ az extension update --name aks-preview
 
 Configure el clúster para que utilice discos de sistema operativo efímero al crearlo. Use la marca `--aks-custom-headers` para establecer el sistema operativo efímero como el tipo de disco de sistema operativo para el nuevo clúster.
 
-```azure-cli
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
 ```
 
@@ -285,7 +285,7 @@ Si desea crear un clúster normal con discos de sistema operativo conectados a r
 ### <a name="use-ephemeral-os-on-existing-clusters-preview"></a>Uso del sistema operativo efímero en clústeres existentes (versión preliminar)
 Configure un nuevo grupo de nodos para usar discos de sistema operativo efímero. Utilice la marca `--aks-custom-headers` para establecerla como el tipo de disco de para ese grupo de nodos.
 
-```azure-cli
+```azurecli
 az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
 ```
 

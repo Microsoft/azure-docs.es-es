@@ -1,6 +1,6 @@
 ---
-title: Configuración de la replicación en Azure SQL Edge (versión preliminar)
-description: Información sobre la configuración de la replicación en Azure SQL Edge (versión preliminar).
+title: Configuración de la replicación en Azure SQL Edge
+description: Obtenga información sobre la configuración de la replicación en Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,14 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: ad92f796205d84a372de610cb210bbf8878a6c9b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a748bf977e76357c710518e608c12ad19a8cd0be
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282779"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888414"
 ---
-# <a name="configure-replication-to-azure-sql-edge-preview"></a>Configuración de la replicación en Azure SQL Edge (versión preliminar) 
+# <a name="configure-replication-to-azure-sql-edge"></a>Configuración de la replicación en Azure SQL Edge 
 
 Una instancia de Azure SQL Edge puede configurarse como el suscriptor de inserción para una replicación transaccional unidireccional o una replicación de instantáneas. Esta instancia no puede actuar como el publicador o el distribuidor para una configuración de replicación transaccional. Tenga en cuenta que Azure SQL Edge no admite la replicación de mezcla, la replicación punto a punto ni la publicación de Oracle.
 

@@ -1,6 +1,6 @@
 ---
 title: Inicio rápido de Striim
-description: Empiece a trabajar rápidamente con Striim y Azure SQL Data Warehouse.
+description: Empiece a trabajar rápidamente con Striim y Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 945bcd03bc3bf13517836e7a5624bd5142782183
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6b5fa1a42201479c5d426a5bbb9188d0cb8e03d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208559"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485981"
 ---
-# <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Guía de instalación de la oferta de Marketplace Azure SQL DW para Striim
+# <a name="striim-azure-synapse-analytics-marketplace-offering-install-guide"></a>Guía de instalación de la oferta de Marketplace Azure Synapse Analytics para Striim
 
-En este inicio rápido se da por supuesto que ya tiene una instancia preexistente de SQL Data Warehouse.
+En este inicio rápido se da por supuesto que ya tiene una instancia preexistente de Azure Synapse Analytics.
 
-Busque Striim en Azure Marketplace y seleccione la opción Striim for Data Integration to SQL Data Warehouse (Staged). 
+Busque Striim en Azure Marketplace y seleccione la opción Striim for Data Integration to Azure Synapse Analytics (Staged). 
 
 ![Instalación de Striim][install]
 
@@ -32,7 +32,7 @@ Configure la máquina virtual de Striim con las propiedades especificadas y anot
 
 Una vez implementado, haga clic en \<VM Name>- masternode en Azure Portal, haga clic en Conectar y copie el inicio de sesión mediante la cuenta local de la máquina virtual. 
 
-![Conexión de Striim a SQL Data Warehouse][connect]
+![Conexión de Striim a Azure Synapse Analytics][connect]
 
 Descargue el archivo sqljdbc42.jar desde <https://www.microsoft.com/en-us/download/details.aspx?id=54671> en la máquina local. 
 

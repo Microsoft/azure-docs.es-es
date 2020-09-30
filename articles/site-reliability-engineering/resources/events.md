@@ -2,17 +2,17 @@
 title: Lista de eventos de SRE | Microsoft Docs
 description: Asista a estos eventos y participe en la comunidad global de SRE.
 author: dnblankedelman
-manager: efreeman
+manager: ScottCa
 ms.service: site-reliability-engineering
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 09/14/2020
 ms.author: dnb
-ms.openlocfilehash: 5360ada6dab19564bfa88697d2adc6ef751f3935
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c36b517943ac6d18b0658ea5cb97c47503de26b1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78254798"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090302"
 ---
 # <a name="participate-in-the-global-site-reliability-engineering-community"></a>Participación en la comunidad de ingeniería de confiabilidad global de sitios
 

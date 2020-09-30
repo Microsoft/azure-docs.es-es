@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 76312a55262d316c679bde2a69e8b98844addcb0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 1eb24871817f365efe58b8e687563727df74493c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963876"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400983"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Línea de base de seguridad de Azure para Batch
 
@@ -46,7 +46,7 @@ Cómo habilitar los registros de flujo de NSG:
 
 https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-Cómo habilitar y usar Análisis de tráfico:
+Habilitación y uso del Análisis de tráfico:
 
 https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
@@ -416,7 +416,7 @@ Cómo identificar usuarios de Azure AD marcados por una actividad de riesgo:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
 
-Cómo supervisar la identidad de los usuarios y la actividad de acceso en Azure Security Center:
+Supervisión de la actividad de identidad y acceso de los usuarios en Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
@@ -596,13 +596,13 @@ https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
-**Guía**: use el control de acceso basado en roles (RBAC) de Azure Active Directory (AAD) para controlar el acceso al plano de administración de los recursos de Azure, como la cuenta de Batch, los grupos de Batch y las cuentas de almacenamiento.
+**Guía**: Use el control de acceso basado en rol (RBAC) para controlar el acceso al plano de administración de los recursos de Azure, como la cuenta de Batch, los grupos de Batch y las cuentas de almacenamiento.
 
 Descripción de Azure RBAC:
 
 https://docs.microsoft.com/azure/role-based-access-control/overview
 
-Cómo configurar el RBAC en Azure:
+Configuración de RBAC de Azure:
 
 https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
@@ -771,7 +771,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Supervisión de recursos de Azure no aprobados
 
-**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
 - Tipos de recursos no permitidos
 - Tipos de recursos permitidos
@@ -942,13 +942,13 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Almacenamiento seguro de las imágenes de sistema operativo personalizadas
 
-**Guía**: Si usa imágenes personalizadas para los grupos de Azure Batch, use el control de acceso basado en rol (RBAC) para asegurarse de que solo los usuarios autorizados pueden acceder a las imágenes.
+**Instrucciones**: Si usa imágenes personalizadas para los grupos de Azure Batch, use el control de acceso basado en rol de Azure (RBAC de Azure) para asegurarse de que solo los usuarios autorizados pueden acceder a las imágenes.
 
-Descripción de RBAC en Azure:
+Descripción de Azure RBAC:
 
 https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
 
-Cómo configurar el RBAC en Azure:
+Configuración de RBAC de Azure:
 
 https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
 
@@ -1014,13 +1014,17 @@ Cómo integrar las identidades administradas de Azure:
 
 https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Cómo crear una instancia de Azure Key Vault:
+Cómo crear un almacén de claves:
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal
+https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Cómo proporcionar la autenticación de Key Vault con una identidad administrada:
+Autenticación en Key Vault:
 
-https://docs.microsoft.com/azure/key-vault/managed-identity
+https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Asignación de una directiva de acceso de Key Vault:
+
+https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Supervisión de Azure Security Center**: Sí
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 8cc2930422bf644f217737d0f0ba585c243575ee
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4627c094c3913d01f06c237b133e1ed0ea4ed2e0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503011"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969800"
 ---
 # <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Referencia de la API de administración de Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,6 +44,8 @@ Para crear y administrar instancias administradas con Azure PowerShell, use los 
 |[Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance)|Devuelve información sobre una instancia administrada.|
 |[Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)|Establece las propiedades de una instancia administrada.|
 |[Remove-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance)|Elimina una instancia administrada.|
+|[Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation)|Obtiene una lista de las operaciones de administración realizadas en la instancia administrada o en una operación específica.|
+|[Stop-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstanceoperation)|Cancela la operación de administración específica realizada en la instancia administrada.|
 |[New-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|Crea una base de datos de SQL Managed Instance.|
 |[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|Devuelve información sobre una base de datos de SQL Managed Instance.|
 |[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|Elimina una base de datos de SQL Managed Instance.|
@@ -63,6 +65,9 @@ Para crear y configurar instancias administradas con la [CLI de Azure](/cli/azur
 |[az sql mi show](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-show)|Obtiene los detalles de una instancia administrada.|
 |[az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)|Actualiza una instancia administrada.|
 |[az sql mi delete](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-delete)|Elimina una instancia administrada.|
+|[az sql mi op list](https://docs.microsoft.com/cli/azure/sql/mi/op#az_sql_mi_op_list)|Obtiene una lista de las operaciones de administración realizadas en la instancia administrada.|
+|[az sql mi op show](https://docs.microsoft.com/cli/azure/sql/mi/op#az_sql_mi_op_show)|Obtiene la operación de administración específica realizada en la instancia administrada.|
+|[az sql mi op cancel](https://docs.microsoft.com/cli/azure/sql/mi/op#az_sql_mi_op_cancel)|Cancela la operación de administración específica realizada en la instancia administrada.|
 |[az sql midb create](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |Crea una base de datos administrada.|
 |[az sql midb list](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|Enumera las bases de datos administradas disponibles.|
 |[az sql midb restore](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Restaura una base de datos administrada.|
@@ -80,8 +85,8 @@ Para crear y configurar bases de datos de instancia después de crear la instanc
 
 | Get-Help | Descripción |
 | --- | --- |
-|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Crea una nueva base de datos de instancia en SQL Managed Instance. Debe estar conectado a la base de datos maestra para crear una base de datos.|
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifica una base de datos de instancia en SQL Managed Instance.|
+|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true)|Crea una nueva base de datos de instancia en SQL Managed Instance. Debe estar conectado a la base de datos maestra para crear una base de datos.|
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true) |Modifica una base de datos de instancia en SQL Managed Instance.|
 
 ## <a name="rest-api-create-and-configure-managed-instances"></a>API REST: Creación y configuración de instancias administradas
 
@@ -95,6 +100,9 @@ Para crear y administrar instancias administradas, use estas solicitudes de la A
 |[Managed Instances - List](https://docs.microsoft.com/rest/api/sql/managedinstances/list)|Devuelve una lista de las instancias administradas de una suscripción.|
 |[Managed Instances - List By Resource Group](https://docs.microsoft.com/rest/api/sql/managedinstances/listbyresourcegroup)|Devuelve una lista de las instancias administradas de un grupo de recursos.|
 |[Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)|Actualiza una instancia administrada.|
+|[Operaciones de instancia administrada: mostrar por instancia administrada](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Obtiene una lista de las operaciones de administración realizadas en la instancia administrada.|
+|[Operaciones de instancia administrada: obtener](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/get)|Obtiene la operación de administración específica realizada en la instancia administrada.|
+|[Operaciones de instancia administrada: cancelar](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/cancel)|Cancela la operación de administración específica realizada en la instancia administrada.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

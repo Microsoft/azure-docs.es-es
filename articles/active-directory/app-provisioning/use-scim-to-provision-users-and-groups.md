@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: be33841206fa30a5b4975a604af1b5d9e38551a8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 3f21fa2df32644ff1c415db656fc3b0beed03965
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690262"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292782"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Creación de un punto de conexión SCIM y configuración del aprovisionamiento de usuarios con Azure AD
 
@@ -153,7 +153,7 @@ Dentro de la [especificación del protocolo SCIM 2.0](http://www.simplecloud.inf
 * Admitir la consulta de usuarios por identificador y por administrador, según la sección 3.4.2 del protocolo SCIM.  
 * Admitir la consulta de grupos por Id. y miembro, según la sección 3.4.2 del protocolo SCIM.  
 * Acepta un token de portador único para la autenticación y autorización de Azure AD para la aplicación.
-* Admite la eliminación temporal de un usuario `active=false` y la restauración del usuario `active=true`.
+* Admite la eliminación temporal de un usuario `active=false` y la restauración del usuario `active=true` (el objeto de usuario debe devolverse en una solicitud tanto si el usuario está activo como si no). La única vez que no se debe devolver el usuario es cuando se elimina de forma permanente de la aplicación. 
 
 Siga estas directrices generales al implementar un punto de conexión SCIM para garantizar la compatibilidad con Azure AD:
 
@@ -746,7 +746,7 @@ Barra mínima de conjuntos de cifrado TLS 1.2:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Intervalos IP
-El servicio de aprovisionamiento de Azure AD actualmente opera en los intervalos IP de AzureActiveDirectory y AzureActiveDirectoryDomainServices, tal y como se muestra [aquí](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Se está trabajando para consolidar solo los intervalos IP de AzureActiveDirectory. 
+El servicio de aprovisionamiento de Azure AD actualmente opera en los intervalos IP de AzureActiveDirectory, tal y como se muestra [aquí](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Puede agregar los intervalos IP que aparecen en la etiqueta AzureActiveDirectory para permitir el tráfico desde el servicio de aprovisionamiento de Azure AD a la aplicación. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Paso 3: Cree un punto de conexión SCIM
 

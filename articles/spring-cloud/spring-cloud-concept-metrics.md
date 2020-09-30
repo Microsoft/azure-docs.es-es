@@ -4,15 +4,16 @@ description: Aprenda a revisar las métricas en Azure Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 4a12658eada3d2660cde86b3eb80e332416ea7a3
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: e488f2ddc44f1339d648cd6fe6b1aae18b748679
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046857"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892642"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Descripción de las métricas en Azure Spring Cloud
 
@@ -109,6 +110,34 @@ En las tablas siguientes se muestran las métricas y los detalles disponibles.
 >| jvm.gc.pause.total.count | jvm.gc.pause (recuento total) | Count | Recuento total de recolecciones de elementos no utilizados después del inicio de esta Máquina virtual Java, incluidas las recolecciones de elementos no utilizados anteriores y nuevas. |
 >| jvm.gc.pause.total.time | jvm.gc.pause (tiempo total) | Milisegundos | Recuento total de tiempo consumido en recolecciones de elementos no utilizados después del inicio de esta Máquina virtual Java, incluidas las recolecciones de elementos no utilizados anteriores y nuevas. |
 
+::: zone pivot="programming-language-csharp"
+### <a name="performance-net"></a>Rendimiento (.NET)
+
+>[!div class="mx-tdCol2BreakAll"]
+>| Nombre | Nombre de la métrica de Spring Actuator | Unidad | Detalles |
+>|------|-----------------------------|------|---------|
+>| Uso de CPU       | cpu-usage      | Milisegundos | Cantidad de tiempo que el proceso ha utilizado la CPU. |
+>| Espacio de trabajo     | working-set    | Megabytes    | Cantidad de memoria del espacio de trabajo usada por el proceso. |
+>| Tamaño del montón de GC    | gc-heap-size   | Megabytes    | Tamaño total del montón indicado por el recolector de elementos no utilizados. |
+>| Recuento de GC de generación 0  | gen-0-gc-count | Count        | Número de recolecciones de elementos no utilizados de generación 0 por segundo. |
+>| Recuento de GC de generación 1  | gen-1-gc-count | Count        | Número de recolecciones de elementos no utilizados de generación 1 por segundo. |
+>| Recuento de GC de generación 2  | gen-2-gc-count | Count        | Número de recolecciones de elementos no utilizados de generación 2 por segundo. |
+>| Tamaño del montón de gen. 0 | gen-0-size     | Bytes        | Tamaño del montón de generación 0. |
+>| Tamaño del montón de gen. 1 | gen-1-size     | Bytes        | Tamaño del montón de la generación 1. |
+>| Tamaño del montón de gen. 2 | gen-2-size     | Bytes        | Tamaño del montón de generación 2. |
+>| Tamaño del montón de LOH   | loh-size       | Bytes        | Tamaño del montón del objeto grande. |
+>| Tasa de asignación | alloc-rate     | Bytes        | Número de bytes asignados por segundo. |
+>| Recuento de ensamblados  | assembly-count | Count        | Número de ensamblados cargados. |
+>| Recuento de excepciones | exception-count | Count       | Número de excepciones por segundo. |
+>| Número de subprocesos del grupo de subprocesos      | threadpool-thread-count              | Count | Número de subprocesos del grupo de subprocesos. |
+>| Recuento de contenciones de bloqueo de monitor | monitor-lock-contention-count        | Count | El número de veces por segundo que se produjo una contención al intentar realizar el bloqueo de un monitor. |
+>| Longitud de cola de grupo de consulta      | threadpool-queue-length              | Count | Longitud de cola de elementos de trabajo del grupo de subprocesos. |
+>| Recuento de elementos completados del grupo de subprocesos | threadpool-completed-items-count | Count | Recuento de elementos de trabajo completados del grupo de subprocesos. |
+>| Recuento de temporizadores activos               | active-timer-count               | Count | Número de usuarios que están actualmente en línea. Un temporizador activo es el que se registra para marcar en algún momento en el futuro y aún no se ha cancelado. |
+
+Para obtener más información, consulte [Contadores dotnet](/dotnet/core/diagnostics/dotnet-counters).
+::: zone-end
+
 ### <a name="request"></a>Solicitud
 >[!div class="mx-tdCol2BreakAll"]
 >| Nombre | Nombre de la métrica de Spring Actuator | Unidad | Detalles |
@@ -117,6 +146,20 @@ En las tablas siguientes se muestran las métricas y los detalles disponibles.
 >| tomcat.global.received | tomcat.global.received | Bytes | Cantidad de datos recibidos por el servidor web de Tomcat |
 >| tomcat.global.request.total.count | tomcat.global.request (recuento total) | Count | Recuento total de solicitudes procesadas por el servidor web de Tomcat |
 >| tomcat.global.request.max | tomcat.global.request.max | Milisegundos | Tiempo máximo del servidor web de Tomcat para procesar una solicitud |
+
+::: zone pivot="programming-language-csharp"
+### <a name="request-net"></a>Solicitud (.NET)
+
+>[!div class="mx-tdCol2BreakAll"]
+>| Nombre | Nombre de la métrica de Spring Actuator | Unidad | Detalles |
+>|------|-----------------------------|------|---------|
+>| Solicitudes por segundo | requests-per-second | Count | Velocidad de solicitudes |
+>| Total de solicitudes | total-requests | Count | Número total de solicitudes. |
+>| Solicitudes actuales | current-requests | Count | Número de solicitudes actuales. |
+>| Error en las solicitudes | failed-requests | Count | Número de solicitudes con error. |
+
+Para obtener más información, consulte [Contadores dotnet](/dotnet/core/diagnostics/dotnet-counters).
+::: zone-end
 
 ### <a name="session"></a>Sesión
 >[!div class="mx-tdCol2BreakAll"]
@@ -130,6 +173,7 @@ En las tablas siguientes se muestran las métricas y los detalles disponibles.
 >| tomcat.sessions.active.current | tomcat.sessions.active.current | Count | Recuento de sesiones activas de Tomcat |
 
 ## <a name="see-also"></a>Consulte también
+
 * [Inicio rápido: Supervisión de aplicaciones de Azure Spring Cloud con registros, métricas y seguimiento](spring-cloud-quickstart-logs-metrics-tracing.md)
 
 * [Introducción al Explorador de métricas de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
@@ -137,7 +181,7 @@ En las tablas siguientes se muestran las métricas y los detalles disponibles.
 * [Análisis de registros y métricas con la configuración de diagnóstico](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Tutorial: Supervisión de recursos de Spring Cloud mediante alertas y grupos de acciones](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups)
 
 * [Cuotas y planes de servicio de Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quotas)
-

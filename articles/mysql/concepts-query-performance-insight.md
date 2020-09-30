@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 51b478e5184c79e11d95ff004a652b2e5298558f
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 7aefa6cd048c41feb1535f2ae7fa5c87bf628b2d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402610"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884900"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Información de rendimiento de consultas en Azure Database for MySQL
 
@@ -35,7 +35,7 @@ Query Performance Insight le ayuda a identificar rápidamente cuáles son las co
 
 Se necesitan los permisos **Propietario** o **Colaborador** para ver el texto de las consultas en Query Performance Insight. **Lector** pueden ver las tablas y los gráficos, pero no el texto de consulta.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para que Query Performance Insight funcione, deben existir datos en el [Almacén de consultas](concepts-query-store.md).
 
@@ -51,7 +51,7 @@ La pestaña **Consultas de larga duración** muestra las cinco principales consu
 
 Puede hacer clic y arrastrar en el gráfico para restringir a un período de tiempo específico. Como alternativa, puede usar los iconos de acercar y alejar para ver un período de tiempo mayor o menor, respectivamente.
 
-![Consultas de larga ejecución de Query Performance Insight](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-landing-page.png" alt-text="Consultas de larga ejecución de Query Performance Insight"::: 
 
 ### <a name="wait-statistics"></a>Estadísticas de espera
 
@@ -64,7 +64,7 @@ Seleccione la pestaña **Estadísticas de espera** para ver las visualizaciones 
 
 Las consultas que se muestran en la vista de estadísticas de espera se agrupan según las consultas que presentan las mayores esperas durante el intervalo de tiempo especificado.
 
-![Estadísticas de espera de Información de rendimiento de consultas](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Estadísticas de espera de Información de rendimiento de consultas":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

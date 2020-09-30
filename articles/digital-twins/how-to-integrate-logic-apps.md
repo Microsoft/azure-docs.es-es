@@ -46,7 +46,7 @@ También tendrá que crear un **_secreto de cliente_** para el registro de la ap
 
 Presione *Certificados y secretos* en el menú del registro y seleccione *+ Nuevo secreto de cliente*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Vista del portal de un registro de aplicaciones de Azure AD. Hay un resaltado alrededor de "Certificados y secretos" en el menú de recursos y un resaltado en la página alrededor de "Nuevo secreto de cliente".":::
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Vista del portal de un registro de aplicaciones de Azure AD. Hay un resaltado alrededor de Certificados y secretos en el menú de recursos y un resaltado en la página alrededor de Nuevo secreto de cliente.":::
 
 Escriba los valores que desee para Descripción y Expiración y presione *Agregar*.
 El secreto se agregará a la lista de secretos de cliente en la página *Certificados y secretos*. Tome nota de su valor para usarlo más adelante (también puede copiarlo en el Portapapeles con el icono de copia).
@@ -65,11 +65,11 @@ En este paso va a crear un [conector personalizado de Logic Apps](../logic-apps/
 
 Vaya a la página [Conector personalizado de Logic Apps](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) de Azure Portal (puede usar este vínculo o buscarlo en la barra de búsqueda del portal). Presione *+ Agregar*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Página "Conector personalizado de Logic Apps" de Azure Portal. Hay un resaltado alrededor del botón "Agregar".":::
+:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Página Conector personalizado de Logic Apps de Azure Portal. Hay un resaltado alrededor del botón Agregar.":::
 
 En la página *Crear conector personalizado de Logic Apps* que se muestra a continuación, seleccione la suscripción y el grupo de recursos y un nombre y una ubicación de implementación para el nuevo conector. Presione *Revisar y crear*. Esto le llevará a la pestaña *Revisar y crear*, donde podrá presionar *Crear* en la parte inferior para crear el recurso.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Pestaña "Revisar y crear" de la página "Crear conector personalizado de Logic Apps" de Azure Portal. Hay un resaltado alrededor del botón "Crear".":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Pestaña Revisar y crear de la página Crear conector personalizado de Logic Apps de Azure Portal. Hay un resaltado alrededor del botón Crear.":::
 
 Se le dirigirá a la página de implementación del conector. Cuando haya terminado la implementación, pulse el botón *Ir al recurso* para ver los detalles del conector en el portal.
 
@@ -81,7 +81,7 @@ En primer lugar, descargue un archivo de Swagger de Azure Digital Twins personal
 
 A continuación, diríjase a la página de información general del conector en [Azure Portal](https://portal.azure.com) y pulse *Editar*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="Página de información general del conector creado en el paso anterior. Hay un resaltado alrededor del botón "Editar".":::
+:::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="Página de información general del conector creado en el paso anterior. Hay un resaltado alrededor del botón Editar.":::
 
 En la página *Editar conector personalizado de Logic Apps* que aparece a continuación, configure esta información:
 * **Conectores personalizados**
@@ -96,7 +96,7 @@ En la página *Editar conector personalizado de Logic Apps* que aparece a contin
 
 A continuación, presione el botón *Seguridad* situado en la parte inferior de la ventana para continuar con el siguiente paso de configuración.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Captura de pantalla de la parte inferior de la página "Editar conector personalizado de Logic Apps". Hay un resaltado alrededor del botón para continuar con la sección Seguridad.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Captura de pantalla de la parte inferior de la página Editar conector personalizado de Logic Apps. Hay un resaltado alrededor del botón para continuar con la sección Seguridad.":::
 
 En el paso Seguridad, presione *Editar* y configure esta información:
 * **Tipo de autenticación**: OAuth 2.0
@@ -112,13 +112,13 @@ En el paso Seguridad, presione *Editar* y configure esta información:
 
 Observe que el campo dirección URL de redireccionamiento indica *Guardar el conector personalizado para generar la URL de redireccionamiento*. Para hacerlo ahora, presione *Actualizar conector* en la parte superior del panel para confirmar la configuración del conector.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Captura de pantalla de la parte superior de la página "Editar conector personalizado de Logic Apps". Hay un resaltado alrededor del botón "Actualizar conector".":::
+:::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Captura de pantalla de la parte superior de la página Editar conector personalizado de Logic Apps. Hay un resaltado alrededor del botón Actualizar conector.":::
 
 <!-- Success message? didn't see one -->
 
 Vuelva al campo dirección URL de redireccionamiento y copie el valor que se ha generado. Lo usará en el paso siguiente.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/copy-redirect-url.png" alt-text="El campo dirección URL de redireccionamiento de la página "Editar conector personalizado de Logic Apps" tiene ahora el valor "https://logic-apis-westus2.consent.azure-apim.net/redirect". El botón para copiar el valor está resaltado.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/copy-redirect-url.png" alt-text="El campo dirección URL de redireccionamiento de la página Editar conector personalizado de Logic Apps tiene ahora el valor https://logic-apis-westus2.consent.azure-apim.net/redirect. El botón para copiar el valor está resaltado.":::
 
 Esta es toda la información necesaria para crear el conector (no es necesario continuar del paso de seguridad al paso de definición). Puede cerrar el panel *Editar conector personalizado de Logic Apps*.
 
@@ -133,11 +133,11 @@ Vaya a la página [Registros de aplicaciones](https://portal.azure.com/#blade/Mi
 
 Seleccione *Autenticación* en el menú del registro y agregue un identificador URI.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="Página de autenticación del registro de la aplicación en Azure Portal. "Autenticación" en el menú está resaltado y, en la página, el botón "Agregar identificador URI" está resaltado."::: 
+:::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="Página de autenticación del registro de la aplicación en Azure Portal. Autenticación en el menú está resaltado y, en la página, el botón Agregar identificador URI está resaltado."::: 
 
 Escriba la *dirección URL de redireccionamiento* del conector personalizado en el campo nuevo y presione el icono *Guardar*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/save-uri.png" alt-text="Página de autenticación del registro de la aplicación en Azure Portal. La nueva dirección URL de redireccionamiento y el botón "Guardar" de la página están resaltados.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/save-uri.png" alt-text="Página de autenticación del registro de la aplicación en Azure Portal. La nueva dirección URL de redireccionamiento y el botón Guardar de la página están resaltados.":::
 
 Ya ha terminado de configurar un conector personalizado que puede acceder a las API de Azure Digital Twins. 
 
@@ -147,7 +147,7 @@ A continuación, va a crear una aplicación lógica que usará el nuevo conector
 
 Vaya a la página [Logic Apps](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Logic%2Fworkflows) de Azure Portal (puede usar este vínculo o buscarlo en la barra de búsqueda del portal). Presione *Crear aplicación lógica*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Página "Logic Apps" en Azure Portal. Hay un resaltado alrededor del botón "Crear aplicación lógica".":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Página Logic Apps en Azure Portal. Hay un resaltado alrededor del botón Crear aplicación lógica.":::
 
 En la página *Aplicación lógica* que se muestra a continuación, seleccione la suscripción y el grupo de recursos y un nombre y una ubicación de implementación para la nueva aplicación lógica. Presione *Revisar y crear*. Esto le llevará a la pestaña *Revisar y crear*, donde podrá presionar *Crear* en la parte inferior para crear el recurso.
 
@@ -157,7 +157,7 @@ Se le dirigirá a la página de implementación de la aplicación lógica. Cuand
 
 En *Diseñador de aplicaciones lógicas*, en *Empezar con un desencadenador común*, seleccione _**Repetición**_.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="Página "Diseñador de aplicaciones lógicas" en Azure Portal. Hay un resaltado alrededor del desencadenador común "Repetición".":::
+:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="Página Diseñador de aplicaciones lógicas en Azure Portal. Hay un resaltado alrededor del desencadenador común Repetición.":::
 
 En la página *Diseñador de aplicaciones lógicas* que aparece a continuación, cambie la frecuencia de **Repetición** a *Segundo*, de modo que el evento se desencadene cada 3 segundos. Esto hará que sea más fácil ver los resultados más adelante sin tener que esperar mucho tiempo.
 
@@ -165,7 +165,7 @@ Presione *+ Nuevo paso*.
 
 Esto abrirá el cuadro *Elegir una acción*. Cambie a la pestaña *Personalizada*. Debería ver el conector personalizado anterior en el cuadro superior.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Crear un flujo en el Diseñador de aplicaciones lógicas en Azure Portal. En el cuadro "Elegir una acción",está seleccionada la pestaña "Personalizada". El conector personalizado anterior del usuario se muestra en el cuadro, con un resaltado alrededor.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Crear un flujo en el Diseñador de aplicaciones lógicas en Azure Portal. En el cuadro Elegir una acción,está seleccionada la pestaña Personalizada. El conector personalizado anterior del usuario se muestra en el cuadro, con un resaltado alrededor.":::
 
 Selecciónelo para mostrar la lista de las API contenidas en ese conector. Use la barra de búsqueda o desplácese por la lista para seleccionar **DigitalTwins_Add**. (Esta es la API que se usa en este artículo, pero también puede seleccionar cualquier otra API como una opción válida para una conexión de Logic Apps).
 
@@ -178,7 +178,7 @@ En el nuevo cuadro *DigitalTwinsAdd*, rellene los campos como se indica a contin
 
 Presione *Guardar* en el Diseñador de aplicaciones lógicas.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Vista finalizada de la aplicación en el conector de Logic apps. El cuadro DigitalTwinsAdd se rellena con los valores descritos anteriormente, incluido un cuerpo de revisión JSON de ejemplo. El botón "Guardar" de la ventana está resaltado.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Vista finalizada de la aplicación en el conector de Logic apps. El cuadro DigitalTwinsAdd se rellena con los valores descritos anteriormente, incluido un cuerpo de revisión JSON de ejemplo. El botón Guardar de la ventana está resaltado.":::
 
 ## <a name="query-twin-to-see-the-update"></a>Consulta del gemelo para ver la actualización
 

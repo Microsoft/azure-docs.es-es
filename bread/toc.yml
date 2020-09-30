@@ -102,6 +102,9 @@
         - name: Mobile Apps
           tocHref: /azure/app-service-mobile/
           topicHref: /azure/app-service-mobile/
+    - name: Azure Automanage
+      tocHref: /azure/automanage/
+      topicHref: /azure/automanage/
     - name: Aplicaciones web estáticas
       tocHref: /azure/static-web-apps/
       topicHref: /azure/static-web-apps/
@@ -429,6 +432,9 @@
         - name: Lector inmersivo
           tocHref: /azure/cognitive-services/immersive-reader/
           topicHref: /azure/cognitive-services/immersive-reader/
+    - name: Communication Services
+      tocHref: /azure/communication-services/
+      topicHref: /azure/communication-services/
     - name: Conectores
       tocHref: /azure/connectors/
       topicHref: /azure/connectors/
@@ -564,6 +570,9 @@
         - name: Secretos
           tocHref: /azure/key-vault/secrets/
           topicHref: /azure/key-vault/secrets/
+        - name: HSM administrado
+          tocHref: /azure/key-vault/managed-hsm/
+          topicHref: /azure/key-vault/managed-hsm/
     - name: Azure Kinect DK
       tocHref: /azure/kinect-dk/
       topicHref: /azure/kinect-dk/
@@ -589,12 +598,9 @@
         - name: Máquina virtual de ciencia de datos
           tocHref: /azure/machine-learning/data-science-virtual-machine
           topicHref: /azure/machine-learning/data-science-virtual-machine/
-    - name: Consumidor de Marketplace
-      tocHref: /azure/marketplace-consumer/
+    - name: Marketplace comercial
+      tocHref: /azure/marketplace
       topicHref: /azure/marketplace/
-    - name: Publicación de Marketplace
-      tocHref: /azure/marketplace-publishing/
-      topicHref: /azure/marketplace/marketplace-publishers-guide
     - name: Media Services
       tocHref: /azure/media-services/
       topicHref: /azure/media-services/

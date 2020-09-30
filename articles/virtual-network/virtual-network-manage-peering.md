@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
-ms.openlocfilehash: 4f94c3e643e372d96a6e9d100773ccd8929e4c8b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 41cc2bfa39160d26b5c5f09687ddf1fef9ec5803
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87416509"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290198"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Crear, cambiar o eliminar un emparejamiento de red virtual
 
@@ -126,11 +126,12 @@ Si quiere que las redes virtuales se comuniquen algunas veces pero no siempre, e
   - *Iniciado:* Cuando se crea el emparejamiento a la segunda red virtual desde la primera red virtual, el estado de emparejamiento es *Iniciado*. 
   - *Conectado:* Cuando se crea el emparejamiento desde la segunda red virtual a la primera red virtual, el estado de emparejamiento es *Conectado*. Si consulta el estado de emparejamiento de la primera red virtual, verá que ha cambiado de *Iniciado* a *Conectado*. El emparejamiento no se habrá establecido correctamente mientras el estado de ambos emparejamientos de red virtual no sea *Conectado*.
 - Al emparejar una red virtual creada mediante el Administrador de recursos con una red virtual creada mediante el modelo de implementación clásica, solo se configura un emparejamiento para la red virtual implementada mediante el Administrador de recursos. No se puede configurar el emparejamiento para una red virtual (clásica), o bien entre dos redes virtuales implementadas mediante el modelo de implementación clásica. Cuando se crea el emparejamiento de la red virtual (Administrador de recursos) a la red virtual (clásica), el estado de emparejamiento es *Actualizando*, pero en breve cambia a *Conectado*.
-- El emparejamiento se establece entre dos redes virtuales. Los emparejamientos no son transitivos. Si crea emparejamientos entre:
-  - VirtualNetwork1 y VirtualNetwork2
-  - VirtualNetwork2 y VirtualNetwork3
+- El emparejamiento se establece entre dos redes virtuales. Los emparejamientos por sí solos no son transitivos. Si crea emparejamientos entre:
+  - VirtualNetwork1 y VirtualNetwork2: VirtualNetwork1 y VirtualNetwork2
+  - VirtualNetwork2 y VirtualNetwork3: VirtualNetwork2 y VirtualNetwork3
 
-  No hay ningún emparejamiento entre VirtualNetwork1 y VirtualNetwork3 a través de VirtualNetwork2. Si desea crear un emparejamiento de red virtual entre VirtualNetwork1 y VirtualNetwork3, debe crear un emparejamiento entre VirtualNetwork1 y VirtualNetwork3.
+
+  No hay ningún emparejamiento entre VirtualNetwork1 y VirtualNetwork3 a través de VirtualNetwork2. Si desea crear un emparejamiento de red virtual entre VirtualNetwork1 y VirtualNetwork3, debe crear un emparejamiento entre VirtualNetwork1 y VirtualNetwork3. No hay ningún emparejamiento entre VirtualNetwork1 y VirtualNetwork3 a través de VirtualNetwork2. Si desea que VirtualNetwork1 y VirtualNetwork3 se comuniquen directamente, debe crear un emparejamiento explícito entre VirtualNetwork1 y VirtualNetwork3 o recorrer una NVA en la red del concentrador.  
 - No se pueden resolver nombres en redes virtuales emparejadas mediante la resolución de nombres predeterminada de Azure. Para resolver nombres de otras redes virtuales, tiene que usar [Azure DNS para dominios privados](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o un servidor DNS personalizado. Para obtener información sobre cómo configurar el servidor DNS, consulte [Resolución de nombres mediante su propio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 - Los recursos de ambas redes virtuales emparejadas en la misma región pueden comunicarse entre sí con el mismo ancho de banda y latencia que si estuvieran en la misma red virtual. A pesar de ello, el tamaño de cada máquina virtual tiene su propio ancho de banda de red máximo. Para más información sobre el ancho de banda de red máximo para los diferentes tamaños de máquina virtual, consulte los artículos sobre los tamaños de máquina virtual [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Una red virtual puede emparejarse con otra red virtual y también conectarse a otra red virtual con una puerta de enlace de red virtual de Azure. Cuando las redes virtuales están conectadas mediante emparejamiento y una puerta de enlace, el tráfico entre las redes virtuales fluye a través de la configuración de emparejamiento, en lugar de la puerta de enlace.

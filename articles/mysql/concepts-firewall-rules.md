@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: c677b0278d29c499d4369967c1c76132a1ae9d21
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 63b3fd64526f45994919267a2f4ddc730d0b2fd7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519854"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882651"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Reglas de firewall del servidor de Azure Database para MySQL
 Los firewalls impiden todo acceso al servidor de bases de datos, excepto a aquellos equipos a los que haya concedido permiso. Asimismo, otorgan acceso al servidor según la dirección IP de origen de cada solicitud.
@@ -25,7 +25,7 @@ De manera predeterminada, el firewall bloque todos los accesos de base de datos 
 
 Los intentos de conexión desde Internet y Azure deben atravesar primero el firewall antes de alcanzar la base de datos de Azure Database for MySQL, tal y como se muestra en el siguiente diagrama:
 
-![Ejemplo de flujo de cómo funciona el firewall](./media/concepts-firewall-rules/1-firewall-concept.png)
+:::image type="content" source="./media/concepts-firewall-rules/1-firewall-concept.png" alt-text="Ejemplo de flujo de cómo funciona el firewall":::
 
 ## <a name="connecting-from-the-internet"></a>Conexión desde Internet
 Las reglas de firewall de nivel de servidor se aplican a todas las bases de datos del servidor de Azure Database for MySQL.
@@ -43,7 +43,7 @@ Si no hay ninguna dirección IP saliente fija disponible para su servicio de Azu
 > La opción **Permitir el acceso a servicios de Azure** configura el firewall para permitir todas las conexiones desde Azure, lo que incluye conexiones desde las suscripciones de otros clientes. Al seleccionar esta opción, asegúrese de que los permisos de usuario y el inicio de sesión limiten el acceso solamente a los usuarios autorizados.
 > 
 
-![Configurar el permiso de acceso a los servicios de Azure en el portal](./media/concepts-firewall-rules/allow-azure-services.png)
+:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="Configurar el permiso de acceso a los servicios de Azure en el portal":::
 
 ### <a name="connecting-from-a-vnet"></a>Conexión desde una red virtual
 Para conectarse de forma segura a su servidor de Azure Database for MySQL desde una red virtual, considere la posibilidad de usar [puntos de conexión de servicio de red virtual](./concepts-data-access-and-security-vnet.md). 

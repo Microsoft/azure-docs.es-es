@@ -4,12 +4,12 @@ description: Obtenga información general acerca de lo que puede hacer con las a
 ms.date: 08/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 035b68afed7383956beb13e367aa7a1f6dfcd070
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 8e57ec698f96826f493d048490ac053672e45895
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258432"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595570"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprender cómo funcionan las alertas de métricas en Azure Monitor
 
@@ -137,13 +137,15 @@ Esta característica se admite actualmente en las métricas de plataforma (no m�
 
 | Servicio | Public Azure (Azure público) | Government | China |
 |:--------|:--------|:--------|:--------|
-| Máquinas virtuales  | **Sí** | No | No |
+| Máquinas virtuales<sup>1</sup>  | **Sí** | No | No |
 | Bases de datos de SQL Server | **Sí** | **Sí** | **Sí** |
 | Grupos elásticos de SQL Server | **Sí** | **Sí** | **Sí** |
 | Grupos de capacidad de NetApp Files | **Sí** | **Sí** | **Sí** |
 | Volúmenes de NetApp Files | **Sí** | **Sí** | **Sí** |
 | Almacenes de claves | **Sí** | **Sí** | **Sí** |
 | Dispositivos Data Box Edge | **Sí** | **Sí** | **Sí** |
+
+<sup>1</sup> No se admite con las métricas de red de máquinas virtuales (Entrada de red total, Salida de red total, Flujos de entrada, Flujos de salida, Velocidad máxima de creación de flujos entrantes, Velocidad máxima de creación de flujos salientes).
 
 El ámbito de supervisión se puede especificar con una sola alerta de métrica de tres formas distintas. Por ejemplo, respecto a las máquinas virtuales, el ámbito se puede especificar como:  
 

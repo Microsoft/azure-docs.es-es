@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 02c733c7849c89f9d48ddbe75ffbb2235e1be58e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 4dced0e0597e4df2fe215c9f4b85e3e8defd92c3
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757292"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230388"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conocidos y solución de problemas en Azure Machine Learning
 
@@ -185,6 +185,8 @@ A veces puede resultar útil proporcionar información de diagnóstico al solici
 
 * **Problemas al crear AmlCompute**: Es posible que algunos usuarios que crearon su área de trabajo de Azure Machine Learning en Azure Portal antes de la versión de disponibilidad general no puedan crear la instancia de AmlCompute en esa área de trabajo. Puede generar una solicitud de soporte técnico en el servicio o crear una nueva área de trabajo mediante el portal o el SDK para desbloquearse a sí mismo inmediatamente.
 
+* **Azure Container Registry no admite actualmente caracteres Unicode en nombres de grupos de recursos**: es posible que aparezcan errores en las solicitudes de ACR porque el nombre de algún grupo de recursos contiene caracteres Unicode. Para mitigar este problema, se recomienda crear un ACR en un grupo de recursos con otro nombre.
+
 ## <a name="work-with-data"></a>Trabajar con datos
 
 ### <a name="overloaded-azurefile-storage"></a>Almacenamiento AzureFile sobrecargado
@@ -208,7 +210,7 @@ Si usa un recurso compartido de archivos para otras cargas de trabajo, como la t
 
 ### <a name="data-labeling-projects"></a>Proyecto de etiquetado de datos
 
-|Incidencia  |Resolución  |
+|Problema  |Resolución  |
 |---------|---------|
 |Solo se pueden usar los conjuntos de datos creados en almacenes de datos de blobs.     |  Se trata de una limitación conocida de la versión actual.       |
 |Después de la creación, el proyecto muestra el mensaje "Initializing" (Inicializando) durante mucho tiempo.     | Actualice manualmente la página. La inicialización debería continuar aproximadamente en 20 puntos de datos por segundo. La falta de actualización automática es un problema conocido.         |
@@ -316,6 +318,26 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 ## <a name="automated-machine-learning"></a>Automated Machine Learning
 
+* La **reciente actualización de las dependencias de AutoML a versiones más recientes anulará la compatibilidad**:  A partir de la versión 1.13.0 del SDK, los modelos no se cargan en los SDK anteriores, ya que existe incompatibilidad entre las versiones anteriores que se anclaron en los paquetes anteriores y las versiones más recientes que se anclan ahora. Verá un error similar a alguno de estos:
+  * Módulo no encontrado: por ejemplo, `No module named 'sklearn.decomposition._truncated_svd`.
+  * Errores de importación: por ejemplo, `ImportError: cannot import name 'RollingOriginValidator'`.
+  * Errores de atributos: por ejemplo, `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
+  
+  Para solucionar este problema, realice uno de los dos pasos siguientes, en función de la versión de entrenamiento del SDK de AutoML:
+  1. Si la versión de entrenamiento del SDK de AutoML es posterior a la 1.13.0, se necesitan `pandas == 0.25.1` y `sckit-learn==0.22.1`. Si hay una discrepancia de versiones, actualice scikit-learn o pandas a la versión correcta, como se muestra a continuación:
+  
+  ```bash
+     pip install --upgrade pandas==0.25.1
+     pip install --upgrade scikit-learn==0.22.1
+  ```
+  
+  2. Si la versión de entrenamiento del SDK de AutoML es la 1.12.0, o anterior, se necesitan `pandas == 0.23.4` y `sckit-learn==0.20.3`. Si hay una discrepancia de versiones, actualice scikit-learn o pandas a la versión correcta como se muestra a continuación:
+  
+  ```bash
+    pip install --upgrade pandas==0.23.4
+    pip install --upgrade scikit-learn==0.20.3
+  ```
+ 
 * **TensorFlow**: A partir de la versión 1.5.0 del SDK, el aprendizaje automático automatizado no instala los modelos de TensorFlow de forma predeterminada. Para instalar TensorFlow y usarlo con los experimentos de aprendizaje automático automatizado, instale TensorFlow==1.12.0 mediante CondaDependecies. 
  
    ```python

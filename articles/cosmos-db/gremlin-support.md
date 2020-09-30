@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 04/23/2020
 ms.author: lbosq
-ms.openlocfilehash: ba3b20f263f37d85389bb11c0674584408a0c223
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 75a796a860acbd4279938b315fafccb9333906bd
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82161646"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567272"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Compatibilidad de Azure Cosmos DB con grafos Gremlin
 Azure Cosmos DB admite el lenguaje de recorrido de grafo de [Apache Tinkerpop](https://tinkerpop.apache.org) conocido como [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). Puede usar el lenguaje Gremlin para crear entidades de grafo (vértices y aristas), modificar las propiedades de las entidades, realizar consultas y recorridos, y eliminar entidades. 
@@ -25,7 +25,7 @@ En la siguiente tabla se muestran los controladores Gremlin populares que puede 
 
 | Descargar | Source | Introducción | Versión del conector admitida |
 | --- | --- | --- | --- |
-| [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET en GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Crear gráfico con .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
+| [.NET](https://tinkerpop.apache.org/docs/3.4.6/reference/#gremlin-DotNet) | [Gremlin.NET en GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Crear gráfico con .NET](create-graph-dotnet.md) | 3.4.6 |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Crear gráfico con Java](create-graph-java.md) | 3.2.0+ |
 | [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript en GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-javascript) | [Crear gráfico con Node.js](create-graph-nodejs.md) | 3.3.4+ |
 | [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python en GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Crear gráfico con Python](create-graph-python.md) | 3.2.7 |

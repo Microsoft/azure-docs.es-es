@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: fe901960c08c83484d9446c9030a273fa185b456
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a3afb12ac831d87b03d0bb16d1b7ef553f1bb906
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237056"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006826"
 ---
 # <a name="how-to-author-and-sign-an-attestation-policy"></a>Procedimiento para crear y firmar una directiva de atestación
 
@@ -58,11 +58,13 @@ Consulte las [notificaciones y las reglas de notificación](claim-rule-grammar.m
 
   ```
   version=1.0;
-  authorizationrules={
+  authorizationrules
+  {
   =>deny();
   };
   
-  issuancerules={
+  issuancerules
+  {
   };
   ```
 
@@ -72,11 +74,13 @@ Consulte las [notificaciones y las reglas de notificación](claim-rule-grammar.m
 
   ```
   version=1.0;
-  authorizationrules={
+  authorizationrules
+  {
   [type=="secureBootEnabled", value==true, issuer=="AttestationService"]=>permit();
   };
   
-  issuancerules={
+  issuancerules
+  {
   };
   ```
 
@@ -86,11 +90,13 @@ Consulte las [notificaciones y las reglas de notificación](claim-rule-grammar.m
 
   ```
   version=1.0;
-  authorizationrules={
+  authorizationrules
+  {
   [type=="secureBootEnabled", value==true, issuer=="AttestationService"]=>permit();
   };
   
-  issuancerules={
+  issuancerules
+  {
   => issue(type="SecurityLevelValue", value=100);
   };
   ```

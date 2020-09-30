@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: d89f0d08fec0b0f341094d422b1091de5a61055e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: bccdb830fba4d55266dc9eff8f06c5ac4e3f2a34
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115771"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706190"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Cómo y por qué se agregan aplicaciones a Azure AD
 
@@ -70,9 +70,9 @@ Al igual que los objetos de aplicación, las entidades de servicio se pueden cre
 
 * Cuando los usuarios inician sesión en una aplicación de terceros integrada con Azure AD.
   * Durante el inicio de sesión, se solicita a los usuarios que proporcionen permiso a la aplicación para acceder a su perfil y otros permisos. La primera persona que dé su consentimiento hará que una entidad de servicio que representa la aplicación se añada al directorio.
-* Cuando los usuarios inician sesión en servicios en línea de Microsoft, como [Office 365](https://products.office.com/).
-  * Al suscribirse a Office 365 o probar una versión de prueba, se crean una o más entidades de servicio en el directorio que representa los distintos servicios que se usan para ofrecer toda la funcionalidad asociada a Office 365.
-  * Algunos servicios de Office 365 como SharePoint crean entidades de servicio de forma continua para permitir una comunicación segura entre los componentes que incluyen los flujos de trabajo.
+* Cuando los usuarios inician sesión en servicios en línea de Microsoft, como [Microsoft 365](https://products.office.com/).
+  * Al suscribirse a Microsoft 365 o probar una versión de prueba, se crean una o más entidades de servicio en el directorio que representa los distintos servicios que se usan para ofrecer toda la funcionalidad asociada a Office 365.
+  * Algunos servicios de Microsoft 365 como SharePoint crean entidades de servicio de forma continua para permitir una comunicación segura entre los componentes que incluyen los flujos de trabajo.
 * Cuando un administrador añade una aplicación desde la galería de aplicaciones (esto también creará un objeto de aplicación subyacente).
 * Al añadir una aplicación para usar el [Azure Active Directory Application Proxy](../manage-apps/application-proxy.md).
 * Al conectar una aplicación para inicio de sesión único utilizando SAML o inicio de sesión único (SSO) de contraseña.
@@ -116,7 +116,7 @@ Las aplicaciones se añaden a Azure AD para aprovechar uno o varios de los servi
 * Inicio de sesión único (SSO) mediante federación o contraseña.
 * Aprovisionamiento y sincronización de usuarios.
 * Control de acceso basado en roles. Utilice el directorio para definir los roles de aplicación para realizar comprobaciones de autorización basadas en roles en una aplicación.
-* Servicios de autorización OAuth. Usados por Office 365 y otras aplicaciones Microsoft para autorizar el acceso a los recursos y las API.
+* Servicios de autorización OAuth. Usados por Microsoft 365 y otras aplicaciones Microsoft para autorizar el acceso a los recursos y las API.
 * Publicación de aplicaciones y proxy. Publique una aplicación desde una red privada en Internet.
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>¿Quién tiene permiso para agregar aplicaciones a la instancia de Azure AD?

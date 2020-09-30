@@ -2,7 +2,7 @@
 title: Documentación de Azure Security Benchmark
 summary: Aprenda a proteger sus soluciones en la nube en Azure con nuestros procedimientos recomendados e instrucciones.
 metadata:
-  title: Pruebas comparativas de la seguridad de Azure
+  title: Prueba comparativa de la seguridad de Azure
   description: La prueba comparativa de seguridad de Azure contiene recomendaciones que le ayudarán a mejorar la seguridad de las aplicaciones y los datos en Azure.
   services: security
   ms.service: security
@@ -13,12 +13,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 12/23/2019
-  ms.openlocfilehash: 705757e3021ff7421dd88e3a2661b1b51f3f927a
-  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+  ms.openlocfilehash: a9b7b40c3f79751a9d67750e428ca14cc024a47b
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88213552"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91328282"
 landingContent:
 - title: Acerca de la prueba comparativa de la seguridad de Azure
   linkLists:
@@ -28,117 +28,165 @@ landingContent:
       url: introduction.md
     - text: Introducción a los controles de seguridad de Azure
       url: overview.md
-    - text: Responsabilidad compartida en la nube
-      url: ../fundamentals/shared-responsibility.md
-    - text: Azure Security Center
-      url: ../../security-center/index.yml
-    - text: Aspectos básicos de la seguridad de Azure
-      url: ../fundamentals/index.yml
-- title: Controles de Azure Security Benchmark
+    - text: Introducción a las líneas de base de seguridad de Azure
+      url: security-baselines-overview.md
+- title: Controles de Azure Security Benchmark V2
   linkLists:
   - linkListType: overview
     links:
     - text: Seguridad de las redes
-      url: security-control-network-security.md
-    - text: Registro y supervisión
-      url: security-control-logging-monitoring.md
-    - text: Control de identidades y acceso
-      url: security-control-identity-access-control.md
+      url: security-controls-v2-network-security.md
+    - text: Administración de identidades
+      url: security-controls-v2-identity-management.md
+    - text: Acceso con privilegios
+      url: security-controls-v2-privileged-access.md
     - text: Protección de los datos
-      url: security-control-data-protection.md
-    - text: Administración de vulnerabilidades
-      url: security-control-vulnerability-management.md
+      url: security-controls-v2-data-protection.md
+    - text: Administración de recursos
+      url: security-controls-v2-asset-management.md
     - text: Ver más
-      url: security-control-inventory-asset-management.md
+      url: security-controls-v2-logging-threat-detection.md
+- title: Más recursos de seguridad de Azure
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Aspectos básicos de la seguridad de Azure
+      url: ../fundamentals/index.yml
+    - text: Responsabilidad compartida en la nube
+      url: ../fundamentals/shared-responsibility.md
+    - text: Azure Security Center
+      url: ../../security-center/index.yml
+- title: Líneas de base de seguridad de IA + Machine Learning
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Databricks
+      url: ../../azure-databricks/security-baseline.md
+    - text: Azure Machine Learning
+      url: ../../machine-learning/security-baseline.md
+    - text: Cognitive Services
+      url: ../../cognitive-services/security-baseline.md
+- title: Líneas de base de seguridad de Analytics
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Base de referencia de seguridad de Azure Data Explorer
+      url: /azure/data-explorer/security-baseline
+    - text: Base de referencia de seguridad de Azure Data Factory
+      url: ../../data-factory/security-baseline.md
+    - text: Línea de base de seguridad de Data Lake Analytics
+      url: ../../data-lake-analytics/security-baseline.md
+    - text: Base de referencia de seguridad de Event Hubs
+      url: ../../event-hubs/security-baseline.md
+    - text: Base de referencia de seguridad de HDInsight
+      url: ../../hdinsight/security-baseline.md
+    - text: Base de referencia de Stream Analytics
+      url: ../../stream-analytics/security-baseline.md
+    - text: Base de referencia de seguridad de Synapse Analytics
+      url: ../../synapse-analytics/security-baseline.md
 - title: Lineas de base de seguridad de Compute
   linkLists:
   - linkListType: overview
     links:
-    - text: Máquinas virtuales Linux
-      url: ../../virtual-machines/linux/security-baseline.md
-    - text: Máquinas virtuales Windows
-      url: ../../virtual-machines/windows/security-baseline.md
-    - text: Virtual Machine Scale Sets
-      url: ../../virtual-machine-scale-sets/security-baseline.md
-    - text: Batch
-      url: ../../batch/security-baseline.md
     - text: Azure Functions
       url: ../../azure-functions/security-baseline.md
-- title: Líneas de base de seguridad de Containers
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Container Instances
+    - text: Batch
+      url: ../../batch/security-baseline.md
+    - text: Azure Container Instances
       url: ../../container-instances/security-baseline.md
     - text: Container Registry
       url: ../../container-registry/security-baseline.md
     - text: Service Fabric
       url: ../../service-fabric/security-baseline.md
-- title: Líneas de base de seguridad de Analytics
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Data Explorer
-      url: /azure/data-explorer/security-baseline
-    - text: Data Lake Analytics
-      url: ../../data-lake-analytics/security-baseline.md
-    - text: Databricks
-      url: ../../azure-databricks/security-baseline.md
-    - text: Data Factory
-      url: ../../data-factory/security-baseline.md
-    - text: HDInsight
-      url: ../../hdinsight/security-baseline.md
+    - text: Azure Storage
+      url: ../../storage/common/security-baseline.md
+    - text: Virtual Machine Scale Sets
+      url: ../../virtual-machine-scale-sets/security-baseline.md
+    - text: Virtual Machines (Linux)
+      url: ../../virtual-machines/linux/security-baseline.md
+    - text: Virtual Machines (Windows)
+      url: ../../virtual-machines/windows/security-baseline.md
 - title: Líneas de base de seguridad de bases de datos
   linkLists:
   - linkListType: overview
     links:
     - text: Azure Cache for Redis
       url: ../../azure-cache-for-redis/security-baseline.md
-    - text: Azure Database for MariaDB
-      url: ../../mariadb/security-baseline.md
     - text: Azure Database for MySQL
       url: ../../mysql/security-baseline.md
-    - text: Azure Database for PostgreDQL
+    - text: Azure Database for MariaDB
+      url: ../../mariadb/security-baseline.md
+    - text: 'Azure Database for PostgreSQL: Un solo servidor'
       url: ../../postgresql/security-baseline.md
-    - text: Azure SQL Database
+    - text: 'Azure Database for PostgreSQL: Hiperescala'
+      url: ../../postgresql/postgresql-hyperscale-security-baseline.md
+    - text: Azure SQL Database
       url: ../../sql-database/security-baseline.md
+    - text: Cosmos DB
+      url: ../../cosmos-db/security-baseline.md
+- title: Líneas de base de seguridad de Integración
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: API Management
+      url: ../../api-management/security-baseline.md
+    - text: Event Grid
+      url: ../../event-grid/security-baseline.md
+    - text: Logic Apps
+      url: ../../logic-apps/security-baseline.md
+- title: Líneas de base de seguridad de Administración y gobernanza
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Automation
+      url: ../../automation/security-baseline.md
+    - text: Azure Backup
+      url: ../../backup/security-baseline.md
+    - text: Azure Monitor
+      url: ../../azure-monitor/security-baseline.md
+    - text: Azure Policy
+      url: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
+    - text: Azure Resource Graph
+      url: ../../governance/resource-graph/concepts/azure-security-benchmark-baseline.md
 - title: Líneas base de seguridad de Redes
   linkLists:
   - linkListType: overview
     links:
     - text: Application Gateway
       url: ../../application-gateway/security-baseline.md
-    - text: DDOS Protection
-      url: ../fundamentals/ddos-protection-security-baseline.md
-    - text: Azure ExpressRoute
-      url: ../../expressroute/security-baseline.md
+    - text: Azure DNS
+      url: ../../dns/security-baseline.md
     - text: Azure Firewall
       url: ../../firewall/security-baseline.md
+    - text: Azure Private Link
+      url: ../../private-link/security-baseline.md
+    - text: IP pública de Azure
+      url: ../../virtual-network/public-ip-security-baseline.md
+    - text: DDOS Protection
+      url: ../fundamentals/ddos-protection-security-baseline.md
+    - text: ExpressRoute
+      url: ../../expressroute/security-baseline.md
     - text: Network Watcher
       url: ../../network-watcher/security-baseline.md
-- title: Líneas base de seguridad
+- title: Líneas de base del servicio de seguridad
   linkLists:
   - linkListType: overview
     links:
+    - text: Azure Sentinel
+      url: ../../sentinel/security-baseline.md
+    - text: Caja de seguridad del cliente
+      url: ../fundamentals/customer-lockbox-security-baseline.md
     - text: Key Vault
       url: ../../key-vault/security-baseline.md
     - text: Security Center
       url: ../../security-center/security-baseline.md
-    - text: Caja de seguridad del cliente
-      url: ../fundamentals/customer-lockbox-security-baseline.md
-    - text: Azure Policy
-      url: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
-- title: Administración e integración
+- title: Líneas de base de seguridad adicionales
   linkLists:
   - linkListType: overview
     links:
-    - text: Automation
-      url: ../../automation/security-baseline.md
-    - text: Backup
-      url: ../../backup/security-baseline.md
-    - text: API Management
-      url: ../../api-management/security-baseline.md
-    - text: Event Grid
-      url: ../../event-hubs/security-baseline.md
-    - text: Logic Apps
-      url: ../../logic-apps/security-baseline.md
+    - text: Azure Data Box
+      url: ../../databox/security-baseline.md
+    - text: Azure DevTest Labs
+      url: ../../devtest-labs/security-baseline.md
+    - text: Azure IoT Hub
+      url: ../../iot-hub/security-baseline.md

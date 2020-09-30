@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 70dcee1cce49c658a60e98821a3ce60ec443408a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f4a345fe62a1d13a6be7dc71ecc0529fec2a6a4e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932583"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401510"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Key Vault para Windows
 
@@ -206,7 +206,7 @@ La CLI de Azure puede usarse para implementar la extensión de máquina virtual 
 Tenga en cuenta las restricciones y los requisitos siguientes:
 - Restricciones de Key Vault:
   - Debe existir en el momento de la implementación. 
-  - La directiva de acceso de Key Vault está establecida para la identidad de VM/VMSS mediante MSI
+  - La directiva de acceso de Key Vault debe estar establecida para la identidad de VM/VMSS mediante una identidad administrada. Consulte [Autenticación en Key Vault](/azure/key-vault/general/authentication) y [Asignación de una directiva de acceso de Key Vault](/azure/key-vault/general/assign-access-policy-cli).
 
 
 ## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia

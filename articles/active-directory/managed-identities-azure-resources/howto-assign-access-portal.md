@@ -3,7 +3,7 @@ title: 'Asignación de acceso de una identidad administrada a un recurso mediant
 description: Instrucciones paso a paso para asignar a una identidad administrada de un recurso acceso a otro recurso, mediante Azure Portal.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2af718c3555176167eb154b0a718218c42e93dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee28addd5f6ac0faaf03d29d712c4e750ed6e293
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608303"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177489"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-by-using-the-azure-portal"></a>Asignación de acceso de una identidad administrada a un recurso mediante Azure Portal
 
@@ -33,7 +33,7 @@ Una vez que haya configurado un recurso de Azure con una identidad administrada,
 - Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#managed-identity-types)** .
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 
-## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Uso de RBAC para asignar el acceso de una identidad administrada a otro recurso
+## <a name="use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Uso de Azure RBAC para asignar el acceso de una identidad administrada a otro recurso
 
 Después de habilitar la identidad administrada en un recurso de Azure, como una [máquina virtual de Azure](qs-configure-portal-windows-vm.md) o un [conjunto de escalado de máquinas virtuales de Azure](qs-configure-portal-windows-vmss.md):
 

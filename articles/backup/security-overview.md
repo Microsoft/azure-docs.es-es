@@ -3,12 +3,12 @@ title: Introducción a las características de seguridad
 description: Obtenga información sobre las funcionalidades de seguridad de Azure Backup que le ayudan a proteger los datos de copia de seguridad y a satisfacer las necesidades de seguridad de su negocio.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: f9a505723b40df61665a99e898d59ecfb8c03fd5
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 62f4e6783d4c2c2e09b7b4cbb41ae98ac2779ebe
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890474"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012558"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Introducción a las características de seguridad de Azure Backup
 
@@ -36,7 +36,7 @@ Con Azure Backup, que incluye copias de seguridad de máquina virtual y copias d
 
 La copia de seguridad de las máquinas virtuales de Azure precisa que se muevan los datos del disco de la máquina virtual al almacén de Recovery Services. Sin embargo, todas las comunicaciones y transferencias de datos necesarias solo se producen en la red troncal de Azure, sin necesidad de acceder a la red virtual. Por lo tanto, la copia de seguridad de las máquinas virtuales de Azure colocadas dentro de redes protegidas no requiere que permita el acceso a direcciones IP ni nombres de dominio completo.
 
-## <a name="private-endpoints-for-azure-backup"></a>Puntos de conexión privados en Azure Backup
+## <a name="private-endpoints-for-azure-backup"></a>Puntos de conexión privados para Azure Backup
 
 Ahora puede usar [puntos de conexión privados](../private-link/private-endpoint-overview.md) para realizar copias de seguridad de los datos de forma segura desde los servidores de una red virtual al almacén de Recovery Services. El punto de conexión privado usa una dirección IP del espacio de direcciones de la red virtual para el almacén, por lo que no es necesario exponer las redes virtuales a ninguna dirección IP pública. Los puntos de conexión privados se pueden usar para realizar copias de seguridad y restaurar las bases de datos de SQL y SAP HANA que se ejecutan dentro de las máquinas virtuales de Azure. También se puede usar para los servidores locales mediante el agente de MARS.
 
@@ -70,7 +70,7 @@ El servicio Azure Backup usa el agente de Microsoft Azure Recovery Services (MAR
 
 * Los datos de copia de seguridad eliminados se conservan durante 14 días a partir de la fecha de la eliminación. Esto garantiza la capacidad de recuperación de los datos en un período dado, con el fin de que no haya pérdida de datos aunque se produzca un ataque. Además, se mantiene un mayor número de puntos de recuperación mínimos para protegerse contra datos dañados. [Más información sobre la recuperación de datos de copia de seguridad eliminados](./backup-azure-security-feature.md#recover-deleted-backup-data).
 
-* En el caso de los datos cuya copia de seguridad se ha realizado mediante el agente de Microsoft Azure Recovery Services (MARS), se usa una frase de contraseña para asegurarse de que los datos se cifran antes de la carga en Azure Backup y se descifran solo después de la descarga desde Azure Backup. Los detalles de la frase de contraseña solo están disponibles para el usuario que creó dicha frase y para el agente que se configura con ella. No se transmite ni se comparte nada con el servicio. Esto garantiza la seguridad completa de los datos, ya que cualquier dato que se exponga involuntariamente (por ejemplo, en un ataque de tipo "Man in the Middle" en la red) no se podrá usar sin la frase de contraseña y esta no se envía a la red.
+* En el caso de los datos cuya copia de seguridad se ha realizado mediante el agente de Microsoft Azure Recovery Services (MARS), se usa una frase de contraseña para asegurarse de que los datos se cifran antes de la carga en Azure Backup y se descifran solo después de la descarga desde Azure Backup. Los detalles de la frase de contraseña solo están disponibles para el usuario que creó dicha frase y para el agente que se configura con ella. No se transmite ni se comparte nada con el servicio. Esto garantiza la seguridad completa de los datos, ya que cualquier dato que se exponga involuntariamente (por ejemplo, en un ataque de tipo "Man in the Middle" en la red) no se podrá usar sin la frase de contraseña y esta no se envía a través de la red.
 
 ## <a name="compliance-with-standardized-security-requirements"></a>Cumplimiento de los requisitos de seguridad estandarizados
 

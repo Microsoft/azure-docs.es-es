@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 08/10/2020
-  ms.openlocfilehash: 66095427637b52d9bc220cba911c3099fd8f397c
-  ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+  ms.date: 09/24/2020
+  ms.openlocfilehash: 9f5117a43ce406603a3a691d59fb9f651ad20c7b
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/12/2020
-  ms.locfileid: "88135953"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91318439"
 landingContent:
 - title: Acerca de Azure Policy
   linkLists:
@@ -27,8 +27,12 @@ landingContent:
       url: ./concepts/effects.md
     - text: Estructura de definición
       url: ./concepts/definition-structure.md
+    - text: Ámbito
+      url: ./concepts/scope.md
     - text: Estructura de asignación
       url: ./concepts/assignment-structure.md
+    - text: Estructura de exención
+      url: ./concepts/exemption-structure.md
   - linkListType: video
     links:
     - text: Azure Policy, compilación 2018
@@ -43,6 +47,8 @@ landingContent:
       url: ./assign-policy-azurecli.md
     - text: Asignación de una directiva (Azure PowerShell)
       url: ./assign-policy-powershell.md
+    - text: Asignación de una directiva (JavaScript)
+      url: ./assign-policy-javascript.md
     - text: Asignación de una directiva (Python)
       url: ./assign-policy-python.md
     - text: Asignación de una directiva (REST)
@@ -91,6 +97,8 @@ landingContent:
       url: ./how-to/get-compliance-data.md
     - text: Determinación de las causas de incumplimiento
       url: ./how-to/determine-non-compliance.md
+    - text: Recursos excluidos
+      url: ./concepts/exemption-structure.md
     - text: Corrección de recursos no compatibles
       url: ./how-to/remediate-resources.md
 - title: Participación

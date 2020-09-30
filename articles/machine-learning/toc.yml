@@ -15,21 +15,27 @@
 - name: Tutoriales
   expanded: true
   items:
-    - name: SDK de Python
+    - name: "Introducción al día\_1 de Python"
       expanded: true
       items:
-        - name: Creación del primer experimento de Machine Learning
-          items:
-            - name: 1. Configuración del área de trabajo y el entorno de desarrollo
-              href: tutorial-1st-experiment-sdk-setup.md
-            - name: 2. Entrenamiento del primer modelo
-              href: tutorial-1st-experiment-sdk-train.md
+        - name: 1. Configuración del equipo local
+          href: tutorial-1st-experiment-sdk-setup-local.md
+        - name: 2. "Hello world"
+          href: tutorial-1st-experiment-hello-world.md
+        - name: 3. Entrenamiento de un modelo
+          href: tutorial-1st-experiment-sdk-train.md
+        - name: 4. Traiga sus propios datos
+          href: tutorial-1st-experiment-bring-data.md
+    - name: Cuadernos de Jupyter Notebook
+      items:
         - name: Clasificación de imágenes (datos MNIST)
           items:
-            - name: 1. Entrenamiento de un modelo
+            - name: 1. Configuración de instancias de proceso
+              href: tutorial-1st-experiment-sdk-setup.md
+            - name: 2. Entrenamiento de un modelo
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
-            - name: 2. Implementar un modelo
+            - name: 3. Implementar un modelo
               href: tutorial-deploy-models-with-aml.md
         - name: Regresión con aprendizaje automático automatizado (datos de taxis de Nueva York)
           items:
@@ -92,8 +98,6 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
 - name: Conceptos
   items:
-    - name: Ediciones Enterprise y Básico
-      href: concept-editions.md
     - name: Planificación y administración de costos
       displayName: low priority VM
       href: concept-plan-manage-cost.md
@@ -103,9 +107,9 @@
           displayName: studio
           href: concept-designer.md
         - name: Hoja de referencia de algoritmos
-          href: /azure/machine-learning/algorithm-cheat-sheet
+          href: algorithm-cheat-sheet.md
         - name: Selección de algoritmos
-          href: /azure/machine-learning/how-to-select-algorithms
+          href: how-to-select-algorithms.md
     - name: Machine Learning Automatizado
       items:
         - name: Introducción a ML automatizado
@@ -166,9 +170,21 @@
               href: how-to-use-azure-ad-identity.md
         - name: Seguridad de las redes
           items:
-            - name: Uso de redes virtuales
+            - name: Introducción a las redes virtuales
               displayName: 'vnet, blob'
-              href: how-to-enable-virtual-network.md
+              href: how-to-network-security-overview.md
+            - name: Protección de los recursos de un área de trabajo
+              displayName: 'vnet, workspace, container instance, container registry'
+              href: how-to-secure-workspace-vnet.md
+            - name: Protección de un entorno de entrenamiento
+              displayName: vnet
+              href: how-to-secure-training-vnet.md
+            - name: Protección de un entorno de inferencia
+              displayName: vnet
+              href: how-to-secure-inferencing-vnet.md
+            - name: Uso de Studio en una red virtual
+              displayName: vnet
+              href: how-to-enable-studio-virtual-network.md
             - name: Uso de Private Link
               displayName: private endpoint
               href: how-to-configure-private-link.md
@@ -189,6 +205,9 @@
         - name: Codificación segura
           href: concept-secure-code-best-practice.md
           displayName: security threat
+        - name: Auditoría y administración del cumplimiento
+          href: how-to-integrate-azure-policy.md
+          displayName: policy
     - name: Aprendizaje automático responsable
       items:
         - name: Introducción al aprendizaje automático responsable
@@ -224,6 +243,9 @@
         - name: Uso del SDK de Python
           displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority'
           href: how-to-create-attach-compute-sdk.md
+        - name: Azure Kubernetes Service
+          displayName: 'AKS, inference'
+          href: how-to-create-attach-kubernetes.md
     - name: Configurar el entorno
       items:
         - name: Configuración de entornos de desarrollo
@@ -272,12 +294,15 @@
               href: how-to-designer-import-data.md
         - name: Acceso a los datos
           items:
-            - name: Conectar a Azure Storage
+            - name: Conexión a Azure Storage (Python)
               displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore'
               href: how-to-access-data.md
-            - name: Obtención de datos desde un almacén de datos
+            - name: Obtención de datos desde un almacén de datos (Python)
               displayName: 'data, data set, register, access data'
               href: how-to-create-register-datasets.md
+            - name: Conexión a datos (interfaz de usuario)
+              displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore, dataset, data set'
+              href: how-to-connect-data-ui.md
         - name: Administración y consumo de datos
           items:
             - name: Entrenamiento con conjuntos de datos
@@ -304,6 +329,14 @@
             - name: Ajuste de hiperparámetros
               displayName: parameter
               href: how-to-tune-hyperparameters.md
+        - name: Uso de MLflow
+          items:
+            - name: Seguimiento de experimentos con MLflow
+              displayName: 'log, monitor, deploy, metrics,  model registry, register'
+              href: how-to-use-mlflow.md
+            - name: Seguimiento de las ejecuciones de Azure Databricks con MLflow
+              displayName: 'log, monitor, deploy, metrics, databricks'
+              href: how-to-use-mlflow-azure-databricks.md
         - name: Scikit-learn
           href: how-to-train-scikit-learn.md
         - name: TensorFlow
@@ -325,9 +358,6 @@
             - name: Ver registros
               displayName: 'troubleshoot, log, files, tracing'
               href: how-to-monitor-view-training-logs.md
-            - name: Seguimiento de experimentos con MLflow
-              displayName: 'log, monitor, metrics, Databricks'
-              href: how-to-use-mlflow.md
             - name: Visualización de ejecuciones con TensorBoard
               displayName: 'log, monitor, metrics'
               href: how-to-monitor-tensorboard.md
@@ -433,6 +463,9 @@
         - name: Modelos de perfil
           displayName: profile resource requirement
           href: how-to-deploy-profile-model.md
+        - name: Implementación de modelos del diseñador
+          displayName: 'designer, studio'
+          href: how-to-deploy-model-designer.md
         - name: (Versión preliminar) Implementación sin código
           displayName: no code
           href: how-to-deploy-no-code-deployment.md
@@ -520,6 +553,12 @@
       href: reference-pipeline-yaml.md
     - name: Paridad de nubes soberanas
       href: reference-machine-learning-cloud-parity.md
+    - name: Elementos integrados de Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
+    - name: Entornos mantenidos
+      displayName: 'environments, curated environments'
+      href: resource-curated-environments.md
 - name: Recursos
   items:
     - name: Notas de la versión
@@ -546,6 +585,3 @@
     - name: Características de accesibilidad del diseñador
       displayName: 'accessibility, designer, visual interface, screen reader, keyboard shortcuts'
       href: designer-accessibility.md
-    - name: Entornos mantenidos
-      displayName: 'environments, curated environments'
-      href: resource-curated-environments.md

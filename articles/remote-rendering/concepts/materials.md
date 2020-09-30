@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4c9de26d9a83319eee62cf6d30cf2c83f66446fb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f8f3a0d0ec79624fb709bb80b8392e2ad8d6f7ce
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020259"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613878"
 ---
 # <a name="materials"></a>Materiales
 
@@ -82,6 +82,16 @@ void SetMaterialColorToGreen(ApiHandle<Material> material)
 }
 ```
 
+## <a name="api-documentation"></a>Documentación de la API
+
+* [Clase Material de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.material)
+* [Clase ColorMaterial de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.colormaterial)
+* [Clase PbrMaterial de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
+* [RemoteManager.CreateMaterial() de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [Clase Material de C++](https://docs.microsoft.com/cpp/api/remote-rendering/material)
+* [Clase ColorMaterial de C++](https://docs.microsoft.com/cpp/api/remote-rendering/colormaterial)
+* [Clase PbrMaterial de C++](https://docs.microsoft.com/cpp/api/remote-rendering/pbrmaterial)
+* [RemoteManager::CreateMaterial() de C++](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#creatematerial)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

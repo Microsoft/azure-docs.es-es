@@ -6,14 +6,38 @@ metadata:
   ms.topic: landing-page
   author: erikadoyle
   ms.author: edoyle
-  ms.date: 12/04/2019
-  ms.openlocfilehash: a2651387a425439d09ad68b0e763ff0c6c3f7f27
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 07/31/2020
+  ms.openlocfilehash: 9bce6570cef2703bf1ad63d92c55bb3794927a8b
+  ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "75452224"
+  ms.lasthandoff: 09/28/2020
+  ms.locfileid: "91408708"
 landingContent:
+- title: Pruebe los clústeres administrados de Service Fabric (versión preliminar)
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Qué son los clústeres administrados de Service Fabric (versión preliminar)
+      url: overview-managed-cluster.md
+    - text: Implementación de un clúster administrado (versión preliminar)
+      url: quickstart-managed-cluster-template.md
+  - linkListType: tutorial
+    links:
+    - text: Creación de un clúster administrado (versión preliminar)
+      url: tutorial-managed-cluster-deploy.md
+    - text: Escalado horizontal de un tipo de nodo de clúster administrado (versión preliminar)
+      url: tutorial-managed-cluster-scale.md
+    - text: Adición y eliminación de tipos de nodo de clúster administrados (versión preliminar)
+      url: tutorial-managed-cluster-add-remove-node-type.md
+    - text: Implementación de una aplicación en un clúster administrado (versión preliminar)
+      url: tutorial-managed-cluster-deploy-app.md
+    - text: Adición de una extensión del conjunto de escalado de máquina virtual a un tipo de nodo de clúster administrado (versión preliminar)
+      url: how-to-managed-cluster-vmss-extension.md
+  - linkListType: whats-new
+    links:
+    - text: Preguntas frecuentes sobre los clústeres administrados de Service Fabric
+      url: faq-managed-cluster.md
 - title: Acerca de Service Fabric
   linkLists:
   - linkListType: overview

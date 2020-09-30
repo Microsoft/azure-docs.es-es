@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 763a13cf2ecbe845619101bc9e325cc51564260a
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: b8a0a8093ab5f4d6c5e528bce592d5c029de30a7
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553400"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400048"
 ---
 # <a name="scenario-isolating-vnets"></a>Escenario: Aislamiento de redes virtuales
 
@@ -29,7 +29,7 @@ En este escenario, la carga de trabajo dentro de una red virtual concreta perman
 | Redes virtuales     | &#8594;|           |     X    |
 | Ramas   | &#8594;|    X     |     X    |
 
-Cada una de las celdas de la tabla anterior describe si una conexión de Virtual WAN (el lado "From" del flujo, los encabezados de fila) aprende un prefijo de destino (el lado "To"del flujo, los encabezados de columna en cursiva) de un flujo de tráfico concreto.
+Cada una de las celdas de la tabla anterior describe si una conexión de Virtual WAN (el lado "From" del flujo, los encabezados de fila) aprende un prefijo de destino (el lado "To" del flujo, los encabezados de columna en cursiva) para un flujo de tráfico concreto, donde una "X" significa que la conectividad la proporciona Virtual WAN.
 
 Esta matriz de conectividad nos proporciona dos patrones de fila diferentes, que se traducen en dos tablas de enrutamiento. Virtual WAN ya tiene una tabla de enrutamiento predeterminada, por lo que hará falta otra. En este ejemplo, se asignará el nombre **RT_VNET** a la tabla de enrutamiento.
 

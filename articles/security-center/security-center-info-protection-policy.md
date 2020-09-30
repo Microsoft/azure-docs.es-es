@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: abcdc903e1509c266b9ea6666c296a59183e83c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7586cca21d470bcb0cf637ca0370f5dfcb59406
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711092"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901109"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalización de la directiva de SQL Information Protection en Azure Security Center (versión preliminar)
  
@@ -56,7 +56,7 @@ Para personalizar la directiva de protección de información de su inquilino de
  
 4. Las etiquetas se muestran en orden de sensibilidad ascendente. Para cambiar la clasificación entre las etiquetas, arrastre las etiquetas para volver a ordenarlas en la tabla o use los botones **Subir** y **Bajar** para cambiar el orden. 
  
-    ![Configuración de la directiva de protección de información](./media/security-center-info-protection-policy/move-up.png)
+    ![Lista de etiquetas](./media/security-center-info-protection-policy/move-up.png)
  
 5. Haga clic en **Guardar** en la parte superior de la pantalla cuando haya terminado.
  
@@ -66,7 +66,7 @@ Para personalizar la directiva de protección de información de su inquilino de
 1. Puede administrar y personalizar los tipos de información haciendo clic en **Administrar tipos de información**.
 2. Para agregar un nuevo **tipo de información**, seleccione **Crear tipo de información** en el menú superior. Puede configurar un nombre, una descripción y cadenas de patrón de búsqueda para el **tipo de información**. Las cadenas de patrón de búsqueda pueden usar opcionalmente palabras clave con caracteres comodín (con el carácter "%"), que el motor de detección automática usa para identificar datos confidenciales en las bases de datos, en función de los metadatos de las columnas.
  
-    ![Configuración de la directiva de protección de información](./media/security-center-info-protection-policy/info-types.png)
+    ![Creación de tipo de información](./media/security-center-info-protection-policy/info-types.png)
  
 3. También puede configurar la opción integrada **Tipos de información** mediante la adición de las cadenas de patrón de búsqueda adicional, desactivando algunas de las cadenas existentes o cambiando la descripción. Los **tipos de información** integrados no se pueden eliminar ni se pueden editar sus nombres. 
 4. Los **tipos de información** se enumeran en orden ascendente de detección, lo que significa que se intentará que los tipos que aparezcan más arriba en la lista coincidan antes. Para cambiar la clasificación entre los tipos de información, arrastre los tipos al lugar correcto para volver a ordenarlas en la tabla o usar los botones **Subir** y **Bajar** para cambiar el orden. 

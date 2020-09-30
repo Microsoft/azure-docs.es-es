@@ -3,12 +3,12 @@ title: Matriz de compatibilidad de MABS y System Center DPM
 description: En este artículo se resume la compatibilidad de Azure Backup al usar Microsoft Azure Backup Server (MABS) o System Center DPM para realizar copias de seguridad de recursos locales y de VM de Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 26d9e3012749298a781cd611866bc6d0a6596979
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e3ca83b8a2874304521d84f6901fcb9627ce80db
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825229"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506617"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de compatibilidad para copia de seguridad con Microsoft Azure Backup Server o System Center DPM
 
@@ -114,10 +114,10 @@ Puede implementar MABS en una máquina virtual de Azure Stack para poder adminis
 El servidor DPM/MABS también necesita acceder a estas direcciones URL:
 
 - `http://www.msftncsi.com/ncsi.txt`
-- *.Microsoft.com
-- *.WindowsAzure.com
-- *.microsoftonline.com
-- \* .windows.net
+- `*.Microsoft.com`
+- `*.WindowsAzure.com`
+- `*.microsoftonline.com`
+- `*.windows.net`
 
 ### <a name="azure-expressroute-support"></a>Compatibilidad con Azure ExpressRoute
 

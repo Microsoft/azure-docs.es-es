@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: 9f16ab34dc9b37806f9c58b22a3f02afe839632e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5eaf17281fef32d682a2dac17b379faf7ec23a53
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73839163"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970092"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Utilizar el editor de Video Indexer para crear proyectos
 
@@ -51,7 +51,7 @@ En este artículo se muestra cómo crear un proyecto desde cero y también cómo
     
     Por ejemplo, en la imagen siguiente estamos buscando vídeos en los que se mencione “GitHub”.
     
-    ![GitHub](./media/video-indexer-view-edit/github.png)
+    ![Captura de pantalla que muestra la búsqueda de vídeos que mencionan GitHub con dos resultados.](./media/video-indexer-view-edit/github.png)
 
     Puede filtrar aún más los resultados seleccionando **Filter results** (Filtrar resultados). Puede filtrar los vídeos para que se muestren los que contengan una determinada persona o para especificar que solo quiere ver los resultados de vídeos que estén en un idioma determinado o que sean de un propietario concreto. <br/> También puede especificar el ámbito de la consulta. Por ejemplo, si desea buscar “GitHub” en el reconocimiento óptico de caracteres, seleccione **Solo texto visual**.
 
@@ -63,7 +63,7 @@ En este artículo se muestra cómo crear un proyecto desde cero y también cómo
 
     Puede cambiar el orden de los vídeos arrastrándolos y soltándolos o seleccionando el botón de menú de la lista y seleccionando **Move down** (Bajar) o **Move up** (Subir). Desde el menú de lista, también podrá quitar el vídeo de este proyecto. 
 
-    ![Reorganizar](./media/video-indexer-view-edit/rearrange.png)
+    ![Captura de pantalla que muestra Video Indexer con un menú contextual para uno de los vídeos que se van a quitar, borrar la selección o bajar.](./media/video-indexer-view-edit/rearrange.png)
     
     Puede agregar más vídeos a este proyecto en cualquier momento seleccionando **Add videos** (Agregar vídeos). También puede agregar al proyecto varias instancias del mismo vídeo. Esto podría interesarle si quisiera mostrar un clip de un vídeo, después un clip de otro vídeo y, por último, otro clip del primero. 
 
@@ -81,7 +81,7 @@ Si hace clic en la flecha hacia abajo de la derecha de cada vídeo, se abrirá i
 
     Por ejemplo, si quiere ver clips en los que se menciona GitHub mientras Donovan Brown está en pantalla, agregue el filtro “include” (incluir) que tenga “People” (Personas) como tipo de información. Después deberá escribir “Donovan Brown” en el cuadro de búsqueda del filtro.
     
-    ![Include](./media/video-indexer-view-edit/include.png)
+    ![Captura de pantalla que muestra Video Indexer con personas seleccionadas para un filtro de inclusión.](./media/video-indexer-view-edit/include.png)
     
     Si quiere ver clips en los que se menciona GitHub mientras Donovan Brown _no_ está en pantalla, cambie el filtro “include” (incluir) por el filtro “exclude” (excluir) usando el menú desplegable. 
 
@@ -96,7 +96,7 @@ Si hace clic en la flecha hacia abajo de la derecha de cada vídeo, se abrirá i
 > [!TIP]
 > A medida que seleccione y ordene los clips, puede obtener una vista previa del vídeo en el reproductor situado en el lado derecho de la página. 
 
-![Vista previa](./media/video-indexer-view-edit/preview.png)
+![Captura de pantalla que muestra Video Indexer con la vista previa de un vídeo en el lado derecho de la ventana.](./media/video-indexer-view-edit/preview.png)
 
 Recuerde que, cuando haga cambios, deberá guardar el proyecto seleccionando **Save project** (Guardar proyecto). 
 
@@ -107,7 +107,7 @@ Recuerde que, cuando haga cambios, deberá guardar el proyecto seleccionando **S
 
 1. Cuando haya terminado, guarde el proyecto. Ahora puede renderizar este proyecto. Seleccione **Render and Download** (Renderizar y descargar). 
 
-    ![Save](./media/video-indexer-view-edit/save.png)
+    ![Captura de pantalla que muestra Video Indexer con la opción para presentar y descargar el proyecto.](./media/video-indexer-view-edit/save.png)
 
     Verá un menú emergente en el que se le indica que Video  Indexer renderizará un archivo y después le enviará el vínculo de descarga al correo. Seleccione Proceed (Continuar). 
     

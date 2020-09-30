@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 758846e2b4bfa42c9f6db0dc330c12e38a2f8c96
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 25be55021e4f07b0803d8b7cc1bb48ab05a3ea3b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432354"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889606"
 ---
 # <a name="debug-user-defined-functions-in-azure-stream-analytics"></a>Depuración de funciones definidas por el usuario en Azure Stream Analytics 
 
@@ -47,7 +47,7 @@ La compilación se produce cuando se compila o se ejecuta el proyecto de Stream 
 
 Dado que no hay compatibilidad con la depuración de las funciones de JavaScript directamente en Stream Analytics, puede realizar la depuración si encapsula la función en un sitio HTML y obtiene la salida desde allí.
 
-En el ejemplo siguiente se muestra cómo se depuran UDF de JavaScript con algunas limitaciones en un entorno de ejecución integrado en [Visual Studio Code](quick-create-vs-code.md).
+En el ejemplo siguiente se muestra cómo se depuran UDF de JavaScript con algunas limitaciones en un entorno de ejecución integrado en [Visual Studio Code](quick-create-visual-studio-code.md).
 
 ### <a name="prerequisites"></a>Requisitos previos
 

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0b8e107fb377a30b35f0941b89c490e11fc458c
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: cf6e02ebad2ac5150be4775ad0ff6069fe3db89f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783542"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980055"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Creación y administración de un catálogo de recursos en la administración de derechos de Azure AD
 
@@ -100,6 +100,7 @@ Puede quitar recursos de un catálogo. Solo se puede quitar un recurso de un cat
 1. Seleccione los recursos que quiera quitar.
 
 1. Haga clic en **Quitar** (o haga clic en el botón de puntos suspensivos ( **...** ) y, luego, en **Quitar recurso**).
+
 
 ## <a name="add-additional-catalog-owners"></a>Incorporación de otros propietarios del catálogo
 

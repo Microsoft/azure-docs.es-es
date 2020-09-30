@@ -10,15 +10,15 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5a532ec11cdcd97bd1f72c40f603bce7cc4b12c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 794e2c8b436b6a6dfa736bef59eb2ad0bda83bc2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611771"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893132"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Instalación y uso de la extensión de la CLI para Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 La CLI de Azure Machine Learning es una extensión de la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), una interfaz de la línea de comandos multiplataforma para la plataforma Azure. Esta extensión proporciona comandos para trabajar con Azure Machine Learning. Permite automatizar las actividades de aprendizaje automático. En esta lista se muestran algunas acciones de ejemplo que puede realizar con la extensión de la CLI:
 
@@ -111,9 +111,6 @@ Los siguientes comandos muestran cómo utilizar la CLI para administrar los recu
     az ml workspace create -w myworkspace -g myresourcegroup
     ```
 
-    > [!TIP]
-    > Este comando crea un área de trabajo de edición básica. Para crear un área de trabajo empresarial, use el modificador `--sku enterprise` con el comando `az ml workspace create`. Para más información sobre las ediciones de Azure Machine Learning, consulte [¿Qué es Azure Machine Learning?](overview-what-is-azure-ml.md#sku).
-
     Para más información, consulte [az ml workspace create](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create).
 
 + Adjunte una configuración de área de trabajo a una carpeta para permitir el reconocimiento contextual de la CLI.
@@ -150,15 +147,49 @@ Los siguientes comandos muestran cómo utilizar la CLI para administrar los recu
 
     Para más información, consulte [az ml computetarget attach aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks)
 
-+ Cree un nuevo destino AMLcompute.
+### <a name="compute-clusters"></a>Clústeres de proceso
+
++ Cree un nuevo clúster de proceso administrado.
 
     ```azurecli-interactive
     az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
     ```
 
-    Para más información, consulte [az ml computetarget create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
 
-+ <a id="computeinstance"></a>Administrar instancias de proceso.  En todos los siguientes ejemplos, el nombre de la instancia de proceso es **CPU**
+
++ Cree un nuevo clúster de proceso administrado con identidad administrada.
+
+  + Identidad administrada asignada por el usuario
+
+    ```azurecli
+    az ml computetarget create amlcompute --name cpu-cluster --vm-size Standard_NC6 --max-nodes 5 --assign-identity '/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'
+    ```
+
+  + Identidad administrada asignada por el sistema
+
+    ```azurecli
+    az ml computetarget create amlcompute --name cpu-cluster --vm-size Standard_NC6 --max-nodes 5 --assign-identity '[system]'
+    ```
++ Agregue una identidad administrada a un clúster existente:
+
+    + Identidad administrada asignada por el usuario
+        ```azurecli
+        az ml computetarget amlcompute identity assign --name cpu-cluster '/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'
+        ```
+    + Identidad administrada asignada por el sistema
+
+        ```azurecli
+        az ml computetarget amlcompute identity assign --name cpu-cluster '[system]'
+        ```
+
+Para más información, consulte [az ml computetarget create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
+
+[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-note.md)]
+
+<a id="computeinstance"></a>
+
+### <a name="compute-instance"></a>Instancia de proceso
+Administrar instancias de proceso.  En todos los siguientes ejemplos, el nombre de la instancia de proceso es **CPU**
 
     + Crear una nueva computeinstance.
 
@@ -212,7 +243,7 @@ Los siguientes comandos muestran cómo utilizar la CLI para administrar los recu
     > [!TIP]
     > El comando `az ml folder attach` crea un subdirectorio `.azureml`, que contiene dos archivos runconfig de ejemplo. 
     >
-    > Si tiene un script de Python que crea un objeto de configuración de ejecución mediante programación, puede usar [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) para guardarlo como un archivo runconfig.
+    > Si tiene un script de Python que crea un objeto de configuración de ejecución mediante programación, puede usar [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#&preserve-view=truesave-path-none--name-none--separate-environment-yaml-false-) para guardarlo como un archivo runconfig.
     >
     > El esquema runconfig completo se puede encontrar en este [archivo JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). El esquema se documenta automáticamente mediante la clave `description` de cada objeto. Además, hay enumeraciones de valores posibles y un fragmento de código de plantilla al final.
 
@@ -225,6 +256,36 @@ Los siguientes comandos muestran cómo utilizar la CLI para administrar los recu
     ```
 
     Para obtener más información, consulte [az ml experiment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
+
+### <a name="hyperdrive-run"></a>Ejecución de HyperDrive
+
+Puede usar HyperDrive con la CLI de Azure para realizar ejecuciones de ajuste de parámetros. En primer lugar, cree un archivo de configuración de HyperDrive con el siguiente formato. Consulte el artículo sobre el [ajuste de hiperparámetros del modelo](how-to-tune-hyperparameters.md) para obtener más información sobre los parámetros de ajuste de hiperparámetros.
+
+```yml
+# hdconfig.yml
+sampling: 
+    type: random # Supported options: Random, Grid, Bayesian
+    parameter_space: # specify a name|expression|values tuple for each parameter.
+    - name: --penalty # The name of a script parameter to generate values for.
+      expression: choice # supported options: choice, randint, uniform, quniform, loguniform, qloguniform, normal, qnormal, lognormal, qlognormal
+      values: [0.5, 1, 1.5] # The list of values, the number of values is dependent on the expression specified.
+policy: 
+    type: BanditPolicy # Supported options: BanditPolicy, MedianStoppingPolicy, TruncationSelectionPolicy, NoTerminationPolicy
+    evaluation_interval: 1 # Policy properties are policy specific. See the above link for policy specific parameter details.
+    slack_factor: 0.2
+primary_metric_name: Accuracy # The metric used when evaluating the policy
+primary_metric_goal: Maximize # Maximize|Minimize
+max_total_runs: 8 # The maximum number of runs to generate
+max_concurrent_runs: 2 # The number of runs that can run concurrently.
+max_duration_minutes: 100 # The maximum length of time to run the experiment before cancelling.
+```
+
+Agregue este archivo junto con los archivos de configuración de ejecución. A continuación, envíe una ejecución de HyperDrive mediante:
+```azurecli
+az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configuration-name <hdconfig> my_train.py
+```
+
+Observe la sección *arguments* (argumentos) en runconfig y el *espacio de parámetros* en la configuración de HyperDrive. Contienen los argumentos de la línea de comandos que se van a pasar al script de aprendizaje. El valor de runconfig permanece igual para cada iteración, mientras que el intervalo de la configuración de HyperDrive se repite en interación. No especifique el mismo argumento en ambos archivos.
 
 ## <a name="dataset-management"></a>Administración de conjuntos de datos
 
@@ -302,7 +363,7 @@ Los comandos siguientes muestran cómo crear, registrar y enumerar los [entornos
 
 ### <a name="environment-configuration-schema"></a>Esquema de configuración del entorno
 
-Si usa el comando `az ml environment scaffold`, se genera un archivo de plantilla `azureml_environment.json` que puede modificarse y usarse para crear configuraciones de entorno personalizadas con la CLI. El objeto de nivel superior se asigna de forma flexible a la clase [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) en el SDK de Python. 
+Si usa el comando `az ml environment scaffold`, se genera un archivo de plantilla `azureml_environment.json` que puede modificarse y usarse para crear configuraciones de entorno personalizadas con la CLI. El objeto de nivel superior se asigna de forma flexible a la clase [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py&preserve-view=true) en el SDK de Python. 
 
 ```json
 {
@@ -346,17 +407,17 @@ Si usa el comando `az ml environment scaffold`, se genera un archivo de plantill
 }
 ```
 
-En la tabla que aparece más abajo se detallan todos los campos de nivel superior del archivo JSON, su tipo y su descripción. Si un tipo de objeto está vinculado a una clase del SDK de Python, hay una coincidencia 1:1 débil entre cada campo JSON y el nombre de la variable pública en la clase de Python. En algunos casos, el campo puede asignarse a un argumento de constructor en lugar de a una variable de clase. Por ejemplo, el campo `environmentVariables` se asigna a la variable `environment_variables` en la clase [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py).
+En la tabla que aparece más abajo se detallan todos los campos de nivel superior del archivo JSON, su tipo y su descripción. Si un tipo de objeto está vinculado a una clase del SDK de Python, hay una coincidencia 1:1 débil entre cada campo JSON y el nombre de la variable pública en la clase de Python. En algunos casos, el campo puede asignarse a un argumento de constructor en lugar de a una variable de clase. Por ejemplo, el campo `environmentVariables` se asigna a la variable `environment_variables` en la clase [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py&preserve-view=true).
 
 | Campo JSON | Tipo | Descripción |
 |---|---|---|
 | `name` | `string` | Nombre del entorno. No escriba **Microsoft** o **AzureML** al principio del nombre. |
 | `version` | `string` | Versión del entorno. |
 | `environmentVariables` | `{string: string}` | Mapa hash de nombres y valores de variables de entorno. |
-| `python` | [`PythonSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py) | Objeto que define el entorno de Python y el intérprete que se va a usar en el recurso de proceso de destino. |
-| `docker` | [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) | Sección que define la configuración para personalizar la imagen de Docker compilada según las especificaciones del entorno. |
-| `spark` | [`SparkSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.sparksection?view=azure-ml-py) | Sección que define la configuración de Spark. Solo se usa cuando el marco se establece en PySpark. |
-| `databricks` | [`DatabricksSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.databricks.databrickssection?view=azure-ml-py) | Sección que define la configuración de las dependencias de las bibliotecas de Databricks. |
+| `python` | [`PythonSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py&preserve-view=true) que define el entorno de Python y el intérprete que se va a usar en el recurso de proceso de destino. |
+| `docker` | [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py&preserve-view=true) | Sección que define la configuración para personalizar la imagen de Docker compilada según las especificaciones del entorno. |
+| `spark` | [`SparkSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.sparksection?view=azure-ml-py&preserve-view=true) | Sección que define la configuración de Spark. Solo se usa cuando el marco se establece en PySpark. |
+| `databricks` | [`DatabricksSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.databricks.databrickssection?view=azure-ml-py&preserve-view=true) | Sección que define la configuración de las dependencias de las bibliotecas de Databricks. |
 | `inferencingStackVersion` | `string` | Campo que especifica la versión de la pila de inferencia agregada a la imagen. Para evitar agregar una pila de inferencia, deje este campo como `null`. Valor válido: "latest" (más reciente). |
 
 ## <a name="ml-pipeline-management"></a>Administración de canalizaciones de aprendizaje automático

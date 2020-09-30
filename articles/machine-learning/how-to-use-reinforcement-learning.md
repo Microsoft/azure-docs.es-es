@@ -10,16 +10,16 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b5ad09925c4a81dd09bd1ddf171ffccb8413b12b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: d3a7b04e6169df21ad30017b72f70ff667429b23
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650832"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902376"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Aprendizaje de refuerzo (versión preliminar) con Azure Machine Learning
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 > [!NOTE]
 > El aprendizaje de refuerzo de Azure Machine Learning es actualmente una característica que está en versión preliminar. En este momento, solo se admiten los marcos Ray y RLlib.
@@ -49,8 +49,8 @@ Ejecute este código en cualquiera de los siguientes entornos. Le recomendamos q
  
  - Su propio servidor de Jupyter Notebook
 
-    - Instale el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-    - Instale el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py): `pip install --upgrade azureml-contrib-reinforcementlearning`.
+    - Instale el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
+    - Instale el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py&preserve-view=true): `pip install --upgrade azureml-contrib-reinforcementlearning`.
     - Cree un [archivo de configuración del área de trabajo](how-to-configure-environment.md#workspace).
     - Ejecute el [cuaderno de configuración](https://aka.ms/azure-rl-env-setup) de la red virtual para abrir los puertos de red que se usan para el aprendizaje de refuerzo distribuido.
 
@@ -107,7 +107,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-reinforcement-learning-experiment"></a>Creación de un experimento de aprendizaje de refuerzo
 
-Cree un [experimento](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) para realizar un seguimiento de la ejecución del aprendizaje de refuerzo. En Azure Machine Learning, los experimentos son colecciones lógicas de pruebas relacionadas para organizar los registros de ejecución, el historial, las salidas, etc.
+Cree un [experimento](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) para realizar un seguimiento de la ejecución del aprendizaje de refuerzo. En Azure Machine Learning, los experimentos son colecciones lógicas de pruebas relacionadas para organizar los registros de ejecución, el historial, las salidas, etc.
 
 ```python
 experiment_name='rllib-pong-multi-node'
@@ -213,7 +213,7 @@ else:
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>Creación de un experimento de aprendizaje de refuerzo
 
-En esta sección, aprenderá a usar la clase [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py) para enviar un trabajo de aprendizaje a Azure Machine Learning.
+En esta sección, aprenderá a usar la clase [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true) para enviar un trabajo de aprendizaje a Azure Machine Learning.
 
 Azure Machine Learning usa las clases de estimador para encapsular la información de la configuración de ejecución. Esto le permite especificar fácilmente cómo configurar una ejecución de script. Para obtener más información sobre el patrón del estimador de Azure Machine Learning, consulte [Cómo entrenar modelos mediante patrones](how-to-train-ml-models.md).
 
@@ -399,7 +399,7 @@ def on_train_result(info):
 
 ## <a name="submit-a-run"></a>Envío de una ejecución
 
-La clase [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) controla el historial de ejecución de los trabajos en curso o completos. 
+La clase [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true) controla el historial de ejecución de los trabajos en curso o completos. 
 
 ```python
 run = exp.submit(config=rl_estimator)

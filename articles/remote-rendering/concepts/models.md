@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9fd18195c0276999f445e0990838e293a5081131
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e9c8c4a1209b8bb5be7af87ef22aeab0ffd90b79
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021891"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023778"
 ---
 # <a name="models"></a>Modelos
 
@@ -28,7 +28,6 @@ Cada entidad puede tener [componentes](components.md) adjuntos. En el caso más 
 La creación de modelos para el entorno en tiempo de ejecución se logra mediante la [conversión de modelos de entrada](../how-tos/conversion/model-conversion.md) a partir de formatos de archivo como FBX y GLTF. El proceso de conversión extrae todos los recursos, como texturas, materiales y mallas, y los convierte en formatos para entornos en tiempo de ejecución optimizados. También extrae la información estructural y la convierte en la estructura del grafo de entidad/componente de ARR.
 
 > [!IMPORTANT]
->
 > [La conversión de modelos](../how-tos/conversion/model-conversion.md) es la única manera de crear [mallas](meshes.md). Aunque las mallas se pueden compartir entre entidades en tiempo de ejecución, no hay otra manera de obtener una malla en el entorno en tiempo de ejecución, aparte de cargar un modelo.
 
 ## <a name="loading-models"></a>Carga de modelos
@@ -118,6 +117,13 @@ Después, puede atravesar la jerarquía de entidades y modificar las entidades y
 
 > [!CAUTION]
 > Todas las funciones *asincrónicas* en ARR devuelven objetos de operación asincrónica. Debe almacenar una referencia a esos objetos hasta que finalice la operación. De lo contrario, el recolector de elementos no utilizados de C# podría eliminar la operación con anterioridad y que nunca finalice. En el código de ejemplo anterior, el uso de *await* garantiza que la variable local "loadOp" contenga una referencia hasta que finalice la carga del modelo. Sin embargo, si usara el evento *Completed* en su lugar, debería almacenar la operación asincrónica en una variable miembro.
+
+## <a name="api-documentation"></a>Documentación de la API
+
+* [RemoteManager.LoadModelAsync() de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelasync)
+* [RemoteManager.LoadModelFromSASAsync() de C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelfromsasasync)
+* [RemoteManager::LoadModelAsync() de C++](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadmodelasync)
+* [RemoteManager::LoadModelFromSASAsync() de C++](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadmodelfromsasasync)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

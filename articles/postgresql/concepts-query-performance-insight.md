@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: dd5b4ec53d82421ddd9d680ca41e48eeecc43c2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7573e99de96e3d13509056c49bc24be7fe166bf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768391"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906525"
 ---
 # <a name="query-performance-insight"></a>Información de rendimiento de consultas 
 
@@ -30,7 +30,7 @@ La vista [Query Performance Insight](concepts-query-performance-insight.md) en A
 
 En la página del portal de su servidor de Azure Database for PostgreSQL, seleccione **Información de rendimiento de consultas** en la sección **Rendimiento inteligente** de la barra de menús.
 
-![Consultas de larga ejecución de Query Performance Insight](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-landing-page.png" alt-text="Consultas de larga ejecución de Query Performance Insight":::
 
 La pestaña **Consultas de larga ejecución** muestra las cinco principales consultas por promedio de duración por ejecución, que se agregan en intervalos de 15 minutos. Puede ver más consultas seleccionando en el lista desplegable **Número de consultas**. Al hacerlo, los colores del gráfico pueden cambiar a un identificador de consulta específico.
 
@@ -40,7 +40,7 @@ La tabla debajo del gráfico proporciona más información sobre las consultas d
 
 Seleccione la pestaña **Estadísticas de espera** para ver las visualizaciones correspondientes a esperas en el servidor.
 
-![Estadísticas de espera de Información de rendimiento de consultas](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Estadísticas de espera de Información de rendimiento de consultas":::
 
 ## <a name="considerations"></a>Consideraciones
 * Información de rendimiento de consultas no está disponible para las [réplicas de lectura](concepts-read-replicas.md).

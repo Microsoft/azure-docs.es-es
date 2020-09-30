@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 884aa18b1a29b1c4f1bbf1159a5d48870529c72b
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 086feb3aa7c9a38756fded58538eb22e094a5960
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565713"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906805"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>¿Qué es la versión preliminar de Azure Static Web Apps?
 
@@ -24,7 +24,7 @@ El flujo de trabajo de Azure Static Web Apps se adapta al flujo de trabajo diari
 
 Cuando se crea un recurso de Azure Static Web Apps, Azure configura un flujo de trabajo de Acciones de GitHub en el repositorio de código fuente de la aplicación que supervisa una rama de su elección. Cada vez que inserte confirmaciones o acepte solicitudes de incorporación de cambios en la rama inspeccionada, la acción de GitHub compilará e implementará automáticamente la aplicación y su API en Azure.
 
-Las aplicaciones web estáticas se suelen compilar con bibliotecas y marcos como Angular, React, Svelte o Vue. Estas aplicaciones incluyen recursos HTML, CSS, JavaScript y de imagen que componen la aplicación. Con un servidor web tradicional, estos recursos se ofrecen desde un único servidor junto con los puntos de conexión de la API necesarios.
+Las aplicaciones web estáticas se suelen compilar con bibliotecas y marcos como Angular, React, Svelte, Vue o Blazor. Estas aplicaciones incluyen recursos HTML, CSS, JavaScript y de imagen que componen la aplicación. Con un servidor web tradicional, estos recursos se ofrecen desde un único servidor junto con los puntos de conexión de la API necesarios.
 
 Con Static Web Apps, los recursos estáticos se separan de un servidor web tradicional y, en su lugar, se ofrecen puntos distribuidos geográficamente en todo el mundo. Esta distribución permite ofrecer archivos de forma más rápida, dado que se encuentran físicamente más cerca de los usuarios finales. Además, los puntos de conexión de la API se hospedan mediante una [arquitectura sin servidor](../azure-functions/functions-overview.md), lo que evita la necesidad de usar un servidor back-end completo.
 
@@ -44,7 +44,7 @@ Con Static Web Apps, los recursos estáticos se separan de un servidor web tradi
 
 ## <a name="what-you-can-do-with-static-web-apps"></a>Qué puede hacer con Static Web Apps
 
-- **Crear aplicaciones modernas de JavaScript** con marcos y bibliotecas como [Angular](getting-started.md?tabs=angular), [React](getting-started.md?tabs=react), [Svelte](https://docs.microsoft.com/learn/modules/publish-app-service-static-web-app-api/) y [Vue](getting-started.md?tabs=react) con un back-end de [Azure Functions](https://azure.microsoft.com/es-mx/services/functions/).
+- **Crear aplicaciones web modernas** con los marcos y bibliotecas de JavaScript, como [Angular](getting-started.md?tabs=angular), [React](getting-started.md?tabs=react), [Svelte](https://docs.microsoft.com/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md?tabs=react) o con[Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) para crear aplicaciones WebAssembly con un servidor back-end de [Azure Functions](https://azure.microsoft.com/es-mx/services/functions/).
 - **Publicar sitios estáticos** con marcos como [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md) y [VuePress](publish-vuepress.md).
 - **Implementar aplicaciones web** con marcos como [Next.js](deploy-nextjs.md) y [Nuxt.js](deploy-nuxtjs.md).
 

@@ -11,19 +11,20 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 61303a52212c4cec88dee2ccd8a1c08fb971a9b8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a83fd67a9ad5e5a36555fcbaed65b1d76936c33d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545665"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906009"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalación y ejecución de contenedores de Text Analytics
 
 > [!NOTE]
 > * El contenedor de Análisis de sentimiento v3 ya está disponible con carácter general. Los contenedores de extracción de frases clave y de detección de idioma están disponibles como versión preliminar pública no validada.
 > * La vinculación de entidades y NER no están disponibles actualmente como contenedor.
-> * Actualmente, no se le facturará el uso del contenedor de mantenimiento por Text Analytics.
+> * El acceso al Text Analytics para el contenedor de estado requiere un [formulario de solicitud](https://aka.ms/cognitivegate). Actualmente, no se le facturará por su uso.
+> * Es posible que las ubicaciones de las imágenes de contenedor hayan cambiado recientemente. Lea este artículo para ver la ubicación actualizada de este contenedor.
 
 Los contenedores permiten ejecutar las API Text Analytics en su propio entorno y son ideales para sus requisitos específicos de seguridad y gobernanza de datos. Los contenedores de Text Analytics proporcionan un procesamiento avanzado de lenguaje natural sobre texto sin formato, e incluye tres funciones principales: análisis de sentimiento, extracción de frases clave y detección de idioma. 
 

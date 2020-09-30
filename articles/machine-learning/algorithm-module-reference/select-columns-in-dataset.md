@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 714148815fa4ff543ecbf86ab21e8d51fe775543
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7926d5dd33df5538713f8de152dbbace2bc29864
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77153781"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890299"
 ---
 # <a name="select-columns-in-dataset-module"></a>Módulo Seleccionar columnas de conjunto de datos
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
 Use este módulo para elegir un subconjunto de columnas para usarlas en operaciones descendentes. El módulo no elimina físicamente las columnas del conjunto de datos de origen; en su lugar, crea un subconjunto de columnas, muy similar a una *vista* o *proyección* de una base de datos.
 

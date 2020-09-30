@@ -11,15 +11,15 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 270e93302a90c458ccbdfdc4d2ced8f0d3c263af
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d60a963f8ad4b29d3c282d30e6aca9973208860b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319684"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905154"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detección del desfase de datos (versión preliminar) en los conjuntos de datos
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 > [!IMPORTANT]
 > La detección de un desfase de datos en conjuntos de datos se encuentra actualmente en versión preliminar pública.
@@ -38,15 +38,12 @@ Para crear el monitor, se usa un [conjunto de datos de Azure Machine Learning](h
 
 Puede ver las métricas de desfase de datos con el SDK de Python o en Azure Machine Learning Studio.  Se pueden encontrar otras métricas e información detallada a través del recurso de [Azure Aplicación Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) asociado al área de trabajo de Azure Machine Learning.
 
-> [!Important]
-> La supervisión del desfase de datos con el SDK está disponible en todas las ediciones. Sin embargo, la supervisión del desfase de datos a través de Studio en la Web solo lo está en la edición Enterprise.
-
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para crear y trabajar con conjuntos de datos, necesita:
 * Suscripción a Azure. Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 * Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
-* El [SDK de Azure Machine Learning para Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), que incluye el paquete azureml-datasets.
+* El [SDK de Azure Machine Learning para Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true), que incluye el paquete azureml-datasets.
 * Datos estructurados (tabulares) con una marca de tiempo especificada en la ruta de acceso del archivo, el nombre de archivo o la columna de los datos.
 
 ## <a name="what-is-data-drift"></a>¿Qué es el desfase de datos?
@@ -105,7 +102,7 @@ El conjunto de datos de destino debe tener configurado el rasgo `timeseries` esp
 
 ### <a name="python-sdk"></a><a name="sdk-dataset"></a>SDK para Python
 
-El método [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) de la clase [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) define la columna de marca de tiempo del conjunto de datos.
+El método [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) de la clase [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) define la columna de marca de tiempo del conjunto de datos.
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -132,10 +129,9 @@ dset = dset.with_timestamp_columns('date')
 dset = dset.register(ws, 'target')
 ```
 
-Para obtener un ejemplo completo de cómo usar el rasgo de `timeseries` de conjuntos de datos, vea el [cuaderno de ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) o la [documentación del SDK de conjuntos de datos](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
+Para obtener un ejemplo completo de cómo usar el rasgo de `timeseries` de conjuntos de datos, vea el [cuaderno de ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) o la [documentación del SDK de conjuntos de datos](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
 ### <a name="azure-machine-learning-studio"></a><a name="studio-dataset"></a>Azure Machine Learning Studio
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 Si crea un conjunto de datos mediante Azure Machine Learning Studio, asegúrese de que la ruta de acceso a los datos contiene información de marca de tiempo, incluya todas las subcarpetas con datos y establezca el formato de la partición.
 
@@ -209,15 +205,13 @@ monitor = monitor.enable_schedule()
 Para ver un ejemplo completo de cómo configurar un conjunto de datos de `timeseries` y el detector de desfase de datos, consulte nuestro [cuaderno de ejemplos](https://aka.ms/datadrift-notebook).
 
 ### <a name="azure-machine-learning-studio"></a><a name="studio-monitor"></a> Azure Machine Learning Studio
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
-Para configurar alertas en el monitor de conjunto de datos, el área de trabajo que contiene el conjunto de datos, para el que desea crear un monitor, debe tener capacidades de edición Enterprise.
+1. Diríjase a la [página principal de Studio](https://ml.azure.com).
+1. Seleccione la pestaña **Conjuntos de datos** de la izquierda. 
+1. Elija **Monitores de conjuntos de datos**.
+   ![Lista de monitores](./media/how-to-monitor-datasets/monitor-list.png)
 
-Una vez confirmada la funcionalidad del área de trabajo, vaya a la [página principal de Studio](https://ml.azure.com) y elija la pestaña **Conjuntos de datos** de la izquierda. Elija **Monitores de conjuntos de datos**.
-
-![Lista de monitores](./media/how-to-monitor-datasets/monitor-list.png)
-
-Haga clic en el botón **+Crear monitor** y continúe con el asistente; para ello, haga clic en **Siguiente**.  
+1. Haga clic en el botón **+Crear monitor** y continúe con el asistente; para ello, haga clic en **Siguiente**.  
 
 :::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Asistente para crear monitores":::
 

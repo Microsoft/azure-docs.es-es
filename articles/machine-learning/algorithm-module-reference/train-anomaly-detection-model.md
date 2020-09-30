@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 73e8f0de9f879498acb71e97fa47c81b3447252d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: edf35fada4233fbe43bc7f859c2414bfb8130714
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749607"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905722"
 ---
 # <a name="train-anomaly-detection-model-module"></a>Módulo Train Anomaly Detection Model
 
-En este artículo se describe cómo usar el módulo Train Anomaly Detection Model (Entrenar un modelo de detección de anomalías) en Azure Machine Learning Designer (versión preliminar) para crear un modelo de detección de anomalías entrenado.
+En este artículo se describe cómo usar el módulo Entrenar un modelo de detección de anomalías en el diseñador de Azure Machine Learning para crear un modelo de detección de anomalías entrenado.
 
 El módulo toma como entrada un conjunto de parámetros para un modelo de detección de anomalías y un conjunto de datos sin etiquetar. Devuelve un modelo de detección de anomalías entrenado junto con un conjunto de etiquetas para los datos de entrenamiento.  
 
@@ -53,5 +53,5 @@ Una vez completado el entrenamiento:
 
 Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 
 
-Consulte [Excepciones y códigos de error para el diseñador (versión preliminar)](designer-error-codes.md) para ver una lista de errores específica de los módulos del diseñador.
+Consulte [Excepciones y códigos de error para el diseñador](designer-error-codes.md) para ver una lista de errores específicos de los módulos del diseñador.
 '

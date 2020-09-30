@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 45d2ec6cf4b2a54b899036d932bc310caede3c29
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 739325f66594667c6973df356e2bcf26a3eb056d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223863"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300279"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configuración de credenciales de implementación para Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) admite dos tipos de credenciales para la [implementación de GIT local](deploy-local-git.md) y la [implementación FTP/S](deploy-ftp.md). Estas credenciales no son las mismas que las de su suscripción a Azure.
@@ -73,6 +73,36 @@ Para obtener las credenciales de nivel de aplicación:
 2. Seleccione **Credenciales de la aplicación** y el vínculo **Copiar** para copiar el nombre de usuario o la contraseña.
 
 Para restablecer las credenciales en el nivel de aplicación, seleccione **Restablecer credenciales** en el mismo cuadro de diálogo.
+
+## <a name="disable-basic-authentication"></a>Deshabilitación de la autenticación básica
+
+Algunas organizaciones deben cumplir los requisitos de seguridad y preferirán deshabilitar el acceso a través de FTP o WebDeploy. De este modo, los miembros de la organización solo pueden tener acceso a su instancia de App Services a través de las API que están controladas por Azure Active Directory (Azure AD).
+
+### <a name="ftp"></a>FTP
+
+Para deshabilitar el acceso FTP al sitio, ejecute el siguiente comando de la CLI. Reemplace los marcadores de posición por el grupo de recursos y el nombre del sitio. 
+
+```bash
+az resource update --resource-group <resource-group> --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
+```
+
+Para confirmar que el acceso FTP está bloqueado, puede intentar realizar la autenticación mediante un cliente FTP como FileZilla. Para recuperar las credenciales de publicación, vaya a la hoja de información general de su sitio y haga clic en Descargar perfil de publicación. Use el nombre de host, el nombre de usuario y la contraseña de FTP del archivo para autenticarse; recibirá una respuesta de error 401 que indica que no está autorizado.
+
+### <a name="webdeploy-and-scm"></a>WebDeploy y SCM
+
+Para deshabilitar el acceso de autenticación básica al puerto de WebDeploy y al sitio de SCM, ejecute el siguiente comando de la CLI. Reemplace los marcadores de posición por el grupo de recursos y el nombre del sitio. 
+
+```bash
+az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
+```
+
+Para confirmar que las credenciales del perfil de publicación están bloqueadas en WebDeploy, pruebe a [publicar una aplicación web con Visual Studio 2019](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+
+### <a name="disable-access-to-the-api"></a>Deshabilitación del acceso a la API
+
+La API de la sección anterior está respaldada por el control de acceso basado en rol (RBAC) de Azure, lo que significa que puede [crear un rol personalizado](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) y asignarlo a usuarios con pocos privilegios para que no puedan habilitar la autenticación básica en ningún sitio. Para configurar el rol personalizado, [siga estas instrucciones](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
+
+También puede usar [Azure Monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) para auditar las solicitudes de autenticación correctas y [Azure Policy](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) para aplicar esta configuración a todos los sitios de la suscripción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

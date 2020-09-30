@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/12/2019
-ms.openlocfilehash: 7bdb0ae813600f53df44ee1a61a4cbbb56bb0bfe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4926e18aa6b00fe36608843ea5253903ace774e2
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067504"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089115"
 ---
 # <a name="simple-logs-experience-in-azure-monitor-preview"></a>Experiencia Simple Logs en Azure Monitor (versión preliminar)
 Azure Monitor proporciona una [experiencia enriquecida](get-started-portal.md) para crear [consultas de registro](log-query-overview.md) mediante el lenguaje KQL. No obstante, es posible que no necesite toda la eficacia de KQL y prefiera una experiencia simplificada para los requisitos de consulta básicos. La experiencia de Simple Logs le permite crear consultas básicas sin interactuar directamente con KQL. También puede usar Simple Logs como herramienta de aprendizaje para KQL a medida que necesite consultas más sofisticadas.
@@ -26,11 +26,11 @@ La experiencia de Simple Logs recupera datos de la tabla *AzureDiagnostics*, *Az
 ## <a name="using-simple-logs"></a>Uso de Simple Logs
 Desplácese a cualquier instancia de Cosmos DB o Key Vault de su suscripción a Azure con [opciones de diagnóstico configuradas para recopilar registros en un área de trabajo de Log Analytics](../platform/resource-logs.md#send-to-azure-storage). Haga clic en **Registros** en el menú **Supervisión** para abrir la experiencia de Simple Logs.
 
-![Menú](media/simple-logs/menu.png)
+![Captura de pantalla que muestra el menú de supervisión con registros seleccionados.](media/simple-logs/menu.png)
 
 Seleccione un **Campo** y un **Operador** y especifique un **Valor** para la comparación. Haga clic en **+** y especifique **Y/O** para agregar criterios adicionales.
 
-![Criterios](media/simple-logs/criteria.png)
+![Captura de pantalla que muestra la búsqueda en el panel de registros con registros simples seleccionados.](media/simple-logs/criteria.png)
 
 Haga clic en **Ejecutar** para ver los resultados de la consulta.
 

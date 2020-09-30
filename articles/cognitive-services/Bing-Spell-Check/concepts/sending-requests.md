@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: fe540dbb230f033f139e82325bf8e20846f5bfe3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de232ab6c52afa45b40ef7863a0cb35d7b40531f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832549"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299123"
 ---
 # <a name="sending-requests-to-the-bing-spell-check-api"></a>Envío de solicitudes a Bing Spell Check API
 
@@ -42,7 +42,7 @@ Para ver una lista de todos los encabezados de solicitud y respuesta, consulte [
 
 Cuando se llama a Bing Spell Check API desde JavaScript, las características de seguridad integradas de su explorador podrían impedirle acceder a los valores de estos encabezados.
 
-Para resolver este problema, puede realizar una solicitud de Bing Spell Check API a través de un proxy CORS. La respuesta de un proxy de este tipo tiene un encabezado `Access-Control-Expose-Headers` que agrega los encabezados de respuesta a listas blancas y hace que estén disponibles para JavaScript.
+Para resolver este problema, puede realizar una solicitud de Bing Spell Check API a través de un proxy CORS. La respuesta de un proxy de este tipo tiene un encabezado `Access-Control-Expose-Headers` que filtra los encabezados de respuesta y hace que estén disponibles para JavaScript.
 
 Es fácil instalar un proxy CORS para permitir que la [aplicación de tutorial](../tutorials/spellcheck.md) obtenga acceso a los encabezados de cliente opcionales. En primer lugar, si aún no lo tiene, [instale Node.js](https://nodejs.org/en/download/). A continuación, escriba el siguiente comando en un símbolo del sistema.
 

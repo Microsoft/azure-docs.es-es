@@ -10,12 +10,12 @@ metadata:
   author: vhorne
   ms.author: victorh
   ms.date: 08/30/2019
-  ms.openlocfilehash: aba20908401cba2c1b740570f62593b5afb92dc5
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 28f591ba65a2e06900b84fe88815a12665fa3881
+  ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "70147314"
+  ms.lasthandoff: 09/27/2020
+  ms.locfileid: "91400628"
 landingContent:
 - title: Más información sobre Azure Firewall
   linkLists:
@@ -29,6 +29,10 @@ landingContent:
       url: rule-processing.md
     - text: Preguntas más frecuentes
       url: firewall-faq.md
+  - linkListType: whats-new
+    links:
+    - text: Novedades
+      url: https://azure.microsoft.com/updates/?category=networking&query=Firewall
 - title: Implementación de Azure Firewall
   linkLists:
   - linkListType: tutorial

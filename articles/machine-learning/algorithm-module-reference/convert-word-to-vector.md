@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 21b207ece1a2a7fd6f218716912d4c4d2c2f1ee2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c2aa9023a7081387d38b9f7c6cfe8323300ad6e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753891"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898601"
 ---
 # <a name="convert-word-to-vector-module"></a>Módulo Convert Word to Vector
 
-En este artículo se describe cómo usar el módulo Convert Word to Vector (Convertir palabra en vector) en Azure Machine Learning Designer (versión preliminar) para realizar las siguientes tareas:
+En este artículo se describe cómo usar el módulo Convert Word to Vector (Convertir palabra en vector) en el diseñador de Azure Machine Learning para realizar las siguientes tareas:
 
 - Aplicar varios modelos de Word2Vec (Word2Vec, FastText, modelo previamente entrenado de GloVe) en el corpus de texto que haya especificado como entrada.
 - Generar un vocabulario con inserciones de palabras.
@@ -93,7 +93,7 @@ El módulo tiene una salida:
 
 + **Vocabulario con incrustaciones**: Contiene el vocabulario generado, junto con la inserción de cada palabra. Una dimensión ocupa una columna.
 
-En el ejemplo siguiente se muestra cómo funciona el módulo Convert Word to Vector (Convertir palabra en vector). Aplica este módulo con la configuración predeterminada al conjunto de datos preprocesado Wikipedia SP 500 proporcionado en Azure Machine Learning (versión preliminar).
+En el ejemplo siguiente se muestra cómo funciona el módulo Convert Word to Vector (Convertir palabra en vector). Aplica este módulo con la configuración predeterminada al conjunto de datos preprocesado Wikipedia SP 500 que se proporciona en Azure Machine Learning.
 
 ### <a name="source-dataset"></a>Conjunto de datos de origen
 
@@ -149,4 +149,4 @@ Esta sección contiene sugerencias y respuestas a las preguntas más frecuentes.
 
 Consulte el [conjunto de módulos disponibles](module-reference.md) para Azure Machine Learning. 
 
-Para obtener una lista de los errores específicos de los módulos de diseñador (versión preliminar), consulte [Códigos de error de Machine Learning](designer-error-codes.md).
+Para obtener una lista de los errores específicos de los módulos del diseñador, consulte [Códigos de error de Machine Learning](designer-error-codes.md).

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 796558c2579504b673fd15c468ce635c6b1cca8e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 19f42270e37c42cf56bbde04f73c01027a56ff63
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066354"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657382"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Crear instrucciones condicionales que controlen las acciones de los flujo de trabajo en Azure Logic Apps
 
@@ -28,7 +28,7 @@ Por ejemplo, suponga que tiene una aplicación lógica que envía demasiados cor
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Para seguir el ejemplo de este artículo, [cree una aplicación lógica de ejemplo](../logic-apps/quickstart-create-first-logic-app-workflow.md) con una cuenta de Outlook.com o de Office 365 Outlook.
+* Para seguir el ejemplo de este artículo, [cree esta aplicación lógica de ejemplo](../logic-apps/quickstart-create-first-logic-app-workflow.md) con una cuenta de Outlook.com o una cuenta profesional o educativa.
 
 ## <a name="add-condition"></a>Incorporación de una condición
 

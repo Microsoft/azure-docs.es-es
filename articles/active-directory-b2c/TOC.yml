@@ -51,6 +51,18 @@
   href: code-samples.md
 - name: Conceptos
   items:
+    - name: Comparación entre soluciones para External Identities
+      href: 'https://docs.microsoft.com/azure/active-directory/b2b/compare-with-b2c?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+    - name: Conceptos básicos
+      items:
+        - name: Autenticación y autorización
+          href: 'https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+        - name: Tokens
+          href: 'https://docs.microsoft.com/azure/active-directory/develop/security-tokens?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+        - name: Protocolos
+          href: 'https://docs.microsoft.com/azure/active-directory/develop/v2-app-types?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+        - name: Biblioteca de autenticación
+          href: 'https://docs.microsoft.com/azure/active-directory/develop/msal-overview?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
     - name: "Procedimientos recomendados de Azure\_AD\_B2C"
       href: best-practices.md
     - name: Tipos de aplicación
@@ -69,6 +81,8 @@
           href: tokens-overview.md
         - name: Solicitud de un token de acceso
           href: access-tokens.md
+    - name: Claves de directiva
+      href: policy-keys-overview.md
     - name: Flujo de usuario y directiva
       items:
         - name: Flujos de usuario
@@ -339,9 +353,11 @@
                       href: aad-sspr-technical-profile.md
                     - name: Transformación de notificaciones
                       href: claims-transformation-technical-profile.md
-                    - name: Perfil técnico del acceso condicional
+                    - name: Acceso condicional
                       href: conditional-access-technical-profile.md
                       displayName: ca
+                    - name: Sugerencia de token de identificador
+                      href: id-token-hint.md
                     - name: Emisor de tokens JWT
                       href: jwt-issuer-technical-profile.md
                     - name: OAuth1
@@ -386,12 +402,14 @@
           href: partner-idology.md
         - name: itsme
           href: partner-itsme.md
-        - name: LexisNexis
-          href: partner-lexisnexis.md
         - name: Jumio
           href: partner-jumio.md
+        - name: LexisNexis
+          href: partner-lexisnexis.md
         - name: Onfido
           href: partner-onfido.md
+        - name: Saviynt
+          href: partner-saviynt.md
         - name: Trusona
           href: partner-trusona.md
         - name: Twilio
@@ -456,7 +474,7 @@
       href: error-codes.md
     - name: Aplicación de extensiones
       href: extensions-app.md
-    - name: Notas de la versión de IEF
+    - name: Notas de la versión de directivas personalizadas (IEF)
       href: custom-policy-developer-notes.md
     - name: Operaciones de Microsoft Graph API
       href: microsoft-graph-operations.md

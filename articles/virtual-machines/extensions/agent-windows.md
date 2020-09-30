@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: 42470df5391a976e8023467758d2a3fd0890883e
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: d9939b706eb63e5681ddef438cde92f32786f889
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041483"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612843"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Información general del agente de máquina virtual de Azure
 El agente de máquina virtual de Microsoft Azure (agente VM) es un proceso ligero y seguro que administra la interacción de máquinas virtuales (VM) con el controlador de tejido de Azure. El agente de VM tiene un rol principal que consiste en habilitar y ejecutar extensiones de máquina virtual de Azure. Las extensiones de máquina virtual habilitan la configuración posterior a la implementación de máquinas virtuales, como la instalación y la configuración de software. Las extensiones de máquina virtual también habilitan características de recuperación, como el restablecimiento de la contraseña administrativa de una máquina virtual. Sin el agente de máquina virtual de Azure, no se pueden ejecutar extensiones de máquina virtual.
@@ -70,7 +70,7 @@ $vm | Update-AzVM
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-- El Agente de máquina virtual de Windows necesita como mínimo Windows Server 2008 (64 bits) para ejecutarse, con .NET Framework 4.0. Consulte [Versión mínima admitida para los agentes de la máquina virtual en Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+- El Agente de máquina virtual de Windows necesita como mínimo Windows Server 2008 SP2 (64 bits) para ejecutarse, con .NET Framework 4.0. Consulte [Versión mínima admitida para los agentes de la máquina virtual en Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 - Asegúrese de que la máquina virtual tenga acceso a la dirección IP 168.63.129.16. Para más información, vea [¿Qué es la dirección IP 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 

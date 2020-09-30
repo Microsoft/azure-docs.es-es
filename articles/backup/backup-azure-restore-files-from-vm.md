@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a recuperar archivos y carpetas desde
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 7b9d97e518282cf150a8f54225c11d9edcbf8892
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: fd68c33e4425d717837923b90119d42569a1f003
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892582"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178527"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 

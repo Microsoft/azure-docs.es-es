@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 32d381bd26405feeb5e4d4457197f290649907d3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 0866df5f4f78fff429e75d586450bce72faece63
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103167"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907541"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Usar Azure Portal para configurar alertas de métricas para Azure Database for PostgreSQL con un único servidor
 
@@ -34,25 +34,25 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 
 2. En la sección **Supervisión** de la barra lateral, seleccione **Alertas**, tal y como se muestra a continuación:
 
-   ![Selección de Reglas de alerta](./media/howto-alert-on-metric/2-alert-rules.png)
+   :::image type="content" source="./media/howto-alert-on-metric/2-alert-rules.png" alt-text="Selección de Reglas de alerta":::
 
 3. Seleccione **Agregar alerta de métrica** (icono +).
 
 4. Se abre la página **Crear regla**, tal y como se muestra a continuación. Rellene la información necesaria:
 
-   ![Formulario de adición de alerta de métrica](./media/howto-alert-on-metric/4-add-rule-form.png)
+   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Formulario de adición de alerta de métrica":::
 
 5. En la sección **Condición**, seleccione **Agregar condición**.
 
 6. Seleccione una métrica de la lista de señales sobre las que desea recibir alertas. En este ejemplo, seleccione "Porcentaje de almacenamiento".
    
-   ![Selección de la métrica](./media/howto-alert-on-metric/6-configure-signal-logic.png)
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Selección de la métrica":::
 
 7. Configure la lógica de alerta incluida la **condición** (p. ej., "Mayor que") el **umbral** (p. ej., 85 %), la **agregación de tiempo**, el **período** de tiempo de la regla de métrica que debe transcurrir para que se desencadene la alerta (p. ej., "En los últimos 30 minutos") y la **frecuencia**.
    
    Seleccione **Listo** cuando haya terminado.
 
-   ![Selección de la métrica](./media/howto-alert-on-metric/7-set-threshold-time.png)
+   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Selección de la métrica":::
 
 8. En la sección **Grupos de acciones**, seleccione **Crear nuevo** para crear un grupo en el que recibir las notificaciones sobre la alerta.
 
@@ -66,11 +66,11 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 
     Cuando haya terminado, seleccione **Aceptar**.
 
-    ![Grupo de acciones](./media/howto-alert-on-metric/10-action-group-type.png)
+    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Grupo de acciones":::
 
 11. Especifique el nombre de la regla de alertas, la descripción y la gravedad.
 
-    ![Grupo de acciones](./media/howto-alert-on-metric/11-name-description-severity.png) 
+    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Grupo de acciones"::: 
 
 12. Seleccione **Crear regla de alerta** para crear la alerta.
 

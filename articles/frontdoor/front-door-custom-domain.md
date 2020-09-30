@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: duau
-ms.openlocfilehash: f0d4ab9e3ecba8af1f6775389a4837e8c90eb14d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: ee9a883cbd69826e30d6f2416d588792a8c17b1c
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399776"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648802"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Tutorial: Incorporación de un dominio personalizado a Front Door
 En este tutorial se muestra cómo agregar un dominio personalizado a Front Door. Si usa Azure Front Door para la entrega de aplicaciones, es necesario un dominio personalizado si desea que su nombre de dominio se vea en la solicitud de usuario final. El hecho de tener un nombre de dominio visible puede ser cómodo para sus clientes y útil con fines de personalización de marca.
@@ -37,11 +37,11 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para poder completar los pasos de este tutorial, primero debe crear una instancia de Front Door. Para más información, consulte [Inicio rápido: Cree una instancia de Front Door](quickstart-create-front-door.md).
+* Para poder completar los pasos de este tutorial, primero debe crear una instancia de Front Door. Para más información, consulte [Inicio rápido: Cree una instancia de Front Door](quickstart-create-front-door.md).
 
-Si no dispone ya de un dominio personalizado, primero debe adquirir uno con un proveedor de dominios. Por ejemplo, vea [Compra de un nombre de dominio personalizado](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).
+* Si no dispone ya de un dominio personalizado, primero debe adquirir uno con un proveedor de dominios. Por ejemplo, vea [Compra de un nombre de dominio personalizado](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).
 
-Si usa Azure para hospedar sus [dominios DNS](https://docs.microsoft.com/azure/dns/dns-overview), debe delegar el sistema de nombres de dominio (DNS) del proveedor de dominios en una instancia de Azure DNS. Para más información, vea [Delegación de un dominio en DNS de Azure](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Por el contrario, si utiliza un proveedor de dominios para controlar su dominio DNS, diríjase a [Creación de un registro DNS de CNAME](#create-a-cname-dns-record).
+* Si usa Azure para hospedar sus [dominios DNS](https://docs.microsoft.com/azure/dns/dns-overview), debe delegar el sistema de nombres de dominio (DNS) del proveedor de dominios en una instancia de Azure DNS. Para más información, vea [Delegación de un dominio en DNS de Azure](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Por el contrario, si utiliza un proveedor de dominios para controlar su dominio DNS, diríjase a [Creación de un registro DNS de CNAME](#create-a-cname-dns-record).
 
 
 ## <a name="create-a-cname-dns-record"></a>Creación de un registro DNS de CNAME
@@ -202,7 +202,11 @@ En los pasos anteriores, ha agregado un dominio personalizado a Front Door. Si d
 
 En este tutorial, ha aprendido a:
 
-> [!div class="checklist"]
-> - Crear un registro DNS de CNAME
-> - Asociar el dominio personalizado a Front Door.
-> - Comprobar el dominio personalizado
+* Crear un registro DNS de CNAME
+* Asociar el dominio personalizado a Front Door.
+* Comprobar el dominio personalizado
+
+Para obtener información sobre cómo habilitar HTTPS para el dominio personalizado, continúe con el siguiente tutorial.
+
+> [!div class="nextstepaction"]
+> [Habilitar HTTPS para un dominio personalizado](front-door-custom-domain.md)

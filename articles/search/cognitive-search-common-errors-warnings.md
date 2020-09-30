@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fdae02ca9d3c434a77eb972bfd4b955161bd72c4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 142c6b4315eb1862dd116647f4396835c7286591
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935558"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378362"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solución de errores y advertencias comunes con el indexador en Azure Cognitive Search
 
@@ -349,3 +349,7 @@ Para solucionar esta advertencia, determine cuál es la codificación de texto p
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Advertencia: La colección "X" de Cosmos DB tiene una directiva de indexación diferida. Se podrían perder algunos datos
 
 Las colecciones con directivas de indexación [diferida](/azure/cosmos-db/index-policy#indexing-mode) no se pueden consultar de forma coherente, lo que hace que su indizador pierda datos. Para evitar esta advertencia, cambie su directiva de indexación a Coherente.
+
+## <a name="warning-the-document-contains-very-long-words-longer-than-64-characters-these-words-may-result-in-truncated-andor-unreliable-model-predictions"></a>Advertencia: El documento contiene palabras muy largas (más de 64 caracteres). Estas palabras pueden dar lugar a predicciones de modelo truncadas o no confiables.
+
+Esta advertencia se pasa desde el servicio Text Analytics.  En algunos casos, es seguro ignorar esta advertencia, por ejemplo, cuando el documento contiene una dirección URL larga (que probablemente no es una frase clave o una opinión motivada, etc.).  Tenga en cuenta que cuando una palabra tiene más de 64 caracteres, se truncará a 64 caracteres, lo que pueden afectar a las predicciones del modelo.  

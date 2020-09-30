@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 479e74f9c36864e041685393d35972e7365260da
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0b54a8227594a81c17dcaaaaa6c599d70217c498
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119446"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705867"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Uso de MSAL en un entorno de nube nacional
 
@@ -42,7 +42,7 @@ Antes de empezar, asegúrese de que cumpla estos requisitos previos.
 
 Las aplicaciones de [Azure Government](../../azure-government/index.yml) pueden usar identidades de Azure AD Government e identidades pública de Azure AD para autenticar a los usuarios. Dado que puede usar cualquiera de estas identidades, debe decidir qué punto de conexión de autoridad debe elegir para su escenario:
 
-- Azure AD público: se suele usar si la organización ya tiene un inquilino público de Azure AD para admitir Office 365 (público o GCC) u otra aplicación.
+- Azure AD público: se suele usar si la organización ya tiene un inquilino público de Azure AD para admitir Microsoft 365 (público o GCC) u otra aplicación.
 - Azure AD Government: se suele usar si la organización ya tiene un inquilino de Azure AD Government para admitir Office 365 (GCC High o DoD) o está creando un nuevo inquilino en Azure AD Government.
 
 Una vez decidido, debe tener en cuenta también dónde se realiza el registro de la aplicación. Si elige identidades de Azure AD público para la aplicación de Azure Government, debe registrar la aplicación en el inquilino de Azure AD público.

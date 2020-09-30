@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0bcf81e0c762dd2a8e63ae242fec77d30f5b2c3d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 78668eaadca872d7c25ab909fad5b9838bbc01d3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011861"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894816"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Preguntas frecuentes: preguntas sobre recopilación de datos, agentes y áreas de trabajo
 
@@ -29,9 +29,9 @@ Security Center recopila datos de las máquinas virtuales de Azure, los conjunto
 
 No. Las áreas de trabajo que crea Security Center, mientras estén configuradas para los registros de Azure Monitor por facturación de nodo, no incurren en gastos de registros de Azure Monitor. La facturación de Security Center siempre se basa en la directiva de seguridad de Security Center y en las soluciones instaladas en un área de trabajo:
 
-- **Nivel Gratis**: Security Center habilita la solución "SecurityCenterFree" en el área de trabajo predeterminada. No se le facturará por el nivel Gratis.
+- **Azure Defender está desactivado**: Security Center habilita la solución "SecurityCenterFree" en el área de trabajo predeterminada. No se le facturará si Azure Defender está desactivado.
 
-- **Nivel Estándar**: Security Center habilita la solución "Security" en el área de trabajo predeterminada.
+- **Azure Defender está activado**: Security Center habilita la solución "Security" en el área de trabajo predeterminada.
 
 Para más información, vea [Precios de Security Center ](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -164,7 +164,7 @@ Si quita la extensión de Microsoft Monitoring, Security Center no será capaz d
 
 Puede desactivar el aprovisionamiento automático en las suscripciones en la directiva de seguridad, pero no es recomendable. La desactivación del aprovisionamiento automático limita las recomendaciones y las alertas de Security Center. Para deshabilitar el aprovisionamiento automático:
 
-1. Si la suscripción está configurada para el nivel estándar, abra la directiva de seguridad de esa suscripción y seleccione el nivel **Gratis**.
+1. Si su suscripción tiene habilitado Azure Defender, abra la directiva de seguridad de esa suscripción y seleccione **Azure Defender está desactivado**.
 
    ![Plan de tarifa][1]
 

@@ -12,12 +12,12 @@ ms.date: 08/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 1ce8f376d3264a06618cb7321c75142dcf92d9ea
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: dc271fa768bee66107e66a1b8d4f16c1188ce418
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891868"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439751"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicación de la aplicación en la galería de aplicaciones de Azure AD
 
@@ -278,5 +278,5 @@ Microsoft Partner Network proporciona acceso instantáneo a recursos, programas,
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-Para más información sobre cómo generar aplicaciones que admitan inicios de sesión de Azure AD, vea [Escenarios de autenticación para Azure AD](authentication-flows-app-scenarios.md).
+* [Aprovisionamiento de usuarios de SCIM con Azure Active Directory (Azure AD)](../app-provisioning/use-scim-to-provision-users-and-groups.md)
+* [Escenarios de autenticación de Azure AD](authentication-flows-app-scenarios.md)

@@ -5,14 +5,14 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/22/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f200fe96478e15e938899d294ecd5491d6a03206
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 4226676ed7fbaf5b2998306fa5240316c327d59c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814397"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891486"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>¿Qué es Azure Synapse Link para Azure Cosmos DB (versión preliminar)?
 
@@ -40,7 +40,6 @@ Azure Synapse Link permite acceder directamente al almacén analítico de Azure 
 ### <a name="near-real-time-insights-into-your-operational-data"></a>Conclusiones casi en tiempo real sobre los datos operativos
 
 Ahora puede obtener conclusiones completas sobre los datos operativos casi en tiempo real, mediante Azure Synapse Link. Los sistemas basados en ETL suelen tener una mayor latencia al analizar los datos operativos, debido a las muchas capas necesarias para extraer, transformar y cargar los datos operativos. Con la integración nativa del almacén analítico de Azure Cosmos DB con Azure Synapse Analytics, puede analizar los datos operativos casi en tiempo real al habilitar nuevos escenarios empresariales. 
-
 
 ### <a name="no-impact-on-operational-workloads"></a>Sin ningún impacto en las cargas de trabajo operativas
 
@@ -91,7 +90,7 @@ Puede consultar los datos del almacén analítico de Azure Cosmos DB simultáne
 
 Esta integración habilita los siguientes escenarios de HTAP para distintos usuarios:
 
-* Un ingeniero de inteligencia empresarial que quiere crear un modelo y publicar un informe para acceder a los datos operativos en Azure Cosmos DB directamente a través de Synapse SQL.
+* Un ingeniero de inteligencia empresarial que quiere crear un modelo y publicar un informe de Power BI para acceder a los datos operativos en tiempo real en Azure Cosmos DB directamente mediante Synapse SQL.
 
 * Un analista de datos que quiere obtener información sobre los datos operativos de un contenedor de Azure Cosmos DB mediante una consulta con Synapse SQL, leer los datos a gran escala y combinar dichos resultados con otros orígenes de datos.
 
@@ -115,16 +114,15 @@ En tales casos, Synapse Link proporciona una experiencia de análisis más integ
 
 No se recomienda el uso de Synapse Link si busca requisitos de almacenamiento de datos tradicionales, como alta simultaneidad, administración de cargas de trabajo y persistencia de agregados en varios orígenes de datos. Para obtener más información, consulte los [escenarios comunes que pueden aprovechar Azure Synapse Link para Azure Cosmos DB](synapse-link-use-cases.md).
 
-
 ## <a name="limitations"></a>Limitaciones
 
-* Durante la versión preliminar pública, Azure Synapse Link solo es compatible con SQL (Core) API de Azure Cosmos DB. La compatibilidad con la API de Azure Cosmos DB para MongoDB y Cassandra API se encuentra actualmente en versión preliminar validada. Para solicitar acceso a la versión preliminar validada, envíe un correo electrónico al [equipo de Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+* Azure Synapse Link es compatible con SQL (Core) API de Azure Cosmos DB y Azure Cosmos DB API para MongoDB. La compatibilidad con Cassandra API está actualmente en versión preliminar controlada. Para solicitar acceso a la versión preliminar validada, envíe un correo electrónico al [equipo de Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
-* En este momento, solo se puede habilitar el almacén analítico para los contenedores nuevos (tanto en cuentas nuevas como ya existentes de Azure Cosmos DB).
-
-* En la versión preliminar, para las cuentas de bases de datos habilitadas para Synapse Link, no se admite la copia de seguridad y restauración de contenedores. Si tiene cargas de trabajo de producción que requieren la funcionalidad de copia de seguridad y restauración, se recomienda no habilitar Synapse Link en esas cuentas de bases de datos. 
+* En este momento solo se puede habilitar el almacén analítico para los contenedores nuevos. Para usar el almacén analítico con contenedores existentes, migre los datos de estos a los nuevos mediante las [herramientas de migración de Azure Cosmos DB](cosmosdb-migrationchoices.md). Synapse Link se puede habilitar en las cuentas de Azure Cosmos DB nuevas y existentes.
 
 * El acceso al almacén analítico de Azure Cosmos DB con Synapse SQL sin servidor se encuentra actualmente en versión preliminar validada. Para solicitar acceso, envíe un correo electrónico al [equipo de Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+
+* En la versión preliminar, para las cuentas de bases de datos habilitadas para Synapse Link, no se admite la copia de seguridad y restauración de contenedores. Si tiene cargas de trabajo que requieren la funcionalidad de copia de seguridad y restauración, se recomienda no habilitar Synapse Link en esas cuentas de bases de datos. 
 
 * Actualmente no está disponible el acceso al almacén de análisis de Azure Cosmos DB con Synapse SQL aprovisionado.
 

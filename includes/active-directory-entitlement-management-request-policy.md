@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: ae3efec3722570e7e94316c5d874a74c523b1f05
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 12c9b1226e3ba928a4062049c7839d4e46ef727d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156508"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91024999"
 ---
 ## <a name="for-users-in-your-directory"></a>para los usuarios del directorio
 
@@ -207,3 +207,33 @@ Por ejemplo, si especificó que Alice y Bob sean los primeros aprobadores, indiq
     ![Paquete de acceso: directiva; configuración de habilitación de la directiva](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
 1. Haga clic en **Next**.
+
+## <a name="add-requestor-information-preview-to-an-access-package"></a>Incorporación de la información del solicitante (versión preliminar) para un paquete de acceso
+
+1. Vaya a la pestaña **Requestor information** (Información del solicitante) y haga clic en la subpestaña **Preguntas**.
+ 
+1. Escriba lo que desea pedir al solicitante, lo cual también se conoce como cadena que se va a mostrar, para la pregunta del cuadro **Pregunta**.
+
+    ![Paquete de acceso: Directiva Habilitar la configuración de la información del solicitante](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
+
+1. Si desea agregar sus propias opciones de localización, haga clic en **Add localization** (Agregar traducción).
+    1. Una vez en el panel **Add localizations for question** (Agregar traducciones para la pregunta), seleccione el **código de idioma** para el idioma en el que va a traducir la pregunta.
+    1. En el idioma configurado, escriba la pregunta en el cuadro **Localized Text** (Texto traducido).
+    1. Una vez que haya agregado todas las traducciones necesarias, haga clic en **Guardar**.
+
+    ![Paquete de acceso: Directiva Configurar texto traducido](./media/active-directory-entitlement-management-request-policy/add-localization-question.png)
+
+1. Seleccione el **formato de respuesta** en el que desea que los solicitantes respondan. Entre los formatos de respuesta se incluyen: *texto breve*, *opciones múltiples* y *texto largo*.
+ 
+    ![Paquete de acceso: Directiva Seleccionar ver y editar el formato de respuesta de opciones múltiples](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
+ 
+1. Si selecciona varias opciones, haga clic en el botón **Ver y editar** para configurar las opciones de respuesta.
+    1. Después de seleccionar Ver y editar, se abrirá el panel **View/edit question** (Ver y editar pregunta).
+    1. Escriba las opciones de respuesta que desea dar al solicitante al responder a la pregunta de los cuadros **Answer values** (Valores de respuesta).
+    1. Escriba tantas respuestas como sea necesario y haga clic en **Save** (Guardar).
+    
+    ![Paquete de acceso: Directiva Escribir opciones múltiples](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
+  
+1. Para requerir que los solicitantes respondan a esta pregunta al solicitar acceso a un paquete de acceso, haga clic en la casilla situada debajo de **Required** (Obligatorio).
+
+1. Haga clic en Next (Siguiente).

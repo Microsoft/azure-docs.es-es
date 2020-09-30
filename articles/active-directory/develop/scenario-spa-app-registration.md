@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: efd51e90bb14f3d97b76eb6ac45b384192bb8da0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2d596b6d0e291d197146bf5e00827d82b74c125c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311575"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434544"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicación de página única: Registro de aplicación
 
@@ -32,7 +32,7 @@ Tanto para las aplicaciones basadas en MSAL.js 1.0 como 2.0, empiece por comple
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). Si su cuenta tiene acceso a varios inquilinos, seleccione el filtro **Directorio + suscripción** en el menú superior y, a continuación, seleccione el inquilino que debe contener el registro de aplicación que va a crear.
 1. Busque y seleccione **Azure Active Directory**.
 1. En **Administrar**, seleccione **Registros de aplicaciones**.
-1. Seleccione **Nuevo registro**, escriba un **Nombre** para la aplicación y elija los **Tipos de cuenta admitidos** para la aplicación. **NO** escriba un **URI de redirección**. Para obtener una descripción de los distintos tipos de cuenta, consulte [Registro de una aplicación nueva mediante Azure Portal](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+1. Seleccione **Nuevo registro**, escriba un **Nombre** para la aplicación y elija los **Tipos de cuenta admitidos** para la aplicación. **NO** escriba un **URI de redirección**. Para obtener una descripción de los distintos tipos de cuenta, consulte [Registro de una aplicación nueva mediante Azure Portal](quickstart-register-app.md).
 1. Seleccione **Registrar** para crear el registro de aplicación.
 
 Después, configure el registro de la aplicación con un **URI de redirección** para especificar a dónde la Plataforma de identidad de Microsoft debe redirigir al cliente, junto con los tokens de seguridad. Siga los pasos adecuados para la versión de MSAL.js que usa en la aplicación:

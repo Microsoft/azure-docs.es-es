@@ -1,14 +1,14 @@
 ---
 title: Supervisión de los cambios en la delegación en el inquilino de administración
 description: Aprenda a supervisar la actividad de delegación en los inquilinos de clientes o en el inquilino de administración.
-ms.date: 08/18/2020
+ms.date: 09/08/2020
 ms.topic: how-to
-ms.openlocfilehash: 4d9d8b18634f94c355ea7fc0b5c125d631ec419c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 19c8cd4fa2b43961c46640a736a91e3fed3ac79d
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589748"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567612"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Supervisión de los cambios en la delegación en el inquilino de administración
 
@@ -48,6 +48,9 @@ Dado que se trata de un amplio nivel de acceso, se recomienda que asigne este ro
 - Asegúrese de que esta entidad de servicio no tiene acceso a ningún recurso de cliente delegado.
 - [Use un certificado para la autenticación](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) y [almacénelo de forma segura en Azure Key Vault](../../key-vault/general/best-practices.md).
 - Limite los usuarios que tienen acceso para actuar en nombre de la entidad de servicio.
+
+> [!NOTE]
+> También puede asignar el rol integrado de Azure de Lector de supervisión en el ámbito raíz a usuarios individuales o a grupos de usuarios. Esto puede ser útil si desea que un usuario pueda [ver información de delegación directamente en Azure Portal](#view-delegation-changes-in-the-azure-portal). Si lo hace, tenga en cuenta que se trata de un amplio nivel de acceso que se debe limitar al menor número posible de usuarios.
 
 Use uno de los métodos siguientes para realizar las asignaciones en el ámbito raíz.
 
@@ -164,6 +167,15 @@ else {
 
 > [!TIP]
 > Aunque en este tema hacemos referencia a los proveedores de servicios y clientes, las [empresas que administran varios inquilinos](../concepts/enterprise.md) pueden usar los mismos procesos.
+
+## <a name="view-delegation-changes-in-the-azure-portal"></a>Visualización de cambios de delegación en Azure Portal
+
+Los usuarios a los que se ha asignado el rol integrado de Azure de Lector de supervisión en el ámbito raíz pueden ver los cambios de delegación directamente en Azure Portal.
+
+1. Vaya a la página **Mis clientes** y, después, seleccione **Registro de actividades** en el menú de navegación izquierdo.
+1. Asegúrese de que **Actividad de directorio** está seleccionado en el filtro situado cerca de la parte superior de la pantalla.
+
+Aparecerá una lista de cambios de delegación. Puede seleccionar **Editar columnas** para mostrar u ocultar los valores de **Estado**, **Categoría de evento**, **Hora**, **Marca de tiempo**, **Suscripción**, **Evento iniciado por**, **Grupo de recursos**, **Tipo de recurso** y **Recurso**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,14 +4,14 @@
   items:
     - name: ¿Qué es Stream Analytics?
       href: stream-analytics-introduction.md
-    - name: Patrones globales de la solución
-      href: stream-analytics-solution-patterns.md
+    - name: Clúster de Stream Analytics
+      href: cluster-overview.md
 - name: Guías de inicio rápido
   expanded: true
   items:
     - name: Creación de un trabajo
       items:
-        - name: Azure Portal
+        - name: Azure portal
           href: stream-analytics-quick-create-portal.md
         - name: Azure CLI
           href: quick-create-azure-cli.md
@@ -23,7 +23,11 @@
         - name: Visual Studio
           href: stream-analytics-quick-create-vs.md
         - name: Visual Studio Code
-          href: quick-create-vs-code.md
+          href: quick-create-visual-studio-code.md
+    - name: Crear un clúster
+      items:
+        - name: Azure portal
+          href: create-cluster.md
 - name: Tutoriales
   items:
     - name: 1 - Creación y administración de un trabajo
@@ -42,6 +46,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
 - name: Conceptos
   items:
+    - name: Patrones globales de la solución
+      href: stream-analytics-solution-patterns.md
     - name: Elección de una tecnología de análisis de streaming
       href: streaming-technologies.md
     - name: Elección de una herramienta de desarrollo de trabajos
@@ -145,6 +151,14 @@
   items:
     - name: Administrar
       items:
+        - name: Clústeres
+          items:
+            - name: Creación y eliminación de puntos de conexión privados
+              href: private-endpoints.md
+            - name: Adición y eliminación de trabajos
+              href: manage-jobs-cluster.md
+            - name: Escalado de tamaño de clúster
+              href: scale-cluster.md
         - name: Trabajos de escalabilidad automática
           href: stream-analytics-autoscale.md
         - name: Actualización de credenciales
@@ -234,6 +248,14 @@
           href: stream-analytics-cicd-api.md
         - name: Exportación e implementación con Azure Resource Manager
           href: resource-manager-export.md
+    - name: Integración e implementación continuas
+      items:
+        - name: Introducción a CI/CD
+          href: cicd-overview.md
+        - name: 'Compilación, prueba e implementación con PowerShell'
+          href: cicd-tools.md
+        - name: Configuración de una canalización con Azure DevOps
+          href: set-up-cicd-pipeline.md
     - name: Visual Studio
       items:
         - name: Instalación de herramientas
@@ -260,8 +282,6 @@
           href: visual-studio-code-local-run-live-input.md
         - name: Depuración de consultas mediante un diagrama de trabajos
           href: debug-locally-using-job-diagram-vs-code.md
-        - name: Configuración de canalizaciones de integración y entrega continuas
-          href: setup-cicd-vs-code.md
         - name: Exploración de trabajos
           href: visual-studio-code-explore-jobs.md
         - name: Campos de JobConfig.json

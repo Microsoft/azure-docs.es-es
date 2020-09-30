@@ -11,16 +11,16 @@ author: jpe316
 ms.date: 06/03/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 263038ee1be8b31d493282cd920f386132420156
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 7637cc911ea2fbb950a18c2c8d91f5c3eaf02c23
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648792"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905080"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Descripción de las matrices de puertas programables por campo (FPGA) y procedimiento para realizar la implementación
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 En este artículo se proporciona una introducción a las matrices de puertas programables por campo (FPGA) y se muestra cómo se pueden implementar los modelos mediante [Azure Machine Learning](overview-what-is-azure-ml.md) en una FPGA de Azure.
 
@@ -78,7 +78,7 @@ La **familia PBS de máquinas virtuales de Azure** contiene matrices FPGA Intel 
 
 ## <a name="deploy-models-on-fpgas"></a>Implementación de modelos en FPGA
 
-Puede implementar un modelo como servicio web en FPGA con [modelos acelerados mediante hardware de Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py). El uso de las FPGA brinda una inferencia de latencia ultrabaja, incluso con un tamaño de lote único. Inferencia o modelo de puntuación, es la fase donde se usa el modelo implementado para la predicción, frecuentemente en datos de producción.
+Puede implementar un modelo como servicio web en FPGA con [modelos acelerados mediante hardware de Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py&preserve-view=true). El uso de las FPGA brinda una inferencia de latencia ultrabaja, incluso con un tamaño de lote único. Inferencia o modelo de puntuación, es la fase donde se usa el modelo implementado para la predicción, frecuentemente en datos de producción.
 
 La implementación de un modelo en una FPGA conlleva los siguientes pasos:
 
@@ -121,7 +121,7 @@ En este ejemplo, se crea un gráfico de TensorFlow para preprocesar la imagen de
     ```
 ### <a name="1-define-the-tensorflow-model"></a>1. Definir el modelo de TensorFlow
 
-Use el [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) para crear una definición de servicio. Una definición de servicio es un archivo que describe una canalización de grafos (entrada, caracterizador y clasificador) basado en TensorFlow. El comando de implementación comprime automáticamente la definición y los grafos en un archivo ZIP, que cargará en Azure Blog Storage. La DNN ya está implementada para ejecutarse en la FPGA.
+Use el [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) para crear una definición de servicio. Una definición de servicio es un archivo que describe una canalización de grafos (entrada, caracterizador y clasificador) basado en TensorFlow. El comando de implementación comprime automáticamente la definición y los grafos en un archivo ZIP, que cargará en Azure Blog Storage. La DNN ya está implementada para ejecutarse en la FPGA.
 
 1. Un área de trabajo de Azure Machine Learning.
 

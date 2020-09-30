@@ -1,15 +1,15 @@
 ---
 title: Proveedores de recursos y tipos de recursos
-description: Describe los proveedores de recursos que admiten el Administrador de recursos, sus esquemas y las versiones disponibles de API y las regiones que pueden hospedar los recursos.
+description: Describe los proveedores de recursos compatibles con Azure Resource Manager. Describe sus esquemas, versiones de API disponibles y las regiones que pueden hospedar los recursos.
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/01/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 581b653c6d4769f7777b0ca56f136d25443c1ae4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8b1a9e6d539d37fb26d8fb0e3a541415dd574e9a
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500017"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278894"
 ---
 # <a name="azure-resource-providers-and-types"></a>Tipos y proveedores de recursos de Azure
 
@@ -30,6 +30,16 @@ Puede llevar a cabo estos pasos en Azure Portal, Azure PowerShell o la CLI de Az
 
 Para obtener una lista que asigna proveedores de recursos con servicios de Azure, consulte [Proveedores de recursos para servicios de Azure](azure-services-resource-providers.md).
 
+## <a name="register-resource-provider"></a>Registro del proveedor de recursos
+
+Antes de usar un proveedor de recursos, debe registrarlo para la suscripción de Azure. Este paso configura su suscripción para así poder trabajar con el proveedor de recursos. El ámbito de registro es siempre la suscripción. De forma predeterminada, muchos proveedores de recursos se registran automáticamente. Pero es posible que tenga que registrar manualmente algunos.
+
+En este artículo se muestra cómo comprobar el estado del registro de un proveedor de recursos y registrarlo según sea necesario. Debe tener permiso para realizar la operación `/register/action` para el proveedor de recursos. El permiso se incluye en los roles Colaborador y Propietario.
+
+El código de aplicación no debe bloquear la creación de recursos para un proveedor de recursos con el estado de **registro**. Al registrar el proveedor de recursos, la operación se realiza de forma individual para cada región admitida. Para crear recursos en una región, el registro solo debe completarse en dicha región. Si no se bloquea el proveedor de recursos con el estado de registro, la aplicación puede continuar mucho antes que si se espera a que se completen todas las regiones.
+
+No se puede anular el registro de un proveedor de recursos si todavía dispone de tipos de recursos de dicho proveedor en la suscripción.
+
 ## <a name="azure-portal"></a>Portal de Azure
 
 Para ver todos los proveedores de recursos y el estado de registro de su suscripción:
@@ -45,9 +55,7 @@ Para ver todos los proveedores de recursos y el estado de registro de su suscrip
 
     ![vista de los proveedores de recursos](./media/resource-providers-and-types/show-resource-providers.png)
 
-6. Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. El ámbito de registro es siempre la suscripción. De forma predeterminada, muchos proveedores de recursos se registran automáticamente. Pero es posible que tenga que registrar manualmente algunos. Para registrar un proveedor de recursos, debe tener permiso para realizar la operación `/register/action` para este. Esta operación está incluida en los roles Colaborador y Propietario. Para registrar un proveedor de recursos, seleccione **Registro**. En la captura de pantalla anterior, el vínculo **Registrar** se resalta para **Microsoft.Blueprint**.
-
-    No se puede anular el registro de un proveedor de recursos si todavía dispone de tipos de recursos de dicho proveedor en la suscripción.
+6. Para registrar un proveedor de recursos, seleccione **Registro**. En la captura de pantalla anterior, el vínculo **Registrar** se resalta para **Microsoft.Blueprint**.
 
 Para ver información de un proveedor de recursos concreto:
 
@@ -95,7 +103,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. El ámbito de registro es siempre la suscripción. De forma predeterminada, muchos proveedores de recursos se registran automáticamente. Pero es posible que tenga que registrar manualmente algunos. Para registrar un proveedor de recursos, debe tener permiso para realizar la operación `/register/action` para este. Esta operación está incluida en los roles Colaborador y Propietario.
+Para registrar un proveedor de recursos, use:
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -109,8 +117,6 @@ RegistrationState : Registering
 ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
-
-No se puede anular el registro de un proveedor de recursos si todavía dispone de tipos de recursos de dicho proveedor en la suscripción.
 
 Para ver información de un proveedor de recursos concreto, use:
 
@@ -200,15 +206,13 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-Al registrar un proveedor de recursos se configura la suscripción para que funcione con este. El ámbito de registro es siempre la suscripción. De forma predeterminada, muchos proveedores de recursos se registran automáticamente. Pero es posible que tenga que registrar manualmente algunos. Para registrar un proveedor de recursos, debe tener permiso para realizar la operación `/register/action` para este. Esta operación está incluida en los roles Colaborador y Propietario.
+Para registrar un proveedor de recursos, use:
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
 ```
 
 Que devuelve un mensaje que indica que el registro está en curso.
-
-No se puede anular el registro de un proveedor de recursos si todavía dispone de tipos de recursos de dicho proveedor en la suscripción.
 
 Para ver información de un proveedor de recursos concreto, use:
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a9528b31bfd1be40b478f3c47fd0a16047a7f6ff
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 37faf5d8e6292844245f475d9fcf0f832a0cca10
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028117"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440004"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas y herramientas para proyectos de ciencia de datos
 
@@ -63,11 +63,11 @@ Cuando crea un clúster Spark en HDInsight, aprovisiona recursos de proceso de A
 El equipo de proceso de ciencia de datos en equipo de Microsoft ha publicado dos tutoriales completos sobre el uso de clústeres de Azure HDInsight Spark para crear soluciones de ciencia de datos, en Python y en Scala. Para más información sobre **clústeres de Azure HDInsight Spark**, consulte [Introducción a Apache Spark en HDInsight para Linux](../../hdinsight/spark/apache-spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Python** en un clúster de Azure HDInsight Spark, consulte [Información general sobre la ciencia de datos con Azure HDInsight Spark](spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Scala** en un clúster de Azure HDInsight Spark, consulte [Ciencia de datos mediante Scala y Spark en Azure](scala-walkthrough.md). 
 
 
-##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+##  <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-Azure SQL Data Warehouse le permite escalar los recursos de proceso fácilmente y en segundos, sin tener que realizar un aprovisionamiento excesivo o pagar en exceso. Además, ofrece la exclusiva ventaja de pausar el uso de los recursos de proceso, lo que da total libertad para administrar mejor los costos de la nube. La posibilidad de implementar recursos de proceso escalables permite almacenar todos los datos en Azure SQL Data Warehouse. Los costos de almacenamiento son mínimos y puede ejecutar el proceso solo en aquellas partes de los conjuntos de datos que desea analizar. 
+Azure Synapse Analytics le permite escalar los recursos de proceso fácilmente y en segundos, sin tener que realizar un aprovisionamiento excesivo o pagar en exceso. Además, ofrece la exclusiva ventaja de pausar el uso de los recursos de proceso, lo que da total libertad para administrar mejor los costos de la nube. La posibilidad de implementar recursos de proceso escalables permite almacenar todos los datos en Azure Synapse Analytics. Los costos de almacenamiento son mínimos y puede ejecutar el proceso solo en aquellas partes de los conjuntos de datos que desea analizar. 
 
-Para más información sobre Azure SQL Data Warehouse, consulte el sitio web de [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse). Para obtener información sobre cómo crear soluciones completas de análisis avanzado con SQL Data Warehouse, consulte [Proceso de ciencia de datos en equipo en acción: uso de SQL Data Warehouse](sqldw-walkthrough.md).
+Para obtener más información sobre Azure Synapse Analytics, consulte el sitio web de [Azure Synapse Analytics](https://azure.microsoft.com/services/sql-data-warehouse). Para obtener información sobre cómo crear soluciones completas de análisis avanzado con Azure Synapse Analytics, consulte [Proceso de ciencia de datos en equipo en acción: uso de Azure Synapse Analytics](sqldw-walkthrough.md).
 
 
 ## <a name="azure-data-lake"></a>Azure Data Lake

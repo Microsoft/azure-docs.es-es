@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 562a0fbd64fca530598a58599160dbdd7e479557
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: b470fa72518f805c10403931280bdec96bda0fbe
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485528"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226546"
 ---
 # <a name="azure-security-baseline-for-azure-application-gateway"></a>Base de referencia de seguridad de Azure para Azure Application Gateway
 
@@ -156,7 +156,7 @@ En el caso de los grupos de seguridad de red (NSG) asociados a las subredes de A
 
 **Guía**: defina e implemente configuraciones de seguridad estándar para la configuración de red relacionada con las implementaciones de Azure Application Gateway. Use alias de Azure Policy en el espacio de nombres "Microsoft.Network" para crear directivas personalizadas que permitan auditar o aplicar la configuración de red de los grupos de seguridad de red, Azure Application Gateways y Azure Virtual Networks. También puede usar definiciones de directivas integradas.
 
-También puede utilizar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como plantillas de Azure Resource Manager (ARM), control de acceso basado en rol (RBAC) y directivas, en una única definición de plano técnico. Aplique fácilmente el plano técnico a nuevas suscripciones y entornos, y ajuste el control y la administración mediante el control de versiones.
+También puede utilizar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como las plantillas de Azure Resource Manager, el control de acceso basado en rol de Azure (Azure RBAC) y las directivas, en una única definición de un plano técnico. Aplique fácilmente el plano técnico a nuevas suscripciones y entornos, y ajuste el control y la administración mediante el control de versiones.
 
 * [Configuración y administración de Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -342,7 +342,7 @@ Configure los valores de diagnóstico para las implementaciones de Azure Applica
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Mantenga un inventario de cuentas administrativas
 
-**Guía**: Azure Active Directory (AD) tiene roles integrados que se deben asignar explícitamente y son consultables. Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc para detectar cuentas que son miembros de grupos administrativos.
+**Instrucciones**: Azure Active Directory (AD) tiene roles integrados que se deben asignar explícitamente y son consultables. Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc para detectar cuentas que son miembros de grupos administrativos.
 
 * [Obtención de un rol de directorio en Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -405,7 +405,7 @@ Además, para ayudarle a realizar un seguimiento de las cuentas administrativas 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: Use máquinas dedicadas (estaciones de trabajo de acceso con privilegios) para todas las tareas administrativas
 
-**Instrucciones**: Utilice PAW (estaciones de trabajo de acceso privilegiado) con la MFA configurada para iniciar la sesión y configurar recursos de Azure.
+**Guía**: Utilice PAW (estaciones de trabajo de acceso privilegiado) con la MFA configurada para iniciar la sesión y configurar recursos de Azure.
 
 * [Más información sobre las estaciones de trabajo con privilegios de acceso](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
@@ -561,11 +561,11 @@ Microsoft administra la infraestructura subyacente para Azure Application Gatewa
 
 **Responsabilidad**: No aplicable
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Uso del control de acceso basado en rol para controlar el acceso a los recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
-**Guía**: use el control de acceso basado en roles (RBAC) de Azure Active Directory (AD) para controlar el acceso al plano de control de Azure Application Gateway (Azure Portal).
+**Guía**: use el control de acceso basado en roles de Azure (Azure RBAC) para controlar el acceso al plano de control de Azure Application Gateway (Azure Portal).
 
-* [Configuración de RBAC en Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Configuración de Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -659,7 +659,7 @@ Plataforma subyacente examinada y revisada por Microsoft. Revise los controles d
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1: Uso de la solución de detección de recursos automatizada
 
-**Instrucciones**: Use Azure Resource Graph para consultar o detectar todos los recursos (por ejemplo, proceso, almacenamiento, red, puertos y protocolos, etc.) dentro de las suscripciones. Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y enumere todas las suscripciones de Azure, así como los recursos de las suscripciones.
+**Guía**: Use Azure Resource Graph para consultar o detectar todos los recursos (por ejemplo, proceso, almacenamiento, red, puertos y protocolos, etc.) dentro de las suscripciones. Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y enumere todas las suscripciones de Azure, así como los recursos de las suscripciones.
 
 Aunque los recursos clásicos de Azure se pueden detectar a través de Resource Graph, se recomienda encarecidamente crear y usar los recursos de Azure Resource Manager que figuran a continuación.
 
@@ -733,7 +733,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: Eliminación de aplicaciones de software y recursos de Azure no aprobadas
 
-**Instrucciones**: no aplicable; esta recomendación está diseñada para recursos de proceso de IaaS.
+**Guía**: no aplicable; esta recomendación está diseñada para recursos de proceso de IaaS.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -741,7 +741,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="68-use-only-approved-applications"></a>6.8: Uso exclusivo de aplicaciones aprobadas
 
-**Instrucciones**: no aplicable; esta recomendación está diseñada para recursos de proceso de IaaS.
+**Guía**: no aplicable; esta recomendación está diseñada para recursos de proceso de IaaS.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -749,7 +749,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
-**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 - Tipos de recursos no permitidos
 - Tipos de recursos permitidos
 
@@ -1089,7 +1089,7 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: Automatización de la respuesta a las alertas de seguridad
 
-**Guía**: use la característica de automatización del flujo de trabajo de Azure Security Center para desencadenar automáticamente respuestas mediante "Logic Apps" en las alertas y recomendaciones de seguridad.
+**Instrucciones**: use la característica de automatización del flujo de trabajo de Azure Security Center para desencadenar automáticamente respuestas mediante "Logic Apps" en las alertas y recomendaciones de seguridad.
 
 * [Configuración de la automatización de flujo de trabajo y Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
 
@@ -1103,9 +1103,9 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Realice pruebas de penetración periódicas de los recursos de Azure y asegúrese de corregir todos los resultados de seguridad críticos
 
-**Instrucciones**: 
+**Guía**: 
 
-* [Siga las reglas de compromiso de Microsoft para asegurarse de que las pruebas de penetración no infrinjan las directivas de Microsoft](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+* [Siga las reglas de involucración de Microsoft para asegurarse de que las pruebas de penetración no infrinjan las directivas de Microsoft](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
 * [Puede encontrar más información sobre la estrategia y ejecución de Microsoft en las pruebas de penetración del equipo rojo y los sitios activos en la infraestructura de nube, los servicios y las aplicaciones administradas por Microsoft aquí.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: ac3f31fecd53ddf1dd8bb81229c67cb4bb60c34e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 33d481d546d94bb1279cafbd85ae23c8ac4d00b8
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650645"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437274"
 ---
 # <a name="av2-series"></a>Serie Av2
 
@@ -29,7 +29,7 @@ Migración en vivo: Compatible
 Actualizaciones con conservación de memoria: Compatible
 
 
-| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo de almacenamiento temporal: IOPS/Mbps de lectura/Mbps de escritura | Discos de datos máx./rendimiento: E/S | Nº máx. NIC | Ancho de banda de red esperado (Mbps)
+| Size | vCore | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo de almacenamiento temporal: IOPS/Mbps de lectura/Mbps de escritura | Discos de datos máx./rendimiento: E/S | Nº máx. NIC | Ancho de banda de red esperado (Mbps)
 |---|---|---|---|---|---|---|---|
 | Standard_A1_v2  | 1 | 2  | 10 | 1000/20/10  | 2/2x500   | 2 | 250  |
 | Standard_A2_v2  | 2 | 4  | 20 | 2000/40/20  | 4/4x500   | 2 | 500  |

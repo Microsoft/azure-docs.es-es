@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: c92d6569e3c92d3bad3575599283c7796bd78225
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 2a0cb34c23ebee5ae16a8c0a272055880ceed388
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88068611"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89494338"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -22,9 +22,8 @@ El único requisito previo es una suscripción a Azure Speech. Consulte la [guí
 
 Siga estos pasos para instalar la CLI de Voz en Windows:
 
-1. Instale [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net471) o [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
-2. Descargue el [archivo ZIP](https://aka.ms/speech/spx-zips.zip) de la CLI de Voz y extráigalo.
-3. Vaya al directorio raíz `spx-zips` que extrajo de la descarga y extraiga el subdirectorio que necesita (`spx-net471` para .NET Framework 4.7 o `spx-netcore-win-x64` para .NET Core 3.0 en una CPU x64).
+1. Descargue el [archivo ZIP](https://aka.ms/speech/spx-zips.zip) de la CLI de Voz y extráigalo.
+2. Vaya al directorio raíz `spx-zips` que extrajo de la descarga y extraiga el subdirectorio que necesita (`spx-net471` para .NET Framework 4.7 o `spx-netcore-win-x64` para .NET Core 3.0 en una CPU x64).
 
 En el símbolo del sistema, cambie el directorio a esta ubicación y, luego, escriba `spx` para ver la ayuda de la CLI de Voz.
 
@@ -53,11 +52,13 @@ Escriba `spx` para ver la ayuda de la CLI de Voz.
 
 #### <a name="docker-install"></a>[Instalación de Docker](#tab/dockerinstall)
 
+> [!NOTE]
+> Debe estar instalado el <a href="https://www.docker.com/get-started" target="_blank">escritorio de Docker para su plataforma <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
 Siga estos pasos para instalar la CLI de Voz dentro de un contenedor de Docker:
 
-1. Instale y ejecute el [escritorio de Docker para su plataforma](https://www.docker.com/get-started).
 1. En un nuevo símbolo del sistema o terminal, escriba este comando: `docker pull msftspeech/spx`
-1. Escriba este comando. Debería ver la información de ayuda de la CLI de Voz: `docker run -it --rm msftspeech/spx help`
+2. Escriba este comando. Debería ver la información de ayuda de la CLI de Voz: `docker run -it --rm msftspeech/spx help`
 
 ### <a name="mount-a-directory-in-the-container"></a>Montaje de un directorio en el contenedor
 

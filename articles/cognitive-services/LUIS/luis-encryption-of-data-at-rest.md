@@ -1,20 +1,20 @@
 ---
 title: Cifrado de datos en reposo del servicio Language Understanding
 titleSuffix: Azure Cognitive Services
-description: Cifrado de datos en reposo del servicio Language Understanding
+description: Microsoft ofrece claves de cifrado administradas por Microsoft y también le permite administrar las suscripciones de Cognitive Services con sus propias claves, llamadas claves administradas por el cliente (CMK). En este artículo, encontrará información sobre el cifrado de datos en Language Understanding (LUIS) y cómo habilitar y administrar CMK.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 4fc816c3894120a5d1b356d91ebebbc56f21b530
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: ce6561652801d52e5600ddc63e573070281da3f2
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052703"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078136"
 ---
 # <a name="language-understanding-service-encryption-of-data-at-rest"></a>Cifrado de datos en reposo del servicio Language Understanding
 
@@ -26,7 +26,7 @@ Los datos se cifran y descifran con el cifrado [AES de 256 bits](https://en.wiki
 
 ## <a name="about-encryption-key-management"></a>Información sobre la administración de claves de cifrado
 
-De forma predeterminada, su suscripción usa claves de cifrado administradas por Microsoft. También tiene una opción para administrar su suscripción con sus propias claves. Las claves administradas por el cliente (CMK) ofrecen más flexibilidad para crear, rotar, deshabilitar y revocar controles de acceso. También permite auditar las claves de cifrado que se usan para proteger los datos.
+De forma predeterminada, su suscripción usa claves de cifrado administradas por Microsoft. También puede administrar la suscripción con sus propias claves, que se denominan claves administradas por el cliente (CMK). Las CMK ofrecen mayor flexibilidad para crear, rotar, deshabilitar y revocar los controles de acceso. También permite auditar las claves de cifrado que se usan para proteger los datos.
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Claves administradas por el cliente con Azure Key Vault
 
@@ -39,10 +39,6 @@ Debe usar Azure Key Vault para almacenar las claves administradas por el cliente
 Para solicitar la capacidad de usar claves administradas por el cliente, rellene y envíe el  [formulario de solicitud de claves administradas por el cliente del servicio LUIS](https://aka.ms/cogsvc-cmk). Tardará de tres a cinco días hábiles aproximadamente en recibir una respuesta sobre el estado de la solicitud. En función de la demanda, es posible que se coloque en una cola y se apruebe a medida que haya espacio disponible. Una vez aprobado el uso de CMK con LUIS, deberá crear un nuevo recurso de Language Understanding desde Azure Portal y seleccionar E0 como el plan de tarifa. La nueva SKU funcionará igual que la SKU F0 que ya está disponible, excepto CMK. Los usuarios no podrán realizar la actualización de F0 a la nueva SKU de E0.
 
 ![Imagen de la suscripción de LUIS](../media/cognitive-services-encryption/luis-subscription.png)
-
-### <a name="regional-availability"></a>Disponibilidad regional
-
-Las claves administradas por el cliente están disponibles en todas las [regiones de creación](luis-reference-regions.md). 
 
 ### <a name="limitations"></a>Limitaciones
 

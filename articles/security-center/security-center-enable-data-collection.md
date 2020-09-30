@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: c6a779deef3ed1dc0a4d5e83c38f483776adf6fe
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 132e21c861f50caca37fb6fc5df660ff413d07a5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387377"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905493"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolección de datos en Azure Security Center
 Security Center recopila datos de las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtuales, los contenedores de IaaS y de los equipos que no son de Azure (incluidos los equipos locales) para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con el agente de Log Analytics, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP y usuario conectado.
@@ -34,20 +34,23 @@ Para recopilar los datos de las máquinas, debe tener instalado el agente de Log
 Si el aprovisionamiento automático está activado, Security Center implementa el agente de Log Analytics en todas las máquinas virtuales de Azure compatibles y en las nuevas que se creen. Se recomienda el aprovisionamiento automático, pero puede instalar el agente manualmente si es necesario (consulte [Instalación manual del agente de Log Analytics](#manual-agent)).
 
 
+
 Para habilitar el aprovisionamiento automático del agente de Log Analytics:
-1. En el menú de Security Center del portal, seleccione **Precios y configuración**.
-2. Seleccione la suscripción correspondiente.
 
-   ![Seleccionar suscripción][7]
+1. En el menú de Security Center, seleccione **Precios y configuración**.
+1. Seleccione la suscripción correspondiente.
+1. En la página **Recopilación de datos**, establezca **Aprovisionamiento automático** en **Activado**.
+1. Seleccione **Guardar**.
 
-3. Seleccione **Recopilación de datos**.
-4. En **Aprovisionamiento automático**, seleccione **Activado** para habilitarlo.
-5. Seleccione **Guardar**. El agente se implementará en todas las máquinas virtuales en un plazo de 15 minutos. 
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Habilitación del aprovisionamiento automático del agente de Log Analytics":::
 
 >[!TIP]
 > Si es necesario aprovisionar un área de trabajo, la instalación del agente puede tardar hasta 25 minutos.
 
-   ![Habilitar el aprovisionamiento automático][1]
+Con el agente implementado en las máquinas, Security Center puede proporcionar recomendaciones adicionales relacionadas con el estado de actualización del sistema, las configuraciones de seguridad del sistema operativo y la protección de los puntos de conexión, así como generar alertas de seguridad adicionales.
+
+>[!NOTE]
+> Al establecer el aprovisionamiento automático en **Desactivado**, el agente de Log Analytics no se quita de las máquinas virtuales de Azure en las que ya se haya aprovisionado. La deshabilitación del aprovisionamiento automático limita la supervisión de seguridad de los recursos.
 
 >[!NOTE]
 > - Para obtener instrucciones sobre cómo aprovisionar una instalación ya existente, consulte [Aprovisionamiento automático en los casos de una instalación de agente ya existente](#preexisting).
@@ -78,7 +81,7 @@ Para seleccionar un área de trabajo creada por Security Center:
 1. Security Center habilitará automáticamente una solución de Security Center en el área de trabajo de acuerdo al plan de tarifa establecido para la suscripción. 
 
 > [!NOTE]
-> El plan de tarifa de Log Analytics de áreas de trabajo creadas por Security Center no afecta a la facturación de Security Center. La facturación de Security Center siempre se basa en la directiva de seguridad de Security Center y en las soluciones instaladas en un área de trabajo. Para el nivel Gratis, Security Center habilita la solución *SecurityCenterFree* en el área de trabajo predeterminada. Para el nivel Estándar, Security Center habilita la solución *Security* en el área de trabajo predeterminada.
+> El plan de tarifa de Log Analytics de áreas de trabajo creadas por Security Center no afecta a la facturación de Security Center. La facturación de Security Center siempre se basa en la directiva de seguridad de Security Center y en las soluciones instaladas en un área de trabajo. En el caso de las suscripciones sin Azure Defender, Security Center habilita la solución *SecurityCenterFree* en el área de trabajo predeterminada. En el caso de las suscripciones con Azure Defender, Security Center habilita la solución *Security* en el área de trabajo predeterminada.
 > El almacenamiento de datos en Log Analytics podría incurrir en cargos adicionales por almacenamiento de datos. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/)para obtener más información.
 
 Para obtener más información acerca de las cuentas de Log Analytics, consulte [Clientes existentes de Log Analytics](./faq-azure-monitor-logs.md).
@@ -97,7 +100,7 @@ Para seleccionar un área de trabajo de Log Analytics existente:
 
 1. En **Configuración del área de trabajo predeterminada**, seleccione **Use another workspace** (Usar otra área de trabajo).
 
-   ![Seleccionar el área de trabajo existente][2]
+   ![Usar otro área de trabajo][2]
 
 2. En el menú desplegable, seleccione un área de trabajo para almacenar los datos recopilados.
 
@@ -117,23 +120,28 @@ Para seleccionar un área de trabajo de Log Analytics existente:
    >
    >
 
-   - Haga clic en **Cancelar** para cancelar la operación.
+   - Para cancelar la operación, seleccione **Cancelar**.
 
-     ![Seleccionar el área de trabajo existente][3]
+     ![Revisión de las opciones para volver a configurar máquinas virtuales supervisadas][3]
 
-5. Seleccione el plan de tarifa del área de trabajo deseada en la que se va a configurar el agente de Log Analytics. <br>Para usar un área de trabajo existente, establezca el plan de tarifa del área de trabajo. Esto instalará una solución de Security Center en el área de trabajo si todavía no está presente.
+5. Seleccione si el área de trabajo tendrá habilitado Azure Defender.
 
-    a.  En el menú principal de Security Center, seleccione **Precios y configuración**.
+    Para usar un área de trabajo existente, establezca el plan de tarifa del área de trabajo. Esto instalará una solución de Security Center en el área de trabajo si todavía no está presente.
+
+    1. En el menú principal de Security Center, seleccione **Precios y configuración**.
      
-    b.  Seleccione el área de trabajo deseada en la que se quiere conectar al agente.
-        ![Selección del área de trabajo][7] c. Establezca el plan de tarifa.
-        ![Selección del plan de tarifa][9]
+    1. Seleccione el área de trabajo a la que se conectará el agente.
+
+    1. Seleccione **Azure Defender está activado** o **Azure Defender está desactivado**.
+
    
    >[!NOTE]
    >Si el área de trabajo ya tiene una solución **Security** o **SecurityCenterFree** habilitada, los precios se establecerán automáticamente. 
 
+
 ## <a name="cross-subscription-workspace-selection"></a>Selección del área de trabajo entre suscripciones
 Cuando se selecciona un área de trabajo para almacenar los datos, todas las áreas de trabajo de todas sus suscripciones están disponibles. La selección del área de trabajo entre suscripciones le permite recopilar datos de máquinas virtuales que se ejecutan en distintas suscripciones y almacenarlos en el área de trabajo que prefiera. Esta selección es útil si está usando un área de trabajo centralizada en la organización y desea usarla para la recopilación de datos de seguridad. Para más información acerca de cómo administrar las áreas de trabajo, consulte [Administración del acceso a las áreas de trabajo](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access).
+
 
 
 ## <a name="data-collection-tier"></a>Nivel de recopilación de datos
@@ -150,7 +158,7 @@ La selección de un nivel de recopilación de datos en Azure Security Center sol
 
 
 > [!NOTE]
-> Estos conjuntos de eventos de seguridad solo están disponibles en el nivel Estándar de Security Center. Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
+> Estos conjuntos de eventos de seguridad solo están disponibles con Azure Defender. Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
 Estos conjuntos se han diseñado para abordar escenarios típicos. Asegúrese de evaluar cuál se ajusta a sus necesidades antes de implementarlo.
 >
 >
@@ -244,19 +252,16 @@ Puede instalar el agente de Log Analytics manualmente para que Security Center p
 
 1. Opcionalmente, cree un área de trabajo.
 
-1. Establezca el área de trabajo en la que va a instalar el agente de Log Analytics en el plan de tarifa estándar:
+1. Habilite Azure Defender en el área de trabajo en la que va a instalar el agente de Log Analytics:
 
     1. En el menú de Security Center, seleccione **Precios y configuración**.
 
     1. Establezca el área de trabajo en la que va a instalar el agente. Asegúrese de que el área de trabajo está en la misma suscripción que se usa en Security Center y que tiene permisos de lectura/escritura en el área de trabajo.
 
-    1. Establezca el plan de tarifa estándar y seleccione **Guardar**.
-
-        ![Establecimiento de un área de trabajo en el plan de tarifa estándar](.\media\security-center-enable-data-collection\workspace-to-standard-tier.gif)
+    1. Establezca Azure Defender en activado y seleccione **Guardar**.
 
        >[!NOTE]
        >Si el área de trabajo ya tiene una solución **Security** o **SecurityCenterFree** habilitada, los precios se establecerán automáticamente. 
-   > 
 
 1. Si desea implementar los agentes en nuevas máquinas virtuales mediante una plantilla de Resource Manager, instale el agente de Log Analytics:
 
@@ -308,7 +313,6 @@ En este artículo le hemos mostrado cómo efectuar un aprovisionamiento automát
 [2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[6]: ./media/security-center-enable-data-collection/disable-data-collection.png
 [7]: ./media/security-center-enable-data-collection/select-subscription.png
 [8]: ./media/security-center-enable-data-collection/manual-provision.png
 [9]: ./media/security-center-enable-data-collection/pricing-tier.png

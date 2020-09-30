@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 363c003a915763a7ab1165c2e0d8f945bc3dd510
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd886bea90c1092e38fac191a60a118aab0bef1f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213693"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903889"
 ---
 # <a name="logical-decoding"></a>Descodificación lógica
  
@@ -52,11 +52,11 @@ El servidor debe reiniciarse después de un cambio de este parámetro. Intername
 
 1. Establezca el soporte de replicación de Azure en **lógico**. Seleccione **Guardar**.
 
-   ![Réplicación de Azure Database for PostgreSQL: Soporte de replicación de Azure](./media/concepts-logical/replication-support.png)
+   :::image type="content" source="./media/concepts-logical/replication-support.png" alt-text="Réplicación de Azure Database for PostgreSQL: Soporte de replicación de Azure":::
 
 2. Reinicie el servidor para aplicar el cambio seleccionando **Sí**.
 
-   ![Réplica de Azure Database for PostgreSQL: confirmar reinicio](./media/concepts-logical/confirm-restart.png)
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Réplica de Azure Database for PostgreSQL: confirmar reinicio":::
 
 
 ## <a name="start-logical-decoding"></a>Inicio de la descodificación lógica

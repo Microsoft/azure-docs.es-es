@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: 6e4d4c8f798418e090caeba091dec33c71f0458f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4112d26d6a21ac800e20bb67ce24a35ca9d09a13
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477500"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905232"
 ---
 # <a name="preprocess-text"></a>preprocesamiento de texto
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
 Use el módulo **Preprocess Text** para limpiar y simplificar texto. Admite estas operaciones de procesamiento de texto habituales:
 

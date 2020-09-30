@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/12/2020
-ms.openlocfilehash: 43dca9cd9f9000faae701e618e9a5fdf21d31ee3
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 9a1a3892e6a47aabd9b5129ca551900494616bc8
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192744"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905160"
 ---
 # <a name="score-wide-and-deep-recommender"></a>Puntuación del recomendador ancho y profundo
 
-En este artículo se describe cómo usar el módulo **Score Wide and Deep Recommender** (Puntuar el recomendador Wide and Deep) en Azure Machine Learning Designer (versión preliminar) para crear predicciones basadas en un modelo de recomendación entrenado, que se basa en el aprendizaje Wide & Deep de Google.
+En este artículo se describe cómo usar el módulo **Puntuación del recomendador Wide & Deep** en el diseñador de Azure Machine Learning para crear predicciones basadas en un modelo de recomendación entrenado, que se basa en el aprendizaje Wide & Deep de Google.
 
 El recomendador Wide and Deep puede generar dos tipos diferentes de predicciones:
 

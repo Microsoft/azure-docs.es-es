@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/19/2020
-ms.openlocfilehash: 47c203eaea0c3fc2a39267ed78eb603c4836cd2b
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 97a16bd81fd79646fb3693ec2dc4b8a40b9a6a3b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660288"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896159"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Inicio rápido: Uso de una plantilla de Resource Manager para crear un servidor de Azure Database for MySQL
 
@@ -22,7 +22,7 @@ Azure Database for MySQL es un servicio administrado que se usa para ejecutar, a
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación en Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -66,7 +66,7 @@ Encontrará más ejemplos de plantillas de Azure Database for MySQL en la [galer
 
 Seleccione el siguiente vínculo para implementar la plantilla del servidor de Azure Database for MySQL Server en Azure Portal:
 
-[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación en Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
 
 En la página **Implementación de Azure Database for MySQL con red virtual**:
 
@@ -76,7 +76,7 @@ En la página **Implementación de Azure Database for MySQL con red virtual**:
 
 3. Escriba un **nombre de servidor**, **Inicio de sesión del administrador** y **Contraseña de inicio de sesión del administrador**.
 
-    ![Implementación de Azure Database for MySQL con la ventana de red virtual, plantilla de inicio rápido de Azure, Azure Portal](./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png)
+    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="Implementación de Azure Database for MySQL con la ventana de red virtual, plantilla de inicio rápido de Azure, Azure Portal":::
 
 4. Cambie los valores predeterminados si lo desea:
 

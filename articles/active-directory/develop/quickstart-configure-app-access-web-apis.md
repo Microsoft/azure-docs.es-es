@@ -1,202 +1,148 @@
 ---
 title: 'Inicio rápido: Configuración de una aplicación para acceder a una API web | Azure'
 titleSuffix: Microsoft identity platform
-description: En este inicio rápido, configurará una aplicación registrada con la Plataforma de identidad de Microsoft para que incluya los identificadores URI de redireccionamiento, las credenciales o los permisos para acceder a las API web.
+description: En este inicio rápido, configurará un registro de aplicación que representa una API web en la plataforma de identidad de Microsoft para que las aplicaciones cliente tengan acceso a los recursos con ámbito (permisos).
 services: active-directory
-author: rwike77
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/05/2020
-ms.author: ryanwi
-ms.custom: aaddev
+ms.date: 09/03/2020
+ms.author: marsma
+ms.custom: aaddev, contperfq1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 87c21587567ffe3462e4b702985114ac10454886
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: fc2f3202ac88e3ee6c24db21dd9072a13a8deef9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88140809"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442314"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Inicio rápido: Configuración de una aplicación cliente para acceder a las API web
 
-En este inicio rápido, se agregarán URI de redireccionamiento, credenciales o permisos para acceder a las API web de una aplicación. Una aplicación cliente web o confidencial debe establecer credenciales seguras para participar en un flujo de concesión de autorización que requiera autenticación. El método de autenticación predeterminado compatible con Azure Portal es un identificador de cliente y una clave secreta. La aplicación obtiene un token de acceso durante este proceso.
+En este inicio rápido proporcionará a una aplicación cliente registrada en la plataforma de identidad de Microsoft acceso basado en permisos con ámbito a una API web propia. También proporcionará a la aplicación cliente acceso a Microsoft Graph.
 
-Para que un cliente pueda acceder a una API web expuesta por una aplicación de recursos (como Microsoft Graph API), el marco de consentimiento garantiza que el cliente obtenga la concesión de los permisos necesarios para los solicitados. De forma predeterminada, todas las aplicaciones pueden solicitar permisos de Microsoft Graph API.
+Al especificar los ámbitos de una API web en el registro de la aplicación cliente, esta puede obtener un token de acceso que contenga esos ámbitos de la plataforma de identidad de Microsoft. Dentro de su código, la API web puede proporcionar acceso basado en permisos a sus recursos en función de los ámbitos que se encuentran en el token de acceso.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-* Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Finalización de [Inicio rápido: Configuración de una aplicación para exponer las API web](quickstart-configure-app-expose-web-apis.md).
+* Una cuenta de Azure con una suscripción activa: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Finalización de [Inicio rápido: Registro de una aplicación](quickstart-register-app.md).
+* Finalización de [Inicio rápido: Configuración de una aplicación para exponer una API web](quickstart-configure-app-expose-web-apis.md).
 
-## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Inicio de sesión en Azure Portal y selección de la aplicación
+## <a name="add-permissions-to-access-your-web-api"></a>Incorporación de permisos para acceder a la API web
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
-1. Si la cuenta proporciona acceso a más de un inquilino, seleccione su cuenta en la esquina superior derecha. Establezca la sesión del portal en el inquilino de Azure AD que desee.
-1. Busque y seleccione **Azure Active Directory**. En **Administrar**, seleccione **Registros de aplicaciones**.
-1. Busque y seleccione la aplicación que desea configurar. Cuando seleccione la aplicación, verá la página **Información general** de la aplicación o la de registro principal.
+En el primer escenario, se concede acceso a la aplicación cliente a la API web propia; ambas deben haberse registrado como parte de los requisitos previos. Si aún no tiene registrada una aplicación cliente y una API web, complete los pasos descritos en los dos artículos de [Requisitos previos](#prerequisites).
 
-Use los procedimientos siguientes para configurar la aplicación y acceder a las API web.
+En este diagrama se muestra cómo se relacionan entre sí los dos registros de aplicaciones. En esta sección se agregan permisos al registro de la aplicación cliente.
 
-## <a name="add-redirect-uris-to-your-application"></a>Adición de identificadores URI de redirección a la aplicación
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/diagram-01-app-permission-to-api-scopes.svg" alt-text="Diagrama de líneas que muestra una API web con ámbitos expuestos a la derecha y una aplicación cliente a la izquierda con los ámbitos seleccionados como permisos" border="false":::
 
-Puede agregar URI de redirección personalizados y sugeridos a la aplicación. Para agregar un URI de redirección personalizado para aplicaciones cliente web y públicas:
+Una vez que haya registrado la aplicación cliente y la API web, y haya expuesto la API mediante la creación de ámbitos, puede configurar los permisos del cliente para la API siguiendo estos pasos:
 
-1. En la página **Información general** de la aplicación, seleccione **Autenticación**.
-1. Busque **URI de redirección**. Es posible que tenga que seleccionar **Cambiar a la experiencia anterior**.
-1. Seleccione el tipo de aplicación que va a crear: **Web** o **Cliente público o nativo (móvil o escritorio)** .
-1. Escriba el identificador URI de redireccionamiento para la aplicación.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino que contiene el registro de la aplicación cliente.
+1. Seleccione **Azure Active Directory** > **Registros de aplicaciones** y la aplicación cliente (*no* la API web).
+1. Seleccione **Permisos de API** > **Agregar permiso** > **Mis API**.
+1. Seleccione la API web registrada como parte de los requisitos previos.
 
-   * Para aplicaciones web, proporcione la dirección URL base de la aplicación. Por ejemplo, `http://localhost:31544` podría ser la dirección URL de una aplicación web que se ejecuta en la máquina local. Los usuarios utilizan esta dirección URL para iniciar sesión en una aplicación cliente web.
-   * Para aplicaciones públicas, proporcione el identificador URI que utiliza Azure AD para devolver las respuestas de los tokens. Escriba un valor específico para la aplicación, como `https://MyFirstApp`.
-1. Seleccione **Guardar**.
+    La opción seleccionada de forma predeterminada es **Permisos delegados**. Los permisos delegados son adecuados para las aplicaciones cliente que acceden a una API web como usuario con sesión iniciada y cuyo acceso debe limitarse a los permisos que seleccione en el paso siguiente. Deje **Permisos delegados** seleccionado en este ejemplo.
 
-Para elegir entre los identificadores URI de redirección sugeridos para clientes públicos, siga estos pasos:
+    Los **Permisos de aplicación** son para las aplicaciones de tipo servicio o demonio que necesitan acceder a una API web por sí mismas, sin la interacción del usuario para el inicio de sesión o el consentimiento. A menos que haya definido los roles de aplicación para la API web, esta opción está deshabilitada.
+1. En **Seleccionar permisos**, expanda el recurso cuyos ámbitos definió para la API web y seleccione los permisos que debe tener la aplicación cliente en nombre del usuario cuya sesión se ha iniciado.
 
-1. En la página **Información general** de la aplicación, seleccione **Autenticación**.
-1. Busque **URI de redireccionamiento sugeridos para clientes públicos (para dispositivos móviles o de escritorio)** . Es posible que tenga que seleccionar **Cambiar a la experiencia anterior**.
-1. Seleccione uno o varios URI de redirección para la aplicación. También puede escribir un URI de redireccionamiento personalizado. Si no está seguro de lo que debe usar, consulte la documentación de la biblioteca.
-1. Seleccione **Guardar**.
+    Si ha usado los nombres de ámbito de ejemplo especificados en el inicio rápido anterior, debería ver **Employees.Read.All** y **Employees.Write.All**.
+    Seleccione **Employees.Read.All** u otro permiso que haya creado al completar los requisitos previos.
+1. Seleccione **Agregar permisos** para completar el proceso.
 
-A los URI de redirección se les aplican ciertas restricciones. Para más información, consulte [Limitaciones y restricciones de URI de redireccionamiento o URL de respuesta](./reply-url.md).
+Después de agregar permisos a la API, debería ver los permisos seleccionados en **Permisos configurados**. En la imagen siguiente se muestra el permiso delegado *Employees.Read.All* de ejemplo agregado al registro de la aplicación cliente.
 
-> [!NOTE]
-> Pruebe la nueva experiencia de configuración de **autenticación**, donde puede configurar su aplicación basándose en la plataforma o dispositivo que tenga como destino.
->
-> Para acceder a esta vista, seleccione **Probar la nueva experiencia** en la página **Autenticación**.
->
-> ![Haga clic en “Probar la nueva experiencia” para ver la vista Configuración de la plataforma.](./media/quickstart-update-azure-ad-app-preview/authentication-try-new-experience-cropped.png)
->
-> Se abrirá la [nueva página **Configuraciones de plataforma**](#configure-platform-settings-for-your-application).
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Panel de permisos configurados en Azure Portal que muestra el permiso recién agregado":::
 
-### <a name="configure-advanced-settings-for-your-application"></a>Configuración avanzada de la aplicación
+También puede observar el permiso *User.Read* para Microsoft Graph API. Este permiso se agrega automáticamente al registrar una aplicación en Azure Portal.
 
-Según la aplicación que quiera registrar, hay opciones adicionales que puede que tenga que configurar, como las siguientes:
+## <a name="add-permissions-to-access-microsoft-graph"></a>Incorporación de permisos para acceder a Microsoft Graph
 
-* **Dirección URL de cierre de sesión**
-* Para las aplicaciones de una página, puede habilitar la opción **Concesión implícita** y seleccionar los tokens que quiera que emita el punto de conexión de autorización.
-* Para las aplicaciones de escritorio que obtienen tokens con la Autenticación integrada de Windows, un flujo de código del dispositivo o un nombre de usuario y contraseña en la sección **Tipo de cliente predeterminado**, establezca la opción **Considerar la aplicación como un cliente público** en **Sí**.
-* En el caso de las aplicaciones heredadas que usaban el SDK de LIVE para la integración con el servicio de cuentas Microsoft, establezca la opción **Compatibilidad con el SDK de Live**. Las nuevas aplicaciones no necesitan esta configuración.
-* **Tipo de cliente predeterminado**.
-* **Tipos de cuenta admitidos**.
+Además de acceder a su API web propia en nombre del usuario que ha iniciado sesión, es posible que la aplicación también necesite acceder a los datos del usuario (u otros) almacenados en Microsoft Graph o modificarlos. O bien, puede que tenga una aplicación de servicio o demonio que necesite acceder a Microsoft Graph por sí misma y realizar operaciones sin la interacción del usuario.
 
-### <a name="modify-supported-account-types"></a>Modificación de los tipos de cuenta admitidos
+### <a name="delegated-permission-to-microsoft-graph"></a>Permiso delegado para Microsoft Graph
 
-La opción **Tipos de cuenta admitidos** especifica quién puede usar la aplicación o acceder a la API.
+Configure el permiso delegado a Microsoft Graph para permitir que la aplicación cliente realice operaciones en nombre del usuario que ha iniciado sesión, por ejemplo, leer el correo electrónico o modificar su perfil. De forma predeterminada, cuando los usuarios de la aplicación cliente inician sesión, se les pide su consentimiento para los permisos delegados configurados para ella.
 
-Si configuró los tipos de cuenta admitidos al registrar la aplicación, solo podrá cambiar esta opción mediante el editor del manifiesto de la aplicación si:
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino que contiene el registro de la aplicación cliente.
+1. Seleccione **Azure Active Directory** > **Registros de aplicaciones** y la aplicación cliente.
+1. Seleccione **Permisos de API** > **Agregar un permiso** > **Microsoft Graph**.
+1. Seleccione **Permisos delegados**. Microsoft Graph expone muchos permisos, los más frecuentes se muestran en la parte superior de la lista.
+1. En **Seleccionar permisos**, seleccione los permisos siguientes:
 
-* Cambia los tipos de cuenta de **AzureADMyOrg** o **AzureADMultipleOrgs** a **AzureADandPersonalMicrosoftAccount**, o viceversa, o bien
-* Cambia los tipos de cuenta de **AzureADMyOrg** a **AzureADMultipleOrgs**, o viceversa.
+    | Permiso       | Descripción                                         |
+    |------------------|-----------------------------------------------------|
+    | `email`          | Ver la dirección de correo electrónico de los usuarios                           |
+    | `offline_access` | Mantener el acceso a los datos a los que se le ha concedido acceso |
+    | `openid`         | Inicio de sesión de los usuarios                                       |
+    | `profile`        | Ver el perfil básico de los usuarios                           |
+1. Seleccione **Agregar permisos** para completar el proceso.
 
-Para cambiar los tipos de cuenta admitidos de un registro de aplicación existente, actualice la clave `signInAudience`. Para más información, consulte [Configuración del manifiesto de aplicación](reference-app-manifest.md#configure-the-app-manifest).
+Una vez configurados los permisos, cuando los usuarios de la aplicación inician sesión, se les pide su consentimiento para que la aplicación pueda acceder a la API de recursos en su nombre.
 
-## <a name="configure-platform-settings-for-your-application"></a>Configuración de la plataforma para su aplicación
+Como administrador, también puede otorgar el consentimiento en nombre de *todos* los usuarios y, por lo tanto, a ellos no se les pedirá. El consentimiento del administrador se describe más adelante en la sección [Más información sobre los permisos de la API y el consentimiento del administrador](#more-on-api-permissions-and-admin-consent) de este artículo.
 
-![Configuración de la aplicación según la plataforma o dispositivo](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations.png)
+### <a name="application-permission-to-microsoft-graph"></a>Permiso de aplicación para Microsoft Graph
 
-Para configurar la aplicación según la plataforma o dispositivo que tenga como destino:
+Configure los permisos de una aplicación que necesite autenticarse por sí misma sin la interacción ni el consentimiento del usuario. Los permisos de aplicación suelen usarse en los servicios en segundo plano o en las aplicaciones de demonio que acceden a una API "sin periféricos" y en las API web que acceden a otra API (de nivel inferior).
 
-1. En la página **Configuraciones de plataforma**, haga clic en **Agregar una plataforma** y seleccione una de las opciones disponibles.
+En los pasos siguientes se concede el permiso *Files.Read.All* de Microsoft Graph como ejemplo.
 
-   ![Se muestra la página Configurar plataformas.](./media/quickstart-update-azure-ad-app-preview/authentication-platform-configurations-configure-platforms.png)
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino que contiene el registro de la aplicación cliente.
+1. Seleccione **Azure Active Directory** > **Registros de aplicaciones** y la aplicación cliente.
+1. Seleccione **Permisos de API** > **Agregar un permiso** > **Microsoft Graph** > **Permisos de la aplicación**.
+1. Todos los permisos expuestos por Microsoft Graph se muestran en **Seleccionar permisos**.
+1. Seleccione los permisos que desee conceder a la aplicación. Por ejemplo, podría tener una aplicación de demonio que examine los archivos de la organización para alertar sobre un tipo o nombre de archivo específico.
 
-1. Especifique la información de configuración según la plataforma que haya seleccionado.
+    En **Seleccionar permisos**, expanda **Archivos** y seleccione el permiso *Files.Read.All*.
+1. Seleccione **Agregar permisos**.
 
-   | Plataforma                | Parámetros de configuración            |
-   |-------------------------|-----------------------------------|
-   | **Web**              | Escriba el **URI de redireccionamiento** para la aplicación. |
-   | **iOS/macOS**              | Escriba el **Identificador de paquete** de la aplicación, que encontrará en XCode en Info.plist, o bien en Configuración de compilación. Al agregar del identificador del paquete, se crea automáticamente un URI de redireccionamiento para la aplicación. |
-   | **Android**          | Especifique el **Nombre del paquete** de la aplicación, que encontrará en el archivo AndroidManifest.xml.<br/>Genere y especifique el **Hash de firma**. Al agregar el hash de firma, se crea automáticamente un URI de redireccionamiento para la aplicación.  |
-   | **Aplicaciones móviles y de escritorio**  | Opcional. Si va a crear aplicaciones para dispositivos y equipos de escritorio, seleccione uno de los **URI de redireccionamiento sugeridos**.<br/>Opcional. Escriba un **URI de redireccionamiento personalizado**, que se usa como la ubicación a la que Azure AD redirigirá a los usuarios en respuesta a las solicitudes de autenticación. Por ejemplo, para las aplicaciones de .NET Core en las que quiera agregar una interacción, use `http://localhost`. |
+Algunos permisos, como *Files.Read.All* de Microsoft Graph, requieren el consentimiento del administrador. Para conceder el consentimiento del administrador, seleccione el botón **Concesión de consentimiento del administrador**, que se describe más adelante en la sección [Botón Consentimiento del administrador](#admin-consent-button).
 
-   > [!NOTE]
-   > En Servicios de federación de Active Directory (AD FS) y Azure AD B2C, también debe especificar un número de puerto.  Por ejemplo: `http://localhost:1234`.
+### <a name="configure-client-credentials"></a>Configuración de las credenciales del cliente
 
-   > [!IMPORTANT]
-   > En el caso de las aplicaciones móviles que no usen la biblioteca de autenticación de Microsoft (MSAL) más reciente o que no usen un agente, tendrá que configurar los URI de redireccionamiento para estas aplicaciones en **Escritorio y dispositivos**.
+Las aplicaciones que usan permisos de aplicación se autentican por sí mismas con sus propias credenciales, sin necesidad de la interacción del usuario. Para que la aplicación (o API) pueda acceder a Microsoft Graph, a su propia API web o a cualquier otra API mediante permisos de aplicación, debe configurar antes las credenciales de la aplicación cliente.
 
-Según la plataforma que use, es posible que pueda configurar opciones adicionales. Para las aplicaciones **web**, puede realizar estas acciones:
+Para más información sobre la configuración de las credenciales de una aplicación, consulte la sección [Agregar credenciales](quickstart-register-app.md#add-credentials) de [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](quickstart-register-app.md).
 
-* Adición de URI de redireccionamiento
-* Configure la opción **Concesión implícita** para seleccionar los tokens que quiera que emita el punto de conexión de autorización:
+## <a name="more-on-api-permissions-and-admin-consent"></a>Más información sobre los permisos de la API y el consentimiento del administrador
 
-  * Para aplicaciones de una página, seleccione las opciones **Tokens de acceso** y **Tokens de identificador**.
-  * Para las aplicaciones web, seleccione **Tokens de identificador**.
-
-## <a name="add-credentials-to-your-web-application"></a>Adición de credenciales a la aplicación web
-
-Para agregar una credencial a la aplicación web, agregue un certificado o cree un secreto de cliente. Para agregar un certificado:
-
-1. Desde la página **Información general** de la aplicación, seleccione la sección **Certificados y secretos**.
-1. Seleccione **Cargar certificado**.
-1. Seleccione el archivo que desea cargar. Debe ser uno de los siguientes tipos de archivo: .cer, .pem, .crt.
-1. Seleccione **Agregar**.
-
-Para agregar un secreto de cliente:
-
-1. En la página **Información general** de la aplicación, seleccione la sección **Certificados y secretos**.
-1. Seleccione **Nuevo secreto de cliente**.
-1. Agregue una descripción para el secreto de cliente.
-1. Seleccione una duración.
-1. Seleccione **Agregar**.
-
-> [!NOTE]
-> Después de guardar los cambios de configuración, la columna en el extremo derecho contendrá el valor del secreto de cliente. **Asegúrese de copiar el valor** para su uso en el código de la aplicación cliente, ya que no es accesible una vez se sale de esta página.
-
-## <a name="add-permissions-to-access-web-apis"></a>Adición de permisos para acceder a las API web
-
-El [permiso Iniciar sesión y leer el perfil de usuario de Graph API](/graph/permissions-reference#user-permissions) se selecciona de forma predeterminada. Puede seleccionar entre [dos tipos de permisos](developer-glossary.md#permissions) para cada API web:
-
-* **Permisos de aplicación**. La aplicación cliente necesita acceso directo a la API web como sí misma, sin contexto de usuario. Este tipo de permiso requiere el consentimiento del administrador. Este permiso no está disponible para aplicaciones cliente de escritorio y móviles.
-* **Permisos delegados**. la aplicación cliente necesita acceso a la API web como el usuario que inició sesión, pero con acceso limitado por el permiso seleccionado. Este tipo de permiso lo puede conceder un usuario a menos que el permiso requiera el consentimiento del administrador.
-
-  > [!NOTE]
-  > La adición de un permiso delegado a una aplicación no concede consentimiento automáticamente a los usuarios del inquilino. Los usuarios tienen todavía que conceder manualmente el consentimiento para los permisos delegados agregados en tiempo de ejecución, a menos que lo haga el administrador en nombre de todos los usuarios.
-
-Para agregar permisos para acceder a las API de recursos desde el cliente:
-
-1. En la página **Información general** de la aplicación, seleccione **Permisos de API**.
-1. En **Permisos configurados**, seleccione **Agregar un permiso**.
-1. De forma predeterminada, la vista le permite seleccionar en las **API de Microsoft**. Seleccione la sección de las API que le interesa:
-
-    * **API de Microsoft**. Le permite seleccionar los permisos para las API de Microsoft, como Microsoft Graph.
-    * **API usadas en mi organización**. Le permite seleccionar los permisos para las API que expone la organización o las API con las que la organización se ha integrado.
-    * **Mis API**. Le permite seleccionar los permisos para las API que ha expuesto.
-
-1. Una vez que haya seleccionado las API, verá la página **Solicitud de permisos de API**. Si la API expone permisos delegados y de aplicación, seleccione el tipo de permiso que necesita la aplicación.
-1. Cuando termine, seleccione **Agregar permisos**.
-
-Vuelva a la página **Permisos de API**. Los permisos se han guardado y agregado a la tabla.
-
-## <a name="understanding-api-permissions-and-admin-consent-ui"></a>Descripción de los permisos de API y la UI de consentimiento del administrador
+El panel **Permisos de API** del registro de una aplicación contiene una tabla [Permisos configurados](#configured-permissions) y quizá también otra denominada [Otros permisos concedidos](#other-permissions-granted). En las secciones siguientes se describen las dos tablas y el [botón Consentimiento del administrador](#admin-consent-button).
 
 ### <a name="configured-permissions"></a>Permisos configurados
 
-En esta sección se muestran los permisos que se han configurado explícitamente en el objeto de aplicación. Estos permisos forman parte de la lista de acceso a recursos necesarios de la aplicación. Puede agregar o quitar permisos de esta tabla. Como administrador, también puede conceder o revocar el consentimiento del administrador para un conjunto de permisos de una API o permisos individuales.
+La tabla **Permisos configurados** del panel **Permisos de API** muestra la lista de permisos que la aplicación requiere para el funcionamiento básico: la lista de *acceso a los recursos requeridos* (RRA). Los usuarios o sus administradores deberán dar su consentimiento para estos permisos antes de usar la aplicación. Posteriormente se pueden solicitar otros permisos opcionales en tiempo de ejecución (mediante consentimiento dinámico).
+
+Esta es la lista mínima de permisos para los que los usuarios tendrán que dar su consentimiento a la aplicación. Podría haber más, pero estos siempre serán necesarios. Por seguridad, y para que los usuarios y administradores se sientan más cómodos con la aplicación, no pida nunca nada que no necesite.
+
+Puede agregar o quitar los permisos que aparecen en esta tabla siguiendo los pasos descritos anteriormente o desde [Otros permisos concedidos](#other-permissions-granted) (que se describen en la sección siguiente). Como administrador, puede conceder el consentimiento del administrador para el conjunto completo de permisos de una API que aparece en la tabla y revocar el consentimiento de permisos individuales.
 
 ### <a name="other-permissions-granted"></a>Otros permisos concedidos
 
-Si la aplicación está registrada en un inquilino, es posible que vea una sección adicional titulada **Other permissions granted for Tenant** (Otros permisos concedidos para el inquilino). En esta sección se muestran los permisos concedidos para el inquilino que no se han configurado explícitamente en el objeto de aplicación. Estos permisos se solicitaron y consintieron dinámicamente. Esta sección solo aparece si hay al menos un permiso que se aplique.
+También podría ver una tabla titulada **Otros permisos concedidos para {su inquilino}** en el panel **Permisos de API**. En la tabla **Otros permisos concedidos para {su inquilino}** se muestran los permisos concedidos para el inquilino que no se han configurado explícitamente en el objeto de aplicación. Estos permisos se solicitaron y consintieron dinámicamente. Esta sección solo aparece si hay al menos un permiso vigente.
 
-Puede agregar un conjunto de permisos de API o permisos individuales que aparecen en esta sección a la sección **Permisos configurados**. Como administrador, en esta sección también puede revocar el consentimiento del administrador para API o permisos individuales.
+Puede agregar el conjunto de permisos de API entero o permisos individuales de esta tabla a la tabla **Permisos configurados**. Como administrador, en esta sección puede revocar el consentimiento del administrador para las API o permisos individuales.
 
 ### <a name="admin-consent-button"></a>Botón Consentimiento del administrador
 
-Si la aplicación está registrada en un inquilino, verá un botón **Grant admin consent for Tenant** (Conceder consentimiento del administrador al inquilino). Estará deshabilitado si no es el administrador o si no se han configurado permisos para la aplicación.
-Este botón permite a un administrador conceder el consentimiento del administrador a los permisos configurados para la aplicación. Al hacer clic en el botón de consentimiento del administrador, se abre una nueva ventana con una petición de consentimiento que muestra todos los permisos configurados.
+El botón **Conceder consentimiento de administrador para {su inquilino}** permite a un administrador conceder su consentimiento a los permisos configurados para la aplicación. Al seleccionar el botón, se muestra un cuadro de diálogo que le solicita que confirme el consentimiento.
 
-> [!NOTE]
-> Hay un retraso entre que se configuran los permisos para la aplicación y que aparecen en la petición de consentimiento. Si no ve todos los permisos configurados en la petición de consentimiento, ciérrela y vuelva a iniciarla.
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Botón Conceder consentimiento de administrador resaltado en el panel Permisos configurados de Azure Portal":::
 
-Si tiene permisos que se han concedido pero no configurado, el botón de consentimiento del administrador le pedirá que controle estos permisos. Puede agregarlos a los permisos configurados o puede quitarlos.
+Después de conceder el consentimiento, los permisos que requerían el consentimiento del administrador lo muestran como concedido:
 
-La petición de consentimiento da la opción de **Aceptar** o **Cancelar**. Seleccione **Aceptar** para conceder el consentimiento del administrador. Si selecciona **Cancelar**, no se concederá el consentimiento del administrador. Un mensaje de error indica que se ha rechazado el consentimiento.
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Tabla Permisos configurados en Azure Portal que muestra el consentimiento de administrador concedido para el permiso Files.Read.All":::
 
-> [!NOTE]
-> Hay un retraso entre el momento en que se concede el consentimiento del administrador cuando selecciona **Aceptar** en la petición de consentimiento, y el momento en que el estado del consentimiento del administrador se ve reflejado en el portal.
+El botón **Conceder consentimiento de administrador** está *deshabilitado* si no es el administrador o si no se han configurado permisos para la aplicación. Si tiene permisos que se han concedido pero no configurado aún, el botón de consentimiento del administrador le pedirá que los administre. Puede agregarlos a los permisos configurados o quitarlos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

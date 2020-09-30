@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: quickstart
 ms.date: 08/19/2020
-ms.openlocfilehash: 5ceaf949df88468b2239bd901f639ba6096b0d5f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 41598c04af78d4366435259357d8f897ac178942
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269648"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489942"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>Inicio rápido: Uso compartido de los datos con Azure Data Share en Azure Portal
 
@@ -67,7 +67,7 @@ Cree un recurso de Azure Data Share en un grupo de recursos de Azure.
 
    ![Adición de conjuntos de datos al recurso compartido](./media/datasets.png "Conjuntos de datos")
 
-1. Seleccione el tipo de conjunto de datos que desea agregar. Verá una lista diferente de tipos de conjuntos de datos en función del tipo de recurso compartido (instantánea o en contexto) que haya seleccionado en el paso anterior. Si comparte desde Azure SQL Database o Azure SQL Data Warehouse, se le pedirán credenciales de SQL. Realice la autenticación con el usuario que ha creado como parte de los requisitos previos.
+1. Seleccione el tipo de conjunto de datos que desea agregar. Verá una lista diferente de tipos de conjuntos de datos en función del tipo de recurso compartido (instantánea o en contexto) que haya seleccionado en el paso anterior. Si comparte desde Azure SQL Database o Azure Synapse Analytics, se le pedirán credenciales de SQL. Realice la autenticación con el usuario que ha creado como parte de los requisitos previos.
 
    ![AddDatasets](./media/add-datasets.png "Incorporación de conjuntos de datos")    
 

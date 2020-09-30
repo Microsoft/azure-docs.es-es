@@ -10,12 +10,12 @@ ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 829ddc0b63031722cdcb572a2833926a7837d05d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b2fb3e2031d5656668b9971fdf357f66824179fc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004126"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975876"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Uso de la biblioteca BulkExecutor en .NET para realizar operaciones en bloque en Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Actualmente, la biblioteca BulkExecutor solo es compatible con las cuentas de AP
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 
-* También puede [probar gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin una suscripción de Azure, de forma gratuita y sin compromiso. O bien, puede usar el [emulador de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) con el punto de conexión `https://localhost:8081`. La clave principal se proporciona en [Authenticating requests](local-emulator.md#authenticating-requests) (Autenticación de solicitudes).
+* También puede [probar gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin una suscripción de Azure, de forma gratuita y sin compromiso. O bien, puede usar el [emulador de Azure Cosmos DB](/azure/cosmos-db/local-emulator) con el punto de conexión `https://localhost:8081`. La clave principal se proporciona en [Authenticating requests](local-emulator.md#authenticate-requests) (Autenticación de solicitudes).
 
 * Cree una cuenta de API de SQL de Azure Cosmos DB mediante los pasos descritos en la sección de [creación de una cuenta de base de datos](create-sql-api-dotnet.md#create-account) del artículo de inicio rápido de .NET.
 
@@ -93,7 +93,7 @@ La aplicación "BulkImportSample" genera documentos aleatorios y los importa en 
    client.ConnectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 0;
    ```
 
-5. La aplicación llama a la API BulkImportAsync. La biblioteca de .NET ofrece dos sobrecargas de la API de importación en bloque; una que acepta una lista de documentos JSON serializados y otra que acepta una lista de documentos POCO deserializados. Para más información sobre las definiciones de cada uno de estos métodos sobrecargados, consulte la [documentación de la API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkimportasync?view=azure-dotnet).
+5. La aplicación llama a la API BulkImportAsync. La biblioteca de .NET ofrece dos sobrecargas de la API de importación en bloque; una que acepta una lista de documentos JSON serializados y otra que acepta una lista de documentos POCO deserializados. Para más información sobre las definiciones de cada uno de estos métodos sobrecargados, consulte la [documentación de la API](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkimportasync?view=azure-dotnet&preserve-view=true).
 
    ```csharp
    BulkImportResponse bulkImportResponse = await bulkExecutor.BulkImportAsync(
@@ -125,11 +125,11 @@ La aplicación "BulkImportSample" genera documentos aleatorios y los importa en 
 
 ## <a name="bulk-update-data-in-your-azure-cosmos-account"></a>Actualización en bloque de datos de la cuenta de Azure Cosmos
 
-Puede actualizar los documentos existentes con el uso de la API BulkUpdateAsync. En este ejemplo, se establece el campo `Name` en un nuevo valor y se quita el campo `Description` de los documentos existentes. Para conocer el conjunto completo de operaciones de actualización admitidas, consulte la [documentación de la API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
+Puede actualizar los documentos existentes con el uso de la API BulkUpdateAsync. En este ejemplo, se establece el campo `Name` en un nuevo valor y se quita el campo `Description` de los documentos existentes. Para conocer el conjunto completo de operaciones de actualización admitidas, consulte la [documentación de la API](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet&preserve-view=true).
 
 1. Navegue hasta la carpeta "BulkUpdateSample" y abra el archivo "BulkUpdateSample.sln".  
 
-2. Defina los elementos de actualización junto con las operaciones de actualización de campos correspondientes. En este ejemplo, usará `SetUpdateOperation` para actualizar el campo `Name` y `UnsetUpdateOperation` para quitar el campo `Description` de todos los documentos. También puede realizar otras operaciones, como incrementar un campo de documento con un valor determinado, insertar valores específicos en un campo de matriz o quitar un valor concreto de un campo de matriz. Para obtener información sobre los distintos métodos proporcionados por la API de actualización en masa, vea la [documentación de la API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
+2. Defina los elementos de actualización junto con las operaciones de actualización de campos correspondientes. En este ejemplo, usará `SetUpdateOperation` para actualizar el campo `Name` y `UnsetUpdateOperation` para quitar el campo `Description` de todos los documentos. También puede realizar otras operaciones, como incrementar un campo de documento con un valor determinado, insertar valores específicos en un campo de matriz o quitar un valor concreto de un campo de matriz. Para obtener información sobre los distintos métodos proporcionados por la API de actualización en masa, vea la [documentación de la API](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet&preserve-view=true).
 
    ```csharp
    SetUpdateOperation<string> nameUpdate = new SetUpdateOperation<string>("Name", "UpdatedDoc");
@@ -146,7 +146,7 @@ Puede actualizar los documentos existentes con el uso de la API BulkUpdateAsync.
    }
    ```
 
-3. La aplicación llama a la API BulkUpdateAsync. Para obtener información sobre la definición del método BulkUpdateAsync, consulte la [documentación de la API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.ibulkexecutor.bulkupdateasync?view=azure-dotnet).  
+3. La aplicación llama a la API BulkUpdateAsync. Para obtener información sobre la definición del método BulkUpdateAsync, consulte la [documentación de la API](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.ibulkexecutor.bulkupdateasync?view=azure-dotnet&preserve-view=true).  
 
    ```csharp
    BulkUpdateResponse bulkUpdateResponse = await bulkExecutor.BulkUpdateAsync(

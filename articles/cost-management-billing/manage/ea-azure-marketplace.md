@@ -6,14 +6,14 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/03/2020
 ms.author: banders
-ms.openlocfilehash: 91079310d4d566a65c6e8bc7f913ba92d04dece1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0f2d3c830f27eec9f521e6f79ac8dce3bce818e9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689939"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442571"
 ---
 # <a name="azure-marketplace"></a>Azure Marketplace
 

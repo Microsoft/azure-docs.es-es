@@ -1,19 +1,19 @@
 ---
 title: 'Migración de un clúster de HBase a una versión nueva: Azure HDInsight'
 description: Migración de clústeres de Apache HBase a una versión más reciente en Azure HDInsight.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 23843743b58db91d457b509fa38243f110b76b41
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 9e233b93a1dc054e6d9f713e790e706d589bf01e
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079554"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89503999"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migración de un clúster de Apache HBase a una versión nueva
 

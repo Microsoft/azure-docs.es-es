@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d67dbc0eedba8cc32c188636032d96b31f45adf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: a39871fd6e2aef2e5120030d17192bb32ba2613b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717785"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003480"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Preguntas más frecuentes sobre protección con contraseña de Azure AD local
 
@@ -47,6 +47,14 @@ Un cambio de contraseña es cuando un usuario elige una nueva contraseña despu�
 Un establecimiento de contraseña (denominado a veces restablecimiento de contraseña) es cuando un administrador reemplaza la contraseña de una cuenta por una contraseña nueva; por ejemplo mediante la herramienta de administración de equipos y usuarios de Active Directory. Esta operación requiere un alto nivel de privilegios (normalmente, administrador del dominio) y la persona que realiza la operación normalmente no conoce la contraseña anterior. Los departamentos de soporte técnico suelen establecer contraseñas, por ejemplo cuando ayudan a un usuario que ha olvidado su contraseña. También verá eventos de establecimiento de contraseña cuando se crea por primera vez una nueva cuenta de usuario con contraseña.
 
 La directiva de validación de contraseña se comporta de la misma forma, independientemente de si se realiza un cambio o un establecimiento de contraseña. El servicio del agente de control de dominio para protección con contraseña de Azure AD registra eventos diferentes para informarle si se realizó una operación de cambio o establecimiento de contraseña.  Consulte [Supervisión y registro de la protección con contraseña de Azure AD](./howto-password-ban-bad-on-premises-monitor.md).
+
+**P: ¿La protección con contraseña de Azure AD valida las contraseñas existentes después de su instalación?**
+
+No. La protección con contraseña de Azure AD solo puede exigir la directiva de contraseñas en las contraseñas de texto no cifrado durante un cambio de contraseña o una operación de establecimiento. Una vez que Active Directory acepta una contraseña, solo se conservan los hashes específicos del protocolo de autenticación de dicha contraseña. La contraseña de texto no cifrado nunca se conserva, por lo que la protección con contraseña de Azure AD no puede validar las contraseñas existentes.
+
+Después de la implementación inicial de la protección con contraseña de Azure AD, todos los usuarios y las cuentas comenzarán a usar una contraseña validada por la protección con contraseña de Azure AD, ya que las contraseñas existentes suelen expirar a lo largo del tiempo. Si lo desea, este proceso se puede acelerar mediante una expiración manual única de contraseñas de cuentas de usuario.
+
+Las cuentas configuradas con "La contraseña no expira nunca" nunca se verán obligadas a cambiar su contraseña a menos que se realice una expiración manual.
 
 **P: ¿Por qué se registran eventos de rechazo de contraseña duplicados al intentar establecer una contraseña no segura mediante el complemento de administración Usuarios y equipos de Active Directory?**
 

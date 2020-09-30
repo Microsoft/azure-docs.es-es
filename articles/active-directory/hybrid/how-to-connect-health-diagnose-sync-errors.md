@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b15250804dd316000aa20d6b97e9cccbfc36e9ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2bd2e72b05cc01b1a351880d565323662635364
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359099"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278690"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnóstico y solución de errores de sincronización de atributos duplicados
 
@@ -58,7 +58,7 @@ La característica de diagnóstico admite objetos de usuario con los siguientes 
 | OnPremiseSecurityIdentifier |  AttributeValueMustBeUnique |
 
 >[!IMPORTANT]
-> Para acceder a esta característica, se requieren los permisos de **administrador global** o de **colaborador** en la configuración de RBAC.
+> Para acceder a esta característica, se requieren los permisos de **administrador global** o de **colaborador** en Azure RBAC.
 >
 
 Siga los pasos de Azure Portal para limitar los datos de los errores de sincronización y proporcionar soluciones más específicas:
@@ -133,7 +133,7 @@ Después de los pasos anteriores, el usuario puede acceder al recurso original, 
 
 ## <a name="failures-and-error-messages"></a>Errores y mensajes de error
 **El usuario con el atributo en conflicto es eliminado temporalmente en Azure Active Directory. Asegúrese de que el usuario se elimina de forma definitiva antes de volver a intentarlo.**  
-El usuario con el atributo en conflicto en Azure AD debe limpiarse para poder aplicar la corrección. Revise el [procedimiento para eliminar de forma permanente el usuario en Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) antes de volver a intentar la corrección. El usuario también se eliminará automáticamente de forma permanente después de 30 días en el estado de eliminación temporal. 
+El usuario con el atributo en conflicto en Azure AD debe limpiarse para poder aplicar la corrección. Revise el [procedimiento para eliminar de forma permanente el usuario en Azure AD](../fundamentals/active-directory-users-restore.md) antes de volver a intentar la corrección. El usuario también se eliminará automáticamente de forma permanente después de 30 días en el estado de eliminación temporal. 
 
 **No se admite la actualización del delimitador de origen al usuario basado en la nube en el inquilino.**  
 El usuario basado en la nube de Azure AD no debe tener el delimitador de origen. En este caso no se admite la actualización del delimitador de origen. Se requiere una corrección manual en el entorno local. 
@@ -148,7 +148,7 @@ El usuario basado en la nube de Azure AD no debe tener el delimitador de origen.
 
 
 **P.** ¿Qué permiso necesita un usuario para aplicar la revisión?  
-**R.** Un **administrador global** o un **colaborador** de la configuración de RBAC tienen permiso para acceder al proceso de diagnóstico y solución de problemas.
+**R.** Un **administrador global** o un **colaborador** de Azure RBAC tienen permiso para acceder al proceso de diagnóstico y solución de problemas.
 
 
 **P.** ¿Tengo que configurar Azure AD Connect o actualizar el agente de Azure AD Connect Health para esta característica?  

@@ -113,7 +113,7 @@
       href: notification-hubs-send-push-notifications-scheduled.md
     - name: Implementación y administración de Notification Hubs mediante Azure PowerShell
       href: notification-hubs-deploy-and-manage-powershell.md
-    - name: Envío de notificaciones de inserción a los usuarios
+    - name: Envío de notificaciones seguras a usuarios
       href: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
     - name: Exportación e importación de registros en lote
       href: export-modify-registrations-bulk.md

@@ -4,12 +4,12 @@ description: Obtenga más información sobre la compatibilidad para la migració
 ms.topic: conceptual
 ms.custom: fasttrack-edit
 ms.date: 06/14/2020
-ms.openlocfilehash: fe23989845d3c0b229a194c9a2a58f879b757811
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30c96b11fb15ca1783b6ffc574d9d258dff9da06
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770346"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051141"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matriz de compatibilidad para la migración de servidores físicos
 
@@ -44,6 +44,7 @@ En la tabla se resume la compatibilidad de los servidores físicos que desea mig
 **Requisitos de Azure** | Para conocer la información más reciente, revise los requisitos de [red](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [almacenamiento](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage) y [proceso](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) de Azure para Site Recovery. Azure Migrate tiene requisitos idénticos para la migración de servidores físicos.
 **Servicio de movilidad** | El agente del servicio Mobility se debe instalar en cada máquina que quiera migrar.
 **Arranque UEFI** | La máquina migrada en Azure se convertirá automáticamente en una máquina virtual de Azure de arranque del BIOS. Solo se admite un servidor que ejecute Windows Server 2012 o una versión posterior.<br/><br/> El disco del sistema operativo debe tener hasta cuatro particiones y los volúmenes deben formatearse con NTFS.
+**UEFI: arranque seguro**         | No se admiten para la migración.
 **Disco de destino** | Las máquinas solo se pueden migrar a discos administrados (HDD Estándar, SSD Premium) en Azure.
 **Tamaño del disco** | Disco de sistema operativo de 2 TB y 8 TB para los discos de datos.
 **Límites del disco** |  Hasta 63 discos por máquina.

@@ -13,22 +13,22 @@ ms.date: 11/30/2018
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: 75d848c8d4459e5534e2954a11612bdf44f6d1ce
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: e9780332ad6279deef63910c7e6ba95e1ccf43bd
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141557"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706139"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Marco de consentimiento de Azure Active Directory
 
-El marco de consentimiento de Azure AD facilita el desarrollo de aplicaciones web multiinquilino y aplicaciones de cliente nativas. Estas aplicaciones permiten que las cuentas de usuario inicien sesión desde un inquilino de Azure AD diferente del inquilino en el que se ha registrado la aplicación. También pueden necesitar acceder a diferentes API web, como Microsoft Graph API (para tener acceso a Azure AD, Intune y los servicios de Office 365) y otras API de servicios de Microsoft, además de sus propias API web.
+El marco de consentimiento de Azure AD facilita el desarrollo de aplicaciones web multiinquilino y aplicaciones de cliente nativas. Estas aplicaciones permiten que las cuentas de usuario inicien sesión desde un inquilino de Azure AD diferente del inquilino en el que se ha registrado la aplicación. También pueden necesitar acceder a diferentes API web, como Microsoft Graph API (para tener acceso a Azure AD, Intune y los servicios de Microsoft 365) y otras API de servicios de Microsoft, además de sus propias API web.
 
-El marco se basa en que un usuario o un administrador da consentimiento a una aplicación que solicita el registro en su directorio, lo cual puede implicar el acceso a los datos de directorio. Por ejemplo, si una aplicación cliente web debe leer información del calendario sobre el usuario desde Office 365, se pide primero a ese usuario que de su consentimiento a la aplicación cliente. Después de dar su consentimiento, la aplicación cliente podrá llamar a Microsoft Graph API en nombre del usuario y usar la información de calendario según sea necesario. [Microsoft Graph API](https://developer.microsoft.com/graph) proporciona acceso a datos de Office 365 (como calendarios y mensajes de Exchange, sitios y listas de SharePoint, documentos de OneDrive, blocs de notas de OneNote, tareas de Planner y libros de trabajo de Excel), así como a usuarios y grupos de Azure AD y otros objetos de datos de más servicios en la nube de Microsoft.
+El marco se basa en que un usuario o un administrador da consentimiento a una aplicación que solicita el registro en su directorio, lo cual puede implicar el acceso a los datos de directorio. Por ejemplo, si una aplicación cliente web debe leer información del calendario sobre el usuario desde Microsoft 365, se pide primero a ese usuario que de su consentimiento a la aplicación cliente. Después de dar su consentimiento, la aplicación cliente podrá llamar a Microsoft Graph API en nombre del usuario y usar la información de calendario según sea necesario. [Microsoft Graph API](https://developer.microsoft.com/graph) proporciona acceso a datos de Microsoft 365 (como calendarios y mensajes de Exchange, sitios y listas de SharePoint, documentos de OneDrive, blocs de notas de OneNote, tareas de Planner y libros de trabajo de Excel), así como a usuarios y grupos de Azure AD y otros objetos de datos de más servicios en la nube de Microsoft.
 
 El marco de consentimiento se basa en OAuth 2.0 y sus distintos flujos, como la concesión de credenciales de cliente y la concesión de código de autorización, mediante clientes públicos o confidenciales. Con OAuth 2.0, Azure AD permite crear muchos tipos diferentes de aplicaciones cliente, como en un teléfono, tableta, servidor o una aplicación web, y obtener acceso a los recursos necesarios.
 
-Para más información sobre el uso del marco de consentimiento con concesiones de autorización de OAuth2.0, consulte [Autorización del acceso a aplicaciones web mediante OAuth 2.0 y Azure Active Directory](v2-oauth2-auth-code-flow.md) y [Escenarios de autenticación para Azure AD](./authentication-vs-authorization.md). Para más información sobre cómo obtener acceso autorizado a Office 365 mediante Microsoft Graph, consulte [Autenticación de la aplicación con Microsoft Graph](/graph/).
+Para más información sobre el uso del marco de consentimiento con concesiones de autorización de OAuth2.0, consulte [Autorización del acceso a aplicaciones web mediante OAuth 2.0 y Azure Active Directory](v2-oauth2-auth-code-flow.md) y [Escenarios de autenticación para Azure AD](./authentication-vs-authorization.md). Para obtener más información sobre cómo obtener acceso autorizado a Microsoft 365 mediante Microsoft Graph, consulte [Autenticación de la aplicación con Microsoft Graph](/graph/).
 
 ## <a name="consent-experience---an-example"></a>Ejemplo de experiencia de consentimiento
 

@@ -5,15 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/24/2019
-ms.openlocfilehash: b7ecdd110458c64be9890762d515ecebe3d67acd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/22/2020
+ms.openlocfilehash: 529573bd18dbdbd16a795619d488beedfb532b11
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112364"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902673"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migración de una base de datos de PostgreSQL mediante volcado y restauración
+[!INCLUDE[applies-to-postgres-single-flexible-server](includes/applies-to-postgres-single-flexible-server.md)]
+
 Puede usar [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) para extraer una base de datos de PostgreSQL a un archivo de volcado y [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) para restaurar la base de datos de PostgreSQL desde un archivo de almacenamiento creado por pg_dump.
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -37,8 +39,9 @@ pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb -f testdb
 ## <a name="restore-the-data-into-the-target-azure-database-for-postgresql-using-pg_restore"></a>Restauración de los datos en la instancia de Azure Database for PostgreSQL de destino con pg_restore
 Después de crear la base de datos de destino, puede usar el comando pg_restore y el parámetro -d, --dbname para restaurar los datos en la base de datos de destino desde el archivo de volcado.
 ```bash
-pg_restore -v --no-owner --host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
+pg_restore -v --no-owner --host=<server name> --port=<port> --username=<user-name> --dbname=<target database name> <database>.dump
 ```
+
 Al incluir el parámetro --no-owner, todos los objetos creados durante la restauración pasan a ser propiedad del usuario especificado con --username. Para más información, consulte la documentación oficial de PostgreSQL en [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
 
 > [!NOTE]
@@ -47,10 +50,19 @@ Al incluir el parámetro --no-owner, todos los objetos creados durante la restau
 > En la línea de comandos de Windows, ejecute el comando `SET PGSSLMODE=require` antes de ejecutar el comando pg_restore. En Linux o Bash, ejecute el comando `export PGSSLMODE=require` antes de ejecutar el comando pg_restore.
 >
 
-En este ejemplo, restaure los datos del archivo de volcado **testdb.dump** en la base de datos **mypgsqldb** en el servidor de destino **mydemoserver.postgres.database.azure.com**. 
+En este ejemplo, restaure los datos del archivo de volcado **testdb.dump** en la base de datos **mypgsqldb** en el servidor de destino **mydemoserver.postgres.database.azure.com**.
+
+Este es un ejemplo de cómo usar este elemento **pg_restore** para el **Servidor único**:
+
 ```bash
 pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb testdb.dump
 ```
+Este es un ejemplo de cómo usar este elemento **pg_restore** para el **Servidor flexible**:
+
+```bash
+pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=5432 --username=mylogin --dbname=mypgsqldb testdb.dump
+```
+---
 
 ## <a name="optimizing-the-migration-process"></a>Optimización del proceso de migración
 
@@ -63,8 +75,8 @@ Una manera de migrar la base de datos de PostgreSQL existente al servicio Azure 
 ### <a name="for-the-backup"></a>Para la copia de seguridad
 - Realice la copia de seguridad con el modificador -Fc para poder realizar la restauración en paralelo a fin de acelerar. Por ejemplo:
 
-    ```
-    pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName -f Z:\Data\Backups\MyDatabaseBackup.dump
+    ```bash
+    pg_dump -h my-source-server-name -U source-server-username -Fc -d source-databasename -f Z:\Data\Backups\my-database-backup.dump
     ```
 
 ### <a name="for-the-restore"></a>Para la restauración
@@ -74,16 +86,21 @@ Una manera de migrar la base de datos de PostgreSQL existente al servicio Azure 
 
 - Restaure con los modificadores -Fc y -j *#* a fin de ejecutar la restauración en paralelo. *#* es el número de núcleos en el servidor de destino. También puede probar con *#* establecido en dos veces el número de núcleos del servidor de destino para ver el impacto. Por ejemplo:
 
-    ```
-    pg_restore -h MyTargetServer.postgres.database.azure.com -U MyAzurePostgreSQLUserName -Fc -j 4 -d MyTargetDatabase Z:\Data\Backups\MyDatabaseBackup.dump
-    ```
+Este es un ejemplo de cómo usar este elemento **pg_restore** para el **Servidor único**:
+```bash
+ pg_restore -h my-target-server.postgres.database.azure.com -U azure-postgres-username@my-target-server -Fc -j 4 -d my-target-databasename Z:\Data\Backups\my-database-backup.dump
+```
+Este es un ejemplo de cómo usar este elemento **pg_restore** para el **Servidor flexible**:
+```bash
+ pg_restore -h my-target-server.postgres.database.azure.com -U azure-postgres-username@my-target-server -Fc -j 4 -d my-target-databasename Z:\Data\Backups\my-database-backup.dump
+ ```
 
 - También puede editar el archivo de volcado si agrega el comando *set synchronous_commit = off;* al principio y el comando *set synchronous_commit = on;* al final. No activarlo al final, antes de que las aplicaciones cambien los datos, podría provocar la consiguiente pérdida de datos.
 
 - En el servidor Azure Database for PostgreSQL de destino, considere la posibilidad de hacer lo siguiente antes de la restauración:
     - Desactive el seguimiento del rendimiento de las consultas, ya que estas estadísticas no son necesarios durante la migración. Para ello, puede establecer pg_stat_statements.track pg_qs.query_capture_mode y pgms_wait_sampling.query_capture_mode en NONE.
 
-    - Use una sku de memoria alta y proceso elevado, como 32 núcleos virtuales con optimización para memoria, para acelerar la migración. Puede escalar fácilmente su sku preferida una vez completada la restauración. Cuanto mayor sea la sku, mayor paralelismo puede lograr mediante el aumento del parámetro `-j` correspondiente en el comando pg_restore. 
+    - Use una sku de memoria alta y proceso elevado, como 32 núcleos virtuales con optimización para memoria, para acelerar la migración. Puede escalar fácilmente su sku preferida una vez completada la restauración. Cuanto mayor sea la sku, mayor paralelismo puede lograr mediante el aumento del parámetro `-j` correspondiente en el comando pg_restore.
 
     - Si se aumenta la cantidad de IOPS en el servidor de destino, podría mejorar el rendimiento de la restauración. Puede aprovisionar más IOPS si aumenta el tamaño de almacenamiento del servidor. Esta configuración no es reversible, pero tenga en cuenta si una IOPS mayor beneficiaría la carga de trabajo real en el futuro.
 

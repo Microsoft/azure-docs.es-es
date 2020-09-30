@@ -17,6 +17,8 @@
           href: dns-getstarted-powershell.md
         - name: 'Creación de una zona pública: CLI'
           href: dns-getstarted-cli.md
+        - name: 'Creación de una zona pública: plantilla de Resource Manager'
+          href: dns-get-started-template.md
     - name: DNS privado
       items:
         - name: 'Creación de una zona privada: Portal'

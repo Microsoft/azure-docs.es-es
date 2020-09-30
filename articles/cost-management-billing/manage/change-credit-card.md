@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: e5adf007294ea4be0f5716a4614e0639f840fa75
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c7622c4916b186a39aad9dafb54a1e2404458794
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684939"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569363"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Agregar, actualizar o quitar una tarjeta de crédito para Azure
 
@@ -190,7 +190,7 @@ Si desea [pagar con factura](pay-by-invoice.md), envíe el pago a la ubicación 
 
 ### <a name="how-do-i-change-the-tax-id"></a>¿Cómo se cambia el número de identificación tributaria?
 
-Para agregar o actualizar el número de identificación tributaria, actualice el perfil en el [Centro de cuentas de Azure](https://account.azure.com/Profile) y seleccione **Registro fiscal**. Este número de identificación tributaria se utiliza para los cálculos de exención fiscal y aparece en la factura.
+Para agregar o actualizar el número de identificación fiscal, actualice el perfil en [Azure Portal](https://portal.azure.com) y seleccione **Registro fiscal**. Este número de identificación tributaria se utiliza para los cálculos de exención fiscal y aparece en la factura.
 
 ## <a name="check-the-type-of-your-account"></a>Comprobación del tipo de la cuenta
 

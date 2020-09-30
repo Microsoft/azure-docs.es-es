@@ -1,6 +1,6 @@
 ---
-title: Conexión a un dispositivo Microsoft Azure Stack Edge y administración mediante la interfaz de Windows PowerShell | Microsoft Docs
-description: En este artículo se explica cómo conectarse a Azure Stack Edge y cómo administrarlo mediante la interfaz de Windows PowerShell.
+title: Conexión a un dispositivo Microsoft Azure Stack Edge Pro y administración mediante la interfaz de Windows PowerShell | Microsoft Docs
+description: Se describe cómo conectarse a Azure Stack Edge Pro y cómo administrarlo mediante la interfaz de Windows PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 973c618b46d1b6be902d9629ca63ee120cae6855
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6b0fe7e9e096b252d33d25c4a70305e57d206b1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85313205"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894417"
 ---
-# <a name="manage-an-azure-stack-edge-device-via-windows-powershell"></a>Administración de un dispositivo Azure Stack Edge mediante Windows PowerShell
+# <a name="manage-an-azure-stack-edge-pro-device-via-windows-powershell"></a>Administración de un dispositivo Azure Stack Edge Pro mediante Windows PowerShell
 
-La solución Azure Stack Edge permite procesar datos y enviarlos a través de la red a Azure. En este artículo se describen algunas de las tareas de configuración y administración del dispositivo Azure Stack Edge. Puede usar Azure Portal, la interfaz de usuario web local o la interfaz de Windows PowerShell para administrar su dispositivo.
+La solución Azure Stack Edge Pro permite procesar datos y enviarlos a través de la red a Azure. En este artículo se describen algunas de las tareas de configuración y administración del dispositivo Azure Stack Edge Pro. Puede usar Azure Portal, la interfaz de usuario web local o la interfaz de Windows PowerShell para administrar su dispositivo.
 
 Este artículo se centra en las tareas que realizará mediante la interfaz de PowerShell. 
 
@@ -94,4 +94,4 @@ Para salir de la sesión remota de PowerShell, cierre la ventana de PowerShell.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Implementar [Azure Stack Edge](azure-stack-edge-deploy-prep.md) en Azure Portal.
+- Implemente [Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md) en Azure Portal.

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 03/10/2020
-ms.openlocfilehash: 537c989271800c15444d5323cfce8e133c8eeeba
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 8c9bdb059008a3d9e33631c3101cb7b459660119
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984666"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436789"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatización de tareas de administración mediante trabajos de base de datos
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,7 +51,7 @@ Se pueden usar las siguientes tecnologías de programación de trabajos:
 - Los **trabajos del Agente SQL** son componentes de programación de trabajos de SQL Server clásicos y profusamente probados que están disponibles en Instancia administrada de Azure SQL. Los trabajos del Agente SQL no están disponibles en Azure SQL Database.
 - Los **trabajos de Base de datos elástica (versión preliminar)** son servicios de programación de trabajos que ejecutan trabajos personalizados en una o varias bases de datos de Azure SQL Database.
 
-Cabe destacar un par de diferencias entre el Agente SQL (disponible de modo local y como parte de Instancia administrada de SQL) y el agente de trabajos elásticos de base de datos (disponible para bases de datos únicas en Azure SQL Database y bases de datos en SQL Data Warehouse).
+Cabe destacar un par de diferencias entre el Agente SQL (disponible de modo local y como parte de Instancia administrada de SQL) y el agente de trabajos elásticos de base de datos (disponible para bases de datos únicas en Azure SQL Database y bases de datos en Azure Synapse Analytics).
 
 | |Trabajos elásticos |Agente SQL |
 |---------|---------|---------|

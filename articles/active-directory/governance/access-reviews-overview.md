@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 08/18/2020
+ms.date: 09/08/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: c69a5e153377eee86eaf0c43d6c982dee2938ddf
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: b454ced085ec3d73f3ca0f761abb6c5de44244ab
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783678"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594346"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>¿Qué son las revisiones de acceso de Azure AD?
 
@@ -45,7 +45,7 @@ Azure AD le permite colaborar con usuarios de dentro y fuera de la organizació
 ## <a name="when-should-you-use-access-reviews"></a>¿Cuándo se deben usar las revisiones de acceso?
 
 - **Demasiados usuarios en roles con privilegios:** es recomendable comprobar cuántos usuarios tienen acceso administrativo, cuántos de ellos son administradores globales, y si hay algún invitado o asociado que no se haya quitado después de que se haya asignado una tarea administrativa. Puede volver a certificar los usuarios con asignación de roles en [roles de Azure AD](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), por ejemplo, administradores globales, o [roles de recursos de Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), por ejemplo, administrador de acceso de usuario, en la experiencia [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md).
-- **Cuando no es posible la automatización:** puede crear las reglas de pertenencia dinámica en grupos de seguridad o Grupos de Office 365, pero ¿qué ocurre si los datos de recursos humanos no se encuentran en Azure AD o si los usuarios todavía necesitan acceso después de abandonar el grupo para entrenar a su sustituto? Luego puede crear una revisión en ese grupo para asegurarse de que los usuarios que aún necesiten acceso sigan teniendo acceso.
+- **Cuando no es posible la automatización:** puede crear las reglas de pertenencia dinámica en grupos de seguridad o Grupos de Microsoft 365, pero ¿qué ocurre si los datos de recursos humanos no se encuentran en Azure AD o si los usuarios todavía necesitan acceso después de abandonar el grupo para entrenar a su sustituto? Luego puede crear una revisión en ese grupo para asegurarse de que los usuarios que aún necesiten acceso sigan teniendo acceso.
 - **Cuando se usa un grupo para una nueva finalidad:** si tiene un grupo que se va a sincronizar con Azure AD, o si va a habilitar la aplicación Salesforce para todos los usuarios del equipo de Ventas, sería útil solicitar al propietario del grupo que revise la pertenencia al grupo antes de usar el grupo en un contenido de riesgo distinto.
 - **Acceso a datos críticos para la empresa:** para determinados recursos y con fines de auditoría, podría exigirse a personas ajenas a TI que cierren sesión periódicamente y justifiquen por qué necesitan acceso.
 - **Para mantener la lista de excepciones de la directiva:** En un mundo ideal, todos los usuarios deberían seguir las directivas de acceso para proteger el acceso a los recursos de la organización. A veces, sin embargo, hay casos empresariales en los que hay que hacer excepciones. Como administrador de TI, puede administrar esta tarea, evitar las excepciones de omisiones de la directiva y proporcionar a los auditores prueba de que estas excepciones se revisan normalmente.
@@ -94,8 +94,10 @@ Estos son algunos escenarios de licencia de ejemplo que le ayudarán a determina
 | Un administrador crea una revisión de acceso del Grupo A con 75 usuarios y 1 propietario del grupo, y asigna el propietario del grupo como revisor. | 1 licencia para el propietario del grupo como revisor | 1 |
 | Un administrador crea una revisión de acceso del Grupo B con 500 usuarios y 3 propietarios de grupo, y asigna los 3 propietarios de grupo como revisores. | 3 licencias para cada propietario de grupo como revisores | 3 |
 | Un administrador crea una revisión de acceso del Grupo B con 500 usuarios. Realiza una autorrevisión. | 500 licencias para cada usuario como revisores | 500 |
-| Un administrador crea una revisión de acceso del Grupo C con 50 usuarios miembros y 25 usuarios invitados. Realiza una autorrevisión. | 50 licencias para cada usuario como revisores<br/>(los usuarios invitados están cubiertos en la proporción requerida de 1:5) | 50 |
-| Un administrador crea una revisión de acceso del Grupo D con 6 usuarios miembros y 108 usuarios invitados. Realiza una autorrevisión. | 6 licencias para cada usuario como autorrevisores + 16 licencias adicionales para abarcar a los 108 usuarios invitados de la proporción de 1:5 necesaria. 6 licencias, que suponen 6\*5=30 usuarios invitados. Para los (108-6\*5)=78 usuarios invitados restantes, se necesitan 78/5=16 licencias adicionales. Por lo tanto, en total, se necesitan 6 + 16 = 22 licencias. | 22 |
+| Un administrador crea una revisión de acceso del Grupo C con 50 usuarios miembros y 25 usuarios invitados. Realiza una autorrevisión. | 50 licencias para cada usuario como revisores.* | 50 |
+| Un administrador crea una revisión de acceso del Grupo D con 6 usuarios miembros y 108 usuarios invitados. Realiza una autorrevisión. | 6 licencias para cada usuario como revisores. Los usuarios invitados se facturan en función de un usuario activo mensual (MAU). No se necesitan licencias adicionales. *  | - |
+
+\* Los precios de Azure AD External Identities (usuario invitado) se basan en los usuarios activos mensuales (MAU), que es el recuento de usuarios únicos con actividad de autenticación en un mes natural. Este modelo reemplaza el modelo de facturación con una relación 1:5, que permitía hasta cinco usuarios invitados para cada licencia Premium de Azure AD del inquilino. Cuando el inquilino está vinculado a una suscripción y usa las características de identidades externas para colaborar con los usuarios invitados, se le facturará automáticamente mediante el modelo de facturación basado en MAU. Para más información, consulte el modelo de facturación para Azure AD External Identities.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

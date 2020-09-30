@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 171c53aa36ecc854cf32a64f9f2639a7086c24e5
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 21cd1491da4374babaff8b5b4b451a3cce874368
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782590"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898837"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regresión del árbol de decisión potenciado
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
 Utilice este módulo para crear un conjunto de árboles de regresión mediante la potenciación. *Potenciación* significa que cada árbol depende de árboles anteriores. El algoritmo aprende ajustando el valor residual de los árboles que le preceden. Por lo tanto, la potenciación de un conjunto de árboles de decisión tiende a mejorar la precisión a pesar de correr el riesgo de tener menor cobertura.  
 

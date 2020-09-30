@@ -3,21 +3,21 @@ title: Arquitectura y terminología del motor de reglas de Azure Front Door
 description: En este artículo se ofrece información general sobre la característica Motor de reglas de Azure Front Door.
 services: frontdoor
 documentationcenter: ''
-author: megan-beatty
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/30/2020
-ms.author: mebeatty
-ms.openlocfilehash: 1332f4b21f971d23055c158c2aebdd3316f1bd39
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 9/14/2020
+ms.author: duau
+ms.openlocfilehash: 94770e4fcad9659594854f81732c7b4e4a97051c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512221"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530886"
 ---
 # <a name="what-is-rules-engine-for-azure-front-door"></a>¿Qué es el motor de reglas de Azure Front Door? 
 

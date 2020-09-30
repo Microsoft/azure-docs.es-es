@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11138857e33eec0f854ddb61956ea24c858c49a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 17e20048c4cb4de2be6fe36be100b472f0b8ee73
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "60531019"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459970"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Actualización de las notas de la versión Update 1.2 del dispositivo StorSimple serie 8000
 
@@ -57,7 +57,7 @@ Estas características aparecieron por primera vez con la actualización 1 que s
     Para obtener más información sobre cómo migrar un dispositivo de las series 5000-7000 de StorSimple a la serie 8000, consulte la [Guía de migración](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b) . 
 * **Disponibilidad en el Portal de Azure Government** : StorSimple está disponible en el Portal de Azure Government. Consulte cómo [implementar un dispositivo StorSimple en el Portal de Azure Government](storsimple-deployment-walkthrough-gov.md).
 * **Compatibilidad con otros proveedores de servicios en la nube** : los restantes proveedores de servicios en la nube que se admiten son Amazon S3, Amazon S3 con RRS, HP y OpenStack (beta).
-* **Actualización a las API de almacenamiento más recientes** : con esta versión, StorSimple se ha actualizado a las API de los servicios de Azure Storage más recientes. Los dispositivos de la serie StorSimple 8000 que ejecutan las versiones de software anteriores a la actualización 1 (versión, 0.1, 0.2 y 0.3) usan versiones de las API del servicio Azure Storage anteriores al 17 de julio de 2009. Como se indicó en la actualización del [anuncio acerca de la eliminación de versiones del servicio Storage](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx), el 1 de agosto de 2016 estas API dejarán de utilizarse. La actualización 1 de la serie StorSimple 8000 debe aplicarse antes del 1 de agosto de 2016. Si no lo hace, los dispositivos de StorSimple dejará de funcionar correctamente.
+* **Actualización a las API de almacenamiento más recientes** : con esta versión, StorSimple se ha actualizado a las API de los servicios de Azure Storage más recientes. Los dispositivos de la serie StorSimple 8000 que ejecutan las versiones de software anteriores a la actualización 1 (versión, 0.1, 0.2 y 0.3) usan versiones de las API del servicio Azure Storage anteriores al 17 de julio de 2009. Como se indicó en la actualización del [anuncio acerca de la eliminación de versiones del servicio Storage](https://docs.microsoft.com/archive/blogs/windowsazurestorage/microsoft-azure-storage-service-version-removal-update-extension-to-2016), el 1 de agosto de 2016 estas API dejarán de utilizarse. La actualización 1 de la serie StorSimple 8000 debe aplicarse antes del 1 de agosto de 2016. Si no lo hace, los dispositivos de StorSimple dejará de funcionar correctamente.
 * **Soporte para el almacenamiento con redundancia de zona (ZRS)** : con la actualización a la versión más reciente de las API de almacenamiento, la serie StorSimple 8000 será compatible con el almacenamiento con redundancia de zona (ZRS), además del almacenamiento con redundancia local (LRS) y el almacenamiento con redundancia geográfica (GRS). Para obtener información detallada sobre ZRS, consulte este [artículo sobre las opciones de redundancia de Azure Storage](../storage/common/storage-redundancy.md) .
 * **Mejora de la experiencia de implementación inicial y actualización** : en esta versión, se han mejorado los procesos de instalación y actualización. La instalación a través del Asistente para la instalación se ha mejorado para proporcionar comentarios al usuario si la configuración de red y la configuración del firewall son incorrectas. Se han proporcionado cmdlets de diagnósticos adicionales para ayudarle a solucionar los problemas de red del dispositivo. Para obtener más información acerca de los nuevos cmdlets de diagnóstico utilizados para solucionar problemas, consulte el [artículo sobre la solución de problemas en la implementación](storsimple-troubleshoot-deployment.md) .
 

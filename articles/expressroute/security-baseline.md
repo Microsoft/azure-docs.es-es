@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: f5c81897f74163191de4b167ffa56225ca0698ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 69a47820d2afaf24f413aabf2c59a40c032070c1
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079049"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231391"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Línea de base de seguridad de Azure para ExpressRoute
 
@@ -54,7 +54,7 @@ Para más información, consulte [Introducción a la línea de base de seguridad
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: Deniegue las comunicaciones con direcciones IP malintencionadas conocidas
 
-**Instrucciones**: no aplicable; la instancia de ExpressRoute de cada cliente se encuentra dentro de sus propios dominios de enrutamiento y se tuneliza en una red virtual propia. Aunque las instancias de ExpressRoute están aisladas, para la protección adicional de otros recursos que comparten la misma red virtual, puede habilitar el estándar DDoS Protection a fin de protegerse frente a ataques DDoS.
+**Guía**: no aplicable; la instancia de ExpressRoute de cada cliente se encuentra dentro de sus propios dominios de enrutamiento y se tuneliza en una red virtual propia. Aunque las instancias de ExpressRoute están aisladas, para la protección adicional de otros recursos que comparten la misma red virtual, puede habilitar el estándar DDoS Protection a fin de protegerse frente a ataques DDoS.
 
 * [Descripción de los controles de seguridad para Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-security-controls)
 
@@ -240,13 +240,13 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 **Guía**: mantenga un inventario de las cuentas de usuario que tienen acceso administrativo al plano de control (por ejemplo, Azure Portal) de los recursos de Azure ExpressRoute.
 
-Puede usar el panel de identidades y control de acceso (IAM) de Azure Portal de la suscripción para configurar el control de acceso basado en rol (RBAC). Los roles se aplican a usuarios, grupos, entidades de servicio e identidades administradas en Active Directory.
+Puede usar el panel Administración de identidad y acceso (IAM) de Azure Portal para la suscripción a fin de configurar el control de acceso basado en rol de Azure (Azure RBAC). Los roles se aplican a usuarios, grupos, entidades de servicio e identidades administradas en Active Directory.
 
 Además, los asociados que usan la API de Resource Manager de asociado de ExpressRoute pueden aplicar el control de acceso basado en roles al recurso expressRouteCrossConnection. Estos controles pueden definir permisos para los que las cuentas de usuario pueden modificar el recurso expressRouteCrossConnection y agregar, actualizar o eliminar configuraciones de emparejamiento.
 
-* [Descripción de RBAC en Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Descripción de Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-* [Aprovechamiento de RBAC en la API de Resource Manager de asociado de ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
+* [Aprovechamiento de RBAC de Azure en la API de Resource Manager de asociado de ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -453,17 +453,17 @@ Procedimiento para configurar IPsec de sitio a sitio a través de ExpressRoute: 
 
 **Responsabilidad**: No aplicable
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Uso del control de acceso basado en rol para controlar el acceso a los recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
-**Guía**: Puede usar el panel de identidades y control de acceso (IAM) de Azure Portal de la suscripción para configurar el control de acceso basado en rol (RBAC). Los roles se aplican a usuarios, grupos, entidades de servicio e identidades administradas en Active Directory. Puede usar roles integrados o personalizados para usuarios y grupos.
+**Instrucciones**: Puede usar el panel Administración de identidad y acceso (IAM) de Azure Portal para la suscripción a fin de configurar el control de acceso basado en rol de Azure (Azure RBAC). Los roles se aplican a usuarios, grupos, entidades de servicio e identidades administradas en Active Directory. Puede usar roles integrados o personalizados para usuarios y grupos.
 
 Azure ExpressRoute también tiene roles de usuario de circuito y de propietario de circuito. Los usuarios del circuito son propietarios de puertas de enlace de red virtual que no se incluyen en la misma suscripción que el circuito ExpressRoute. El propietario del circuito tiene la capacidad de modificar y revocar las autorizaciones en cualquier momento. La revocación de una autorización dará como resultado la eliminación de todas las conexiones de vínculos de la suscripción cuyo acceso se haya revocado. Los usuarios del circuito pueden canjear autorizaciones (una autorización por red virtual).
 
 Además, los asociados que usan la API de Resource Manager de asociado de ExpressRoute pueden aplicar el control de acceso basado en roles al recurso expressRouteCrossConnection. Estos controles pueden definir permisos para los que las cuentas de usuario pueden modificar el recurso expressRouteCrossConnection y agregar, actualizar o eliminar configuraciones de emparejamiento.
 
-* [Descripción de RBAC en Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Descripción de Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-* [Aprovechamiento de RBAC en la API de Resource Manager de asociado de ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
+* [Aprovechamiento de RBAC de Azure en la API de Resource Manager de asociado de ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
 
 * [Descripción de los roles de administración en ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager#connect-a-vnet-to-a-circuit---different-subscription)
 
@@ -677,7 +677,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: Limitación de capacidad de los usuarios para ejecutar scripts en recursos de proceso
 
-**Guía**: No aplicable; esta recomendación está pensada para los recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -729,7 +729,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4: Mantenga configuraciones del sistema operativo seguras
 
-**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
+**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -749,7 +749,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Almacene imágenes de sistema operativo personalizadas de forma segura
 
-**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
+**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -787,7 +787,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: Implemente la supervisión de configuración automatizada para sistemas operativos
 
-**Instrucciones**: No aplicable; esta guía está pensada para recursos de proceso.
+**Guía**: No aplicable; esta guía está pensada para recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 

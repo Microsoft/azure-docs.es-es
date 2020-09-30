@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: e49a6b8000def0fe175930629b33203adec1b0f5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: f47e9cb93b90c8a2401d1dfe6c0ff7800b0bcf27
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537061"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401136"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Línea de base de seguridad de Azure para Event Hubs
 
@@ -443,9 +443,9 @@ Autorización del acceso a recursos de Event Hubs mediante Azure Active Direct
 
 Procedimiento para ver los inicios de sesión de riesgo de Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
-Procedimiento para configurar y habilitar las directivas de riesgo de Identity Protection: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
+Configuración y habilitación de las directivas de riesgo de protección de identidad: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
-Cómo incorporar Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Incorporación de Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -882,9 +882,11 @@ Configuración de claves administradas por el cliente para Event Hubs: https://d
 
 Cómo integrar las identidades administradas de Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Cómo crear un almacén de claves: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Cómo crear un almacén de claves: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Cómo proporcionar la autenticación de Key Vault con una identidad administrada: https://docs.microsoft.com/azure/key-vault/managed-identity
+Autenticación en Azure Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Asignación de una directiva de acceso de Key Vault: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Supervisión de Azure Security Center**: Sí
 

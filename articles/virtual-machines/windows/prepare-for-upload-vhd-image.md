@@ -6,14 +6,14 @@ manager: dcscontentpm
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: troubleshooting
-ms.date: 04/28/2020
+ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 8b5124a0336773412ae9c36a32a0f6f86da62a31
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 642a1937f44a608ebf235c20da060972788046a0
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056251"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321742"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparación de un VHD o un VHDX de Windows antes de cargarlo en Azure
 
@@ -28,73 +28,6 @@ Para información sobre la directiva de soporte de software de servidor de Micro
 >
 > - La versión de Windows Server 2008 R2 de 64 bits y versiones posteriores de los sistemas operativos de Windows Server. Para más información sobre cómo ejecutar un sistema operativo de 32 bits en Azure, vea [Compatibilidad de sistemas operativos de 32 bits en máquinas virtuales de Azure](https://support.microsoft.com/help/4021388/).
 > - Si se va a usar una herramienta de recuperación ante desastres para migrar la carga de trabajo, como Azure Site Recovery o Azure Migrate, sigue siendo necesario este proceso en el sistema operativo invitado para preparar la imagen antes de la migración.
-
-## <a name="convert-the-virtual-disk-to-a-fixed-size-vhd"></a>Conversión de un disco virtual en un VHD de tamaño fijo
-
-Use uno de los métodos descritos en esta sección para convertir y cambiar el tamaño del disco virtual al formato requerido por Azure:
-
-1. Cree una copia de seguridad de la máquina virtual antes de ejecutar el proceso de conversión del disco virtual o el proceso de cambio de tamaño.
-
-1. Asegúrese de que el disco duro virtual de Windows funciona correctamente en el servidor local. Resuelva los errores dentro de la propia máquina virtual antes de intentar la conversión o la carga en Azure.
-
-1. Convierta el disco virtual al tipo de tamaño fijo.
-
-1. Cambie el tamaño del disco virtual para cumplir los requisitos de Azure:
-
-   1. Los discos de Azure deben tener un tamaño virtual alineado con 1 MiB. Si el VHD es una fracción de 1 MiB, deberá cambiar el tamaño del disco a un múltiplo de 1 MiB. Los discos que son fracciones de 1 MiB provocan errores al crear imágenes a partir del disco duro virtual cargado. Para comprobarlo, puede usar el cmdlet [Get-VHD](/powershell/module/hyper-v/get-vhd) de PowerShell para mostrar el valor de "Size", que debe ser un múltiplo de 1 MiB en Azure y "FileSize", que será igual al valor de "Size" más 512 bytes para el pie de página del VHD.
-   
-   1. El tamaño máximo permitido del disco duro virtual del sistema operativo en una máquina virtual de generación 1 es de 2048 GiB (2 TiB). 
-   1. El tamaño máximo de un disco de datos es de 32 767 GiB (32 TiB).
-
-> [!NOTE]
-> - Si va a preparar un disco del sistema operativo Windows después de convertirlo en un disco fijo y cambiar el tamaño si es necesario, cree una máquina virtual que use el disco. Inicie la máquina virtual, inicie sesión en ella y continúe con las secciones de este artículo para finalizar la preparación para la carga.  
-> - Si va a preparar un disco de datos, puede dejar esta sección y continuar con la carga del disco.
-
-### <a name="use-hyper-v-manager-to-convert-the-disk"></a>Uso de Administrador de Hyper-V para convertir el disco
-
-1. Abra el Administrador de Hyper-V y seleccione el equipo local de la izquierda. En el menú situado sobre la lista de equipos, seleccione **Acción** > **Editar disco**.
-1. En la página **Localizar disco duro virtual**, localice y seleccione el disco virtual.
-1. En la página **Elegir acción**, seleccione **Convertir** > **Siguiente**.
-1. Para realizar la conversión desde VHDX, seleccione **VHD** > **Siguiente**.
-1. Para realizar la conversión desde un disco de expansión dinámica, seleccione **Tamaño fijo** > **Siguiente**.
-1. Localice y seleccione una ruta de acceso para guardar el nuevo archivo VHD.
-1. Seleccione **Finalizar**.
-
-### <a name="use-powershell-to-convert-the-disk"></a>Uso de PowerShell para convertir el disco
-
-Puede convertir un disco virtual mediante el cmdlet [Convert-VHD](/powershell/module/hyper-v/convert-vhd) en PowerShell. Si necesita información sobre la instalación de este cmdlet, haga clic [aquí](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
-
-Con el siguiente ejemplo, el disco se convierte de VHDX a VHD. También se convierte un disco de expansión dinámica en un disco de tamaño fijo.
-
-```powershell
-Convert-VHD -Path C:\test\MyVM.vhdx -DestinationPath C:\test\MyNewVM.vhd -VHDType Fixed
-```
-
-En este ejemplo, reemplace el valor **Path** por la ruta de acceso del disco duro virtual que quiera convertir. Reemplace el valor de **DestinationPath** por la nueva ruta de acceso y el nombre del disco convertido.
-
-### <a name="convert-from-vmware-vmdk-disk-format"></a>Conversión del formato de disco VMDK de VMware
-
-Si tiene una imagen de máquina virtual de Windows en [formato de archivo VMDK](https://en.wikipedia.org/wiki/VMDK), use [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497) para convertirla en un disco duro virtual. Para más información, vea [Cómo convertir un VMDK de VMWare a VHD de Hyper-V](/archive/blogs/timomta/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd).
-
-### <a name="use-hyper-v-manager-to-resize-the-disk"></a>Uso del Administrador de Hyper-V para cambiar el tamaño del disco
-
-1. Abra el Administrador de Hyper-V y seleccione el equipo local de la izquierda. En el menú situado sobre la lista de equipos, seleccione **Acción** > **Editar disco**.
-1. En la página **Localizar disco duro virtual**, localice y seleccione el disco virtual.
-1. En la página **Elegir acción**, seleccione **Expandir** > **Siguiente**.
-1. En la página **Localizar disco duro virtual**, escriba el nuevo tamaño en GiB > **Siguiente**.
-1. Seleccione **Finalizar**.
-
-### <a name="use-powershell-to-resize-the-disk"></a>Uso de PowerShell para cambiar el tamaño del disco
-
-Puede cambiar el tamaño de un disco virtual mediante el cmdlet [Resize-VHD](/powershell/module/hyper-v/resize-vhd) de PowerShell. Si necesita información sobre la instalación de este cmdlet, haga clic [aquí](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
-
-En el ejemplo siguiente se cambia el tamaño del disco de 100,5 MiB a 101 MiB para cumplir con el requisito de alineación de Azure.
-
-```powershell
-Resize-VHD -Path C:\test\MyNewVM.vhd -SizeBytes 105906176
-```
-
-En este ejemplo, reemplace el valor de **Path** por la ruta de acceso del disco duro virtual cuyo tamaño quiere cambiar. Reemplace el valor de **SizeBytes** por el nuevo tamaño en bytes del disco.
 
 ## <a name="system-file-checker"></a>Comprobador de archivos de sistema
 
@@ -138,7 +71,7 @@ Una vez completado el examen de SFC, instale las actualizaciones de Windows y re
    netsh.exe winhttp reset proxy
    ```
 
-    Si es necesario que la máquina virtual funcione con algún proxy concreto, agregue una excepción de proxy para la dirección IP de Azure ([168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)), de forma que la máquina virtual tenga conectividad con Azure:
+    Si es necesario que la máquina virtual funcione con algún proxy concreto, agregue una excepción de proxy para la dirección IP de Azure ([168.63.129.16](/azure/virtual-network/what-is-ip-address-168-63-129-16)), de forma que la máquina virtual tenga conectividad con Azure:
 
     ```
     $proxyAddress='<your proxy server>'
@@ -411,13 +344,13 @@ Asegúrese de que la máquina virtual tiene un estado correcto, es segura y est�
 
 1. Reinicie la máquina virtual para asegurarse de que Windows sigue funcionando correctamente y puede conectarse a ella a través de RDP. Llegado este punto, plantéese la creación de una máquina virtual en el servidor de Hyper-V local para asegurarse de que la máquina virtual se inicia completamente. Tras ello, realice pruebas para asegurarse de que se puede acceder a la máquina virtual a través de RDP.
 
-1. Quite los filtros extra de Interfaz de controlador de transporte (TDI). Por ejemplo, quite el software que analice paquetes TCP o firewalls adicionales. Revise esto más adelante una vez implementada la máquina virtual en Azure.
+1. Quite los filtros extra de Interfaz de controlador de transporte (TDI). Por ejemplo, quite el software que analice paquetes TCP o firewalls adicionales.
 
 1. Desinstale cualquier otro software de terceros o controlador relacionado con componentes físicos, o cualquier otra tecnología de virtualización.
 
 ### <a name="install-windows-updates"></a>Instalación de actualizaciones de Windows
 
-Lo ideal es mantener la máquina actualizada en el *nivel de revisión* pero, si no es posible, asegúrese de que las siguientes actualizaciones están instaladas. Para obtener las actualizaciones más recientes, consulte las páginas del historial de actualizaciones de Windows: [Windows 10 y Windows Server 2019](https://support.microsoft.com/help/4000825), [Windows 8.1 y Windows Server 2012 R2](https://support.microsoft.com/help/4009470), y [Windows 7 SP1 y Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
+Lo ideal sería que mantuviera la máquina actualizada en el *nivel de revisión*; si esto no es posible, asegúrese de que estén instaladas las siguientes actualizaciones. Para obtener las actualizaciones más recientes, consulte las páginas del historial de actualizaciones de Windows: [Windows 10 y Windows Server 2019](https://support.microsoft.com/help/4000825), [Windows 8.1 y Windows Server 2012 R2](https://support.microsoft.com/help/4009470), y [Windows 7 SP1 y Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
 
 <br />
 
@@ -462,7 +395,7 @@ Lo ideal es mantener la máquina actualizada en el *nivel de revisión* pero, si
 > [!NOTE]
 > Para evitar un reinicio accidental durante el aprovisionamiento de la máquina virtual, es aconsejable asegurarse de que todas las instalaciones de Windows Update han finalizado y de que no hay actualizaciones pendientes. Una manera de hacerlo es instalar todas las actualizaciones de Windows posibles y reiniciar una vez antes de ejecutar el comando `sysprep.exe`.
 
-### <a name="determine-when-to-use-sysprep"></a>Determinar cuándo usar Sysprep
+## <a name="determine-when-to-use-sysprep"></a>Determinar cuándo usar Sysprep
 
 Herramienta de preparación del sistema (`sysprep.exe`) es un proceso que se puede ejecutar para restablecer una instalación de Windows.
 Sysprep proporciona una experiencia original, al eliminar todos los datos personales y restablecer varios componentes.
@@ -472,7 +405,7 @@ Sysprep proporciona una experiencia original, al eliminar todos los datos person
 Para crear una sola máquina virtual desde un disco, no tiene que usar Sysprep, sino crear la máquina virtual desde una *imagen especializada*. Para más información sobre cómo crear una máquina virtual desde un disco especializado, vea:
 
 - [Creación de una máquina virtual a partir de un disco especializado](create-vm-specialized.md)
-- [Create a VM from a specialized VHD disk](./create-vm-specialized-portal.md) (Creación de una máquina virtual a partir de un disco duro virtual especializado)
+- [Create a VM from a specialized VHD disk](/azure/virtual-machines/windows/create-vm-specialized-portal) (Creación de una máquina virtual a partir de un disco duro virtual especializado)
 
 Para crear una imagen generalizada, debe ejecutar Sysprep. Para información, vea [Uso de Sysprep: Introducción](/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10)).
 
@@ -488,9 +421,8 @@ Específicamente, Sysprep requiere que las unidades se descifren por completo an
 
 1. Inicie sesión en la máquina virtual Windows.
 1. Ejecute una sesión de PowerShell como administrador.
-1. Elimine el directorio Panther (C:\Windows\Panther).
 1. Cambie el directorio a `%windir%\system32\sysprep`. A continuación, ejecute `sysprep.exe`.
-1. En el cuadro de diálogo **Herramienta de preparación del sistema**, seleccione **Iniciar la Configuración rápida (OOBE) del sistema** y asegúrese de que la casilla **Generalizar** está activada.
+1. En el cuadro de diálogo **Herramienta de preparación del sistema**, seleccione **Iniciar la Configuración rápida (OOBE) del sistema** y asegúrese de que la casilla **Generalizar** esté activada.
 
     ![Herramienta de preparación del sistema](media/prepare-for-upload-vhd-image/syspre.png)
 1. En **Opciones de apagado**, seleccione **Apagar**.
@@ -501,6 +433,73 @@ Ahora el disco duro virtual está listo para cargarse. Para más información so
 
 >[!NOTE]
 > No se admite un archivo *unattend.xml* personalizado, No obstante, se admite la propiedad **additionalUnattendContent**, que proporciona solo compatibilidad limitada para agregar las opciones de [microsoft-windows-shell-setup](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) en el archivo *unattend.xml* que usa el agente de aprovisionamiento de Azure. Por ejemplo, puede usar [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) para agregar FirstLogonCommands y LogonCommands. Para más información, vea el [ejemplo de FirstLogonCommands de additionalUnattendContent](https://github.com/Azure/azure-quickstart-templates/issues/1407).
+
+## <a name="convert-the-virtual-disk-to-a-fixed-size-vhd"></a>Conversión de un disco virtual en un VHD de tamaño fijo
+
+Use uno de los métodos descritos en esta sección para convertir y cambiar el tamaño del disco virtual al formato requerido por Azure:
+
+1. Cree una copia de seguridad de la máquina virtual antes de ejecutar el proceso de conversión del disco virtual o el proceso de cambio de tamaño.
+
+1. Asegúrese de que el disco duro virtual de Windows funciona correctamente en el servidor local. Resuelva los errores dentro de la propia máquina virtual antes de intentar la conversión o la carga en Azure.
+
+1. Convierta el disco virtual al tipo de tamaño fijo.
+
+1. Cambie el tamaño del disco virtual para cumplir los requisitos de Azure:
+
+   1. Los discos de Azure deben tener un tamaño virtual alineado con 1 MiB. Si el VHD es una fracción de 1 MiB, deberá cambiar el tamaño del disco a un múltiplo de 1 MiB. Los discos que son fracciones de 1 MiB provocan errores al crear imágenes a partir del disco duro virtual cargado. Para comprobar el tamaño, puede usar el cmdlet [Get-VHD](/powershell/module/hyper-v/get-vhd) de PowerShell para mostrar el valor de "Size", que debe ser un múltiplo de 1 MiB en Azure y "FileSize", que será igual al valor de "Size" más 512 bytes para el pie de página del VHD.
+   
+   1. El tamaño máximo permitido del disco duro virtual del sistema operativo en una máquina virtual de generación 1 es de 2048 GiB (2 TiB). 
+   1. El tamaño máximo de un disco de datos es de 32 767 GiB (32 TiB).
+
+> [!NOTE]
+> - Si va a preparar un disco del sistema operativo Windows después de convertirlo en un disco fijo y cambiar el tamaño si es necesario, cree una máquina virtual que use el disco. Inicie la máquina virtual, inicie sesión en ella y continúe con las secciones de este artículo para finalizar la preparación para la carga.  
+> - Si va a preparar un disco de datos, puede dejar esta sección y continuar con la carga del disco.
+
+### <a name="use-hyper-v-manager-to-convert-the-disk"></a>Uso de Administrador de Hyper-V para convertir el disco
+
+1. Abra el Administrador de Hyper-V y seleccione el equipo local de la izquierda. En el menú situado sobre la lista de equipos, seleccione **Acción** > **Editar disco**.
+1. En la página **Localizar disco duro virtual**, localice y seleccione el disco virtual.
+1. En la página **Elegir acción**, seleccione **Convertir** > **Siguiente**.
+1. Para realizar la conversión desde VHDX, seleccione **VHD** > **Siguiente**.
+1. Para realizar la conversión desde un disco de expansión dinámica, seleccione **Tamaño fijo** > **Siguiente**.
+1. Localice y seleccione una ruta de acceso para guardar el nuevo archivo VHD.
+1. Seleccione **Finalizar**.
+
+### <a name="use-powershell-to-convert-the-disk"></a>Uso de PowerShell para convertir el disco
+
+Puede convertir un disco virtual mediante el cmdlet [Convert-VHD](/powershell/module/hyper-v/convert-vhd) en PowerShell. Si necesita información sobre la instalación de este cmdlet, consulte [Instalación del rol de Hyper-V en Windows Server](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+
+Con el siguiente ejemplo, el disco se convierte de VHDX a VHD. También se convierte un disco de expansión dinámica en un disco de tamaño fijo.
+
+```powershell
+Convert-VHD -Path C:\test\MyVM.vhdx -DestinationPath C:\test\MyNewVM.vhd -VHDType Fixed
+```
+
+En este ejemplo, reemplace el valor **Path** por la ruta de acceso del disco duro virtual que quiera convertir. Reemplace el valor de **DestinationPath** por la nueva ruta de acceso y el nombre del disco convertido.
+
+### <a name="use-hyper-v-manager-to-resize-the-disk"></a>Uso del Administrador de Hyper-V para cambiar el tamaño del disco
+
+1. Abra el Administrador de Hyper-V y seleccione el equipo local de la izquierda. En el menú situado sobre la lista de equipos, seleccione **Acción** > **Editar disco**.
+1. En la página **Localizar disco duro virtual**, localice y seleccione el disco virtual.
+1. En la página **Elegir acción**, seleccione **Expandir** > **Siguiente**.
+1. En la página **Localizar disco duro virtual**, escriba el nuevo tamaño en GiB > **Siguiente**.
+1. Seleccione **Finalizar**.
+
+### <a name="use-powershell-to-resize-the-disk"></a>Uso de PowerShell para cambiar el tamaño del disco
+
+Puede cambiar el tamaño de un disco virtual mediante el cmdlet [Resize-VHD](/powershell/module/hyper-v/resize-vhd) de PowerShell. Si necesita información sobre la instalación de este cmdlet, consulte [Instalación del rol de Hyper-V en Windows Server](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+
+En el ejemplo siguiente se cambia el tamaño del disco de 100,5 MiB a 101 MiB para cumplir con el requisito de alineación de Azure.
+
+```powershell
+Resize-VHD -Path C:\test\MyNewVM.vhd -SizeBytes 105906176
+```
+
+En este ejemplo, reemplace el valor de **Path** por la ruta de acceso del disco duro virtual cuyo tamaño quiere cambiar. Reemplace el valor de **SizeBytes** por el nuevo tamaño en bytes del disco.
+
+### <a name="convert-from-vmware-vmdk-disk-format"></a>Conversión del formato de disco VMDK de VMware
+
+Si tiene una imagen de máquina virtual de Windows en el [formato de archivo VMDK](https://en.wikipedia.org/wiki/VMDK), puede usar [Azure Migrate](https://docs.microsoft.com/azure/migrate/server-migrate-overview) para convertir el VMDK y cargarlo en Azure.
 
 ## <a name="complete-the-recommended-configurations"></a>Completar las configuraciones recomendadas
 
@@ -520,4 +519,4 @@ Los siguientes valores de configuración no afectan a la carga de discos duros v
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Carga de una imagen de máquina virtual de Windows en Azure para implementaciones de Resource Manager](upload-generalized-managed.md)
-- [Solución de problemas de activación de máquinas virtuales Windows de Azure](../troubleshooting/troubleshoot-activation-problems.md)
+- [Solución de problemas de activación de máquinas virtuales Windows de Azure](troubleshoot-activation-problems.md)

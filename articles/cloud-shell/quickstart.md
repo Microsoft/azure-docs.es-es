@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 3001e814a5f31725bfc78385d2435bbb0e971d40
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 91b7c58890518559c046023bd78c9248e9840f9f
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513028"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468756"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guía de inicio rápido para Bash en Azure Cloud Shell
 
@@ -97,5 +97,5 @@ Al establecer la conexión SSH, debería ver el aviso de bienvenida de Ubuntu. <
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Información sobre la persistencia de los archivos para Bash en Cloud Shell](persisting-shell-storage.md) <br>
-[Más información acerca de la CLI de Azure](https://docs.microsoft.com/cli/azure/) <br>
+[Más información acerca de la CLI de Azure](/cli/azure/) <br>
 [Más información sobre el almacenamiento en Azure Files](../storage/files/storage-files-introduction.md) <br>

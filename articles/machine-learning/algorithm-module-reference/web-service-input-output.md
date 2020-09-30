@@ -1,6 +1,6 @@
 ---
 title: 'Entrada/salida del servicio web: Referencia del módulo'
-description: Obtenga información sobre los módulos de servicio web en el diseñador de Azure Machine Learning (versión preliminar)
+description: Obtenga información sobre los módulos de servicio web en el diseñador de Azure Machine Learning
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/13/2020
-ms.openlocfilehash: ded976fc9090535f3c683b5c6351646a55265205
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a62f8aee0bd0a0d2b7009a48e9d5f00ea3c5155f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751102"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883215"
 ---
 # <a name="web-service-input-and-web-service-output-modules"></a>Módulos Web Service Input y Web Service Output
 
-En este artículo se describe los módulos Web Service Input (Entrada del servicio web) y Web Service Output (Salida del servicio web) en Azure Machine Learning Designer (versión preliminar).
+En este artículo se describen los módulos Web Service Input (Entrada del servicio web) y Web Service Output (Salida del servicio web) en el diseñador de Azure Machine Learning.
 
 El módulo Web Service Input (Entrada de servicio web) solo puede conectarse al puerto del entrada con el tipo **DataFrameDirectory**. El módulo Web Service Output (Salida del servicio web) solo puede conectarse desde el puerto de salida con el tipo **DataFrameDirectory**. Puede encontrar los dos módulos en el árbol de módulos, en la categoría de **servicio web**. 
 

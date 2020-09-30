@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/10/2020
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: a0cfbc39bbbd54e225879bd479bf0ba47186aee8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c4d37f67d89ad1b7973a85fb6c2a9f7e818a028
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987128"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421669"
 ---
 # <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>Instalación de un certificado de cliente para conexiones de punto a sitio con autenticación de certificados
 

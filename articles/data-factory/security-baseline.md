@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 771f692ade9c7616eb7d217b4728a8c80d2aeac5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 0711c25187a15c48e1e9b19b7c99b1e528c7b199
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044182"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393554"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Línea de referencia de seguridad de Azure para Azure Data Factory
 
@@ -406,7 +406,7 @@ Si ejecuta Integration Runtime en una máquina virtual de Azure, las cuentas de 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: Use máquinas dedicadas (estaciones de trabajo de acceso con privilegios) para todas las tareas administrativas
 
-**Guía**: Utilice estaciones de trabajo de acceso con privilegios (PAW), con Multi-Factor Authentication (MFA) configurado para iniciar sesión en recursos de Azure y configurarlos.
+**Instrucciones**: Utilice estaciones de trabajo de acceso con privilegios (PAW), con Multi-Factor Authentication (MFA) configurado para iniciar sesión en recursos de Azure y configurarlos.
 
 * [Más información sobre las estaciones de trabajo con privilegios de acceso](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
@@ -418,7 +418,7 @@ Si ejecuta Integration Runtime en una máquina virtual de Azure, las cuentas de 
 
 ### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3.7: Registro y alerta de actividades sospechosas desde cuentas administrativas
 
-**Instrucciones**: Use los informes de seguridad de Azure Active Directory para la generación de registros y alertas cuando se producen actividades sospechosas o no seguras en el entorno. Use Azure Security Center para supervisar la actividad de identidad y acceso.
+**Guía**: Use los informes de seguridad de Azure Active Directory para la generación de registros y alertas cuando se producen actividades sospechosas o no seguras en el entorno. Use Azure Security Center para supervisar la actividad de identidad y acceso.
 
 Si ejecuta Integration Runtime en una máquina virtual (VM) de Azure, también puede incorporar la máquina virtual a Azure Sentinel. Microsoft Azure Sentinel es una solución de administración de eventos de información de seguridad (SIEM) y respuesta automatizada de orquestación de seguridad (SOAR) que es escalable y nativa de la nube. Azure Sentinel ofrece análisis de seguridad inteligente e inteligencia frente a amenazas en toda la empresa, de forma que proporciona una única solución para la detección de alertas, la visibilidad de amenazas, la búsqueda proactiva y la respuesta a amenazas.
 
@@ -462,7 +462,7 @@ Si ejecuta Integration Runtime (IR) en una máquina virtual de Azure, puede usar
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: Revise y concilie regularmente el acceso de los usuarios
 
-**Instrucciones**: Azure Active Directory (AD) proporciona registros para ayudar a descubrir cuentas obsoletas. Además, use las revisiones de acceso de identidad de Azure para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado.
+**Guía**: Azure Active Directory (AD) proporciona registros para ayudar a descubrir cuentas obsoletas. Además, use las revisiones de acceso de identidad de Azure para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado.
 
 Si ejecuta Runtime Integration en una máquina virtual de Azure, tendrá que revisar los grupos de seguridad locales y los usuarios para asegurarse de que no hay cuentas inesperadas que puedan poner en peligro el sistema.
 
@@ -598,15 +598,15 @@ Las características de clasificación y detección de datos todavía no están 
 
 **Responsabilidad**: Customer
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Uso del control de acceso basado en rol para controlar el acceso a los recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
-**Guía**: Use el control de acceso basado en roles (RBAC) de Azure Active Directory (AD) para controlar el acceso al plano de control de Azure Data Factory (Azure Portal).
+**Guía**: Utilice el control de acceso basado en roles de Azure (Azure RBAC) para controlar el acceso al plano de control de Azure Data Factory (Azure Portal).
 
 Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles colaborador o propietario, o ser administrador de la suscripción de Azure.
 
-En el caso de los orígenes de datos de Data Factory, como Azure SQL Database, consulte la base de referencia de seguridad de ese servicio para obtener más información sobre RBAC.
+En el caso de los orígenes de datos de Data Factory, como Azure SQL Database, consulte la base de referencia de seguridad de ese servicio para obtener más información sobre RBAC de Azure.
 
-* [Configuración de RBAC en Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Configuración de Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 * [Roles y permisos para Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
 
@@ -842,7 +842,7 @@ Nota: El nombre del software, la versión, el publicador y la hora de actualizac
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
-**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 - Tipos de recursos no permitidos
 - Tipos de recursos permitidos
 
@@ -984,15 +984,15 @@ En la mayoría de los escenarios, las plantillas de máquina virtual base de Mic
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Almacene imágenes de sistema operativo personalizadas de forma segura
 
-**Guía**: Si usa imágenes personalizadas, use el control de acceso basado en rol (RBAC) para asegurarse de que solo los usuarios autorizados pueden acceder a las imágenes. En el caso de las imágenes de contenedor, almacénelas en Azure Container Registry y aproveche RBAC para asegurarse de que solo los usuarios autorizados puedan acceder a las imágenes.
+**Guía**: Si usa imágenes personalizadas, use el control de acceso basado en rol de Azure (Azure RBAC) para asegurarse de que solo los usuarios autorizados pueden acceder a las imágenes. En el caso de las imágenes de contenedor, almacénelas en Azure Container Registry y aproveche Azure RBAC para asegurarse de que solo los usuarios autorizados puedan acceder a las imágenes.
 
 Se puede usar el rol de colaborador de Data Factory para crear y administrar factorías de datos, así como los recursos secundarios que contienen.
 
-* [Descripción de RBAC en Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+* [Descripción de Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 
-* [Descripción de RBAC para Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+* [Descripción de Azure RBAC para Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
 
-* [Configuración de RBAC en Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+* [Configuración de Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
 * [Roles y permisos para Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
 
@@ -1050,7 +1050,9 @@ También puede almacenar credenciales o valores de secreto en una instancia de A
 
 * [Creación de un almacén de claves](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-* [Cómo proporcionar la autenticación de Key Vault con una identidad administrada](https://docs.microsoft.com/azure/key-vault/managed-identity)
+* [Autenticación en Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+* [Asignación de una directiva de acceso de Key Vault](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 * [Uso de secretos de Azure Key Vault en actividades de canalización](https://docs.microsoft.com/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities)
 

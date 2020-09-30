@@ -5,21 +5,16 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/25/2020
-ms.openlocfilehash: cb38dcba2f61a432decb56164b816688ad3192d8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.date: 09/03/2020
+ms.openlocfilehash: bfaa9d8908d9401441d8811c3edcd087781b1d89
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893642"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458644"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Auditoría de las consultas en los registros de Azure Monitor (versión preliminar)
 Los registros de auditoría de las consultas de registro proporcionan datos de telemetría sobre la ejecución de consultas de registro en Azure Monitor. Esto incluye información como cuándo se ejecutó una consulta, quién la ejecutó, qué herramienta se usó, el texto de la consulta y las estadísticas de rendimiento que describen la ejecución de la consulta.
-
-## <a name="current-limitations"></a>Limitaciones actuales
-Durante la versión preliminar pública, se aplican las siguientes limitaciones:
-
-- Solo se registrarán las consultas centradas en el área de trabajo. Las consultas que se ejecutan en modo centrado en recursos o se ejecutan en una instancia de Application Insights no configurada como basada en el área de trabajo no se registrarán.
 
 
 ## <a name="configure-query-auditing"></a>Configuración de la auditoría de las consultas
@@ -55,10 +50,11 @@ Cada vez que se ejecuta una consulta, se crea un registro de auditoría. Si env�
 | QueryTimeRangeEnd     | Fin del intervalo de tiempo seleccionado para la consulta. Este valor podría no rellenarse en determinados escenarios, como cuando la consulta se inicia desde Log Analytics y el intervalo de tiempo se especifica dentro de la consulta en lugar de en el selector de tiempo.  |
 | QueryText             | Texto de la consulta que se ha ejecutado. |
 | RequestTarget         | Dirección URL de la API que se usó para enviar la consulta.  |
-| RequestContext        | Lista de recursos en los que se solicitó la ejecución de la consulta. Contiene hasta tres matrices de cadenas: áreas de trabajo, aplicaciones y recursos. Las consultas dirigidas a grupos de recursos o suscripciones se mostrarán como *recursos*. Incluye el destino implícito por RequestTarget. |
+| RequestContext        | Lista de recursos en los que se solicitó la ejecución de la consulta. Contiene hasta tres matrices de cadenas: áreas de trabajo, aplicaciones y recursos. Las consultas dirigidas a grupos de recursos o suscripciones se mostrarán como *recursos*. Incluye el destino implícito por RequestTarget.<br>Si se puede resolver, se incluirá el identificador de recurso de cada recurso. Es posible que no se pueda resolver si se devuelve un error al acceder al recurso. En este caso, se usará el texto específico de la consulta.<br>Si la consulta usa un nombre ambiguo, como un nombre de área de trabajo que existe en varias suscripciones, se usará este nombre ambiguo. |
 | RequestContextFilters | Conjunto de filtros especificado como parte de la invocación de la consulta. Incluye hasta tres matrices de cadenas posibles:<br>- ResourceTypes: tipo de recurso para limitar el ámbito de la consulta.<br>- Workspaces: lista de áreas de trabajo para limitar la consulta.<br>- WorkspaceRegions: lista de regiones de áreas de trabajo para limitar la consulta. |
 | ResponseCode          | Código de respuesta HTTP que se devolvió cuando se envió la consulta. |
 | ResponseDurationMs    | Tiempo que se tardó en devolver la respuesta.  |
+| ResponseRowCount     | Número total de filas devueltas por la consulta. |
 | StatsCPUTimeMs       | Tiempo total de proceso usado para el cálculo, el análisis y la recuperación de los datos. Solo se rellena si la consulta devuelve el código de estado 200. |
 | StatsDataProcessedKB | Cantidad de datos a los que se accedió para procesar la consulta. Se ve afectado por el tamaño de la tabla de destino, el intervalo de tiempo usado, los filtros aplicados y el número de columnas a que se hace referencia. Solo se rellena si la consulta devuelve el código de estado 200. |
 | StatsDataProcessedStart | Hora de los datos más antiguos a los que se accedió para procesar la consulta. Se ve influenciado por el intervalo de tiempo explícito de la consulta y los filtros aplicados. Podría ser mayor que el intervalo de tiempo explícito debido a la creación de particiones de datos. Solo se rellena si la consulta devuelve el código de estado 200. |
@@ -66,7 +62,11 @@ Cada vez que se ejecuta una consulta, se crea un registro de auditoría. Si env�
 | StatsWorkspaceCount | Número de áreas de trabajo a las que tuvo acceso la consulta. Solo se rellena si la consulta devuelve el código de estado 200. |
 | StatsRegionCount | Número de regiones a las que tuvo acceso la consulta. Solo se rellena si la consulta devuelve el código de estado 200. |
 
+## <a name="considerations"></a>Consideraciones
 
+- Las estadísticas de rendimiento no están disponibles para las consultas que provienen del proxy de Azure Data Explorer. El resto de los datos de estas consultas se seguirán rellenando.
+- La sugerencia *h* en las cadenas que [ofuscan literales de cadena](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) no afectará a los registros de auditoría de consulta. Las consultas se capturarán exactamente como se enviaron sin la cadena que se ofusca. Debe asegurarse de que solo los usuarios que tienen derechos de cumplimiento para ver estos datos pueden hacerlo; para ello, use los distintos modos de RBAC disponibles en las áreas de trabajo de Log Analytics.
+- En el caso de las consultas que incluyen datos de varias áreas de trabajo, la consulta solo se capturará en las áreas de trabajo a las que el usuario tenga acceso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

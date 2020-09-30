@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: d3a9f88325f03d0252adf51c5bf221b131d7d33b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de9f4517d134b4a42603291110c6b19f69403412
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751714"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907041"
 ---
 # <a name="group-data-into-bins-module"></a>Módulo de agrupación de datos en rangos
 
-En este artículo se describe cómo usar el módulo de agrupación de datos en el diseñador de Azure Machine Learning (versión preliminar) para agrupar números o cambiar la distribución de datos continuos.
+En este artículo se describe cómo usar el módulo de agrupación de datos en el diseñador de Azure Machine Learning para agrupar números o cambiar la distribución de datos continuos.
 
 El módulo de agrupación de datos en rangos admite varias opciones para discretizar datos. Puede personalizar el establecimiento de los extremo del intervalo y cómo se reparten los valores en ellos. Por ejemplo, puede:  
 
@@ -50,7 +50,7 @@ Dado que hay muchas maneras de agrupar los datos, todos los que se pueden person
 
 ## <a name="how-to-configure-group-data-into-bins"></a>Configuración de datos de grupo en contenedores
 
-1. Agregue el módulo de **agrupación de datos en rangos** a su canalización en el diseñador (versión preliminar). Puede encontrar este módulo en la categoría **Transformación de datos**.
+1. Agregue el módulo de **agrupación de datos en rangos** a su canalización en el diseñador. Puede encontrar este módulo en la categoría **Transformación de datos**.
 
 2. Conecte el conjunto de datos que contiene datos numéricos a contenedor. La cuantificación solo se puede aplicar a las columnas que contienen datos numéricos. 
 

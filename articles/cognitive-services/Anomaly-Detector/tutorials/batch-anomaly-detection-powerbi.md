@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 06/17/2020
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 527ce1c7d434ae94c91c78c865c00aa0687a73cb
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 8e73ed8ac4712e84a900dcd85dbc8d756ccbdd62
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245509"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905774"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualización de anomalías con detección por lotes y Power BI
 
@@ -80,7 +80,7 @@ En el Editor avanzado, use el siguiente fragmento de Power Query M para extraer 
     jsonbody    = "{ ""Granularity"": ""daily"", ""Sensitivity"": 95, ""Series"": "& jsontext &" }",
     bytesbody   = Text.ToBinary(jsonbody),
     headers     = [#"Content-Type" = "application/json", #"Ocp-Apim-Subscription-Key" = apikey],
-    bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
+    bytesresp   = bytesresp  = Web.Contents(endpoint, [Headers=headers, Content=bytesbody, ManualStatusHandling={400}]),
     jsonresp    = Json.Document(bytesresp),
 
     respTable = Table.FromColumns({

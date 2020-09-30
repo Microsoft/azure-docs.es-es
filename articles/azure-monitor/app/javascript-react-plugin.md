@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 677810c21f9ea6151e2ffe7a4e2b9cdc8473a09f
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 3a11f77384c520bed9824841269be4ad998adba4
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226972"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056207"
 ---
 # <a name="react-plugin-for-application-insights-javascript-sdk"></a>Complemento React para el SDK de JavaScript de Application Insights
 
@@ -42,7 +42,7 @@ const browserHistory = createBrowserHistory({ basename: '' });
 var reactPlugin = new ReactPlugin();
 var appInsights = new ApplicationInsights({
     config: {
-        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE'
+        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
         extensions: [reactPlugin],
         extensionConfig: {
           [reactPlugin.identifier]: { history: browserHistory }

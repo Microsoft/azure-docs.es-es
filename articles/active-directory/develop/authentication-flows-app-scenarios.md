@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 99d16407d1cfadcb7d3a79968fae4436e7c631e3
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: ff92f66d4d7b96660fe83b79273f65ca50eb22f9
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115652"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292907"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flujos de autenticación y escenarios de aplicaciones
 
@@ -93,13 +93,13 @@ Las aplicaciones usan los distintos flujos de autenticación para iniciar la ses
 
 ### <a name="single-page-application"></a>Aplicación de una sola página
 
-Muchas aplicaciones web modernas se compilan como aplicaciones de página única del lado cliente. Estas aplicaciones usan JavaScript o un marco de trabajo como Angular, Vue.js y React.js. Estas aplicaciones se ejecutan en un explorador web.
+Muchas aplicaciones web modernas se compilan como aplicaciones de página única del lado cliente. Estas aplicaciones usan JavaScript o un marco de trabajo como Angular, Vue y React. Estas aplicaciones se ejecutan en un explorador web.
 
-Las aplicaciones de página única difieren de las aplicaciones web tradicionales del lado servidor en las características de autenticación. Con la plataforma de identidad de Microsoft las aplicaciones de página única pueden iniciar la sesión de los usuarios y obtengan tokens para acceder a los servicios de back-end o a las API web.
+Las aplicaciones de página única difieren de las aplicaciones web tradicionales del lado servidor en las características de autenticación. Con la plataforma de identidad de Microsoft las aplicaciones de página única pueden iniciar la sesión de los usuarios y obtengan tokens para acceder a los servicios de back-end o a las API web. La plataforma de identidad de Microsoft ofrece dos tipos de concesión para las aplicaciones JavaScript: 
 
-![Aplicación de página única](media/scenarios/spa-app.svg)
-
-Para más información, consulte [Aplicaciones de página única](scenario-spa-overview.md).
+| MSAL.js (2.x) | MSAL.js (1.x) |
+|---|---|
+| ![Autenticación de aplicación de página única](media/scenarios/spa-app-auth.svg) | ![Aplicación de página única implícita](media/scenarios/spa-app.svg) |
 
 ### <a name="web-app-that-signs-in-a-user"></a>Aplicación web que inicia la sesión de un usuario
 
@@ -109,7 +109,7 @@ Para ayudar a proteger una aplicación web que inicia la sesión de un usuario:
 
 - Si se está desarrollando en .NET, se usa ASP.NET o ASP.NET Core con el middleware ASP.NET OpenID Connect. La protección de un recurso conlleva la validación del token de seguridad, que se realiza con las [extensiones de IdentityModel para .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) y no con las bibliotecas MSAL.
 
-- Si se desarrolla en Node.js, se usa Passport.js.
+- Si se desarrolla en Node.js, se usa [Passport.js](https://github.com/AzureAD/passport-azure-ad).
 
 Para más información, consulte [Aplicación web que permite iniciar sesión a los usuarios](scenario-web-app-sign-user-overview.md).
 
@@ -196,7 +196,14 @@ Los escenarios que implican la adquisición de tokens también se asignan a fluj
  </thead>
  <tbody>
   <tr>
-   <td><a href="scenario-spa-overview.md"><img alt="Single-Page App" src="media/scenarios/spa-app.svg"></a></td>
+   <td><a href="scenario-spa-overview.md"><img alt="Single-Page App with Auth code" src="media/scenarios/spa-app-auth.svg"></a></td>
+   <td><a href="scenario-spa-overview.md">Aplicación de una sola página</a></td>
+   <td><a href="v2-oauth2-auth-code-flow.md">Código de autorización</a> con PKCE</td>
+   <td>Cuentas profesionales o educativas, cuentas personales y Azure Active Directory B2C (Azure AD B2C)</td>
+ </tr>
+
+  <tr>
+   <td><a href="scenario-spa-overview.md"><img alt="Single-Page App with Implicit" src="media/scenarios/spa-app.svg"></a></td>
    <td><a href="scenario-spa-overview.md">Aplicación de una sola página</a></td>
    <td><a href="v2-oauth2-implicit-grant-flow.md">Implícito</a></td>
    <td>Cuentas profesionales o educativas, cuentas personales y Azure Active Directory B2C (Azure AD B2C)</td>
@@ -293,7 +300,8 @@ En la columna Windows de la tabla siguiente, cada vez que se menciona .NET Core,
 
 |Escenario  | Windows | Linux | Mac | iOS | Android
 |--|--|--|--|--|--|--|
-| [Aplicación de una sola página](scenario-spa-overview.md) <br/>[![Aplicación de página única](media/scenarios/spa-app.svg)](scenario-spa-overview.md) | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
+| [Aplicación de una sola página](scenario-spa-overview.md) <br/>[![Autenticación de aplicación de página única](media/scenarios/spa-app-auth.svg)](scenario-spa-overview.md) | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
+| [Aplicación de una sola página](scenario-spa-overview.md) <br/>[![Aplicación de página única implícita](media/scenarios/spa-app.svg)](scenario-spa-overview.md) | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
 | [Aplicación web que permite iniciar sesión a los usuarios](scenario-web-app-sign-user-overview.md) <br/>[![Aplicación web que inicia sesión de usuarios](media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core
 | [Aplicación web que llama a las API web](scenario-web-app-call-api-overview.md) <br/> <br/>[![Aplicación web que llama a las API web](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core y MSAL.NET ![Java de MSAL](media/sample-v2-code/small_logo_java.png) <br/>Java de MSAL<br/>![Python de MSAL](media/sample-v2-code/small_logo_python.png)<br/>Flask y Python de MSAL| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core y MSAL.NET ![Java de MSAL](media/sample-v2-code/small_logo_java.png)<br/>Java de MSAL<br/>![Python de MSAL](media/sample-v2-code/small_logo_python.png)<br/>Flask y Python de MSAL| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core y MSAL.NET ![Java de MSAL](media/sample-v2-code/small_logo_java.png)<br/>Java de MSAL<br/> ![Python de MSAL](media/sample-v2-code/small_logo_python.png)<br/>Flask y Python de MSAL
 | [Aplicación de escritorio que llama a las API web](scenario-desktop-overview.md) <br/> <br/>[![Aplicación de escritorio que llama a las API web](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) ![Flujo de código de dispositivo](media/scenarios/device-code-flow-app.svg) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![Java de MSAL](media/sample-v2-code/small_logo_java.png)<br/>Java de MSAL<br/> ![Python de MSAL](media/sample-v2-code/small_logo_python.png)<br/>Python de MSAL| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![Java de MSAL](media/sample-v2-code/small_logo_java.png)<br/>Java de MSAL<br/>![Python de MSAL](media/sample-v2-code/small_logo_python.png)<br/>Python de MSAL| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![Java de MSAL](media/sample-v2-code/small_logo_java.png)<br/>Java de MSAL<br/>![Python de MSAL](media/sample-v2-code/small_logo_python.png)<br/>Python de MSAL <br/> ![iOS / Objective C o Swift](media/sample-v2-code/small_logo_iOS.png) MSAL.objc |

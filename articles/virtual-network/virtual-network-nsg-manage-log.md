@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: c56b5ac1c1aa6fa5894d1aedcb94fe4694c2db28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 221f7577b3181b1535ab9f544073dac4d031fe66
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696038"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319452"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>Registro de recursos de un grupo de seguridad de red
 
@@ -24,7 +24,7 @@ Los grupos de seguridad de red (NSG) incluyen reglas que permiten o deniegan el 
 Al habilitar el registro para un grupo de seguridad de red, puede recopilar los siguientes tipos de información del registro de recursos:
 
 * **Evento:** se registran las entradas en las que se aplican reglas de NSG a máquinas virtuales en función de la dirección MAC.
-* **Contador de regla:** contiene entradas para el número de veces que se aplica cada regla NSG para denegar o permitir el tráfico. El estado de estas reglas se recopila cada 60 segundos.
+* **Contador de regla:** contiene entradas para el número de veces que se aplica cada regla NSG para denegar o permitir el tráfico. El estado de estas reglas se recopila cada 300 segundos.
 
 Los registros de diagnóstico solo están disponibles para los grupos de seguridad de red implementados con el modelo de implementación de Azure Resource Manager. No se puede habilitar el registro de diagnóstico para los grupos de seguridad de red implementados con el modelo de implementación clásica. Para entender mejor los dos modelos, consulte [Descripción de los modelos de implementación de Azure](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

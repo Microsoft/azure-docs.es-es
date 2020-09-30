@@ -11,16 +11,16 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8682342d23c37d527528de0b525dbdd49a52676e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: dc07d2826d3c27fad1eee644da36cb7b4f85ea3c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853405"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897471"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Uso del paquete de interpretación para explicar los modelos de Machine Learning y las predicciones en Python (versión preliminar)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 En este artículo, aprenderá a usar el paquete de interpretación del SDK de Azure Machine Learning para Python para realizar las siguientes tareas:
 
@@ -275,7 +275,7 @@ En el ejemplo siguiente se muestra cómo usar la clase `ExplanationClient` para 
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-1. Configure una instancia de Azure Machine Learning Compute como destino de proceso y envíe la ejecución de entrenamiento. Para más información, consulte [Configuración de destinos de proceso del entrenamiento del modelo](how-to-set-up-training-targets.md#amlcompute). También puede encontrar útil los [cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation).
+1. Configure una instancia de Azure Machine Learning Compute como destino de proceso y envíe la ejecución de entrenamiento. Para obtener instrucciones, consulte [Creación de destinos de proceso con el SDK para Python](how-to-create-attach-compute-sdk.md#amlcompute). También puede encontrar útil los [cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation).
 
 1. Descargue la explicación en el cuaderno de Jupyter Notebook local.
 

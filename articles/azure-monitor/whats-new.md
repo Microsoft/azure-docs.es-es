@@ -6,16 +6,22 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: 10d4cb8160d0bf9111903b193574e9e820ded221
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0269d870f55f7246529b9d98608e5a325b6cf468
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827748"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569533"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Novedades en la documentación de Azure Monitor
 
 En este artículo se enumeran los artículos de Azure Monitor que son nuevos o que se han actualizado de forma significativa. Se actualizará la primera semana de cada mes para que incluya las actualizaciones de artículos del mes anterior.
+
+## <a name="august-2020"></a>Agosto de 2020
+
+### <a name="containers"></a>Contenedores
+
+- [Implementación y métricas de HPA con Azure Monitor para contenedores](insights/container-insights-deployment-hpa-metrics.md): nuevo artículo.
 
 ## <a name="july-2020"></a>Julio de 2020
 

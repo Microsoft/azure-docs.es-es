@@ -12,12 +12,12 @@ ms.date: 12/27/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a725eefd678720f2d9b8763277b02452819155b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f7dc1d4b0f6678f02c4f5d152edf2ae9af063d1
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763200"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89392449"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Administración del consentimiento a las aplicaciones y evaluación de las solicitudes de consentimiento
 
@@ -100,13 +100,25 @@ Consulte [Concesión del consentimiento del administrador para todo el inquilino
 
 ### <a name="granting-consent-on-behalf-of-a-specific-user"></a>Concesión de consentimiento en nombre de un usuario específico
 
-En lugar de conceder consentimiento para toda la organización, un administrador también puede usar [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api) para conceder consentimiento a los permisos delegados en nombre de un solo usuario. Para más información, consulte [Obtener acceso en nombre de un usuario](https://docs.microsoft.com/graph/auth-v2-user).
+En lugar de conceder el consentimiento para toda la organización, un administrador también puede usar [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api) para conceder consentimiento a los permisos delegados en nombre de un solo usuario. Para más información, consulte [Obtener acceso en nombre de un usuario](https://docs.microsoft.com/graph/auth-v2-user).
 
 ## <a name="limiting-user-access-to-applications"></a>Limitación del acceso de los usuarios a las aplicaciones
 
 Aunque se haya concedido consentimiento del administrador para todo el inquilino, todavía puede limitarse el acceso de los usuarios a las aplicaciones. Para más información sobre cómo requerir la asignación de usuarios a una aplicación, consulte los [métodos para asignar usuarios y grupos](methods-for-assigning-users-and-groups.md).
 
 Para una visión general más amplia sobre cómo tratar otros escenarios complejos, consulte cómo [usar Azure AD para la administración del acceso a las aplicaciones](what-is-access-management.md).
+
+## <a name="disable-all-future-user-consent-operations-to-any-application"></a>Deshabilitación de todas las operaciones de consentimiento de usuario futuras para todas las aplicaciones
+
+Deshabilitar el consentimiento del usuario para todo el directorio impide que los usuarios finales den consentimiento a cualquier aplicación. A pesar de ello, los administradores podrán seguir dando el consentimiento en nombre de los usuarios. Para más información sobre el consentimiento de aplicación y los motivos por los que es posible que quiera o no quiera hacer esto, lea el artículo [Descripción del consentimiento de usuario y administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
+
+Para **deshabilitar todas las operaciones de consentimiento de usuario futuras en todo el directorio**, siga estos pasos:
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
+2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
+3.  Escriba **"Azure Active Directory**" en el cuadro de búsqueda de filtrado y seleccione el elemento **Azure Active Directory**.
+4.  Haga clic en **Usuarios y grupos** en el menú de navegación.
+5.  Haga clic en **Configuración de usuario**.
+6.  Deshabilite todas las operaciones de consentimiento de usuario futuras estableciendo la opción **Los usuarios pueden permitir que las aplicaciones accedan a sus datos** en **No**. Después, haga clic en el botón **Guardar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

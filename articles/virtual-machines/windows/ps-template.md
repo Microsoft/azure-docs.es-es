@@ -7,16 +7,20 @@ ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d0d3e6836e2f87c503ac5154a54aeb0dd1c0e26
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ddd8166dd29d2210fecdd72d5be446df47a6c5df
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87266306"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072305"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Creación de una máquina virtual Windows con una plantilla de Resource Manager
 
 Aprenda a crear una máquina virtual Windows mediante una plantilla de Azure Resource Manager y Azure PowerShell desde Azure Cloud Shell. La plantilla usada en este artículo implementa una sola máquina virtual que ejecuta Windows Server en una nueva red virtual con una sola subred. Para la creación de una máquina virtual Linux, consulte [Procedimiento para crear una máquina virtual Linux con plantillas de Azure Resource Manager](../linux/create-ssh-secured-vm-from-template.md).
+
+Una alternativa consiste en implementar la plantilla desde Azure Portal. Para abrir la plantilla en Azure Portal, haga clic en el botón **Implementar en Azure**.
+
+[![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json)
 
 ## <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
 

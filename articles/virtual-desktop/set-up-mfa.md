@@ -3,15 +3,15 @@ title: 'Configuración de Azure Multi-Factor Authentication para escritorio virt
 description: Cómo configurar Azure Multi-Factor Authentication para mejorar la seguridad de Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 08/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5e42ca0a0d0ff9d9df3dc42f1e165d1035d56d6a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e8e723aa26ab08c8a09e75f506802101dc07f7e8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009467"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017791"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Habilitación de Azure Multi-Factor Authentication para Windows Virtual Desktop
 
@@ -47,29 +47,36 @@ Aquí se muestra cómo crear una directiva de acceso condicional que exija auten
 6. En **Incluir**, haga clic en **Seleccionar usuarios y grupos** > **Usuarios y grupos**  > Seleccionar el grupo creado en la fase de [requisitos previos](#prerequisites).
 7. Seleccione **Listo**.
 8. En **Aplicaciones en la nube o acciones** > **Incluir**, escoger **Seleccionar aplicaciones**.
-9. Seleccione uno de los siguientes grupos de aplicaciones en función de la versión de Windows Virtual Desktop que use.
-   - Si usa Windows Virtual Desktop (clásico), elija estas dos aplicaciones:
+9. Seleccione una de las siguientes aplicaciones en función de la versión de Windows Virtual Desktop que use.
+   - Si usa Windows Virtual Desktop (clásico), elija esta aplicación:
        - **Windows Virtual Desktop** (id. de aplicación 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
-       - **Cliente de Windows Virtual Desktop** (id. de aplicación fa4345a4-a730-4230-84a8-7d9651b86739)
-   - Si usa Windows Virtual Desktop, en su lugar, elija estas dos aplicaciones:
+   - Si usa Windows Virtual Desktop, en su lugar, elija esta otra:
        -  **Windows Virtual Desktop** (id. de aplicación 9cdead84-a844-4324-93f2-b2e6bb768d07)
-       -  **Cliente de Windows Virtual Desktop** (id. de aplicación a85cf173-4192-42f8-81fa-777a763e6e2c)
 
    >[!IMPORTANT]
-   > Las aplicaciones cliente de Windows Virtual Desktop se usan para el cliente web. Sin embargo, no seleccione la aplicación llamada Proveedor de Azure Resource Manager de Windows Virtual Desktop (50e95039-b200-4007-bc97-8d5790743a63). Esta aplicación solo se usa para recuperar la fuente de usuario y no debe tener MFA.
+   > No seleccione la aplicación llamada Proveedor de Azure Resource Manager de Windows Virtual Desktop (50e95039-b200-4007-bc97-8d5790743a63). Esta aplicación solo se usa para recuperar la fuente de usuario y no debe tener MFA.
 
-1. Una vez que haya seleccionado la aplicación, elija **Seleccionar** y, después, seleccione **Listo**.
+10. Vaya a **Condiciones** > **Aplicaciones cliente** y, después, seleccione la ubicación en la que quiere aplicar la directiva:
+    
+    - Seleccione **Explorador** si quiere que la directiva se aplique al cliente web.
+    - Seleccione **Aplicaciones móviles y aplicaciones de escritorio** si quiere aplicar la directiva a otros clientes.
+    - Active ambas casillas si quiere aplicar la directiva a todos los clientes.
+   
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la página Aplicaciones cliente. El usuario ha seleccionado la casilla Aplicaciones móviles y aplicaciones de escritorio.](media/select-apply.png)
 
-   > [!div class="mx-imgBorder"]
-   > ![Captura de pantalla de la página Aplicaciones en la nube o acciones. Las aplicaciones de Windows Virtual Desktop y Windows Virtual Desktop Client están resaltadas en rojo.](media/cloud-apps-enterprise.png)
+11. Una vez que haya seleccionado la aplicación, elija **Seleccionar** y, después, seleccione **Listo**.
 
-   >[!NOTE]
-   >Para buscar el identificador de la aplicación que quiere seleccionar, diríjase a **Aplicaciones empresariales** y seleccione **Aplicaciones de Microsoft** en el menú desplegable Tipo de aplicación.
+    > [!div class="mx-imgBorder"]
+    > ![Captura de pantalla de la página Aplicaciones en la nube o acciones. Las aplicaciones de Windows Virtual Desktop y Windows Virtual Desktop Client están resaltadas en rojo.](media/cloud-apps-enterprise.png)
 
-10. En **Controles de acceso** > **Conceder**, seleccionar **Conceder acceso**, **Requerir autenticación multifactor** y luego **Seleccionar**.
-11. En **Controles de acceso** > **Sesión**, seleccione **Frecuencia de inicio de sesión**, establecer el valor en **1** y la unidad en **Horas** y, luego, elija **Seleccionar**.
-12. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
-13. Seleccionar **Crear** para habilitar la directiva.
+    >[!NOTE]
+    >Para buscar el identificador de la aplicación que quiere seleccionar, diríjase a **Aplicaciones empresariales** y seleccione **Aplicaciones de Microsoft** en el menú desplegable Tipo de aplicación.
+
+12. En **Controles de acceso** > **Conceder**, seleccionar **Conceder acceso**, **Requerir autenticación multifactor** y luego **Seleccionar**.
+13. En **Controles de acceso** > **Sesión**, seleccione **Frecuencia de inicio de sesión**, establecer el valor en **1** y la unidad en **Horas** y, luego, elija **Seleccionar**.
+14. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
+15. Seleccionar **Crear** para habilitar la directiva.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

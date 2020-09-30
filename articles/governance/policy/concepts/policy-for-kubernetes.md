@@ -3,12 +3,12 @@ title: 'Versión preliminar: Descripción de Azure Policy para Kubernetes'
 description: Obtenga información sobre cómo Azure Policy usa Rego y Open Policy Agent para administrar clústeres que ejecutan Kubernetes en Azure o en el entorno local. Esta es una característica en vista previa.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: e9da5caf13994e1c198345958feec43867c0b5f5
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: a824548cb45f886bcf82bedad6e5d5c216bb7fea
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509882"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645597"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Descripción de Azure Policy para clústeres de Kubernetes (versión preliminar)
 
@@ -57,13 +57,13 @@ Antes de instalar el complemento de Azure Policy o habilitar cualquiera de las c
 
      1. Registre los proveedores de recursos **Microsoft.ContainerService** y **Microsoft.PolicyInsights**. Para conocer los pasos, consulte [Proveedores de recursos y sus tipos](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
-     1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
+     1. Inicie el servicio Azure Policy en Azure Portal. Para ello, seleccione **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
 
-        :::image type="content" source="../media/policy-for-kubernetes/search-policy.png" alt-text="Búsqueda de la directiva en todos los servicios" border="false":::
+        :::image type="content" source="../media/policy-for-kubernetes/search-policy.png" alt-text="Captura de pantalla de búsqueda de la directiva en Todos los servicios." border="false":::
 
      1. Seleccione **Join Preview** (Unirse a la versión preliminar) en el lado izquierdo de la página Azure Policy.
 
-        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="Unirse a la directiva de la versión preliminar de AKS" border="false":::
+        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="Captura de pantalla de búsqueda de la directiva en Todos los servicios." border="false":::
 
      1. Seleccione la fila de la suscripción que quiera agregar a la versión preliminar.
 
@@ -120,17 +120,17 @@ Una vez que se han completado los pasos anteriores de requisitos previos, instal
 
 - Azure portal
 
-  1. Inicie el servicio AKS en Azure Portal haciendo clic en **Todos los servicios**; a continuación, busque y seleccione **Servicios de Kubernetes**.
+  1. Inicie el servicio AKS en Azure Portal al seleccionar **Todos los servicios**; a continuación, busque y seleccione **Servicios de Kubernetes**.
 
   1. Seleccione uno de sus clústeres de AKS.
 
   1. Seleccione **Policies (preview)** (Directivas [versión preliminar]) en el lado izquierdo de la página de servicio de Kubernetes.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Definiciones de directivas desde el clúster de AKS" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Captura de pantalla de búsqueda de la directiva en Todos los servicios." border="false":::
 
   1. En la página principal, seleccione el botón **Enable add-on** (Habilitar complemento).
 
-     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Habilitar la directiva de Azure para el complemento de AKS":::
+     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Captura de pantalla de búsqueda de la directiva en Todos los servicios.":::
 
      <a name="migrate-from-v1"></a>
      > [!NOTE]
@@ -460,17 +460,17 @@ Para eliminar el complemento de Azure Policy del clúster de AKS, use Azure Port
 
 - Azure portal
 
-  1. Inicie el servicio AKS en Azure Portal haciendo clic en **Todos los servicios**; a continuación, busque y seleccione **Servicios de Kubernetes**.
+  1. Inicie el servicio AKS en Azure Portal al seleccionar **Todos los servicios**; a continuación, busque y seleccione **Servicios de Kubernetes**.
 
   1. Seleccione el clúster de AKS en el que quiera deshabilitar el complemento de Azure Policy.
 
   1. Seleccione **Policies (preview)** (Directivas [versión preliminar]) en el lado izquierdo de la página de servicio de Kubernetes.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Definiciones de directivas desde el clúster de AKS" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Captura de pantalla de búsqueda de la directiva en Todos los servicios." border="false":::
 
   1. En la página principal, pulse **Disable add-on** (Deshabilitar complemento).
 
-     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="Deshabilitar Azure Policy para el complemento de AKS" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="Captura de pantalla de búsqueda de la directiva en Todos los servicios." border="false":::
 
 - Azure CLI
 

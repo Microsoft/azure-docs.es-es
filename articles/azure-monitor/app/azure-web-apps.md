@@ -4,12 +4,12 @@ description: Supervisión del rendimiento de aplicaciones de Azure App Services.
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript, devx-track-dotnet
-ms.openlocfilehash: 1e06aacaa12a428b42090ecb8e8ae89ae1e5ad76
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 952cd9669ecc3fb5ff1326d15aef25e1a1524ca5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933807"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979433"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
 
@@ -55,7 +55,7 @@ Hay dos maneras de habilitar la supervisión de aplicaciones para las aplicacion
 
 2. Después de especificar qué recurso se debe usar, puede elegir cómo quiere que Application Insights recopile los datos de cada plataforma para la aplicación. La supervisión de aplicaciones ASP.NET está activada de manera predeterminada con dos niveles diferentes de la colección.
 
-    ![Opciones de elección para cada plataforma](./media/azure-web-apps/choose-options-new.png)
+    ![Captura de pantalla que muestra la página de extensiones de sitio de Application Insights con la opción Crear recurso seleccionada.](./media/azure-web-apps/choose-options-new.png)
  
  A continuación se muestra un resumen de los datos recopilados para cada ruta:
         

@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: f6c4fb5caf746650f95872d50afe31e5693422be
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 8d3326587d9c03e0a3960016b8ba3668c825ee6d
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382911"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470092"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integración de Azure Active Directory para Red Hat OpenShift en Azure
 
@@ -86,9 +86,9 @@ Genere un secreto de cliente para autenticar la aplicación en Azure Active Dire
 
 ![Captura de pantalla del panel de certificados y secretos](./media/howto-create-tenant/create-key.png)
 
-Para obtener más información acerca de objetos de aplicación de Azure, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+Para obtener más información acerca de objetos de aplicación de Azure, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Para obtener información sobre cómo crear una nueva aplicación de Azure AD, consulte [Registro de una aplicación con el punto de conexión de Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
+Para obtener información sobre cómo crear una nueva aplicación de Azure AD, consulte [Registro de una aplicación con el punto de conexión de Azure Active Directory v1.0](../active-directory/develop/quickstart-register-app.md).
 
 ## <a name="add-api-permissions"></a>Adición de permisos de API
 
@@ -110,12 +110,12 @@ Para obtener información sobre cómo crear una nueva aplicación de Azure AD, c
 > [!IMPORTANT]
 > La sincronización del grupo de administradores de clúster funcionará solo después de que se conceda el consentimiento. Verá un círculo verde con una marca de verificación y el mensaje "Concedido para *nombre de la suscripción*" en la columna *Consentimiento del administrador requerido*.
 
-Para obtener más información acerca de cómo gestionar los administradores y otros roles, consulte [Agregar o cambiar los administradores de la suscripción de Azure](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator).
+Para obtener más información acerca de cómo gestionar los administradores y otros roles, consulte [Agregar o cambiar los administradores de la suscripción de Azure](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## <a name="resources"></a>Recursos
 
-* [Objetos de aplicaciones y de entidad de servicio de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
-* [Inicio rápido: Registro de una aplicación con el punto de conexión de Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
+* [Objetos de aplicaciones y de entidad de servicio de Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md)
+* [Inicio rápido: Registro de una aplicación con el punto de conexión de Azure Active Directory v1.0](../active-directory/develop/quickstart-register-app.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

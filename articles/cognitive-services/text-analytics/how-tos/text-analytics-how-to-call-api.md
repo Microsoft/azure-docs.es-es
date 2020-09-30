@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: c6fbec35920c8afd08ab60fc380c9f816ae599b0
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: b2c994d23e63f9e2118cd3e6571c5dcc0449a367
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561022"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601102"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Cómo llamar a la API REST de Text Analytics
 
@@ -47,6 +47,30 @@ Actualmente puede enviar los mismos documentos para todas las operaciones de Tex
 
 Para obtener más información sobre los límites, vea [Información general de Text Analytics > Límites de datos](../overview.md#data-limits). 
 
+
+```json
+{
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "Sample text to be sent to the text analytics api."
+    },
+    {
+      "language": "en",
+      "id": "2",
+      "text": "It's incredibly sunny outside! I'm so happy."
+    },
+    {
+      "language": "en",
+      "id": "3",
+      "text": "Pike place market is my favorite Seattle attraction."
+    }
+  ]
+}
+```
+
+
 ## <a name="set-up-a-request-in-postman"></a>Configuración de una solicitud en Postman
 
 El servicio acepta solicitudes de hasta 1 MB de tamaño. Si usa Postman (u otra herramienta de prueba de API web), configure el punto de conexión para incluir el recurso que quiera usar, y proporcione la clave de acceso en un encabezado de solicitud. Cada operación requiere que anexe el recurso apropiado para el punto de conexión. 
@@ -59,10 +83,10 @@ El servicio acepta solicitudes de hasta 1 MB de tamaño. Si usa Postman (u otra 
 
    Los puntos de conexión de recursos son los siguientes (la región puede variar):
 
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v3.0/sentiment`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v3.0/keyPhrases`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v3.0/languages`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v3.0/entities/recognition/general`
 
 2. Establezca los tres encabezados de solicitud:
 

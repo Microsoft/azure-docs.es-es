@@ -1,25 +1,25 @@
 ---
-title: 'Inicio rápido: Prueba de un modelo mediante archivos de audio en Speech Studio'
+title: Prueba de un modelo mediante archivos de audio en Speech Studio
 titleSuffix: Azure Cognitive Services
-description: En esta guía de inicio rápido, usará Speech Studio para probar el reconocimiento de voz en un archivo de audio.
+description: En este procedimiento, se usa Speech Studio para probar el reconocimiento de voz en un archivo de audio.
 services: cognitive-services
 author: v-demjoh
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 06/25/2020
+ms.date: 09/04/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 76fb933893b624e9b289ddf51d2a0373b51e58d1
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 9101944a567df5000d3584ed48eff24e4c5e0057
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391543"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565810"
 ---
-# <a name="quickstart-test-a-model-using-an-audio-file-in-speech-studio"></a>Inicio rápido: Prueba de un modelo mediante archivos de audio en Speech Studio
+# <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>Prueba de un modelo mediante archivos de audio en Speech Studio
 
-En esta guía de inicio rápido, se usa Speech Studio para convertir la voz de un archivo de audio en texto. Speech Studio le permite probar, comparar, mejorar e implementar modelos de reconocimiento de voz mediante el texto relacionado, el audio con transcripciones con etiqueta humana y las instrucciones pronunciación que proporcione.
+En este procedimiento, se usa Speech Studio para convertir la voz de un archivo de audio en texto. Speech Studio le permite probar, comparar, mejorar e implementar modelos de reconocimiento de voz mediante el texto relacionado, el audio con transcripciones con etiqueta humana y las instrucciones pronunciación que proporcione.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

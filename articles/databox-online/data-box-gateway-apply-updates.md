@@ -2,17 +2,17 @@
 title: Instalación de actualizaciones en el dispositivo de la serie Azure Data Box Gateway | Microsoft Docs
 description: Se describe cómo aplicar actualizaciones con Azure Portal y la interfaz de usuario web local para el dispositivo de la serie Azure Data Box Gateway.
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.topic: article
 ms.date: 06/30/2020
-ms.author: twooley
-ms.openlocfilehash: 3972aecf70a664980e8279152eb001915ae1bb53
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 1b3f0faa2b5f67a23317935f0ad868e3872cf86e
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783882"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055970"
 ---
 # <a name="update-your-azure-data-box-gateway"></a>Actualización de Azure Data Box Gateway
 

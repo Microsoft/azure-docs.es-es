@@ -1,5 +1,5 @@
 ---
-title: Compatibilidad con los contenedores
+title: Contenedores de Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo los contenedores de Docker pueden obtener Cognitive Services más próximos a los datos.
 services: cognitive-services
@@ -8,16 +8,19 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 69984f9dbd94bcdca2e272a5bdebbb7fc1464dae
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bda6fae31e3f5ef63d2c917937d80b2c1ea4fc48
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104422"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906992"
 ---
-# <a name="container-support-in-azure-cognitive-services"></a>Compatibilidad con contenedores en Azure Cognitive Services
+# <a name="azure-cognitive-services-containers"></a>Contenedores de Azure Cognitive Services
+
+> [!WARNING]
+> El 11 de junio de 2020 Microsoft anunció que no venderá tecnología de reconocimiento facial a los departamentos de policía de Estados Unidos hasta que se promulgue un reglamento estricto cimentado en los derechos humanos. Por lo tanto, es posible que los clientes no usen las características o la funcionalidad del reconocimiento facial incluidas en los servicios de Azure, como Face o Video Indexer, si un es un departamento de policía de Estados Unidos o permite el uso de dichos servicios por parte de cualquiera de ellos.
 
 La compatibilidad con contenedores en Azure Cognitive Services permite a los desarrolladores usar las mismas API enriquecidas que están disponibles en Azure, y permite flexibilidad en cuanto a dónde implementar y hospedar los servicios que vienen con los [contenedores de Docker](https://www.docker.com/what-container). La compatibilidad con contenedores está disponible actualmente en versión preliminar para un subconjunto de servicios de Azure Cognitive Services, incluidas las partes de:
 
@@ -51,19 +54,21 @@ Los contenedores de Azure Cognitive Services proporcionan el siguiente conjunto 
 
 | Servicio | Plan de tarifa compatible | Contenedor | Descripción |
 |--|--|--|--|
-| [Anomaly Detector][ad-containers] | F0, S0 | **Anomaly-Detector** | Anomaly Detector API permite supervisar y detectar anomalías en datos de serie temporal con aprendizaje automático.<br>[Solicitar acceso][request-access] |
+| [Anomaly Detector][ad-containers] | F0, S0 | **Anomaly Detector** ([imagen](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | Anomaly Detector API permite supervisar y detectar anomalías en datos de serie temporal con aprendizaje automático.<br>[Solicitar acceso][request-access] |
 | [Computer Vision][cv-containers] | F0, S1 | **Lectura** | Extrae texto impreso de imágenes que muestren diversos objetos con diferentes superficies y fondos, como recibos, pósteres y tarjetas de visita. El contenedor de lectura también detecta *texto manuscrito* en las imágenes y es compatible con los formatos PDF, TIFF y multipágina.<br/><br/>**Importante:** Actualmente, el contenedor de lectura solo funciona en inglés. |
 | [Face][fa-containers] | F0, S0 | **Face** | Detecta caras humanas en imágenes e identifica atributos, incluidos faciales (como narices y ojos), sexo, edad y otras características faciales previstas por la máquina. Además de la detección, Face puede comprobar si dos caras en la misma o en diferentes imágenes son iguales mediante una puntuación de confianza, o bien comparar caras en una base de datos para ver si ya existe un aspecto similar o una cara idéntica. También puede organizar caras similares en grupos mediante rasgos visuales compartidos.<br>[Solicitar acceso][request-access] |
 | [Form Recognizer][fr-containers] | F0, S0 | **Form Recognizer** | Form Understanding aplica tecnología de aprendizaje automático para identificar y extraer pares clave-valor de los formularios.<br>[Solicitar acceso][request-access] |
 | [LUIS][lu-containers] | F0, S0 | **LUIS** ([imagen](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Carga un modelo de Language Understanding entrenado o publicado, lo que también se conoce como aplicación de LUIS, en un contenedor de Docker y proporciona acceso a las predicciones de consulta de los puntos de conexión de la API del contenedor. Puede recopilar registros de consultas en el contenedor y cargarlos de nuevo en el [portal de LUIS](https://www.luis.ai) para mejorar la precisión de predicción de la aplicación. |
-| [Speech Service API][sp-containers-stt] | F0, S0 | **Voz a texto** | Permite transcribir en tiempo real voz en texto. |
-| [Speech Service API][sp-containers-cstt] | F0, S0 | **Conversión de voz a texto personalizada** | Permite transcribir en tiempo real voz en texto mediante un modelo personalizado. |
-| [Speech Service API][sp-containers-tts] | F0, S0 | **Texto a voz** | Convierte el texto a una voz que parece natural. |
-| [Speech Service API][sp-containers-ctts] | F0, S0 | **Conversión de texto a voz personalizada** | Convierte el texto en una voz que parece natural mediante un modelo personalizado. |
+| [Speech Service API][sp-containers-stt] | F0, S0 | **Conversión de voz en texto** ([imagen](https://hub.docker.com/_/azure-cognitive-services-speechservices-speech-to-text)) | Permite transcribir en tiempo real voz en texto. |
+| [Speech Service API][sp-containers-cstt] | F0, S0 | **Conversión de voz en texto personalizada** ([imagen](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-speech-to-text)) | Permite transcribir en tiempo real voz en texto mediante un modelo personalizado. |
+| [Speech Service API][sp-containers-tts] | F0, S0 | **Texto a voz** ([imagen](https://hub.docker.com/_/azure-cognitive-services-speechservices-text-to-speech)) | Convierte el texto a una voz que parece natural. |
+| [Speech Service API][sp-containers-ctts] | F0, S0 | **Conversión de texto a voz personalizada** ([imagen](https://hub.docker.com/_/azure-cognitive-services-speechservices-custom-text-to-speech)) | Convierte el texto en una voz que parece natural mediante un modelo personalizado. |
+| [Speech Service API][sp-containers-ntts] | F0, S0 | **Texto a voz neuronal** ([imagen](https://hub.docker.com/_/azure-cognitive-services-speechservices-neural-text-to-speech)) | Convierte texto en voz con un sonido natural utilizando una tecnología de red neuronal profunda, lo que permite obtener una voz sintetizada más natural. |
 | [Text Analytics][ta-containers-keyphrase] | F0, S | **Extracción de frases clave** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Extrae las frases clave para identificar los puntos principales. Por ejemplo, si el texto de entrada es "La comida estaba deliciosa y el personal era maravilloso", la API devuelve los principales puntos de conversación: "comida" y "personal maravilloso". |
 | [Text Analytics][ta-containers-language] | F0, S | **Detección de idioma** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | Se detecta el idioma (120 como máximo) en que está escrito el texto de entrada y se usa un código de idioma único para informar acerca de cada documento enviado en la solicitud. El código de idioma se empareja con una puntuación que indica la intensidad de esta. |
 | [Text Analytics][ta-containers-sentiment] | F0, S | **Análisis de sentimiento, versión 3** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analiza el texto sin formato para obtener pistas sobre opiniones positivas o negativas. Esta versión del análisis de sentimiento devuelve etiquetas de sentimiento (por ejemplo, *positivo* o *negativo*) para cada documento y oración que contiene. |
 | [Text Analytics][ta-containers-health] | F0, S | **Text Analytics para el estado** | Extraiga y etiquete la información médica del texto clínico no estructurado. |
+| [Análisis espacial][spa-containers] | S0 | **Análisis espacial** | Extraiga y etiquete la información médica del texto clínico no estructurado. |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -123,10 +128,12 @@ Instale y explore la funcionalidad proporcionada por los contenedores en Azure C
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
+[spa-containers]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container
 [sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
 [sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
+[sp-containers-ntts]: speech-service/speech-container-howto.md?tabs=ntts
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
 [ta-containers-keyphrase]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
 [ta-containers-language]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language

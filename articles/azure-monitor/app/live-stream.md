@@ -4,12 +4,12 @@ description: Supervise la aplicación web en tiempo real con métricas personali
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: c12126c23ce1f1e2bd72f88eead5b8f34e4fd83d
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 1b8b4c43c559831810db9b92da6c2743556cd2ac
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142220"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973583"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: supervisión y diagnóstico con una latencia de 1 segundo
 
@@ -148,7 +148,7 @@ Como con las métricas, puede especificar cualquier criterio arbitrario en cualq
 
 Consulte los detalles de un elemento en la fuente directa haciendo clic en él. Puede pausar la fuente haciendo clic en **Pausar** o simplemente desplazándose hacia abajo o haciendo clic en un elemento. La fuente directa se reanudará una vez que se desplace hacia la parte superior, o bien al hacer clic en el contador de elementos recopilados mientras estaba en pausa.
 
-![Errores de muestreo de Live](./media/live-stream/sample-telemetry.png)
+![Captura de pantalla que muestra la ventana de telemetría de ejemplo con una excepción seleccionada y los detalles de la excepción en la parte inferior de la ventana.](./media/live-stream/sample-telemetry.png)
 
 ## <a name="filter-by-server-instance"></a>Filtrado por instancia de servidor
 

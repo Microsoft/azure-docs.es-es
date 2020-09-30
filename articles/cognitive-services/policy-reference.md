@@ -1,18 +1,18 @@
 ---
 title: Definiciones de directivas integradas para Azure Cognitive Services
 description: En este artículo se enumeran las definiciones de directivas integradas de Azure Policy para Azure Cognitive Services. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 07/10/2020
+ms.date: 09/16/2020
 author: nitinme
 ms.author: nitinme
 ms.service: cognitive-services
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 301379b9eb3ba280926a9a1a6e1a34951f61a626
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: bea774a1b09921415f0014adee19c2838f867c7d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89301082"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986352"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-cognitive-services"></a>Definiciones de directivas integradas de Azure Policy para Azure Cognitive Services
 

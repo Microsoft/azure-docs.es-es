@@ -3,12 +3,12 @@ title: Cumplimiento normativo en las definiciones de iniciativa
 description: Describe cómo usar una definición de iniciativa para agrupar directivas por dominio normativo, como Access Control, Administración de configuración, etc.
 ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 296febc1aad62d06c8e9dfcf4f285b16cacf0a40
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 15b03b5a40cba1290859b02883df70e3df54c5cf
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544628"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645524"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Cumplimiento normativo de Azure Policy
 
@@ -33,18 +33,18 @@ Cuando se ha creado una definición de iniciativa con [grupos](./initiative-defi
 
 Una nueva pestaña, **Controles**, se ha agregado a la página. El filtrado está disponible a través del **dominio de cumplimiento** y las definiciones de directiva se agrupan por el campo `title` del objeto **policyMetadata**. Cada fila representa un **control** que muestra su estado de cumplimiento, el **dominio de cumplimiento** del que forma parte, la información de responsabilidad, y el número de definiciones de directivas conformes y no conformes que componen ese **control**.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-overview.png" alt-text="Ejemplo de información general de Cumplimiento normativo para la definición integrada de NIST SP 800-53 R4.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-overview.png" alt-text="Captura de pantalla de la información general de cumplimiento normativo de la definición integrada de NIST SP 800-53 R4 que muestra controles conformes y no conformes.":::
 
 Al seleccionar un **control** se abre una página de detalles sobre ese control. **Información general** contiene la información de `description` y `requirements`. En la pestaña **Directivas** se encuentran todas las definiciones de directivas individuales de la iniciativa que contribuyen a este **control**. La pestaña **Cumplimiento normativo** proporciona una vista detallada de cada recurso evaluado por una directiva de miembro del **control** que se muestra actualmente.
 
 > [!NOTE]
 > Un tipo de evaluación **Administrado por Microsoft** está destinado a la propiedad `type` de la definición de directiva establecida en [estático](./definition-structure.md#type) .
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Ejemplo de las definiciones de directiva de Cumplimiento normativo en el control de protección de límites del dominio de protección del sistema y las comunicaciones de la definición integrada de NIST SP 800-53 R4.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Captura de pantalla de la información general de cumplimiento normativo de la definición integrada de NIST SP 800-53 R4 que muestra controles conformes y no conformes.":::
 
 En la misma página de **control**, al cambiar a la pestaña **Compatibilidad de recursos** se muestran todos los recursos que se incluyen en las definiciones de directiva de este **control**. Los filtros están disponibles para el nombre o el identificador, el estado de cumplimiento, el tipo de recurso y la ubicación.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Ejemplo de los recursos de Cumplimiento normativo que se ven afectados por las definiciones de directiva en el control de protección de límites del dominio de protección del sistema y las comunicaciones de la definición integrada de NIST SP 800-53 R4.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Captura de pantalla de la información general de cumplimiento normativo de la definición integrada de NIST SP 800-53 R4 que muestra controles conformes y no conformes.":::
 
 ## <a name="regulatory-compliance-in-sdk"></a>Cumplimiento normativo en el SDK
 

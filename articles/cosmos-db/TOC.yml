@@ -10,7 +10,7 @@
     - name: Recursos de Cosmos DB
       expanded: true
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: create-cosmosdb-resources-portal.md
         - name: Plantilla ARM
           displayName: Resource Manager
@@ -21,6 +21,8 @@
           href: create-sql-api-dotnet.md
         - name: Aplicación Java
           href: create-sql-api-java.md
+        - name: Aplicación Spring Data
+          href: create-sql-api-spring-data.md
         - name: Aplicación Node.js
           href: create-sql-api-nodejs.md
         - name: Aplicación Python
@@ -73,6 +75,8 @@
       href: sql-api-dotnet-v3sdk-samples.md
     - name: Ejemplos de SDK de Java v4
       href: sql-api-java-sdk-samples.md
+    - name: "Ejemplos de Spring Data\_v3"
+      href: sql-api-spring-data-sdk-samples.md
     - name: Ejemplos de Node.js
       href: sql-api-nodejs-samples.md
     - name: Ejemplos de Python
@@ -768,6 +772,8 @@
                   href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
                 - name: Guía posterior a la migración
                   href: mongodb-post-migration.md
+            - name: Actualización de MongoDB 3.2 a 3.6
+              href: mongodb-version-upgrade.md
             - name: Obtención de la cadena de conexión
               href: connect-mongodb-account.md
             - name: Conexión mediante Studio 3T
@@ -944,7 +950,7 @@
               href: table-sdk-python.md
             - name: API de REST de Table Storage
               href: /rest/api/storageservices/table-service-rest-api
-    - name: Etcd API
+    - name: etcd API
       items:
         - name: Información general
           items:
@@ -967,6 +973,8 @@
         - name: Uso de plantillas de Resource Manager
           href: manage-sql-with-resource-manager.md
           displayName: ARM
+        - name: Movimiento entre regiones
+          href: how-to-move-regions.md
     - name: Distribución global
       items:
         - name: Configuración multimaestra
@@ -1070,6 +1078,8 @@
               href: troubleshoot-not-found.md
             - name: Solucionar del problema de no autorizado
               href: troubleshoot-unauthorized.md
+            - name: Problemas de disponibilidad en entornos de varias regiones
+              href: troubleshoot-sdk-availability.md
         - name: .NET
           items:
             - name: Solución general de problemas del SDK de .NET
@@ -1104,7 +1114,7 @@
           href: how-to-migrate-from-change-feed-library.md
         - name: 'Fuente de cambios: ejemplo de Async Java'
           href: create-sql-api-java-changefeed.md
-    - name: Análisis con Azure Synapse Link
+    - name: Analytics y BI con Azure Synapse Link
       items:
         - name: Configuración de Azure Synapse Link
           href: configure-synapse-link.md
@@ -1112,6 +1122,10 @@
           href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Consulta con Azure Synapse Spark
           href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Consulta con Synapse SQL sin servidor
+          href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Uso de Power BI con Synapse Link
+          href: synapse-link-power-bi.md
     - name: Análisis integrado con Apache Spark
       items:
         - name: Conector de Spark para Azure Databricks
@@ -1194,12 +1208,16 @@
           href: monitor-cosmos-db-reference.md
         - name: Registro de aplicaciones con Logic Apps
           href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-    - name: Desarrollo local
+    - name: Desarrollo local con un emulador
       items:
-        - name: Uso del emulador
+        - name: Instalación y uso del emulador
           href: local-emulator.md
-        - name: Exportación de certificados
+        - name: Exportación de certificados del emulador
           href: local-emulator-export-ssl-certificates.md
+        - name: Parámetros de línea de comandos del emulador
+          href: emulator-command-line-parameters.md
+        - name: Solución de problemas del emulador
+          href: troubleshoot-local-emulator.md
         - name: Extensión de Visual Studio Code
           href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
     - name: Configuración de la canalización de CI/CD de Azure DevOps

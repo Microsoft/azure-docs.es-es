@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e0e0ad9086a7945201b1752126253f12eb751bf
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 4f4d9d1a2a4c88601e7dd7e0d6f56025b79aaac1
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320042"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705374"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Respuesta rápida para proteger identidades con Azure AD
 
@@ -42,16 +42,15 @@ En esta guía se da por supuesto que ya se han establecido en Azure AD las iden
 
 Existen muchos aspectos en una infraestructura de identidad segura, pero esta lista de comprobación se centra en una que permite a los usuarios trabajar de forma remota. La protección de su identidad es solo una parte de la seguridad; también se debe tener en cuenta la protección de datos, las aplicaciones y los dispositivos.
 
-### <a name="guidance-for-azure-ad-free-or-office-365-customers"></a>Guía para clientes de Azure AD Free u Office 365
+### <a name="guidance-for-azure-ad-free-office-365-or-microsoft-365-customers"></a>Guía para clientes de Azure AD Free, Office 365 o Microsoft 365.
 
-Hay una serie de recomendaciones que los clientes de la aplicación Azure AD Free u Office 365 deben seguir para proteger sus identidades de usuario.La tabla siguiente tiene como objetivo resaltar las acciones clave de las siguientes suscripciones de licencia:
+Hay una serie de recomendaciones que los clientes de aplicaciones de Azure AD Free, Office 365 o Microsoft 365 deben seguir para proteger sus identidades de usuario. La tabla siguiente tiene como objetivo resaltar las acciones clave de las siguientes suscripciones de licencia:
 
-- Office 365 (O365 E1, E3, E5, F1, A1, A3, A5)
-- Office 365 Empresa (Essentials, Empresa, Empresa Premium)
-- Microsoft 365 (M365 Empresa, A1)
+- Office 365 (Office 365 E1, E3, E5, F1, A1, A3, A5)
+- Microsoft 365 (Empresa Básico, Aplicaciones para negocios, Empresa Estándar, Empresa Premium, A1)
 - Azure AD Free (incluido con Azure, Dynamics 365, Intune y Power Platform)
 
-| Acción recomendada | Detail |
+| Acción recomendada | Detalle |
 | --- | --- |
 | [Habilitar los valores predeterminados de seguridad](concept-fundamentals-security-defaults.md) | Proteja todas las aplicaciones e identidades de usuario al habilitar MFA y bloquear la autenticación heredada. |
 | [Habilitar la sincronización de hash de contraseñas](../hybrid/how-to-connect-password-hash-synchronization.md) (si se usan identidades híbridas) | Proporcione redundancia para la autenticación y mejore la seguridad (incluido el bloqueo inteligente, el bloqueo de IP y la capacidad de detectar las credenciales filtradas). |
@@ -74,7 +73,7 @@ La tabla siguiente tiene como objetivo resaltar las acciones clave de las siguie
 - Enterprise Mobility + Security (EMS E3)
 - Microsoft 365 (M365 E3, A3, F1, F3)
 
-| Acción recomendada | Detail |
+| Acción recomendada | Detalle |
 | --- | --- |
 | [Habilitar la experiencia de registro combinada para Azure MFA y SSPR para simplificar la experiencia de registro del usuario](../authentication/howto-registration-mfa-sspr-combined.md) | Permita que los usuarios se registren para una de las experiencias comunes: Azure Multi-Factor Authentication o el autoservicio de restablecimiento de contraseña. |
 | [Configurar MFA para su organización](../authentication/howto-mfa-getstarted.md) | Asegúrese de que las cuentas están protegidas frente a los riesgos de la autenticación multifactor. |
@@ -85,12 +84,12 @@ La tabla siguiente tiene como objetivo resaltar las acciones clave de las siguie
 | [Habilitar el bloqueo inteligente de ADFS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (si procede) | Protege a los usuarios de los bloqueos de cuentas de extranet debido a actividades malintencionadas. |
 | [Habilitar el bloqueo inteligente de Azure Active Directory](../authentication/howto-password-smart-lockout.md) (si se usan identidades administradas) | El bloqueo inteligente ayuda a bloquear a los actores malintencionados que intentan adivinar las contraseñas de los usuarios o que usan métodos de fuerza bruta para obtenerlas. |
 | [Deshabilitar el consentimiento del usuario final a las aplicaciones](../manage-apps/configure-user-consent.md) | El flujo de trabajo de consentimiento del administrador proporciona a los administradores una manera segura de conceder acceso a las aplicaciones que requieren la aprobación del administrador, de modo que los usuarios finales no expongan los datos de la empresa. Microsoft recomienda deshabilitar las operaciones futuras de consentimiento del usuario para ayudar a reducir el área expuesta y a mitigar este riesgo. |
-| [Habilitar el acceso remoto a las aplicaciones heredadas locales con Application Proxy](../manage-apps/application-proxy-add-on-premises-application.md) | Habilite Azure AD Application Proxy e intégrela con aplicaciones heredadas para que los usuarios tengan acceso seguro a aplicaciones locales, iniciando sesión con su cuenta de Azure AD. |
+| [Habilitar el acceso remoto a las aplicaciones heredadas locales con Application Proxy](../manage-apps/application-proxy-add-on-premises-application.md) | Habilite Azure Active Directory Application Proxy e intégrela con aplicaciones heredadas para que los usuarios tengan acceso seguro a aplicaciones locales, iniciando sesión con su cuenta de Azure AD. |
 | [Habilitar el acceso híbrido seguro: Protección de aplicaciones heredadas con redes y controladores de entrega de aplicaciones existentes](../manage-apps/secure-hybrid-access.md) (si procede) | Publique y proteja sus aplicaciones de autenticación heredadas locales y en la nube conectándolas a Azure AD con su red o controlador de entrega de aplicaciones existentes. |
 | [Integrar aplicaciones SaaS compatibles de la galería con Azure AD y habilitar el inicio de sesión único](../manage-apps/add-application-portal.md) | Azure AD incluye una galería que contiene miles de aplicaciones previamente integradas. Algunas de las aplicaciones que su organización usa probablemente estén en la galería y se pueda acceder a ellas desde Azure Portal. Proporcione acceso a las aplicaciones SaaS empresariales de forma remota y segura mediante una experiencia de usuario mejorada (SSO). |
 | [Automatizar el aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS](../app-provisioning/user-provisioning.md) (si procede) | Cree automáticamente roles e identidades de usuario en las aplicaciones en la nube (SaaS) a las que los usuarios necesitan acceder. Además de crear identidades de usuario, el aprovisionamiento automático incluye el mantenimiento y la eliminación de identidades de usuario a medida que el estado o los roles cambian, de modo que mejora la seguridad de su organización. |
 | [Habilitar el acceso condicional basado en dispositivos](../conditional-access/require-managed-devices.md) | Mejore la seguridad y las experiencias de usuario con el acceso condicional basado en dispositivos. Este paso garantiza que los usuarios solo pueden tener acceso desde dispositivos que cumplen los estándares de seguridad y cumplimiento. A estos dispositivos también se les conoce como dispositivos administrados. Los dispositivos administrados pueden ser conformes con Intune o dispositivos unidos a Azure AD híbrido. |
-| [Habilitar la protección con contraseña](../authentication/howto-password-ban-bad-on-premises-deploy.md) | Proteja a los usuarios del uso de contraseñas poco seguras y fáciles de adivinar. |
+| [Habilitación de la protección con contraseña](../authentication/howto-password-ban-bad-on-premises-deploy.md) | Proteja a los usuarios del uso de contraseñas poco seguras y fáciles de adivinar. |
 | [Designación de más de un administrador global](../users-groups-roles/directory-emergency-access.md) | Asigne al menos dos cuentas de administrador global permanentes solo en la nube para casos de emergencia. Estas cuentas no son para un uso diario y deben tener contraseña compleja y larga. Las cuentas de acceso de emergencia garantizan el acceso al servicio en situaciones de emergencia. |
 | [Uso de roles de administrador no global siempre que sea posible](../users-groups-roles/directory-assign-admin-roles.md) | Asigne a los administradores solo el acceso que necesitan a las áreas a las que necesitan acceso. No todos los administradores necesitan ser administradores globales. |
 | [Habilitación de la guía de contraseñas de Microsoft](https://www.microsoft.com/research/publication/password-guidance/) | Olvídese de solicitar a los usuarios que cambien periódicamente la contraseña, deshabilite los requisitos de complejidad y a los usuarios les será más fácil recordar la contraseña y mantener una segura. |
@@ -104,7 +103,7 @@ La tabla siguiente tiene como objetivo resaltar las acciones clave de las siguie
 - Enterprise Mobility + Security (EMS E5)
 - Microsoft 365 (M365 E5, A5)
 
-| Acción recomendada | Detail |
+| Acción recomendada | Detalle |
 | --- | --- |
 | [Habilitar la experiencia de registro combinada para Azure MFA y SSPR para simplificar la experiencia de registro del usuario](../authentication/howto-registration-mfa-sspr-combined.md) | Permita que los usuarios se registren para una de las experiencias comunes: Azure Multi-Factor Authentication o el autoservicio de restablecimiento de contraseña. |
 | [Configurar MFA para su organización](../authentication/howto-mfa-getstarted.md) | Asegúrese de que las cuentas están protegidas frente a los riesgos de la autenticación multifactor. |
@@ -122,12 +121,12 @@ La tabla siguiente tiene como objetivo resaltar las acciones clave de las siguie
 | [Integrar aplicaciones SaaS compatibles de la galería con Azure AD y habilitar el inicio de sesión único](../manage-apps/add-application-portal.md) | Azure AD incluye una galería que contiene miles de aplicaciones previamente integradas. Algunas de las aplicaciones que su organización usa probablemente estén en la galería y se pueda acceder a ellas desde Azure Portal. Proporcione acceso a las aplicaciones SaaS empresariales de forma remota y segura mediante una experiencia de usuario mejorada (SSO). |
 | [Automatizar el aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS](../app-provisioning/user-provisioning.md) (si procede) | Cree automáticamente roles e identidades de usuario en las aplicaciones en la nube (SaaS) a las que los usuarios necesitan acceder. Además de crear identidades de usuario, el aprovisionamiento automático incluye el mantenimiento y la eliminación de identidades de usuario a medida que el estado o los roles cambian, de modo que mejora la seguridad de su organización. |
 | [Habilitar el acceso condicional basado en dispositivos](../conditional-access/require-managed-devices.md) | Mejore la seguridad y las experiencias de usuario con el acceso condicional basado en dispositivos. Este paso garantiza que los usuarios solo pueden tener acceso desde dispositivos que cumplen los estándares de seguridad y cumplimiento. A estos dispositivos también se les conoce como dispositivos administrados. Los dispositivos administrados pueden ser conformes con Intune o dispositivos unidos a Azure AD híbrido. |
-| [Habilitar la protección con contraseña](../authentication/howto-password-ban-bad-on-premises-deploy.md) | Proteja a los usuarios del uso de contraseñas poco seguras y fáciles de adivinar. |
+| [Habilitación de la protección con contraseña](../authentication/howto-password-ban-bad-on-premises-deploy.md) | Proteja a los usuarios del uso de contraseñas poco seguras y fáciles de adivinar. |
 | [Designación de más de un administrador global](../users-groups-roles/directory-emergency-access.md) | Asigne al menos dos cuentas de administrador global permanentes solo en la nube para casos de emergencia. Estas cuentas no son para un uso diario y deben tener contraseña compleja y larga. Las cuentas de acceso de emergencia garantizan el acceso al servicio en situaciones de emergencia. |
 | [Uso de roles de administrador no global siempre que sea posible](../users-groups-roles/directory-assign-admin-roles.md) | Asigne a los administradores solo el acceso que necesitan a las áreas a las que necesitan acceso. No todos los administradores necesitan ser administradores globales. |
 | [Habilitación de la guía de contraseñas de Microsoft](https://www.microsoft.com/research/publication/password-guidance/) | Olvídese de solicitar a los usuarios que cambien periódicamente la contraseña, deshabilite los requisitos de complejidad y a los usuarios les será más fácil recordar la contraseña y mantener una segura. |
 | [Creación de un plan para el acceso de usuarios invitados](../external-identities/what-is-b2b.md) | Colabore con los usuarios invitados y permítales iniciar sesión en sus aplicaciones y servicios con sus propias identidades profesionales, educativas o sociales. |
-| [Habilitar Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Permite administrar, controlar y supervisar el acceso a recursos importantes de la organización, lo que garantiza que los administradores tengan acceso solo cuando sea necesario y reciban aprobación. |
+| [Azure Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Permite administrar, controlar y supervisar el acceso a recursos importantes de la organización, lo que garantiza que los administradores tengan acceso solo cuando sea necesario y reciban aprobación. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

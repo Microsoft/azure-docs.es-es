@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 06/22/2020
+ms.date: 08/17/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ee8b8c2931d006dbb3d472b545030d3aff79c56a
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 365fe8c330cadcc01fcd24de28b663cd80b55117
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85297994"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535892"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Tutorial: instrucciones paso a paso para crear una aplicación de HoloLens Unity mediante Azure Spatial Anchors
 
@@ -34,7 +34,7 @@ Lo primero es configurar el proyecto y la escena de Unity:
 2. Seleccione **Nuevo**.
 4. Asegúrese de que la opción **3D** está seleccionada.
 5. Asigne un nombre al proyecto y escriba una **ubicación** donde guardarlo.
-6. Haga clic en **Crear proyecto**.
+6. Seleccione **Create project** (Crear proyecto).
 7. Guarde la escena predeterminada vacía en un nuevo archivo con: **File** > **Save As** (Archivo > Guardar como).
 8. Asigne a la nueva escena el nombre **Principal** y presione el botón **Save** (Guardar).
 
@@ -42,20 +42,19 @@ Lo primero es configurar el proyecto y la escena de Unity:
 
 A continuación, se van a establecer algunos valores de configuración del proyecto de Unity que nos ayuden a trabajar con el SDK de Windows Holographic para el desarrollo.
 
-En primer lugar, vamos a ver la configuración de calidad de nuestra aplicación.
+En primer lugar, veremos la configuración de calidad de nuestra aplicación.
 1. Seleccione **Edit** > **Project Settings** > **Quality** (Editar > Configuración del proyecto > Calidad).
 2. En la columna que aparece bajo el logotipo de **Windows Store** (Tienda Windows), haga clic en la flecha situada en la fila **Default** (Predeterminado) y seleccione **Very Low** (Muy baja). Sabrá que la configuración se aplica correctamente cuando el cuadro de la columna **Windows Store** (Tienda Windows) y la fila **Very Low** (Muy baja) estén en verde.
 
-Es necesario informar a Unity que la aplicación que estamos intentando exportar debe crear una vista envolvente en lugar de una vista 2D. Crearemos una vista envolvente, para lo cual habilitaremos la compatibilidad con Virtual Reality en Unity con destino el SDK de Windows 10.
-
+Hay que configurar la aplicación de Unity con una vista inmersiva, en lugar de una vista 2D. Para crear una vista inmersiva, se puede habilitar la compatibilidad con Virtual Reality en Unity y apuntar a Windows 10 SDK.
 1. Vaya a **Edit** > **Project Settings** > **Player** (Editar > Configuración del proyecto > Reproductor).
-2. En **Inspector Panel** (Panel de inspector) de **Player Settings** (Configuración del Reproductor), seleccione el icono de **Windows Store** (Tienda Windows).
+2. En **Inspector Panel** (Panel de inspector) de **Player Settings** (Configuración del Reproductor), seleccione el icono de **Windows**.
 3. Expanda el grupo **XR Settings** (Configuración de XR).
-4. En la sección **Rendering** (Representación), active la casilla **Virtual Reality Supported** (Se admite Virtual Reality) para agregar una nueva lista del **SDK de Virtual Reality**.
+4. En la sección **Rendering** (Representación), active la casilla **Virtual Reality Supported** (Se admite Virtual Reality) para agregar una nueva lista de **SDK de Virtual Reality**.
 5. Compruebe que **Windows Mixed Reality** (Mixed Reality de Windows) aparece en la lista. En caso contrario, seleccione el botón **+** situado en la parte inferior de la lista y elija **Windows Mixed Reality** (Mixed Reality de Windows).
 
 > [!NOTE]
-> Si no ve el icono de la Tienda Windows, asegúrese bien de que ha seleccionado el back-end de scripting de .NET de la Tienda Windows. Si no, es posible que deba volver a instalar Unity con la instalación correcta de Windows.
+> Si no ve el icono de Windows, verifique que ha seleccionado el back-end de scripting de .NET de Windows. Si no, es posible que deba volver a instalar Unity con la instalación correcta de Windows.
 
 **Verificar la configuración de back-end de script**
 1. Vaya a **Edit** > **Project Settings** > **Player** (Editar > Configuración del proyecto > Reproductor) (puede que aún tenga abierto el **Reproductor** del paso anterior).
@@ -109,7 +108,7 @@ Antes de continuar, necesitamos establecer la esfera prefabricada que creamos en
 
 Ahora debería tener el objeto **Sphere** establecido como prefabricado en el script. Compílelos en **Unity** y, luego, abra de nuevo la solución de **Visual Studio** resultante, como ha hecho en [Prueba](#trying-it-out).
 
-En **Visual Studio**, abra el archivo `AzureSpatialAnchorsScript.cs`. Agregue el código siguiente al método `Start()`. Este código enlazará `GestureRecognizer`, que detectará cuándo hay una pulsación en el aire y llamará a `HandleTap`.
+En **Visual Studio**, abra el archivo `AzureSpatialAnchorsScript.cs`. Agregue el código siguiente al método `Start()`. Este código enlazará `GestureRecognizer`, que llamará a `HandleTap` cuando detecte una pulsación en el aire.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=86-95,98&highlight=4-10)]
 
@@ -125,9 +124,9 @@ Ejecute la aplicación desde **Visual Studio** para validarla una vez más. Lue
 
 ## <a name="set-up-the-dispatcher-pattern"></a>Configuración del patrón de distribuidor
 
-Cuando se trabaja con Unity, todas las API de Unity, por ejemplo, las API que se usan para realizar actualizaciones de la interfaz de usuario, deben tener lugar en el subproceso principal. Sin embargo, en el código que vamos a escribir, obtendremos devoluciones de llamada en otros subprocesos. Queremos actualizar la interfaz de usuario en estas devoluciones de llamada, por lo que necesitamos una manera de pasar de un subproceso secundario al subproceso principal. Para ejecutar código en el subproceso principal desde un subproceso secundario, vamos a usar el patrón de distribuidor.
+Cuando se trabaja con Unity, todas las API de Unity (por ejemplo, las API que se usan para realizar actualizaciones de la interfaz de usuario) deben tener lugar en el subproceso principal. Sin embargo, en el código que vamos a escribir, obtendremos devoluciones de llamada en otros subprocesos. Queremos actualizar la interfaz de usuario en estas devoluciones de llamada, por lo que necesitamos una manera de pasar de un subproceso secundario al subproceso principal. Para ejecutar código en el subproceso principal desde un subproceso secundario, vamos a usar el patrón de distribuidor.
 
-Agregaremos una variable de miembro, dispatchQueue, que es una cola de acciones. Insertaremos acciones en la cola y, luego, las quitaremos de la cola y ejecutaremos las acciones en el subproceso principal.
+Utilizaremos la variable de miembro `dispatchQueue`, que consiste una cola de acciones. Insertaremos acciones en la cola y, luego, las quitaremos de la cola y ejecutaremos las acciones en el subproceso principal.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=43-56&highlight=6-9)]
 
@@ -135,27 +134,39 @@ Luego, agregaremos una manera de incorporar una acción a la cola. Agregaremos `
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=112-122)]
 
-Ahora vamos a usar el bucle Update() para comprobar si hay una acción en cola. Si es así, la quitaremos de la cola y la ejecutaremos.
+Podemos usar el bucle Update() para comprobar si hay una acción en cola. En caso afirmativo, la quitaremos de la cola y la ejecutaremos.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=100-110&highlight=4-10)]
 
 ## <a name="get-the-azure-spatial-anchors-sdk"></a>Obtención del SDK de Azure Spatial Anchors
 
-## <a name="via-unity-package"></a>[Mediante el paquete de Unity](#tab/UnityPackage)
+## <a name="via-unity-package-manager-upm-package"></a>[Mediante el paquete del administrador de paquetes de Unity (UPM)](#tab/UPMPackage)
 
-Ahora, descargaremos el SDK de Azure Spatial Anchors. Vaya a la [página de versiones de GitHub de Azure Spatial Anchors](https://github.com/Azure/azure-spatial-anchors-samples/releases). En Assets (Recursos), descargue **AzureSpatialAnchors.unitypackage**. En Unity, vaya a **Assets** (Activos), haga clic en **Import Package** > **Custom Package...** (Importar paquete > Paquete personalizado...). Vaya al paquete y seleccione **Open** (Abrir).
+Este método es compatible con las versiones de Unity 2019.1 y posteriores.
 
-En la nueva ventana **Import Unity Package** (Importar paquete de Unity) que aparece, anule la selección de **Plugins** (Complementos) y, luego, haga clic en **Import** (Importar) en la esquina inferior derecha.
+### <a name="add-the-registry-to-your-unity-project"></a>Incorporación del registro al proyecto de Unity
 
-Ahora, es necesario restaurar los paquetes de NuGet para obtener el SDK de Azure Spatial Anchors. Compílelos en **Unity** y, luego, abra y compile de nuevo la solución de **Visual Studio** resultante, como se detalla en [Prueba](#trying-it-out).
+1. Desde un explorador de archivos, acceda a la carpeta `Packages` del proyecto de Unity. Abra el archivo de manifiesto del proyecto `manifest.json` en un editor de texto.
+2. En la parte superior del archivo, en el nivel de la sección `dependencies`, agregue la entrada siguiente para incluir el registro de Azure Spatial Anchors al proyecto. La entrada `scopedRegistries` indica a Unity dónde debe buscar los paquetes del SDK de Azure Spatial Anchors.
 
-## <a name="via-nugetforunity"></a>[Mediante NuGetForUnity](#tab/NuGetForUnity)
+    [!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-19&highlight=2-10)]
 
-En primer lugar, es necesario instalar NuGetForUnity. Vaya a la [página de versiones de GitHub de NuGetForUnity](https://github.com/GlitchEnzo/NuGetForUnity/releases). En Assets (Recursos), descargue el archivo **NuGetForUnity.unitypackage** más reciente. En Unity, vaya a **Assets** (Activos), haga clic en **Import Package** > **Custom Package...** (Importar paquete > Paquete personalizado...). Vaya al paquete y seleccione **Open** (Abrir). Unity instalará ahora NugetForUnity. Si no ve una nueva lista desplegable **NuGet** en Unity, puede que tenga que hacer clic con el botón derecho en **Projects** > **Assets** (Proyectos > Recursos). A continuación, seleccione **Reimport All** (Volver a importar todo).
+### <a name="add-the-sdk-package-to-your-unity-project"></a>Incorporación del paquete de SDK al proyecto de Unity
 
-Cuando haya instalado NuGetForUnity, seleccione **NuGet** > **Manage NuGet Packages** (Administrar paquetes NuGet). Luego, busque Microsoft.Azure.SpatialAnchors.Unity y seleccione **Install** (Instalar).
+1. Agregue una entrada con el nombre del paquete de SDK de Azure Spatial Anchors (`com.microsoft.azure.spatial-anchors-sdk.windows`) y la versión del paquete en la sección `dependencies` del manifiesto del proyecto. Consulte un ejemplo a continuación.
 
-Ahora tenemos que realizar la compilación para obtener el SDK de Azure Spatial Anchors, dado que el paquete NuGet que se acaba de descargar solo contiene scripts de aplicación auxiliar. Compílelos en **Unity** y, luego, abra y compile de nuevo la solución de **Visual Studio** resultante, como se detalla en [Prueba](#trying-it-out).
+    [!code-json[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-unity-scoped-registry-setup.md?range=9-20&highlight=12)]
+
+2. Guarde y cierre el archivo `manifest.json`. Cuando vuelva a Unity, la plataforma debería detectar automáticamente el cambio de manifiesto del proyecto y recuperar los paquetes especificados. Puede expandir la carpeta `Packages` en la vista de proyecto para comprobar que se hayan importado los paquetes correctos.
+
+## <a name="via-unity-asset-package"></a>[Mediante el paquete de recursos de Unity](#tab/UnityAssetPackage)
+
+> [!WARNING]
+> La distribución del paquete de activos de Unity del SDK de Azure Spatial Anchors dejará de utilizarse después de la versión 2.5.0 del SDK.
+
+Ahora, descargaremos el SDK de Azure Spatial Anchors. Vaya a la [página de versiones de GitHub de Azure Spatial Anchors](https://github.com/Azure/azure-spatial-anchors-samples/releases). En **Assets** (Recursos), descargue **AzureSpatialAnchors.unitypackage**. En Unity, vaya a **Assets** (Recursos), seleccione en **Import Package** > **Custom Package...** (Importar paquete > Paquete personalizado...). Vaya al paquete y seleccione **Open** (Abrir).
+
+En la nueva ventana **Import Unity Package** (Importar paquete de Unity) que aparece, anule la selección de **Plugins** (Complementos) y seleccione **Import** (Importar) en la esquina inferior derecha.
 
 ---
 
@@ -185,7 +196,7 @@ Por último, agregue el código siguiente al método `CreateAndSaveSphere()`. Se
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-344,396&highlight=14-25)]
 
-Antes de continuar,tiene que crear una cuenta de Azure Spatial Anchors, para obtener el identificador, la clave y el dominio de la cuenta, si no los tiene aún. En la sección siguiente se explica cómo obtenerlos.
+Antes de continuar, tiene que crear una cuenta de Azure Spatial Anchors para obtener el identificador, la clave y el dominio de la cuenta. Si aún no dispone de esos valores, vaya a la sección siguiente para obtenerlos.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -193,11 +204,11 @@ Antes de continuar,tiene que crear una cuenta de Azure Spatial Anchors, para obt
 
 Una vez que tenga el identificador, la clave y el dominio de la cuenta de Azure Spatial Anchors, vaya y pegue el valor de `Account Id` en `SpatialAnchorsAccountId`, el valor de `Account Key` en `SpatialAnchorsAccountKey` y el valor de `Account Domain` en `SpatialAnchorsAccountDomain`.
 
-Por último, vamos a enlazar todos los elementos. En el método `SpawnNewAnchoredObject()`, agregue la siguiente línea. Esta línea invocará el método `CreateAnchorAsync()` en cuanto se cree la esfera. Una vez que el método realice la devolución, el código siguiente realizará una actualización final a la esfera y su color cambiará a azul.
+Por último, vamos a enlazar todos los elementos. En el método `SpawnNewAnchoredObject()`, agregue la siguiente línea. Esta línea invocará el método `CreateAnchorAsync()` en cuanto se cree la esfera. Una vez que el método devuelva resultados, el código siguiente actualizará la esfera una última vez y el color cambiará a azul.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-397&highlight=26-77)]
 
-Ejecute la aplicación desde **Visual Studio** una vez más. Mueva la cabeza y, luego, pulse en el aire para colocar la esfera. Una vez que tengamos suficientes fotogramas, la esfera pasará a ser amarilla y se iniciará la carga en la nube. Cuando finalice la carga, la esfera pasará a ser azul. Opcionalmente, también podría usar la ventana de salida dentro de **Visual Studio** para supervisar los mensajes de registro que envía la aplicación. Podrá ver el progreso de creación recomendado y el identificador de anclaje que devuelve la nube una vez finalizada la carga.
+Ejecute la aplicación desde **Visual Studio** una vez más. Mueva la cabeza y, luego, pulse en el aire para colocar la esfera. Una vez que tengamos suficientes fotogramas, la esfera se pondrá amarilla y se iniciará la carga en la nube. Cuando finalice la carga, la esfera pasará a ser azul. También podría usar la ventana de salida dentro de **Visual Studio** para supervisar los mensajes de registro que envía la aplicación. Puede observar `RecommendedForCreateProgress` y, una vez completada la carga, verá el identificador de delimitador que ha devuelto la nube.
 
 > [!NOTE]
 > Si aparece la excepción "DllNotFoundException: No se puede cargar el archivo DLL "AzureSpatialAnchors": No se ha podido encontrar el módulo especificado", debe seleccionar **Clean** (Limpiar) y **Build** (Compilar) para limpiar y volver a compilar la solución.
@@ -216,7 +227,7 @@ Ahora agreguemos nuestros métodos `ResetSession()` y `CleanupObjects()`. Puede 
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=124-177)]
 
-A continuación, debemos enlazar el código que se invocará cuando se encuentre el anclaje que estamos consultando. Dentro de `InitializeSession()`, agregue las siguientes devoluciones de llamada:
+A continuación, debemos enlazar el código que se invocará cuando se encuentre el anclaje que estamos consultando. En `InitializeSession()`, agregue las siguientes devoluciones de llamada:
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=206-212&highlight=4-5)]
 
@@ -225,6 +236,6 @@ Ahora vamos a agregar código con el que se creará y colocará una esfera verde
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=234-271)]
 
-Eso es todo. Ejecute la aplicación desde **Visual Studio** una última vez para probar el escenario completo de extremo a extremo. Mueva el dispositivo y coloque la esfera negra. Luego, siga moviendo la cabeza para capturar los datos del entorno hasta que la esfera se vuelva amarilla. Se cargará el anclaje local y la esfera volverá a ser azul. Por último, toque la pantalla una vez más, con el fin de quitar el anclaje local y, después, consultaremos su homólogo en la nube. Siga desplazando el dispositivo hasta que se encuentre el anclaje espacial en la nube. Debe aparecer una esfera verde en la ubicación correcta, y puede volver a aclarar y repetir todo el escenario.
+Eso es todo. Ejecute la aplicación desde **Visual Studio** una última vez para probar el escenario completo de extremo a extremo. Mueva el dispositivo y coloque la esfera negra. Luego, siga moviendo la cabeza para capturar los datos del entorno hasta que la esfera se vuelva amarilla. Se cargará el anclaje local y la esfera volverá a ser azul. Por último, toque la pantalla una vez más para quitar el delimitador local e iniciar una consulta para su equivalente en la nube. Siga desplazando el dispositivo hasta que se encuentre el anclaje espacial en la nube. Debe mostrarse una esfera verde en la ubicación correcta, y todo el escenario se puede volver a repetir.
 
 [!INCLUDE [AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md)]

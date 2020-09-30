@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
-ms.openlocfilehash: 155c8fc3e7f1e37fe455c8f21d36e090c4fffce3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4f8ef04343d873bcb94ccee599ecbc7c2a1ef94c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112007"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269495"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Registros personalizados en Azure Monitor
 
@@ -158,7 +158,7 @@ Utilice una consulta simple de *Type=MyApp_CL* para devolver todos los registros
 
 
 ## <a name="alternatives-to-custom-logs"></a>Alternativas a los registros personalizados
-Aunque los registros personalizados son útiles si los datos cumplen los criterios que se muestran, hay casos como los siguientes donde necesita otra estrategia:
+Aunque los registros personalizados son útiles si los datos cumplen los criterios anteriores, en casos como los siguientes se necesita otra estrategia:
 
 - Los datos no se ajustan a la estructura necesaria como tener la marca de tiempo en un formato diferente.
 - El archivo de registro no cumple los requisitos como la codificación de archivos o una estructura de carpetas no admitida.

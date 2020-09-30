@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a crear y configurar almacenes de Rec
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 0c0b7b25eeecad8e8c519d37139551590a51a29e
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 81c6fd47ccea2ea17a20535df04931727c23be6f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892361"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177200"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Creación y configuración de un almacén de Recovery Services
 

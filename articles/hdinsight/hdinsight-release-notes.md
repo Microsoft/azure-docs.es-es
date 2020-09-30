@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 0587a179b98a410cdba46b7817d86567f275f25d
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: fd0412459e7d6e51b6abdccbc8782d157acee6b9
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826827"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319804"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de la versión de Azure HDInsight
 
@@ -49,7 +49,7 @@ A partir del 1 de julio de 2020, los clientes no podrán crear nuevos clústeres
 
 ## <a name="behavior-changes"></a>Cambios de comportamiento
 ### <a name="ambari-stack-version-change"></a>Cambio de versión de la pila de Ambari
-En esta versión, la versión de Ambari se cambia de 2.x.x.x a 4.1. Puede obtener la versión de Ambari en la opción "Acerca de" de la interfaz de usuario de Ambari.
+En esta versión, la versión de Ambari se cambia de 2.x.x.x a 4.1. Puede comprobar la versión de la pila (HDInsight 4.1) en Ambari: Ambari > Usuario > Versiones.
 
 ## <a name="upcoming-changes"></a>Próximos cambios
 No habrá cambios importantes que requieran su atención.

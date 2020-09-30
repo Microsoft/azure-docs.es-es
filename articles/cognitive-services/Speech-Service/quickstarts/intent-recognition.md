@@ -1,25 +1,26 @@
 ---
-title: 'Inicio rápido: Reconocimiento de voz, intenciones y entidades: servicio de voz'
+title: 'Inicio rápido del reconocimiento de la intención: servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: En este inicio rápido usará el SDK de Voz para reconocer interactivamente la voz de los datos de audio capturados a través de un micrófono.
+description: En este inicio rápido, se usa el reconocimiento de la intención para reconocer de forma interactiva las intenciones de los datos de audio capturados a través de un micrófono.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 06/25/2020
+ms.date: 09/02/2020
 ms.author: erhopf
-ms.custom: devx-track-javascript, devx-track-csharp
+ms.custom: devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: 4cc0754ea38ad7006431dd40206b2f10b1249e92
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+keywords: reconocimiento de la intención
+ms.openlocfilehash: 1bc8e7da760d1037185aed5ef0538055d5e697f2
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88925984"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401000"
 ---
-# <a name="quickstart-recognize-speech-intents-and-entities-with-language-understanding-luis"></a>Inicio rápido: Reconocimiento de voz, intenciones y entidades con Language Understanding (LUIS)
+# <a name="get-started-with-intent-recognition"></a>Introducción al reconocimiento de la intención
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/intent-recognition/header.md)]

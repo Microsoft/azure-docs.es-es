@@ -4,6 +4,8 @@
   items:
     - name: Acerca de AKS
       href: intro-kubernetes.md
+    - name: Arquitecturas de las soluciones
+      href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
 - name: Guías de inicio rápido
   expanded: true
   items:
@@ -132,6 +134,8 @@
       items:
         - name: Escalado de un clúster de AKS
           href: scale-cluster.md
+        - name: Detención de un clúster de AKS (versión preliminar)
+          href: start-stop-cluster.md
         - name: Actualización de un clúster de AKS
           href: upgrade-cluster.md
         - name: Uso del Acuerdo de Nivel de Servicio de tiempo de actividad
@@ -248,7 +252,7 @@
           href: control-kubeconfig-access.md
         - name: Protección del tráfico de pod con directivas de red
           href: use-network-policies.md
-        - name: Protección de pods con Azure Policy (versión preliminar)
+        - name: Protección de pods con Azure Policy
           href: use-pod-security-on-azure-policy.md
         - name: Uso de directivas de seguridad de pod (versión preliminar)
           href: use-pod-security-policies.md
@@ -307,8 +311,10 @@
           href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
     - name: Desarrollo y ejecución de aplicaciones
       items:
-        - name: "Uso de Proceso local con Kubernetes con Visual\_Studio Code (versión preliminar)"
-          href: 'https://code.visualstudio.com/docs/containers/local-process-kubernetes'
+        - name: Uso de Bridge to Kubernetes con Visual Studio Code
+          href: 'https://code.visualstudio.com/docs/containers/bridge-to-kubernetes'
+        - name: Uso de Bridge to Kubernetes con Visual Studio
+          href: /visualstudio/containers/bridge-to-kubernetes
         - name: Instalación de aplicaciones existentes con Helm
           href: kubernetes-helm.md
         - name: Uso de OpenFaaS

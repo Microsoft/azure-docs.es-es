@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido de la síntesis de voz: servicio de voz'
+title: 'Inicio rápido de la conversión de texto a voz: servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a usar el SDK de voz para convertir texto a voz. En este inicio rápido, obtendrá información sobre la construcción de objetos y los patrones de diseño, los formatos de salida de audio admitidos, la CLI de voz y las opciones de configuración personalizadas de la síntesis de voz.
 services: cognitive-services
@@ -8,18 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 08/11/2020
+ms.date: 09/01/2020
 ms.author: trbye
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: speech-full-stack
-ms.openlocfilehash: 12ee7fbbd7699d09deae85971ffe411e115609ec
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+keywords: texto a voz
+ms.openlocfilehash: 79409f95d698e015d15d9131dcf1f27b34b03343
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934706"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400927"
 ---
-# <a name="get-started-with-speech-synthesis"></a>Introducción a la síntesis de voz
+# <a name="get-started-with-text-to-speech"></a>Introducción a la conversión de texto a voz
 
 En este inicio rápido aprenderá patrones de diseño comunes para realizar la síntesis de texto a voz mediante el SDK de voz. Para empezar, puede realizar una configuración y síntesis básicas y, después, pasar a ejemplos más avanzados para el desarrollo de aplicaciones personalizadas, entre las que se incluyen:
 

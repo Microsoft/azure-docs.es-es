@@ -8,12 +8,12 @@ author: ms-jasondel
 ms.author: jasondel
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: c196d48d22a2bd714c4b6252ad927d18790f4674
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 11343ba668a4b74c436313f0abd4daed577c36d4
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056778"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505359"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Creación de un clúster privado de la versión 4 de Red Hat OpenShift en Azure
 
@@ -23,17 +23,35 @@ En este artículo, preparará su entorno para crear clústeres privados de Red H
 > * Configurar los requisitos previos y crear la red virtual y las subredes necesarias.
 > * Implementar un clúster con un punto de conexión de servidor de API privado y un controlador de entrada privado.
 
-Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure, versión 2.6.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure, versión 2.6.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-### <a name="register-the-resource-provider"></a>Registrar el proveedor de recursos
+### <a name="register-the-resource-providers"></a>Registro de los proveedores de recursos
 
-A continuación, es preciso que registre el proveedor de recursos `Microsoft.RedHatOpenShift` en su suscripción.
+1. Si tiene varias suscripciones de Azure, especifique el identificador de la relevante:
 
-```azurecli-interactive
-az provider register -n Microsoft.RedHatOpenShift --wait
-```
+    ```azurecli-interactive
+    az account set --subscription <SUBSCRIPTION ID>
+    ```
+
+1. Registre el proveedor de recursos `Microsoft.RedHatOpenShift`:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.RedHatOpenShift --wait
+    ```
+
+1. Registre el proveedor de recursos `Microsoft.Compute`:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Compute --wait
+    ```
+
+1. Registre el proveedor de recursos `Microsoft.Storage`:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Storage --wait
+    ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Obtención de un secreto de extracción de Red Hat (opcional)
 
@@ -141,7 +159,7 @@ A continuación, creará una red virtual que contenga dos subredes vacías.
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-5. **[Deshabilite las directivas de punto de conexión privado](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) en la subred maestra.** Esto es necesario para poder conectarse al clúster y administrarlo.
+5. **[Deshabilite las directivas de punto de conexión privado](../private-link/disable-private-link-service-network-policy.md) en la subred maestra.** Esto es necesario para poder conectarse al clúster y administrarlo.
 
     ```azurecli-interactive
     az network vnet subnet update \
@@ -207,7 +225,7 @@ Para encontrar la dirección URL de la consola del clúster, ejecute el siguient
 ```
 
 >[!IMPORTANT]
-> Para conectarse a un clúster privado de Red Hat OpenShift en Azure, tendrá que realizar el siguiente paso desde un host que esté en la red virtual que ha creado o en una red virtual que esté [emparejada](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) con la red virtual en la que se implementó el clúster.
+> Para conectarse a un clúster privado de Red Hat OpenShift en Azure, tendrá que realizar el siguiente paso desde un host que esté en la red virtual que ha creado o en una red virtual que esté [emparejada](../virtual-network/virtual-network-peering-overview.md) con la red virtual en la que se implementó el clúster.
 
 Inicie la dirección URL de la consola en un explorador e inicie sesión con las credenciales de `kubeadmin`.
 
@@ -215,7 +233,7 @@ Inicie la dirección URL de la consola en un explorador e inicie sesión con las
 
 ## <a name="install-the-openshift-cli"></a>Instalación de la CLI de OpenShift
 
-Una vez que haya iniciado sesión en la consola web de OpenShift, haga clic en el signo **?** en la parte superior derecha y, luego, en **Command Line Tools** (Herramientas de línea de comandos). Descargue la versión adecuada para su máquina.
+Cuando haya iniciado sesión en la consola web de OpenShift, haga clic en el signo **?** en la parte superior derecha y, luego, en **Command Line Tools** (Herramientas de línea de comandos). Descargue la versión adecuada para su máquina.
 
 ![Pantalla de inicio de sesión de Red Hat OpenShift en Azure](media/aro4-download-cli.png)
 
@@ -230,7 +248,7 @@ apiServer=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query apiserverProfile.u
 ```
 
 >[!IMPORTANT]
-> Para conectarse a un clúster privado de Red Hat OpenShift en Azure, tendrá que realizar el siguiente paso desde un host que se encuentre en la red virtual que ha creado o en una red virtual que esté [emparejada](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) con la red virtual en la que se implementó el clúster.
+> Para conectarse a un clúster privado de Red Hat OpenShift en Azure, tendrá que realizar el siguiente paso desde un host que se encuentre en la red virtual que ha creado o en una red virtual que esté [emparejada](../virtual-network/virtual-network-peering-overview.md) con la red virtual en la que se implementó el clúster.
 
 Inicie sesión en el servidor de API del clúster de OpenShift mediante el siguiente comando. Reemplace **\<kubeadmin password>** por la contraseña que acaba de recuperar.
 

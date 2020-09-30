@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 4/13/2020
-ms.openlocfilehash: 51b05ea016880d04fd6a2123962afefbdb229be1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 69368500a99b47238e74a960fdd5381c0339430a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101790"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905866"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Configuración y acceso a los registros de consultas lentas en Azure Portal
 
@@ -28,7 +28,7 @@ Configure el acceso al registro de consultas lentas de MySQL.
 2. Seleccione un servidor de Azure Database for MySQL.
 
 3. En la sección **Supervisión** de la barra lateral, seleccione **Registros de servidor**. 
-   ![Captura de pantalla de las opciones de registros de servidor](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png" alt-text="Captura de pantalla de las opciones de registros de servidor":::
 
 4. Seleccione **Haga clic aquí para habilitar los registros y configurar los parámetros** para ver los parámetros del servidor.
 
@@ -53,7 +53,7 @@ Una vez que comienza el registro, puede ver una lista de los registros de consul
 
 3. En la sección **Supervisión** de la barra lateral, seleccione **Registros de servidor**. La página muestra una lista de los archivos de registro.
 
-   ![Captura de pantalla de la página Registros de servidor con una lista de registros resaltados](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="Captura de pantalla de la página Registros de servidor con una lista de registros resaltados":::
 
    > [!TIP]
    > La convención de nomenclatura del registro es **mysql-slow-< nombre de su servidor>-yyyymmddhh.log**. La fecha y hora que se utilizan en el nombre de archivo indican el momento en que se emitió el registro. Los archivos de registro se rotan cada 24 horas o 7,5 GB, lo que ocurra primero. 
@@ -62,23 +62,23 @@ Una vez que comienza el registro, puede ver una lista de los registros de consul
 
 5. Para descargar los archivos de registro individuales, seleccione el icono de flecha hacia abajo que hay junto a cada archivo de registro en la fila de tabla.
 
-   ![Captura de pantalla de la página Registros de servidor, con el icono de flecha hacia abajo resaltado](./media/howto-configure-server-logs-in-portal/5-download.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/5-download.png" alt-text="Captura de pantalla de la página Registros de servidor, con el icono de flecha hacia abajo resaltado":::
 
 ## <a name="set-up-diagnostic-logs"></a>Configuración de registros de diagnósticos
 
 1. En la sección **Supervisión** de la barra lateral, seleccione **Configuración de diagnóstico** > **Add diagnostic settings** (Agregar configuración de diagnóstico).
 
-   ![Captura de pantalla de las opciones de diagnóstico](./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="Captura de pantalla de las opciones de diagnóstico":::
 
 1. Proporcione un nombre de configuración de diagnóstico.
 
 1. Especifique a qué receptores de datos se enviarán los registros de consultas lentas (cuenta de almacenamiento, centro de eventos o área de trabajo de Log Analytics).
 
 1. Seleccione **MySqlSlowLogs** como tipo de registro.
-![Captura de pantalla de las opciones de configuración de diagnóstico](./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png)
+:::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="Captura de pantalla de las opciones de configuración de diagnóstico":::
 
 1. Una vez que haya configurado los receptores de datos a los que canalizar los registros de consultas lentas, seleccione **Guardar**.
-![Captura de pantalla de las opciones de configuración de diagnóstico, con la opción Guardar resaltada](./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png)
+:::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="Captura de pantalla de las opciones de configuración de diagnóstico, con la opción Guardar resaltada":::
 
 1. Acceda a los registros de consultas lentas explorándolos en los receptores de datos que configuró. Los registros pueden tardar hasta 10 minutos en aparecer.
 

@@ -9,13 +9,13 @@ metadata:
   ms.topic: hub-page
   author: philmea
   ms.author: philmea
-  ms.date: 10/25/2019
-  ms.openlocfilehash: 64e20f9a06acf85def278c1017bbbd588c7a6b39
-  ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+  ms.date: 06/30/2020
+  ms.openlocfilehash: 3556fa14d180c16bca00c4e07a67e49cb9cc1220
+  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/03/2020
-  ms.locfileid: "89425983"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90974324"
 highlightedContent:
   items:
   - title: ¿Qué es IoT Central?
@@ -24,9 +24,9 @@ highlightedContent:
   - title: ¿Qué son las plantillas de aplicación?
     itemType: concept
     url: ./core/concepts-app-templates.md
-  - title: Arquitectura de Azure IoT Central
-    itemType: architecture
-    url: ./core/concepts-architecture.md
+  - title: Introducción al desarrollo de dispositivos IoT Central
+    itemType: overview
+    url: ./core/overview-iot-central-developer.md
   - title: Creación de una aplicación
     itemType: quickstart
     url: ./core/quick-deploy-iot-central.md
@@ -38,11 +38,20 @@ highlightedContent:
     url: ./core/tutorial-create-telemetry-rules.md
 conceptualContent:
   items:
-  - title: Obtención de conexión
+  - title: Conexión y desarrollo de dispositivos
     links:
-    - url: ./core/howto-set-up-template.md
+    - url: ./core/tutorial-connect-device-nodejs.md
+      itemType: tutorial
+      text: Conexión de dispositivos
+    - url: ./core/concepts-get-connected.md
+      itemType: concept
+      text: Conectividad de dispositivos
+    - url: ./core/concepts-device-templates.md
+      itemType: concept
+      text: Plantillas de dispositivo
+    - url: ./core/troubleshoot-connection.md
       itemType: how-to-guide
-      text: Configuración de una plantilla de dispositivo
+      text: Solución de problemas de conectividad de dispositivos
     footerLink:
       url: ./core/index.yml
       text: Ver más
@@ -70,7 +79,7 @@ conceptualContent:
       text: Creación de una regla de telemetría
     - url: ./core/howto-export-data.md
       itemType: how-to-guide
-      text: Exportación de datos a destinos en la nube (versión preliminar)
+      text: Exportación de datos a destinos en la nube
     footerLink:
       url: ./core/index.yml
       text: Ver más

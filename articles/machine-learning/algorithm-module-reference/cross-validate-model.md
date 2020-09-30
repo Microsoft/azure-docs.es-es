@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 7550bb7c6bbf7602245f9a9f1ac006ce693b36a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 63c61b12ad68a3add2e7b40ab0bec38d3c2835e5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477653"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898567"
 ---
 # <a name="cross-validate-model"></a>Modelo de validación cruzada
 
-En este artículo se describe cómo usar el módulo Cross-Validate Model (Modelo de validación cruzada) del diseñador de Azure Machine Learning (versión preliminar). La *validación cruzada* es una técnica que se usa a menudo en el aprendizaje automático para evaluar la variabilidad de un conjunto de datos y la confiabilidad de cualquier modelo entrenado con ellos.  
+En este artículo se describe cómo usar el módulo Cross-Validate Model (Modelo de validación cruzada) del diseñador de Azure Machine Learning. La *validación cruzada* es una técnica que se usa a menudo en el aprendizaje automático para evaluar la variabilidad de un conjunto de datos y la confiabilidad de cualquier modelo entrenado con ellos.  
 
 El módulo Cross-Validate Model (Modelo de validación cruzada) toma como entrada un conjunto de datos con etiquetas, junto con un modelo de clasificación o regresión no entrenado. Divide el conjunto de datos en varios subconjuntos (*plegamientos*), crea un modelo en cada plegamiento y, a continuación, devuelve un conjunto de estadísticas de precisión para cada plegamiento. Al comparar las estadísticas de precisión de todos los pliegues, puede interpretar la calidad del conjunto de datos. Después sabrá si el modelo es susceptible a variaciones en los datos.  
 

@@ -8,18 +8,18 @@ ms.date: 07/24/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: 8f3e4762b0c0286a47b407595cf73b66bef8d750
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: dc4d319e0e6b55af8af460fa8a56b9ef24a53341
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682848"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487358"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Vinculación de un Id. de partner a cuentas de Azure
 
-Los asociados de Microsoft proporcionan servicios que ayudan a los clientes lograr los objetivos del negocio y la misión con productos de Microsoft. Cuando actúa en nombre del cliente que administra y configura los servicios de Azure y les da soporte, los usuarios asociados deberán acceder al entorno del cliente. Mediante el vínculo de administración de asociados (PAL), puede asociar su identificador de red de asociado con las credenciales usadas para la entrega del servicio.
+Los asociados de Microsoft proporcionan servicios que ayudan a los clientes lograr los objetivos del negocio y la misión con productos de Microsoft. Cuando actúa en nombre del cliente que administra y configura los servicios de Azure y les da soporte, los usuarios asociados deberán acceder al entorno del cliente. Vínculo de administración de asociados (PAL) permite a los asociados asociar su identificador de red de asociado con las credenciales usadas para la entrega del servicio.
 
-PAL permite que Microsoft identifique y reconozca a los asociados que impulsan el éxito de los clientes de Azure. Microsoft puede atribuir la influencia y los ingresos por consumo de Azure a su organización en función de los permisos de la cuenta (rol de Azure) y el ámbito (suscripción, grupo de recursos, recurso).
+PAL permite a Microsoft identificar y reconocer a los asociados que impulsan el éxito de los clientes de Azure. Microsoft puede atribuir la influencia y los ingresos por consumo de Azure a su organización en función de los permisos de la cuenta (rol de Azure) y el ámbito (suscripción, grupo de recursos y recurso).
 
 ## <a name="get-access-from-your-customer"></a>Obtención de acceso del cliente
 
@@ -133,10 +133,11 @@ Sí. El Id. de partner vinculado se puede cambiar, agregar o quitar.
 
 El vínculo entre el Id. de partner y la cuenta se realiza para cada inquilino de cliente. Vincule el Id. de partner en cada inquilino de cliente.
 
+Sin embargo, si va a administrar los recursos del cliente a través de Azure Lighthouse, debe crear el vínculo en el inquilino del proveedor de servicios y usar una cuenta que tenga acceso a los recursos del cliente. Para más información, consulte el artículo sobre la [vinculación de un identificador de asociado para habilitar el crédito que ha obtenido un asociado en los recursos delegados](../../lighthouse/how-to/partner-earned-credit.md).
+
 **¿Pueden otros partners o clientes editar o quitar el vínculo con el Id. de partner?**
 
 El vínculo está asociado al nivel de cuenta del usuario. Solo usted puede editar o quitar el vínculo con el Id. de partner. Ni el cliente ni ningún otro partner podrán modificar el vínculo con el Id. de partner.
-
 
 **¿Qué id. de MPN debo usar si mi compañía tiene varios?**
 
@@ -158,10 +159,11 @@ No puede ver al cliente en los informes por los siguientes motivos
 
 Sí, puede vincular su identificador de asociado para Azure Stack.
 
-**¿Cómo se vincula el identificador de asociado si la empresa usa [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) para acceder a los recursos del cliente?**
+**¿Cómo se vincula el identificador de asociado si la empresa usa [Azure Lighthouse](../../lighthouse/overview.md) para acceder a los recursos del cliente?**
 
-Si incorpora clientes a la administración de recursos delegados de Azure mediante la [publicación de una oferta de servicios administrados en Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers), el identificador de MPN se asociará automáticamente. Si [incorpora clientes mediante la implementación de plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer), deberá asociar el identificador de Microsoft Partner Network (MPN) con al menos una cuenta de usuario que tenga acceso a cada una de las suscripciones incorporadas. Tenga en cuenta que esto lo deberá realizar en el inquilino del proveedor de servicios. Para simplificar, se recomienda crear una cuenta de entidad de servicio en el inquilino que esté asociada a su identificador de MPN y concederle acceso de lectura a todos los clientes que incorpore. En este ejemplo, se usa el rol Lector de RBAC y es uno de los roles que no es válido para créditos ganados por el asociado. Para más información sobre los roles, consulte el documento acerca de los [roles y permisos de los créditos obtenidos por el asociado](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3QuW2).
+Si incorpora clientes a la administración de recursos delegados de Azure mediante la [publicación de una oferta de servicios administrados en Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md), el identificador de MPN se asociará automáticamente.
 
+Si [incorpora clientes mediante la implementación de plantillas de Azure Resource Manager](../../lighthouse/how-to/onboard-customer.md), deberá asociar el identificador de MPN con al menos una cuenta de usuario que tenga acceso a cada una de las suscripciones incorporadas. Tenga en cuenta que esto lo deberá realizar en el inquilino del proveedor de servicios, no en el de cada cliente. Para simplificar, se recomienda crear una cuenta de entidad de servicio en el inquilino, asociarla con el identificador de MPN y, después, concederle acceso a todos los clientes que incorpore con un [rol integrado de Azure que sea apto para el crédito obtenido por el asociado](/partner-center/azure-roles-perms-pec). Para más información, consulte el artículo sobre la [vinculación de un identificador de asociado para habilitar el crédito que ha obtenido un asociado en los recursos delegados](../../lighthouse/how-to/partner-earned-credit.md).
 
 **¿Cómo se explica Vínculo de administración de asociados (PAL) a los clientes?**
 
@@ -173,4 +175,4 @@ La asociación de PAL con las credenciales existentes no proporciona nuevos dato
 
 **¿Afecta esto a la seguridad del entorno de Azure de los clientes?**
 
-La asociación de PAL solo agrega el identificador de MPN del asociado a la credencial ya aprovisionada, no modifica ningún permiso (rol de Azure) ni proporciona datos adicionales del servicio de Azure a ningún asociado ni a Microsoft. 
+La asociación de PAL solo agrega el identificador de MPN del asociado a la credencial ya aprovisionada, no modifica ningún permiso (rol de Azure) ni proporciona datos adicionales del servicio de Azure a ningún asociado ni a Microsoft.

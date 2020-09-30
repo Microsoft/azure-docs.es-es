@@ -11,12 +11,12 @@ metadata:
   ms.author: zarhoads
   manager: gwallace
   ms.date: 09/30/2019
-  ms.openlocfilehash: ac8900298670323551a25d4ef7ac3f7b44249c5a
-  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+  ms.openlocfilehash: 0100ace6dcf4701a8491f034f36075dc483849ec
+  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88209888"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90970068"
 landingContent:
 - title: Acerca de Azure Dev Spaces
   linkLists:
@@ -46,13 +46,11 @@ landingContent:
       url: how-to/ingress-https-traefik.md
     - text: Uso de NGINX para la entrada personalizada y HTTPS
       url: how-to/ingress-https-nginx.md
-- title: Características en vista previa
+- title: Bridge to Kubernetes
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Uso de acciones de GitHub con Azure Dev Spaces
-      url: how-to/github-actions.md
-    - text: Uso de Proceso local con Kubernetes con Visual Studio Code
-      url: https://code.visualstudio.com/docs/containers/local-process-kubernetes
-    - text: Uso de Proceso local con Kubernetes con Visual Studio
-      url: /visualstudio/containers/local-process-kubernetes
+    - text: Uso de Bridge to Kubernetes con Visual Studio Code
+      url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+    - text: Uso de Bridge to Kubernetes con Visual Studio
+      url: /visualstudio/containers/bridge-to-kubernetes

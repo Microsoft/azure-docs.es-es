@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5782c8b96534722a1e03ce619504e513a1c5e048
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3bb944badfbdffd703672f9e78619c70a148aae2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87539805"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293360"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Marco de seguridad: Validación de entrada | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -396,7 +397,7 @@ En el ejemplo de código anterior, el valor de entrada no puede tener más de 11
 | **Tecnologías aplicables** | Genérico, MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Adding Validation](https://www.asp.net/mvc/overview/getting-started/introduction/adding-validation) (Incorporación de validación), [Validating Model Data in an MVC Application](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx) (Validación de datos de modelo en una aplicación de MVC), [Principios orientativos para las aplicaciones de ASP.NET MVC](https://msdn.microsoft.com/magazine/dd942822.aspx) |
-| **Pasos** | <p>Todos los parámetros de entrada se deben validar antes de usarse en la aplicación para asegurarse de que la aplicación esté protegida ante las entradas de usuarios malintencionados. Compruebe los valores de entrada mediante validaciones con expresiones regulares en el lado servidor con una estrategia de validación con lista de permitidos. La entrada de usuario o los parámetros sin sanear pasados a los métodos pueden ocasionar vulnerabilidades por inyección de código.</p><p>Para las aplicaciones web, los puntos de entrada también pueden ser campos de formulario, QueryStrings, cookies, encabezados HTTP y parámetros de servicio web.</p><p>Se deben realizar las siguientes comprobaciones de validación de entrada con el enlace de modelos:</p><ul><li>Las propiedades del modelo se deben anotar con la anotación RegularExpression para que acepten los caracteres permitidos y la longitud máxima permitida.</li><li>Los métodos de controlador deberían llevar a cabo la comprobación de validez ModelState.</li></ul>|
+| **Pasos** | <p>Todos los parámetros de entrada se deben validar antes de usarse en la aplicación para asegurarse de que la aplicación esté protegida ante las entradas de usuarios malintencionados. Compruebe los valores de entrada mediante validaciones con expresiones regulares en el lado servidor con una estrategia de validación con lista de elementos permitidos. La entrada de usuario o los parámetros sin sanear pasados a los métodos pueden ocasionar vulnerabilidades por inyección de código.</p><p>Para las aplicaciones web, los puntos de entrada también pueden ser campos de formulario, QueryStrings, cookies, encabezados HTTP y parámetros de servicio web.</p><p>Se deben realizar las siguientes comprobaciones de validación de entrada con el enlace de modelos:</p><ul><li>Las propiedades del modelo se deben anotar con la anotación RegularExpression para que acepten los caracteres permitidos y la longitud máxima permitida.</li><li>Los métodos de controlador deberían llevar a cabo la comprobación de validez ModelState.</li></ul>|
 
 ## <a name="sanitization-should-be-applied-on-form-fields-that-accept-all-characters-eg-rich-text-editor"></a><a id="richtext"></a>Se debería aplicar la comprobación de estado a los campos de formulario que acepten todos los caracteres, por ejemplo, editor de texto enriquecido
 

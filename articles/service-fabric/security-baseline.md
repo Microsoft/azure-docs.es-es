@@ -6,13 +6,13 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: a3641994098834b47412598b25b3effb2be7d276
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 9054fa72ee4204d7a09e6ce8de4fe6d4ed4dac81
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836724"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227719"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Línea de base de seguridad de Azure para Service Fabric
 
@@ -356,7 +356,7 @@ Además, puede usar las recomendaciones de administración de identidades y acce
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Use el inicio de sesión único (SSO) con Azure Active Directory
 
-**Guía**: Siempre que sea posible, use el SSO de Azure Active Directory en lugar de configurar credenciales independientes individuales por servicio. Use las recomendaciones de administración de identidades y acceso de Azure Security Center.
+**Instrucciones**: Siempre que sea posible, use el SSO de Azure Active Directory en lugar de configurar credenciales independientes individuales por servicio. Use las recomendaciones de administración de identidades y acceso de Azure Security Center.
 
 * [Descripción del SSO con Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
@@ -546,7 +546,7 @@ En el caso de la plataforma subyacente administrada por Microsoft, Microsoft tra
 
 **Responsabilidad**: Compartido
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Uso del control de acceso basado en rol para controlar el acceso a los recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
 **Guía**: No aplicable; esta recomendación está pensada para los recursos que no son de proceso y que están diseñados para almacenar datos.
 
@@ -868,13 +868,13 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de las suscri
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Almacene imágenes de sistema operativo personalizadas de forma segura
 
-**Guía**: Si usa imágenes personalizadas, use RBAC para asegurarse de que solo los usuarios autorizados puedan tener acceso a las imágenes. En el caso de las imágenes de contenedor, almacénelas en Azure Container Registry y aproveche RBAC para asegurarse de que solo los usuarios autorizados puedan acceder a las imágenes.
+**Guía**: Si usa imágenes personalizadas, use el control de acceso basado en rol de Azure (Azure RBAC) para asegurarse de que solo los usuarios autorizados pueden acceder a las imágenes. En el caso de las imágenes de contenedor, almacénelas en Azure Container Registry y aproveche Azure RBAC para asegurarse de que solo los usuarios autorizados puedan acceder a las imágenes.
 
-* [Descripción de RBAC en Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Descripción de Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Descripción de RBAC para Container Registry](../container-registry/container-registry-roles.md)
+* [Descripción de Azure RBAC para Container Registry](../container-registry/container-registry-roles.md)
 
-* [Configuración de RBAC en Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Configuración de Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 

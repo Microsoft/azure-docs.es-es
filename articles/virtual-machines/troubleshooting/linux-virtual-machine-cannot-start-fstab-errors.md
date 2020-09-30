@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: cf27a842d37e96c82370e9b9b81763c8a5d1f7c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fd49993e6825c47bbae8f034715c03191e06ab2d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509059"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441670"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Solución de problemas de inicio de máquinas virtuales Linux debido a errores de fstab
 
@@ -107,7 +107,7 @@ Para resolver este problema, inicie la máquina virtual en modo de emergencia me
 ### <a name="using-single-user-mode"></a>Uso del Modo de usuario único
 
 1. Conexión a la [consola serie](./serial-console-linux.md).
-2. Use la consola serie para realizar el [modo de usuario único](../linux/serial-console-grub-single-user-mode.md).
+2. Use la consola serie para realizar el [modo de usuario único](serial-console-grub-single-user-mode.md).
 3. Una vez que la máquina virtual se haya iniciado en modo de usuario único. Use el editor de texto que prefiera para abrir el archivo fstab. 
 
    ```

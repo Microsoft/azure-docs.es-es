@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: 371099610da129025f6683630b1824b8466b5aff
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f114dd4d4f0a9a26a8aab1f8aeecd4d29678a8d2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833018"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896293"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Uso de reglas y puntos de conexión de servicio de red virtual para Azure Database for MySQL
 
@@ -19,7 +19,7 @@ Las *reglas de red virtual* son una característica de firewall que controla si 
 
 Para crear una regla de red virtual, primero debe haber una [red virtual][vm-virtual-network-overview] (VNET) y un [punto de conexión de servicio de red virtual][vm-virtual-network-service-endpoints-overview-649d] para la regla a la que hacer referencia. En la imagen siguiente se muestra cómo funciona un punto de conexión de servicio de red virtual con Azure Database for MySQL:
 
-![Ejemplo de cómo funciona un punto de conexión de servicio de red virtual](media/concepts-data-access-and-security-vnet/vnet-concept.png)
+:::image type="content" source="media/concepts-data-access-and-security-vnet/vnet-concept.png" alt-text="Ejemplo de cómo funciona un punto de conexión de servicio de red virtual":::
 
 > [!NOTE]
 > Esta característica está disponible en todas las regiones de Azure donde se implementa Azure Database for MySQL para servidores de uso general y optimizados para memoria.
@@ -112,7 +112,7 @@ Para Azure Database for MySQL, la característica de las reglas de red virtual t
 
 - Las reglas de red virtual solo se aplican a las redes virtuales de Azure Resource Manager, y no a las redes del [modelo de implementación clásica][arm-deployment-model-568f].
 
-- Al activar los puntos de conexión de servicio de red virtual en Azure Database for MySQL con la etiqueta de servicio **Microsoft.Sql** también se habilitan los puntos de conexión de todos los servicios de Azure Database: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database y Azure SQL Data Warehouse.
+- Al activar los puntos de conexión de servicio de red virtual en Azure Database for MySQL con la etiqueta de servicio **Microsoft.Sql** también se habilitan los puntos de conexión de todos los servicios de Azure Database: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database y Azure Synapse Analytics (anteriormente SQL Data Warehouse).
 
 - La compatibilidad con puntos de conexión de servicio de red virtual solo existe para servidores de uso general y optimizados para memoria.
 

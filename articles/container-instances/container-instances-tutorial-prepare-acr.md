@@ -4,12 +4,12 @@ description: 'Tutorial de Azure Container Instances, parte 2 de 3: Preparación 
 ms.topic: tutorial
 ms.date: 12/18/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 1a5b9555572264b6a00b4ce73eaa0719d94fd99b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 44a7f21c067897b046413851ef5a2c73bfccc24f
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78252153"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708043"
 ---
 # <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>Tutorial: Creación de una instancia de Azure Container Registry e inserción de una imagen de contenedor
 
@@ -28,66 +28,7 @@ En el artículo siguiente, el último tutorial de la serie, va a implementar el 
 
 [!INCLUDE [container-instances-tutorial-prerequisites](../../includes/container-instances-tutorial-prerequisites.md)]
 
-## <a name="create-azure-container-registry"></a>Creación de una instancia de Azure Container Registry
-
-Antes de crear el registro de contenedor, necesita un *grupo de recursos* en donde implementarlo. Un grupo de recursos es una colección lógica en la que se implementan y administran todos los recursos de Azure.
-
-Para crear un grupo de recursos, use el comando [az group create][az-group-create]. En el siguiente ejemplo, se crea un grupo de recursos denominado *myResourceGroup* en la región *eastus*:
-
-```azurecli
-az group create --name myResourceGroup --location eastus
-```
-
-Cuando se haya creado el grupo de recursos, cree un registro de contenedor de Azure con el comando [az acr create][az-acr-create]. El nombre del registro de contenedor debe ser único dentro de Azure y contener entre 5 y 50 caracteres alfanuméricos. Reemplace `<acrName>` por un nombre único para el registro:
-
-```azurecli
-az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
-```
-
-Esta es la salida de ejemplo de una nueva instancia de Azure Container Registry denominada *mycontainerregistry082* (aquí se muestra truncada):
-
-```output
-...
-{
-  "creationDate": "2018-03-16T21:54:47.297875+00:00",
-  "id": "/subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/mycontainerregistry082",
-  "location": "eastus",
-  "loginServer": "mycontainerregistry082.azurecr.io",
-  "name": "mycontainerregistry082",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
-  "sku": {
-    "name": "Basic",
-    "tier": "Basic"
-  },
-  "status": null,
-  "storageAccount": null,
-  "tags": {},
-  "type": "Microsoft.ContainerRegistry/registries"
-}
-```
-
-En el resto del tutorial se hace referencia a `<acrName>` como marcador de posición del nombre del registro de contenedor que eligió en este paso.
-
-## <a name="log-in-to-container-registry"></a>Inicio de sesión en el registro de contenedor
-
-Debe iniciar sesión en la instancia de Azure Container Registry antes de insertar imágenes en ella. Use el comando [az acr login][az-acr-login] para completar la operación. Debe especificar el nombre único que eligió para el registro de contenedor cuando lo creó.
-
-```azurecli
-az acr login --name <acrName>
-```
-
-Por ejemplo:
-
-```azurecli
-az acr login --name mycontainerregistry082
-```
-
-El comando devuelve `Login Succeeded` una vez completado:
-
-```output
-Login Succeeded
-```
+[!INCLUDE [container-instances-create-registry](../../includes/container-instances-create-registry.md)]
 
 ## <a name="tag-container-image"></a>Etiquetado de la imagen de contenedor
 
@@ -188,7 +129,7 @@ Para ver las *etiquetas* de una imagen concreta, use el comando [az acr reposito
 az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table
 ```
 
-Debería ver un resultado similar al siguiente:
+Debería ver una salida similar a esta:
 
 ```console
 az acr repository show-tags --name mycontainerregistry082 --repository aci-tutorial-app --output table

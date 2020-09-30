@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa6aba12af08e2b5e044eaeb299ec6090ab6d750
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8328b961c8166247caaf0b9cd5cc288c420d089e
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650475"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279999"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configuraciones de almacenamiento de máquinas virtuales de Azure en SAP HANA
 
@@ -88,7 +88,7 @@ Las recomendaciones de almacenamiento en caché para los siguientes discos Premi
 **Recomendación: Como resultado de estos patrones de E/S observados por SAP HANA, debe establecer el almacenamiento en caché de los diferentes volúmenes con Azure Premium Storage como sigue:**
 
 - **/hana/data**: sin almacenamiento en caché ni almacenamiento en caché de lectura
-- **/hana/log**: sin almacenamiento en caché. Excepción para las máquinas virtuales de las series M y Mv2, en las que el Acelerador de escritura debe estar habilitado sin almacenamiento en caché de lectura. 
+- **/hana/log**: Sin almacenamiento en caché. Excepción para las VM de las series M y Mv2, en las que el Acelerador de escritura de Azure debe estar habilitado. 
 - **/hana/shared**: almacenamiento en caché de lecturas
 - **Disco de SO**: no cambie el almacenamiento en caché predeterminado establecido por Azure en el momento de la creación de la VM.
 

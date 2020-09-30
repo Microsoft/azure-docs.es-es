@@ -7,14 +7,17 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 05107d0246be2273c09e91573bd30a4108ac7795
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: cd10421ddcf752625b8040e1afa4e7b15f142ce2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290334"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885687"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Asignación de un dominio personalizado existente a Azure Spring Cloud
+
+**Este artículo se aplica a:** ✔️ Java ✔️ C#
+
 El servicio de nombres de dominio (DNS) es una técnica para almacenar nombres de nodos de red en toda una red. En este tutorial se asigna un dominio, como www.contoso.com, mediante un registro CNAME. El dominio personalizado se protege con un certificado y se muestra cómo aplicar Seguridad de la capa de transporte (TLS), también conocida como Capa de sockets seguros (SSL). 
 
 El tráfico web se cifra mediante certificados. Estos certificados TLS/SSL se pueden almacenar en Azure Key Vault. 

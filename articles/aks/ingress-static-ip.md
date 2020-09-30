@@ -5,12 +5,12 @@ description: Aprenda a instalar y configurar un controlador de entrada NGINX con
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: dbab9df3acf7de801a4e75502863fff698232458
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: be4856beac69d11de12ec764f313fa59f3b24e9f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852570"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290555"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Cree un controlador de entrada con una dirección IP pública estática en Azure Kubernetes Service (AKS)
 
@@ -50,7 +50,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 ```
 
 > [!NOTE]
-> Los comandos anteriores crean una dirección IP que se eliminará si elimina el clúster de AKS. Como alternativa, puede crear una dirección IP en otro grupo de recursos que se pueda administrar de forma independiente del clúster de AKS. Si crea una dirección IP en otro grupo de recursos, asegúrese de que la entidad de servicio usada por el clúster de AKS tenga permisos delegados para el otro grupo de recursos, como *Colaborador de la red*.
+> Los comandos anteriores crean una dirección IP que se eliminará si elimina el clúster de AKS. Como alternativa, puede crear una dirección IP en otro grupo de recursos que se pueda administrar de forma independiente del clúster de AKS. Si crea una dirección IP en otro grupo de recursos, asegúrese de que la entidad de servicio usada por el clúster de AKS tenga permisos delegados para el otro grupo de recursos, como *Colaborador de la red*. Para obtener más información, consulte [Uso de una dirección IP pública estática y una etiqueta DNS con el equilibrador de carga de AKS][aks-static-ip].
 
 Ahora implemente el gráfico *nginx-ingress* con Helm. Para obtener redundancia adicional, se implementan dos réplicas de los controladores de entrada NGINX con el parámetro `--set controller.replicaCount`. Para sacar el máximo provecho de las réplicas en ejecución del controlador de entrada, asegúrese de que hay más de un nodo en el clúster de AKS.
 
@@ -483,3 +483,4 @@ También puede:
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli
+[aks-static-ip]: static-ip.md

@@ -20,19 +20,11 @@
       href: quickstart-load-balancer-standard-internal-powershell.md
     - name: 'Creación de un equilibrador de carga interno: CLI de Azure'
       href: quickstart-load-balancer-standard-internal-cli.md
+    - name: 'Creación de un equilibrador de carga interno: plantilla de Resource Manager'
+      href: quickstart-load-balancer-standard-internal-template.md
   expanded: true
 - name: Tutoriales
   items:
-    - name: Equilibrador de carga interno
-      items:
-        - name: 'Creación de un equilibrador de carga interno: Azure Portal'
-          href: tutorial-load-balancer-standard-internal-portal.md
-        - name: 'Creación de un equilibrador de carga interno: CLI de Azure'
-          href: load-balancer-get-started-ilb-arm-cli.md
-        - name: 'Creación de un equilibrador de carga interno: Azure PowerShell'
-          href: load-balancer-get-started-ilb-arm-ps.md
-        - name: 'Creación de un equilibrador de carga interno: plantilla de Resource Manager'
-          href: load-balancer-get-started-ilb-arm-template.md
     - name: Equilibrio de carga de máquinas virtuales entre zonas de disponibilidad
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Equilibrio de carga de máquinas virtuales en una zona de disponibilidad específica
@@ -47,6 +39,10 @@
       href: powershell-samples.md
 - name: Conceptos
   items:
+    - name: Equilibrador de carga entre regiones
+      href: cross-region-overview.md
+    - name: Novedades
+      href: whats-new.md
     - name: Componentes
       href: components.md
     - name: Conceptos
@@ -73,14 +69,18 @@
       href: load-balancer-tcp-reset.md
     - name: Load Balancer Estándar y zonas de disponibilidad
       href: load-balancer-standard-availability-zones.md
-    - name: Controles de seguridad integrados
-      href: load-balancer-security-controls.md
+    - name: Seguridad
+      items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
     - name: Administración de grupos de back-end
       href: backend-pool-management.md
     - name: Standard Load Balancer y Virtual Machine Scale Sets
       href: load-balancer-standard-virtual-machine-scale-sets.md
 - name: Procedimientos
   items:
+    - name: Configuración del portal
+      href: manage.md
     - name: Conjuntos de escalado de máquinas virtuales
       items:
         - name: Uso con una instancia de Azure Load Balancer (Azure Portal)

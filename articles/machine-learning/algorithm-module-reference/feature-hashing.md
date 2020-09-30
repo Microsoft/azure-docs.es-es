@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 7178417a5c20afe5b1ed02bc526ec174704962df
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 444cb6a7819fa72f5987a21807fc707e0ba8b396
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79456257"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907915"
 ---
 # <a name="feature-hashing-module-reference"></a>Referencia del módulo Feature Hashing
 
-En este artículo se describe un módulo incluido en el diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo incluido en el diseñador de Azure Machine Learning.
 
 Use el módulo Feature Hashing para transformar un flujo de texto en inglés en un conjunto de características de enteros. Después, puede pasar este conjunto de características con hash a un algoritmo de aprendizaje automático para entrenar un modelo de análisis de texto.
 

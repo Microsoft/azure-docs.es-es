@@ -1,0 +1,48 @@
+### YamlMime:Landing
+title: Documentación de Azure Resource Mover
+summary: Traslado de recursos de Azure entre regiones de Azure en el centro de Azure Resource Mover.
+metadata:
+  title: Documentación de Azure Resource Mover
+  description: Búsqueda de tutoriales e información sobre cómo mover recursos entre regiones de Azure.
+  ms.service: resource-move
+  ms.topic: landing-page
+  ms.collection: collection
+  author: rayne-wiselman
+  ms.author: raynew
+  ms.date: 09/09/2020
+  keywords: azure resource mover, azure regions, move across regions
+  ms.openlocfilehash: 3dab9d313ab9564e860d78495d375bd0116ac9e0
+  ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 09/10/2020
+  ms.locfileid: "89669652"
+landingContent:
+- title: Acerca de Azure Resource Mover
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Resource Mover?
+      url: ./overview.md
+    - text: Selección de una herramienta para mover recursos
+      url: ./select-move-tool.md
+    - text: Preguntas frecuentes
+      url: ./common-questions.md
+- title: Introducción
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Traslado de máquinas virtuales de Azure a otra región
+      url: ./tutorial-move-region-virtual-machines.md
+    - text: Tras lado de bases de datos y grupos elásticos Azure SQL a otra región
+      url: ./tutorial-move-region-sql.md
+- title: Más información
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Más información acerca del proceso de traslado
+      url: ./about-move-process.md
+    - text: Examen de la matriz de compatibilidad para mover máquinas virtuales de Azure
+      url: ./support-matrix-move-region-azure-vm.md
+    - text: Examen de la matriz de compatibilidad para mover recursos de Azure SQL
+      url: ./support-matrix-move-region-sql.md

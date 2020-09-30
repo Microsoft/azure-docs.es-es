@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 65fc822250ae8284c9f87af262356730ff1d54c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4b31eb59ed0bae2afe408546ece66eacade9ddb
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207522"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603839"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Notificación de finalización para instancias de conjunto de escalado de máquinas virtuales de Azure
 Las instancias de conjunto de escalado pueden optar por recibir notificaciones de finalización de instancias y establecer un tiempo de espera de retraso predefinido para la operación de finalización. La notificación de finalización se envía mediante Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md), que proporciona notificaciones y retrasa las operaciones importantes, como reinicios o reimplementaciones. La solución agrega otro evento, Terminate, a la lista de Scheduled Events, y el retraso asociado de este evento dependerá del límite del retraso especificado por los usuarios en su configuración del modelo del conjunto de escalado.
@@ -91,7 +91,7 @@ Use el cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) para 
 Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -VMScaleSetName "myScaleSet" `
-  -TerminateScheduledEvents $true
+  -TerminateScheduledEvents $true `
   -TerminateScheduledEventNotBeforeTimeoutInMinutes 15
 ```
 En el ejemplo anterior se habilitan las notificaciones de finalización en un conjunto de escalado existente y se establece un tiempo de espera de 15 minutos para el evento de finalización.

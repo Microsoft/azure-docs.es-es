@@ -11,15 +11,15 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.openlocfilehash: 533ecbaebc5d36f8a6660ce22e5cab3630e3655f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 757646a1630443f297d4b7c538721e9facdc130c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306407"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897429"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Capacidad de interpretación de modelos en Azure Machine Learning (versión preliminar)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 ## <a name="overview-of-model-interpretability"></a>Explicación de la interpretación del modelo
 
@@ -39,7 +39,7 @@ La habilitación de la capacidad de explicar un modelo de aprendizaje automátic
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Interpretación con Azure Machine Learning
 
-Las clases de interpretabilidad están disponibles través de varios paquetes de SDK: (Obtenga información sobre cómo [instalar paquetes de SDK para Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py))
+Las clases de interpretabilidad están disponibles través de varios paquetes de SDK: (Obtenga información sobre cómo [instalar paquetes de SDK para Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true))
 
 * `azureml.interpret`, el paquete principal, que contiene funcionalidades compatibles con Microsoft.
 

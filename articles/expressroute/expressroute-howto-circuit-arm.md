@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/08/2020
 ms.author: duau
-ms.openlocfilehash: 92b1beb2232e1187d7fd93de4c9c78b1a18fdebc
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e9bf9dbe0f4146101513ab9786b298ac6b43b6a3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396314"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566304"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Creación y modificación de un circuito ExpressRoute mediante PowerShell
 > [!div class="op_single_selector"]
@@ -73,7 +73,7 @@ New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 
 Asegúrese de que especifica el nivel y la familia correctos de SKU.
 
-* El nivel de SKU determina si un circuito ExpressRoute es [Local](expressroute-faqs.md#expressroute-local), Estándar o [Premium](expressroute-faqs.md#expressroute-premium). Puede especificar *Local*, *Estándar* o *Premium*.
+* El nivel de SKU determina si un circuito ExpressRoute es [Local](expressroute-faqs.md#expressroute-local), Estándar o [Premium](expressroute-faqs.md#expressroute-premium). Puede especificar *Local*, *Estándar* o *Premium*. No se puede cambiar la SKU de *Estándar o Premium* a *Local*.
 * La familia de SKU determina el tipo de facturación. Puede seleccionar *Metereddata* para el plan de datos limitado y *Unlimiteddata* para el plan de datos ilimitado. Puede cambiar el tipo de facturación de *Metereddata* a *Unlimiteddata*, pero no se puede cambiar el tipo de *Unlimiteddata* a *Metereddata*. Un circuito *Local* siempre es *Unlimiteddata*.
 
 > [!IMPORTANT]
@@ -306,7 +306,7 @@ Puede modificar determinadas propiedades de un circuito ExpressRoute sin afectar
 
 Puede hacer las siguientes tareas sin experimentar tiempo de inactividad:
 
-* Habilitar o deshabilitar el complemento ExpressRoute Premium en su circuito ExpressRoute.
+* Habilitar o deshabilitar el complemento ExpressRoute Premium en su circuito ExpressRoute. No se admite el cambio de la SKU de *Estándar o Premium* a *Local*.
 * Aumente el ancho de banda del circuito ExpressRoute, siempre que haya capacidad disponible en el puerto. No se admite la degradación del ancho de banda de un circuito.
 * Cambio del plan de medición de datos limitados a datos ilimitados. No se admite cambiar el plan de medición de datos ilimitados a datos limitados.
 * Puede habilitar y deshabilitar *Allow Classic Operations*(Permitir operaciones clásicas).

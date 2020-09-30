@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: d642397ef42227e530bd9eff14c3da6078241281
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b678e4de76619ff17703caecfa7a52682e835674
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085878"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462571"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Carga de datos para trabajos de Apache Hadoop en HDInsight
 
@@ -88,7 +88,7 @@ También hay varias aplicaciones que proporcionan una interfaz gráfica para tra
 
 ## <a name="mount-azure-storage-as-local-drive"></a>Montaje de Azure Storage como unidad local
 
-Vea [Montaje de Azure Storage como unidad local](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
+Vea [Montaje de Azure Storage como unidad local](https://docs.microsoft.com/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive).
 
 ## <a name="upload-using-services"></a>Carga mediante servicios
 

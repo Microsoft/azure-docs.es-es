@@ -1,12 +1,16 @@
-- name: Documentación de Azure Stack Edge and Data Box Gateway
+- name: Documentación de Azure Stack Edge Pro y Data Box Gateway
   href: /azure/databox-online/
   expanded: true
-- name: Azure Stack Edge con GPU (versión preliminar)
+- name: 'Azure Stack Edge Pro: GPU'
   items:
     - name: Información general
       items:
-        - name: ¿Qué es Azure Stack Edge con GPU?
+        - name: ¿Qué es Azure Stack Edge Pro con GPU?
           href: azure-stack-edge-gpu-overview.md
+    - name: Guías de inicio rápido
+      items:
+        - name: Introducción
+          href: azure-stack-edge-gpu-quickstart.md
     - name: Tutoriales
       items:
         - name: '0: Obtención de lista de comprobación'
@@ -45,7 +49,7 @@
               href: azure-stack-edge-gpu-technical-specifications-compliance.md
             - name: Especificaciones del cable de alimentación
               href: azure-stack-edge-technical-specifications-power-cords-regional.md
-        - name: Descripción de Kubernetes
+        - name: Descripción de Kubernetes (versión preliminar)
           items:
             - name: ¿Qué es Kubernetes?
               href: azure-stack-edge-gpu-kubernetes-overview.md
@@ -67,7 +71,7 @@
               href: azure-stack-edge-gpu-deploy-sample-module.md
             - name: Módulo GPU a través de Marketplace
               href: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
-        - name: Implementación de cargas de trabajo de Kubernetes
+        - name: Implementación de cargas de trabajo de Kubernetes (versión preliminar)
           items:
             - name: A través de kubectl
               items:
@@ -83,13 +87,13 @@
               items:
                 - name: Aplicación sin estado
                   href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
-            - name: A través de Azure Arc
+            - name: A través de Azure Arc (versión preliminar)
               items:
                 - name: Habilitación de Arc en el clúster de Kubernetes
                   href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md
                 - name: Implementación de una aplicación sin estado a través de GitOps
                   href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
-        - name: Configuración de Azure Resource Manager
+        - name: Configuración de Azure Resource Manager (versión preliminar)
           items:
             - name: Conexión mediante Azure PowerShell
               href: azure-stack-edge-j-series-connect-resource-manager.md
@@ -97,7 +101,7 @@
               href: azure-stack-edge-j-series-set-azure-resource-manager-password.md
             - name: Establecer la configuración de TLS del cliente
               href: azure-stack-edge-j-series-configure-tls-settings.md
-        - name: Implementar máquinas virtuales
+        - name: Implementación de máquinas virtuales (versión preliminar)
           items:
             - name: 'Implementación de máquinas virtuales: plantillas'
               href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
@@ -136,7 +140,7 @@
         - name: Administración de un dispositivo
           items:
             - name: 'Encendido, acceso y conectividad'
-              href: azure-stack-edge-manage-access-power-connectivity-mode.md
+              href: azure-stack-edge-gpu-manage-access-power-connectivity-mode.md
             - name: A través de PowerShell
               href: azure-stack-edge-gpu-connect-powershell-interface.md
             - name: Aplicación de actualizaciones
@@ -161,7 +165,9 @@
               href: azure-stack-edge-contact-microsoft-support.md
     - name: Notas de la versión
       items:
-        - name: '2008: notas de la versión'
+        - name: '2009: disponibilidad general'
+          href: azure-stack-edge-gpu-2009-release-notes.md
+        - name: '2008: versión preliminar'
           href: azure-stack-edge-gpu-2008-release-notes.md
     - name: Referencia
       items:
@@ -171,11 +177,11 @@
           href: 'https://docs.microsoft.com/rest/api/databoxedgegateway'
         - name: .NET SDK
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet'
-- name: Azure Stack Edge con FPGA
+- name: 'Azure Stack Edge Pro: FPGA'
   items:
     - name: Información general
       items:
-        - name: ¿Qué es Azure Stack Edge con FPGA?
+        - name: ¿Qué es Azure Stack Edge Pro con FPGA?
           href: azure-stack-edge-overview.md
     - name: Tutoriales
       items:
@@ -259,6 +265,18 @@
           href: 'https://docs.microsoft.com/rest/api/databoxedgegateway'
         - name: .NET SDK
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet'
+- name: Azure Stack Edge Pro R
+  items:
+    - name: Información general
+      items:
+        - name: ¿Qué es Azure Stack Edge Pro R?
+          href: azure-stack-edge-j-series-overview.md
+- name: Azure Stack Edge Mini R
+  items:
+    - name: Información general
+      items:
+        - name: ¿Qué es Azure Stack Edge Mini R?
+          href: azure-stack-edge-k-series-overview.md
 - name: Data Box Gateway
   items:
     - name: Información general
@@ -323,9 +341,9 @@
           href: data-box-gateway-release-notes.md
 - name: Recursos
   items:
-    - name: Ejemplos de módulo de C# de Azure Stack Edge (. NET)
+    - name: "Ejemplos del módulo de\_C# de Azure Stack Edge Pro (.NET)"
       href: 'https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/'
-    - name: Producto Azure Stack Edge/Data Box Gateway
+    - name: Producto Azure Stack Edge Pro/Data Box Gateway
       href: 'https://azure.microsoft.com/services/storage/databox/edge/'
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/storage/databox/edge/'

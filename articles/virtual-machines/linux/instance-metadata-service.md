@@ -1,6 +1,6 @@
 ---
 title: Servicio de metadatos de instancia de Azure
-description: Interfaz RESTful para obtener información sobre proceso, red y próximos eventos de mantenimiento de la máquina virtual.
+description: Obtenga información sobre Azure Instance Metadata Service y cómo proporciona información sobre las instancias de máquina virtual que se ejecutan actualmente.
 services: virtual-machines
 author: KumariSupriya
 manager: paulmey
@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: bb9bc978e49cddab13ab1e4f7ec4f0b74d369ac1
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: ea11e2f5f8d89381723011686de9e22639997c01
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705850"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974151"
 ---
 # <a name="azure-instance-metadata-service-imds"></a>Azure Instance Metadata Service (IMDS)
 

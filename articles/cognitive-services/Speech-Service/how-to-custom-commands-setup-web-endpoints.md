@@ -192,7 +192,7 @@ private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs 
 ## <a name="try-it-out"></a>Prueba
 
 1. Inicio de la aplicación
-1. Haga clic en Sync Device State (sincronizar estado del dispositivo).
+1. Haga clic en Sync Device State (sincronizar estado del dispositivo).\
 Si probó la aplicación con `turn on tv` en la sección anterior, notará que el televisor aparece como "encendido".
     > [!div class="mx-imgBorder"]
     > ![Sincronización del estado de dispositivo](media/custom-commands/setup-web-endpoint-sync-device-state.png)

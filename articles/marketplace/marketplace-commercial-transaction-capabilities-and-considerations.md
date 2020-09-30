@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 04a984a2dfa473502fd9e534e52b60b33be52757
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 1b0600b164186097bc41a7e4d655e32bb2d0acbd
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88704967"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318784"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Capacidades de transacción de marketplace comercial
 
@@ -144,6 +144,8 @@ En este escenario, Microsoft factura 100,00 USD por su licencia de software y p
 |Microsoft le paga el 80 % del costo de licencia <br> \* Microsoft le paga el 90 % del costo de licencia de las aplicaciones SaaS aptas.   |   80,00 USD al mes <br> \* 90,00 USD al mes    |
 |Microsoft se queda con el 20 % del costo de licencia <br> \* Microsoft se queda con el 10 % del costo de licencia de las aplicaciones SaaS aptas.  |  20,00 USD al mes <br> \* 10,00 USD     |
 
+### <a name="reduced-service-fee"></a>Reducción de precio en los servicios
+
 Para determinadas ofertas que se publican en el marketplace comercial, Microsoft reducirá sus cuotas del servicio Marketplace del 20 % (tal como se describe en el [contrato para editores de Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560)) al 10 %. Para que su oferta sea apta, Microsoft debe haber designado sus ofertas como incentivadas para realizar una venta conjunta por IP de Azure. Para recibir el precio reducido del servicio Marketplace durante el mes, se deben cumplir los criterios de idoneidad al menos cinco días hábiles antes del final de cada mes natural. La cuota reducida del servicio Marketplace se aplica a SaaS, máquinas virtuales y aplicaciones administradas con incentivos por venta conjunta por IP de Azure, así como a cualquier otra oferta de IaaS en la que se pueda llevar a cabo una transacción cualificada que esté disponible a través del marketplace comercial.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Facturación, pago y cobro al cliente
@@ -183,6 +185,7 @@ En esta sección se tratan los requisitos de transacción para distintos tipos d
 
 - Se necesitan una cuenta de Microsoft y la información financiera para la opción de publicación de transacciones, independientemente del modelo de precios de la oferta.
 - Entre la información financiera obligatoria se incluyen el perfil fiscal y la cuenta de pago.
+- El publicador debe residir en un [país o región compatibles](sell-from-countries.md).
 
 Para más información sobre cómo configurar estas cuentas, consulte [Administración de la cuenta de marketplace comercial en el Centro de partners](partner-center-portal/manage-account.md).
 

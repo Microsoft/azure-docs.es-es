@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6565d8056ae8106bd93b7dd096bc709010ec5c3f
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: ec2b971941f460522046d56cd097ede15a3bdcbe
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400711"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086341"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Procedimientos recomendados del servicio Search de Azure Maps
 
@@ -426,7 +426,7 @@ query=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York
 Puede usar los métodos siguientes.
 
 JavaScript o TypeScript:
-```Javascript
+```javascript
 encodeURIComponent(query)
 ```
 

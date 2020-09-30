@@ -7,18 +7,18 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev
+ms.custom: aaddev , devx-track-azurepowershell
 ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: 423ec19d249d183f8888bf9e1eb837e2c860b1ed
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 5d9bf672aae3cf55ae7cf22aa1437f01ced99901
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117148"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178814"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Procedimientos: Uso de Azure PowerShell para crear una entidad de servicio con un certificado
 
@@ -43,7 +43,7 @@ Para completar este artículo, debe tener permisos suficientes tanto en su suscr
 El portal representa la forma más sencilla de comprobar si su cuenta tiene los permisos adecuados. Consulte el [artículo que explica cómo comprobar el permiso requerido](howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## <a name="assign-the-application-to-a-role"></a>Asignación de la aplicación a un rol
-Para acceder a los recursos de la suscripción, debe asignarle a la aplicación un rol. Decida qué rol ofrece los permisos adecuados para la aplicación. Para obtener más información sobre los roles disponibles, vea [RBAC: Roles integrados](../../role-based-access-control/built-in-roles.md).
+Para acceder a los recursos de la suscripción, debe asignarle a la aplicación un rol. Decida qué rol ofrece los permisos adecuados para la aplicación. Para obtener información sobre los roles disponibles, consulte [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md).
 
 Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o recurso. Los permisos se heredan en los niveles inferiores del ámbito. Por ejemplo, el hecho de agregar una aplicación al rol *Lector* para un grupo de recursos significa que esta puede leer el grupo de recursos y los recursos que contiene. Para permitir que la aplicación ejecute acciones como reiniciar, iniciar y detener instancias, seleccione el rol *Colaborador*.
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 2fc9a1a1c3a08f0530649ae64926c673e2d666e0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 21153d3c914864966106bf66edccb3c549398bc7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012695"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898236"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planeamiento y administración de los costos de Azure Machine Learning
 
@@ -49,7 +49,7 @@ En la captura de pantalla siguiente se muestra la estimación de costos mediante
 
 A medida que agregue nuevos recursos al área de trabajo, vuelva a esta calculadora y agregue el mismo recurso aquí para actualizar las estimaciones de costos.
 
-Aunque la edición Enterprise está en versión preliminar, no hay ningún suplemento por ML. Cuando la edición Enterprise esté disponible con carácter general, tendrá un suplemento (para entrenamiento e inferencia).  Para más información, consulte [Precios de Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
+Para más información, consulte [Precios de Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 ## <a name="get-cost-alerts"></a>Obtención de alertas sobre los costos
 
@@ -69,7 +69,7 @@ Como los datos cambian constantemente, necesita entrenar y volver a entrenar mod
 
 Los usuarios de Azure Machine Learning pueden usar el clúster de proceso de Azure Machine Learning administrado, también denominado AmlCompute. AmlCompute admite una variedad de opciones de GPU y CPU. Azure Machine Learning hospeda internamente AmlCompute en nombre de su suscripción. Proporciona los mismos niveles empresariales de seguridad, cumplimiento y gobernanza en la escala de nube de IaaS de Azure.
 
-Dado que estos grupos de proceso se encuentran dentro de la infraestructura de IaaS de Azure, puede implementar, escalar y administrar el entrenamiento con los mismos requisitos de seguridad y cumplimiento que el resto de la infraestructura.  Estas implementaciones se producen en su suscripción y obedecen sus reglas de gobernanza. Más información sobre [Proceso de Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute).
+Dado que estos grupos de proceso se encuentran dentro de la infraestructura de IaaS de Azure, puede implementar, escalar y administrar el entrenamiento con los mismos requisitos de seguridad y cumplimiento que el resto de la infraestructura.  Estas implementaciones se producen en su suscripción y obedecen sus reglas de gobernanza. Más información sobre [proceso de Azure Machine Learning](how-to-create-attach-compute-sdk.md#amlcompute).
 
 ## <a name="configure-training-clusters-for-autoscaling"></a>Configuración de clústeres de entrenamiento para el escalado automático
 
@@ -84,9 +84,9 @@ También puede configurar la cantidad de tiempo que el nodo está inactivo antes
 + Si realiza una experimentación menos iterativa, reduzca este tiempo para ahorrar costos.
 + Si realiza experimentación de desarrollo y pruebas de gran iteración, es posible que tenga que aumentar este tiempo para no pagar por el escalado y la reducción vertical constante después de cada cambio en el entorno o el script de entrenamiento.
 
-Los clústeres de AmlCompute se pueden configurar para los cambios en los requisitos de carga de trabajo de Azure Portal, mediante la [clase SDK de AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py), [la CLI de AmlCompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute), con las [API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
+Los clústeres de AmlCompute se pueden configurar para los cambios en los requisitos de carga de trabajo de Azure Portal, mediante la [clase SDK de AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true), [la CLI de AmlCompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute), con las [API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
 
-```azure cli
+```azurecli
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300
 ```
 
@@ -127,4 +127,4 @@ Proceso de Azure Machine Learning admite las instancias reservadas de forma inhe
 Más información sobre:
 * [Administración y aumento de cuotas de recursos](how-to-manage-quotas.md).
 * [Administración de costos con análisis de costos](../cost-management-billing/costs/quick-acm-cost-analysis.md)
-* [Proceso de Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute).
+* Cree procesos de Azure Machine Learning Compute mediante el [SDK](how-to-create-attach-compute-sdk.md#amlcompute) o en [Studio](how-to-create-attach-compute-studio.md#amlcompute).

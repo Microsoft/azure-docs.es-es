@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: bc856e9a6a20c262f49cb4c2a730d8ba5157530a
-  ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+  ms.openlocfilehash: e0f15382d61558e72dd9c1e4ecf108bdf1655160
+  ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/28/2020
-  ms.locfileid: "87337065"
+  ms.lasthandoff: 09/11/2020
+  ms.locfileid: "90017360"
 landingContent:
 - title: Creación de soluciones energéticas
   linkLists:
@@ -31,18 +31,32 @@ landingContent:
       text: Creación de una aplicación de supervisión de medidores inteligentes
     - url: tutorial-solar-panel-app.md
       text: Creación de una aplicación de supervisión de paneles solares
-- title: Obtención de conexión
+- title: Conexión y desarrollo de dispositivos
   linkLists:
+  - linkListType: overview
+    links:
+    - text: Información general para desarrolladores de dispositivos
+      url: ../core/overview-iot-central-developer.md
   - linkListType: tutorial
     links:
-    - text: Configuración de una plantilla de dispositivo
-      url: ../core/howto-set-up-template.md
-    - text: Conexión de un dispositivo
-      url: ../core/tutorial-connect-device.md
+    - text: Conexión de un dispositivo (Node.js)
+      url: ../core/tutorial-connect-device-nodejs.md
+    - text: Conexión de un dispositivo (Python)
+      url: ../core/tutorial-connect-device-python.md
+  - linkListType: concept
+    links:
+    - text: Conectividad de dispositivos
+      url: ../core/concepts-get-connected.md
+    - text: Plantillas de dispositivo
+      url: ../core/concepts-device-templates.md
   - linkListType: how-to-guide
     links:
-    - text: Conexión a otras nubes de IoT
-      url: ../core/howto-build-iotc-device-bridge.md
+    - text: Configuración de una plantilla
+      url: ../core/howto-set-up-template.md
+    - text: Conexión de un dispositivo de Azure Sphere
+      url: ../core/howto-connect-sphere.md
+    - text: Solución de problemas de conectividad de dispositivos
+      url: ../core/troubleshoot-connection.md
 - title: Mantenimiento de la conexión
   linkLists:
   - linkListType: tutorial

@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: e0b78c5e053c5668fbebd8ebaac91a90aa2b364f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 66335548381a6f7e3ebf93c97eb212255639644c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752864"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604094"
 ---
 # <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Inicio rápido: creación de la primera aplicación web en Azure Portal
 
@@ -56,38 +56,39 @@ Tras iniciar sesión con GitHub, escriba la información del repositorio.
 1. Seleccione su _organización_ preferida.
 1. Seleccione **my-first-web-static-app** en el menú desplegable _Repositorio_.
 1. Seleccione **master** en el menú desplegable _Rama_.
-1. Seleccione el botón **Siguiente: Compilar >** para editar la configuración de compilación.
-
-:::image type="content" source="media/getting-started-portal/next-build-button.png" alt-text="Botón Siguiente: Compilar":::
 
 > [!NOTE]
 > Si no ve ningún repositorio, es posible que deba autorizar Azure Static Web Apps en GitHub. Vaya al repositorio de GitHub y, a continuación, a **Configuración > Aplicaciones > Aplicaciones de OAuth autorizadas**, seleccione **Azure Static Web Apps** y, después, **Conceder**. En el caso de los repositorios de la organización, debe ser propietario de la organización para conceder los permisos.
 
-1. En la pestaña _Build_ (Compilar), agregue los datos de configuración específicos del marco de front-end que prefiera.
+1. En la sección _Build Details_ (Detalles de la compilación), agregue los detalles de configuración específicos del marco de front-end que prefiera.
 
     # <a name="no-framework"></a>[Ningún marco](#tab/vanilla-javascript)
 
-    - Borre el valor predeterminado del cuadro _App location_ (Ubicación de la aplicación).
-    - Borre el valor predeterminado del cuadro _Ubicación de la API_.
-    - Borre el valor predeterminado del cuadro _Ubicación del artefacto de la aplicación_.
+    1. Seleccione **Custom** (Personalizado) en la lista desplegable _Build Presets_ (Valores preestablecidos de compilación).
+    1. Deje el valor predeterminado en el cuadro _App location_ (Ubicación de la aplicación).
+    1. Borre el valor predeterminado del cuadro _Ubicación de la API_.
+    1. Deje el cuadro _App artifact location_ (Ubicación del artefacto de la aplicación) en blanco.
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    - Borre el valor predeterminado del cuadro _App location_ (Ubicación de la aplicación).
-    - Borre el valor predeterminado del cuadro _Ubicación de la API_.
-    - Escriba **dist/angular-basic** en el cuadro _App artifact location_ (Ubicación del artefacto de la aplicación).
+    1. Seleccione **Angular** en la lista desplegable _Build Presets_ (Valores preestablecidos de compilación).
+    1. Deje el valor predeterminado en el cuadro _App location_ (Ubicación de la aplicación).
+    1. Borre el valor predeterminado del cuadro _Ubicación de la API_.
+    1. Escriba **dist/angular-basic** en el cuadro _App artifact location_ (Ubicación del artefacto de la aplicación).
 
     # <a name="react"></a>[React](#tab/react)
 
-    - Borre el valor predeterminado del cuadro _App location_ (Ubicación de la aplicación).
-    - Borre el valor predeterminado del cuadro _Ubicación de la API_.
-    - Escriba **build** en el cuadro _App artifact location_ (Ubicación del artefacto de la aplicación).
+    1. Seleccione **React** en la lista desplegable _Build Presets_ (Valores preestablecidos de compilación).
+    1. Deje el valor predeterminado en el cuadro _App location_ (Ubicación de la aplicación).
+    1. Borre el valor predeterminado del cuadro _Ubicación de la API_.
+    1. Escriba **build** en el cuadro _App artifact location_ (Ubicación del artefacto de la aplicación).
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
-    - Borre el valor predeterminado del cuadro _App location_ (Ubicación de la aplicación).
-    - Borre el valor predeterminado del cuadro _Ubicación de la API_.
-    - Escriba **dist** en el cuadro _App artifact location_ (Ubicación del artefacto de la aplicación).
+    1. Seleccione **Vue.js** en la lista desplegable _Build Presets_ (Valores preestablecidos de compilación).
+    1. Deje el valor predeterminado en el cuadro _App location_ (Ubicación de la aplicación).
+    1. Borre el valor predeterminado del cuadro _Ubicación de la API_.
+    1. Deje el valor predeterminado en el cuadro _App artifact location_ (Ubicación del artefacto de la aplicación).
 
     ---
 

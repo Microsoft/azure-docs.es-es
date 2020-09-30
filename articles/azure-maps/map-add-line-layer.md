@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: c834ae6061fce6f2fc2f4cd7c4d80e036775b156
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 11783ceae1b2a2f9782df74976d8ea6d66573a1c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010215"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086035"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Adición de una capa de línea al mapa
 
@@ -23,7 +23,7 @@ Una capa de línea se puede usar para representar las características `LineStri
 > [!TIP]
 > Las capas de línea de forma predeterminada representarán las coordenadas de los polígonos y las líneas en un origen de datos. Para limitar la capa de forma que solo represente las características de LineString, configure la propiedad `filter` de la capa en `['==', ['geometry-type'], 'LineString']` o `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` si desea incluir también las características de MultiLineString.
 
-En el código siguiente, se muestra cómo se crea una línea. Agregue la línea a un origen de datos y represéntela con una capa de líneas utilizando la clase [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest).
+En el código siguiente, se muestra cómo se crea una línea. Agregue la línea a un origen de datos y represéntela con una capa de líneas utilizando la clase [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer).
 
 ```javascript
 //Create a data source and add it to the map.
@@ -44,10 +44,10 @@ A continuación se muestra el código de ejemplo de ejecución completo de la fu
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Adición de una línea a un mapa' src='//codepen.io/azuremaps/embed/qomaKv/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/qomaKv/'>Adición de una línea a un mapa</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adición de una línea a un mapa' src='//codepen.io/azuremaps/embed/qomaKv/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/qomaKv/'>Adición de una línea a un mapa</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Se puede aplicar estilo a las capas de línea mediante [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest) y [Uso de expresiones de estilo controladas por datos](data-driven-style-expressions-web-sdk.md).
+Se puede aplicar estilo a las capas de línea mediante [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions) y [Uso de expresiones de estilo controladas por datos](data-driven-style-expressions-web-sdk.md).
 
 ## <a name="add-symbols-along-a-line"></a>Adición de símbolos a lo largo de una línea
 
@@ -55,7 +55,7 @@ En este ejemplo se muestra cómo agregar iconos de flecha situados a lo largo de
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Visualización de la flecha a lo largo de la línea" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Visualización de la flecha a lo largo de la línea" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/drBJwX/'>Visualización de la flecha a lo largo de la línea</a> por Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -70,7 +70,7 @@ Puede aplicar un color de trazo único a la línea. También puede rellenar la l
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Línea con degradado de trazo" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Línea con degradado de trazo" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte el Pen <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>Línea con degradado de trazo</a> por Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -80,7 +80,7 @@ La capa de líneas dispone de varias opciones de estilo. Esta es una herramienta
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Opciones de capa de línea' src='//codepen.io/azuremaps/embed/GwLrgb/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/GwLrgb/'>Opciones de capa de línea</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Opciones de capa de línea' src='//codepen.io/azuremaps/embed/GwLrgb/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/GwLrgb/'>Opciones de capa de línea</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -88,10 +88,10 @@ La capa de líneas dispone de varias opciones de estilo. Esta es una herramienta
 Más información sobre las clases y los métodos utilizados en este artículo:
 
 > [!div class="nextstepaction"]
-> [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) 
+> [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer) 
 
 > [!div class="nextstepaction"]
-> [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)
+> [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions)
 
 Para obtener más ejemplos de código para agregar a los mapas:
 

@@ -3,12 +3,12 @@ title: Restauración de archivos en Windows Server mediante el agente de MARS
 description: En este artículo, aprenderá a restaurar datos almacenados en Azure en un equipo Windows Server o Windows con el agente de Microsoft Azure Recovery Services (MARS).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: e61ad7083a7b6979222566112820bad133022844
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 0d2f9e8197ac397bf61e4cb293e354a10ba0e1da
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892514"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178564"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restauración de archivos en Windows Server mediante el agente de MARS
 
@@ -23,7 +23,7 @@ Use la característica de restauración instantánea para montar una instantáne
 > Se necesita la [actualización de enero de 2017 de Azure Backup](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) si desea utilizar la restauración instantánea para restaurar datos. También se deben proteger los datos de copia de seguridad en los almacenes en configuraciones regionales que aparecen en el artículo de soporte técnico. Consulte la [actualización de Azure Backup de enero de 2017](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) para obtener la lista más reciente de configuraciones regionales que admitan la restauración instantánea.
 >
 
-Use almacenes de Restauración instantánea con Recovery Services en Azure Portal. Si almacenó datos en los almacenes de Backup, se convirtieron en almacenes de Recovery Services. Si desea usar la restauración instantánea, descargue la actualización de MARS y siga los procedimientos que mencionan la restauración instantánea.
+Use almacenes de Restauración instantánea con Recovery Services en Azure Portal. Si tenía datos guardados en almacenes de Azure Backup, se habrán convertido en almacenes de Recovery Services. Si desea usar la restauración instantánea, descargue la actualización de MARS y siga los procedimientos que mencionan la restauración instantánea.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -89,7 +89,7 @@ Estos pasos incluyen la siguiente terminología:
 * *Almacén de ejemplo*: el almacén de Recovery Services en el que se registran la máquina de origen y la máquina de destino.
 
 > [!NOTE]
-> Las copias de seguridad no se pueden restaurar en una máquina de destino en la que se ejecuta una versión anterior del sistema operativo. Por ejemplo, una copia de seguridad perteneciente a un equipo con Windows 7 se puede restaurar en un equipo con Windows 7 o posterior. Una copia de seguridad realizada en un equipo con Windows 8 no se puede restaurar en un equipo con Windows 7.
+> Las copias de seguridad no se pueden restaurar en una máquina de destino en la que se ejecuta una versión anterior del sistema operativo. Por ejemplo, una copia de seguridad perteneciente a un equipo con Windows 7 se puede restaurar en un equipo con Windows 7 o posterior. Una copia de seguridad tomada de un equipo con Windows 10 no se puede restaurar en un equipo con Windows 7.
 >
 >
 

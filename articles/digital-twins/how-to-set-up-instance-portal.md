@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1f7486f1080c0fbb25b1be6ab70bb647a546ceca
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 12b0dd957cb89fc7114c752312b08f1e490499da
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88234999"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280033"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configuración de una instancia de Azure Digital Twins y autenticación (portal)
 
@@ -107,7 +107,7 @@ Empiece por ir a [Azure Active Directory](https://portal.azure.com/#blade/Micr
 En la página *Registrar una aplicación* que sigue, rellene los valores solicitados:
 * **Name**: nombre para mostrar de una aplicación de Azure AD para asociar al registro.
 * **Tipos de cuenta admitidos**: seleccione *Cuentas de este directorio organizativo solo (Solo directorio predeterminado: inquilino único)*
-* **URI de redirección**: *URL de respuesta de aplicación de Azure AD* para la aplicación de Azure AD. Puede usar `http://localhost`.
+* **URI de redirección**: *URL de respuesta de aplicación de Azure AD* para la aplicación de Azure AD. Agregue un URI*Cliente público o nativo (móvil o escritorio)* para `http://localhost`.
 
 Cuando termine, pulse el botón *Registrarse*.
 
@@ -162,5 +162,9 @@ Tome nota del *Id. de la aplicación (cliente)* y el *Id. de directorio (inquili
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte cómo conectar la aplicación cliente a la instancia mediante la escritura del código de autenticación de la aplicación cliente:
+Pruebe las llamadas individuales de la API de REST en su instancia mediante los comandos de la CLI de Azure Digital Twins: 
+* [Referencia de az dt](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
+
+O bien, consulte cómo conectar la aplicación cliente a la instancia mediante la escritura del código de autenticación de la aplicación cliente:
 * [*Procedimiento: Escritura de código de autenticación de aplicación*](how-to-authenticate-client.md)

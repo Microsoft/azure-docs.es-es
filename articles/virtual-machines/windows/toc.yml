@@ -317,6 +317,8 @@
           href: disk-encryption.md
         - name: Reservas de Disk Storage
           href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Rendimiento de la máquina virtual y del disco
+          href: disk-performance-windows.md
         - name: Diseño para alto rendimiento
           href: ../premium-storage-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Seguridad de disco
@@ -352,6 +354,9 @@
           href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Estados y ciclo de vida
       href: ../states-lifecycle.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: PUT llama a operaciones de creación o actualización
+      href: ../put-calls-create-or-update.md
+      maintainContext: true
     - name: Supervisión
       href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Diagnósticos de arranque
@@ -371,7 +376,7 @@
             - name: PowerShell
               href: dedicated-hosts-powershell.md
             - name: Portal
-              href: dedicated-hosts-portal.md
+              href: ../dedicated-hosts-portal.md
         - name: Implementación de máquinas virtuales de Spot
           items:
             - name: Portal
@@ -444,7 +449,7 @@
                   items:
                     - name: Desde una máquina virtual
                       href: ../image-version-vm-powershell.md
-                    - name: Desde un disco duro virtual o una instantánea
+                    - name: Desde un disco administrado o una instantánea
                       href: ../image-version-snapshot-powershell.md
                     - name: Migración desde una imagen administrada
                       href: ../image-version-managed-image-powershell.md
@@ -466,7 +471,7 @@
                   items:
                     - name: Desde una máquina virtual
                       href: ../image-version-vm-cli.md
-                    - name: Desde un disco duro virtual o una instantánea
+                    - name: Desde un disco administrado o una instantánea
                       href: ../image-version-snapshot-cli.md
                     - name: Migración desde una imagen administrada
                       href: ../image-version-managed-image-cli.md
@@ -497,7 +502,7 @@
                 - name: Creación de una máquina virtual a partir de la versión de la imagen
                   href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
             - name: Solución de problemas de imágenes compartidas
-              href: troubleshooting-shared-images.md
+              href: ../troubleshooting-shared-images.md
             - name: Usando claves administradas por el cliente
               displayName: 'SSE, CMK, encrypt'
               href: ../image-version-encryption.md
@@ -505,23 +510,35 @@
           items:
             - name: Información general
               href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Uso de CLI de Azure
-              href: image-builder.md
-            - name: Creación de una máquina virtual mediante una red virtual
+            - name: Uso de Image Builder
+              items:
+                - name: CLI
+                  href: image-builder.md
+                - name: PowerShell
+                  href: image-builder-powershell.md
+            - name: Uso de una red virtual
               href: image-builder-vnet.md
-            - name: Uso de Azure PowerShell
-              href: image-builder-powershell.md
+            - name: Opciones de redes
+              href: ../linux/image-builder-networking.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Configuración de permisos
+              items:
+                - name: CLI
+                  href: ../linux/image-builder-permissions-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                - name: PowerShell
+                  href: ../linux/image-builder-permissions-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Tarea de DevOps
+              href: ../linux/image-builder-devops-task.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Referencia de la plantilla de Image Builder
+              displayName: json
+              href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Compilación para galerías de imágenes
               href: image-builder-gallery.md
             - name: Actualización de una imagen existente
               href: image-builder-gallery-update-image-version.md
             - name: Almacenamiento de scripts
               href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Referencia de plantilla de Resource Manager
-              displayName: Azure Resource Manager
-              href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Solución de problemas
-              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
+              href: ../linux/image-builder-troubleshoot.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Búsqueda y uso de imágenes
           href: cli-ps-findimage.md
         - name: Información sobre el plan de compra
@@ -578,7 +595,7 @@
               href: disk-encryption-troubleshooting.md
             - name: Preguntas frecuentes sobre el cifrado de discos
               href: disk-encryption-faq.md
-            - name: 'Cifrado de discos: versión anterior (AAD)'
+            - name: "Cifrado de disco: versión anterior (Azure\_AD)"
               items:
                 - name: Información general
                   href: disk-encryption-overview-aad.md
@@ -656,7 +673,7 @@
           href: nested-virtualization.md
         - name: Aplicación de revisiones automáticas a los invitados de la máquina virtual (versión preliminar)
           href: automatic-vm-guest-patching.md
-    - name: Mantenimiento de la plataforma
+    - name: Control de mantenimiento
       items:
         - name: Notificaciones de mantenimiento
           items:
@@ -668,7 +685,7 @@
               href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: PowerShell
               href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-        - name: Control de mantenimiento
+        - name: Mantenimiento de la plataforma
           items:
             - name: Información general
               href: ../maintenance-control.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -682,6 +699,16 @@
           href: scheduled-events.md
         - name: Servicio de eventos programados de Windows
           href: scheduled-event-service.md
+        - name: Actualizaciones de la imagen del sistema operativo del conjunto de escalado de máquinas virtuales
+          items:
+            - name: Actualizaciones automáticas del sistema operativo
+              href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Control de mantenimiento
+              items:
+                - name: Introducción (versión preliminar)
+                  href: ../virtual-machine-scale-sets-maintenance-control.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                - name: PowerShell (versión preliminar)
+                  href: ../virtual-machine-scale-sets-maintenance-control-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Supervisión de máquinas virtuales
       items:
         - name: Agentes
@@ -794,8 +821,9 @@
         - name: Virtual Machine Scale Sets
           href: ../../virtual-machine-scale-sets/overview.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: Alta disponibilidad
-          href: manage-availability.md
+          href: ../manage-availability.md
         - name: Creación de un grupo de selección de ubicación por proximidad
+          displayName: ppg aligned colocation co-location
           items:
             - name: Portal
               href: proximity-placement-groups-portal.md
@@ -846,8 +874,10 @@
           items:
             - name: Azure PowerShell
               href: attach-disk-ps.md
-            - name: Portal de Azure
+            - name: Azure portal
               href: attach-managed-disk-portal.md
+        - name: Cambio del nivel del disco
+          href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Desconexión de un disco
           href: detach-disk.md
         - name: Implementación de discos con plantilla de Resource Manager
@@ -918,7 +948,7 @@
           href: ../../virtual-network/quick-create-portal.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: Apertura de puertos a una máquina virtual
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: nsg-quickstart-portal.md
             - name: Azure PowerShell
               href: nsg-quickstart-powershell.md

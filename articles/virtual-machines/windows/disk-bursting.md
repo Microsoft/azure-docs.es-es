@@ -3,16 +3,17 @@ title: Seguridad de disco administrado
 description: Aprenda sobre la seguridad de disco para discos de Azure y para máquinas virtuales de Azure
 author: albecker1
 ms.author: albecker
-ms.date: 04/27/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 25aa9fc166e831acd2ed0389bbbe4d2dc7e04b19
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.custom: references_regions
+ms.openlocfilehash: ab54b68ab3f7984ee18a39cf3a81fa663af54dee
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594463"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889097"
 ---
 # <a name="disk-bursting"></a>Seguridad de disco
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
@@ -20,6 +21,10 @@ ms.locfileid: "82594463"
 ## <a name="virtual-machine-level-bursting"></a>Seguridad en el nivel de máquina virtual
 La compatibilidad con la seguridad de nivel de máquina virtual está habilitada en todas las regiones de la nube pública en estos tamaños admitidos: 
 - [Serie Lsv2](../lsv2-series.md)
+
+La expansión en el nivel de máquina virtual también está disponible en la región Centro-oeste de EE. UU. para los siguientes tamaños admitidos:
+- [Serie Dsv3](../dv3-dsv3-series.md)
+- [Serie Esv3](../ev3-esv3-series.md)
 
 La seguridad está habilitada de forma predeterminada para las máquinas virtuales que la admiten.
 

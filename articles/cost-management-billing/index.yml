@@ -11,12 +11,12 @@ metadata:
   author: bandersmsft
   ms.author: banders
   ms.date: 08/20/2020
-  ms.openlocfilehash: 1d3fafd26b5ad7f92d9280701a386a09f1ad3d22
-  ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+  ms.openlocfilehash: d3fda9926d5e775dfcd4e36f4733c1e83daf709e
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/20/2020
-  ms.locfileid: "88683137"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91270821"
 landingContent:
 - title: Análisis de los costos
   linkLists:
@@ -94,8 +94,8 @@ landingContent:
       url: costs/tutorial-acm-opt-recommendations.md
   - linkListType: how-to-guide
     links:
-    - text: Prevención de cargos inesperados
-      url: manage/getting-started.md
+    - text: Análisis de cargos inesperados
+      url: understand/analyze-unexpected-charges.md
   - linkListType: learn
     links:
     - text: Empiece a optimizar sus costos hoy mismo

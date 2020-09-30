@@ -1,10 +1,10 @@
 ### YamlMime:Hub
 title: Documentación de Azure Media Services
-summary: Azure Media Services es una plataforma de elementos multimedia basada en la nube que le permite compilar soluciones que requieren codificación, empaquetado, protección del contenido y difusión de eventos en directo.
+summary: Azure Media Services es una colección de servicios de flujo de trabajo multimedia de la nube y del perímetro que permite crear soluciones que requieren análisis de vídeo en directo y por lotes, transcodificación, servicios de entrega multidispositivo, protección de contenido y la difusión de eventos en directo a escala.
 brand: azure
 metadata:
   title: Documentación de Azure Media Services
-  description: Azure Media Services es una plataforma de flujos de trabajo de elementos multimedia basada en la nube que permite compilar soluciones que requieren codificación, empaquetado, protección del contenido y difusión de eventos en directo.
+  description: Azure Media Services es una colección de servicios de flujo de trabajo multimedia de la nube y del perímetro que permite crear soluciones que requieren análisis de vídeo en directo y por lotes, transcodificación, servicios de entrega multidispositivo, protección de contenido y la difusión de eventos en directo a escala.
   services: media-services
   ms.service: media-services
   ms.subservice: 
@@ -13,12 +13,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 07//2020
-  ms.openlocfilehash: d6f78b4494a16a0522f93658b063d157819c519e
-  ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+  ms.openlocfilehash: fb258b634ff5511a9e795e8c0990a62bf2d0d22d
+  ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/06/2020
-  ms.locfileid: "87826150"
+  ms.lasthandoff: 09/13/2020
+  ms.locfileid: "90056540"
 highlightedContent:
   items:
   - title: Azure Media Services, versión 3

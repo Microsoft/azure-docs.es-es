@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/03/2020
 ms.author: banders
-ms.openlocfilehash: 928800f22011f6388ec50a1ab5e906b2080a4125
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: e5b1ecfd7b434ceefcff65178b7532575a759d45
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682899"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440633"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Finalización de tareas del Contrato Enterprise en la cuenta de facturación para un contrato de cliente de Microsoft
 

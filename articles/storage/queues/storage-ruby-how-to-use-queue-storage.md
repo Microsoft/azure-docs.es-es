@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: ac47747f7789b23801900804522681e5a4b10e5a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c29b864fb3a547599f32c00c9e8c27cbdb0e0a92
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078706"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459613"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Uso del almacenamiento de colas de Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -151,7 +151,7 @@ azure_queue_service.delete_queue("test-queue")
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de colas, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
-* Visite el [blog del equipo de Azure Storage](https://blogs.msdn.com/b/windowsazurestorage/)
+* Visite el [blog del equipo de Azure Storage](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
 * Visite el repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 
 Podrá encontrar una comparación entre Azure Queue Service, que se explica en este artículo, y Azure Service Bus Queues, que se explican en el artículo [Utilización de las colas de Service Bus](https://azure.microsoft.com/develop/ruby/how-to-guides/service-bus-queues/), en el documento [Colas de Azure y Colas de Service Bus: comparación y diferencias](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md).

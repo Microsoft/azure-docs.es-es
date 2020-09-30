@@ -1,20 +1,20 @@
 ---
 title: Cifrado de datos en reposo del servicio de voz
 titleSuffix: Azure Cognitive Services
-description: Cifrado de datos en reposo del servicio de voz.
+description: Microsoft ofrece claves de cifrado administradas por Microsoft y también le permite administrar las suscripciones de Cognitive Services con sus propias claves, llamadas claves administradas por el cliente (CMK). En este artículo, encontrará información sobre el cifrado de datos en reposo del servicio Voz.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: c2e52fbab8d984f7442d8a336e90e9f22c0bf061
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b9b76b2eb5e9536561f73a92b6911a2f82122a1b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198666"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078102"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>Cifrado de datos en reposo del servicio de voz
 

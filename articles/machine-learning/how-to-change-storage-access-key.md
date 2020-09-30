@@ -11,15 +11,15 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: c6b8f9d7f99d49f65a45d0e09623ef2f0e1217f2
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: d511520e274af9c6dea3f443693249ede368fd99
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387071"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893275"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Regeneración de las claves de acceso de la cuenta de almacenamiento
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Obtenga información sobre cómo cambiar las claves de acceso de las cuentas de Azure Storage que usa Azure Machine Learning. Azure Machine Learning puede usar cuentas de almacenamiento para almacenar datos o modelos entrenados.
 
@@ -32,7 +32,7 @@ Por motivos de seguridad, es posible que necesite cambiar las claves de acceso d
 
 * Un área de trabajo de Azure Machine Learning. Para más información, consulte el artículo [Crear un área de trabajo](how-to-manage-workspace.md).
 
-* El [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* El [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
 
 * La [extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
@@ -141,4 +141,4 @@ Para actualizar Azure Machine Learning de modo que use la clave nueva, siga esto
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre cómo registrar almacenes de datos, vea la referencia de la clase [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py).
+Para obtener más información sobre cómo registrar almacenes de datos, vea la referencia de la clase [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py&preserve-view=true).

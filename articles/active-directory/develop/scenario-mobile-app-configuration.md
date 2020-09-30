@@ -1,7 +1,7 @@
 ---
 title: Configuración de aplicaciones móviles que llaman a las API web | Azure
 titleSuffix: Microsoft identity platform
-description: Obtenga información sobre cómo compilar una aplicación móvil que llama a las API web (configuración del código de la aplicación)
+description: Aprenda a configurar el código de su aplicación móvil para que llame a una API web.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 717b6ed7e711b4db4cb15e55282cfcdea4659178
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 52bfd76a12f431576d4fc3cc7a51c6e58c7551ff
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051345"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442758"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configuración de una aplicación móvil que llama a las API web
 

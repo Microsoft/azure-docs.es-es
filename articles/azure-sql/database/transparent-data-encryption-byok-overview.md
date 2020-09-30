@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: cf0fec1f081a232abc88941e3dd785fb7617fb57
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 4e17af8289c68ded282a9c4a9ca2d400d31ca30d
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387122"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602676"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -94,6 +94,10 @@ Los auditores pueden usar Azure Monitor para revisar los registros de los objeto
 
 - Si va a importar una clave existente en el almacén de claves, asegúrese de proporcionarla en uno de los formatos de archivo compatibles (.pfx, .byok o .backup).
 
+> [!NOTE]
+> Azure SQL admite ahora el uso de una clave RSA almacenada en un HSM administrado como protector de TDE. Esta característica está en **versión preliminar pública**. HSM administrado de Azure Key Vault es un servicio en la nube totalmente administrado, de alta disponibilidad y de un solo inquilino que cumple los estándares y que le permite proteger las claves criptográficas de las aplicaciones en la nube mediante HSM validados de FIPS 140-2, nivel 3. Obtenga más información sobre [HSM administrados](https://aka.ms/mhsm).
+
+
 ## <a name="recommendations-when-configuring-customer-managed-tde"></a>Recomendaciones para la configuración de TDE administrado por el cliente
 
 ### <a name="recommendations-when-configuring-akv"></a>Recomendaciones para la configuración de AKV
@@ -132,6 +136,11 @@ Una vez restaurado el acceso a la clave, se necesita tiempo para volver a poner 
 - Si se restaura el acceso a la clave en un plazo de ocho horas, la base de datos se restablecerá automáticamente durante la próxima hora.
 
 - Si se restaura el acceso a la clave transcurridas más de ocho horas, no será posible la recuperación automática de la base de datos y será necesario realizar pasos adicionales en el portal para recuperarla manualmente. Esto que puede llevar una cantidad considerable de tiempo en función del tamaño de la base de datos. Una vez que la base de datos vuelva a estar en línea, **se perderán** los ajustes de nivel de servidor configurados previamente, como el [grupo de conmutación por error](auto-failover-group-overview.md), el historial de restauración a un momento dado y las etiquetas. Por lo tanto, se recomienda implementar un sistema de notificación que le permita identificar y resolver los problemas subyacentes de acceso de las claves en un plazo de ocho horas.
+
+A continuación se muestra una vista de los pasos adicionales necesarios en el portal para volver a poner en línea una base de datos que no está accesible.
+
+![Base de datos de TDE BYOK que no está accesible](./media/transparent-data-encryption-byok-overview/customer-managed-tde-inaccessible-database.jpg)
+
 
 ### <a name="accidental-tde-protector-access-revocation"></a>Revocación accidental del acceso al protector de TDE
 

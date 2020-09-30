@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: ac087a7ba241534c08c4e5737973861727ab01ca
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 46234f3b4bfd467db9b5754b5590603ff3d42915
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069585"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974532"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalación y configuración de la extensión de Azure Diagnostics (WAD) para Windows
 [Azure Diagnostics Extension](diagnostics-extension-overview.md) es un agente de Azure Monitor que recopila datos de supervisión del sistema operativo invitado y de las cargas de trabajo de las máquinas virtuales de Azure y de otros recursos de proceso. En este artículo se proporcionan detalles sobre cómo instalar y configurar la extensión de diagnósticos para Windows y una descripción de cómo se almacenan los datos en la cuenta de Azure Storage.
@@ -51,7 +51,7 @@ Puede instalar y configurar la extensión de diagnósticos en una máquina virtu
 
 6. En la pestaña **Registros**, seleccione los registros que se van a recopilar de la máquina virtual. Los registros se pueden enviar a centro de eventos o almacenamiento, pero no a Azure Monitor. Use el [agente de Log Analytics](log-analytics-agent.md) para recopilar los registros de invitados a Azure Monitor.
 
-   ![Registros](media/diagnostics-extension-windows-install/logs.png)
+   ![Captura de pantalla que muestra la pestaña Registros con diferentes registros seleccionados para una máquina virtual.](media/diagnostics-extension-windows-install/logs.png)
 
 7. En la pestaña **Volcados de memoria**, especifique cualquier proceso para recopilar volcados de memoria después de un bloqueo. Los datos se escribirán en la cuenta de almacenamiento para la configuración de diagnóstico y, opcionalmente, puede especificar un contenedor de blobs.
 
@@ -59,7 +59,7 @@ Puede instalar y configurar la extensión de diagnósticos en una máquina virtu
 
 8. En la pestaña **Receptores**, especifique si desea enviar los datos a ubicaciones distintas de Azure Storage. Si selecciona **Azure Monitor**, se enviarán los datos de rendimiento de los invitados a las métricas de Azure Monitor. No se puede configurar el receptor de centros de eventos mediante Azure Portal.
 
-   ![Receptores](media/diagnostics-extension-windows-install/sinks.png)
+   ![Captura de pantalla que muestra la pestaña Receptores con la opción Enviar datos de diagnóstico a Azure Monitor habilitada.](media/diagnostics-extension-windows-install/sinks.png)
    
    Si no ha habilitado una identidad asignada por el sistema configurada para la máquina virtual, es posible que vea la siguiente advertencia al guardar una configuración con el receptor de Azure Monitor. Haga clic en el banner para habilitar la identidad asignada por el sistema.
    
@@ -67,7 +67,7 @@ Puede instalar y configurar la extensión de diagnósticos en una máquina virtu
 
 9. En **Agente**, puede cambiar la cuenta de almacenamiento, establecer la cuota de disco y especificar si desea recopilar registros de infraestructura de diagnóstico.  
 
-   ![Agente](media/diagnostics-extension-windows-install/agent.png)
+   ![Captura de pantalla que muestra la pestaña Agente con la opción para establecer la cuenta de almacenamiento.](media/diagnostics-extension-windows-install/agent.png)
 
 10. Para guardar la configuración, haga clic en **Guardar**. 
 

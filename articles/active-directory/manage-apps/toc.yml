@@ -18,8 +18,10 @@
       href: add-application-portal-configure.md
     - name: Asignación de usuarios a una aplicación
       href: add-application-portal-assign-users.md
-    - name: Configuración del inicio de sesión único
+    - name: Configuración del inicio de sesión único basado en SAML
       href: add-application-portal-setup-sso.md
+    - name: Configuración del inicio de sesión único basado en OIDC
+      href: add-application-portal-setup-oidc-sso.md
     - name: Eliminar una aplicación
       href: delete-application-portal.md
 - name: Tutoriales

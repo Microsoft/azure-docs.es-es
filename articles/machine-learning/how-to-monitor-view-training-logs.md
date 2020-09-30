@@ -11,16 +11,16 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d06186b2ce4d8bb9143663d41f03b9508e4bd00e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6f557ac8476224cdb8414b2a45952d8f7d34513d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005962"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905019"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Supervisión y visualización de métricas y registros de ejecución de ML
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 En este artículo, aprenderá a supervisar las ejecuciones de Azure Machine Learning y a consultar sus registros. Para poder ver los registros, antes debe habilitarlos. Para obtener más información, consulte [Habilitación del registro en las ejecuciones de entrenamiento de Azure ML](how-to-track-experiments.md).
 
@@ -58,7 +58,7 @@ Una vez finalizada la ejecución, ya no se muestra en esta página. Para ver inf
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>Supervisar las ejecuciones con el widget de Jupyter Notebooks
 
-Cuando se usa el método **ScriptRunConfig** para enviar ejecuciones, se puede ver el progreso de la ejecución mediante el [widget de Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Al igual que el envío de ejecución, el widget es asincrónico y proporciona las actualizaciones directas cada 10 a 15 segundos hasta que se completa el trabajo.
+Cuando se usa el método **ScriptRunConfig** para enviar ejecuciones, se puede ver el progreso de la ejecución mediante el [widget de Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Al igual que el envío de ejecución, el widget es asincrónico y proporciona las actualizaciones directas cada 10 a 15 segundos hasta que se completa el trabajo.
 
 Vea el widget de Jupyter mientras espera a que finalice la ejecución.
     
@@ -129,7 +129,7 @@ Use los métodos siguientes en las API de registro para influir en cómo visuali
 
 Pruebe estos pasos para aprender a usar Azure Machine Learning:
 
-* Obtenga información sobre cómo [realizar un seguimiento de los experimentos y habilitar los registros en el diseñador de Azure Machine Learning (versión preliminar)](how-to-track-designer-experiments.md).
+* Obtenga información sobre cómo [realizar un seguimiento de los experimentos y habilitar los registros en el diseñador de Azure Machine Learning](how-to-track-designer-experiments.md).
 
 * Vea un ejemplo de cómo registrar el mejor modelo e implementarlo en el tutorial, [Entrenar un modelo de clasificación de imágenes con Azure Machine Learning](tutorial-train-models-with-aml.md).
 

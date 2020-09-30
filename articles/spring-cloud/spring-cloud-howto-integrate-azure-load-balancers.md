@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 3a7ed148c4bc8d58b2dcbc344656137a403c62eb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 02772f153cdda7e3f3c866c727d589e755e19033
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037549"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906937"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Integración de Azure Spring Cloud con soluciones de equilibrio de carga de Azure
+
+**Este artículo se aplica a:** ✔️ Java ✔️ C#
 
 Azure Spring Cloud admite microservicios en Azure.  El aumento del negocio puede requerir varios centros de datos con administración de varias instancias de Azure Spring Cloud.
 
@@ -26,7 +28,7 @@ Azure ya proporciona diferentes soluciones de equilibrio de carga. Existen tres 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Azure Spring Cloud: [creación de un servicio Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal)
+* Azure Spring Cloud: [creación de un servicio Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart)
 * Azure Traffic Manager: [creación de una instancia de Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
 * Azure App Gateway: [creación de una instancia de Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
 * Azure Front Door: [creación de una instancia de Front Door](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)
@@ -53,7 +55,7 @@ Para finalizar la configuración:
 
 ## <a name="integrate-azure-spring-cloud-with-azure-app-gateway"></a>Integración de Azure Spring Cloud con Azure App Gateway
 
-Para integrar con el servicio de Azure Spring Cloud, complete las siguientes configuraciones:
+Para la integración con el servicio Azure Spring Cloud, complete las siguientes configuraciones:
 
 ### <a name="configure-backend-pool"></a>Configuración del grupo de back-end
 1. Especifique **Tipo de destino** como *Dirección IP* o *FQDN*.

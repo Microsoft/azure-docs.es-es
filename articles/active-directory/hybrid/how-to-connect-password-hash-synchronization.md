@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7aeea1a0b151968683248b26a2c12f49b437bd2
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: c16882f35c9ca79644cd2b51ce4cd88bba516ed2
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278571"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89652074"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 En este artículo se ofrece información que se necesita para sincronizar las contraseñas de usuario desde una instancia de Active Directory local con otra de Azure Active Directory (Azure AD) basado en la nube.
@@ -132,7 +132,7 @@ La funcionalidad de contraseña temporal ayuda a garantizar que la transferencia
 
 Para admitir contraseñas temporales en Azure AD para usuarios sincronizados, puede habilitar la característica *ForcePasswordChangeOnLogOn* mediante la ejecución del siguiente comando en el servidor de Azure AD Connect:
 
-`Set-ADSyncAADCompanyFeature  -ForcePasswordChangeOnLogOn $true`
+`Set-ADSyncAADCompanyFeature -ForcePasswordChangeOnLogOn $true`
 
 > [!NOTE]
 > Forzar a un usuario a cambiar su contraseña en el siguiente inicio de sesión requiere un cambio de contraseña al mismo tiempo.  Azure AD Connect no recoge la marca de forzar el cambio de contraseña por sí misma; es complementaria al cambio de contraseña detectado que se produce durante la sincronización de hash de contraseñas.

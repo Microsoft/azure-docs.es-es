@@ -40,6 +40,8 @@
       href: custom-event-to-eventhub.md
     - name: Eventos de Container Registry
       href: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Control de eventos de Azure Communication Services
+      href: ../communication-services/quickstarts/telephony-sms/handle-sms-events.md?toc=%2fazure%2fevent-grid%2ftoc.json
 - name: Tutoriales
   items:
     - name: Envío de un correo electrónico cuando cambia la máquina virtual
@@ -48,7 +50,7 @@
       href: resize-images-on-storage-blob-upload-event.md
     - name: Desencadenamiento de runbook de Automation
       href: ensure-tags-exists-on-new-virtual-machines.md
-    - name: Envío de un correo electrónico cuando se agrega un dispositivo de IoT Hub
+    - name: Envío de un correo electrónico cuando se desconecta algún dispositivo de IoT Hub
       href: publish-iot-hub-events-to-logic-apps.md
     - name: Respuesta a eventos de Service Bus
       href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
@@ -112,6 +114,8 @@
               href: event-schema-app-service.md
             - name: Azure Blob Storage
               href: event-schema-blob-storage.md
+            - name: Azure Communication Services
+              href: event-schema-communication-services.md
             - name: Azure Container Registry
               href: event-schema-container-registry.md
             - name: Azure Event Hubs
@@ -214,7 +218,7 @@
       href: auth0-how-to.md
     - name: Recepción de eventos en un punto de conexión de HTTP
       href: receive-events.md
-    - name: Mensajes fallidos y reintentos
+    - name: Establecimiento de una ubicación para los eventos fallidos y de una directiva de reintentos
       href: manage-event-delivery.md
     - name: Filtrado de eventos
       href: how-to-filter-events.md

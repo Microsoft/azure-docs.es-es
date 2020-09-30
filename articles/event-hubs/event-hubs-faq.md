@@ -3,12 +3,12 @@ title: Preguntas más frecuentes sobre Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporciona una lista de las preguntas más frecuentes (P+F) acerca de Azure Event Hubs y sus respuestas.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: bec50da97bc826eb1bd26452e8f69f5c11f2d65d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9995588e618679ae38a11aff26485d1ba0b60688
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537187"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89288974"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Preguntas frecuentes sobre Event Hubs
 
@@ -70,8 +70,8 @@ Consulte en la siguiente tabla los puertos de salida que se deben abrir para usa
 | HTTP, HTTPS | 80, 443 |  |
 | Kafka | 9093 | Consulte [Uso de Azure Event Hubs desde aplicaciones de Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>¿Qué direcciones IP debo incluir en la lista de permitidas?
-Para buscar las direcciones IP correctas para incluirlas en la lista de direcciones permitidas para las conexiones, siga estos pasos:
+### <a name="what-ip-addresses-do-i-need-to-allow"></a>¿Qué direcciones IP tengo que permitir?
+Para buscar las direcciones IP correctas para agregar a la lista de permitidas para las conexiones, siga estos pasos:
 
 1. Ejecute el siguiente comando desde el símbolo del sistema: 
 

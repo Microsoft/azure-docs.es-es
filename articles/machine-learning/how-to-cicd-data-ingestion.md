@@ -12,12 +12,12 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: e78044faabfd5ff3dccb1e7ea04149fbef212c01
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7a52dcabb448c39d9ae4e4edb4f5b7f701be6603
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843715"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228892"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps para una canalización de ingesta de datos
 
@@ -64,7 +64,7 @@ Por ejemplo, el código se almacenaría en un repositorio de Azure DevOps, GitHu
 Los ingenieros de datos trabajan con el código fuente del cuaderno de Python bien de forma local en un IDE (por ejemplo, [Visual Studio Code](https://code.visualstudio.com)) o directamente en el área de trabajo de Databricks. Una vez completados los cambios del código, se fusionan mediante combinación siguiendo una directiva de ramificación.
 
 > [!TIP] 
-> Se recomienda almacenar el código en archivos `.py` en lugar de `.ipynb`, que es el formato de los cuadernos de Jupyter. El motivo es que la legibilidad del código mejora y permite comprobaciones automáticas de calidad del código en el proceso de CI.
+> Se recomienda almacenar el código en archivos `.py` en lugar de `.ipynb`, que es el formato de Jupyter Notebook. El motivo es que la legibilidad del código mejora y permite comprobaciones automáticas de calidad del código en el proceso de CI.
 
 ### <a name="azure-data-factory-source-code"></a>Código fuente de Azure Data Factory
 

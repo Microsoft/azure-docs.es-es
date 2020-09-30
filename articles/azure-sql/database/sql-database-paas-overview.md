@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
-ms.date: 04/08/2019
-ms.openlocfilehash: fcad4f02f3fdfcbdc95617da7344d06feb70d1af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: ''
+ms.date: 09/21/2020
+ms.openlocfilehash: 38f52178ec9c736f3ee51839678401753365d48d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343258"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907058"
 ---
 # <a name="what-is-azure-sql-database"></a>¿Qué es Azure SQL Database?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,6 +29,9 @@ Con Azure SQL Database, puede crear una capa de almacenamiento de datos de gran
 Azure SQL Database se basa en la versión estable más reciente del [motor de base de datos de Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). Puede usar características avanzadas de procesamiento de consultas, como las [tecnologías en memoria de alto rendimiento](../in-memory-oltp-overview.md) y el [procesamiento de consultas inteligente](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). De hecho, las funcionalidades más recientes de SQL Server se publican primero en SQL Database y, después, en el propio SQL Server. Las funcionalidades de SQL Server más recientes se obtienen sin costo alguno mediante revisiones o actualizaciones, y se han probado en millones de bases de datos. 
 
 SQL Database le permite definir y escalar fácilmente el rendimiento de dos modelos de compra diferentes: un [modelo de compra basado en el núcleo virtual](service-tiers-vcore.md) y un [modelo de compra basado en DTU](service-tiers-dtu.md). SQL Database es un servicio totalmente administrado que ofrece alta disponibilidad, copias de seguridad y otras operaciones de mantenimiento comunes. Microsoft controla todas las revisiones y actualizaciones del código de sistema operativo y SQL. No hace falta administrar la infraestructura subyacente.
+
+Si no está familiarizado con Azure SQL Database, consulte el vídeo de *introducción a Azure SQL Database* en la detallada [serie de vídeos sobre Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
+> [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61/player]
 
 ## <a name="deployment-models"></a>Modelos de implementación
 
@@ -162,11 +165,8 @@ SQL Database proporciona varias [características integradas de seguridad y cump
 
 ### <a name="advance-threat-protection"></a>Protección contra amenazas avanzada
 
-Advanced Data Security es un paquete unificado de funcionalidades avanzadas de seguridad de SQL. Incluye la funcionalidad para detectar y clasificar datos confidenciales, administrar los puntos vulnerables de una base de datos y detectar actividades anómalas que puedan indicar una amenaza para dicha base de datos. Proporciona una ubicación única para habilitar y administrar estas funcionalidades.
+Azure Defender para SQL es un paquete unificado de funcionalidades avanzadas de seguridad de SQL. Incluye funcionalidad para administrar los puntos vulnerables de una base de datos y detectar actividades anómalas que puedan indicar una amenaza para dicha base de datos. Proporciona una ubicación única para habilitar y administrar estas funcionalidades.
 
-- [Detección y clasificación de datos](data-discovery-and-classification-overview.md):
-
-  esta característica proporciona funcionalidades integradas en Azure SQL Database para detectar, clasificar, etiquetar y proteger la información confidencial de las bases de datos. Se puede usar para proporcionar visibilidad sobre el estado de clasificación de una base de datos y para realizar un seguimiento del acceso a información confidencial dentro de la base de datos y más allá de sus límites.
 - [Evaluación de vulnerabilidades](sql-vulnerability-assessment.md):
 
   Este servicio puede detectar y realizar un seguimiento de posibles vulnerabilidades de la base de datos, así como ayudarle a corregirlas. Permite ver el estado de la seguridad e incluye los pasos necesarios para resolver problemas de seguridad y mejorar las defensas de cualquier base de datos.
@@ -182,6 +182,10 @@ La [auditoría](../../azure-sql/database/auditing-overview.md) realiza un seguim
 
 SQL Database le ayuda a proteger los datos mediante cifrado. Para los datos en movimiento, usa [seguridad de la capa de transporte](https://support.microsoft.com/kb/3135244). Para los datos en reposo, usa [cifrado de datos transparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Para los datos en uso, emplea [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
+### <a name="data-discovery-and-classification"></a>Clasificación y detección de datos
+
+La [clasificación y detección de datos](data-discovery-and-classification-overview.md) proporciona funcionalidades integradas en Azure SQL Database para detectar, clasificar, etiquetar y proteger la información confidencial de las bases de datos. Se puede usar para proporcionar visibilidad sobre el estado de clasificación de una base de datos y para realizar un seguimiento del acceso a información confidencial dentro de la base de datos y más allá de sus límites.
+
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integración de Azure Active Directory y autenticación multifactor
 
 SQL Database permite administrar centralmente las identidades de usuario de base de datos y otros servicios de Microsoft con la [integración de Azure Active Directory](authentication-aad-overview.md). Esta funcionalidad simplifica la administración de permisos y mejora la seguridad. Azure Active Directory admite [autenticación multifactor](authentication-mfa-ssms-overview.md) para aumentar la seguridad de los datos y de la aplicación, al tiempo que admite un proceso de inicio de sesión único.
@@ -193,10 +197,10 @@ SQL Database facilita la creación y el mantenimiento de aplicaciones y aumenta 
 |Herramienta|Descripción|
 |:---|:---|
 |[Portal de Azure](https://portal.azure.com/)|aplicación web para administrar todos los servicios de Azure.|
-|[Azure Data Studio](/sql/azure-data-studio/)|herramienta de base de datos multiplataforma que se ejecuta en Windows, MacOS y Linux.|
+|[Azure Data Studio](/sql/azure-data-studio/)|herramienta de base de datos multiplataforma que se ejecuta en Windows, macOS y Linux.|
 |[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|aplicación cliente gratuita que se puede descargar para administrar cualquier infraestructura de SQL, desde SQL Server hasta SQL Database.|
 |[Herramientas de datos de SQL Server](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|aplicación cliente gratuita que se puede descargar para desarrollar bases de datos relacionales de SQL Server, bases de datos de Azure SQL Database, paquetes de Integration Services, modelos de datos de Analysis Services e informes de Reporting Services.|
-|[Visual Studio Code](https://code.visualstudio.com/docs)|editor de código abierto gratuito que se puede descargar para Windows, macOS y Linux. Admite extensiones, como la [extensión mssql](https://aka.ms/mssql-marketplace) para consultar Microsoft SQL Server, Azure SQL Database y SQL Azure Data Warehouse.|
+|[Visual Studio Code](https://code.visualstudio.com/docs)|editor de código abierto gratuito que se puede descargar para Windows, macOS y Linux. Admite extensiones, como la [extensión mssql](https://aka.ms/mssql-marketplace) para consultar Microsoft SQL Server, Azure SQL Database y Azure Synapse Analytics (antes Azure SQL Data Warehouse).|
 
 SQL Database admite la compilación de aplicaciones con Python, Java, Node.js, PHP, Ruby y .NET en macOS, Linux y Windows. SQL Database admite las mismas [bibliotecas de conexiones](connect-query-content-reference-guide.md#libraries) como SQL Server.
 

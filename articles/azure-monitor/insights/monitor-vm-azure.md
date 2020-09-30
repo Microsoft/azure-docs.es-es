@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 294c93242a3fee5db14f5919ebb367aebcca3a80
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 85c4807d5bf71078e3cfb26bbc27e9eecc10c041
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326195"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029468"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Supervisión de máquinas virtuales de Azure con Azure Monitor
 En este artículo se describe cómo usar Azure Monitor para recopilar y analizar datos de supervisión de máquinas virtuales de Azure para mantener su estado. Las máquinas virtuales se pueden supervisar en términos de disponibilidad y rendimiento con Azure Monitor como cualquier [otro](monitor-azure-resource.md) recurso de Azure, pero se diferencian de otros recursos en cuanto que también debe supervisar el sistema operativo invitado y las cargas de trabajo que se ejecutan en él. 
@@ -70,9 +70,9 @@ En las secciones siguientes se describen todos estos pasos de configuración.
 - Libros y gráficas de rendimiento de tendencias predefinidos que permiten analizar las métricas de rendimiento básicas del sistema operativo invitado de la máquina virtual.
 - Mapa de dependencias que muestra los procesos que se ejecutan en cada máquina virtual y los componentes interconectados con otras máquinas y orígenes externos.
 
-![Azure Monitor para máquinas virtuales](media/monitor-vm-azure/vminsights-01.png)
+![Vista Rendimiento de Azure Monitor para VM](media/monitor-vm-azure/vminsights-01.png)
 
-![Azure Monitor para máquinas virtuales](media/monitor-vm-azure/vminsights-02.png)
+![Vista Asignaciones de Azure Monitor para VM](media/monitor-vm-azure/vminsights-02.png)
 
 
 Habilite Azure Monitor para VM en la opción **Información** del menú de la máquina virtual de Azure Portal. Vea [Información general sobre la habilitación de Azure Monitor para VM](vminsights-enable-overview.md) para obtener más información y conocer otros métodos de configuración.
@@ -80,7 +80,7 @@ Habilite Azure Monitor para VM en la opción **Información** del menú de la m�
 ![Habilitar Azure Monitor para VM](media/monitor-vm-azure/enable-vminsights.png)
 
 ### <a name="configure-log-analytics-workspace"></a>Configuración de un área de trabajo de Log Analytics
-El agente de Log Analytics utilizado por Azure Monitor para VM envía datos al [área de trabajo de Log Analytics](../platform/data-platform-logs.md#how-is-data-in-azure-monitor-logs-structured). Puede habilitar la recopilación de datos de rendimiento, eventos y otros datos de supervisión adicionales del agente mediante la configuración del área de trabajo de Log Analytics. Solo debe configurarse una vez, ya que cualquier agente que se conecte al área de trabajo descargará automáticamente la configuración y comenzará inmediatamente a recopilar los datos definidos. 
+El agente de Log Analytics utilizado por Azure Monitor para VM envía datos al [área de trabajo de Log Analytics](../platform/data-platform-logs.md). Puede habilitar la recopilación de datos de rendimiento, eventos y otros datos de supervisión adicionales del agente mediante la configuración del área de trabajo de Log Analytics. Solo debe configurarse una vez, ya que cualquier agente que se conecte al área de trabajo descargará automáticamente la configuración y comenzará inmediatamente a recopilar los datos definidos. 
 
 Puede tener acceso a la configuración del área de trabajo directamente desde Azure Monitor para VM seleccionando **Configuración del área de trabajo** en **Introducción**. Haga clic en el nombre del área de trabajo para abrir su menú.
 
@@ -96,7 +96,7 @@ Seleccione **Configuración avanzada** en el menú del área de trabajo y luego 
 
 
 ### <a name="enable-diagnostics-extension-and-telegraf-agent"></a>Habilitación de la extensión de diagnósticos y el agente de Telegraf
-Azure Monitor para VM se basa en el agente de Log Analytics que recopila datos en un área de trabajo de Log Analytics. Esto admite [varias características de Azure Monitor](../platform/data-platform-logs.md#what-can-you-do-with-azure-monitor-logs) como las [consultas de registro](../log-query/log-query-overview.md), las [alertas de registro](../platform/alerts-log.md) y los [libros](../platform/workbooks-overview.md). La [extensión de diagnósticos](../platform/diagnostics-extension-overview.md) recopila los datos de rendimiento del sistema operativo invitado de las máquinas virtuales de Windows en Azure Storage y, opcionalmente, envía datos de rendimiento a las [métricas Azure Monitor](../platform/data-platform-metrics.md). En el caso de las máquinas virtuales Linux, se necesita el [agente de Telegraf](../platform/collect-custom-metrics-linux-telegraf.md) para enviar datos a las métricas de Azure.  Esto habilita otras características de Azure Monitor, como el [explorador de métricas](../platform/metrics-getting-started.md) y las [alertas de métricas](../platform/alerts-metric.md). También puede configurar la extensión de diagnósticos para enviar eventos y datos de rendimiento fuera de Azure Monitor mediante Azure Event Hubs.
+Azure Monitor para VM se basa en el agente de Log Analytics que envía datos a un área de trabajo de Log Analytics. Esto admite varias características de Azure Monitor como las [consultas de registro](../log-query/log-query-overview.md), las [alertas de registro](../platform/alerts-log.md) y los [libros](../platform/workbooks-overview.md). La [extensión de diagnósticos](../platform/diagnostics-extension-overview.md) recopila los datos de rendimiento del sistema operativo invitado de las máquinas virtuales de Windows en Azure Storage y, opcionalmente, envía datos de rendimiento a las [métricas Azure Monitor](../platform/data-platform-metrics.md). En el caso de las máquinas virtuales Linux, se necesita el [agente de Telegraf](../platform/collect-custom-metrics-linux-telegraf.md) para enviar datos a las métricas de Azure.  Esto habilita otras características de Azure Monitor, como el [explorador de métricas](../platform/metrics-getting-started.md) y las [alertas de métricas](../platform/alerts-metric.md). También puede configurar la extensión de diagnósticos para enviar eventos y datos de rendimiento fuera de Azure Monitor mediante Azure Event Hubs.
 
 Instale la extensión de diagnósticos para una sola máquina virtual Windows en Azure Portal desde la opción **Configuración de diagnóstico** del menú de la máquina virtual. Seleccione la opción para habilitar **Azure Monitor** en la pestaña **Receptores**. Para habilitar la extensión desde una plantilla o línea de comandos para varias máquinas virtuales, consulte [Instalación y configuración](../platform/diagnostics-extension-overview.md#installation-and-configuration). A diferencia del agente de Log Analytics, los datos que se van a recopilar se definen en la configuración de la extensión en cada máquina virtual.
 
@@ -154,7 +154,7 @@ Hay tres espacios de nombres usados por las máquinas virtuales para las métric
 | Invitado (clásico) | Conjunto limitado de datos de rendimiento del sistema operativo invitado y de la aplicación. Está disponible en el explorador de métricas, pero no en otras características de Azure Monitor, como las alertas de métricas.  | [Extensión de diagnósticos](../platform/diagnostics-extension-overview.md) instalada. Los datos se leen desde Azure Storage.  |
 | Máquina virtual invitada | Datos de rendimiento del sistema operativo invitado y de la aplicación disponibles para todas las características de Azure Monitor mediante métricas. | En Windows, [la extensión de diagnósticos instalada](../platform/diagnostics-extension-overview.md) con el receptor de Azure Monitor habilitado. Para Linux, el [agente de Telegraf instalado](../platform/collect-custom-metrics-linux-telegraf.md). |
 
-![Métricas](media/monitor-vm-azure/metrics.png)
+![Explorador de métricas en Azure Portal](media/monitor-vm-azure/metrics.png)
 
 ## <a name="analyzing-log-data"></a>Analizar datos de registro
 Las máquinas virtuales de Azure recopilarán los datos siguientes para los registros de Azure Monitor. 
@@ -212,7 +212,7 @@ Heartbeat
 | summarize max(TimeGenerated) by Computer
 ```
 
-![Alerta de registro](media/monitor-vm-azure/log-alert-01.png)
+![Alerta de registro para latido faltante](media/monitor-vm-azure/log-alert-01.png)
 
 Para crear una alerta si se ha producido un número excesivo de inicios de sesión con errores en las máquinas virtuales Windows de la suscripción, utilice la siguiente consulta, que devuelve un registro para cada evento con un inicio de sesión con errores en la última hora. Use un umbral establecido en el número de inicios de sesión con errores que permitirá. 
 
@@ -222,20 +222,20 @@ Event
 | where EventID == 4625
 ```
 
-![Alerta de registro](media/monitor-vm-azure/log-alert-02.png)
+![Alerta de registro para inicios de sesión con error](media/monitor-vm-azure/log-alert-02.png)
 
 
 ## <a name="system-center-operations-manager"></a>System Center Operations Manager
-System Center Operations Manager (SCOM) proporciona una supervisión detallada de las cargas de trabajo en las máquinas virtuales. Consulte la [guía de supervisión en la nube](/azure/cloud-adoption-framework/manage/monitor/) para obtener una comparación de las plataformas de supervisión y las distintas estrategias de implementación.
+System Center Operations Manager proporciona una supervisión detallada de las cargas de trabajo en las máquinas virtuales. Consulte la [guía de supervisión en la nube](/azure/cloud-adoption-framework/manage/monitor/) para obtener una comparación de las plataformas de supervisión y las distintas estrategias de implementación.
 
-Si ya tiene un entorno de SCOM que desea seguir usando, puede integrarlo con Azure Monitor para proporcionar funcionalidad adicional. El agente de Log Analytics usado por Azure Monitor es el mismo que se usa para SCOM, de modo que las máquinas virtuales puedan enviar datos a ambos. Todavía necesita agregar el agente a Azure Monitor para VM y configurar el área de trabajo para recopilar datos adicionales, tal y como se especificó anteriormente, pero las máquinas virtuales pueden seguir ejecutando sus módulos de administración existentes en un entorno de SCOM sin modificación.
+Si ya tiene un entorno de Operations Manager que quiere seguir usando, puede integrarlo con Azure Monitor para incluir funcionalidad adicional. El agente de Log Analytics que usa Azure Monitor es el mismo que se usa para Operations Manager, de modo que las máquinas virtuales puedan enviar datos a ambos. Todavía necesita agregar el agente a Azure Monitor para VM y configurar el área de trabajo para recopilar datos adicionales, tal y como se especificó anteriormente, pero las máquinas virtuales pueden seguir ejecutando sus módulos de administración existentes en un entorno de Operations Manager sin modificación.
 
-Entre las características de Azure Monitor que aumentan las características de SCOM existentes se incluyen las siguientes:
+Entre las características de Azure Monitor que aumentan las características de Operations Manager existentes se incluyen las siguientes:
 
 - Use Log Analytics para analizar interactivamente los datos de registro y rendimiento.
-- Utilice alertas de registro para definir condiciones de alerta en varias máquinas virtuales y usar tendencias a largo plazo que no se pueden obtener mediante alertas en SCOM.   
+- Use alertas de registro para definir condiciones de alerta en varias máquinas virtuales y usar tendencias a largo plazo que no se pueden obtener mediante las alertas de Operations Manager.   
 
-Consulte [Conexión de Operations Manager a Azure Monitor](../platform/om-agents.md) para obtener más información sobre cómo conectar el grupo de administración de SCOM existente al área de trabajo de Log Analytics.
+Consulte [Conexión de Operations Manager a Azure Monitor](../platform/om-agents.md) para obtener más información sobre cómo conectar el grupo de administración de Operations Manager existente al área de trabajo de Log Analytics.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

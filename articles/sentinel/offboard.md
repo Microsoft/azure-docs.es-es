@@ -1,5 +1,5 @@
 ---
-title: Eliminación de Azure Sentinel | Microsoft Docs
+title: Eliminación de Azure Sentinel | Microsoft Docs
 description: Eliminación de la instancia de Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/29/2019
+ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 4042f7b9d0f6fdf293f338c89d5783fe266c4edf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f9c400b55b0da47495db4f1ff4ceb86aa39fe2cc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77581691"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885842"
 ---
 # <a name="remove-azure-sentinel-from-your-workspace"></a>Eliminación de Azure Sentinel del área de trabajo
 
-Si ya no desea usar Azure Sentinel, en este artículo se explica cómo eliminarlo del área de trabajo.
+Si ya no quiere usar Azure Sentinel, en este artículo se explica cómo eliminarlo del área de trabajo.
 
 ## <a name="how-to-remove-azure-sentinel"></a>Eliminación de Azure Sentinel
 
@@ -48,13 +48,13 @@ Una vez identificada la desconexión, comienza el proceso de retirada.
 
 -   AWS
 
--   Alertas de seguridad de los servicios de Microsoft (Azure ATP, Microsoft Cloud App Security incluido Cloud Discovery Shadow IT Reporting, Azure AD Identity Protection, Microsoft Defender ATP, Azure Security Center)
+-   Alertas de seguridad de servicios de Microsoft: Microsoft Defender for Identity (*anteriormente Azure ATP*), Microsoft Cloud App Security, incluidos la generación de informes de Cloud Discovery Shadow IT, Azure AD Identity Protection, Microsoft Defender para Endpoint (*anteriormente Microsoft Defender ATP*), alertas de Azure Defender de Azure Security Center
 
 -   Información sobre amenazas
 
--   Registros de seguridad habituales (incluidos los registros basados en CEF, Barracuda y Syslog) (si tiene Azure Security Center, se seguirán recopilando estos registros).
+-   Registros de seguridad habituales (incluidos los registros basados en CEF, Barracuda y Syslog) (si obtiene las alertas de Azure Defender a partir de Azure Security Center, se seguirán recopilando estos registros).
 
--   Eventos de seguridad de Windows (si tiene Azure Security Center, se seguirán recopilando estos registros).
+-   Eventos de seguridad de Windows (si obtiene las alertas de Azure Defender a partir de Azure Security Center, se seguirán recopilando estos registros).
 
 Durante las primeras 48 horas, los datos y las reglas de análisis (incluida la configuración de la automatización en tiempo real) dejarán de ser accesibles o consultables en Azure Sentinel.
 

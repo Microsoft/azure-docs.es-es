@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: d33b9b4cb50c1be7b316aad2a736bfd6fb074833
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0cf0ef97cc1e06906a529c577e9c2578e5091ef4
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075686"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050733"
 ---
 # <a name="ingestion-rules"></a>Reglas de ingesta
 ### <a name="json-flattening-escaping-and-array-handling"></a>Acoplamiento de JSON, escape y control de matrices
@@ -25,17 +25,17 @@ El entorno de Azure Time Series Insights Gen2 crea dinámicamente las columnas d
 >
 > * Revise las reglas que se indican a continuación antes de seleccionar una [Propiedad de identificador de serie temporal](time-series-insights-update-how-to-id.md) y el origen del evento [Propiedades de marca de tiempo](concepts-streaming-ingestion-event-sources.md#event-source-timestamp). Si el identificador de TS o la marca de tiempo se encuentran en un objeto anidado o tiene uno o más de los caracteres especiales siguientes, es importante asegurarse de que el nombre de la propiedad que proporcione coincide con el nombre de la columna *después* de que se hayan aplicado las reglas de ingesta. Vea el ejemplo [B](concepts-json-flattening-escaping-rules.md#example-b) siguiente.
 
-| Regla | Ejemplo de JSON |Nombre de la columna en el almacenamiento |
-|---|---|---|
-| El tipo de datos de Azure Time Series Insights Gen2 se anexa al final del nombre de la columna como "_\<dataType\>" | ```"type": "Accumulated Heat"``` | type_string |
-| La [propiedad timestamp](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) del origen del evento se guarda en Azure Time Series Insights Gen2 como "timestamp" en el almacenamiento y el valor se almacena en UTC. Puede personalizar la propiedad marca de tiempo de orígenes de eventos para satisfacer las necesidades de la solución, pero el nombre de la columna en el almacenamiento intermedio y en frío es "marca de tiempo". Otras propiedades datetime JSON que no sean la marca de tiempo de origen del evento se guardarán con "_datetime" en el nombre de columna, como se mencionó en la regla anterior.  | ```"ts": "2020-03-19 14:40:38.318"``` | timestamp |
-| Nombres de propiedad JSON que incluyen los caracteres especiales. [  \ y ' se convierten en caracteres de escape con [' y ']  |  ```"id.wasp": "6A3090FD337DE6B"``` | ['id.wasp']_string |
-| Dentro de [' y '], hay un escape adicional de comillas simples y barras diagonales inversas. Una comilla simple se escribirá como \’ y una barra diagonal inversa, como \\\ | ```"Foo's Law Value": "17.139999389648"``` | ['Foo\'s Law Value']_double |
-| Los objetos JSON anidados se acoplan con un punto como separador. Se admite el anidamiento de hasta 10 niveles. |  ```"series": {"value" : 316 }``` | series.value_long |
-| Las matrices de tipos primitivos se almacenan como el tipo dinámico |  ```"values": [154, 149, 147]``` | values_dynamic |
+| Regla | Ejemplo de JSON | [Sintaxis de Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) | Nombre de la columna de propiedad en Parquet
+|---|---|---|---|
+| El tipo de datos de Azure Time Series Insights Gen2 se anexa al final del nombre de la columna como "_\<dataType\>" | ```"type": "Accumulated Heat"``` | `$event.type.String` |`type_string` |
+| La [propiedad timestamp](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) del origen del evento se guarda en Azure Time Series Insights Gen2 como "timestamp" en el almacenamiento y el valor se almacena en UTC. Puede personalizar la propiedad marca de tiempo de orígenes de eventos para satisfacer las necesidades de la solución, pero el nombre de la columna en el almacenamiento intermedio y en frío es "marca de tiempo". Otras propiedades datetime JSON que no sean la marca de tiempo de origen del evento se guardarán con "_datetime" en el nombre de columna, como se mencionó en la regla anterior.  | ```"ts": "2020-03-19 14:40:38.318"``` |  `$event.$ts` | `timestamp` |
+| Nombres de propiedad JSON que incluyen los caracteres especiales. [  \ y ' se convierten en caracteres de escape con [' y ']  |  ```"id.wasp": "6A3090FD337DE6B"``` |  `$event['id.wasp'].String` | `['id.wasp']_string` |
+| Dentro de [' y '], hay un escape adicional de comillas simples y barras diagonales inversas. Una comilla simple se escribirá como \’ y una barra diagonal inversa, como \\\ | ```"Foo's Law Value": "17.139999389648"``` | `$event['Foo\'s Law Value'].Double` | `['Foo\'s Law Value']_double` |
+| Los objetos JSON anidados se acoplan con un punto como separador. Se admite el anidamiento de hasta 10 niveles. |  ```"series": {"value" : 316 }``` | `$event.series.value.Long`, `$event['series']['value'].Long` o `$event.series['value'].Long` |  `series.value_long` |
+| Las matrices de tipos primitivos se almacenan como el tipo dinámico |  ```"values": [154, 149, 147]``` | Los tipos dinámicos solo se pueden recuperar a través de la API de [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
 | Las matrices que contienen objetos tienen dos comportamientos en función del contenido del objeto: Si los identificadores de TS o las propiedades de marca de tiempo están dentro de los objetos de una matriz, la matriz se expandirá de forma que la carga útil inicial de JSON produzca múltiples eventos. Esto permite procesar por lotes varios eventos en una estructura JSON. Cualquier propiedad de nivel superior que esté en el mismo nivel que la matriz se guardará con cada objeto no expandido. Si los identificadores de TS y la marca de tiempo *no* están en la matriz, se guardarán como el tipo dinámico. | Vea los ejemplos [A](concepts-json-flattening-escaping-rules.md#example-a), [B](concepts-json-flattening-escaping-rules.md#example-b) y [C](concepts-json-flattening-escaping-rules.md#example-c) siguientes
-| Las matrices que contienen elementos mixtos no están acopladas. |  ```"values": ["foo", {"bar" : 149}, 147]``` | values_dynamic |
-| 512 caracteres es el límite del nombre de la propiedad JSON. Si el nombre supera los 512 caracteres, se truncará a 512 y se anexará un '_<'hashCode'>'. **Nota:** Esto también se aplica a los nombres de propiedad que se han concatenado del objeto acoplado, lo que denota una ruta de objeto anidada. |``"data.items.datapoints.values.telemetry<...continuing to over 512 chars>" : 12.3440495`` | data.items.datapoints.values.telemetry<...continuing to 512 chars>_912ec803b2ce49e4a541068d495ab570_double |
+| Las matrices que contienen elementos mixtos no están acopladas. |  ```"values": ["foo", {"bar" : 149}, 147]``` | Los tipos dinámicos solo se pueden recuperar a través de la API de [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
+| 512 caracteres es el límite del nombre de la propiedad JSON. Si el nombre supera los 512 caracteres, se truncará a 512 y se anexará un '_<'hashCode'>'. **Nota:** Esto también se aplica a los nombres de propiedad que se han concatenado del objeto acoplado, lo que denota una ruta de objeto anidada. |``"data.items.datapoints.values.telemetry<...continuing to over 512 chars>" : 12.3440495`` |`"$event.data.items.datapoints.values.telemetry<...continuing to include all chars>.Double"` | `data.items.datapoints.values.telemetry<...continuing to 512 chars>_912ec803b2ce49e4a541068d495ab570_double` |
 
 ## <a name="understanding-the-dual-behavior-for-arrays"></a>Descripción del comportamiento dual de las matrices
 

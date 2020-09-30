@@ -1,6 +1,6 @@
 ---
-title: Seguimiento de cambios de datos en Azure SQL Edge (versión preliminar)
-description: Información sobre el seguimiento de cambios y la captura de datos modificados en Azure SQL Edge (versión preliminar)
+title: Seguimiento de cambios de datos en Azure SQL Edge
+description: Obtenga información sobre el seguimiento de cambios y la captura de datos modificados en Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,14 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 6d0a081f2b0adb143a6b37a647a00014846f8fe2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7d5d5f74a816bf745faf5decf761cd453f40123
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669603"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900069"
 ---
-# <a name="track-data-changes-in-azure-sql-edge-preview"></a>Seguimiento de cambios de datos en Azure SQL Edge (versión preliminar)
+# <a name="track-data-changes-in-azure-sql-edge"></a>Seguimiento de cambios de datos en Azure SQL Edge
 
 Azure SQL Edge proporciona dos características de SQL Server que realizan el seguimiento de los cambios en los datos de una base de datos: [seguimiento de cambios](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#Tracking) y [captura de datos modificados](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#Capture). Estas características permiten a las aplicaciones determinar los cambios de lenguaje de modificación de datos (operaciones de inserción, actualización y eliminación) que se realizaron en las tablas de usuario de una base de datos. Puede habilitar la captura de datos modificados y el seguimiento de cambios en la misma base de datos. No se requiere ninguna consideración especial.
 
@@ -60,10 +60,10 @@ Para más información, consulte [Tablas temporales](https://docs.microsoft.com/
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Streaming de datos en Azure SQL Edge (versión preliminar)](stream-data.md)
-- [Aprendizaje automático e IA con ONNX en Azure SQL Edge (versión preliminar)](onnx-overview.md)
-- [Configuración de la replicación en Azure SQL Edge (versión preliminar)](configure-replication.md)
-- [Copia de seguridad y restauración de bases de datos en Azure SQL Edge (versión preliminar)](backup-restore.md)
+- [Streaming de datos en Azure SQL Edge](stream-data.md)
+- [Aprendizaje automático e IA con ONNX en Azure SQL Edge](onnx-overview.md)
+- [Configuración de la replicación en Azure SQL Edge](configure-replication.md)
+- [Copia de seguridad y restauración de bases de datos en Azure SQL Edge](backup-restore.md)
 
 
 

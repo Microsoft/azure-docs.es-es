@@ -5,14 +5,14 @@ author: navits09
 ms.author: navits
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: ebc3ad6957890423314bb2d8623c7b4708aed10b
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: f011f2703286cd7eb4e19588ae1ae1fe9319500f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815424"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646685"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Creación de una oferta de aplicación de Power BI
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: bd2f7798ca02f4d6eab6d6d78d158a48bcccc010
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 668243f66deff67a923097c116c4b150d0256992
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206049"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882565"
 ---
 # <a name="high-availability-in-azure-database-for-mysql"></a>Alta disponibilidad en Azure Database for MySQL
 El servicio Azure Database for MySQL proporciona un alto nivel de disponibilidad garantizada gracias al Acuerdo de Nivel de Servicio (SLA) respaldado económicamente con un tiempo de actividad del [99,99 %](https://azure.microsoft.com/support/legal/sla/mysql). Azure Database for MySQL proporciona alta disponibilidad durante los eventos planeados, como la operación de proceso de escalado iniciada por el usuario, y también cuando se producen eventos no planeados, como los errores subyacentes de hardware, software o red. Azure Database for MySQL puede recuperarse rápidamente de las circunstancias más críticas, lo que garantiza que las aplicaciones prácticamente no tengan tiempo de inactividad al usar este servicio.
@@ -29,7 +29,7 @@ Azure Database for MySQL resulta adecuado para ejecutar bases de datos esenciale
 ## <a name="planned-downtime-mitigation"></a>Mitigación del tiempo de inactividad planeado
 Azure Database for MySQL está diseñado para proporcionar alta disponibilidad durante las operaciones de tiempo de inactividad planeado. 
 
-![vista del escalado elástico en Azure MySQL](./media/concepts-high-availability/elastic-scaling-mysql-server.png)
+:::image type="content" source="./media/concepts-high-availability/elastic-scaling-mysql-server.png" alt-text="vista del escalado elástico en Azure MySQL":::
 
 Estos son algunos escenarios de mantenimiento planeado:
 
@@ -46,7 +46,7 @@ Estos son algunos escenarios de mantenimiento planeado:
 Se puede producir un tiempo de inactividad no planeado como resultado de errores imprevistos, incluidos los errores subyacentes de hardware, los problemas de red y los errores de software. Si el servidor de base de datos deja de funcionar de forma inesperada, se aprovisiona automáticamente un nuevo servidor de base de datos en segundos. El almacenamiento remoto se asocia automáticamente al nuevo servidor de base de datos. El motor de MySQL realiza la operación de recuperación mediante WAL y archivos de base de datos, y abre el servidor de bases de datos para permitir que los clientes se conecten. Las transacciones no confirmadas se pierden y la aplicación debe volver a intentarlas. Aunque no se puede evitar un tiempo de inactividad no planeado, Azure Database for MySQL lo reduce gracias a que realiza de forma automática operaciones de recuperación en el servidor de bases de datos y en las capas de almacenamiento sin necesidad de intervención humana. 
 
 
-![vista de alta disponibilidad en Azure MySQL](./media/concepts-high-availability/availability-for-mysql-server.png)
+:::image type="content" source="./media/concepts-high-availability/availability-for-mysql-server.png" alt-text="vista de alta disponibilidad en Azure MySQL":::
 
 ### <a name="unplanned-downtime-failure-scenarios-and-service-recovery"></a>Tiempo de inactividad no planeado: escenarios de error y recuperación de servicio
 Estos son algunos escenarios de error y cómo Azure Database for MySQL se recupera automáticamente:
@@ -61,7 +61,7 @@ Estos son algunos escenarios de error que requieren de la acciones del usuario p
 | **Escenario** | **Plan de recuperación** |
 | ---------- | ---------- |
 | <b> Error de región | Un error en una región es un evento poco habitual. Sin embargo, si necesita protección ante un error de región, puede configurar una o varias réplicas de lectura en otras regiones para la recuperación ante desastres (DR). (Consulte [este artículo](howto-read-replicas-portal.md) sobre cómo crear y administrar réplicas de lectura para más información). En caso de que se produzca un error de nivel de región, puede promover manualmente la réplica de lectura configurada en la otra región para que sea el servidor de base de datos de producción. |
-| <b> Errores de usuario o lógicos | La recuperación de los errores de usuario, como las tablas eliminadas accidentalmente o los datos actualizados incorrectamente, implica la realización de una [recuperación a un momento dado](concepts-backup.md) (PITR), de modo que se restauran y recuperan los datos hasta el momento justo antes de que se produjera el error.<br> <br>  Si quiere restaurar únicamente un subconjunto de bases de datos o tablas específicas en lugar de todas las bases de datos del servidor, puede restaurar el servidor de base de datos en una nueva instancia, exportar las tablas mediante [mysqldump](concepts-migrate-dump-restore.md) y usar [restore](concepts-migrate-dump-restore.md#restore-your-mysql-database-using-command-line-or-mysql-workbench) para restaurar esas tablas en la base de datos. |
+| <b> Errores de usuario o lógicos | La recuperación de los errores de usuario, como las tablas eliminadas accidentalmente o los datos actualizados incorrectamente, implica la realización de una [recuperación a un momento dado](concepts-backup.md) (PITR), de modo que se restauran y recuperan los datos hasta el momento justo antes de que se produjera el error.<br> <br>  Si quiere restaurar únicamente un subconjunto de bases de datos o tablas específicas en lugar de todas las bases de datos del servidor de bases de datos, puede restaurar el servidor de base de datos en una nueva instancia, exportar las tablas mediante [mysqldump](concepts-migrate-dump-restore.md) y usar [restore](concepts-migrate-dump-restore.md#restore-your-mysql-database-using-command-line-or-mysql-workbench) para restaurar esas tablas en la base de datos. |
 
 
 

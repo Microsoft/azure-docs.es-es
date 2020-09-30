@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: cbf5d8286d6f181c69cd090df6cf595934cd547e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 71c470bd1bb71b55d6643ac6305a054f1c934948
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942026"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229046"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Establecimiento de listas de control de acceso (ACL) de forma recursiva para Azure Data Lake Storage Gen2
 
@@ -79,7 +80,7 @@ Instale las bibliotecas necesarias.
 2. En el directorio del proyecto, instale el paquete Azure.Storage.Files.DataLake de la versión preliminar mediante el comando `dotnet add package`.
 
    ```console
-   dotnet add package Azure.Storage.Files.DataLake -v 12.3.0-dev.20200811.1 -s https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json
+   dotnet add package Azure.Storage.Files.DataLake -v 12.3.0-dev.20200811.1 -s https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json
    ```
 
 3. Agregue estas instrucciones "using" al inicio del archivo de código.
@@ -454,9 +455,9 @@ En este ejemplo se quita una entrada de ACL del directorio raíz del contenedor.
 
 ```powershell
 $filesystemName = "my-container"
-$userID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+$userID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
-$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID
+$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" 
 
 Remove-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName  -Acl $acl
 ```
@@ -600,7 +601,7 @@ Esta sección contiene vínculos a bibliotecas y ejemplos de código.
 #### <a name="libraries"></a>Bibliotecas
 
 - [PowerShell](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.powershellgallery.com%2Fpackages%2FAz.Storage%2F2.5.2-preview&data=02%7C01%7Cnormesta%40microsoft.com%7Ccdabce06132c42132b4008d849a2dfb1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637340311173215017&sdata=FWynO9UKTt7ESMCFgkWaL7J%2F%2BjODaRo5BD6G6yCx9os%3D&reserved=0)
-- [.NET](https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json)
+- [.NET](https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json)
 - [Python](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2Fazure_storage_file_datalake-12.1.0b99-py2.py3-none-any.whl%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A47%253A01Z%26se%3D2021-08-25T07%253A47%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DH1XYw4FTLJse%252BYQ%252BfamVL21UPVIKRnnh2mfudA%252BfI0I%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C95a5966d938a4902560e08d84912fe32%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339693209725909&sdata=acv4KWZdzkITw1lP0%2FiA3lZuW7NF5JObjY26IXttfGI%3D&reserved=0)
 
 #### <a name="code-samples"></a>Ejemplos de código
@@ -639,7 +640,7 @@ El número máximo de ACL que puede aplicar a un directorio o archivo es de 32 A
 
 ### <a name="provide-feedback-or-report-issues"></a>Envío de comentarios o notificación de problemas
 
-Puede enviar sus comentarios o notificar un problema mediante cualquiera de estas páginas: [PowerShell](https://github.com/Azure/azure-powershell/issues/new?assignees=&labels=triage&template=az-module-bug-report.md&title=), [.NET](https://github.com/Azure/azure-sdk-for-net/issues/new?assignees=&labels=&template=bug_report.md&title=), [Python](https://github.com/Azure/azure-sdk-for-python/issues/new?assignees=&labels=&template=bug_report.md&title=)
+Puede enviar sus comentarios o notificar un problema en [recursiveACLfeedback@microsoft.com](mailto:recursiveACLfeedback@microsoft.com).
 
 ## <a name="see-also"></a>Consulte también
 

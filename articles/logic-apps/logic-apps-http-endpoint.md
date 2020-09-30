@@ -1,44 +1,39 @@
 ---
-title: Llamada, desencadenamiento o anidación de aplicaciones lógicas
+title: Llamada, desencadenamiento o anidamiento de aplicaciones lógicas mediante el uso de desencadenadores de solicitud
 description: Configuración de puntos de conexión HTTPS para llamadas, desencadenamientos o anidamiento de flujos de trabajo de aplicaciones lógicas en Azure Logic Apps
 services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 05/28/2020
-ms.openlocfilehash: d8211127d7c886b86f97e83a61b3b3ebb055851e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/27/2020
+ms.openlocfilehash: 5032676848536f0b9498cf4beecf86277484a901
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078674"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230813"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Llamada, desencadenamiento o anidamiento de aplicaciones lógicas con puntos de conexión HTTPS en Azure Logic Apps
 
-Para que se pueda llamar a la aplicación lógica a través de una dirección URL con el fin de que pueda recibir solicitudes entrantes de otros servicios, puede exponer de forma nativa un punto de conexión HTTPS sincrónico como un desencadenador en esa aplicación lógica. Cuando configura esta funcionalidad, también puede anidar la aplicación lógica dentro de otras aplicaciones lógicas, lo que le permite crear un patrón de puntos de conexión a los que se puede llamar.
-
-Para configurar un punto de conexión al que se puede llamar, puede usar cualquiera de los siguientes tipos de desencadenadores que permiten que las aplicaciones lógicas reciban solicitudes entrantes:
+Para que se pueda llamar a la aplicación lógica a través de una dirección URL con el fin de que pueda recibir solicitudes entrantes de otros servicios, puede exponer de forma nativa un punto de conexión HTTPS sincrónico como un desencadenador en esa aplicación lógica. Con esta funcionalidad, puede llamar a la aplicación lógica desde otras aplicaciones lógicas y crear un patrón de puntos de conexión a los que se puede llamar. Para configurar un punto de conexión al que se pueda llamar para controlar las llamadas entrantes, puede usar cualquiera de estos tipos de desencadenador:
 
 * [Solicitud](../connectors/connectors-native-reqres.md)
 * [Webhook HTTP](../connectors/connectors-native-webhook.md)
 * Desencadenadores de conectores administrados del tipo [ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) que pueden recibir solicitudes HTTPS entrantes
 
-> [!NOTE]
-> En estos ejemplos se usa el desencadenador de solicitud, pero puede usar cualquier desencadenador basado en solicitudes HTTPS de la lista anterior. Todos los principios se aplican de manera idéntica a estos otros tipos de desencadenadores.
+En este artículo se muestra cómo crear un punto de conexión al que se puede llamar en la aplicación lógica mediante el desencadenador de solicitud y llamar a ese punto de conexión desde otra aplicación lógica. Todos los principios se aplican de forma idéntica a los otros tipos de desencadenadores que se pueden usar para recibir solicitudes entrantes.
 
-Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Para información sobre el cifrado, la seguridad y la autorización de llamadas entrantes para la aplicación lógica, como la [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), conocida anteriormente como Capa de sockets seguros (SSL) o la [Autenticación abierta de Azure Active Directory Azure (Azure AD OAuth)](../active-directory/develop/index.yml), consulte [Proteger el acceso y los datos: Acceso de llamadas entrantes para desencadenadores basados en solicitud](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
+* Una cuenta y una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
-* La aplicación lógica en la que desea usar el desencadenador para crear el punto de conexión al que se puede llamar. Puede empezar con una aplicación lógica en blanco o con una aplicación lógica existente en la que quiera reemplazar el desencadenador actual. Este ejemplo comienza con una aplicación lógica en blanco.
+* La aplicación lógica en la que desea usar el desencadenador para crear el punto de conexión al que se puede llamar. Puede empezar con una aplicación lógica en blanco o con una aplicación lógica existente en la que puede reemplazar el desencadenador actual. Este ejemplo comienza con una aplicación lógica en blanco. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-callable-endpoint"></a>Creación de un punto de conexión al que se puede llamar
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). Cree y abra una aplicación lógica en blanco en el Diseñador de aplicación lógica.
-
-   En este ejemplo, se usa el desencadenador de solicitud, pero puede usar cualquier desencadenador que pueda recibir solicitudes HTTPS entrantes. Todos los principios se aplican de manera idéntica a estos desencadenadores. Para obtener más información sobre el desencadenador de solicitud, consulte [Recepción de llamadas HTTPS entrantes y respuesta a ellas mediante Azure Logic Apps](../connectors/connectors-native-reqres.md).
 
 1. En el cuadro de búsqueda, seleccione **Integrado**. En el cuadro de búsqueda, escriba `request` como filtro. En la lista de desencadenadores, seleccione **Cuando se recibe una solicitud HTTP**.
 
@@ -408,3 +403,4 @@ Para ver la definición de JSON de la acción de respuesta y la definición comp
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Recepción de llamadas HTTPS entrantes y respuesta e ellas mediante Azure Logic Apps](../connectors/connectors-native-reqres.md)
+* [Protección del acceso y los datos en Azure Logic Apps - Acceso a desencadenadores de solicitud](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)

@@ -3,12 +3,12 @@ title: Eliminación temporal de Azure Backup
 description: Aprenda a usar las características de seguridad de Azure Backup para que las copias de seguridad sean más seguras.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 921d04c530695ee8909fb17b216029849c4fc4a2
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 76928b98bdb21ffa79fce8435bfe4dda92e0c72d
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892480"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179970"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Eliminación temporal de Azure Backup
 
@@ -97,7 +97,7 @@ Siga estos pasos:
 
 ### <a name="using-azure-powershell"></a>Uso de Azure PowerShell
 
-Si los elementos se eliminaron antes de que se deshabilitara la eliminación temporal, se encontrarán en un estado de eliminación temporal. Para eliminarlos de inmediato, la operación de eliminación debe invertirse y volver a ejecutarse.
+Si los elementos se eliminaron antes de deshabilitar la eliminación temporal, estarán en un estado de eliminación temporal. Para eliminarlos de inmediato, la operación de eliminación debe invertirse y volver a ejecutarse.
 
 Identifique los elementos que se encuentran en estado de eliminación temporal.
 
@@ -134,7 +134,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 ### <a name="using-rest-api"></a>Uso de la API de REST
 
-Si los elementos se eliminaron antes de que se deshabilitara la eliminación temporal, se encontrarán en un estado de eliminación temporal. Para eliminarlos de inmediato, la operación de eliminación debe invertirse y volver a ejecutarse.
+Si los elementos se eliminaron antes de deshabilitar la eliminación temporal, estarán en un estado de eliminación temporal. Para eliminarlos de inmediato, la operación de eliminación debe invertirse y volver a ejecutarse.
 
 1. En primer lugar, deshaga las operaciones de eliminación con los pasos mencionados [aquí](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
 2. Después, deshabilite la funcionalidad de eliminación temporal mediante la API REST siguiendo los pasos mencionados [aquí](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
@@ -164,7 +164,7 @@ Sí.
 
 ### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>¿Cómo puedo volver a desencadenar las copias de seguridad programadas para un recurso eliminado temporalmente?
 
-La recuperación seguida de una operación de reanudación volverá a proteger el recurso. La operación de reanudación asocia una directiva de copia de seguridad para desencadenar las copias de seguridad programadas con el período de retención seleccionado. Además, el recolector de elementos no utilizados se ejecuta tan pronto como se completa la operación de reanudación. Si quiere realizar una restauración desde un punto de recuperación que supere su fecha de expiración, le recomendamos que lo haga antes de desencadenar la operación de reanudación.
+La recuperación seguida de una operación de reanudación volverá a proteger el recurso. La operación de reanudación asocia una directiva de copia de seguridad para desencadenar las copias de seguridad programadas con el período de retención seleccionado. Además, el recolector de elementos no utilizados se ejecuta tan pronto como se completa la operación de reanudación. Si desea realizar una restauración desde un punto de recuperación que supere su fecha de expiración, le recomendamos que lo haga antes de desencadenar la operación de reanudación.
 
 ### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>¿Puedo eliminar mi almacén si contiene elementos eliminados temporalmente?
 

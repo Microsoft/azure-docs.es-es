@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: douglas, carlrab
+ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: b7623a3c89f9ae4b20385caaac676b972f55f85e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a33ff6b927045389c3692201fa70839c6a466ede
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209491"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887657"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migración de una instancia de SQL Server a Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -126,7 +126,7 @@ La restauración de copias de seguridad nativas (archivos .bak) realizadas desde
 
 El siguiente diagrama proporciona una introducción general del proceso:
 
-![flujo de migración](./media/migrate-to-instance-from-sql-server/migration-flow.png)
+![En el diagrama se muestra SQL Server con una flecha con la etiqueta COPIA DE SEGURIDAD/Cargar a una dirección URL que fluye hacia Azure Storage y una segunda flecha con la etiqueta RESTAURAR que parte de la dirección URL y fluye desde Azure Storage hasta una instancia administrada de SQL.](./media/migrate-to-instance-from-sql-server/migration-flow.png)
 
 La siguiente tabla proporciona más información sobre los métodos que puede usar según la versión de SQL Server de origen que esté ejecutando:
 
@@ -198,7 +198,7 @@ Incluso si no ha realizado cambios en la instancia administrada durante la migra
 
 Por ejemplo, no tiene que crear copias de seguridad en la instancia administrada; el servicio realiza las copias de seguridad automáticamente. Ya no debe preocuparse de programar, seguir y administrar las copias de seguridad. SQL Managed Instance permite restaurar a un momento dado dentro de este período de retención mediante la [recuperación a un momento dado (PITR)](../database/recovery-using-backups.md#point-in-time-restore). Además, no es necesario preocuparse por la configuración de la alta disponibilidad porque la [alta disponibilidad](../database/high-availability-sla.md) está integrada.
 
-Para reforzar la seguridad, considere la posibilidad de usar la [autenticación de Azure Active Directory](../database/security-overview.md), la [auditoría](auditing-configure.md), la [detección de amenazas](../database/advanced-data-security.md), la [seguridad de nivel de fila](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) y el [enmascaramiento dinámico de datos](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking).
+Para reforzar la seguridad, considere la posibilidad de usar la [autenticación de Azure Active Directory](../database/security-overview.md), la [auditoría](auditing-configure.md), la [detección de amenazas](../database/azure-defender-for-sql.md), la [seguridad de nivel de fila](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) y el [enmascaramiento dinámico de datos](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking).
 
 Además de la administración avanzada y las características de seguridad, una instancia administrada ofrece un conjunto de herramientas avanzadas que pueden ayudarle a [supervisar y optimizar la carga de trabajo](../database/monitor-tune-overview.md). [Azure SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) le permite supervisar un conjunto grande de instancias administradas y centralizar la supervisión de un gran número de instancias y bases de datos. [Ajuste automático](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) en instancias administradas supervisa continuamente el rendimiento de las estadísticas de ejecución del plan de SQL y corrige automáticamente los problemas de rendimiento identificados.
 

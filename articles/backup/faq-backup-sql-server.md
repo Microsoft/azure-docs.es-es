@@ -4,18 +4,18 @@ description: Busque las respuestas a preguntas habituales sobre la copia de segu
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: d69a2aff900dc3185aafbcb2d655a29d2fff06e3
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: c1efbc44ae1e4bea96c063e4dc734f1cc53a42ac
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890563"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180106"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Preguntas más frecuentes sobre las bases de datos de SQL Server que se ejecutan en una copia de seguridad de máquina virtual de Azure
 
 Este artículo responde preguntas comunes sobre las copias de seguridad de bases de datos de SQL Server que se ejecutan en máquinas virtuales de Azure con el servicio [Azure Backup](backup-overview.md).
 
-## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>¿Puedo usar Azure Backup para máquinas IaaS, así como SQL Server en el mismo equipo?
+## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>¿Puedo usar Azure Backup para máquinas virtuales de IaaS y SQL Server en el mismo equipo?
 
 Sí, puede tener la copia de seguridad de máquina virtual y la copia de seguridad de SQL en la misma máquina virtual. En este caso, se desencadena internamente una copia de seguridad completa de solo copia en la máquina virtual no truncar los registros.
 
@@ -52,7 +52,7 @@ El valor predeterminado de DefaultBackupTasksThreshold es **20**.
  Aunque este método resulta útil si la aplicación está consumiendo muchos recursos, [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) de SQL Server es una forma más genérica de especificar límites en la cantidad de CPU, E/S física y memoria que las solicitudes entrantes de la aplicación pueden utilizar.
 
 > [!NOTE]
-> En la experiencia de usuario puede seguir avanzando y programando tantas copias de seguridad como quiera en un momento dado. Sin embargo, se procesarán en una ventana deslizante de, por ejemplo, cinco, según el ejemplo anterior.
+> En la experiencia de usuario puede seguir avanzando y programando tantas copias de seguridad como quiera en un momento dado. Sin embargo, se procesarán en una ventana deslizante (por ejemplo, de cinco, de acuerdo con el ejemplo anterior).
 
 ## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>¿Puedo ejecutar una copia de seguridad completa desde una réplica secundaria?
 

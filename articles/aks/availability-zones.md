@@ -4,13 +4,13 @@ description: Aprenda a crear un clúster que distribuya nodos a través de las z
 services: container-service
 ms.custom: fasttrack-edit, references_regions
 ms.topic: article
-ms.date: 08/13/2020
-ms.openlocfilehash: f24351c5f77e6c00365497d5e6deeefea8271cb9
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.date: 09/04/2020
+ms.openlocfilehash: b6162249592bf470c3b8e52686abd44b813d5606
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871418"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489143"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Creación de un clúster de Azure Kubernetes Service (AKS) que use zonas de disponibilidad
 
@@ -150,7 +150,8 @@ Name:       aks-nodepool1-28993262-vmss000004
 Ahora hay dos nodos adicionales en las zonas 1 y 2. Puede implementar una aplicación que consta de tres réplicas. Se va a usar NGINX como ejemplo:
 
 ```console
-kubectl run nginx --image=nginx --replicas=3
+kubectl create deployment nginx --image=nginx
+kubectl scale deployment nginx --replicas=3
 ```
 
 Si se miran los nodos en los que se están ejecutando los pods, se observa que estos se ejecutan en los nodos correspondientes a tres zonas de disponibilidad diferentes. Por ejemplo, con el comando `kubectl describe pod | grep -e "^Name:" -e "^Node:"` de un shell de Bash se obtendría una salida similar a esta:

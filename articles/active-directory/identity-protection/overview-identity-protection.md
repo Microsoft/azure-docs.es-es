@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f6ec9c1fb5ae359ca88b48dea97c6a00c0f2b40
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: ffe7f58f27d028dd114f548521feeeb74bb12cf1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815188"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437707"
 ---
 # <a name="what-is-identity-protection"></a>¿Qué es Identity Protection?
 
@@ -102,17 +102,17 @@ Los administradores de acceso condicional también pueden crear directivas que r
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Capacidad | Detalles | Azure AD Premium P2 | Azure AD Premium P1 | Aplicaciones de Azure AD Free/Office 365 |
+| Capacidad | Detalles  | Aplicaciones de Azure AD Free/Office 365 | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
-| Directivas de riesgo | Directiva de riesgo de usuario (mediante Identity Protection) | Sí | No | No |
-| Directivas de riesgo | Directiva de riesgo de inicio de sesión (mediante Identity Protection o acceso condicional) | Sí | No | No |
-| Informes de seguridad | Información general | Sí | No | No |
-| Informes de seguridad | Usuarios de riesgo | Acceso total | Información limitada | Información limitada |
-| Informes de seguridad | Inicios de sesión no seguros | Acceso total | Información limitada | Información limitada |
-| Informes de seguridad | Detecciones de riesgo | Acceso total | Información limitada | No |
-| Notificaciones | Alertas detectadas sobre usuarios en riesgo | Sí | No | No |
-| Notificaciones | Resumen semanal | Sí | No | No |
-| | Directiva de registro de MFA | Sí | No | No |
+| Directivas de riesgo | Directiva de riesgo de usuario (mediante Identity Protection)  | No | No |Sí | 
+| Directivas de riesgo | Directiva de riesgo de inicio de sesión (mediante Identity Protection o acceso condicional)  | No |  No |Sí |
+| Informes de seguridad | Información general |  No | No |Sí |
+| Informes de seguridad | Usuarios de riesgo  | Información limitada | Información limitada | Acceso total|
+| Informes de seguridad | Inicios de sesión no seguros  | Información limitada | Información limitada | Acceso total|
+| Informes de seguridad | Detecciones de riesgo   | No | Información limitada| Acceso total|
+| Notificaciones | Alertas detectadas sobre usuarios en riesgo  | No | No |Sí |
+| Notificaciones | Resumen semanal| No | No | Sí | 
+| | Directiva de registro de MFA | No | No | Sí |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

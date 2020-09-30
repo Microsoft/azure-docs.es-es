@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 08/14/2020
-ms.openlocfilehash: 902fa34be149f0b876729409c530186e34c706e5
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.date: 09/14/2020
+ms.openlocfilehash: 3c9389e6063279e214e3650f6364dc25ff773db5
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587317"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069601"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Introducción a los límites de recursos de Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -99,12 +99,12 @@ Encuentre más información sobre los [límites de recursos en grupos de Instanc
 
 ### <a name="file-io-characteristics-in-general-purpose-tier"></a>Características de E/S de archivos en el nivel De uso general
 
-En el nivel de servicio De uso general, cada archivo de base de datos obtiene IOPS y rendimiento dedicados que dependen del tamaño de archivo. Los archivos de datos más grandes obtienen más IOPS y rendimiento. En la tabla siguiente se muestran las características de E/S de los archivos de base de datos:
+En el nivel de servicio De uso general, cada archivo de base de datos obtiene IOPS y rendimiento dedicados que dependen del tamaño de archivo. Los archivos de datos de mayor tamaño obtienen más IOPS y rendimiento. En la tabla siguiente se muestran las características de E/S de los archivos de base de datos:
 
-| Tamaño de archivo | >=0 y <=128 GiB | > 128 y < = 256 GiB | > 256 y < = 512 GiB | > 0,5 y < = 1 TiB    | > 1 y < = 2 TiB    | > 2 y < = 4 TiB | > 4 y < = 8 TiB |
+| Tamaño de archivo | >=0 y <=128 GiB | > 128 y <= 512 GiB | > 0,5 y < = 1 TiB    | > 1 y < = 2 TiB    | > 2 y < = 4 TiB | > 4 y < = 8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| IOPS por archivo       | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12 500   |
-| Rendimiento por archivo | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
+| IOPS por archivo       | 500   | 2300              | 5000              | 7500              | 7500              | 12 500   |
+| Rendimiento por archivo | 100 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
 
 Si observa una latencia de E/S alta en algún archivo de base de datos o que se va a alcanzar el límite de IOPS/rendimiento, puede mejorar el rendimiento si [aumenta el tamaño de archivo](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
 

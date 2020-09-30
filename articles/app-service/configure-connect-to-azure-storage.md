@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 8ca3688ad11bc7a694327990be22b8eccd8f8161
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: c240399f1368862a969561409371e075a010e8f2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962866"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435616"
 ---
 # <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Acceso a Azure Storage como un recurso compartido de red desde un contenedor de App Service
 
@@ -57,7 +57,7 @@ En esta guía se muestra cómo adjuntar Azure Storage a una instancia de App Ser
 - Actualmente, **no se admite** Azure Storage en App Service para incluir escenarios de código propios (aplicaciones de Windows no en contenedor).
 - Azure Storage en App Service **no admite** el uso de la configuración del **firewall de Storage** debido a limitaciones de la infraestructura.
 - Azure Storage con App Service le permite especificar **hasta cinco** puntos de montaje por aplicación.
-- No se pude acceder a Azure Storage montado en una aplicación mediante los puntos de conexión de FTP/FTP de App Service. Use [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
+- No se pude acceder a Azure Storage montado en una aplicación mediante los puntos de conexión de FTP/FTP de App Service. Usar el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
 
 ::: zone-end
 
@@ -67,7 +67,7 @@ En esta guía se muestra cómo adjuntar Azure Storage a una instancia de App Ser
 - Azure Storage en App Service admite el montaje de **contenedores de Azure Files** (lectura y escritura) y **contenedores de blobs de Azure** (solo lectura)
 - Azure Storage en App Service **no admite** el uso de la configuración del **firewall de Storage** debido a limitaciones de la infraestructura.
 - Azure Storage en App Service le permite especificar **hasta cinco** puntos de montaje por aplicación.
-- No se pude acceder a Azure Storage montado en una aplicación mediante los puntos de conexión de FTP/FTP de App Service. Use [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
+- No se pude acceder a Azure Storage montado en una aplicación mediante los puntos de conexión de FTP/FTP de App Service. Usar el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
 
 ::: zone-end
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 912d6b80914232d1a2ed2b1fe987ebdf949a1abc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1dc2f8bdf6ed2823b44d25bdf65766b1f7ae060c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136505"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907663"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Máquina de vectores de soporte de dos clases
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
 Use este módulo para crear un modelo basado en el algoritmo de máquina de vectores de soporte. 
 

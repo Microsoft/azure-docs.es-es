@@ -11,15 +11,15 @@ ms.subservice: core
 ms.date: 12/05/2019
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 89fe1d80fb7282a72bde6bcafa070f2d7461b02f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 42b2ff0b7c2d43beb1d5f0b2136a97e67c0143a5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320840"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905062"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Descripción de los resultados de aprendizaje automático automatizado
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 En este artículo, aprenderá a ver y a entender los gráficos y las métricas de cada una de las ejecuciones de aprendizaje automático automatizado. 
 
@@ -59,7 +59,7 @@ Después de ejecutar un experimento de aprendizaje automático automatizado, pue
 
    [![Modelo de experimento](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
 
-También verá estos mismos resultados durante una ejecución si usa el `RunDetails`[widget de Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
+También verá estos mismos resultados durante una ejecución si usa el `RunDetails`[widget de Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true).
 
 ## <a name="classification-results"></a><a name="classification"></a> Resultados de la clasificación
 

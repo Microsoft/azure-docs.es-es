@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/03/2020
 ms.author: victorh
-ms.openlocfilehash: ab1cedf324c0391ce54773202b030b519c3e4766
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e3f53cc14b22e7d689e246c3f0609ce80c29ec4
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804258"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594312"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con redireccionamiento interno mediante Azure PowerShell
 
@@ -21,12 +21,11 @@ Puede usar Azure PowerShell para configurar el [redireccionamiento del tráfico 
 
 En este artículo aprenderá a:
 
-> [!div class="checklist"]
-> * Configuración de la red
-> * Creación de una puerta de enlace de aplicaciones
-> * Incorporación de agentes de escucha y una regla de redireccionamiento
-> * Creación de un conjunto de escalado de máquinas virtuales con el grupo de back-end
-> * Creación de un registro CNAME en el dominio
+* Configuración de la red
+* Creación de una puerta de enlace de aplicaciones
+* Incorporación de agentes de escucha y una regla de redireccionamiento
+* Creación de un conjunto de escalado de máquinas virtuales con el grupo de back-end
+* Creación de un registro CNAME en el dominio
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

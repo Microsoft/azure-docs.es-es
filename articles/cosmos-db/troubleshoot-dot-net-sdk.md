@@ -3,18 +3,18 @@ title: Diagnóstico y solución de problemas al usar el SDK de .NET de Azure Cos
 description: Use características como registro del lado cliente y otras herramientas de terceros para identificar, diagnosticar y solucionar problemas de Azure Cosmos DB cuando use el SDK de .NET.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 06/16/2020
+ms.date: 09/12/2020
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: bc5af781b86ef559abaf33b0cb027ef14adb4262
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d7ed48354b3666a3ec544ffb66724bc605041c90
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021908"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086994"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnóstico y solución de problemas al usar el SDK de .NET de Azure Cosmos DB
 
@@ -28,6 +28,7 @@ En este artículo se tratan problemas comunes, soluciones alternativas, pasos de
 El SDK de .NET proporciona la representación lógica del lado cliente para acceder a la API de SQL de Azure Cosmos DB. En este artículo se describen herramientas y enfoques para ayudarle si surge algún problema.
 
 ## <a name="checklist-for-troubleshooting-issues"></a>Lista de comprobación para la solución de problemas
+
 Tenga en cuenta la siguiente lista de comprobación antes de que la aplicación pase a la fase de producción. El uso de la lista de comprobación impedirá que se produzcan distintos problemas comunes que podrían surgir. Puede diagnosticar rápidamente cuándo se produce un problema:
 
 *    Utilice el [SDK](sql-api-sdk-dotnet-standard.md) más reciente. No se debe utilizar la previsualización de SDK en la producción. Esto evitará problemas conocidos que ya están solucionados.
@@ -99,10 +100,15 @@ Esta latencia puede tener varias causas:
     * Habilite la opción [Redes aceleradas en una máquina virtual existente](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms).
     * Considere la posibilidad de usar una [máquina virtual superior](../virtual-machines/windows/sizes.md).
 
-### <a name="slow-query-performance"></a>Rendimiento lento de las consultas
-Las [métricas de consulta](sql-api-query-metrics.md) le ayudarán a determinar dónde está dedicando más tiempo la consulta. En las métricas de consulta, puede ver la cantidad que se dedica al back-end en comparación con el cliente.
+### <a name="common-query-issues"></a>Problemas de consulta comunes
+
+Las [métricas de consulta](sql-api-query-metrics.md) le ayudarán a determinar dónde está dedicando más tiempo la consulta. En las métricas de consulta, puede ver la cantidad que se dedica al back-end en comparación con el cliente. Más información sobre la [solución de problemas del rendimiento de consultas](troubleshoot-query-performance.md).
+
 * Si la consulta de back-end se devuelve rápidamente y se dedica una gran cantidad de tiempo al cliente, compruebe la carga en la máquina. Es probable que no haya suficientes recursos y el SDK esté esperando que haya recursos disponibles para gestionar la respuesta.
-* Si la consulta de back-end es lenta, intente [optimizar la consulta](optimize-cost-queries.md) y examine la [directiva de indexación](index-overview.md). 
+* Si la consulta de back-end es lenta, intente [optimizar la consulta](troubleshoot-query-performance.md) y examine la [directiva de indexación](index-overview.md).
+
+    > [!NOTE]
+    > El proceso de host de Windows de 64 bits se recomienda para mejorar el rendimiento. El SDK de SQL incluye un archivo ServiceInterop.dll nativo para analizar y optimizar consultas localmente. ServiceInterop.dll solo se admite en la plataforma Windows x64. En el caso de Linux y otras plataformas no compatibles donde el archivo ServiceInterop.dll no está disponible, se realizará una llamada de red adicional a la puerta de enlace para obtener la consulta optimizada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

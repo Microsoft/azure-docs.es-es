@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: c29baf3cdda998a2ab78c84f3311b84d37086bcd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0dfde6fef7cc91edf2101095018bc031d392c4ed
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477432"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898183"
 ---
 # <a name="train-clustering-model"></a>Entrenamiento del modelo de agrupación en clústeres
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
 Utilice este módulo para entrenar un modelo de agrupación en clústeres.
 

@@ -1,27 +1,29 @@
 ---
-title: 'Texto a voz: servicio de voz'
+title: 'Introducción a la tecnología de texto a voz: el servicio Voz'
 titleSuffix: Azure Cognitive Services
-description: La característica de texto a voz del servicio de voz permite que sus aplicaciones, herramientas o dispositivos conviertan el texto en una voz sintetizada natural similar a la humana. Elija voces preestablecidas o cree su voz personalizada.
+description: La característica de texto a voz del servicio de voz permite que sus aplicaciones, herramientas o dispositivos conviertan el texto en una voz sintetizada natural similar a la humana. En este artículo, encontrará información general sobre las ventajas y las funcionalidades del servicio de conversión de texto a voz.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 09/01/2020
 ms.author: trbye
-ms.openlocfilehash: 42d5ca12e91de5e0e906fb017183ea684b63b49c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.custom: cog-serv-seo-aug-2020
+keywords: texto a voz
+ms.openlocfilehash: 8b8430135ffd15e8331b654628236a315f10cce3
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167715"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401187"
 ---
 # <a name="what-is-text-to-speech"></a>¿Qué es el texto a voz?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-La característica de texto a voz del servicio de voz permite que sus aplicaciones, herramientas o dispositivos conviertan el texto en una voz sintetizada similar a la humana. Puede elegir entre voces estándar y neuronales, o puede crear una voz personalizada única para su producto o marca. Tiene más de 75 voces estándar disponibles en más de 45 idiomas y configuraciones regionales, y 5 voces neuronales que están disponibles en varios idiomas y configuraciones regionales. Para obtener una lista completa de las voces, los idiomas y las configuraciones regionales compatibles, consulte [Idiomas admitidos](language-support.md#text-to-speech).
+En esta introducción, encontrará información sobre las ventajas y las funcionalidades del servicio de conversión de texto a voz. Con este servicio, sus aplicaciones, herramientas o dispositivos podrán convertir un texto en voz sintetizada similar a la de los humanos. Puede elegir entre voces estándar y neuronales, o puede crear una voz personalizada única para su producto o marca. Tiene más de 75 voces estándar disponibles en más de 45 idiomas y configuraciones regionales, y 5 voces neuronales que están disponibles en varios idiomas y configuraciones regionales. Para obtener una lista completa de las voces, los idiomas y las configuraciones regionales compatibles, consulte [Idiomas admitidos](language-support.md#text-to-speech).
 
 > [!NOTE]
 > Bing Speech se ha retirado el 15 de octubre de 2019. Si sus aplicaciones, herramientas o productos usan Bing Speech API o Habla personalizada, hemos creado guías para que le ayuden a migrar al servicio de voz.

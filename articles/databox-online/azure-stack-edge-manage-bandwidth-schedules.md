@@ -1,6 +1,6 @@
 ---
-title: Administración de programaciones de ancho de banda en Azure Stack Edge| Microsoft Docs
-description: Describe cómo puede usar Azure Portal para administrar las programaciones de ancho de banda de Azure Stack Edge.
+title: Administración de programaciones de ancho de banda en Azure Stack Edge Pro | Microsoft Docs
+description: En este artículo se explica cómo puede usar Azure Portal para administrar las programaciones de ancho de banda en Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 9e5361c1082424a76699affee653b4b9fc798116
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9247ae6e6cfc276c871689df826935c519620573
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339764"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908135"
 ---
-# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge"></a>Uso de Azure Portal para administrar las programaciones de ancho de banda de Azure Stack Edge  
+# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro"></a>Uso de Azure Portal para administrar las programaciones de ancho de banda en Azure Stack Edge Pro  
 
-En este artículo, se explica cómo administrar los usuarios en Azure Stack Edge. Las programaciones del ancho de banda le permiten configurar el uso del ancho de banda de red en programaciones en varias horas del día. Dichas programaciones se pueden aplicar a las operaciones de carga y descarga desde el dispositivo a la nube.
+En este artículo se explica cómo administrar los usuarios en Azure Stack Edge Pro. Las programaciones del ancho de banda le permiten configurar el uso del ancho de banda de red en programaciones en varias horas del día. Dichas programaciones se pueden aplicar a las operaciones de carga y descarga desde el dispositivo a la nube.
 
-Puede agregar, modificar o eliminar las programaciones de ancho de banda de Azure Stack Edge en Azure Portal.
+Puede agregar, modificar o eliminar las programaciones de ancho de banda de Azure Stack Edge Pro en Azure Portal.
 
 En este artículo aprenderá a:
 
@@ -71,7 +71,7 @@ Siga estos pasos para editar una programación del ancho de banda.
 
 ## <a name="delete-a-schedule"></a>Eliminación de una programación
 
-Siga estos pasos para eliminar una programación de ancho de banda asociada a un dispositivo de Azure Stack Edge.
+Siga estos pasos para eliminar una programación de ancho de banda asociada a un dispositivo Azure Stack Edge Pro.
 
 1. En Azure Portal, vaya al recurso de Azure Stack Edge y luego a **Ancho de banda**.  
 

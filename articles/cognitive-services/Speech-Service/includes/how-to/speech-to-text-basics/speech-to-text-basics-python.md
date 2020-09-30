@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 3ee78560818d3651d5822c551ba2e0ccee3376e6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 13ab7fc5b4461559fc54b5643d22ca309c752a37
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204600"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565028"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -60,29 +60,30 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_r
 
 ## <a name="initialize-a-recognizer"></a>Inicialización de un reconocedor
 
-Una vez creado un elemento [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python), el paso siguiente consiste en inicializar un elemento [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python). Al inicializar un elemento [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python), deberá pasar el elemento `speech_config`. Esto proporciona las credenciales que necesita el servicio de voz para validar la solicitud.
-
-Si va a realizar un reconocimiento de voz con el micrófono predeterminado del dispositivo, el elemento [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python) debería ser similar a:
+Una vez creado un elemento [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python), el paso siguiente consiste en inicializar un elemento [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python). Al inicializar [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python), se usa `speech_config`. Esto proporciona las credenciales que necesita el servicio de voz para validar la solicitud.
 
 ```Python
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
 ```
 
-Si desea especificar el dispositivo de entrada de audio, deberá crear un elemento [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python) y proporcionar el parámetro `audio_config` al inicializar el elemento [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python).
+## <a name="recognize-from-microphone-or-file"></a>Reconocimiento desde un micrófono o archivo
 
-> [!TIP]
-> [Obtenga información sobre cómo obtener el identificador de dispositivo del dispositivo de entrada de audio](../../../how-to-select-audio-input-devices.md).
+Si desea especificar el dispositivo de entrada de audio, es preciso que cree [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python) y lo use como parámetro al inicializar [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python).
+
+Para reconocer la voz mediante el micrófono del dispositivo, basta con crear `SpeechRecognizer` sin usar `AudioConfig`
 
 ```Python
-audio_config = AudioConfig(device_name="<device id>");
-speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
+speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
 ```
 
-Si desea proporcionar un archivo de audio en lugar de usar un micrófono, deberá proporcionar un elemento `audio_config`. Sin embargo, cuando se crea un elemento [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python), en lugar de proporcionar `device_name`, se utilizará el parámetro `filename`.
+> [!TIP]
+> Si desea hacer referencia a un dispositivo por identificador, cree `AudioConfig` mediante `AudioConfig(device_name="<device id>")`
+> [Aprenda a obtener el identificador de un dispositivo de entrada de audio](../../../how-to-select-audio-input-devices.md).
+
+Si desea reconocer la voz de un archivo de audio, en lugar de usar un micrófono, cree un elemento [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python) y use el parámetro `filename`.
 
 ```Python
-audio_filename = "whatstheweatherlike.wav"
-audio_input = speechsdk.AudioConfig(filename=audio_filename)
+audio_input = speechsdk.AudioConfig(filename="your_file_name.wav")
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
 ```
 

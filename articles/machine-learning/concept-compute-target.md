@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 27c129af9fbf3e76c6c57fbf084596876b51955b
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 3e1832d656ea2bad772a686e52a357c1daf0ded5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141932"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883199"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>¿Qué son los destinos de proceso en Azure Machine Learning? 
 
@@ -33,7 +33,7 @@ Azure Machine Learning tiene distintas modalidades de soporte técnico en los di
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-Obtenga más información sobre la [configuración y el uso de un destino de proceso para el entrenamiento del modelo](how-to-set-up-training-targets.md).
+Obtenga más información sobre el [uso de un destino de proceso para el entrenamiento del modelo](how-to-set-up-training-targets.md).
 
 ## <a name="deployment-targets"></a><a name="deploy"></a>Destinos de implementación
 
@@ -46,12 +46,12 @@ Aprenda [dónde y cómo implementar el modelo en un destino de proceso](how-to-d
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Proceso de Azure Machine Learning (administrado)
 
-Azure Machine Learning crea y administra un recurso de proceso administrado. Dicho proceso está optimizado para cargas de trabajo de Machine Learning. Los clústeres de procesos y las [instancias de procesos](concept-compute-instance.md) de Azure Machine Learning son los únicos procesos administrados. En el futuro podrán agregarse recursos de proceso administrados adicionales.
+Azure Machine Learning crea y administra un recurso de proceso administrado. Dicho proceso está optimizado para cargas de trabajo de Machine Learning. Los clústeres de procesos y las [instancias de procesos](concept-compute-instance.md) de Azure Machine Learning son los únicos procesos administrados. 
 
 Puede crear instancias de procesos o clústeres de procesos de Azure Machine Learning con cualquiera de las siguientes opciones:
-* Azure Machine Learning Studio
+* [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
 * Azure portal
-* SDK de Python [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) y clases de [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py)
+* SDK de Python [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py&preserve-view=true) y clases de [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true)
 * [SDK de R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (versión preliminar)
 * Plantilla de Resource Manager. Para ver una plantilla de ejemplo, consulte [Creación de una plantilla de proceso de Azure Machine Learning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
 * Extensión de Machine learning [para la CLI de Azure](reference-azure-machine-learning-cli.md#resource-management).  
@@ -68,7 +68,7 @@ Cuando se crean, estos recursos de proceso forman parte automáticamente del ár
 
 
 > [!NOTE]
-> Cuando un clúster de proceso está inactivo, se escala automáticamente a 0 nodos, por lo que no paga cuando no se usa.  Sin embargo, una *instancia* de proceso está siempre activa y no se escala automáticamente.  Debe [detener la instancia de proceso](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) cuando no la esté usando para evitar costos adicionales.
+> Cuando un clúster de proceso está inactivo, se escala automáticamente a 0 nodos, por lo que no paga cuando no se usa.  Sin embargo, una *instancia* de proceso está siempre activa y no se escala automáticamente.  Debe [detener la instancia de proceso](concept-compute-instance.md#managing-a-compute-instance) cuando no la esté usando para evitar costos adicionales. 
 
 ### <a name="supported-vm-series-and-sizes"></a>Series y tamaños de maquina virtual compatibles
 
@@ -107,5 +107,5 @@ Azure Machine Learning *no*administra un destino de proceso no administrado. Cre
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo:
-* [Configurar un destino de proceso para entrenar el modelo](how-to-set-up-training-targets.md)
+* [Usar un destino de proceso para entrenar el modelo](how-to-set-up-training-targets.md)
 * [Implementar el modelo para un destino de proceso](how-to-deploy-and-where.md)

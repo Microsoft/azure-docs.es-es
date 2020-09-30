@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 6be397631621c727bb8979df2ee8eec3aca43096
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0c37c8f108e9bcbb827c05242d8863994dfc64cf
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799373"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177098"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Depuración local de Azure Functions de PowerShell
 
@@ -65,6 +65,9 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 ## <a name="set-the-attach-point"></a>Establecimiento del punto de asociación
 
 Para depurar cualquier función de PowerShell, esta se debe detener para que se asocie el depurador. El cmdlet `Wait-Debugger` detiene la ejecución y espera por el depurador.
+
+>[!NOTE]
+>Cuando se usa PowerShell 7, no es necesario agregar la llamada a `Wait-Debugger` en el código.
 
 Lo único que tiene que hacer es agregar una llamada al cmdlet `Wait-Debugger` justo encima de la instrucción `if`, como se indica a continuación:
 

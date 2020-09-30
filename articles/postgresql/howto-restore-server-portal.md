@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 7683d3472d382707de538874035c8448f589bf82
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 9ff62a568af4f60318ba0e5bdf2144bb43c9d2b1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110817"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884303"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for PostgreSQL con un único servidor mediante Azure Portal
 
@@ -28,7 +28,7 @@ Elija la configuración del servidor para copias de seguridad con redundancia lo
 
 Al crear un servidor mediante Azure Portal, en la ventana **Plan de tarifa** se selecciona **Redundancia local** o **Redundancia geográfica** para las copias de seguridad del servidor. En esta ventana se selecciona también el **Período de retención de copia de seguridad**, es decir, durante cuánto tiempo se almacenarán las copias de seguridad del servidor.
 
-   ![Plan de tarifa: elija la redundancia de las copias de seguridad](./media/howto-restore-server-portal/pricing-tier.png)
+   :::image type="content" source="./media/howto-restore-server-portal/pricing-tier.png" alt-text="Plan de tarifa: elija la redundancia de las copias de seguridad":::
 
 Para más información acerca de cómo establecer estos valores durante la creación, consulte la [guía de inicio rápido del servidor de Azure Database for PostgreSQL](quickstart-create-server-database-portal.md).
 
@@ -37,7 +37,7 @@ Para cambiar el período de retención de copia de seguridad de un servidor, sig
 2. Seleccione su servidor de Azure Database for PostgreSQL. Esta acción abre la página **Información general**.
 3. Seleccione **Plan de tarifa** en el menú, en **Configuración**. Con el control deslizante puede cambiar el **Período de retención de copia de seguridad** entre 7 y 35 días.
 En la captura de pantalla siguiente, se ha aumentado a 34 días.
-![Aumento del período de retención de copia de seguridad](./media/howto-restore-server-portal/3-increase-backup-days.png)
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Aumento del período de retención de copia de seguridad":::
 
 4. Haga clic en **Aceptar** para confirmar el cambio.
 
@@ -53,11 +53,11 @@ Los siguientes pasos restauran el servidor de ejemplo a un momento dado:
 
 2. En la barra de herramientas de la página **Información general** del servidor, seleccione **Restaurar**.
 
-   ![Azure Database for PostgreSQL - Información general - Botón Restaurar](./media/howto-restore-server-portal/2-server.png)
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Azure Database for PostgreSQL - Información general - Botón Restaurar":::
 
 3. Rellene el formulario Restaurar con la información necesaria:
 
-   ![Azure Database for PostgreSQL - Información sobre restauración](./media/howto-restore-server-portal/3-restore.png)
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Azure Database for PostgreSQL - Información sobre restauración":::
    - **Punto de restauración**: seleccione el momento al que desea restaurar.
    - **Servidor de destino:** : proporcione un nombre para el nuevo servidor.
    - **Ubicación**: no se puede seleccionar la región. De manera predeterminada, es el mismo que el del servidor de origen.

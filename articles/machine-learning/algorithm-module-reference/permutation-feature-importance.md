@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
-ms.openlocfilehash: e4511cf4393172e7d2b1ab8a985c76d8f98d4015
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ecf739ea838ad3742612eab7a1b42ac8c8ac455a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79456070"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905263"
 ---
 # <a name="permutation-feature-importance"></a>Importancia de la característica de permutación
 
-En este artículo se describe cómo usar el módulo Permutation Feature Importance (Importancia de la característica de permutación) en el diseñador de Azure Machine Learning (versión preliminar) para calcular un conjunto de puntuaciones de importancia de las características del conjunto de datos. Estas puntuaciones se usan para ayudarle a determinar las mejores características que se deben usar en un modelo.
+En este artículo se describe cómo usar el módulo Permutation Feature Importance (Importancia de la característica de permutación) en el diseñador de Azure Machine Learning para calcular un conjunto de puntuaciones de importancia de las características del conjunto de datos. Estas puntuaciones se usan para ayudarle a determinar las mejores características que se deben usar en un modelo.
 
 En este módulo, los valores de las características se ordenan aleatoriamente, una columna cada vez. El rendimiento del modelo se mide antes y después. Puede elegir una de las métricas estándar para medir el rendimiento.
 

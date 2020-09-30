@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 2fb38fdfaace188936975c1cfdd8c86b44d5b0a5
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 1a76c753cdf22d2c9b8b56893017cdc3cee9c8cd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231544"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527299"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integración de Power BI con Text Analytics de Cognitive Services
 
@@ -232,7 +232,7 @@ La función Análisis de sentimiento siguiente devuelve una puntuación que indi
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    sentiment   = jsonresp[documents]{0}[score]
+    sentiment   = jsonresp[documents]{0}[confidenceScores]
 in  sentiment
 ```
 

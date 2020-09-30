@@ -1,0 +1,94 @@
+- name: Documentación de Azure Communication Services
+  href: index.yml
+- name: Información general
+  expanded: true
+  items:
+    - name: ¿Qué es Azure Communication Services?
+      href: overview.md
+- name: Guías de inicio rápido
+  expanded: true
+  items:
+    - name: Crear un recurso de Communication Services
+      href: quickstarts/create-communication-resource.md
+    - name: Creación y administración de tokens de acceso
+      href: quickstarts/access-tokens.md
+    - name: Chat
+      items:
+        - name: Incorporación del chat a una aplicación
+          href: quickstarts/chat/get-started.md
+    - name: Telefonía y SMS
+      items:
+        - name: Obtención de un número de teléfono
+          href: quickstarts/telephony-sms/get-phone-number.md
+        - name: Enviar un mensaje SMS
+          href: quickstarts/telephony-sms/send.md
+        - name: Control de eventos SMS
+          href: quickstarts/telephony-sms/handle-sms-events.md
+    - name: Llamadas de voz y vídeo
+      items:
+        - name: Adición de llamadas de voz a una aplicación
+          href: quickstarts/voice-video-calling/getting-started-with-calling.md
+        - name: Uso de la biblioteca cliente de llamadas
+          href: quickstarts/voice-video-calling/calling-client-samples.md
+- name: Tutoriales
+  expanded: false
+  items:
+    - name: Creación de un servicio de autenticación de confianza mediante Azure Functions
+      href: tutorials/trusted-service-tutorial.md
+- name: Conceptos
+  expanded: false
+  items:
+    - name: Chat
+      items:
+        - name: Introducción a la biblioteca cliente de chat
+          href: concepts/chat/sdk-features.md
+        - name: Conceptos de chat
+          href: concepts/chat/concepts.md
+    - name: Telefonía y SMS
+      items:
+        - name: Información general de la biblioteca cliente de SMS
+          href: concepts/telephony-sms/sdk-features.md
+        - name: Conceptos de SMS
+          href: concepts/telephony-sms/concepts.md
+        - name: Planificación de una solución de telefonía y SMS
+          href: concepts/telephony-sms/plan-solution.md
+    - name: Llamadas de voz y vídeo
+      items:
+        - name: Información general de la biblioteca cliente de llamadas
+          href: concepts/voice-video-calling/calling-sdk-features.md
+        - name: Conceptos de voz y vídeo
+          href: concepts/voice-video-calling/about-call-types.md
+    - name: Arquitectura de cliente y servidor
+      href: concepts/client-and-server-architecture.md
+    - name: Flujos de llamadas
+      href: concepts/call-flows.md
+    - name: Bibliotecas cliente y API REST
+      href: concepts/sdk-options.md
+    - name: Modelo de precios
+      href: concepts/pricing.md
+    - name: Authentication
+      href: concepts/authentication.md
+    - name: Control de eventos
+      href: concepts/event-handling.md
+    - name: Notificaciones
+      href: concepts/notifications.md
+- name: Ejemplos
+  items:
+    - name: Ejemplo de elementos principales de una llamada grupal
+      href: samples/calling-hero-sample.md
+    - name: Ejemplo de elementos principales de un chat grupal
+      href: samples/chat-hero-sample.md
+- name: Referencias
+  items:
+    - name: Documentación de la API de REST
+      href: 'https://docs.microsoft.com/rest/api/azure/'
+    - name: Biblioteca de llamadas (Android/Java)
+      href: 'https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android'
+    - name: Biblioteca de llamadas (JS)
+      href: 'https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js'
+    - name: Biblioteca de llamadas (iOS)
+      href: 'https://docs.microsoft.com/objectivec/communication-services/calling/'
+- name: Recursos
+  items:
+    - name: Notas de la versión
+      href: 'https://github.com/Azure/Communication/blob/master/releasenotes/2020-September-22.md'

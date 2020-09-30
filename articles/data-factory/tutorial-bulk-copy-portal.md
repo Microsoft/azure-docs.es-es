@@ -1,6 +1,6 @@
 ---
 title: Copia de datos en bloque mediante Azure Portal
-description: Aprenda a usar Azure Data Factory y la actividad de copia para copiar datos desde un almacén de datos de origen a un almacén de datos de destino de forma masiva.
+description: Utilice Azure Data Factory y la actividad de copia para copiar datos desde un almacén de datos de origen a un almacén de datos de destino de forma masiva.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/22/2020
-ms.openlocfilehash: 29bdedd5ae40db57809c11500af404d308366ca7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a047872f519de1873c03998fd1d3a9c273ce9fa1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86081645"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442861"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copia masiva de varias tablas mediante Azure Data Factory en Azure Portal
 
@@ -45,7 +45,7 @@ En este escenario, tenemos varias tablas en Azure SQL Database que queremos copi
 ![Flujo de trabajo](media/tutorial-bulk-copy-portal/tutorial-copy-multiple-tables.png)
 
 * La primera canalización busca la lista de tablas que debe copiarse en los almacenes de datos del receptor.  También puede mantener una tabla de metadatos que muestre todas las tablas que se deben copiar en el almacén de datos receptor. A continuación, la canalización desencadena otra canalización, que itera en todas las tablas de la base de datos y realiza la operación de copia de datos.
-* La segunda canalización realiza la copia real. Toma la lista de tablas como un parámetro. Para cada tabla de la lista, copie la tabla específica de Azure SQL Database a la tabla correspondiente de Azure Synapse Analytics (anteriormente, SQL DW) con la [copia almacenada provisionalmente mediante Blob Storage y PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) a fin de obtener el mejor rendimiento. En este ejemplo, la primera canalización pasa la lista de tablas como un valor para el parámetro. 
+* La segunda canalización realiza la copia real. Toma la lista de tablas como un parámetro. Para cada tabla de la lista, copie la tabla específica de Azure SQL Database a la tabla correspondiente de Azure Synapse Analytics (anteriormente, SQL DW) con la [copia almacenada provisionalmente mediante Blob Storage y PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics) a fin de obtener el mejor rendimiento. En este ejemplo, la primera canalización pasa la lista de tablas como un valor para el parámetro. 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -62,7 +62,7 @@ Cree una base de datos en SQL Database con los datos de ejemplo de Adventure Wor
 
 **Prepare el receptor de Azure Synapse Analytics (anteriormente SQL DW)** :
 
-1. si no tiene ninguna instancia de Azure Synapse Analytics (anteriormente SQL DW), consulte en el artículo [Creación de una instancia de SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) los pasos para crearla.
+1. Si no tiene un área de trabajo de Azure Synapse Analytics (anteriormente SQL DW), consulte el artículo [Introducción a Azure Synapse Analytics](..\synapse-analytics\get-started.md) para conocer los pasos para crear una.
 
 1. Cree los esquemas de tabla correspondientes en Azure Synapse Analytics (anteriormente SQL DW). Debe usar Azure Data Factory para migrar o copiar datos en un paso posterior.
 

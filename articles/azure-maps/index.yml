@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: 01fb176ad6dc2ce097beddf03b724628ba3e1032
-  ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+  ms.openlocfilehash: e37bc2c9a6f6ad48695ce5fe346ef2402f3c6a6c
+  ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/18/2020
-  ms.locfileid: "88509933"
+  ms.lasthandoff: 09/15/2020
+  ms.locfileid: "90086273"
 landingContent:
 - title: Acerca de Azure Maps
   linkLists:
@@ -121,13 +121,13 @@ landingContent:
   - linkListType: reference
     links:
     - text: Control de mapa
-      url: https://docs.microsoft.com/javascript/api/azure-maps-control/?view=azure-maps-typescript-latest
+      url: https://docs.microsoft.com/javascript/api/azure-maps-control/
     - text: Módulo de herramientas de dibujo
-      url: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/?view=azure-maps-typescript-latest
+      url: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/
     - text: Módulo de servicio
-      url: https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest
+      url: https://docs.microsoft.com/javascript/api/azure-maps-rest/
     - text: Módulo de E/S espacial
-      url: https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/?view=azure-maps-typescript-latest
+      url: https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/
 - title: Desarrollo con el SDK de Android
   linkLists:
   - linkListType: how-to-guide

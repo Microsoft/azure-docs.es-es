@@ -3,12 +3,12 @@ title: Copia de seguridad de SQL Server con Azure Backup Server
 description: En este artículo aprenderá la configuración de la copia de seguridad de bases de datos de SQL Server mediante Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: d682e63424ca247161e9784a8a05b91186da54b7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b47cb74c6e5dbb868c03f8f7b79c00b0c4ce7886
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003651"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182316"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Copia de seguridad de SQL Server en Azure con Azure Backup Server
 

@@ -1,0 +1,102 @@
+### YamlMime:Landing
+title: Azure Communication Services
+summary: Azure Communication Services es un servicio de comunicaciones basado en la nube que permite agregar voz, vídeo, chat y telefonía a las aplicaciones. Tenga en cuenta que Azure Communication Services se encuentra actualmente en versión preliminar pública.
+metadata:
+  title: Azure Communication Services
+  description: Azure Communication Services es un servicio de comunicaciones basado en la nube que permite agregar voz, vídeo, chat y telefonía a las aplicaciones. Tenga en cuenta que Azure Communication Services se encuentran actualmente en versión preliminar pública.
+  ms.service: azure-communication-services
+  ms.topic: landing-page
+  author: mikben
+  ms.author: mikben
+  ms.date: 08/10/2020
+  ms.openlocfilehash: 6081063605439982e29984cc4378ec3aee7ac08a
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90929042"
+landingContent:
+- title: Acerca de Azure Communication Services
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure Communication Services?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Opciones de la biblioteca cliente
+      url: concepts/sdk-options.md
+- title: Introducción
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creación de un recurso de Communication Services
+      url: quickstarts/create-communication-resource.md
+    - text: Creación y administración de tokens de acceso del usuario
+      url: quickstarts/access-tokens.md
+  - linkListType: concept
+    links:
+    - text: Arquitectura de cliente y servidor
+      url: concepts/client-and-server-architecture.md
+    - text: Autenticación y autorización
+      url: concepts/authentication.md
+    - text: Control de eventos
+      url: concepts/event-handling.md
+    - text: Notificaciones
+      url: concepts/notifications.md
+- title: Llamadas de voz y vídeo
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Adición de llamadas de voz y vídeo a su aplicación
+      url: quickstarts/voice-video-calling/getting-started-with-calling.md
+    - text: Uso de la biblioteca cliente de llamadas
+      url: quickstarts/voice-video-calling/calling-client-samples.md
+  - linkListType: concept
+    links:
+    - text: Conceptos de voz y vídeo
+      url: concepts/voice-video-calling/about-call-types.md
+    - text: Introducción a la biblioteca cliente de llamadas
+      url: concepts/voice-video-calling/calling-sdk-features.md
+    - text: Flujos de llamadas
+      url: concepts/call-flows.md
+- title: Telefonía y SMS
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Obtención de un número de teléfono
+      url: quickstarts/telephony-sms/get-phone-number.md
+    - text: Enviar un mensaje SMS
+      url: quickstarts/telephony-sms/send.md
+    - text: Control de eventos SMS
+      url: quickstarts/telephony-sms/handle-sms-events.md
+  - linkListType: concept
+    links:
+    - text: Conceptos de SMS
+      url: concepts/telephony-sms/concepts.md
+    - text: Introducción a la biblioteca cliente de SMS
+      url: concepts/telephony-sms/sdk-features.md
+    - text: Introducción a las llamadas
+      url: concepts/voice-video-calling/calling-sdk-features.md
+    - text: Planificación de una solución de telefonía y SMS
+      url: concepts/telephony-sms/plan-solution.md
+- title: Chat
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Adición del chat a una aplicación
+      url: quickstarts/chat/get-started.md
+  - linkListType: concept
+    links:
+    - text: Conceptos de chat
+      url: concepts/chat/concepts.md
+    - text: Introducción a la biblioteca cliente de chat
+      url: concepts/chat/sdk-features.md
+- title: Ejemplos
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Introducción al ejemplo de elementos principales de una llamada grupal
+      url: samples/calling-hero-sample.md
+    - text: Introducción al ejemplo de elementos principales de un chat grupal
+      url: samples/chat-hero-sample.md

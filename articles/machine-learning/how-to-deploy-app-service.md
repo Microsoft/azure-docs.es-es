@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 04ae1788dfd3050fdd2042f88a8e1829e9063ad3
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7c98bfe4adb9cbbcc1009c530ba875511ea9ec01
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851365"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905111"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Implementación de un modelo de aprendizaje automático en Azure App Service (versión preliminar)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Aprenda a implementar un modelo de Azure Machine Learning como aplicación web en Azure App Service.
 
@@ -54,7 +54,7 @@ Para más información sobre las características proporcionadas por Azure App S
 
 ## <a name="prepare-for-deployment"></a>Preparar la implementación
 
-Antes de realizar la implementación, debe definir qué necesita para ejecutar el modelo como un servicio web. En la lista siguiente se describen los elementos básicos necesarios para una implementación:
+Antes de realizar la implementación, debe definir qué necesita para ejecutar el modelo como un servicio web. En la lista siguiente se describen los principales elementos necesarios para una implementación:
 
 * Un __script de entrada__. Este script acepta solicitudes, puntúa la solicitud mediante el modelo y devuelve los resultados.
 
@@ -75,7 +75,7 @@ Antes de realizar la implementación, debe definir qué necesita para ejecutar e
 Estas entidades se encapsulan en una __configuración de inferencia__. La configuración de inferencia hace referencia al script de entrada y a otras dependencias.
 
 > [!IMPORTANT]
-> Al crear una configuración de inferencia para su uso con Azure App Service, debe usar un objeto [Environment](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py). Tenga en cuenta que si va a definir su propio entorno personalizado, debe enumerar azureml-defaults con la versión >= 1.0.45 como dependencia de PIP. Este paquete contiene la funcionalidad necesaria para hospedar el modelo como un servicio web. En el ejemplo siguiente se muestra cómo crear un objeto de entorno y cómo usarlo con una configuración de inferencia:
+> Al crear una configuración de inferencia para su uso con Azure App Service, debe usar un objeto [Environment](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true). Tenga en cuenta que si va a definir su propio entorno personalizado, debe enumerar azureml-defaults con la versión >= 1.0.45 como dependencia de PIP. Este paquete contiene la funcionalidad necesaria para hospedar el modelo como un servicio web. En el ejemplo siguiente se muestra cómo crear un objeto de entorno y cómo usarlo con una configuración de inferencia:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -101,7 +101,7 @@ Para más información sobre la configuración de inferencia, consulte [Implemen
 
 ## <a name="create-the-image"></a>Crear la imagen
 
-Para crear la imagen de Docker que se implementa en Azure App Service, use [Model.package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-). El siguiente fragmento de código muestra cómo compilar una nueva imagen a partir del modelo y la configuración de inferencia:
+Para crear la imagen de Docker que se implementa en Azure App Service, use [Model.package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-). El siguiente fragmento de código muestra cómo compilar una nueva imagen a partir del modelo y la configuración de inferencia:
 
 > [!NOTE]
 > En el fragmento de código se da por supuesto que `model` contiene un modelo registrado y que `inference_config` contiene la configuración del entorno de inferencia. Para más información, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).

@@ -12,31 +12,31 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 27d56958120d0eddebe30dc410805909fe507f7c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 548113a5f775595caf3a798d7b35eddfbc80674e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319582"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886097"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Dónde guardar y escribir los archivos para los experimentos de Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 En este artículo, obtendrá información sobre dónde guardar los archivos de entrada y dónde escribir los archivos de salida de los experimentos para evitar errores de limitación del almacenamiento y la latencia de los experimentos.
 
-Al iniciar las ejecuciones de entrenamiento en un [destino de proceso](how-to-set-up-training-targets.md), están aisladas de los entornos exteriores. El propósito de este diseño es garantizar la reproducibilidad y la portabilidad del experimento. Si ejecuta dos veces el mismo script, en el mismo destino de proceso o en otro, recibirá los mismos resultados. Con este diseño, puede tratar los destinos de proceso como recursos de cálculo sin estado y ninguno de ellos tendrá afinidad con los trabajos que se ejecutan una vez finalizados.
+Al iniciar las ejecuciones de entrenamiento en un [destino de proceso](concept-compute-target.md), están aisladas de los entornos exteriores. El propósito de este diseño es garantizar la reproducibilidad y la portabilidad del experimento. Si ejecuta dos veces el mismo script, en el mismo destino de proceso o en otro, recibirá los mismos resultados. Con este diseño, puede tratar los destinos de proceso como recursos de cálculo sin estado y ninguno de ellos tendrá afinidad con los trabajos que se ejecutan una vez finalizados.
 
 ## <a name="where-to-save-input-files"></a>Dónde guardar los archivos de entrada
 
 Para poder iniciar un experimento en la máquina local o en un destino de proceso, debe asegurarse de que los archivos necesarios están disponibles para ese destino de proceso, por ejemplo, los archivos de dependencia y los de datos que su código necesita para ejecutarse.
 
-Azure Machine Learning ejecuta scripts de entrenamiento mediante la copia de todo el directorio de origen. Si tiene información confidencial que no quiere cargar, use un [archivo .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) o no lo incluya en el directorio de origen. En su lugar, acceda a los datos mediante un [almacén de datos](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).
+Azure Machine Learning ejecuta scripts de entrenamiento mediante la copia de todo el directorio de origen. Si tiene información confidencial que no quiere cargar, use un [archivo .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) o no lo incluya en el directorio de origen. En su lugar, acceda a los datos mediante un [almacén de datos](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true).
 
 El límite de almacenamiento para las instantáneas del experimento es de 300 MB y 2000 archivos.
 
 Por este motivo, se recomienda:
 
-* **Almacenar los archivos en un [almacén de datos](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py) de Azure Machine Learning.** Así se evitan los problemas de latencia del experimento y tiene las ventajas de acceder a los datos desde un destino de proceso remoto, lo que significa que la autenticación y el montaje son administrados por Azure Machine Learning. Más información sobre cómo especificar un almacén de datos como el directorio de origen y cómo cargar los archivos en el almacén de datos, en el artículo [Datos de acceso desde almacenes de datos](how-to-access-data.md).
+* **Almacenar los archivos en un [almacén de datos](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true) de Azure Machine Learning.** Así se evitan los problemas de latencia del experimento y tiene las ventajas de acceder a los datos desde un destino de proceso remoto, lo que significa que la autenticación y el montaje son administrados por Azure Machine Learning. Más información sobre cómo especificar un almacén de datos como el directorio de origen y cómo cargar los archivos en el almacén de datos, en el artículo [Datos de acceso desde almacenes de datos](how-to-access-data.md).
 
 * **Si solo necesita dos archivos de datos y scripts de dependencias, y no puede usar un almacén de datos,** coloque los archivos en el mismo directorio de carpetas que el script de entrenamiento. Especifique esta carpeta como su `source_directory` directamente en el script de entrenamiento o en el código que lo llama.
 
@@ -79,4 +79,4 @@ Si no necesita un almacén de datos, escriba los archivos en la carpeta `./outpu
 
 * Más información sobre el [acceso a los datos desde almacenes de datos](how-to-access-data.md).
 
-* Más información sobre [cómo configurar los destinos de entrenamiento](how-to-set-up-training-targets.md).
+* Obtenga más información sobre la creación de destinos de proceso con el [SDK para Python](how-to-create-attach-compute-sdk.md) o con [Studio](how-to-create-attach-compute-studio.md).

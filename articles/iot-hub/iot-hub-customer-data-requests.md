@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 0bb7b91cd31761b801ad469b8ce556b29e09fd3a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ebc73c75d9a23a53ac94f28208251dcff83e684a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074704"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030708"
 ---
 # <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Características de las solicitudes de datos de clientes para dispositivos de Azure IoT Hub
 
@@ -36,13 +36,13 @@ Si usa la característica de integración Azure Monitor del servicio de Azure Io
 
 Los administradores de inquilinos pueden usar la hoja de dispositivos de IoT de la extensión de Azure IoT Hub de Azure Portal para eliminar un dispositivo. De ese modo, se eliminarán los datos asociados con ese dispositivo.
 
-También se pueden realizar operaciones de eliminación para dispositivos mediante las API de REST. Para más información, consulte [Service - Delete Device](/rest/api/iothub/service/registrymanager/deletedevice) (Servicio - Eliminar servicio).
+También se pueden realizar operaciones de eliminación para dispositivos mediante las API de REST. Para más información, consulte [Service - Delete Device](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice) (Servicio - Eliminar servicio).
 
 ## <a name="exporting-customer-data"></a>Exportación de datos del cliente
 
 Los administradores de inquilinos pueden copiar y pegar en la hoja de dispositivos de IoT de la extensión de Azure IoT Hub en Azure Portal para exportar los datos asociados a un dispositivo.
 
-También se pueden realizar operaciones de exportación de dispositivos mediante las API de REST. Para más información, consulte [Service - Get Device](/rest/api/iothub/service/registrymanager/getdevice) (Servicio - Obtener dispositivo).
+También se pueden realizar operaciones de exportación de dispositivos mediante las API de REST. Para más información, consulte [Service - Get Device](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice) (Servicio - Obtener dispositivo).
 
 > [!NOTE]
 > Cuando se usan servicios para empresas de Microsoft, Microsoft genera cierta información, conocida como registros generados por el sistema. Los administradores de inquilinos no pueden acceder a ciertos registros generados por el sistema de Azure IoT Hub ni exportarlos. Estos registros constituyen acciones objetivas que se realizan en el servicio y datos de diagnóstico relacionados con dispositivos individuales.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: ee3808684ab2548999d71fe0d31fa9a160cd9347
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 70bb96da858c94fbd2c75d56cda4e705f2ffa3ba
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200055"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986631"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Recomendaciones de seguridad para Queue Storage
 
@@ -30,7 +30,7 @@ Azure Security Center analiza periódicamente el estado de seguridad de los recu
 | Recomendación | Comentarios | Security Center |
 |-|----|--|
 | Usar el modelo de implementación de Azure Resource Manager | Cree cuentas de almacenamiento mediante el modelo de implementación de Azure Resource Manager, ya que así logrará importantes mejoras en la seguridad, entre las que se incluyen un control de acceso (RBAC) y una auditoría superiores, gobernanza e implementación basados en Resource Manager, acceso a identidades administradas, acceso a los secretos de Azure Key Vault y autorización y autenticación basadas en Azure AD para acceder a datos y recursos de Azure Storage. Si es posible, migre las cuentas de almacenamiento existentes que usan el modelo de implementación clásica para que usen Azure Resource Manager. Para más información sobre Azure Resource Manager, consulte [Introducción a Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview). | - |
-| Habilitar Advanced Threat Protection en todas las cuentas de almacenamiento | Advanced Threat Protection para Azure Storage proporciona un nivel adicional de inteligencia de seguridad que detecta intentos poco habituales y potencialmente peligrosos de acceder a las cuentas de almacenamiento o vulnerarlas. En Azure Security Center se desencadenan alertas de seguridad cuando se producen anomalías en alguna actividad y también se envían por correo electrónico a los administradores de las suscripciones con detalles de la actividad sospechosa y recomendaciones sobre cómo investigar y solucionar las amenazas. Para más información, consulte [Advanced Threat Protection para Azure Storage](../common/storage-advanced-threat-protection.md). | [Sí](../../security-center/security-center-sql-service-recommendations.md) |
+| Habilitar Advanced Threat Protection en todas las cuentas de almacenamiento | Advanced Threat Protection para Azure Storage proporciona un nivel adicional de inteligencia de seguridad que detecta intentos poco habituales y potencialmente peligrosos de acceder a las cuentas de almacenamiento o vulnerarlas. En Azure Security Center se desencadenan alertas de seguridad cuando se producen anomalías en alguna actividad y también se envían por correo electrónico a los administradores de las suscripciones con detalles de la actividad sospechosa y recomendaciones sobre cómo investigar y solucionar las amenazas. Para más información, consulte [Advanced Threat Protection para Azure Storage](../common/azure-defender-storage-configure.md). | [Sí](../../security-center/security-center-sql-service-recommendations.md) |
 | Limitar los tokens de firma de acceso compartido (SAS) solo a conexiones HTTPS | Requerir HTTPS cuando un cliente usa un token de SAS para acceder a los datos de la cola ayuda a minimizar el riesgo de espionaje. Para obtener más información, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../common/storage-sas-overview.md). | - |
 
 ## <a name="identity-and-access-management"></a>Administración de identidades y acceso

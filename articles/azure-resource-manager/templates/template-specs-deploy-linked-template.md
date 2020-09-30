@@ -2,13 +2,13 @@
 title: Implementación de una especificación de plantilla como una plantilla vinculada
 description: Obtenga información sobre cómo implementar una especificación de plantilla existente en una implementación vinculada.
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: dacf2fba3ff78f3ff92741b49edad8fdf5bffe29
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/31/2020
+ms.openlocfilehash: 799dac2bb553983b16f734d1d1abc2ad9281fb58
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918390"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228025"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Tutorial: Implementación de una especificación de plantilla como una plantilla vinculada (versión preliminar)
 
@@ -126,11 +126,11 @@ $id = (Get-AzTemplateSpec -ResourceGroupName $resourceGroupName -Name $templateS
 # <a name="cli"></a>[CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-id = $(az template-specs show --name $templateSpecName --resource-group $resourceGroupName --version $templateSpecVersion --query "id")
+id = $(az ts show --name $templateSpecName --resource-group $resourceGroupName --version $templateSpecVersion --query "id")
 ```
 
 > [!NOTE]
-> Existe un problema conocido al obtener el identificador de especificación de plantilla y luego asignárselo a una variable en Windows PowerShell.
+> Existe un problema conocido al obtener el identificador de la especificación de plantilla y luego asignárselo a una variable en Windows PowerShell.
 
 ---
 

@@ -5,12 +5,12 @@ ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-java
 ms.topic: how-to
-ms.openlocfilehash: 2dcea06fa0cb61813330298c833be7eb21a63ae7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3a20198e1fce7b72befb0963a4f1eb7a5e7e3f08
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325957"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259802"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Guía de inicio rápido: Creación de una base de conocimiento en QnA Maker mediante Java
 
@@ -39,7 +39,7 @@ Cree un archivo llamado `CreateKB.java`.
 
 En la parte superior de `CreateKB.java`, agregue las líneas siguientes para agregar las dependencias necesarias al proyecto:
 
-[!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=1-5 "Add the required dependencies")]
+:::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="dependencies":::
 
 ## <a name="add-the-required-constants"></a>Incorporación de las constantes necesarias
 Después de agregar las dependencias necesarias anteriores, agregue las constantes necesarias a la clase `CreateKB` para acceder a QnA Maker.
@@ -48,18 +48,18 @@ Debe tener un [servicio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). 
 
 Establezca los valores siguientes:
 
-* `<your-qna-maker-subscription-key>`: la **clave** es una cadena de 32 caracteres y está disponible en Azure Portal, en el recurso de QnA Maker, en la página de inicio rápido. Esta clave no es la misma que la clave de punto de conexión de predicción.
-* `<your-resource-name>`: el **nombre del recurso** se usa para construir la dirección URL del punto de conexión de creación con el formato `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Esta no es la misma dirección URL que se utiliza para consultar el punto de conexión de predicción.
+* `<your-qna-maker-subscription-key>`: la **clave** es una cadena de 32 caracteres y está disponible en Azure Portal, en el recurso de QnA Maker, en la página de inicio rápido. Esta clave no es la misma que la clave del punto de conexión de predicción.
+* `<your-resource-name>`: el **nombre del recurso** se usa para construir la dirección URL del punto de conexión de creación con el formato `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Este nombre del recurso no es el mismo que el que se utiliza para consultar el punto de conexión de predicción.
 
 No es necesario agregar la última llave para finalizar la clase; se encuentra en el fragmento de código final al final de esta guía de inicio rápido.
 
-[!code-java[Add the required constants](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=26-34 "Add the required constants")]
+:::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="constants":::
 
 
 ## <a name="add-the-kb-model-definition-classes"></a>Incorporación de las clases de definición de modelo de base de conocimiento
 Después de agregar las constantes, agregue las siguientes clases y funciones dentro de la clase `CreateKB` para serializar el objeto de definición de modelo en JSON.
 
-[!code-java[Add the KB model definition classes](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=36-80 "Add the KB model definition classes")]
+:::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="model":::
 
 ## <a name="add-supporting-functions"></a>Incorporación de funciones auxiliares
 
@@ -67,24 +67,24 @@ A continuación, agregue las siguientes funciones auxiliares dentro de la clase 
 
 1. Agregue la siguiente función para imprimir el código JSON en un formato legible:
 
-    [!code-java[Add the PrettyPrint function](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=82-87 "Add the KB model definition classes")]
+    :::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="pretty":::
 
 2. Agregue la siguiente clase para administrar la respuesta HTTP:
 
-    [!code-java[Add class to manage the HTTP response](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=89-97 "Add class to manage the HTTP response")]
+    :::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="response":::
 
 3. Agregue el siguiente método para realizar una solicitud POST a las API de QnA Maker. `Ocp-Apim-Subscription-Key` es la clave del servicio QnA Maker, usada para la autenticación.
 
-    [!code-java[Add POST method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=99-121 "Add POST method")]
+    :::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="post":::
 
 4. Agregue el siguiente método para realizar una solicitud GET a las API de QnA Maker.
 
-    [!code-java[Add GET method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=123-137 "Add GET method")]
+    :::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="get":::
 
 ## <a name="add-a-method-to-create-the-kb"></a>Incorporación de un método para crear la base de conocimiento
 Agregue el método siguiente para crear la base de conocimiento mediante una llamada al método Post.
 
-[!code-java[Add CreateKB method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=139-144 "Add CreateKB method")]
+:::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="create_kb":::
 
 Esta llamada API devuelve una respuesta JSON que incluye el identificador de operación. Use el identificador de operación para determinar si se ha creado correctamente la base de conocimiento.
 
@@ -101,7 +101,7 @@ Esta llamada API devuelve una respuesta JSON que incluye el identificador de ope
 ## <a name="add-a-method-to-get-status"></a>Incorporación de un método para obtener el estado
 Agregue el método siguiente para comprobar el estado de creación.
 
-[!code-java[Add GetStatus method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=146-150 "Add GetStatus method")]
+:::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="get_status":::
 
 Repita la llamada hasta obtener éxito o error:
 
@@ -119,7 +119,7 @@ Repita la llamada hasta obtener éxito o error:
 ## <a name="add-a-main-method"></a>Incorporación de un método main
 El método main crea la base de conocimiento y sondea el estado. El identificador de la operación se devuelve en el campo **Location** (Ubicación) del encabezado de respuesta POST y luego se usa como parte de la ruta en la solicitud GET. El bucle `while` reintenta el estado si no se ha completado.
 
-[!code-java[Add main method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=152-191 "Add main method")]
+:::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="main":::
 
 ## <a name="compile-and-run-the-program"></a>Compilación y ejecución del programa
 

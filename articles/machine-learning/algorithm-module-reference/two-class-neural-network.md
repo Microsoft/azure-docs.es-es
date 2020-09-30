@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 4270e4c71cca28d43b1ecbaca1ec0f262251252b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ad4fc575a6e9d07e4e24c2d570f68edbbea46c3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137610"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907684"
 ---
 # <a name="two-class-neural-network-module"></a>Módulo Red neuronal de dos clases
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
 Utilice este módulo para crear un modelo de red neuronal que se pueda usar para predecir un destino que tenga solo dos valores.
 

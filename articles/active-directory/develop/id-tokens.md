@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 09/09/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 66855260bd44ef83972fa251d076d0204cba32da
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 2059c473c8429e7498992e26c0a2c90ea835c537
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795237"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646602"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokens de id. de la plataforma de identidad de Microsoft
 
@@ -85,6 +85,8 @@ En esta lista se muestran las notificaciones de JWT que se encuentran en la mayo
 |`unique_name` | String | Proporciona un valor en lenguaje natural que identifica al firmante del token. Este valor es único en un momento dado, pero como se pueden volver a usar los mensajes de correo electrónico y otros identificadores, puede aparecer de nuevo en otras cuentas y, por lo tanto, solo se debe usar con fines de presentación. Solo se emite en los `id_tokens` de la versión 1.0. |
 |`uti` | Cadena opaca | Una notificación interna que Azure usa para volver a validar los tokens. Se debe omitir. |
 |`ver` | Cadena, 1.0 o 2.0 | Indica la versión del id_token. |
+|`hasgroups`|Boolean|Si existe, siempre es true, lo cual indica que el usuario está en al menos un grupo. Se usa en lugar de la notificación de grupos para métodos JWT en los flujos de concesión implícita si la notificación completa de grupos amplía el fragmento URI por encima de los límites de longitud de la dirección URL (actualmente 6 o más grupos). Indica que el cliente debe utilizar Microsoft Graph API para determinar los grupos del usuario (`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`).|
+|`groups:src1`|Objeto JSON | Para las solicitudes de tokens que no tienen limitación de longitud (consulte `hasgroups` descrito anteriormente) pero que todavía son demasiado grandes para el token, se incluirá un enlace a la lista completa de grupos del usuario. Para métodos JWT como una notificación distribuida, para SAML como una nueva notificación en lugar de la notificación `groups`. <br><br>**Valor de JWT de ejemplo**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }`<br><br> Para más información, consulte [Notificación de grupos por encima del límite](#groups-overage-claim).|
 
 > [!NOTE]
 > Los id_token v1.0 y v2.0 tienen diferencias en la cantidad de información que llevarán, como se ha visto en los ejemplos anteriores. La versión se basa en el punto de conexión desde donde se solicitó. Aunque es probable que las aplicaciones existentes utilicen el punto de conexión de Azure AD, las nuevas aplicaciones deben usar el punto de conexión v2.0 "Plataforma de identidad de Microsoft".
@@ -102,6 +104,26 @@ Para almacenar correctamente la información por usuario, use solo `sub` o `oid`
 > No utilice la notificación `idp` para almacenar información sobre un usuario en un intento de correlacionar a los usuarios entre inquilinos.  No funcionará, ya que las notificaciones `oid` y `sub` para un usuario cambian entre los inquilinos, por diseño, para asegurarse de que las aplicaciones no puedan realizar el seguimiento de los usuarios entre inquilinos.  
 >
 > Los escenarios de invitado, en los que un usuario se hospeda en un inquilino y se autentica en otro, deben tratar al usuario como si fuera un usuario completamente nuevo en el servicio.  Los documentos y privilegios del inquilino de Contoso no deben aplicarse en el inquilino de Fabrikam. Esto es importante para evitar la filtración accidental de datos entre los inquilinos.
+
+### <a name="groups-overage-claim"></a>Notificación de grupos por encima del límite
+Para garantizar que el tamaño del token no supera los límites de tamaño del encabezado HTTP, Azure AD limita el número de identificadores de objeto que se incluyen en la notificación `groups`. Si un usuario es miembro de más grupos que el límite de uso por encima del límite (150 para los tokens SAML, 200 para los tokens JWT), Azure AD no emite la notificaciones de grupos en el token. En su lugar, incluye una demanda de uso por encima del límite en el token que indica a la aplicación que consulte la Microsoft Graph API para recuperar la pertenencia a grupos del usuario.
+
+```json
+{
+  ...
+  "_claim_names": {
+   "groups": "src1"
+    },
+    {
+  "_claim_sources": {
+    "src1": {
+        "endpoint":"[Url to get this user's group membership from]"
+        }
+       }
+     }
+  ...
+ }
+```
 
 ## <a name="validating-an-id_token"></a>Validación de un id_token
 

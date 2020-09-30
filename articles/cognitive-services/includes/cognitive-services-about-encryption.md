@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.author: egeaney
 ms.custom: include
-ms.openlocfilehash: 3b975d9f0953c874c627e30b382ad8c7fa7cfc09
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 90d5aae559a317ed509d04c8db3310ff8a5de026
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84307841"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069927"
 ---
 ## <a name="about-cognitive-services-encryption"></a>Información sobre el cifrado de Cognitive Services
 
@@ -21,4 +21,4 @@ Los datos se cifran y descifran con el cifrado [AES de 256 bits](https://en.wiki
 
 ## <a name="about-encryption-key-management"></a>Información sobre la administración de claves de cifrado
 
-De forma predeterminada, su suscripción usa claves de cifrado administradas por Microsoft. Sin embargo, también puede administrar la suscripción con sus propias claves de cifrado. Las claves administradas por el cliente (CMK), también conocidas como Bring Your Own Key (BYOK), ofrecen más flexibilidad para crear, girar, deshabilitar y revocar controles de acceso. También permite auditar las claves de cifrado que se usan para proteger los datos.
+De forma predeterminada, su suscripción usa claves de cifrado administradas por Microsoft. También tiene la opción de administrar la suscripción con sus propias claves, denominadas claves administradas por el cliente (CMK). Las CMK ofrecen más flexibilidad para crear, rotar, deshabilitar y revocar controles de acceso. También permite auditar las claves de cifrado que se usan para proteger los datos. Si la opción CMK está configurada para su suscripción, se proporciona un cifrado doble, que ofrece una segunda capa de protección, a la vez que permite controlar la clave de cifrado a través de Azure Key Vault.

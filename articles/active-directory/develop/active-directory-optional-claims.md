@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/25/2020
+ms.date: 09/03/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e53cf38c9544884caddfdf03c2615217c49ec3d0
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 2d895a6703123d8725a375e29e2e26b64b621f23
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068733"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436857"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedimientos: Proporcionar notificaciones opcionales a la aplicación
 
@@ -130,7 +130,7 @@ Puede configurar notificaciones opcionales para la aplicación mediante la inter
 
 **Configuración de notificaciones opcionales mediante la interfaz de usuario:**
 
-[![Muestra cómo configurar notificaciones opcionales mediante la interfaz de usuario.](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
+[![Configuración de notificaciones opcionales en la interfaz de usuario](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
 1. En la sección **Administrar**, seleccione **Configuración del token**.
 1. Seleccione **Agregar notificación opcional**.
@@ -238,7 +238,7 @@ En esta sección se describen las opciones de configuración de notificaciones o
 1. Seleccione en la lista la aplicación para la que desea configurar notificaciones opcionales
 1. En la sección **Administrar**, seleccione **Configuración del token**.
 1. Seleccione **Agregar notificación de grupo**
-1. Seleccione los tipos de grupo que se van a devolver (**Todos los grupos**, **SecurityGroup** o **DirectoryRole**). La opción **Todos los grupos** incluye **SecurityGroup**, **DirectoryRole** y **DistributionList**
+1. Seleccione los tipos de grupo que se van a devolver (**Grupos de seguridad**, **Roles de directorio**, **Todos los grupos** o **Grupos asignados a la aplicación**). La opción **Grupos asignados a la aplicación** solo incluye esos grupos. La opción **Todos los grupos** incluye **SecurityGroup**, **DirectoryRole** y **DistributionList**, pero no **Grupos asignados a la aplicación**. 
 1. Opcional: seleccione las propiedades de tipo de token específico para modificar el valor de notificaciones de grupos para que contenga los atributos de grupo locales o para cambiar el tipo de notificaciones a un rol
 1. Seleccione **Guardar**.
 
@@ -256,6 +256,7 @@ En esta sección se describen las opciones de configuración de notificaciones o
    - "Todos" (esta opción incluye SecurityGroup, DirectoryRole y DistributionList)
    - "SecurityGroup"
    - "DirectoryRole"
+   - "ApplicationGroup" (esta opción solo incluye los grupos asignados a la aplicación)
 
    Por ejemplo:
 
@@ -307,7 +308,7 @@ En esta sección se describen las opciones de configuración de notificaciones o
 
     **Configuración en la interfaz de usuario:**
 
-    [![Muestra cómo configurar notificaciones opcionales mediante la interfaz de usuario.](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
+    [![Configuración de notificaciones opcionales](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
 
     **Entrada en el manifiesto de aplicación:**
 
@@ -328,7 +329,7 @@ En esta sección se describen las opciones de configuración de notificaciones o
 
     **Configuración en la interfaz de usuario:**
 
-    [![Muestra cómo configurar notificaciones opcionales mediante la interfaz de usuario.](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
+    '[![Notificaciones opcionales en el manifiesto](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
 
     **Entrada en el manifiesto de aplicación:**
 
@@ -394,7 +395,7 @@ En el siguiente ejemplo usará la interfaz de usuario de **Configuración del to
 
 1. Seleccione **Agregar notificación opcional**, elija el tipo de token **SAML**, seleccione **extn.skypeID** en la lista de notificaciones (solo es aplicable si ha creado un objeto de usuario de Azure AD denominado skypeID) y, finalmente, **Agregar**.
 
-    [![Muestra cómo configurar notificaciones opcionales mediante la interfaz de usuario.](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
+    [![Notificaciones opcionales para el token SAML](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 
 **Configuración en el manifiesto:**
 

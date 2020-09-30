@@ -214,6 +214,9 @@
         - name: Cuotas de vCPU
           href: ../virtual-machines/windows/quotas.md
           maintainContext: true
+    - name: PUT llama a operaciones de creación o actualización
+      href: ../virtual-machines/put-calls-create-or-update.md
+      maintainContext: true
     - name: Preguntas más frecuentes sobre los conjuntos de escalado
       href: virtual-machine-scale-sets-faq.md
 - name: Procedimientos
@@ -274,6 +277,8 @@
             - name: Usando claves administradas por el cliente
               displayName: 'SSE, CMK, encrypt'
               href: ../virtual-machines/image-version-encryption.md
+            - name: Registro de aplicaciones para uso compartido
+              href: share-images-across-tenants.md
     - name: Creación de una plantilla
       items:
         - name: Más información acerca de las plantillas de conjunto de escalado
@@ -326,6 +331,15 @@
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Conversión de una plantilla de conjunto de escalado para que use un disco administrado
           href: virtual-machine-scale-sets-convert-template-to-md.md
+        - name: Uso de hosts dedicados (versión preliminar)
+          href: ../virtual-machines/dedicated-hosts.md
+          items:
+            - name: CLI
+              href: ../virtual-machines/linux/dedicated-hosts-cli.md
+            - name: PowerShell
+              href: ../virtual-machines/windows/dedicated-hosts-powershell.md
+            - name: Portal
+              href: ../virtual-machines/dedicated-hosts-portal.md
         - name: Uso de instancia de Spot
           href: use-spot.md
     - name: Administrar
@@ -340,8 +354,16 @@
           href: virtual-machine-scale-sets-upgrade-scale-set.md
         - name: Redes para conjuntos de escalado
           href: virtual-machine-scale-sets-networking.md
-        - name: Actualizaciones automáticas del sistema operativo
-          href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Actualizaciones de la imagen del sistema operativo
+          items:
+            - name: Actualizaciones automáticas del sistema operativo
+              href: virtual-machine-scale-sets-automatic-upgrade.md
+            - name: Control de mantenimiento
+              items:
+                - name: Introducción (versión preliminar)
+                  href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control.md
+                - name: PowerShell (versión preliminar)
+                  href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-powershell.md
         - name: Reparaciones de instancias automáticas
           href: virtual-machine-scale-sets-automatic-instance-repairs.md
         - name: Protección de instancias
@@ -350,18 +372,6 @@
           href: virtual-machine-scale-sets-scale-in-policy.md
         - name: Notificación de finalización al eliminar
           href: virtual-machine-scale-sets-terminate-notification.md
-        - name: Galerías de imágenes compartidas
-          items:
-            - name: Información general
-              href: shared-image-galleries.md
-            - name: CLI
-              href: shared-images-cli.md
-            - name: PowerShell
-              href: shared-images-powershell.md
-            - name: Uso compartido de imágenes entre inquilinos
-              href: share-images-across-tenants.md
-            - name: Solución de problemas de imágenes compartidas
-              href: troubleshooting-shared-images.md
         - name: Creación de un grupo de selección de ubicación por proximidad
           href: proximity-placement-groups.md
         - name: Escalado vertical en un conjunto de escalado

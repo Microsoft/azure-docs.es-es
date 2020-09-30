@@ -1,18 +1,40 @@
 ---
-title: Agente de administración de servidores habilitados para Azure Arc
-description: En este artículo se describen las diferentes tareas de administración que normalmente realizará durante el ciclo de vida del agente de Connected Machine de Azure Arc para servidores.
-ms.date: 07/30/2020
+title: Administración del agente de servidores habilitados para Azure Arc
+description: En este artículo se describen las diferentes tareas de administración que normalmente realizará durante el ciclo de vida del agente de Connected Machine de los servidores habilitados para Azure Arc.
+ms.date: 09/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6066226cea224b1e13262763b626c8c646a397d7
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 146d5e3595e95df3b59b9cb4c0c05f9cc478eb82
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213127"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902526"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Administración y mantenimiento del agente de Connected Machine
 
-Después de la implementación inicial del agente de Connected Machine de Azure Arc para servidores (versión preliminar) para Windows o Linux, debe volver a configurar el agente, actualizarlo o quitarlo del equipo si alcanzó la fase de retirada de su ciclo de vida. Puede administrar fácilmente estas tareas de mantenimiento rutinarias manualmente o de manera automática, lo que reduce los errores de funcionamiento y los gastos.
+Después de la implementación inicial del agente de Connected Machine de los servidores habilitados para Azure Arc en Windows o Linux, debe volver a configurar el agente, actualizarlo o quitarlo del equipo si ha alcanzado la fase de retirada de su ciclo de vida. Puede administrar fácilmente estas tareas de mantenimiento rutinarias manualmente o de manera automática, lo que reduce los errores de funcionamiento y los gastos.
+
+## <a name="before-uninstalling-agent"></a>Antes de desinstalar el agente
+
+Antes de quitar el agente de Connected Machine del servidor habilitado para Arc, tenga en cuenta lo siguiente para evitar incidencias inesperadas o costos agregados en la factura de Azure:
+
+* Si ha implementado extensiones de máquina virtual de Azure en un servidor habilitado y quita el agente de Connected Machine o elimina el recurso que representa el servidor habilitado para Arc en el grupo de recursos, esas extensiones continuarán ejecutándose y llevarán a cabo su funcionamiento normal.
+
+* Si elimina el recurso que representa el servidor habilitado para Arc en el grupo de recursos, pero no desinstala las extensiones de máquina virtual, al volver a registrar la máquina, no podrá administrar las extensiones de máquina virtual instaladas.
+
+En el caso de los servidores o máquinas que ya no quiera administrar con servidores habilitados para Azure Arc, es necesario seguir estos pasos para detener la administración correctamente:
+
+1. Quite las extensiones de máquina virtual de la máquina o el servidor. Debajo se proporcionan los pasos.
+
+2. Desconecte la máquina de Azure Arc con uno de los métodos siguientes:
+
+    * Ejecutar el comando `azcmagent disconnect` en la máquina o el servidor.
+
+    * Del servidor habilitado para Arc registrado y seleccionado en Azure Portal, al seleccionar **Eliminar** en la barra superior.
+
+    * Mediante la [CLI de Azure](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-cli#delete-resource) o [Azure PowerShell](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell#delete-resource). En el caso del parámetro `ResourceType`, use `Microsoft.HybridCompute/machines`.
+
+3. Desinstale el agente de la máquina o el servidor. Siga los pasos siguientes.
 
 ## <a name="upgrading-agent"></a>Actualizar el agente
 
@@ -120,7 +142,7 @@ Las acciones del comando [zypper](https://en.opensuse.org/Portal:Zypper), como l
 
 ## <a name="about-the-azcmagent-tool"></a>Acerca de la herramienta Azcmagent
 
-La herramienta Azcmagent (Azcmagent.exe) se usa para configurar el agente Connected Machine de Azure Arc para servidores (versión preliminar) durante la instalación o bien para modificar la configuración inicial del agente después de la instalación. Azcmagent.exe proporciona parámetros de línea de comandos para personalizar el agente y ver su estado:
+La herramienta Azcmagent (Azcmagent.exe) se usa para configurar el agente Connected Machine de los servidores habilitados para Azure Arc durante la instalación o bien para modificar la configuración inicial del agente después de la instalación. Azcmagent.exe proporciona parámetros de línea de comandos para personalizar el agente y ver su estado:
 
 * **Connect**: para conectar la máquina a Azure Arc
 
@@ -136,16 +158,16 @@ La herramienta Azcmagent (Azcmagent.exe) se usa para configurar el agente Connec
 
 * **-v o --verbose**: habilita el registro detallado
 
-Puede realizar una operación **Connect**, **Disconnect** y **Reconnect** manualmente mientras inicia sesión de forma interactiva, o bien utilizar la misma entidad de servicio que para incorporar varios agentes o con un [token de acceso](../../active-directory/develop/access-tokens.md) de la Plataforma de identidad de Microsoft. Si no usó una entidad de servicio para registrar la máquina con Azure Arc para servidores (versión preliminar), consulte el siguiente [artículo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) para crear una entidad de servicio.
+Puede realizar una operación **Connect**, **Disconnect** y **Reconnect** manualmente mientras inicia sesión de forma interactiva, o bien utilizar la misma entidad de servicio que para incorporar varios agentes o con un [token de acceso](../../active-directory/develop/access-tokens.md) de la Plataforma de identidad de Microsoft. Si no ha usado una entidad de servicio para registrar la máquina con los servidores habilitados para Azure Arc, vea el siguiente [artículo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) para crear una entidad de servicio.
 
 >[!NOTE]
 >Debe tener permisos de acceso *raíz* en máquinas Linux para ejecutar **azcmagent**.
 
 ### <a name="connect"></a>Conectar
 
-Este parámetro especifica un recurso en Azure Resource Manager que representa la máquina que se crea en Azure. El recurso está en la suscripción y en el grupo de recursos solicitado, y los datos sobre la máquina se almacenan en la región de Azure especificada por la opción `--location`. El nombre predeterminado del recurso es el nombre de host de esta máquina si no se especifica.
+Este parámetro especifica un recurso en Azure Resource Manager que representa la máquina que se crea en Azure. El recurso está en la suscripción y en el grupo de recursos solicitado, y los datos sobre la máquina se almacenan en la región de Azure especificada por la opción `--location`. El nombre predeterminado del recurso es el nombre de host de la máquina, si no se especifica.
 
-Un certificado correspondiente a la identidad asignada por el sistema de esta máquina se descarga entonces y se almacena localmente. Una vez que este paso se completa, el agente de configuración de invitados y Metadata Service de Azure Connected Machine comienzan a sincronizarse con Azure Arc para servidores (versión preliminar).
+Un certificado correspondiente a la identidad asignada por el sistema de esta máquina se descarga entonces y se almacena localmente. Una vez que este paso se completa, el agente de configuración de invitados y Metadata Service de Azure Connected Machine comienzan a sincronizarse con los servidores habilitados para Azure Arc.
 
 Para conectarse con una entidad de servicio, ejecute el siguiente comando:
 
@@ -161,7 +183,10 @@ Para conectarse con sus credenciales de sesión iniciada elevadas (interactiva),
 
 ### <a name="disconnect"></a>Desconectar
 
-Este parámetro especifica un recurso en Azure Resource Manager que representa la eliminación de la máquina en Azure. No elimina el agente de la máquina, esto debe hacerse como un paso independiente. Una vez que la máquina esté desconectada, si desea volver a registrarla con Azure Arc para servidores (versión preliminar), use `azcmagent connect` para que se cree un nuevo recurso para ella en Azure.
+Este parámetro especifica un recurso en Azure Resource Manager que representa la eliminación de la máquina en Azure. No elimina el agente de la máquina, esto debe hacerse como un paso independiente. Una vez que la máquina esté desconectada, si desea volver a registrarla con los servidores habilitados para Azure Arc, use `azcmagent connect` para que se cree un recurso nuevo para ella en Azure.
+
+> [!NOTE]
+> Si ha implementado una o varias de las extensiones de máquina virtual de Azure en el servidor habilitado para Arc y elimina su registro en Azure, las extensiones seguirán instaladas. Es importante comprender que, según la extensión instalada, está realizando su función de forma activa. Las máquinas que se vayan a retirar o que ya no administren los servidores habilitados para Arc deben tener las extensiones quitadas antes de eliminar su registro de Azure.
 
 Para desconectarse con una entidad de servicio, ejecute el siguiente comando:
 
@@ -180,7 +205,7 @@ Para desconectarse con sus credenciales de sesión iniciada elevadas (interactiv
 > [!WARNING]
 > El comando `reconnect` está en desuso y no se debe utilizar. El comando se quitará en una versión futura del agente y los agentes existentes no podrán completar la solicitud de reconexión. En su lugar, [desconecte](#disconnect) la máquina y vuelva a [conectarla](#connect).
 
-Este parámetro vuelve a conectar la máquina ya registrada o conectada con Azure Arc para servidores (versión preliminar). Esto puede ser necesario si la máquina se ha desactivado, al menos 45 días, para que su certificado expire. Este parámetro usa las opciones de autenticación proporcionadas para recuperar las credenciales nuevas correspondientes al recurso de Azure Resource Manager que representa a esta máquina.
+Este parámetro vuelve a conectar la máquina ya registrada o conectada con los servidores habilitados para Azure Arc. Esto puede ser necesario si la máquina se ha desactivado, al menos 45 días, para que su certificado expire. Este parámetro usa las opciones de autenticación proporcionadas para recuperar las credenciales nuevas correspondientes al recurso de Azure Resource Manager que representa a esta máquina.
 
 Este comando requiere privilegios más altos que el rol [incorporación de máquinas conectadas a Azure](agent-overview.md#required-permissions).
 
@@ -198,7 +223,7 @@ Para volver a conectar con sus credenciales de sesión iniciada elevadas (intera
 
 ## <a name="remove-the-agent"></a>Eliminación del agente
 
-Realice uno de los métodos siguientes para desinstalar el agente de Connected Machine de Windows o Linux desde el equipo. Al quitar el agente no se anula el registro de la máquina con Arc para los servidores (versión preliminar), se trata de un proceso independiente que se realiza cuando ya no es necesario administrar la máquina en Azure.
+Realice uno de los métodos siguientes para desinstalar el agente de Connected Machine de Windows o Linux desde el equipo. Al quitar el agente, no se anula el registro de la máquina con los servidores habilitados para Arc ni se quitan las extensiones de máquina virtual de Azure instaladas. Debe realizar estos pasos por separado cuando ya no necesite administrar la máquina en Azure y estos se deben completar antes de desinstalar el agente.
 
 ### <a name="windows-agent"></a>Agente de Windows
 
@@ -267,9 +292,9 @@ Para desinstalar el agente de Linux, el comando que se va a usar depende del sis
 
 ## <a name="unregister-machine"></a>Anulación del registro de la máquina
 
-Si tiene previsto dejar de administrar la máquina con los servicios de soporte técnico de Azure, siga estos pasos para anular el registro de la máquina con Arc para servidores (versión preliminar). Puede realizar estos pasos antes o después de haber quitado el agente de Connected Machine de la máquina.
+Si tiene previsto dejar de administrar la máquina con los servicios de soporte técnico de Azure, siga estos pasos para anular el registro de la máquina con los servidores habilitados para Arc. Puede realizar estos pasos antes o después de haber quitado el agente de Connected Machine de la máquina.
 
-1. Abra Azure Arc para servidores (versión preliminar). Para ello, vaya a [Azure Portal](https://aka.ms/hybridmachineportal).
+1. Abra los servidores habilitados para Azure Arc. Para ello, vaya a [Azure Portal](https://aka.ms/hybridmachineportal).
 
 2. Seleccione la máquina en la lista, seleccione los puntos suspensivos ( **...** ) y, a continuación, seleccione **Eliminar**.
 
@@ -317,4 +342,4 @@ sudo azcmagent_proxy remove
 
 - Obtenga información sobre cómo administrar la máquina con [Azure Policy](../../governance/policy/overview.md) para, por ejemplo, la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de VM, la comprobación de que la máquina informa al área de trabajo de Log Analytics esperada, la habilitación de la supervisión con [Azure Monitor con máquinas virtuales](../../azure-monitor/insights/vminsights-enable-policy.md) y mucho más.
 
-- Más información sobre el [agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). El agente de Log Analytics para Windows y Linux es necesario si desea supervisar de forma proactiva el sistema operativo y las cargas de trabajo que se ejecutan en la máquina, administrarlos mediante runbooks de Automation o características como Update Management, o bien usar otros servicios de Azure como [Azure Security Center](../../security-center/security-center-intro.md).
+- Más información sobre el [[agente de Log Analytics]](../../azure-monitor/platform/log-analytics-agent.md). El agente de Log Analytics para Windows y Linux es necesario si quiere recopilar datos de supervisión del sistema operativo y de las cargas de trabajo y administrarlos con runbooks de Automation o con características como Update Management, o bien mediante otros servicios de Azure, como [Azure Security Center](../../security-center/security-center-intro.md).

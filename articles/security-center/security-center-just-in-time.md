@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 88f1924f69aed350b39f953cb7503a0dde9ca9ad
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 5b2446aa62b16dcf9773c367d87faac65d79fa0b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056321"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904862"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Protección de los puertos de administración con acceso Just-in-Time
 
@@ -33,8 +33,8 @@ Esta página le enseña cómo incluir JIT en el programa de seguridad. Aprender�
 
 |Aspecto|Detalles|
 |----|:----|
-|Estado de la versión:|Disponibilidad general|
-|Precios:|Nivel Standard|
+|Estado de la versión:|Disponible con carácter general|
+|Precios:|Requiere [Azure Defender para servidores](defender-for-servers-introduction.md).|
 |Máquinas virtuales admitidas:|![Sí](./media/icons/yes-icon.png) Máquinas virtuales implementadas mediante Azure Resource Manager.<br>![No](./media/icons/no-icon.png) Máquinas virtuales con modelos de implementación clásica. [Más información acerca de estos modelos de implementación](../azure-resource-manager/management/deployment-models.md).<br>![No](./media/icons/no-icon.png) Máquinas virtuales que las instancias de Azure Firewall protegen y que [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview) controla.|
 |Roles y permisos necesarios:|Los roles **Lector** y **SecurityReader** pueden ver el estado y los parámetros de JIT.<br>Para crear roles personalizados que puedan funcionar con JIT, consulte [¿Cuáles son los permisos necesarios para configurar y usar Just-In-Time?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>Para crear un rol con privilegios mínimos para los usuarios que necesiten solicitar acceso JIT a una máquina virtual y no realizar ninguna otra operación JIT, use el [script Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) de las páginas de la comunidad de GitHub de Security Center.|
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![Sí](./media/icons/yes-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
@@ -53,11 +53,11 @@ Cada una de estas opciones se explica en una pestaña independiente a continuaci
 
 ### <a name="enable-jit-on-your-vms-from-azure-security-center"></a>Habilitación de JIT en las máquinas virtuales desde Azure Security Center <a name="jit-asc"></a>
 
-![Configuración del acceso a máquinas virtuales JIT en Azure Security Center](./media/security-center-just-in-time/jit-config-security-center.gif)
+:::image type="content" source="./media/security-center-just-in-time/jit-config-security-center.gif" alt-text="Configuración del acceso a máquinas virtuales JIT en Azure Security Center":::
 
 Desde Security Center, puede habilitar y configurar el acceso a máquinas virtuales JIT.
 
-1. En el menú de Security Center, seleccione **Acceso de máquina virtual Just-In-Time**.
+1. Abra el panel de Azure Defender y, en el área de protección avanzada, seleccione **Acceso a máquinas virtuales Just-In-Time**.
 
     Se abrirá la página **Acceso de máquina virtual Just-In-Time** con las máquinas virtuales agrupadas en las siguientes pestañas:
 
@@ -107,7 +107,7 @@ Puede modificar la configuración Just-In-Time de una máquina virtual agregando
 
 Para editar las reglas JIT existentes para una máquina virtual:
 
-1. En el menú de Security Center, seleccione **Acceso de máquina virtual Just-In-Time**.
+1. Abra el panel de Azure Defender y, en el área de protección avanzada, seleccione **Controles de aplicaciones adaptables**.
 
 1. En la pestaña **Configurado**, haga clic con el botón derecho en la máquina virtual a la que desea agregar un puerto y seleccione Editar. 
 
@@ -241,7 +241,7 @@ Cada una de estas opciones se explica en una pestaña independiente a continuaci
 
 Cuando una máquina virtual tiene JIT habilitado, tiene que solicitar acceso para conectarse a ella. Puede solicitar acceso de cualquiera de las maneras admitidas, independientemente de cómo haya habilitado JIT.
 
-![Solicitud de acceso JIT desde Azure Security Center](./media/security-center-just-in-time/jit-request-security-center.gif)
+:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Solicitud de acceso JIT desde Azure Security Center":::
 
 1. En la página **Acceso de máquina virtual Just-In-Time**, seleccione la pestaña **Configurado**.
 

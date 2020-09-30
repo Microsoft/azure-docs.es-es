@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 612584a71aa6be54d726ccdd74d9368ba9cddbc9
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: ce6325abf34813a9ca397f5bcbe2e774af3442d4
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535083"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061485"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Parte 1: Habilitación de la autenticación de AD DS para los recursos compartidos de archivos de Azure 
 
@@ -28,7 +28,7 @@ Los cmdlets del módulo AzFilesHybrid de PowerShell realizan las modificaciones 
 
 ### <a name="download-azfileshybrid-module"></a>Descarga del módulo AzFilesHybrid
 
-- [Descarga y descompresión del módulo AzFilesHybrid](https://github.com/Azure-Samples/azure-files-samples/releases) (módulo de disponibilidad general: v0.2.0+)
+- [Descargue y descomprima el módulo AzFilesHybrid (módulo de disponibilidad general: v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases) Tenga en cuenta que el cifrado de Kerberos AES 256 es compatible con v0.2.2 o posterior. Si ha habilitado la característica con una versión de AzFilesHybrid inferior a v0.2.2 y quiere actualizarla para que admita el cifrado de Kerberos AES 256, consulte [este artículo](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems). 
 - Instale y ejecute el módulo en un dispositivo que se haya unido a un dominio a AD DS local con credenciales de AD DS que tengan permisos para crear una cuenta de inicio de sesión de servicio o una cuenta de equipo en la instancia de destino.
 -  Ejecute el script con una credencial de AD DS local que esté sincronizada con su instancia de Azure AD. La credencial de AD DS local debe tener los permisos de la cuenta de propietario o del rol de Azure de colaborador.
 

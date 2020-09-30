@@ -1,6 +1,6 @@
 ---
 title: Conexión de registros de Office 365 a Azure Sentinel | Microsoft Docs
-description: Obtenga información sobre el uso del conector de registro de Office 365 para incluir información sobre las actividades actuales de los usuarios y del administrador en Exchange y SharePoint (incluido OneDrive).
+description: Obtenga información sobre el uso del conector de registro de Office 365 para incluir información sobre las actividades actuales de los usuarios y del administrador en Exchange, Teams y SharePoint (incluido OneDrive).
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,18 +12,22 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2020
+ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 180b25f80bd27caea20b1c17cd84fda38c172e0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6b59de048cdf00d352c4f488ecb51bfdf83640f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559345"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178933"
 ---
 # <a name="connect-office-365-logs-to-azure-sentinel"></a>Conexión de registros de Office 365 a Azure Sentinel
 
-El conector de registro de [Office 365](https://docs.microsoft.com/office/) incluye información de Azure Sentinel sobre las actividades de usuario y administración continuas en **Exchange** y **SharePoint** (incluido **OneDrive**). Esta información incluye detalles de acciones como descargas de archivos, solicitudes de acceso enviadas, cambios en eventos de grupo y operaciones de buzón de correo, así como los detalles del usuario que realizó las acciones. La conexión de registros de Office 365 a Azure Sentinel le permite ver y analizar estos datos en los libros, consultarlos para crear alertas personalizadas e incorporarlas para mejorar el proceso de investigación, lo que le proporciona más información sobre la seguridad de Office 365.
+El conector de registro de [Office 365](https://docs.microsoft.com/office/) incluye información de Azure Sentinel sobre las actividades de usuario y administración continuas en **Exchange** y **SharePoint** (incluido **OneDrive**) y ahora también en **Teams**. Esta información incluye detalles de acciones como descargas de archivos, solicitudes de acceso enviadas, cambios en eventos de grupo, operaciones de buzón de correo, eventos de Teams (como chat, equipo, miembro y eventos de canal), así como los detalles del usuario que realizó las acciones. La conexión de registros de Office 365 a Azure Sentinel le permite ver y analizar estos datos en los libros, consultarlos para crear alertas personalizadas e incorporarlas para mejorar el proceso de investigación, lo que le proporciona más información sobre la seguridad de Office 365.
+
+> [!IMPORTANT]
+> **La extensión de registros para Microsoft Teams** del conector de registro de Office 365 se encuentra actualmente en versión preliminar pública.
+> Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -40,20 +44,27 @@ El conector de registro de [Office 365](https://docs.microsoft.com/office/) incl
 
 
    > [!NOTE]
-   > Como se indicó anteriormente, y como verá en la página del conector en **Tipos de datos**, el conector de Office 365 de Azure Sentinel admite actualmente la ingesta de registros de auditoría solo de Microsoft Exchange y SharePoint (incluido OneDrive). Sin embargo, hay algunas soluciones externas si está interesado en incorporar [datos de Teams](https://techcommunity.microsoft.com/t5/azure-sentinel/protecting-your-teams-with-azure-sentinel/ba-p/1265761) u [otros datos de Office](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-office-365-alerts-with-graph-security-api/ba-p/984888) a Azure Sentinel. 
+   > Como se indicó anteriormente, y como verá en la página del conector en **Tipos de datos**, el conector de Office 365 de Azure Sentinel admite actualmente la ingesta de registros de auditoría solo de Microsoft Exchange y SharePoint (incluido OneDrive), **y ahora también de Teams**. Sin embargo, hay algunas soluciones externas si está interesado en incorporar [otros datos de Office](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-office-365-alerts-with-graph-security-api/ba-p/984888) a Azure Sentinel. 
 
 ## <a name="enable-the-office-365-log-connector"></a>Habilitación del conector de registro de Office 365
 
-1. En el menú de navegación de Azure Sentinel, seleccione **Conectores de datos**.
+### <a name="instructions-tab"></a>Pestaña Instrucciones
 
-1. En la lista **Conectores de datos**, haga clic en **Office 365** y, a continuación, en el botón **Abrir la página del conector** de la esquina inferior derecha.
+1. En el menú de navegación de Azure Sentinel, seleccione **Data connectors** (Conectores de datos).
+
+1. En la Galería **Data Connectors**, seleccione **Office 365**y, a continuación, seleccione **página Open Connector** (Abrir conector) en el panel de vista previa.
 
 1. En la sección con la etiqueta **Configuración**, active las casillas de los registros de actividad de Office 365 que desea conectar a Azure Sentinel y haga clic en **Aplicar cambios**. 
 
    > [!NOTE]
    > Si ya ha conectado anteriormente varios inquilinos a Azure Sentinel con una versión anterior del conector de Office 365 que lo permita, podrá ver y modificar los registros recopilados de cada inquilino. No podrá agregar inquilinos adicionales, pero puede quitar los inquilinos agregados anteriormente.
 
-1. Para consultar los datos de registro de Office 365 en Log Analytics, escriba `OfficeActivity` en la primera línea de la ventana de consulta.
+### <a name="next-steps-tab"></a>Pestaña Pasos siguientes
+
+- Consulte los libros, los ejemplos de consulta y las plantillas de regla de análisis recomendados que se incluyen con el conector de registro de **Office 365** para obtener información sobre los datos de registro de SharePoint, OneDrive, Exchange y Teams.
+
+- Para consultar los datos de registro de Office 365 en los **registros**, escriba `OfficeActivity` en la primera línea de la ventana de consulta.
+   - Para filtrar la consulta por un tipo de registro específico, escriba `| where OfficeWorkload == "<logtype>"` en la segunda línea de la consulta, donde *\<logtype\>* sea `SharePoint`, `OneDrive`, `Exchange` o `MicrosoftTeams`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar Office 365 a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:

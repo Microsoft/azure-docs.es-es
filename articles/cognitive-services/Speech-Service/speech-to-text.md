@@ -1,25 +1,28 @@
 ---
-title: 'Conversión de voz en texto: servicio de voz'
+title: 'Introducción a la conversión de voz en texto: el servicio Voz'
 titleSuffix: Azure Cognitive Services
-description: La característica de conversión de voz en texto permite la transcripción en tiempo real de secuencias de audio en texto. Las aplicaciones, las herramientas o los dispositivos pueden consumir y mostrar esta entrada de texto, así como manipularla. Este servicio funciona perfectamente con las características de conversión de texto a voz (síntesis de voz) y de traducción de voz.
+description: El software de conversión de voz en texto permite la transcripción en tiempo real de secuencias de audio en texto. Las aplicaciones, las herramientas o los dispositivos pueden consumir y mostrar esta entrada de texto, así como manipularla. En este artículo, encontrará información general sobre las ventajas y las funcionalidades del servicio de conversión de voz en texto.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 09/01/2020
 ms.author: trbye
-ms.openlocfilehash: 90a5ec8c58865c3aa1b210db51b9ffeb7169d641
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.custom: cog-serv-seo-aug-2020
+keywords: conversión de voz a texto, software de conversión de voz en texto
+ms.openlocfilehash: 42696728427c34d5000881af8bbbf97ae2313111
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640419"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401272"
 ---
 # <a name="what-is-speech-to-text"></a>¿Qué es la conversión de voz a texto?
 
-La característica de conversión de voz en texto del servicio de voz, también conocida como reconocimiento de voz, permite la transcripción en tiempo real de las secuencias de audio en texto. Las aplicaciones, las herramientas o los dispositivos pueden consumir y mostrar este texto como una entrada de comando, así como manipularlo. Este servicio funciona con la misma tecnología de reconocimiento que Microsoft utiliza para los productos de Cortana y Office. Funciona sin problemas con las ofertas de servicio de <a href="./speech-translation.md" target="_blank">traducción<span class="docon docon-navigate-external x-hidden-focus"></span></a> y <a href="./text-to-speech.md" target="_blank">conversión de texto en voz<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Si desea obtener una lista completa de los idiomas disponibles para la conversión de voz a texto, consulte [Idiomas admitidos](language-support.md#speech-to-text).
+En esta introducción, descubrirá las ventajas y las funcionalidades del servicio de conversión de voz en texto.
+La conversión de voz en texto, que también se conoce como "reconocimiento de voz", permite transcribir secuencias de audio como texto en tiempo real. Las aplicaciones, las herramientas o los dispositivos pueden consumir y mostrar este texto como una entrada de comando, así como manipularlo. Este servicio funciona con la misma tecnología de reconocimiento que Microsoft utiliza para los productos de Cortana y Office. Funciona sin problemas con las ofertas de servicio de <a href="./speech-translation.md" target="_blank">traducción<span class="docon docon-navigate-external x-hidden-focus"></span></a> y <a href="./text-to-speech.md" target="_blank">conversión de texto en voz<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Si desea obtener una lista completa de los idiomas disponibles para la conversión de voz a texto, consulte [Idiomas admitidos](language-support.md#speech-to-text).
 
 De forma predeterminada, el servicio de conversión de voz en texto utiliza el modelo de lenguaje universal. Este modelo se entrenó con datos propiedad de Microsoft y se implementa en la nube. Resulta óptimo para escenarios de conversación y dictado. Si usa la conversión de voz en texto para el reconocimiento y la transcripción en un entorno único, puede crear y entrenar modelos acústicos, de lenguaje y pronunciación personalizados. La personalización es útil para abordar el ruido ambiente o el vocabulario específico del sector.
 

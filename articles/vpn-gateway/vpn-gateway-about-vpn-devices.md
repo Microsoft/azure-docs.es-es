@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 07/28/2020
+ms.date: 09/01/2020
 ms.author: yushwang
-ms.openlocfilehash: 4a4214e89b72ba3b782a8b141203ac0f4bbca635
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 92f589e6a587febc10a4b407fe3616aca42d27d3
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367732"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318954"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Acerca de los dispositivos VPN y los parámetros de IPsec/IKE para conexiones de VPN Gateway de sitio a sitio
 
@@ -46,7 +46,7 @@ Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondie
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |Compatible. |Compatible. |
 | Cisco | CSR | RouteBased: IOS-XE 16.10 | (no probado) | [Script de configuración](vpn-gateway-download-vpndevicescript.md) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |Compatible. |Compatible. |
-| Cisco |Meraki |N/D |No compatible |No compatible |
+| Cisco |Meraki (MX) | MX v15.12 |No compatible | [Guía de configuración](https://documentation.meraki.com/MX/Site-to-site_VPN/Configuring_Site_to_Site_VPN_tunnels_to_Azure_VPN_Gateway) |
 | Cisco | vEdge (SO Viptela) | 18.4.0 (modo Activo/Pasivo)<br><br>19.2 (modo Activo/Pasivo) | No compatible |  [Configuración manual (activa/pasiva)](https://community.cisco.com/t5/networking-documents/how-to-configure-ipsec-vpn-connection-between-cisco-vedge-and/ta-p/3841454)<br><br>[Configuración de Cloud Onramp (activa/activa)](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/Network-Optimization-and-High-Availability/Network-Optimization-High-Availability-book/b_Network-Optimization-and-HA_chapter_00.html) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 y superior |[Guía de configuración](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |No compatible |
 | F5 |Serie BIG-IP |12.0 |[Guía de configuración](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Guía de configuración](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
@@ -59,7 +59,7 @@ Con el fin de configurar el dispositivo VPN, consulte los vínculos correspondie
 | Juniper |SSG |ScreenOS 6.2 |Compatible |[Script de configuración](vpn-gateway-download-vpndevicescript.md) |
 | Juniper |MX |JunOS 12.x|Compatible |[Script de configuración](vpn-gateway-download-vpndevicescript.md) |
 | Microsoft |Servicio de acceso remoto y enrutamiento |Windows Server 2012 |No compatible |Compatible |
-| Open Systems AG |Mission Control Security Gateway |N/D |[Guía de configuración](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |No compatible |
+| Open Systems AG |Mission Control Security Gateway |N/D |[Guía de configuración](https://open-systems.com/wp-content/uploads/2019/12/OpenSystems-AzureVPNSetup-Installation-Guide.pdf) |No compatible |
 | Palo Alto Networks |Todos los dispositivos que ejecutan PAN-OS |PAN-OS<br>PolicyBased: 6.1.5 o posterior<br>RouteBased: 7.1.4 |Compatible |[Guía de configuración](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
 | Sentrium (desarrollador) | VyOS | VyOS 1.2.2 | (no probado) | [Guía de configuración ](https://vyos.readthedocs.io/en/latest/appendix/examples/azure-vpn-bgp.html)|
 | ShareTech | UTM de próxima generación (serie NU) | 9.0.1.3 | No compatible | [Guía de configuración](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |

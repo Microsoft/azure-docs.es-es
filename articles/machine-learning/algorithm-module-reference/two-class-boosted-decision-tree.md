@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 1e66774d4239bdad6c8af426a28af6081bb0da3c
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 833caa0cf264fb49d8b32255f429132cd888c6c0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782182"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907728"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Módulo de árbol de decisión ampliado de dos clases
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
 Utilice este módulo para crear un modelo de Machine Learning basado en el algoritmo de árboles de decisión ampliados. 
 

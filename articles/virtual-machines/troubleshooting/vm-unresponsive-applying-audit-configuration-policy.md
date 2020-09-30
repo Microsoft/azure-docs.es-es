@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: e55fa377f28572901202b4d722bea70786edae22
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bc41783bf977806b5f9bba5b953f1f581ad07f18
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942018"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299531"
 ---
 # <a name="virtual-machine-is-unresponsive-while-applying-audit-policy-configuration-policy"></a>La máquina virtual no responde durante la aplicación de la directiva de configuración de directivas de auditorías
 
@@ -27,7 +27,7 @@ En este artículo se proporcionan los pasos para resolver aquellos problemas en 
 
 ## <a name="symptom"></a>Síntoma
 
-Si usa [Diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para ver la captura de pantalla de la máquina virtual, verá que en la captura de pantalla se muestra que el sistema operativo se ha bloqueado durante el arranque con el mensaje **Aplicando directiva de configuración de directivas de auditoría**.
+Si usa [Diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para ver la captura de pantalla de la máquina virtual, verá que en la captura de pantalla se muestra que el sistema operativo no respondía durante el arranque con el mensaje **Aplicando directiva de configuración de directivas de auditoría**.
 
   ![Sistema operativo arrancando con el mensaje: "Aplicando directiva de configuración de directivas de auditoría"](./media/vm-unresponsive-applying-audit-configuration-policy/1.png)
 

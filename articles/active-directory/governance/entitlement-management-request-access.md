@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 527255653bf2779b36e0e463cd32a0b334c00f96
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 726507fa6ea0651b23d46424bda669a2d8ad41e0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798501"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979909"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Solicitud de acceso a un paquete de acceso en la administración de derechos de Azure AD
 
@@ -80,6 +80,12 @@ Una vez que haya encontrado el paquete de acceso en el portal Mi acceso, puede e
 Si va a solicitar acceso a un paquete de acceso que tiene varias directivas aplicables, es posible que se le pida que seleccione una directiva. Por ejemplo, un administrador de paquetes de acceso puede configurar un paquete de acceso con dos directivas para dos grupos de empleados internos. La primera directiva podría permitir el acceso durante 60 días y requerir aprobación. La segunda directiva podría permitir el acceso durante 2 días y no requerir aprobación. Si se encuentra con este escenario, debe seleccionar la directiva que quiere utilizar.
 
 ![Portal Mi acceso: solicitud de acceso (varias directivas)](./media/entitlement-management-request-access/my-access-multiple-policies.png)
+
+### <a name="fill-out-requestor-information"></a>Rellenar la información del solicitante
+
+Puede solicitar acceso a un paquete de acceso que requiera justificación empresarial e información adicional del solicitante antes de que se le conceda dicho acceso. Rellene toda la información del solicitante necesaria para acceder al paquete de acceso.
+
+![Portal Mi acceso - Solicitud de acceso - Rellenar la información del solicitante](./media/entitlement-management-request-access/my-access-requestor-information.png)
 
 ## <a name="resubmit-a-request"></a>Nuevo envío de una solicitud
 

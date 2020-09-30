@@ -1,5 +1,5 @@
 ---
-title: 'Instantánea de un disco administrado en una suscripción (Windows): PowerShell'
+title: 'Copia de una instantánea de un disco administrado en una suscripción (Windows): PowerShell'
 description: 'Ejemplo de script de Azure PowerShell: copiar (mover) instantánea de un disco administrado en la misma suscripción o en otra'
 services: virtual-machines-windows
 documentationcenter: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/28/2019
 ms.author: ramankum
-ms.openlocfilehash: b5ac47c8074a3a7bec86a35075a98a141ea0ccd1
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a2fd6f8b5f2ba0771449178a2d8d3958329e83eb
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051841"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651599"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell-windows"></a>Copia de una instantánea de un disco administrado en la misma suscripción o en otra con PowerShell (Windows)
 

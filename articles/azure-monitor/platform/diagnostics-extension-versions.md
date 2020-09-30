@@ -6,12 +6,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: 16fba1f036299a84db8301dbc09c7f4884d985f3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9fa0fbea9a6c0e95eb9bec2795ae12e5fae36bfb
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87305098"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568667"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Historial y versiones del esquema de configuración de Windows Azure Diagnostics (WAD) Extension
 En este artículo, puede consultar el historial de versiones del esquema de [Azure Diagnostics Extension para Windows (WAD)](diagnostics-extension-overview.md) que se incluye en el SDK de Microsoft Azure.  
@@ -160,7 +160,7 @@ Se agregaron el elemento Sinks y la capacidad de enviar datos de diagnóstico a 
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2.6 y extensión Diagnostics 1.3
 Para los proyectos de Cloud Service en Visual Studio, se realizaron los siguientes cambios. (Estos cambios también se aplican a las versiones posteriores del SDK de Azure.)
 
-* El emulador local ahora es compatible con diagnósticos. Este cambio significa que puede recopilar datos de diagnóstico y asegurarse de que su aplicación crea los seguimientos correctos mientras desarrolla y realiza pruebas en Visual Studio. La cadena de conexión `UseDevelopmentStorage=true` habilita la colección de datos de diagnóstico mientras ejecuta el proyecto de servicio en la nube en Visual Studio mediante el emulador de almacenamiento de Azure. Todos los datos de diagnóstico se recopilan en la cuenta de almacenamiento (Almacenamiento de desarrollo).
+* El emulador local ahora es compatible con diagnósticos. Este cambio significa que puede recopilar datos de diagnóstico y asegurarse de que su aplicación crea los seguimientos correctos mientras desarrolla y realiza pruebas en Visual Studio. La cadena de conexión `UseDevelopmentStorage=true` habilita la recopilación de datos de diagnóstico mientras se ejecuta el proyecto de servicio en la nube en Visual Studio mediante el emulador de Azure Storage. Todos los datos de diagnóstico se recopilan en la cuenta de almacenamiento (Almacenamiento de desarrollo).
 * La cadena de conexión de la cuenta de almacenamiento de diagnóstico (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) se almacena una vez más en el archivo de configuración de servicio (.cscfg). En Azure SDK 2.5 se especificó la cuenta de almacenamiento de diagnóstico en el archivo diagnostics.wadcfgx.
 
 Existen algunas diferencias importantes entre el funcionamiento de la cadena de conexión en Azure SDK 2.4 y Azure SDK 2.6 y versiones posteriores.

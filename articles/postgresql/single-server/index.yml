@@ -1,0 +1,127 @@
+### YamlMime:Landing
+title: Documentación de Azure Database for PostgreSQL (servidor único)
+summary: Azure Database for PostgreSQL es un servicio de base de datos relacional basado en el motor de base de datos de código abierto de PostgreSQL.  Un servidor único es una de las diversas opciones de implementación para crear un servidor Postgres. Aprenda a usar un servidor único con nuestros inicios rápidos, tutoriales y ejemplos.
+metadata:
+  description: Azure Database for PostgreSQL es un servicio de base de datos relacional en la nube de Microsoft diseñado para los desarrolladores y basado en el motor de base de datos de código abierto de PostgreSQL.
+  author: rachel-msft
+  ms.author: raagyema
+  ms.date: 09/20/2020
+  ms.service: postgresql
+  ms.topic: landing-page
+  ms.openlocfilehash: 833b35b7a2f597186c69d95fc4ab8f2704b59c91
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90929007"
+landingContent:
+- title: Acerca de un servidor único
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es un servidor único?
+      url: ../concepts-servers.md
+  - linkListType: whats-new
+    links:
+    - text: Consultar nuestro blog
+      url: https://techcommunity.microsoft.com/t5/Azure-Database-for-PostgreSQL/bg-p/ADforPostgreSQL
+- title: Introducción
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creación de un servidor mediante Azure Portal
+      url: ../quickstart-create-server-database-portal.md
+    - text: Creación de un servidor mediante la CLI de Azure
+      url: ../quickstart-create-server-database-azure-cli.md
+  - linkListType: learn
+    links:
+    - text: 'Módulo de aprendizaje: Creación de un servidor de Azure Database for PostgreSQL'
+      url: /learn/modules/create-azure-db-for-postgresql-server/
+  - linkListType: concept
+    links:
+    - text: Planes de tarifa
+      url: ../concepts-pricing-tiers.md
+    - text: Límites
+      url: ../concepts-limits.md
+    - text: Versiones de PostgreSQL
+      url: ../concepts-supported-versions.md
+    - text: 'Extensiones de PostgreSQL: servidor único'
+      url: ../concepts-extensions.md
+  - linkListType: tutorial
+    links:
+    - text: Diseño de una base de datos en un servidor único
+      url: ../tutorial-design-database-using-azure-portal.md
+    - text: Compilación de una aplicación web mediante Python (Django)
+      url: ../../app-service/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+- title: Conexión y consultas
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Descripción del firewall
+      url: ../concepts-firewall-rules.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creación de reglas de firewall
+      url: ../howto-manage-firewall-using-portal.md
+    - text: Configuración de TLS
+      url: ../howto-tls-configurations.md
+  - linkListType: get-started
+    links:
+    - text: Conexión mediante Python
+      url: ../connect-python.md
+    - text: Conexión mediante Node.js
+      url: ../connect-nodejs.md
+    - text: Conexión mediante Java
+      url: ../connect-java.md
+    - text: Conexión mediante Ruby
+      url: ../connect-ruby.md
+    - text: Conexión mediante PHP
+      url: ../connect-php.md
+    - text: Conexión mediante .Net
+      url: ../connect-csharp.md
+    - text: Conexión mediante Go
+      url: ../connect-go.md
+- title: Administración y migración
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Descripción de las redes virtuales
+      url: ../concepts-data-access-and-security-vnet.md
+    - text: Supervisión y ajuste del servicio
+      url: ../tutorial-monitor-and-tune.md
+  - linkListType: how-to-guide
+    links:
+    - text: Migración de una base de datos mediante pg_dump y pg_restore
+      url: ../howto-migrate-using-dump-and-restore.md
+    - text: Migración de una base de datos mediante pg_dump y psql
+      url: ../howto-migrate-using-export-and-import.md
+    - text: Migración mediante Data Migration Service
+      url: ../howto-migrate-online.md
+- title: Continuidad empresarial
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Continuidad empresarial
+      url: ../concepts-business-continuity.md
+    - text: Copia de seguridad y restauración
+      url: ../concepts-backup.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creación de una réplica de lectura
+      url: ../howto-read-replicas-portal.md
+    - text: Restauración de un servidor
+      url: ../howto-restore-server-portal.md
+- title: Referencia
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Scripts de la CLI de Azure para tareas comunes
+      url: /azure/postgresql/sample-scripts-azure-cli
+  - linkListType: reference
+    links:
+    - text: Referencia para desarrolladores de la CLI de Azure
+      url: /rest/api/postgresql/
+    - text: Referencia para desarrolladores de API REST
+      url: /cli/azure/postgres
+    - text: Plantillas del Administrador de recursos de Azure
+      url: /azure/templates/microsoft.dbforpostgresql/allversions

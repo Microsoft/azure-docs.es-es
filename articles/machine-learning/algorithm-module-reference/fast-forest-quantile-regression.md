@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: 5f00164e90d625c5343103290e9272f15d164cd8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6d59d2fabb0b74ef12e33f55467b0ba68e0b7386
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095394"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907961"
 ---
 # <a name="fast-forest-quantile-regression"></a>Regresión rápida de bosque por cuantiles
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
 Utilice este módulo para crear un modelo de regresión rápida de bosque por cuantiles en una canalización. La regresión rápida de bosque por cuantiles es útil si desea saber más acerca de la distribución del valor previsto, en lugar de obtener un valor de predicción medio único. Este método tiene muchas aplicaciones, como:  
   
@@ -32,7 +32,7 @@ Este algoritmo de regresión es un método de aprendizaje **supervisado**; es de
 
 ## <a name="more-about-quantile-regression"></a>Más sobre la regresión por cuantiles
 
-Hay muchos tipos diferentes de regresión. En el sentido más básico, la regresión consiste en ajustar un modelo a un destino expresado como un vector numérico. Pero los estadísticos llevan tiempo desarrollando métodos de regresión cada vez más avanzados.
+Hay muchos tipos diferentes de regresión. En resumen, la regresión consiste en ajustar un modelo a un destino expresado como un vector numérico. Pero los estadísticos llevan tiempo desarrollando métodos de regresión cada vez más avanzados.
 
 La definición más sencilla de *cuantil* es un valor que divide un conjunto de datos en grupos de igual tamaño, y los valores de cuantiles marcan los límites entre los grupos. Estadísticamente hablando, los cuantiles son valores tomados a intervalos regulares desde el inverso de la función de distribución acumulativa (CDF) de una variable aleatoria.
 

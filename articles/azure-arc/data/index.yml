@@ -1,0 +1,63 @@
+### YamlMime:Landing
+title: Servicios de datos habilitados para Azure Arc
+summary: Ejecute servicios de datos de Azure en el entorno local, en el perímetro y en un entorno de nubes múltiples mediante Kubernetes en la infraestructura que prefiera.
+metadata:
+  title: Servicios de datos habilitados para Azure Arc (versión preliminar)
+  description: Ejecute servicios de datos de Azure en el entorno local, en el perímetro y en un entorno de nubes múltiples mediante Kubernetes en la infraestructura que prefiera.
+  ms.service: azure-arc
+  ms.subservice: azure-arc-data
+  ms.topic: landing-page
+  author: MikeRayMSFT
+  ms.author: mikeray
+  ms.date: 09/22/2020
+  ms.openlocfilehash: 3ef94bfc9d3870c4c91116fb2aaf26387999a8da
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90928927"
+landingContent:
+- title: Acerca de
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué son los servicios de datos habilitados para Azure Arc?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Modos de conectividad y requisitos
+      url: connectivity.md
+    - text: Configuración de almacenamiento
+      url: storage-configuration.md
+- title: Introducción
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creación de un controlador de datos
+      url: create-data-controller.md
+    - text: Instalar las herramientas de cliente
+      url: install-client-tools.md
+- title: Hiperescala de PostgreSQL habilitada para Azure Arc (versión preliminar)
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Crear
+      url: create-postgresql-hyperscale-server-group.md
+    - text: Conectar
+      url: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
+    - text: Migrate
+      url: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
+    - text: Restauración
+      url: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
+- title: SQL Managed Instance habilitado para Azure Arc (versión preliminar)
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Crear
+      url: create-sql-managed-instance.md
+    - text: Conectar
+      url: connect-managed-instance.md
+    - text: Migrate
+      url: migrate-to-managed-instance.md
+    - text: Restauración
+      url: restore-adventureworks-sample-db.md

@@ -12,12 +12,12 @@ metadata:
   manager: nitinme
   ms.custom: custom-portals-hub
   ms.date: 08/28/2020
-  ms.openlocfilehash: fac52ac6cc7018d2ddcaedd663abf26275f4929e
-  ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+  ms.openlocfilehash: 1500ac7ac362048751be3f91e6c52d4fe446bdc2
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/28/2020
-  ms.locfileid: "89074702"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90906961"
 highlightedContent:
   items:
   - title: ¿Qué es Cognitive Services?
@@ -99,10 +99,13 @@ conceptualContent:
     links:
     - url: ./anomaly-detector/index.yml
       itemType: overview
-      text: Anomaly Detector (versión preliminar)
+      text: Anomaly Detector
     - url: ./content-moderator/index.yml
       itemType: overview
       text: Content Moderator
+    - url: ./metrics-advisor/index.yml
+      itemType: overview
+      text: Metrics Advisor (versión preliminar)
     - url: ./personalizer/index.yml
       itemType: overview
       text: Personalizer

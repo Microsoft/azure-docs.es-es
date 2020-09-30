@@ -1,6 +1,6 @@
 ---
 title: Creación y configuración de un almacén de claves para Azure Disk Encryption con Azure AD (versión anterior)
-description: En este artículo se proporcionan los requisitos previos para usar Microsoft Azure Disk Encryption para máquinas virtuales IaaS.
+description: En este artículo se proporcionan los requisitos previos para usar Microsoft Azure Disk Encryption para máquinas virtuales Linux.
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: d01ea0ba73e0b87c8bb8b8018efa65b58fa9919c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 4b533fa23d3c128b5f9f75737fb88d39aec94905
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372712"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950075"
 ---
-# <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Creación y configuración de un almacén de claves para Azure Disk Encryption con Azure AD (versión anterior)
+# <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release-for-linux-vms"></a>Creación y configuración de un almacén de claves para Azure Disk Encryption con Azure AD (versión anterior) para máquinas virtuales Linux
 
 **La nueva versión de Azure Disk Encryption elimina la necesidad de proporcionar un parámetro de aplicación de Azure AD para habilitar el cifrado de disco de máquina virtual. Con la nueva versión, ya no es necesario proporcionar credenciales de Azure AD durante el paso de habilitar el cifrado. Todas las nuevas máquinas virtuales deben estar cifradas sin los parámetros de aplicación de Azure AD con la nueva versión. Para ver las instrucciones necesarias para habilitar el cifrado de disco de máquina virtual con la nueva versión, consulte [Azure Disk Encryption](disk-encryption-overview.md). Las máquinas virtuales que ya se han cifrado con parámetros de aplicación de Azure AD se siguen admitiendo y se deben seguir manteniendo con la sintaxis de AAD.**
 

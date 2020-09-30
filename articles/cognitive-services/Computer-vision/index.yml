@@ -10,13 +10,13 @@ metadata:
   ms.topic: landing-page
   author: PatrickFarley
   ms.author: pafarley
-  ms.date: 10/01/2019
-  ms.openlocfilehash: 6b72b632cb1cea104d7db2afbb870725496326b8
-  ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+  ms.date: 09/22/2020
+  ms.openlocfilehash: 3a11be023df31fc4f6babe44d869ae89862ae501
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 09/02/2020
-  ms.locfileid: "89321810"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91277247"
 landingContent:
 - title: Acerca de Computer Vision
   linkLists:
@@ -86,11 +86,11 @@ landingContent:
       url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
     - text: Uso del SDK para Go
       url: quickstarts-sdk/client-library.md?pivots=programming-language-go
-- title: Uso de contenedores
+- title: Uso del contenedor de lectura
   linkLists:
   - linkListType: get-started
     links:
-    - text: Instalación y ejecución de contenedores
+    - text: Instalación y ejecución del contenedor
       url: computer-vision-how-to-install-containers.md
   - linkListType: how-to-guide
     links:
@@ -102,6 +102,26 @@ landingContent:
       url: deploy-computer-vision-on-container-instances.md
     - text: Uso con Kubernetes y Helm
       url: deploy-computer-vision-on-premises.md
+- title: Uso del contenedor de análisis espacial
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Instalación y ejecución del contenedor
+      url: spatial-analysis-container.md
+    - text: Configuración de operaciones
+      url: spatial-analysis-operations.md
+  - linkListType: deploy
+    links:
+    - text: Implementación de una aplicación de recuento de personas
+      url: spatial-analysis-web-app.md
+  - linkListType: concept
+    links:
+    - text: Selección de ubicación de zonas y líneas
+      url: spatial-analysis-zone-line-placement.md
+    - text: Selección de ubicación de la cámara
+      url: spatial-analysis-camera-placement.md
+    - text: Registro y solución de problemas
+      url: spatial-analysis-logging.md
 - title: Detección de caras en imágenes
   linkLists:
   - linkListType: concept
@@ -125,7 +145,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: Computer Vision API v3.1, versión preliminar
-      url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005
     - text: Computer Vision API v3.0
       url: https://aka.ms/computer-vision-v3-ref
     - text: Computer Vision API v2.1

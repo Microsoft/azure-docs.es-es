@@ -6,14 +6,14 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/03/2020
 ms.author: banders
-ms.openlocfilehash: 787614afa1c71eee075a2e3efa81fa0cba17d1ba
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 564acd6d6072a4308141942666cc0ebcc0ad0136
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686469"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433524"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Administración de roles de Azure Enterprise
 

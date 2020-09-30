@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
-ms.openlocfilehash: f8aec788e5370bd0c6f0e2f1b6ff032ca68cac87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e18288dbc2a09c7e9dd5b0c0e96dfd04ec192596
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806438"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595910"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Crear una instancia de Application Gateway y reescribir los encabezados HTTP
 
@@ -20,15 +20,13 @@ Puede usar Azure PowerShell para configurar las [reglas de reescritura de encabe
 
 En este artículo aprenderá a:
 
-> [!div class="checklist"]
->
-> * Crear una red virtual de escalabilidad automática
-> * Creación de una dirección IP pública reservada
-> * Configurar una infraestructura para Application Gateway
-> * Especificar la configuración de la regla para volver a escribir el encabezado
-> * Especificación de la escalabilidad automática
-> * Creación de la puerta de enlace de aplicaciones
-> * Prueba de la puerta de enlace de aplicaciones
+* Crear una red virtual de escalabilidad automática
+* Creación de una dirección IP pública reservada
+* Configurar una infraestructura para Application Gateway
+* Especificar la configuración de la regla para volver a escribir el encabezado
+* Especificación de la escalabilidad automática
+* Creación de la puerta de enlace de aplicaciones
+* Prueba de la puerta de enlace de aplicaciones
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

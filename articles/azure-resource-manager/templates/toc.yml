@@ -134,7 +134,7 @@
               href: ../../azure-portal/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Gráfico de recursos
               href: ../../governance/resource-graph/shared-query-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-            - name: Control de acceso basado en roles (RBAC)
+            - name: Control de acceso basado en roles de Azure (RBAC de Azure)
               href: ../../role-based-access-control/quickstart-role-assignments-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Service Health
               href: ../../service-health/alerts-activity-log-service-notifications-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
@@ -362,7 +362,7 @@
           href: deployment-history.md
     - name: Implementaciones con ámbitos
       items:
-        - name: Subscription
+        - name: Suscripción
           href: deploy-to-subscription.md
         - name: Grupo de administración
           href: deploy-to-management-group.md
@@ -401,6 +401,8 @@
           href: deployment-quota-exceeded.md
         - name: InvalidTemplate
           href: error-invalid-template.md
+        - name: JobSizeExceeded
+          href: error-job-size-exceeded.md
         - name: Problemas de implementación de Linux
           href: ../../virtual-machines/troubleshooting/troubleshoot-deploy-vm-linux.md
         - name: NoRegisteredProviderFound

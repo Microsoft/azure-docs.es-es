@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 56f392210aac6045a9dc8cc3522d36092162f26c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ce8dbe017e3cc80588cd1aa37ad02a82199ccc10
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086122"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892567"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Análisis de registros y métricas con la configuración de diagnóstico
+
+**Este artículo se aplica a:** ✔️ Java ✔️ C#
 
 Mediante la funcionalidad de diagnóstico de Azure Spring Cloud puede analizar los registros y las métricas con uno de los siguientes servicios:
 
@@ -25,7 +27,7 @@ Mediante la funcionalidad de diagnóstico de Azure Spring Cloud puede analizar l
 Elija la categoría de registro y la categoría de métrica que desea supervisar.
 
 > [!TIP]
-> ¿Solo desea transmitir en secuencias los registros? Consulte este [comando de la CLI de Azure](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs).
+> ¿Solo desea transmitir en secuencias los registros? Consulte este [comando de la CLI de Azure](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest&preserve-view=true#ext-spring-cloud-az-spring-cloud-app-logs).
 
 ## <a name="logs"></a>Registros
 
@@ -203,3 +205,7 @@ AppPlatformLogsforSpring
 | extend Log = array_strcat(split(Log, '\\n'), '\n')
 ```
 Es posible que pueda usar la misma estrategia para otras bibliotecas de registro de Java.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Inicio rápido: Implementación de la primera aplicación de Azure Spring Cloud](spring-cloud-quickstart.md)

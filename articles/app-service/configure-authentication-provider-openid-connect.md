@@ -4,12 +4,12 @@ description: Aprenda a configurar un proveedor de OpenID Connect como proveedor 
 ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
-ms.openlocfilehash: 89164061a968e37f928f8c21f5323c418e85361f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: e8112f2dc20175e81cfa8388440b2d9aef6a419c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87413925"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983867"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>Configuración de la aplicación de App Service o Azure Functions para iniciar sesión mediante un proveedor de OpenID Connect (versión preliminar)
 
@@ -53,7 +53,7 @@ Si no puede usar un documento de metadatos de configuración, tendrá que recopi
 Esta sección le guiará a través de la actualización de la configuración para incluir su nuevo IDP. La siguiente es una configuración de ejemplo.
 
 1. En el objeto `identityProviders`, agregue un objeto `openIdConnectProviders` si todavía no existe ninguno.
-1. Agregue una clave para el nuevo proveedor en el objeto `openIdConnectProviders`. Este es un nombre descriptivo que se usa para hacer referencia al proveedor en el resto de la configuración. Por ejemplo, si quiere exigir que todas las solicitudes se autentiquen con este proveedor, debe establecer `globalValidation.unauthenticatedClientAction` en "RedirectToLoginPage" y `globalValidation.unauthenticatedClientAction` en este mismo nombre descriptivo.
+1. Agregue una clave para el nuevo proveedor en el objeto `openIdConnectProviders`. Este es un nombre descriptivo que se usa para hacer referencia al proveedor en el resto de la configuración. Por ejemplo, si quiere exigir que todas las solicitudes se autentiquen con este proveedor, debe establecer `globalValidation.unauthenticatedClientAction` en "RedirectToLoginPage" y `redirectToProvider` en este mismo nombre descriptivo.
 1. Asigne un objeto a esa clave con un objeto `registration` dentro y, opcionalmente, un objeto `login`:
     
     ```json

@@ -3,12 +3,12 @@ title: Tipos de recursos que compatibles con Azure Resource Health | Microsoft D
 description: Tipos de recursos que se admiten a través de Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 2c002ab89b1cae4db6d3337908bb401039cb2295
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: d797b9fb9b843f114e01820fa666e56749c7983f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611949"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230167"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos y comprobaciones de estado en Azure Resource Health
 A continuación se muestra una lista completa de todas las comprobaciones que se ejecutan a través de Resource Health por tipos de recursos.
@@ -22,6 +22,11 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 |Comprobaciones ejecutadas|
 |---|
 |<ul><li>¿El servicio API Management está en funcionamiento?</li></ul>|
+
+## <a name="microsoftappplatformspring"></a>Microsoft.AppPlatform/Spring
+|Comprobaciones ejecutadas|
+|---|
+|<ul><li>¿Está disponible la instancia de Azure Spring Cloud?</li></ul>|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 |Comprobaciones ejecutadas|
@@ -62,6 +67,11 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 |Comprobaciones ejecutadas|
 |---|
 |<ul><li>¿Funciona el servidor que hospeda esta máquina virtual?</li><li>¿Se ha completado el arranque del sistema operativo host?</li><li>¿Está l contenedor de la máquina virtual aprovisionado y encendido?</li><li>¿Hay conectividad de red entre el host y la cuenta de almacenamiento?</li><li>¿Se ha completado el arranque del SO invitado?</li><li>¿Hay mantenimiento planeado en curso?</li><li>¿Se degrada el hardware del host y se prevé que produzca un error pronto?</li></ul>|
+
+## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
+|Comprobaciones ejecutadas|
+|---|
+|<ul><li>¿El clúster está en funcionamiento?</li><li>¿Los servicios principales están disponibles en el clúster?</li><li>¿Están preparados todos los nodos de clúster?</li><li>¿La entidad de servicio es actual y válida?</li></ul>|
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.datafactory/factories
 |Comprobaciones ejecutadas|
@@ -124,10 +134,20 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 |---|
 |<ul><li>¿Los servicios principales están disponibles en el clúster de HDInsight?</li><li>¿Puede acceder el clúster de HDInsight a la clave de cifrado de BYOK en reposo?</li></ul>|
 
+## <a name="microsoftiotcentraliotapps"></a>Microsoft.IoTCentral/IoTApps
+|Comprobaciones ejecutadas|
+|---|
+|<ul><li>¿Está disponible la aplicación IoT Central?</li></ul>|
+
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 |Comprobaciones ejecutadas|
 |---|
 |<ul><li>¿Las solicitudes al almacén de claves producen errores debido a problemas de la plataforma de Azure KeyVault?</li><li>¿Se están limitando las solicitudes al almacén de claves porque el cliente está realizando demasiadas solicitudes?</li></ul>|
+
+## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/clusters
+|Comprobaciones ejecutadas|
+|---|
+|<ul><li>¿El clúster tiene tasas de ingesta bajas correctas?</li><li>¿El clúster muestra una latencia de ingesta alta?</li><li>¿El clúster tiene un gran número de errores de consulta?</li></ul>|
 
 ## <a name="microsoftmachinelearningwebservices"></a>Microsoft.MachineLearning/webServices
 |Comprobaciones ejecutadas|
@@ -164,6 +184,11 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 |---|
 |<ul><li>¿Están disponibles los puntos de conexión de equilibrio de carga?</li></ul>|
 
+## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft.network/trafficmanagerprofiles
+|Comprobaciones ejecutadas|
+|---|
+|<ul><li>¿Hay algún problema que afecte al perfil de Traffic Manager?</li></ul>|
+
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |Comprobaciones ejecutadas|
 |---|
@@ -183,11 +208,6 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 |Comprobaciones ejecutadas|
 |---|
 |<ul><li>¿El recurso de capacidad está en funcionamiento?</li><li>¿Todos las cargas de trabajo están en funcionamiento?</li></ul>|
-
-## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
-|Comprobaciones ejecutadas|
-|---|
-|<ul><li>¿Está el SO del host en funcionamiento?</li><li>¿Se puede acceder a workspaceCollection desde fuera del centro de datos?</li><li>¿Está disponible el proveedor de recursos de Power BI?</li><li>¿Está disponible el servicio de Power BI en la región adecuada?</li></ul>|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |Comprobaciones ejecutadas|

@@ -1,14 +1,9 @@
 - name: Documentación sobre Lector inmersivo
   href: index.yml
-- name: Información general
-  items:
-    - name: ¿Qué es Lector inmersivo?
-      href: Overview.md
-- name: Guías de inicio rápido
-  expanded: true
-  items:
-    - name: Uso de la biblioteca cliente
-      href: ./quickstarts/client-libraries.md
+- name: ¿Qué es Lector inmersivo?
+  href: Overview.md
+- name: Inicio rápido
+  href: ./quickstarts/client-libraries.md
 - name: Tutoriales
   items:
     - name: Inicio del Lector inmersivo (Android)

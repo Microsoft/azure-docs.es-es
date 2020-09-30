@@ -4,12 +4,12 @@ description: Aprenda a usar las características de seguridad de Azure Backup pa
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: cbd9ee0336953b65b4e2d55d294d30309ebe0de7
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 5a408dc07e83e790a63f8a252d4ed3f84bf66be4
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892463"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181687"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup
 
@@ -22,7 +22,7 @@ Cada vez es mayor la preocupación que generan problemas de seguridad como malwa
 > [!NOTE]
 > Las características de seguridad no se deben habilitar si usa la copia de seguridad de máquinas virtuales de infraestructura como servicio (IaaS). Estas características no están aún disponibles para la copia de seguridad de máquinas virtuales de IaaS, por lo que habilitarlas no tiene ningún efecto. Las características de seguridad solo se deben habilitar si utiliza los siguientes componentes: <br/>
 >
-> - **Agente de Azure Backup**. La versión mínima del agente es la 2.0.9052. Cuando haya habilitado estas características, debe realizar la actualización a esta versión del agente para realizar operaciones críticas. <br/>
+> - **Agente de Azure Backup**. La versión mínima del agente es la 2.0.9052. Cuando haya habilitado estas características, debe realizar la actualización a esta versión del agente para llevar a cabo operaciones críticas. <br/>
 > - **Azure Backup Server**. La versión mínima del agente de Azure Backup es la 2.0.9052 con Update 1 de Azure Backup Server. <br/>
 > - **System Center Data Protection Manager**. La versión mínima del agente de Azure Backup es la 2.0.9052 con Data Protection Manager 2012 R2 UR12 o Data Protection Manager 2016 UR2. <br/>
 
@@ -48,7 +48,7 @@ Si va a crear un almacén de Recovery Services, puede usar todas las caracterís
     ![Captura de pantalla de propiedades del almacén de Recovery Services](./media/backup-azure-security-feature/security-settings-update.png)
 
     El vínculo de actualización abre el panel **Configuración de seguridad**, que proporciona un resumen de las características y le permite habilitarlas.
-5. En el menú desplegable **Have you configured Azure Multi-Factor Authentication?** (¿Ha configurado Azure Multi-Factor Authentication?), seleccione un valor para confirmar si ha habilitado [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md). Si está habilitado, se le pedirá que realice la autenticación desde otro dispositivo (por ejemplo, un teléfono móvil) al iniciar sesión en Azure Portal.
+5. En el menú desplegable **Have you configured Azure Multi-Factor Authentication?** (¿Ha configurado Azure Multi-Factor Authentication?), seleccione un valor para confirmar que ha habilitado [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md). Si está habilitado, se le pedirá que realice la autenticación desde otro dispositivo (por ejemplo, un teléfono móvil) al iniciar sesión en Azure Portal.
 
    Al realizar operaciones críticas en Backup, debe especificar un PIN de seguridad, disponible en Azure Portal. Al habilitar Azure Multi-Factor Authentication, se agrega una capa de seguridad. Solo los usuarios autorizados con credenciales de Azure válidas y autenticados desde un segundo dispositivo pueden tener acceso a Azure Portal.
 6. Para guardar la configuración de seguridad, seleccione **Habilitar** y seleccione **Guardar**. Solo se puede seleccionar **Habilitar** después de seleccionar un valor en la lista **Have you configured Azure Multi-Factor Authentication?** (¿Ha configurado Azure Multi-Factor Authentication?) del paso anterior.

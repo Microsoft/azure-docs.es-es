@@ -3,12 +3,12 @@ title: Guía y procedimientos recomendados
 description: Descubra los procedimientos recomendados y las instrucciones para realizar copias de seguridad en la nube de las cargas de trabajo locales y en la nube.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 6daa3051a00093f74b8b5dac5c81befe006107a4
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: db6eec5351a9015b136226610d2bb3deb8bdc651
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825586"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000369"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Copia de seguridad en la nube de cargas de trabajo locales y en la nube
 
@@ -214,7 +214,7 @@ Las funcionalidades del servicio Azure Backup ofrecen la flexibilidad necesaria 
 
 * Azure Backup toma instantáneas de las máquinas virtuales de Azure y las almacena junto con los discos para acelerar la creación de puntos de recuperación y agilizar las operaciones de restauración. Esto se conoce como restauración instantánea. De forma predeterminada, estas instantáneas se conservan durante dos días. Esta característica permite que la operación de restauración que se realiza a partir de ellas reduzca drásticamente los tiempos de restauración, ya que se recorta el tiempo necesario para transformar y copiar los datos de nuevo desde el almacén. Como resultado, verá los costos de almacenamiento que corresponden a las instantáneas tomadas durante este período. [Obtenga más información aquí](backup-instant-restore-capability.md#configure-snapshot-retention).
 
-* El tipo de replicación de almacenamiento del almacén de Azure Backup se establece de forma predeterminada en la opción de almacenamiento con redundancia geográfica (GRS). Esta opción no se puede cambiar después de proteger los elementos. Este almacenamiento proporciona un mayor nivel de durabilidad de los datos que el almacenamiento con redundancia local (LRS), permite usar la restauración entre regiones y cuesta más. Revise las ventajas e inconvenientes entre menores costos y mayor durabilidad de los datos que se apliquen a su escenario. [Más información aquí](backup-create-rs-vault.md#set-storage-redundancy).
+* El tipo de replicación de almacenamiento del almacén de Azure Backup se establece de forma predeterminada en la opción de almacenamiento con redundancia geográfica (GRS). Esta opción no se puede cambiar después de proteger los elementos. Este almacenamiento proporciona un mayor nivel de durabilidad de los datos que el almacenamiento con redundancia local (LRS), permite usar la restauración entre regiones y cuesta más. Revise las ventajas e inconvenientes entre menores costos y mayor durabilidad de los datos y decida qué es lo mejor para su escenario. [Más información aquí](backup-create-rs-vault.md#set-storage-redundancy).
 
 * Si protege tanto la carga de trabajo que se ejecuta dentro de una máquina virtual como la propia máquina virtual, compruebe si es necesaria esta doble protección.
 

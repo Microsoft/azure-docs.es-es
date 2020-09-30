@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: ed6d9e86143c3a5d6c97c4bd92a07c258bbd1bbc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 501f3e8946023d28d67a33fbbfca661afbc6306d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477466"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898260"
 ---
 # <a name="smote"></a>SMOTE
 
-En este artículo se describe cómo usar el módulo SMOTE en el diseñador de Azure Machine Learning (versión preliminar) para aumentar el número de casos subrepresentados de un conjunto de datos que se usa para el aprendizaje automático. SMOTE es una mejor manera para aumentar el número de casos poco frecuentes en lugar de simplemente duplicar los casos existentes.  
+En este artículo se describe cómo usar el módulo SMOTE en el diseñador de Azure Machine Learning para aumentar el número de casos subrepresentados de un conjunto de datos que se usa para el aprendizaje automático. SMOTE es una mejor manera para aumentar el número de casos poco frecuentes en lugar de simplemente duplicar los casos existentes.  
 
 El módulo SMOTE se conecta a un conjunto de datos *con desequilibrios*. Hay muchas razones por las que un conjunto de datos puede tener desequilibrios. Por ejemplo, la categoría que es su destino podría ser poco frecuente en la población o los datos podrían ser difíciles de recopilar. Normalmente, SMOTE se utiliza cuando la *clase* que se desea analizar está subrepresentada. 
   

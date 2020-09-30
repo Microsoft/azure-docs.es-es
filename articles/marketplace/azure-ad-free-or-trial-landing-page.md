@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 08/06/2020
-ms.openlocfilehash: 96e23c22568229ec5f5ba2365747e261b7e471ad
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 08/03/2020
+ms.openlocfilehash: 655caa05eff16bcf3e598dccd3c9845928b2fcff
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921391"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378838"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Creación de la página de aterrizaje de su oferta de SaaS gratuita o de evaluación en el marketplace comercial
 
@@ -21,7 +21,7 @@ Este artículo le guía por el proceso de creación de una página de aterrizaje
 
 ## <a name="overview"></a>Información general
 
-Puede pensar en la página de aterrizaje como el "recibidor" de la oferta de software como servicio (SaaS). Después de que el cliente elija obtener la aplicación, el marketplace comercial le dirigirá a la página de aterrizaje para activar y configurar su suscripción a la aplicación de SaaS. Al crear una oferta de software como servicio (SaaS), en el Centro de partners, puede elegir entre [vender a través de Microsoft](partner-center-portal/create-new-saas-offer.md) o no hacerlo. Si solo quiere que se muestre su oferta en el marketplace comercial de Microsoft y no vender a través de Microsoft, puede especificar la forma en la que los clientes potenciales pueden interactuar con la oferta. Al habilitar la opción de anuncio **Obténgalo ahora (de forma gratuita)** o **Evaluación gratuita**, debe especificar una URL de página de aterrizaje a la que el usuario pueda dirigirse para acceder a la suscripción o evaluación gratuita.
+Puede pensar en la página de aterrizaje como el "recibidor" de la oferta de software como servicio (SaaS). Después de que el cliente elija obtener la aplicación, el marketplace comercial le dirigirá a la página de aterrizaje para activar y configurar su suscripción a la aplicación de SaaS. Al crear una oferta de software como servicio (SaaS), en el Centro de partners, puede elegir entre [vender a través de Microsoft](plan-saas-offer.md#listing-options) o no hacerlo. Si solo quiere que se muestre su oferta en el marketplace comercial de Microsoft y no vender a través de Microsoft, puede especificar la forma en la que los clientes potenciales pueden interactuar con la oferta. Al habilitar la opción de anuncio **Obténgalo ahora (de forma gratuita)** o **Evaluación gratuita**, debe especificar una URL de página de aterrizaje a la que el usuario pueda dirigirse para acceder a la suscripción o evaluación gratuita.
 
 El propósito de la página de aterrizaje es simplemente recibir al usuario para que pueda activar la evaluación gratuita o la suscripción gratuita. Con Azure Active Directory (Azure AD) y Microsoft Graph, habilitará el inicio de sesión único (SSO) para el usuario y obtendrá detalles importantes sobre el usuario que puede usar para activar su evaluación gratuita o suscripción gratuita, incluido su nombre, dirección de correo electrónico y organización.
 
@@ -38,12 +38,12 @@ Las siguientes secciones de este artículo le guiarán en el proceso de creació
 
 1. [Cree un registro de aplicaciones de Azure AD](#create-an-azure-ad-app-registration) para la página de aterrizaje.
 2. [Use un ejemplo de código como punto de partida](#use-a-code-sample-as-a-starting-point) para su aplicación.
-3. [Lea información de las notificaciones codificadas en el token de identificación](#read-information-from-claims-encoded-in-the-id-token), recibida de Azure AD después del inicio de sesión, que se envió con la solicitud.
+3. [Consulte las notificaciones codificadas en el token de identificación](#read-information-from-claims-encoded-in-the-id-token), recibidas de Azure AD después del inicio de sesión, que se enviaron con la solicitud.
 4. [Use la API de Microsoft Graph](#use-the-microsoft-graph-api) para recopilar información adicional, según sea necesario.
 
 ## <a name="create-an-azure-ad-app-registration"></a>Creación de un registro de aplicación de Azure AD
 
-El marketplace comercial está totalmente integrado con Azure AD. Los usuarios llegan al marketplace autenticados con una [cuenta de Azure AD o una cuenta de Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Después de adquirir una evaluación gratuita o una subscripción gratuita a través de la oferta únicamente de anuncio, el usuario va del marketplace comercial a la dirección URL de la página de aterrizaje para activar y administrar su suscripción a la aplicación de SaaS. Debe permitir que el usuario inicie sesión en la aplicación con el SSO de Azure AD. (La dirección URL de la página de aterrizaje se especifica en la [página de configuración técnica](partner-center-portal/offer-creation-checklist.md#technical-configuration-page) de la oferta).
+El marketplace comercial está totalmente integrado con Azure AD. Los usuarios llegan al marketplace autenticados con una [cuenta de Azure AD o una cuenta de Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Después de adquirir una evaluación gratuita o una subscripción gratuita a través de la oferta únicamente de anuncio, el usuario va del marketplace comercial a la dirección URL de la página de aterrizaje para activar y administrar su suscripción a la aplicación de SaaS. Debe permitir que el usuario inicie sesión en la aplicación con el SSO de Azure AD. (La dirección URL de la página de aterrizaje se especifica en la [página de configuración técnica](plan-saas-offer.md#technical-information) de la oferta.
 
 El primer paso para usar la identidad es asegurarse de que la página de aterrizaje esté registrada como aplicación de Azure AD. Registrar la aplicación le permite usar Azure AD para autenticar usuarios y solicitar acceso a recursos de usuarios. Se puede considerar la definición de la aplicación, lo que permite que el servicio sepa cómo emitir tokens para la aplicación en función de la configuración de la aplicación.
 
@@ -103,4 +103,4 @@ La mayoría de las aplicaciones que se registran con Azure AD conceden permisos
 > Las cuentas del inquilino de MSA (con el identificador de inquilino `9188040d-6c67-4c5b-b112-36a304b66dad`) no devolverán más información de la que ya se ha recopilado con el token de identificador. Por lo tanto, puede omitir esta llamada a Graph API para estas cuentas.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Creación de una oferta de SaaS en el marketplace comercial](./partner-center-portal/create-new-saas-offer.md)
+- [Creación de una oferta de SaaS en el marketplace comercial](create-new-saas-offer.md)

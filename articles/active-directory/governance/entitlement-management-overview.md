@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 08/25/2020
+ms.date: 09/08/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: dbcd8ab2f2825e18943436dcc1a9ca4ff38e2d8d
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 2ce5f0c9b340e1b81fcf002ee70e7ec1cc74d38c
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871214"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594329"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>¿Qué es la administración de derechos de Azure AD?
 
@@ -153,7 +153,7 @@ Las licencias de Azure AD Premium P2 **no** son necesarias para las tareas sigu
 - No se requiere ninguna licencia para usuarios en los que se han delegado tareas administrativas, como el creador de catálogos, el propietario de catálogos y el administrador de paquetes de acceso.
 - No se requiere ninguna licencia para invitados que **pueden** solicitar paquetes de acceso, pero **no** solicitan un paquete de acceso.
 
-Para cada una de las licencias Azure AD Premium P2 de pago que compre para sus usuarios miembros, puede usar Azure AD B2B a fin de invitar a un máximo de cinco usuarios invitados. Los usuarios invitados también pueden usar las características de Azure AD Premium P2. Para más información, consulte [Guía de concesión de licencias de colaboración B2B de Azure Active Directory](../external-identities/licensing-guidance.md).
+Los precios de Azure AD External Identities (usuario invitado) se basan en los usuarios activos mensuales (MAU), que es el recuento de usuarios únicos con actividad de autenticación en un mes natural. Este modelo reemplaza el modelo de facturación con una relación 1:5, que permitía hasta cinco usuarios invitados para cada licencia Premium de Azure AD del inquilino. Cuando el inquilino está vinculado a una suscripción y usa las características de identidades externas para colaborar con los usuarios invitados, se le facturará automáticamente mediante el modelo de facturación basado en MAU. Para más información, consulte el modelo de facturación para [Azure AD External Identities](../external-identities/external-identities-pricing.md).
 
 Para más información sobre las licencias, consulte [Asignación o eliminación de licencias mediante el portal de Azure Active Directory](../fundamentals/license-users-groups.md).
 
@@ -164,7 +164,7 @@ Estos son algunos escenarios de licencia de ejemplo que le ayudarán a determina
 | Escenario | Cálculo | Número de licencias |
 | --- | --- | --- |
 | Un administrador global de Woodgrove Bank crea catálogos iniciales y delega tareas administrativas en otros seis usuarios. Una de las directivas especifica que **todos los empleados** (2000 empleados) pueden solicitar un conjunto específico de paquetes de acceso. 150 empleados solicitan los paquetes de acceso. | 2000 empleados que **pueden** solicitar los paquetes de acceso | 2\.000 |
-| Un administrador global de Woodgrove Bank crea catálogos iniciales y delega tareas administrativas en otros seis usuarios. Una de las directivas especifica que **todos los empleados** (2000 empleados) pueden solicitar un conjunto específico de paquetes de acceso. Otra directiva especifica que algunos **usuarios del asociado Contoso** (invitados) pueden solicitar los mismos paquetes de acceso sujetos a aprobación. Contoso tiene 30 000 usuarios. 150 empleados solicitan los paquetes de acceso y 10 500 usuarios de Contoso solicitan acceso. | 2000 empleados + 500 usuarios invitados de Contoso que superan la relación 1:5 (10 500 - (2000 * 5)) | 2500 |
+| Un administrador global de Woodgrove Bank crea catálogos iniciales y delega tareas administrativas en otros seis usuarios. Una de las directivas especifica que **todos los empleados** (2000 empleados) pueden solicitar un conjunto específico de paquetes de acceso. Otra directiva especifica que algunos **usuarios del asociado Contoso** (invitados) pueden solicitar los mismos paquetes de acceso sujetos a aprobación. Contoso tiene 30 000 usuarios. 150 empleados solicitan los paquetes de acceso y 10 500 usuarios de Contoso solicitan acceso. | 2000 empleados + 500 usuarios invitados de Contoso que superan la relación 1:5 (10 500 - (2000 * 5)) | 2,500 |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

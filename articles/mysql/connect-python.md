@@ -11,12 +11,12 @@ ms.custom:
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 32603514db76ceba4f1d9f8873c99b2e8a97eddf
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: aad160f8a4ec96a1e0e627684c598062079b57e0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185917"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896308"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql"></a>Inicio rápido: Uso de Python para conectarse y consultar datos en Azure Database for MySQL
 
@@ -63,11 +63,11 @@ Obtenga la información de conexión necesaria para conectarse a Azure Database 
    
 1. En la barra de búsqueda del portal, busque y seleccione el servidor de Azure Database for MySQL que ha creado, como **mydemoserver**.
    
-   ![Nombre del servidor de Azure Database for MySQL](./media/connect-python/1_server-overview-name-login.png)
+   :::image type="content" source="./media/connect-python/1_server-overview-name-login.png" alt-text="Nombre del servidor de Azure Database for MySQL":::
    
 1. En la página **Información general** del servidor, anote el **nombre del servidor** y el **nombre de inicio de sesión del administrador del servidor**. Si olvida la contraseña, puede restablecerla también en esta página.
    
-   ![Nombre del servidor de Azure Database for MySQL](./media/connect-python/azure-database-for-mysql-server-overview-name-login.png)
+   :::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="Nombre del servidor de Azure Database for MySQL":::
 
 ## <a name="run-the-python-examples"></a>Ejecución de los ejemplos de Python
 

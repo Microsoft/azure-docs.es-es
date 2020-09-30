@@ -1,6 +1,6 @@
 ---
-title: Límites de Azure Stack Edge | Microsoft Docs
-description: Obtenga información sobre los límites y los tamaños recomendados a medida que implementa y opera Azure Stack Edge, incluidos los límites de servicio, los límites de dispositivos y los límites de almacenamiento.
+title: Límites de Azure Stack Edge Pro | Microsoft Docs
+description: Obtenga información sobre los límites y tamaños recomendados a medida que implementa y opera Azure Stack Edge Pro, incluidos los límites de servicio, dispositivos y almacenamiento.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,24 +8,24 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: e21f5a89d9f1f21eb99071a141794f99c07a8dfa
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5f3c39ce7334145d3ffc1d54badb1f7b766da70f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079819"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904458"
 ---
-# <a name="azure-stack-edge-limits"></a>Límites de Azure Stack Edge
+# <a name="azure-stack-edge-pro-limits"></a>Límites de Azure Stack Edge Pro
 
-Tenga en cuenta estos límites cuando implemente y use su solución de Microsoft Azure Stack Edge. 
+Tenga en cuenta estos límites cuando implemente y use su solución de Microsoft Azure Stack Edge Pro. 
 
 ## <a name="azure-stack-edge-service-limits"></a>Límites del servicio de Azure Stack Edge
 
 [!INCLUDE [data-box-edge-gateway-service-limits](../../includes/data-box-edge-gateway-service-limits.md)]
 
-## <a name="azure-stack-device-limits"></a>Límites de los dispositivos de Azure Stack
+## <a name="azure-stack-edge-device-limits"></a>Límites del dispositivo Azure Stack Edge
 
-En la tabla siguiente, se describen los límites de los dispositivos de Azure Stack Edge. 
+En la siguiente tabla se describen los límites de los dispositivos Azure Stack Edge Pro. 
 
 | Descripción | Value |
 |---|---|
@@ -53,4 +53,4 @@ En la tabla siguiente, se describen los límites de los dispositivos de Azure St
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Preparación de la implementación de Azure Stack Edge](azure-stack-edge-deploy-prep.md)
+- [Preparación de la implementación de Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)

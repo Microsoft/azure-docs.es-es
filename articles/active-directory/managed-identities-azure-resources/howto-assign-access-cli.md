@@ -3,7 +3,7 @@ title: 'Asignación de un acceso de identidad administrada a un recurso mediante
 description: Instrucciones paso a paso para asignar una identidad administrada en un recurso y acceso a otro recurso usando la CLI de Azure.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eb89f962251c8c83a0f01e67a1ae42203d7e69f9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b0437308a0495281e364d42199cc84d9a291cb58
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494645"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263422"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-azure-cli"></a>Asignación de un acceso de identidad administrada a un recurso mediante la CLI de Azure
 
@@ -36,11 +36,11 @@ Una vez que haya configurado un recurso de Azure con una identidad administrada,
 - Para ejecutar los ejemplos de script de la CLI, tiene tres opciones:
     - Usar [Azure Cloud Shell](../../cloud-shell/overview.md) desde Azure Portal (consulte la sección siguiente).
     - Usar Azure Cloud Shell integrado a través del botón "Pruébelo", situado en la esquina superior derecha de cada bloque de código.
-    - [Instale la versión más reciente de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) si prefiere usar una consola de la CLI local. 
+    - [Instale la versión más reciente de la CLI de Azure](/cli/azure/install-azure-cli) si prefiere usar una consola de la CLI local. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Uso de RBAC para asignar el acceso de una identidad administrada a otro recurso
+## <a name="use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Uso de RBAC de Azure para asignar el acceso de una identidad administrada a otro recurso
 
 Después de habilitar la identidad administrada en un recurso de Azure, como una [máquina virtual de Azure](qs-configure-cli-windows-vm.md) o un [conjunto de escalado de máquinas virtuales de Azure](qs-configure-cli-windows-vmss.md): 
 

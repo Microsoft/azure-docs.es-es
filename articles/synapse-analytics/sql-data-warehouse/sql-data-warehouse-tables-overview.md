@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: eaea80ae874b93a640c885e0d4b7afde2a165c16
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0138b4dcc547b961f941522abd03cd351d4d3737
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798574"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460554"
 ---
 # <a name="design-tables-in-synapse-sql-pool"></a>Diseño de tablas en el grupo de SQL de Synapse
 
@@ -111,7 +111,7 @@ La categoría de tabla a menudo determina qué opción elegir para distribuir la
 
 ## <a name="table-partitions"></a>Particiones de tabla
 
-Una tabla con particiones almacena y realiza operaciones en las filas de la tabla según los intervalos de datos. Por ejemplo, una tabla puede tener particiones por día, mes o año. Puede mejorar el rendimiento de las consultas mediante la eliminación de particiones, ya que limita el examen de una consulta a los datos dentro de una partición. También puede mantener los datos a través de modificación de particiones. Puesto que los datos de SQL Data Warehouse ya están distribuidos, demasiadas particiones pueden ralentizar el rendimiento de las consultas. Para más información, consulte [Creación de particiones de tablas en SQL Data Warehouse](sql-data-warehouse-tables-partition.md).  Cuando cambie de partición a otras particiones de tabla que no estén vacías, puede usar la opción TRUNCATE_TARGET en la instrucción [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) si se deben truncar los datos existentes. El siguiente código cambia los datos diarios transformados en SalesFact y sobrescribe cualquier información existente.
+Una tabla con particiones almacena y realiza operaciones en las filas de la tabla según los intervalos de datos. Por ejemplo, una tabla puede tener particiones por día, mes o año. Puede mejorar el rendimiento de las consultas mediante la eliminación de particiones, ya que limita el examen de una consulta a los datos dentro de una partición. También puede mantener los datos a través de modificación de particiones. Puesto que los datos de Azure Synapse Analytics ya están distribuidos, demasiadas particiones pueden ralentizar el rendimiento de las consultas. Para más información, consulte [Creación de particiones de tablas en SQL Data Warehouse](sql-data-warehouse-tables-partition.md).  Cuando cambie de partición a otras particiones de tabla que no estén vacías, puede usar la opción TRUNCATE_TARGET en la instrucción [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) si se deben truncar los datos existentes. El siguiente código cambia los datos diarios transformados en SalesFact y sobrescribe cualquier información existente.
 
 ```sql
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
@@ -294,9 +294,6 @@ SELECT *
 FROM size
 ;
 ```
-
->[!TIP]
-> Para mejorar el rendimiento de Synapse SQL, considere la posibilidad de usar **sys.pdw_permanent_table_mappings** en lugar de **sys.pdw_table_mappings** en las tablas de usuario permanentes. Para obtener más información, consulte **[sys.pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 ### <a name="table-space-summary"></a>Resumen de espacio de tabla
 

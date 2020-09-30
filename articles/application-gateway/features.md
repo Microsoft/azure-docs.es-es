@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: victorh
-ms.openlocfilehash: 60ab0bd6093149aee4c9ee22f8b517dfd2460c09
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: bbb78fd879bc5c6bb8c2624329a23d7137b11660
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400569"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651989"
 ---
 # <a name="azure-application-gateway-features"></a>Características de Azure Application Gateway
 
@@ -118,13 +118,13 @@ Application Gateway proporciona compatibilidad nativa con los protocolos Websock
 Los protocolos WebSocket y HTTP/2 permiten una comunicación dúplex completa entre un servidor y un cliente a través de una conexión TCP de larga duración. Esto permite una comunicación más interactiva entre el servidor web y el cliente, que puede ser bidireccional sin necesidad de realizar sondeos como en las implementaciones basadas en HTTP. Estos protocolos tienen, a diferencia de HTTP, una sobrecarga reducida y pueden reutilizar la misma conexión TCP para varias solicitudes y respuestas, con lo que se utilizan los recursos de una manera más eficaz. Estos protocolos están diseñados para utilizarse a través de los puertos HTTP tradicionales 80 y 443.
 
 Para más información, consulte [Compatibilidad con WebSocket
-](application-gateway-websocket.md) y [Compatibilidad con HTTP/2](configuration-overview.md#http2-support).
+](application-gateway-websocket.md) y [Compatibilidad con HTTP/2](configuration-listeners.md#http2-support).
 
 ## <a name="connection-draining"></a>Purga de la conexión
 
 La purga de conexión ayuda a lograr la correcta eliminación de miembros del grupo de back-end durante las actualizaciones de servicio planeadas. Esta configuración se habilita a través de la configuración de http de back-end y se puede aplicar a todos los miembros de un grupo de back-end durante la creación de reglas. Una vez habilitado, Application Gateway garantiza que las instancias de anulación de registro de un grupo de back-end no reciban solicitudes nuevas y se permite que las solicitudes existentes se completen en un límite de tiempo configurado. Esto se aplica a las dos instancias de back-end que se quitan explícitamente del grupo de back-end mediante un cambio en la configuración del usuario y las instancias de back-end que se notifican como incorrectas según determinan los sondeos de estado. La única excepción a esto son las solicitudes enlazadas para las instancias de cancelación del registro, que se han eliminado explícitamente, debido a la afinidad de la sesión administrada por la puerta de enlace y siguen siendo procesadas por el proxy hasta las instancias de cancelación del registro.
 
-Para más información, consulte [Introducción a la configuración de Application Gateway](configuration-overview.md#connection-draining).
+Para más información, consulte [Introducción a la configuración de Application Gateway](configuration-http-settings.md#connection-draining).
 
 ## <a name="custom-error-pages"></a>Páginas de error personalizadas
 

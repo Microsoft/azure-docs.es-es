@@ -1,6 +1,6 @@
 ---
 title: 'Solución de problemas sobre la verificación del publicador: plataforma de identidad de Microsoft | Azure'
-description: Describe cómo solucionar problemas de verificación del publicador (versión preliminar) para la plataforma de identidad de Microsoft mediante una llamada a la API de Microsoft Graph.
+description: Describe cómo solucionar los problemas de verificación del editor para la plataforma de identidad de Microsoft mediante una llamada a las instancias de Microsoft Graph API.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,15 +12,15 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 3069e3caf81d9bb2f809b21c88383c419e3b90b3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fd49e922e5952f5a7c4b7f477dd33d6518010428
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282983"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088330"
 ---
-# <a name="troubleshoot-publisher-verification-preview"></a>Solución de problemas de comprobación del publicador (versión preliminar)
-Si no puede completar el proceso o experimenta un comportamiento inesperado con la [verificación del publicador (versión preliminar)](publisher-verification-overview.md), o si recibe errores, debe empezar por lo siguiente: 
+# <a name="troubleshoot-publisher-verification"></a>Solución de problemas de verificación del editor
+Si no puede completar el proceso o experimenta u observa un comportamiento inesperado con la [verificación del editor](publisher-verification-overview.md), o si recibe errores, debe empezar por hacer lo siguiente: 
 
 1. Revise los [requisitos](publisher-verification-overview.md#requirements) y asegúrese de que se cumplen todos.
 
@@ -39,10 +39,10 @@ A continuación se muestran algunos problemas comunes que pueden producirse dura
     1. Si ya existe una cuenta de MPN, se reconocerá y se le agregará a la cuenta. 
     1. Vaya a la [página de perfil de asociado](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile), donde se mostrarán el id. de MPN y el contacto de la cuenta principal.
 
-- **No sé quién es mi administrador global de Azure AD (también conocido como administrador de la compañía o administrador de inquilinos). ¿Cómo puedo encontrarlo? ¿Qué hay del administrador de la aplicación o de otros roles de administrador?**
+- **No sé quién es mi administrador global de Azure AD (también conocido como administrador de la empresa o administrador de inquilinos). ¿Cómo puedo encontrarlo? ¿Y el administrador de aplicaciones o el administrador de aplicaciones en la nube?**
     1. Inicie sesión en el [portal de Azure AD](https://aad.portal.azure.com) con una cuenta de usuario en el inquilino principal de su organización.
     1. Vaya a [Administración de roles](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
-    1. Haga clic en "Administrador global" o en el rol de administrador deseado.
+    1. Haga clic en el rol de administrador deseado.
     1. Se mostrará la lista de usuarios que tienen ese rol asignado.
 
 - **No sé quiénes son los administradores de mi cuenta de MPN**. Vaya a la [página Administración de usuarios de MPN](https://partner.microsoft.com/pcv/users) y filtre la lista de usuarios para ver qué usuarios tienen asignados los distintos roles de administrador.
@@ -51,22 +51,25 @@ A continuación se muestran algunos problemas comunes que pueden producirse dura
     1. Vaya a su [perfil de asociado](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) y compruebe lo siguiente: 
         - El id. de MPN es correcto. 
         - No se muestran errores ni "acciones pendientes", y el estado de verificación en el perfil de negocio legal y en la información del asociado indica "autorizado" o "correcto".
-    1. Vaya a la [página de administración de inquilinos de MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) y confirme que el inquilino en el que está registrada la aplicación y en que el está iniciando sesión con una cuenta de usuario está en la lista de inquilinos asociados.
-    1. Vaya a la [página de Administración de usuarios de MPN](https://partner.microsoft.com/pcv/users) y confirme que el usuario con el que inicia sesión es un administrador global, un administrador de MPN o un administrador de cuentas.
+    1. Vaya a la [página de administración de inquilinos de MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) y confirme que el inquilino en el que está registrada la aplicación y en que el está iniciando sesión con una cuenta de usuario está en la lista de inquilinos asociados. Si necesita agregar un inquilino adicional, siga las instrucciones que [aquí](https://docs.microsoft.com/partner-center/multi-tenant-account) se indican. Tenga en cuenta que a todos los administradores globales de cualquier inquilino que agregue se les concederán privilegios de administrador global en la cuenta del Centro de partners.
+    1. Vaya a la [página de Administración de usuarios de MPN](https://partner.microsoft.com/pcv/users) y confirme que el usuario con el que inicia sesión es un administrador global, un administrador de MPN o un administrador de cuentas. Si necesita agregar un usuario a un rol en el Centro de partners, siga las instrucciones que [aquí](https://docs.microsoft.com/partner-center/create-user-accounts-and-set-permissions) se indican.
 
 - **Al iniciar sesión en el portal de Azure AD, no veo ninguna aplicación registrada. ¿Por qué?** 
-    Es posible que los registros de aplicaciones se hayan creado con una cuenta de usuario diferente o en un inquilino diferente. Asegúrese de que ha iniciado sesión con la cuenta correcta en el inquilino donde se crearon los registros de la aplicación.
+    Es posible que los registros de aplicaciones se hayan creado con otra cuenta de usuario en este inquilino, una cuenta personal o de consumidor, o en otro inquilino. Asegúrese de que ha iniciado sesión con la cuenta correcta en el inquilino donde se crearon los registros de la aplicación.
 
-- **¿Cómo puedo saber quién es el propietario de un registro de aplicación en Azure AD?** 
-    Cuando haya iniciado sesión en un inquilino donde esté registrada la aplicación, vaya a la hoja Registros de aplicaciones, haga clic en una aplicación y, a continuación, haga clic en Propietarios.
+- **Recibo un error relacionado con la autenticación multifactor. ¿qué debo hacer?** 
+    Asegúrese de que la [autenticación multifactor](../fundamentals/concept-fundamentals-mfa-get-started.md) está habilitada y que se le exige al usuario con el que inicia sesión en este escenario. Por ejemplo, MFA podría ser:
+    - Siempre obligatorio para el usuario con el que inicia sesión
+    - [Obligatorio para la administración de Azure](../conditional-access/howto-conditional-access-policy-azure-management.md).
+    - [Obligatorio para el tipo de administrador](../conditional-access/howto-conditional-access-policy-admin-mfa.md) con el que inicia sesión.
 
 ## <a name="making-microsoft-graph-api-calls"></a>Realización de llamadas a Microsoft Graph API 
 
-Si tiene algún problema, pero no comprende por qué según lo que ve en la interfaz de usuario, puede resultar útil realizar más tareas de solución de problemas mediante llamadas a Microsoft Graph para realizar las mismas operaciones que puede realizar en el portal de registro de aplicaciones. Durante la fase de versión preliminar, estas API solo estarán disponibles en el punto de conexión /beta de Microsoft Graph.  
+Si tiene algún problema, pero no comprende por qué según lo que ve en la interfaz de usuario, puede resultar útil realizar más tareas de solución de problemas mediante llamadas a Microsoft Graph para realizar las mismas operaciones que puede realizar en el portal de registro de aplicaciones.
 
-La manera más sencilla de realizar estas solicitudes es usar [Explorador de gráficos](https://developer.microsoft.com/graph/graph-explorer). También puede considerar otras opciones, como el uso de [Postman](https://www.postman.com/), o bien el uso de PowerShell para [invocar una solicitud web](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7).  
+La manera más sencilla de realizar estas solicitudes es usar [Explorador de gráficos](https://developer.microsoft.com/graph/graph-explorer). También puede considerar otras opciones, como el uso de [Postman](https://www.postman.com/), o bien el uso de PowerShell para [invocar una solicitud web](/powershell/module/microsoft.powershell.utility/invoke-webrequest).  
 
-Puede usar Microsoft Graph para establecer y anular el publicador verificado de la aplicación y comprobar el resultado después de realizar una de estas operaciones. El resultado puede verse en el objeto de la [aplicación](/graph/api/resources/application?view=graph-rest-beta) correspondiente al registro de la aplicación y en cualquier [entidad de servicio](/graph/api/resources/serviceprincipal?view=graph-rest-beta) de la que se haya creado una instancia desde esa aplicación. Para obtener más información sobre la relación entre esos objetos, consulte: [Objetos de aplicación y de entidad de servicio de Azure Active Directory](app-objects-and-service-principals.md).  
+Puede usar Microsoft Graph para establecer y anular el publicador verificado de la aplicación y comprobar el resultado después de realizar una de estas operaciones. El resultado puede verse en el objeto de la [aplicación](/graph/api/resources/application) correspondiente al registro de la aplicación y en cualquier [entidad de servicio](/graph/api/resources/serviceprincipal) de la que se haya creado una instancia desde esa aplicación. Para obtener más información sobre la relación entre esos objetos, consulte: [Objetos de aplicación y de entidad de servicio de Azure Active Directory](app-objects-and-service-principals.md).  
 
 Estos son algunos ejemplos de solicitudes útiles:  
 
@@ -105,7 +108,7 @@ Response
 ### <a name="get-verified-publisher-info-from-application"></a>Obtener información del publicador verificado de la aplicación 
  
 ```
-GET https://graph.microsoft.com/beta/applications/0cd04273-0d11-4e62-9eb3-5c3971a7cbec 
+GET https://graph.microsoft.com/v1.0/applications/0cd04273-0d11-4e62-9eb3-5c3971a7cbec 
 
 HTTP/1.1 200 OK 
 
@@ -124,7 +127,7 @@ HTTP/1.1 200 OK
 
 ### <a name="get-verified-publisher-info-from-service-principal"></a>Obtener información del publicador verificado de la entidad de servicio 
 ```
-GET https://graph.microsoft.com/beta/servicePrincipals/010422a7-4d77-4f40-9335-b81ef5c23dd4 
+GET https://graph.microsoft.com/v1.0/servicePrincipals/010422a7-4d77-4f40-9335-b81ef5c23dd4 
 
 HTTP/1.1 200 OK 
 
@@ -183,11 +186,7 @@ Esta funcionalidad no se admite en un inquilino verificado por correo electróni
 
 ### <a name="nopublisherdomainonapplication"></a>NoPublisherDomainOnApplication   
 
-La aplicación de destino (<AppId>) debe tener un dominio de publicador establecido. Establezca un dominio de publicador e inténtelo de nuevo. 
-
-### <a name="publisherdomainisnotdnsverified"></a>PublisherDomainIsNotDNSVerified  
-
-El dominio de publicador de la aplicación de destino (<publisherDomain>) no es un dominio verificado en este inquilino. Compruebe un dominio de inquilino mediante la verificación de DNS e inténtelo de nuevo. 
+La aplicación de destino (\<AppId\>) debe tener un dominio de editor establecido. Establezca un dominio de publicador e inténtelo de nuevo.
 
 ### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch  
 

@@ -13,42 +13,44 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 36118bb99da5f0c7f918009413394d931415886f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 868470292fbacd71e1eb2d39de7e3a9c5cf6900e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076379"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883891"
 ---
 # <a name="protect-your-network-resources"></a>Protección de los recursos de red
 Azure Security Center analiza continuamente el estado de seguridad de los recursos de Azure para los procedimientos recomendados de seguridad de red. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios para reforzar y proteger sus recursos.
-
-En este artículo se explica la página **Redes** de la sección de seguridad de recursos de Security Center.
 
 Para ver la lista completa de las recomendaciones para redes, consulte [Recomendaciones de red](recommendations-reference.md#recs-network).
 
 En este artículo se abordan las recomendaciones que se aplican a los recursos de Azure desde una perspectiva de seguridad de red. Las recomendaciones sobre redes se centran en los firewalls de próxima generación, los grupos de seguridad de red, el acceso a la VM JIT, las reglas de tráfico entrantes permisivas y mucho más. Para obtener una lista de posibles recomendaciones de red y acciones de corrección, consulte [Administración de recomendaciones de seguridad en Azure Security Center.](security-center-recommendations.md)
 
-> [!NOTE]
-> La página **Redes** permite profundizar en el estado de los recursos de Azure desde una perspectiva de red. El mapa de red y los controles de red adaptables están disponibles solo para el nivel estándar de Azure Security Center. [Si usa el nivel gratis, haga clic en el botón para **Ver redes heredadas** y recibir recomendaciones de recursos de red](#legacy-networking).
->
+Las características de **red** de Security Center incluyen: 
 
-La página **Redes** proporciona información general de las secciones en las que puede profundizar para obtener más información sobre el estado de los recursos de red:
-
-- Mapa de red (solo en el nivel estándar de Azure Security Center)
-- Protección de red adaptable
-- Recomendaciones de seguridad de red.
-- Hoja **Redes** heredadas (anteriormente hoja de redes) 
+- Mapa de red (requiere Azure Defender)
+- [Protección de red adaptable](security-center-adaptive-network-hardening.md) (requiere Azure Defender)
+- Recomendaciones de seguridad de red
  
-[![Panel de redes](./media/security-center-network-recommendations/networking-pane.png)](./media/security-center-network-recommendations/networking-pane.png#lightbox)
+## <a name="view-your-networking-resources-and-their-recommendations"></a>Ver los recursos de red y sus recomendaciones
+
+En la [página del inventario de recursos](asset-inventory.md), use el filtro de tipo de recurso para seleccionar los recursos de red que desea investigar:
+
+:::image type="content" source="./media/security-center-network-recommendations/network-filters-inventory.png" alt-text="Tipos de recursos de red del inventario de recursos" lightbox="./media/security-center-network-recommendations/network-filters-inventory.png":::
+
 
 ## <a name="network-map"></a>Mapa de red
+
 El mapa de red interactivo proporciona una vista gráfica con superposiciones de seguridad que le ofrecen recomendaciones e información para proteger sus recursos de red. Con el mapa podrá ver la topología de red de sus cargas de trabajo de Azure, las conexiones entre sus máquinas virtuales y subredes, y la capacidad de explorar en profundidad el mapa para consultar recursos específicos y las recomendaciones para esos recursos.
 
 Para abrir el mapa de red:
 
-1. En Security Center, en Protección de seguridad de recursos, seleccione **Redes**.
-2. En **Mapa de red**, haga clic en **Ver topología**.
+1. En el menú de Security Center, abra el panel de Azure Defender y seleccione **Mapa de red**.
+
+    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Apertura del mapa de red desde el panel de Azure Defender" lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
+
+1. Seleccione el menú **Capas** y elija **Topología**.
  
 La vista predeterminada del mapa topológico muestra:
 
@@ -114,31 +116,8 @@ Para explorar en profundidad un recurso:
 [![Mapa del tráfico de red](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
 
 
-## <a name="legacy-networking"></a>Redes heredadas <a name ="legacy-networking"></a>
-
-Si no tiene el nivel estándar de Security Center, en esta sección se explica cómo obtener recomendaciones gratuitas de redes.
-
-Para obtener acceso a esta información, en la hoja Redes, haga clic en **Ver redes heredadas**. 
-
-[![Redes heredadas](./media/security-center-network-recommendations/legacy-networking.png)](./media/security-center-network-recommendations/legacy-networking.png#lightbox)
-
-### <a name="internet-facing-endpoints-section"></a>Sección Internet facing endpoints
-En la sección **Puntos de conexión accesibles desde Internet**, podrá ver las máquinas virtuales que están configuradas con un punto de conexión accesible desde Internet y su estado.
-
-Esta tabla incluye el nombre del punto de conexión, la dirección IP accesible desde Internet, y el estado de gravedad actual del grupo de seguridad de red y las recomendaciones de NGFW. La tabla está ordenada por gravedad.
-
-### <a name="networking-topology-section"></a>Sección Networking topology
-En la sección **Topología de red**, se ofrece una vista jerárquica de los recursos.
-
-Esta tabla está ordenada (máquinas virtuales y subredes) por gravedad.
-
-En esta vista de topología, el primer nivel muestra las redes virtuales. El segundo nivel muestra subredes y el tercero muestra las máquinas virtuales que pertenecen a esas subredes. La columna derecha contiene el estado actual de las recomendaciones del grupo de seguridad de red para esos recursos.
-
-El tercer nivel muestra máquinas virtuales, que es similar a lo que se ha descrito anteriormente. Puede hacer clic en un recurso para obtener más información o aplicar la configuración o el control de seguridad necesario.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre las recomendaciones que se aplican a otros tipos de recursos de Azure, consulte los siguientes artículos:
 
-* [Protección de las aplicaciones y las máquinas en Azure Security Center](security-center-virtual-machine-protection.md)
-* [Protección del servicio SQL de Azure en Azure Security Center](security-center-sql-service-recommendations.md)
+- [Protección de las aplicaciones y las máquinas en Azure Security Center](security-center-virtual-machine-protection.md)

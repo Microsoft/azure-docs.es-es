@@ -151,6 +151,8 @@
           href: cloud-services-disaster-recovery-guidance.md
         - name: Flujo de trabajo de una arquitectura de máquina virtual clásica
           href: cloud-services-workflow-process.md
+        - name: Compatibilidad de Resource Health con Cloud Services
+          href: resource-health-for-cloud-services.md
         - name: P+F de Cloud Services
           items:
             - name: Preguntas más frecuentes sobre la disponibilidad de aplicaciones y servicios

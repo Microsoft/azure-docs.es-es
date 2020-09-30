@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 3431ad88a27da9d83b75ed3661d6129f157b9b1f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 051f6e6ef15cc94e2b607c74e666bae9c91c1160
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531513"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401629"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Base de referencia de seguridad de Azure para Cosmos DB
 
@@ -729,7 +729,7 @@ Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
-**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
 - Tipos de recursos no permitidos 
 
@@ -890,9 +890,11 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 Cómo integrar las identidades administradas de Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Cómo crear un almacén de claves: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Cómo crear un almacén de claves: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Cómo proporcionar la autenticación de Key Vault con una identidad administrada: https://docs.microsoft.com/azure/key-vault/managed-identity
+Autenticación en Azure Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Asignación de una directiva de acceso de Azure Key Vault: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Supervisión de Azure Security Center**: Sí
 

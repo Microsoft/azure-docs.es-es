@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 09/02/2020
 ms.author: victorh
-ms.openlocfilehash: 82202705c5dbd4539eec4775d0844a749fd405f9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 92fc4252dd52236e2cc4e8fdfdd2afa32059a721
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537010"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376951"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Supervisión de métricas y registros de Azure Firewall
 
@@ -78,6 +78,7 @@ Puede ver y analizar los datos del registro de actividades con cualquiera de los
 
 * **Herramientas de Azure**: permiten recuperar información de los registros de actividades mediante Azure PowerShell, la CLI de Azure, la API REST de Azure o Azure Portal. En el artículo [Operaciones de actividades con Resource Manager](../azure-resource-manager/management/view-activity-logs.md) se detallan instrucciones paso a paso de cada método.
 * **Power BI**: si todavía no tiene una cuenta de [Power BI](https://powerbi.microsoft.com/pricing), puede probarlo gratis. Con el [paquete de contenido de los registros de actividades de Azure para Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), puede analizar sus datos con los paneles preconfigurados que puede personalizar o usar tal cual.
+* **Azure Sentinel**: Los registros de Azure Firewall se pueden conectar a Azure Sentinel, de forma que es posible ver los datos de registro en los libros, usarlos para crear alertas personalizadas e incorporarlos para mejorar su investigación. El conector de datos de Azure Firewall en Azure Sentinel se encuentra actualmente en versión preliminar pública. Para más información, consulte [Conexión de datos desde Azure Firewall](../sentinel/connect-azure-firewall.md).
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Ver y analizar los registros de la regla de red y de aplicación
 

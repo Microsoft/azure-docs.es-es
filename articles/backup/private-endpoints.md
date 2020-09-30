@@ -3,12 +3,12 @@ title: Puntos de conexión privados
 description: Comprenda el proceso de creación de puntos de conexión privados para Azure Backup y los escenarios en los que el uso de puntos de conexión privados ayuda a preservar la seguridad de los recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 4f41eee7a84308eb9f4da56f087b2c36e09148f0
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 0a875dfedbf7a3b76b479fd4f23b74a7ced47252
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890899"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179239"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Puntos de conexión privados para Azure Backup
 
@@ -192,7 +192,7 @@ Consulte la sección [Aprobación manual de los puntos de conexión privados med
 ## <a name="adding-dns-records"></a>Agregar registros DNS
 
 >[!NOTE]
-> Este paso no es necesario si usa una zona DNS integrada. Sin embargo, si ha creado su propia zona DNS privada de Azure o usa una zona DNS privada personalizada, asegúrese de que las entradas se creen como se describe en esta sección.
+> Este paso no es necesario si usa una zona DNS integrada. Sin embargo, si ha creado su propia zona DNS privada de Azure o utiliza una zona DNS privada personalizada, asegúrese de que las entradas se realicen tal y como se describe en esta sección.
 
 Una vez que haya creado la zona DNS privada opcional y los puntos de conexión privados para el almacén, deberá agregar registros DNS a la zona DNS. Puede hacerlo manualmente o mediante un script de PowerShell. Esto solo se debe hacer para la zona DNS de Azure Backup, las de blobs y colas se actualizarán automáticamente.
 
@@ -239,7 +239,7 @@ Esto requiere que se creen entradas para cada FQDN del punto de conexión privad
 Una vez que los puntos de conexión privados creados para el almacén de la red virtual se han aprobado, puede empezar a usarlos para realizar las copias de seguridad y restauraciones.
 
 >[!IMPORTANT]
->Asegúrese de que ha completado correctamente todos los pasos mencionados anteriormente en el documento antes de continuar. En resumen, debe haber completado los pasos de la siguiente lista:
+>Asegúrese de haber completado correctamente todos los pasos mencionados previamente en el documento antes de continuar. En resumen, debe haber completado los pasos de la siguiente lista:
 >
 >1. Se creó un (nuevo) almacén de Recovery Services
 >1. Se habilitó el almacén para usar la identidad administrada asignada por el sistema
@@ -551,7 +551,7 @@ A. No, los puntos de conexión privados solo se pueden crear para nuevos almacen
 Q. Intenté proteger un elemento en el almacén, pero se produjo un error y el almacén todavía no contiene elementos protegidos. ¿Se pueden crear puntos de conexión privados para este almacén?<br>
 A. No, el almacén no debe haber tenido ningún intento de proteger ningún elemento en el pasado.
 
-Q. Tengo un almacén que usa puntos de conexión privados para copias de seguridad y restauración. ¿Puedo agregar o quitar puntos de conexión privados para este almacén más tarde, aunque tenga elementos de copia de seguridad protegidos?<br>
+Q. Tengo un almacén que utiliza puntos de conexión privados con fines de copias de seguridad y restauración. ¿Puedo agregar o quitar puntos de conexión privados para este almacén más tarde, aunque tenga elementos de copia de seguridad protegidos?<br>
 A. Sí. Si ya creó puntos de conexión privados para un almacén y hay elementos de copia de seguridad protegidos en él, más adelante podrá agregar o quitar puntos de conexión privados según sea necesario.
 
 Q. ¿Se puede usar también el punto de conexión privado de Azure Backup en Azure Site Recovery?<br>

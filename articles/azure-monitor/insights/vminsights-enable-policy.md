@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 9bc323e0fafc576c5e75f46b3c38fdf140b1b0f4
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 240c96016304c009c36485869ac15f5f38076fb7
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799809"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088296"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Habilitación de Azure Monitor para VM mediante Azure Policy
 En este artículo se explica cómo habilitar Azure Monitor para VM para máquinas virtuales de Azure o máquinas virtuales híbridas conectadas con Azure Arc (versión preliminar) mediante Azure Policy. Azure Policy permite asignar definiciones de directivas que instalan los agentes necesarios para Azure Monitor para VM en el entorno de Azure y habilitan automáticamente la supervisión de las máquinas virtuales cuando se crea cada máquina virtual. Azure Monitor para VM ofrece una característica que permite detectar y corregir VM no compatibles en el entorno. Use esta característica en lugar de trabajar directamente con Azure Policy.
@@ -102,7 +102,7 @@ Para crear una tarea de corrección para mitigar los problemas de cumplimiento, 
 
 Haga clic en **Corregir** para crear la tarea de corrección y, a continuación, en **Corregir** para iniciarla. Lo más probable es que necesite crear varias tareas de corrección, una para cada definición de directiva. No se puede crear una tarea de corrección para una iniciativa.
 
-[![Corrección](media/vminsights-enable-at-scale-policy/remediation.png)](media/vminsights-enable-at-scale-policy/remediation.png#lightbox)
+[![Captura de pantalla que muestra el panel de corrección de directivas para Monitor | Virtual Machines.](media/vminsights-enable-at-scale-policy/remediation.png)](media/vminsights-enable-at-scale-policy/remediation.png#lightbox)
 
 
 Una vez completadas las tareas de corrección, las máquinas virtuales deben ser compatibles con los agentes instalados y habilitados para Azure Monitor para VM. 

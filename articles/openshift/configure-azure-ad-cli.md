@@ -8,16 +8,16 @@ author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 393185d2167e18df3f8c1319e7367efbc437de1a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: fd6ea0749cce154ae20479bc54ef9b7374a69d0c
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590343"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469429"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Configuración de la autenticación de Azure Active Directory para un clúster de Red Hat OpenShift 4 en Azure (CLI)
 
-Si decide instalar y usar la CLI localmente, para este artículo es necesario que ejecute la versión CLI de Azure 2.6.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Si decide instalar y usar la CLI localmente, para este artículo es necesario que ejecute la versión CLI de Azure 2.6.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Recupere las direcciones URL específicas del clúster que se van a usar para configurar la aplicación de Azure Active Directory.
 
@@ -66,7 +66,7 @@ Debe obtener un resultado parecido a este. Tome nota de ello, ya que es el valor
 
 ## <a name="create-a-manifest-file-to-define-the-optional-claims-to-include-in-the-id-token"></a>Creación de un archivo de manifiesto para definir las notificaciones opcionales que se van a incluir en el token de identificador
 
-Los desarrolladores de aplicaciones pueden usar [notificaciones opcionales](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims) en sus aplicaciones de Azure AD para especificar qué notificaciones desean incluir en los tokens que se envían a las aplicaciones.
+Los desarrolladores de aplicaciones pueden usar [notificaciones opcionales](../active-directory/develop/active-directory-optional-claims.md) en sus aplicaciones de Azure AD para especificar qué notificaciones desean incluir en los tokens que se envían a las aplicaciones.
 
 Estas notificaciones opcionales sirven para:
 
@@ -127,7 +127,7 @@ az ad app permission add \
 
 Las aplicaciones registradas en un inquilino de Azure Active Directory (Azure AD) están disponibles de forma predeterminada para todos los usuarios del inquilino que se autentica correctamente. Azure AD permite a los administradores y desarrolladores de inquilinos restringir una aplicación a un conjunto específico de usuarios o a los grupos de seguridad del inquilino.
 
-Siga las instrucciones de la documentación de Azure Active Directory para [asignar usuarios y grupos a la aplicación](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users#app-registration).
+Siga las instrucciones de la documentación de Azure Active Directory para [asignar usuarios y grupos a la aplicación](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md#app-registration).
 
 ## <a name="configure-openshift-openid-authentication"></a>Configuración de la autenticación OpenID en OpenShift
 

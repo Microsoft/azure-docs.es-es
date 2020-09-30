@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: b94bcd1cfbbf215ed912d506d27311aae502656b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 554e5a022dcb49cd861ad7198a2c375634db6d10
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115074"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705752"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifiesto de aplicación de Azure Active Directory
 
@@ -82,7 +82,7 @@ Ejemplo:
 | :--- | :--- |
 | addIns | Colección |
 
-Define el comportamiento personalizado que puede usar un servicio de consumo para llamar a una aplicación en contextos concretos. Por ejemplo, las aplicaciones que pueden representar secuencias de archivos pueden establecer la propiedad `addIns` para su funcionalidad "FileHandler". Este parámetro permitirá que servicios como Office 365 llamen a la aplicación en el contexto de un documento en el que esté trabajando el usuario.
+Define el comportamiento personalizado que puede usar un servicio de consumo para llamar a una aplicación en contextos concretos. Por ejemplo, las aplicaciones que pueden representar secuencias de archivos pueden establecer la propiedad `addIns` para su funcionalidad "FileHandler". Este parámetro permitirá que servicios como Microsoft 365 llamen a la aplicación en el contexto de un documento en el que esté trabajando el usuario.
 
 Ejemplo:
 

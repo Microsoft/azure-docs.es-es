@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 4c00639c02f8834a24a3828ac5b8ba828d0e1733
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 82c5d87be084e85b6de9f890bd042babca9df476
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282830"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090506"
 ---
 # <a name="use-the-drawing-tools-module"></a>Uso del módulo de herramientas de dibujo
 
-El SDK web de Azure Maps proporciona un *módulo de herramientas de dibujo*. Este módulo facilita el dibujo y la edición de formas en el mapa mediante un dispositivo de entrada, como un mouse o la pantalla táctil. La clase principal de este módulo es el [administrador de dibujos](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-). El administrador de dibujos proporciona todas las funcionalidades necesarias para dibujar y editar formas en el mapa. Se puede usar directamente y se integra con una interfaz de usuario de barra de herramientas personalizada. También puede usar la clase integrada [drawing toolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest). 
+El SDK web de Azure Maps proporciona un *módulo de herramientas de dibujo*. Este módulo facilita el dibujo y la edición de formas en el mapa mediante un dispositivo de entrada, como un mouse o la pantalla táctil. La clase principal de este módulo es el [administrador de dibujos](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). El administrador de dibujos proporciona todas las funcionalidades necesarias para dibujar y editar formas en el mapa. Se puede usar directamente y se integra con una interfaz de usuario de barra de herramientas personalizada. También puede usar la clase integrada [drawing toolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar). 
 
 ## <a name="loading-the-drawing-tools-module-in-a-webpage"></a>Carga del módulo de herramientas de dibujo en una página web
 
@@ -44,13 +44,13 @@ El SDK web de Azure Maps proporciona un *módulo de herramientas de dibujo*. Est
 
 ## <a name="use-the-drawing-manager-directly"></a>Uso del administrador de dibujos directamente
 
-Una vez que el módulo de herramientas de dibujo se carga en la aplicación, puede habilitar funcionalidades de dibujo y edición mediante el [administrador de dibujos](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-). Puede especificar opciones para el administrador de dibujo al crear una instancia de él, o bien usar la función `drawingManager.setOptions()`.
+Una vez que el módulo de herramientas de dibujo se carga en la aplicación, puede habilitar funcionalidades de dibujo y edición mediante el [administrador de dibujos](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). Puede especificar opciones para el administrador de dibujo al crear una instancia de él, o bien usar la función `drawingManager.setOptions()`.
 
 ### <a name="set-the-drawing-mode"></a>Establecimiento del modo de dibujo
 
 En el código siguiente crea una instancia del administrador de dibujos y establece la opción **modo** de dibujo. 
 
-```Javascript
+```javascript
 //Create an instance of the drawing manager and set drawing mode.
 drawingManager = new atlas.drawing.DrawingManager(map,{
     mode: "draw-polygon"
@@ -76,7 +76,7 @@ El administrador de dibujo admite tres formas diferentes de interactuar con el m
 
 El código siguiente habilita el modo de dibujo de polígonos y establece el tipo de interacción de dibujo que debe seguir el administrador de dibujo en `freehand`. 
 
-```Javascript
+```javascript
 //Create an instance of the drawing manager and set drawing mode.
 drawingManager = new atlas.drawing.DrawingManager(map,{
     mode: "draw-polygon",
@@ -122,10 +122,10 @@ Obtenga información sobre cómo usar características adicionales del módulo d
 Más información sobre las clases y los métodos utilizados en este artículo:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Administrador de dibujo](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [Administrador de dibujo](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [Barra de herramientas de dibujo](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
+> [Barra de herramientas de dibujo](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

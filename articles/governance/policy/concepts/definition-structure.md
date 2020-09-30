@@ -1,14 +1,14 @@
 ---
 title: Detalles de la estructura de definición de directivas
 description: Describe cómo se usan las definiciones de directiva para establecer convenciones para los recursos de Azure de su organización.
-ms.date: 08/27/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 076493fa8fd54e9585d09a3dd352eabdee652f18
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: a049134a32fd6026cc1e0c4044a7b9d08fb9bd8f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079037"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895367"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -17,7 +17,7 @@ Más información sobre las [condiciones](#conditions).
 
 La definición de convenciones permite controlar los costes y administrar los recursos más fácilmente. Por ejemplo, puede especificar que se permitan solo determinados tipos de máquinas virtuales. O bien, puede exigir que todos los recursos tengan una etiqueta concreta. Los recursos secundarios heredan las asignaciones de directivas. Si una asignación de directiva se aplica a un grupo de recursos, será aplicable a todos los recursos de dicho grupo de recursos.
 
-El esquema de definición de Directiva se encuentra aquí: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
+El esquema de definición de directiva _policyRule_ se encuentra aquí: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
 Para crear una definición de directiva se utiliza JSON. La definición de directiva contiene elementos para:
 
@@ -206,8 +206,10 @@ Al crear una iniciativa o directiva, es necesario especificar la ubicación de l
 
 Si la ubicación de la definición es:
 
-- Una **suscripción**: solo se puede asignar la directiva a los recursos dentro de esa suscripción.
-- Un **grupo de administración**: solo se puede asignar la directiva a los recursos dentro de grupos de administración secundarios y suscripciones secundarias. Si planea aplicar la definición de directiva a varias suscripciones, la ubicación debe ser un grupo de administración que contenga las suscripciones.
+- **Suscripción**: solo se puede asignar la definición de directiva a los recursos dentro de esa suscripción.
+- **Grupo de administración**: solo se puede asignar la definición de directiva a los recursos dentro de grupos de administración secundarios y suscripciones secundarias. Si planea aplicar la definición de directiva a varias suscripciones, la ubicación debe ser un grupo de administración que contenga cada una de las suscripciones.
+
+Para obtener más información, vea [Descripción del ámbito de Azure Policy](./scope.md#definition-location).
 
 ## <a name="policy-rule"></a>Regla de directiva
 
@@ -576,16 +578,16 @@ Se pueden usar todas las [funciones de plantilla de Resource Manager](../../../a
 La siguiente función está disponible para su uso en una regla de directivas, pero difieren del uso en una plantilla de Azure Resource Manager (Plantilla de ARM):
 
 - `utcNow()`: a diferencia de una plantilla de ARM, esta propiedad se puede usar con un valor distinto a _defaultValue_.
-  - Devuelve una cadena que se establece en la fecha y hora actuales en formato de fecha y hora universal ISO 8601 "yyyy-MM-ddTHH:mm:ss.fffffffZ"
+  - Devuelve una cadena que se establece en la fecha y hora actuales en formato DateTime universal ISO 8601 `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
 
 Las siguientes funciones solo están disponibles en las reglas de directiva:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **dateTime** (fecha y hora): [Obligatorio] cadena: cadena con el formato de fecha y hora universal ISO 8601 "yyyy-MM-ddTHH:mm:ss.fffffffZ"
-  - **numberOfDaysToAdd** (número de días para agregar): [Obligatorio] entero: número de días que se desea agregar
+  - **dateTime**: cadena [obligatoria]. Cadena con el formato DateTime universal ISO 8601 `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
+  - **numberOfDaysToAdd**: entero [obligatorio]. Número de días que se van a agregar.
 - `field(fieldName)`
   - **fieldName**: [obligatorio] cadena. Es el nombre del [campo](#fields) que se va a recuperar.
-  - Devuelve el valor de ese campo del recurso que se evalúa con la condición If.
+  - Devuelve el valor de ese campo del recurso que se va a evaluar con la condición If.
   - `field` se usa principalmente con **AuditIfNotExists** y **DeployIfNotExists** para hacer referencia a los campos del recurso que se van a evaluar. Este uso se puede observar en el [ejemplo de DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
   - Devuelve la versión de la API de la solicitud que desencadenó la evaluación de la directiva (por ejemplo: `2019-09-01`).
@@ -619,7 +621,7 @@ La lista de alias siempre está en aumento. Para descubrir qué alias son compat
 
   Use la [extensión de Azure Policy para Visual Studio Code](../how-to/extension-for-vscode.md) a fin de ver y detectar alias para las propiedades de recursos.
 
-  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Extensión de Azure Policy para Visual Studio Code" border="false":::
+  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Captura de pantalla de la extensión Azure Policy para Visual Studio Code al mantener el puntero sobre una propiedad para mostrar los nombres de alias." border="false":::
 
 - Azure Resource Graph
 

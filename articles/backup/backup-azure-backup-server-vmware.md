@@ -3,12 +3,12 @@ title: Copia de seguridad de máquinas virtuales de VMware con Azure Backup Serv
 description: En este artículo, aprenderá a usar Azure Backup Server para realizar una copia de seguridad de las máquinas virtuales de VMware que se ejecutan en un servidor de VMWare vCenter y ESXi.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: f498a7b7d2faf9ff857b504043233c46c843a961
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e18b5c51446446103a91ef7d6a00277c2b41db77
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826946"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017573"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Copia de seguridad de máquinas virtuales de VMware con Azure Backup Server
 
@@ -333,7 +333,7 @@ Agregue máquinas virtuales de VMware para la copia de seguridad. Los grupos de 
 
    - Las asignaciones de disco recomendadas se basan en la duración de retención especificada, el tipo de carga de trabajo y el tamaño de los datos protegidos. Realice los cambios necesarios y seleccione **Siguiente**.
    - **Tamaño de los datos:** tamaño de los datos del grupo de protección.
-   - **Espacio en disco:** espacio en disco recomendado para el grupo de protección. Si desea modificar esta configuración, debe asignar un espacio total que sea ligeramente mayor que la cantidad que calcula que va a crecer cada origen de datos.
+   - **Espacio en disco:** espacio en disco recomendado para el grupo de protección. Si quiere modificar esta configuración, debe asignar un espacio total que sea ligeramente mayor que la cantidad que calcula que va a crecer cada origen de datos.
    - **Ubicación compartida de datos:** si activa la ubicación compartida, varios orígenes de datos de la protección pueden asignarse a una sola réplica y a un volumen de puntos de recuperación. La ubicación compartida no es compatible con todas las cargas de trabajo.
    - **Expandir automáticamente:** al habilitar esta configuración, si los datos del grupo protegido sobrepasan la asignación inicial, Azure Backup Server intenta aumentar el tamaño del disco en un 25 %.
    - **Detalles del grupo de almacenamiento:** muestra el estado actual del grupo de almacenamiento, incluido el tamaño total y restante del disco.

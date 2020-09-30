@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: c72777bf2a4415a7f773f82a21a121f5e58f2ec0
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5c5326310887cd5756ae264a35aafe7e771a7863
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651922"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226801"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>¿Qué es una instancia de proceso de Azure Machine Learning?
 
@@ -24,7 +24,7 @@ Las instancias de proceso permiten que sea fácil comenzar a desarrollar con Azu
 
 Use una instancia de proceso como el entorno de desarrollo completamente configurado y administrado en la nube para el aprendizaje automático. También se pueden usar como destino de proceso para el entrenamiento y la inferencia con fines de desarrollo y pruebas.  
 
-Para el entrenamiento del modelo de calidad de producción, use un [clúster de proceso de Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) con capacidades de escalado de varios nodos. Para la implementación del modelo de calidad de producción, use el [clúster de Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
+Para el entrenamiento del modelo de calidad de producción, use un [clúster de proceso de Azure Machine Learning](how-to-create-attach-compute-sdk.md#amlcompute) con capacidades de escalado de varios nodos. Para la implementación del modelo de calidad de producción, use el [clúster de Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="why-use-a-compute-instance"></a>¿Por qué usar una instancia de proceso?
 
@@ -80,7 +80,7 @@ Todos los paquetes de Python se instalan en el entorno de **Python 3.6: AzureML
 
 ### <a name="installing-packages"></a>Instalación de paquetes
 
-Puede instalar paquetes directamente en Jupyter Notebook o en Rstudio:
+Puede instalar paquetes directamente en Jupyter Notebook o en RStudio:
 
 * RStudio: use la pestaña **Paquetes**, situada en la parte inferior derecha, o la pestaña **Consola**, situada en la parte superior izquierda.  
 * Python: agregue el código de instalación y ejecútelo en una celda de Jupyter Notebook.
@@ -138,18 +138,7 @@ RBAC puede controlar estas acciones:
 
 ### <a name="create-a-compute-instance"></a><a name="create"></a>Crear de una instancia de proceso
 
-En el área de trabajo de Azure Machine Learning Studio, cree una nueva instancia de proceso desde la sección **Proceso** o en la sección **Notebooks** cuando esté listo para ejecutar uno de sus cuadernos.
-
-:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Crear una nueva instancia de proceso":::
-
-
-|Campo  |Descripción  |
-|---------|---------|
-|Nombre del proceso     |  <li>El nombre es obligatorio y debe tener una longitud de entre 3 y 24 caracteres.</li><li>Los caracteres válidos son mayúsculas y minúsculas, dígitos y el carácter **-** .</li><li>El nombre debe empezar con una letra</li><li>El nombre debe ser único en todos los procesos existentes dentro de una región de Azure. Verá una alerta si el nombre elegido no es único</li><li>Si se usa el carácter **-** , debe ir seguido de al menos una letra más adelante en el nombre</li>     |
-|Tipo de máquina virtual |  Elija CPU o GPU. Este tipo no se puede cambiar después de la creación     |
-|Tamaño de la máquina virtual     |  Los tamaños de máquina virtual admitidos podrían estar restringidos en su región. Comprobación de la [lista de disponibilidad](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
-|Habilitación o deshabilitación del acceso SSH     |   El acceso SSH está deshabilitado de forma predeterminada.  El acceso SSH no se puede. cambiar después de la creación. Asegúrese de habilitar el acceso si tiene previsto depurar de forma interactiva con [VS Code Remote](how-to-set-up-vs-code-remote.md)   |
-|Configuración avanzada     |  Opcional. Configurar una red virtual. Especifique el **Grupo de recursos**, **Red virtual** y **Subred** para crear la instancia de proceso dentro de una Azure Virtual Network (vnet). Para más información, consulte estos [requisitos de red](how-to-enable-virtual-network.md#compute-instance) para la red virtual.        |
+En el área de trabajo de Azure Machine Learning Studio, [cree una nueva instancia de proceso](how-to-create-attach-compute-studio.md#compute-instance) desde la sección **Proceso** o en la sección **Notebooks** cuando esté listo para ejecutar uno de sus cuadernos. 
 
 Usted también puede crear una instancia
 * Directamente de la [experiencia de cuadernos integrados](tutorial-1st-experiment-sdk-setup.md#azure)
@@ -158,7 +147,7 @@ Usted también puede crear una instancia
 * Con SDK de Azure Machine Learning
 * Desde la extensión de la [CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 
-Los núcleos dedicados por región por cuota de la familia de máquinas virtuales y la cuota regional total, que se aplica a la creación de la instancia de proceso. está unificada y compartida con la cuota de clúster de proceso de entrenamiento Azure Machine Learning. La detención de la instancia de proceso no libera la cuota para garantizar que pueda reiniciar la instancia de proceso.
+Los núcleos dedicados por región por cuota de familia de máquinas virtuales y cuota regional total, que se aplica a la creación de instancias de proceso, se unifica y comparte con la cuota de clúster de proceso de Azure Machine Learning. La detención de la instancia de proceso no libera la cuota para garantizar que pueda reiniciar la instancia de proceso.
 
 ## <a name="compute-target"></a>Destino de proceso
 

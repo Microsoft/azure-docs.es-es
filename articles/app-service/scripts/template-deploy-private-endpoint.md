@@ -1,5 +1,5 @@
 ---
-title: Con esta plantilla de Azure Resource Manager, podrá implementar un punto de conexión privado para la aplicación web.
+title: Uso de una plantilla de Azure Resource Manager para implementar un punto de conexión privado para una aplicación web
 description: Aprenda a usar una plantilla de ARM para implementar un punto de conexión privado para la aplicación web.
 author: ericgre
 ms.assetid: 49e460d0-7759-4ceb-b5a4-f1357e4fde56
@@ -8,16 +8,16 @@ ms.date: 07/08/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: ff2d59ed569037f34e24a69ffafa0df237a3de34
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: acf7198477ce0c55f9321fd3f8e57294a60c0961
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524842"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89652027"
 ---
-# <a name="create-an-app-service-app-and-deploy-private-endpoint-using-azure-resource-manager-template"></a>Creación de una aplicación de App Service e implementación de un punto de conexión privado mediante una plantilla de Azure Resource Manager
+# <a name="create-an-app-service-app-and-deploy-a-private-endpoint-by-using-an-azure-resource-manager-template"></a>Creación de una aplicación de App Service e implementación de un punto de conexión privado mediante una plantilla de Azure Resource Manager
 
-En esta guía de inicio rápido, usará una plantilla de Azure Resource Manager para crear una aplicación web y exponerla con un punto de conexión privado.
+En esta guía de inicio rápido, usará una plantilla de Azure Resource Manager (ARM) para crear una aplicación web y exponerla con un punto de conexión privado.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -37,13 +37,10 @@ Esta plantilla crea un punto de conexión privado para una aplicación web de Az
 
 A continuación, se muestra cómo implementar la plantilla de Azure Resource Manager en Azure:
 
-1. Seleccione **Implementar en Azure** para iniciar sesión en Azure y abrir la plantilla. La plantilla crea la red virtual, la aplicación web, el punto de conexión privado y la zona DNS privada.
-
-   [Implementación en Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-webapp%2Fazuredeploy.json)
-
+1. Seleccione este vínculo para iniciar sesión en Azure y abrir la plantilla:  [Implementarse en Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-webapp%2Fazuredeploy.json). La plantilla crea la red virtual, la aplicación web, el punto de conexión privado y la zona DNS privada.
 2. Elija su grupo de recursos o cree uno.
-3. Escriba el nombre de la aplicación Web, el plan de App Service y el punto de conexión privado.
-5. Lea la declaración de los términos y condiciones. Si está de acuerdo con ellos, seleccione Acepto los términos y condiciones indicados anteriormente > Comprar. La implementación puede tardar unos minutos en completarse.
+3. Escriba el nombre de la aplicación web, el plan de Azure App Service y el punto de conexión privado.
+5. Lea la declaración de los términos y condiciones. Si está de acuerdo con ellos, seleccione **Acepto los términos y condiciones indicados anteriormente** > **Comprar**. La implementación puede tardar unos minutos en finalizar.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -57,4 +54,4 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Puede encontrar más plantillas de Azure Resource Manager para Azure App Service Web Apps en [Ejemplos de plantillas de ARM](../samples-resource-manager-templates.md).
+- Puede encontrar más plantillas de Azure Resource Manager para aplicaciones web de Azure App Service en [Ejemplos de plantillas de ARM](../samples-resource-manager-templates.md).

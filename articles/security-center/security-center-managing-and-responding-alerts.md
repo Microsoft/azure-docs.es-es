@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: f8b09c71e9ad55528788f97fb986606f21e8b0ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2551a3c860dbdf27e7c9473e88c3a3293f575faa
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84769796"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883950"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Administración y respuesta a alertas de seguridad en Azure Security Center
 
@@ -28,7 +28,7 @@ En este tema se muestra cómo ver y procesar las alertas que ha recibido con el 
 * Para obtener información general sobre la forma en que Security Center genera alertas, vea [¿Cómo detecta Security Center las amenazas?](security-center-alerts-overview.md)
 
 > [!NOTE]
-> Para habilitar las detecciones avanzadas, actualice a la versión estándar de Azure Security Center. Hay una evaluación gratuita disponible. Para realizar la actualización, seleccione el plan de tarifa en la [directiva de seguridad](tutorial-security-policy.md). Consulte [Precios de Azure Security Center](security-center-pricing.md) para más información.
+> Para habilitar las detecciones avanzadas, habilite Azure Defender. Hay una evaluación gratuita disponible. Para realizar la actualización, seleccione el plan de tarifa en la [directiva de seguridad](tutorial-security-policy.md). Consulte [Precios de Azure Security Center](security-center-pricing.md) para más información.
 
 ## <a name="what-are-security-alerts"></a>¿Qué son las alertas de seguridad?
 Security Center recopila, analiza e integra automáticamente los datos de registro de los recursos de Azure, la red y las soluciones de asociados conectados, como firewalls y soluciones de protección de puntos de conexión, para detectar amenazas reales y reducir los falsos positivos. En Security Center, se muestra una lista de alertas de seguridad prioritarias, junto con la información que necesita para investigar rápidamente y recomendaciones para corregir un ataque.

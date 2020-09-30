@@ -51,8 +51,8 @@
               href: database/security-baseline.md
             - name: Atributos de seguridad
               href: database/security-controls.md
-            - name: Advanced Data Security
-              href: database/advanced-data-security.md
+            - name: Azure Defender para SQL
+              href: database/azure-defender-for-sql.md
             - name: Protección contra amenazas avanzada
               href: database/threat-detection-overview.md
             - name: Clasificación y detección de datos
@@ -627,7 +627,7 @@
                       href: database/saas-multitenantdb-tenant-analytics.md
     - name: Ejemplos
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: database/az-cli-script-samples-content-guide.md?tabs=single-database
         - name: Azure PowerShell
           href: database/powershell-script-content-guide.md?tabs=single-database
@@ -712,6 +712,10 @@
           items:
             - name: Información general
               href: managed-instance/management-operations-overview.md
+            - name: Supervisión de operaciones
+              href: managed-instance/management-operations-monitor.md
+            - name: Cancelación de operaciones
+              href: managed-instance/management-operations-cancel.md
             - name: Referencia de API
               href: managed-instance/api-references-create-manage-instance.md
         - name: Machine Learning Services
@@ -902,7 +906,7 @@
           href: managed-instance/user-initiated-failover.md
     - name: Ejemplos
       items:
-        - name: CLI de Azure
+        - name: Azure CLI
           href: database/az-cli-script-samples-content-guide.md?tabs=managed-instance
         - name: Azure PowerShell
           href: database/powershell-script-content-guide.md?tabs=managed-instance
@@ -924,8 +928,6 @@
               href: virtual-machines/windows/doc-changes-updates-release-notes.md
         - name: Guías de inicio rápido
           items:
-            - name: Creación de máquinas virtuales de SQL
-              items: null
             - name: Portal
               href: virtual-machines/windows/sql-vm-create-portal-quickstart.md
             - name: PowerShell
@@ -1032,7 +1034,7 @@
                       href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                     - name: Configuración manual
                       items:
-                        - name: Prerrequisitos
+                        - name: Requisitos previos
                           href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                         - name: Tutorial
                           href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
@@ -1208,6 +1210,8 @@
           href: database/database-import-export-hang.md
     - name: Actualizaciones del servicio
       items:
+        - name: El certificado raíz de SSL va a expirar
+          href: updates/ssl-root-certificate-expiring.md
         - name: Actualizaciones de la dirección IP de la puerta de enlace
           href: database/gateway-migration.md
         - name: Eventos de mantenimiento periódicos

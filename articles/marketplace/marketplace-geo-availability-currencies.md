@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: 2ff8d962479188ddf324dc5ff75d22eac4fed3d6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: f60fba6a0b3a4d891fe19b7d75ab9c9fde278629
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826776"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393809"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilidad geográfica y compatibilidad con monedas para marketplace comercial
 
@@ -57,7 +57,7 @@ Se pueden adquirir ofertas de marketplace comercial en 141 zonas geográficas, 
 | Croacia                             | HR        | EUR          |
 | Curazao                             | CW        | USD          |
 | Chipre                              | CY        | EUR          |
-| República Checa                      | CZ        | EUR          |
+| Chequia                      | CZ        | EUR          |
 | Dinamarca                             | DK        | DKK          |
 | República Dominicana                  | DO        | USD          |
 | Ecuador                             | EC        | USD          |
@@ -99,7 +99,6 @@ Se pueden adquirir ofertas de marketplace comercial en 141 zonas geográficas, 
 | Lituania                           | LT        | EUR          |
 | Luxemburgo                          | LU        | EUR          |
 | RAE de Macao                           | MO        | USD          |
-| Macedonia del Norte                     | MK        | USD          |
 | Malasia                            | MY        | USD          |
 | Malta                               | MT        | EUR          |
 | Mauricio                           | MU        | USD          |
@@ -115,6 +114,7 @@ Se pueden adquirir ofertas de marketplace comercial en 141 zonas geográficas, 
 | Nueva Zelanda                         | NZ        | NZD          |
 | Nicaragua                           | NI        | USD          |
 | Nigeria                             | NG        | USD          |
+| Macedonia del Norte                     | MK        | USD          |
 | Noruega                              | No        | NOK          |
 | Omán                                | OM        | USD          |
 | Pakistán                            | PK        | USD          |

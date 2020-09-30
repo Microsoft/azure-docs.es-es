@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f2c5b6ef0792e418d873d84341a0fffc356c799e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 14184c09cc9d5eebab7f33323cd8ce587fdf9e88
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509287"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014598"
 ---
 # <a name="troubleshoot"></a>Solución de problemas
 
@@ -34,6 +34,14 @@ Asegúrese de que los firewalls (en el dispositivo, dentro de los enrutadores, e
 Compruebe que la GPU admita la descodificación de vídeo de hardware. Consulte [Equipo de desarrollo](../overview/system-requirements.md#development-pc).
 
 Si está trabajando en un equipo portátil con dos GPU, es posible que la GPU que se ejecuta de forma predeterminada no proporcione la funcionalidad de descodificación de vídeo de hardware. Si es así, intente forzar la aplicación para que use la otra GPU. Esto suele ser posible en la configuración del controlador de GPU.
+
+## <a name="retrieve-sessionconversion-status-fails"></a>Error al recuperar el estado de la sesión o conversión
+
+Enviar comandos de la API REST con demasiada frecuencia hará que el servidor se limite y devuelva un error con el tiempo. El código de estado HTTP en caso de limitación es 429 ("demasiadas solicitudes"). Como regla general, debería haber un retraso de entre **5 y 10 segundos entre las llamadas subsiguientes**.
+
+Tenga en cuenta que este límite no solo afecta a las llamadas a API REST cuando se realizan directamente, sino también a sus homólogos de C#/C++, como `Session.GetPropertiesAsync`, `Session.RenewAsync` o `Frontend.GetAssetConversionStatusAsync`.
+
+Si experimenta una limitación en el lado del servidor, cambie el código para que realice las llamadas con menos frecuencia. El servidor restablecerá el estado de limitación cada minuto, por lo que podrá volver a ejecutar el código después de un minuto.
 
 ## <a name="h265-codec-not-available"></a>Códec H265 no disponible
 

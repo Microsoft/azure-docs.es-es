@@ -3,15 +3,15 @@ title: ¿Qué es Windows Virtual Desktop? - Azure
 description: Una información general de Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 08/20/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cc5ad91c779a3445712db962fb97bab309eda973
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 08455d3033040d14c85e4c4170ae34a6d05cfac1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661119"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527180"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>¿Qué es Windows Virtual Desktop?
 
@@ -110,12 +110,10 @@ Los clientes de Escritorio remoto siguientes admiten Windows Virtual Desktop:
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
 * [Android](connect-android.md)
+* Cliente de Microsoft Store
 
 > [!IMPORTANT]
 > Windows Virtual Desktop no es compatible con el cliente de Conexión de RemoteApp y Escritorio (RADC) ni con el cliente de Conexión a Escritorio remoto (MSTSC).
-
-> [!IMPORTANT]
-> Windows Virtual Desktop no es compatible actualmente con el cliente de Escritorio remoto de la tienda Windows. La compatibilidad con este cliente se agregará en una versión futura.
 
 Para más información sobre las direcciones URL que debe desbloquear para usar los clientes, consulte la [lista de direcciones URL seguras](safe-url-list.md).
 

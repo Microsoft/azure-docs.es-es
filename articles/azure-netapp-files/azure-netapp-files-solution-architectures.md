@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/08/2020
 ms.author: b-juche
-ms.openlocfilehash: e7bdf6ce35e2649a068de234b4b52e13efe72c44
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ca17dccd8b17a2e0ff7e9b960c74b4c5a36018f5
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690551"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567326"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquitecturas de las soluciones con Azure NetApp Files
 En este artículo se proporcionan referencias a los procedimientos recomendados que pueden ayudarle a comprender las arquitecturas de soluciones para usar Azure NetApp Files.  
@@ -50,8 +50,8 @@ En esta sección se proporcionan referencias para las aplicaciones de Windows y 
 ### <a name="sql-server"></a>SQL Server
 
 * [Implementar SQL Server a través de SMB con Azure NetApp Files](https://www.youtube.com/watch?v=x7udfcYbibs)
-* [Implementar el clúster de conmutación por error AlwaysOn de SQL Server en SMB con Azure NetApp Files](https://www.youtube.com/watch?v=zuNJ5E07e8Q)
-* [Implementar grupos de disponibilidad AlwaysOn con Azure NetApp Files](https://www.youtube.com/watch?v=y3VQmzzeyvc)
+<!-- * [Deploy SQL Server Always-On Failover Cluster over SMB with Azure NetApp Files](https://www.youtube.com/watch?v=zuNJ5E07e8Q) --> 
+<!-- * [Deploy Always-On Availability Groups with Azure NetApp Files](https://www.youtube.com/watch?v=y3VQmzzeyvc) --> 
 
 ## <a name="sap-on-azure-solutions"></a>Soluciones de SAP en Azure
 

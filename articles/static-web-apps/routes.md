@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 48c05bf7b4cbecb09ef3bb113832974bee4bc6b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e6653f8f26f90b6ea7f911efab40ec7a3e0c2a60
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518782"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906783"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Rutas en la versión preliminar de Azure Static Web Apps
 
@@ -32,7 +32,7 @@ Consulte el [archivo de ruta de ejemplo](#example-route-file) para ver los detal
 
 El archivo _routes.json_ debe encontrarse en la raíz de la carpeta de artefactos de compilación de la aplicación. Si la aplicación web incluye un paso de compilación que copia los archivos compilados de una carpeta específica a la carpeta de artefactos de compilación, el archivo _routes.json_ debe encontrarse en esa carpeta específica.
 
-En la tabla siguiente se muestra la ubicación correcta para colocar el archivo _routes.json_ según varios marcos y bibliotecas JavaScript de front-end.
+En la tabla siguiente se muestra la ubicación correcta a fin de colocar el archivo _routes.json_ para varios marcos y bibliotecas JavaScript de front-end.
 
 |Marco o biblioteca | Location  |
 |---------|----------|
@@ -40,6 +40,9 @@ En la tabla siguiente se muestra la ubicación correcta para colocar el archivo 
 | React   | _public_  |
 | Svelte  | _public_   |
 | Vue     | _public_ |
+| Blazor  | _wwwroot_ |
+
+La tabla anterior solo es representativa de algunos marcos y bibliotecas compatibles con Azure Static Web Apps. Consulte [Configuración de bibliotecas y marcos de front-end](./front-end-frameworks.md) para obtener más información.
 
 ## <a name="defining-routes"></a>Definición de rutas
 
@@ -106,7 +109,7 @@ También puede proteger las rutas con caracteres comodín. En el ejemplo siguien
 
 ## <a name="fallback-routes"></a>Rutas de reserva
 
-Los marcos o las bibliotecas de JavaScript para front-end suelen depender del enrutamiento del lado cliente para navegar por la aplicación web. Estas reglas de enrutamiento del lado cliente actualizan la ubicación de la ventana del explorador sin realizar solicitudes al servidor. Si actualiza la página o navega directamente a las ubicaciones generadas por las reglas de enrutamiento del lado cliente, se necesita una ruta de reserva del lado servidor para proporcionar la página HTML adecuada.
+Las aplicaciones de una sola página, tanto si usan marcos de JavaScript de front-end, bibliotecas o plataformas WebAssembly como Blazor, suelen depender del enrutamiento del lado cliente para la navegación por la aplicación web. Estas reglas de enrutamiento del lado cliente actualizan la ubicación de la ventana del explorador sin realizar solicitudes al servidor. Si actualiza la página o navega directamente a las ubicaciones generadas por las reglas de enrutamiento del lado cliente, se necesita una ruta de reserva del lado servidor para proporcionar la página HTML adecuada.
 
 En el siguiente ejemplo se muestra una ruta de reserva común:
 
@@ -186,6 +189,9 @@ Las siguientes consideraciones son importantes cuando se trabaja con tipos MIME:
 
 - Las claves no pueden ser nulas, estar vacías ni tener más de 50 caracteres.
 - Los valores no pueden ser nulos, estar vacíos ni tener más de 1000 caracteres.
+
+> [!NOTE]
+> Static Web Apps entiende las aplicaciones de Blazor y los tipos MIME previstos para los archivos WASM y DLL; no es necesario agregar asignaciones para ellos.
 
 ## <a name="default-headers"></a>Encabezados predeterminados
 

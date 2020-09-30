@@ -3,12 +3,12 @@ title: 'Acerca de Live Video Analytics on IoT Edge: Azure'
 description: En este tema se proporciona información general sobre Live Video Analytics on IoT Edge. La plataforma ofrece las funcionalidades que puede usar para mejorar sus soluciones de IoT. Por ejemplo, capture, grabe y analice vídeo en directo y publique los resultados (vídeo o análisis de vídeo) en los servicios de Azure.
 ms.topic: overview
 ms.date: 05/27/2020
-ms.openlocfilehash: 81a67322d0a5e524d75b9bf3e481be7157e09e63
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: b9b8726c5e8ad6850e05aeee48fccabee703080e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266804"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904359"
 ---
 # <a name="what-is-live-video-analytics-on-iot-edge-preview"></a>¿Qué es Live Video Analytics on IoT Edge? (versión preliminar)
 
@@ -26,7 +26,10 @@ Con Live Video Analytics on IoT Edge, puede seguir usando sus [cámaras CCTV](ht
 
 ## <a name="supported-environments"></a>Entornos admitidos
 
-Se admiten entornos de Linux AMD64 y X64.
+Se admiten los entornos Linux x86-64 y ARM64.
+> [!NOTE]
+> La compatibilidad con dispositivos ARM64 está disponible en las compilaciones `1.0.4` y más recientes.
+> La compatibilidad con el entorno de ejecución de Azure IoT Edge en dispositivos ARM64 se encuentra en [versión preliminar pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="get-started"></a>Introducción
 
@@ -39,7 +42,7 @@ Lea los siguientes artículos sobre conceptos y pruebe un inicio rápido para ej
 * [Reproducción de vídeo](video-playback-concept.md)
 * [Grabación continua de vídeo](continuous-video-recording-concept.md)
 * [Grabación de vídeo basada en eventos](event-based-video-recording-concept.md)
-* [Live Video Analytics sin grabación de vídeo](analyze-live-video-concept.md)
+* [Análisis de vídeos en vivo sin grabación de vídeo](analyze-live-video-concept.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

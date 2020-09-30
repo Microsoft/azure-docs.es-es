@@ -1,18 +1,18 @@
 ---
-title: Solución de problemas de conexión del agente de los servidores habilitados para Azure Arc (versión preliminar)
-description: En este artículo se explica cómo solucionar problemas relacionados con el agente de Connected Machine que surgen con los servidores habilitados para Azure Arc (versión preliminar) al intentar conectarse al servicio.
-ms.date: 07/20/2020
+title: Solución de problemas de conexión del agente de los servidores habilitados para Azure Arc
+description: En este artículo se explica cómo solucionar problemas relacionados con el agente de Connected Machine que surgen con los servidores habilitados para Azure Arc al intentar conectarse al servicio.
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: aeb370fb6cd4eacf20c1acf29e84c03e5e322d39
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 36feb6a65ec52d99dfd664ae54cb099ea6a7e239
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213536"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900680"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Solución de problemas de conexión del agente de Connected Machine
 
-En este artículo se proporciona información sobre la solución de problemas que pueden producirse al intentar configurar el agente de Connected Machine de los servidores habilitados para Azure Arc (versión preliminar) en Windows o Linux. Se incluyen los métodos de instalación tanto interactiva como a escala al configurar la conexión al servicio. Para información general, consulte [Introducción a los servidores habilitados para Arc](./overview.md).
+En este artículo se proporciona información sobre la solución de problemas que pueden producirse al intentar configurar el agente de Connected Machine de los servidores habilitados para Azure Arc en Windows o Linux. Se incluyen los métodos de instalación tanto interactiva como a escala al configurar la conexión al servicio. Para información general, consulte [Introducción a los servidores habilitados para Arc](./overview.md).
 
 ## <a name="agent-verbose-log"></a>Registro detallado del agente
 

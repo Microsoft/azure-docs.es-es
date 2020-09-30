@@ -4,14 +4,14 @@ description: Creación de una instancia de Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: a988f08b2b6e30543c112b20e5b374130ceddc47
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5b1062556f1f971690f835274be15c11b072eca9
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092497"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612064"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creación de una instancia de Azure HPC Cache
 
@@ -29,7 +29,7 @@ Haga clic en la imagen siguiente para ver una [demostración en vídeo](https://
 
 ![captura de pantalla de la página de detalles del proyecto en Azure Portal](media/hpc-cache-create-basics.png)
 
-En **Detalles del proyecto**, seleccione la suscripción y el grupo de recursos que hospedará la caché. Asegúrese de que la suscripción se encuentre en la lista de [acceso](hpc-cache-prerequisites.md#azure-subscription).
+En **Detalles del proyecto**, seleccione la suscripción y el grupo de recursos que hospedará la caché.<!-- Make sure the subscription is on the [access](hpc-cache-prerequisites.md#azure-subscription) list.  -->
 
 En **Detalles del servicio**, establezca el nombre de la memoria caché y estos otros atributos:
 
@@ -132,7 +132,7 @@ nets/<cache_subnet_name>"``
 
   | Tamaño de memoria caché | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 GB    | sí         | No          | No          |
+  | 3072 GB    | sí         | no          | No          |
   | 6144 GB    | sí         | sí         | No          |
   | 12288 GB   | sí         | sí         | sí         |
   | 24576 GB   | No          | sí         | sí         |

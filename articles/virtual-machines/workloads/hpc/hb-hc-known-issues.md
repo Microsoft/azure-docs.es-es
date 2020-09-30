@@ -1,6 +1,6 @@
 ---
-title: 'Problemas conocidos con las máquinas virtuales de las series HB y HC: Azure Virtual Machines | Microsoft Docs'
-description: Obtenga información sobre problemas conocidos con los tamaños de VM de la serie HB en Azure.
+title: Solución de problemas conocidos con las máquinas virtuales de HPC y GPU de Azure Virtual Machines | Microsoft Docs
+description: Obtenga información sobre cómo solucionar problemas conocidos de los tamaños de máquinas virtuales de HPC y GPU en Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -10,19 +10,47 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 08/19/2020
+ms.date: 09/08/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 6316bcc91bb381facb4f77b2d8dbd8b22f9ed387
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 42a27092a87488e39d1195dba5fb64173cf52af7
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660102"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004211"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problemas conocidos con las máquinas virtuales de las series H y N
 
-Este artículo proporciona los problemas y soluciones más comunes al usar máquinas virtuales de las [series H](../../sizes-hpc.md) y [N](../../sizes-gpu.md).
+Este artículo proporciona los problemas y soluciones más comunes al usar máquinas virtuales de HPC y GPU de las [series H](../../sizes-hpc.md) y [N](../../sizes-gpu.md).
+
+## <a name="infiniband-driver-installation-on-n-series-vms"></a>Instalación del controlador InfiniBand en máquinas virtuales de la serie N
+
+NC24r_v3 y ND40r_v2 tienen habilitada la opción SR-IOV, mientras que NC24r y NC24r_v2, no. Encontrará algunos detalles sobre la bifurcación [aquí](../../sizes-hpc.md#rdma-capable-instances).
+InfiniBand (IB) puede configurarse en los tamaños de máquina virtual habilitados para SR-IOV con los controladores OFED, mientras que los tamaños de máquina virtual que no son SR-IOV requieren de los controladores ND. Esta compatibilidad con IB está disponible de forma adecuada en las [VMI de CentOS-HPC](configure.md). Para Ubuntu, consulte [esta instrucción](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351) para instalar los controladores OFED y ND tal y como se describe en la [documentación](enable-infiniband.md#vm-images-with-infiniband-drivers).
+
+## <a name="duplicate-mac-with-cloud-init-with-ubuntu-on-h-series-and-n-series-vms"></a>Duplicación de MAC mediante cloud-init con Ubuntu en máquinas virtuales de las series H y N
+
+Hay un problema conocido con cloud-init en las imágenes de máquina virtual de Ubuntu al intentar abrir la interfaz de InfiniBand. Esto puede ocurrir al reiniciar la máquina virtual o al tratar de crear una imagen de máquina virtual después de una generalización. Los registros de arranque de la máquina virtual quizá muestren un error como el siguiente: "Iniciando servicio de red... Error de tiempo de ejecución: se encontró una dirección MAC duplicada. "eth1" e "ib0" tienen una dirección MAC".
+
+Esta "dirección MAC duplicada con cloud-init en Ubuntu" es un problema conocido. La solución es:
+1) Implementar la imagen de máquina virtual de Marketplace (Ubuntu 18.04).
+2) Instalar los paquetes de software necesarios para habilitar InfiniBand ([instrucciones aquí](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351)).
+3) Editar el archivo waagent.conf para modificar EnableRDMA=y.
+4) Deshabilitar las redes en cloud-init.
+    ```console
+    echo network: {config: disabled} | sudo tee /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
+    ```
+5) Editar el archivo de configuración de redes de netplan que generó cloud-init para quitar la dirección MAC.
+    ```console
+    sudo bash -c "cat > /etc/netplan/50-cloud-init.yaml" <<'EOF'
+    network:
+        ethernets:
+        eth0:
+            dhcp4: true
+        version: 2
+    EOF
+    ```
 
 ## <a name="dram-on-hb-series"></a>DRAM de la serie HB
 
@@ -30,7 +58,7 @@ Las máquinas virtuales de serie HB solo pueden exponer 228 GB de RAM para las
 
 ## <a name="accelerated-networking"></a>Redes aceleradas
 
-Azure Accelerated Networking no está habilitado en este momento, pero lo estará a medida que progresemos en el período de la versión preliminar. Se notificará a los clientes cuando se admita esta característica.
+En este momento, no están habilitadas las redes aceleradas de Azure en las máquinas virtuales de HPC y GPU habilitadas para InfiniBand. Se notificará a los clientes cuando se admita esta característica.
 
 ## <a name="qp0-access-restriction"></a>Restricción de acceso qp0
 
@@ -48,7 +76,7 @@ sed -i 's/GSS_USE_PROXY="yes"/GSS_USE_PROXY="no"/g' /etc/sysconfig/nfs
 
 En los sistemas HPC, a menudo resulta útil limpiar la memoria cuando finaliza un trabajo antes de que al usuario siguiente se le asigne el mismo nodo. Después de ejecutar aplicaciones en Linux, es posible que la memoria disponible se reduzca mientras aumenta la memoria del búfer, a pesar de que no se está ejecutando ninguna aplicación.
 
-![Captura de pantalla de símbolo del sistema](./media/known-issues/cache-cleaning-1.png)
+![Captura de pantalla del símbolo del sistema antes de la limpieza](./media/known-issues/cache-cleaning-1.png)
 
 Con `numactl -H` se mostrará con qué NUMAnodes se almacenan en memoria en el búfer (posiblemente, con todos). En Linux, los usuarios pueden limpiar las memorias caché de tres formas para devolver la memoria en búfer o en caché al estado "libre". Debe ser la raíz o tener permisos de sudo.
 
@@ -58,11 +86,11 @@ echo 2 > /proc/sys/vm/drop_caches [frees slab objects e.g. dentries, inodes]
 echo 3 > /proc/sys/vm/drop_caches [cleans page-cache and slab objects]
 ```
 
-![Captura de pantalla de símbolo del sistema](./media/known-issues/cache-cleaning-2.png)
+![Captura de pantalla del símbolo del sistema del comando después de la limpieza](./media/known-issues/cache-cleaning-2.png)
 
 ## <a name="kernel-warnings"></a>Advertencias de kernel
 
-Es posible que vea los siguientes mensajes de advertencia de kernel al iniciar una máquina virtual de la serie HB en Linux.
+Puede ignorar los siguientes mensajes de advertencia de kernel al iniciar una máquina virtual de la serie HB en Linux. Esto es debido a una limitación conocida del hipervisor de Azure que se solucionará con el tiempo.
 
 ```console
 [  0.004000] WARNING: CPU: 4 PID: 0 at arch/x86/kernel/smpboot.c:376 topology_sane.isra.3+0x80/0x90
@@ -82,17 +110,9 @@ Es posible que vea los siguientes mensajes de advertencia de kernel al iniciar u
 [  0.004000] ---[ end trace 73fc0e0825d4ca1f ]---
 ```
 
-Puede pasarlos por alto. Esto es debido a una limitación conocida del hipervisor de Azure que se solucionará con el tiempo.
-
-
-## <a name="infiniband-driver-installation-on-infiniband-enabled-n-series-vm-sizes"></a>Instalación del controlador InfiniBand en los tamaños de máquina virtual de la serie N habilitados para InfiniBand
-
-NC24r_v3 y ND40r_v2 tienen habilitada la opción SR-IOV, mientras que NC24r y NC24r_v2, no. Encontrará algunos detalles sobre la bifurcación [aquí](../../sizes-hpc.md#rdma-capable-instances).
-InfiniBand (IB) puede configurarse en los tamaños de máquina virtual habilitados para SR-IOV con los controladores OFED, mientras que los tamaños de máquina virtual que no son SR-IOV requieren de los controladores ND. Esta compatibilidad con IB está disponible de forma adecuada en las [VMI de CentOS-HPC](configure.md). Para Ubuntu, consulte [esta instrucción](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351) para instalar los controladores OFED y ND tal y como se describe en la [documentación](enable-infiniband.md#vm-images-with-infiniband-drivers).
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - En los artículos [Introducción a las máquinas virtuales de la serie HB](hb-series-overview.md) e [Introducción a las máquinas virtuales de la serie HC](hc-series-overview.md), aprenderá a configurar de forma óptima las cargas de trabajo para mejorar el rendimiento y la escalabilidad.
 - En los [blogs de la comunidad de Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute), encontrará los anuncios más recientes y algunos ejemplos y resultados de HPC.
-- Si desea una visión general de la arquitectura de la ejecución de cargas de trabajo de HPC, consulte [Informática de alto rendimiento (HPC) en Azure](/azure/architecture/topics/high-performance-computing/).
+- Si quiere una visión general de la arquitectura de la ejecución de cargas de trabajo de HPC, consulte [Informática de alto rendimiento (HPC) en Azure](/azure/architecture/topics/high-performance-computing/).

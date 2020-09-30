@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 0392a05df485b45b1244f4542ed55af1837dca3d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1f0a0dff4eb8a1aad0cd5e142959a636827a541
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477517"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898478"
 ---
 # <a name="partition-and-sample-module"></a>Módulo Partición y muestra
 
-En este artículo se describe un módulo del diseñador de Azure Machine Learning (versión preliminar).
+En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
 Use el módulo Partition and Sample (Partición y muestra) para llevar a cabo el muestreo en un conjunto de datos o crear particiones a partir de su conjunto de datos.
 

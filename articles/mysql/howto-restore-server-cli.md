@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 27d1841458e8c5e1854d6fcd0810c36d4272cc1d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2116b5be4c5d40076aae10ecc2e81d73e7806e6d
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500545"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419510"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Copia de seguridad y restauración de un servidor en Azure Database for MySQL mediante la CLI de Azure
 
@@ -79,6 +79,12 @@ Cuando se restaura un servidor a un momento dado anterior, se crea un servidor. 
 Los valores de ubicación y plan de tarifa del servidor restaurado son los mismos que los del servidor de origen. 
 
 Una vez finalizada la restauración, busque el servidor nuevo y compruebe que los datos se restauraron según lo previsto. El nuevo servidor tiene el mismo nombre de inicio de sesión y contraseña de administrador del servidor que el servidor existente tenía cuando se inició la restauración. La contraseña se puede cambiar en la página **Información general** del nuevo servidor.
+
+Adicionalmente, después de que finalice la operación de restauración, hay dos parámetros de servidor que se restablecen a los valores predeterminados (y no se copian del servidor principal) después de la operación de restauración.
+*   time_zone: este valor se establece en DEFAULT value **SYSTEM**
+*   event_scheduler: este parámetro se establece en **OFF** en el servidor restaurado
+
+Tendrá que copiar el valor del servidor principal y establecerlo en el servidor restaurado, para lo que tendrá que volver a configurar el [parámetro del servidor](howto-server-parameters.md)
 
 El servidor creado durante una restauración no tiene los puntos de conexión de servicio de red virtual que existían en el servidor original. Estas reglas deben configurarse por separado para este nuevo servidor. Se restauran las reglas de firewall del servidor original.
 

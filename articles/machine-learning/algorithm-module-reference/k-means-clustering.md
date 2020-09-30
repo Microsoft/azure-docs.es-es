@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/04/2020
-ms.openlocfilehash: 94a2c9bf3f65897809edaf94fc01b442e02b46d9
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 97cadfb8f5004cfd2701335172d4416c64f05259
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553009"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907872"
 ---
 # <a name="module-k-means-clustering"></a>Módulo: Agrupación en clústeres K-Means
 
-En este artículo se describe cómo usar el módulo *Agrupación en clústeres K-Means* en el diseñador de Azure Machine Learning Studio (versión preliminar) para crear un modelo de agrupación en clústeres K-means no entrenado. 
+En este artículo se describe cómo usar el módulo *Agrupación en clústeres K-Means* en el diseñador de Azure Machine Learning Studio para crear un modelo de agrupación en clústeres K-means no entrenado. 
  
 K-means es uno de los algoritmos de aprendizaje *supervisados* más sencillos y el más conocido. Puede usar el algoritmo para diversas tareas de aprendizaje automático, como son: 
 

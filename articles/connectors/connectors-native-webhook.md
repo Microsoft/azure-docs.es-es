@@ -3,31 +3,33 @@ title: Espera y respuesta a eventos
 description: Automatización de flujos de trabajo que se desencadenan, pausan y reanudan en función de eventos en un punto de conexión de servicio mediante el uso de Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/06/2020
+ms.date: 08/27/2020
 tags: connectors
-ms.openlocfilehash: 0a3fb9a8a72b384d2af4af38bdc382e541ddf535
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 7c6f3c4e3e4a2a29fe6a02c03043e3dfb81a2010
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656278"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227906"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Creación y ejecución de flujos de trabajo basados en eventos automatizados mediante webhooks HTTP en Azure Logic Apps
 
-Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el conector de webhook HTTP integrado, puede automatizar los flujos de trabajo que esperan y se ejecutan basados en eventos específicos que se producen en un punto de conexión HTTP o HTTPS mediante la compilación de aplicaciones lógicas. Por ejemplo, puede crear una aplicación lógica que supervisa un punto de conexión de servicio al esperar un evento específico antes de desencadenar el flujo de trabajo y ejecutar las acciones especificadas, en lugar de comprobar con regularidad o *sondear* ese punto de conexión.
+Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el conector de webhook de HTTP integrado, puede crear tareas automatizadas y flujos de trabajo que se suscriban a un punto de conexión de servicio, esperen eventos específicos y se ejecuten en función de esos eventos, en lugar de comprobar periódicamente o *sondear* ese punto de conexión.
 
-Estos son algunos ejemplos de flujos de trabajo basados en eventos:
+Estos son algunos ejemplos de flujos de trabajo basados en webhook:
 
 * Espere a que llegue un elemento de un [Centro de eventos de Azure](https://github.com/logicappsio/EventHubAPI) antes de desencadenar una ejecución de la aplicación lógica.
 * Espere a una aprobación antes de continuar con un flujo de trabajo.
 
+En este artículo se muestra cómo usar el desencadenador de webhook y la acción de webhook para que la aplicación lógica pueda recibir y responder a los eventos de un punto de conexión de servicio.
+
 ## <a name="how-do-webhooks-work"></a>¿Cómo funcionan los webhooks?
 
-Un desencadenador de webhook HTTP se basa en eventos, que no dependen de la comprobación o sondeo con regularidad de nuevos elementos. Cuando se guarda una aplicación lógica que empieza con un desencadenador de webhook, o cuando se cambia la aplicación lógica de deshabilitada a habilitada, el desencadenador de webhook *se suscribe* a un servicio o punto de conexión específico mediante el registro de una *dirección URL de devolución de llamada* con ese servicio o punto de conexión. El desencadenador, luego, espera a que ese servicio o punto de conexión llame a la dirección URL, que empieza a ejecutar la aplicación lógica. Al igual que el [desencadenador de solicitud](connectors-native-reqres.md), la aplicación lógica se activa inmediatamente cuando se produce el evento especificado. El desencadenador *cancela la suscripción* del servicio o punto de conexión si se quita y guarda la aplicación lógica, o al cambiar la aplicación lógica de habilitada a deshabilitada.
+Un desencadenador de webhook de HTTP se basa en eventos, que no dependen de la comprobación o sondeo regular de nuevos elementos. Cuando se guarda una aplicación lógica que empieza con un desencadenador de webhook, o cuando se cambia la aplicación lógica de deshabilitada a habilitada, el desencadenador de webhook *se suscribe* a un punto de conexión de servicio específico mediante el registro de una *dirección URL de devolución de llamada* con ese punto de conexión. El desencadenador, luego, espera a que ese punto de conexión de servicio llame a la dirección URL, que empieza a ejecutar la aplicación lógica. Al igual que el [desencadenador de solicitud](connectors-native-reqres.md), la aplicación lógica se activa inmediatamente cuando se produce el evento especificado. El desencadenador de webhook *cancela la suscripción* del punto de conexión de servicio si quita el desencadenador y guarda la aplicación lógica, o al cambiar la aplicación lógica de habilitada a deshabilitada.
 
-Una acción de webhook HTTP también está basada en eventos y *se suscribe* a un servicio o punto de conexión específico mediante el registro de una *dirección URL de devolución de llamada* con ese servicio o punto de conexión. La acción de webhook pausa el flujo de trabajo de la aplicación lógica y espera hasta que el servicio o punto de conexión llama a la dirección URL antes de que la aplicación lógica reanude la ejecución. La aplicación lógica de acción *cancela la suscripción* del servicio o punto de conexión en estos casos:
+Una acción de webhook también está basada en eventos y *se suscribe* a un punto de conexión de servicio específico mediante el registro de una *dirección URL de devolución de llamada* con ese punto de conexión de servicio. La acción de webhook pausa el flujo de trabajo de la aplicación lógica y espera hasta que el punto de conexión de servicio llama a la dirección URL antes de que la aplicación lógica reanude la ejecución. La acción de webhook *cancela la suscripción* del punto de conexión de servicio en estos casos:
 
 * Cuando finaliza correctamente la acción de webhook
 * Si se cancela la ejecución de la aplicación lógica mientras espera una respuesta
@@ -35,27 +37,16 @@ Una acción de webhook HTTP también está basada en eventos y *se suscribe* a u
 
 Por ejemplo, la acción [**Enviar correo de aprobación**](connectors-create-api-office365-outlook.md) del conector de Office 365 Outlook es un ejemplo de acción de webhook que sigue este patrón. Puede ampliar este patrón a cualquier servicio mediante el uso de la acción de webhook.
 
-> [!NOTE]
-> Logic Apps aplica la seguridad de la capa de transporte (TLS) 1.2 al recibir la llamada de vuelta al desencadenador o acción de webhook HTTP. Si ve errores de protocolo de enlace TLS, asegúrese de usar TLS 1.2. En el caso de las llamadas entrantes, estos son los conjuntos de cifrado compatibles:
->
-> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-
 Para más información, consulte los temas siguientes:
 
-* [Parámetros de desencadenador de webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)
 * [Webhooks y suscripciones](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
 * [Creación de API personalizadas compatibles con webhook](../logic-apps/logic-apps-create-api-app.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+Para información sobre el cifrado, la seguridad y la autorización de llamadas entrantes para la aplicación lógica, como la [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), conocida anteriormente como Capa de sockets seguros (SSL) o la [Autenticación abierta de Azure Active Directory Azure (Azure AD OAuth)](../active-directory/develop/index.yml), consulte [Proteger el acceso y los datos: Acceso de llamadas entrantes para desencadenadores basados en solicitud](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
-* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+## <a name="prerequisites"></a>Requisitos previos
+
+* Una cuenta y una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * La dirección URL para una API o un punto de conexión ya implementado que admita el patrón de suscripción y cancelación de suscripción de webhook para [desencadenadores de webhook en aplicaciones lógicas](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) o [acciones de webhook en aplicaciones lógicas](../logic-apps/logic-apps-create-api-app.md#webhook-actions), según corresponda.
 
@@ -147,11 +138,7 @@ Esta acción integrada llama al punto de conexión de suscripción en el servici
 
    Ahora, cuando se ejecuta esta acción, la aplicación lógica llama al punto de conexión de suscripción del servicio de destino y registra la dirección URL de devolución de llamada. A continuación, la aplicación lógica pone en pausa el flujo de trabajo y espera a que el servicio de destino envíe una solicitud `HTTP POST` a la dirección URL de devolución de llamada. Cuando se produce este evento, la acción pasa los datos de la solicitud junto al flujo de trabajo. Si la operación se completa correctamente, la acción cancela la suscripción del punto de conexión y la aplicación lógica reanuda la ejecución del flujo de trabajo restante.
 
-## <a name="connector-reference"></a>Referencia de conectores
-
-Para obtener más información acerca de los parámetros del desencadenador y la acción, que son parecidos entre sí, consulte [Parámetros del webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
-
-### <a name="output-details"></a>Detalles de salida
+## <a name="trigger-and-action-outputs"></a>Salidas de los desencadenadores y las acciones
 
 Aquí tiene más información acerca de las salidas de un desencadenador o acción de webhook HTTP, que devuelve esta información:
 
@@ -173,6 +160,11 @@ Aquí tiene más información acerca de las salidas de un desencadenador o acci�
 | 500 | Error interno del servidor Error desconocido. |
 |||
 
+## <a name="connector-reference"></a>Referencia de conectores
+
+Para obtener más información acerca de los parámetros del desencadenador y la acción, que son parecidos entre sí, consulte [Parámetros del webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)
+* [Proteger el acceso y datos: Acceso de llamadas entrantes para desencadenadores basados en solicitud](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+* [Conectores de Logic Apps](../connectors/apis-list.md)

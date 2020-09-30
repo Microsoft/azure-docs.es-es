@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7cd6e61b8614e4c8ff5d54232972865c81cbb3ff
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1fa464eca69f50fba7fa125212b85e0f7f63bcc9
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928877"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294788"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Creación y administración de claves de API para un servicio de Azure Cognitive Search
 
@@ -21,7 +21,7 @@ Todas las solicitudes que se realizan a un servicio de búsqueda necesitan una c
 
 Las claves se crean con el servicio de búsqueda durante el aprovisionamiento de este. Puede ver y obtener los valores de clave en [Azure Portal](https://portal.azure.com).
 
-![Página del portal, configuración, sección claves](media/search-manage/azure-search-view-keys.png)
+![Página del portal, recuperar configuración, sección de claves](media/search-manage/azure-search-view-keys.png)
 
 ## <a name="what-is-an-api-key"></a>¿Qué es una clave de API?
 
@@ -47,7 +47,7 @@ Puede obtener las claves de acceso en el portal o mediante la [API de REST de ad
 2. Obtenga la lista de los [servicios de búsqueda](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) de su suscripción.
 3. Seleccione el servicio y, en la página de información general, haga clic en **Configuración** >**Claves** para ver las claves de administración y de consulta.
 
-   ![Página del portal, configuración, sección claves](media/search-security-overview/settings-keys.png)
+   ![Página del portal, ver configuración, sección de claves](media/search-security-overview/settings-keys.png)
 
 ## <a name="create-query-keys"></a>Creación de claves de consulta
 

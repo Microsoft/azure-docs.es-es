@@ -188,7 +188,7 @@ Los métodos de creación de entidades forman parte de la clase [Model](https://
 
 El código de creación de entidad crea una entidad de aprendizaje automático con subentidades y características aplicadas a las subentidades de `Quantity`.
 
-:::image type="content" source="../media/quickstart-sdk/machine-learned-entity.png" alt-text="Captura de pantalla parcial del portal que muestra la entidad creada, una entidad de aprendizaje automático con subentidades y características aplicadas a las subentidades "Quantity".":::
+:::image type="content" source="../media/quickstart-sdk/machine-learned-entity.png" alt-text="Captura de pantalla parcial del portal que muestra la entidad creada, una entidad de aprendizaje automático con subentidades y características aplicadas a las subentidades Quantity.":::
 
 [!code-javascript[Create entities for the app](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringAddEntities)]
 

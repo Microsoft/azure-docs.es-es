@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: 41d2feefc5af1e795520d9b3d90809e625502fa6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fec7bfc16e2cc36d19c84b93b5b93c3c1365b166
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918407"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564022"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canales de telemetría en Application Insights
 
@@ -153,13 +153,25 @@ La respuesta corta es que ninguno de los canales integrados ofrece una garantía
 
 Aunque el nombre de su paquete y el espacio de nombres incluye "WindowsServer", este canal se admite en sistemas distintos de Windows, con la siguiente excepción. En los sistemas distintos de Windows, el canal no crea una carpeta de almacenamiento local de forma predeterminada. Debe crear una carpeta de almacenamiento local y configurar el canal para que la use. Una vez configurado el almacenamiento local, el canal funciona del mismo modo en todos los sistemas.
 
+> [!NOTE]
+> Con la versión 2.15.0-beta3 y superior, ahora se crea automáticamente almacenamiento local para Linux, Mac y Windows. En el caso de sistemas que no son Windows, el SDK creará automáticamente una carpeta de almacenamiento local basada en la siguiente lógica:
+> - `${TMPDIR}`: si está establecida la variable de entorno `${TMPDIR}`, se usa esta ubicación.
+> - `/var/tmp`: si la ubicación anterior no existe, se prueba `/var/tmp`.
+> - `/tmp`: si las dos ubicaciones anteriores no existen, se prueba `tmp`. 
+> - Si no existe ninguna de esas ubicaciones, no se crea almacenamiento local y todavía se requiere configuración manual. Consulte [aquí](https://github.com/microsoft/ApplicationInsights-dotnet/pull/1860) para conocer los detalles completos de implementación.
+
 ### <a name="does-the-sdk-create-temporary-local-storage-is-the-data-encrypted-at-storage"></a>¿El SDK crea almacenamiento local temporal? ¿Se cifran los datos en el almacenamiento?
 
 El SDK almacena elementos de telemetría en el almacenamiento local cuando se producen problemas de red o hay una limitación. Estos datos no se cifran localmente.
 
 En el caso de los sistemas Windows, el SDK crea automáticamente una carpeta temporal local en el directorio %LOCALAPPDATA% o e %TEMP% y restringe el acceso solo a los administradores y al usuario actual.
 
-Para los sistemas que distintos de Windows, no se crea ningún almacenamiento local automáticamente mediante el SDK, por lo que no se almacena ningún dato localmente de forma predeterminada. Puede crear un directorio de almacenamiento usted mismo y configurar el canal para que lo utilice. En este caso, es su responsabilidad asegurarse de que se protege el directorio.
+Para los sistemas que distintos de Windows, no se crea ningún almacenamiento local automáticamente mediante el SDK, por lo que no se almacena ningún dato localmente de forma predeterminada.
+
+> [!NOTE]
+> Con la versión 2.15.0-beta3 y superior, ahora se crea automáticamente almacenamiento local para Linux, Mac y Windows. 
+
+ Puede crear un directorio de almacenamiento usted mismo y configurar el canal para que lo utilice. En este caso, es su responsabilidad asegurarse de que se protege el directorio.
 Obtenga más información sobre [la protección y la privacidad de los datos](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage).
 
 ## <a name="open-source-sdk"></a>SDK de código abierto

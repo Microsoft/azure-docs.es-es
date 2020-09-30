@@ -3,12 +3,12 @@ title: Modelo de datos para eventos de diagnóstico de Azure Backup
 description: Este modelo de datos es en referencia al modo específico del recurso de enviar eventos de diagnóstico a Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 8cc671152485bc2781a80f96e48b81263dea221b
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: adc1442b674b9a6e947ef65967a2c2f1359e7d8a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892531"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017590"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modelo de datos para eventos de diagnóstico de Azure Backup
 
@@ -135,8 +135,8 @@ Esta tabla proporciona detalles acerca de los campos relacionados con los trabaj
 | JobUniqueId                    | Texto          | Identificador único que identifica el trabajo.                                |
 | ProtectedContainerUniqueId     | Texto          | Identificador único del servidor protegido asociado al trabajo |
 | RecoveryJobDestination         | Texto          | Destino de un trabajo de recuperación, donde se recuperan los datos.   |
-| RecoveryJobRPDateTime          | DateTime      | La fecha y hora en que se creó el punto de recuperación que se va a recuperar. |
-| RecoveryJobLocation            | Texto          | La ubicación donde se almacenó el punto de recuperación que se va a recuperar. |
+| RecoveryJobRPDateTime          | DateTime      | Fecha y hora en que se creó el punto de recuperación que se va a recuperar. |
+| RecoveryJobLocation            | Texto          | Ubicación donde se almacenó el punto de recuperación que se va a recuperar. |
 | RecoveryLocationType           | Texto          | Tipo de la ubicación de recuperación.                                |
 | SchemaVersion                  | Texto          | Versión actual del esquema, por ejemplo **V2**.            |
 | State                          | Texto          | Estado actual del objeto del trabajo, por ejemplo, Active o Deleted |

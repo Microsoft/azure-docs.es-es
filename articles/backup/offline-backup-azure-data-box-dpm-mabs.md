@@ -3,12 +3,12 @@ title: Copia de seguridad sin conexión con Azure Data Box para DPM y MABS
 description: Puede usar Azure Data Box para propagar datos de copia de seguridad inicial sin conexión desde DPM y MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 33515cdd943f3816328bfd77d831288c5ee0a608
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 3755a4cc77455b37ae1545247992a3c8c4f25653
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890032"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177693"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Propagación sin conexión mediante Azure Data Box para DPM y MABS (versión preliminar)
 
@@ -149,7 +149,7 @@ Especifique un origen alternativo: *WIM: D: \Sources\Install.wim: 4*
           - Azure.Storage       *4.6.1*<br>
      >  - La aplicación Azure AD se registra como *AzureOfflineBackup_\<object GUID of the user>* .
 
-13. Seleccione el pedido correcto de Data Box para el que ha desempaquetado, conectado y desbloqueado el disco de Data Box. Seleccione **Next** (Siguiente).
+13. Seleccione el pedido correcto de Data Box para el que se ha desempaquetado, conectado y desbloqueado el disco de Data Box. Seleccione **Next** (Siguiente).
 
     ![Selección de Data Box](./media/offline-backup-azure-data-box-dpm-mabs/select-databox.png)
 
@@ -203,7 +203,7 @@ Siga estos pasos una vez que la copia de seguridad de los datos en Azure Data 
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-El agente de Microsoft Azure Backup (MAB) en el servidor de DPM crea automáticamente una aplicación de Azure AD en el inquilino. Esta aplicación requiere un certificado para la autenticación, que se crea y se carga al configurar la directiva de propagación sin conexión.
+El agente de Microsoft Azure Backup (MAB) en el servidor de DPM crea automáticamente una aplicación de Azure AD en el inquilino. Esta aplicación requiere un certificado con fines de autenticación, que se creará y se cargará al configurar la directiva de propagación sin conexión.
 
 Usamos Azure PowerShell para crear y cargar el certificado en la aplicación de Azure AD.
 

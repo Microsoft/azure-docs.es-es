@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 63e83e69e5e09c17b2a2ddb5ca7bee6474e2fddd
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 02efaf3f0382a7af63717e777036637de2bbec25
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386680"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033207"
 ---
 # <a name="ingest-data-into-a-sql-pool"></a>Ingesta de datos en un grupo de SQL
 
@@ -32,24 +32,24 @@ En Azure Synapse Analytics, un servicio vinculado es donde se define la informac
 
 1. Abra la experiencia del usuario de Azure Synapse Studio y vaya a la pestaña **Administrar**.
 1. En **Conexiones externas**, seleccione **Servicios vinculados**.
-1. Para agregar un servicio vinculado, haga clic en **Nuevo**.
-1. Seleccione el icono de Azure Data Lake Storage Gen2 de la lista y haga clic en **Continuar**.
-1. Especifique las credenciales de autenticación. Actualmente, la clave de cuenta, la entidad de servicio y la identidad administrada son los tipos de autenticación admitidos. Haga clic en probar conexión para verificar que las credenciales son correctas. Cuando haya terminado, haga clic en **Create** (Crear).
+1. Para agregar un servicio vinculado, seleccione **Nuevo**.
+1. Seleccione el icono de Azure Data Lake Storage Gen2 de la lista y seleccione **Continuar**.
+1. Especifique las credenciales de autenticación. Actualmente, la clave de cuenta, la entidad de servicio y la identidad administrada son los tipos de autenticación admitidos. Seleccione Probar conexión para verificar que las credenciales son correctas. Cuando haya terminado, seleccione **Crear**.
 1. Repita los pasos 3-5, pero, en lugar de Azure Data Lake Storage Gen2, seleccione el icono de Azure Synapse Analytics y escriba las credenciales de conexión correspondientes. En el caso de Azure Synapse Analytics, se admiten actualmente la autenticación de SQL, la identidad administrada y la entidad de servicio.
 
 ## <a name="create-pipeline"></a>Creación de una canalización
 
 Una canalización contiene el flujo lógico para una ejecución de un conjunto de actividades. En esta sección, creará una canalización que contiene una actividad de copia que ingiere datos de ADLS Gen2 en un grupo de SQL.
 
-1. Vaya a la pestaña **Orchestrate** (Orquestar). Haga clic en el icono de signo de más situado junto al encabezado de canalizaciones y seleccione **Canalización**.
+1. Vaya a la pestaña **Orchestrate** (Orquestar). Seleccione el icono de signo de más situado junto al encabezado de canalizaciones y seleccione **Canalización**.
 1. En **Mover y transformar** en el panel de actividades, arrastre **Copiar datos** al lienzo de la canalización.
-1. Haga clic en la actividad de copia y vaya a la pestaña **Origen**. Haga clic en **Nuevo** para crear un conjunto de datos de origen.
-1. Seleccione Azure Data Lake Storage Gen2 como almacén de datos y haga clic en Continuar.
-1. Seleccione DelimitedText como formato y haga clic en Continuar.
-1. En el panel Establecer propiedades, seleccione el servicio vinculado de ADLS que creó. Especifique la ruta de acceso del archivo de los datos de origen y especifique si la primera fila tiene un encabezado. Puede importar el esquema del almacén de archivos o de un archivo de ejemplo. Haga clic en OK (Aceptar) cuando haya finalizado.
-1. Haga clic en la pestaña **Receptor**. Haga clic en **Nuevo** para crear un conjunto de datos de receptor.
-1. Seleccione Azure Synapse Analytics como almacén de datos y haga clic en Continuar.
-1. En el panel Establecer propiedades, seleccione el servicio vinculado de Azure Synapse Analytics que creó. Si está escribiendo en una tabla existente, selecciónela del menú desplegable. De lo contrario, active **Editar** y escriba el nombre de la nueva tabla. Haga clic en OK (Aceptar) cuando haya finalizado.
+1. Seleccione la actividad de copia y vaya a la pestaña **Origen**. Seleccione **Nuevo** para crear un conjunto de datos de origen.
+1. Seleccione Azure Data Lake Storage Gen2 como almacén de datos y después seleccione Continuar.
+1. Seleccione DelimitedText como formato y después seleccione Continuar.
+1. En el panel Establecer propiedades, seleccione el servicio vinculado de ADLS que creó. Especifique la ruta de acceso del archivo de los datos de origen y especifique si la primera fila tiene un encabezado. Puede importar el esquema del almacén de archivos o de un archivo de ejemplo. Seleccione Aceptar cuando termine.
+1. Haga clic en la pestaña **Receptor**. Seleccione **Nuevo** para crear un conjunto de datos de receptor.
+1. Seleccione Azure Synapse Analytics como almacén de datos y después seleccione Continuar.
+1. En el panel Establecer propiedades, seleccione el servicio vinculado de Azure Synapse Analytics que creó. Si está escribiendo en una tabla existente, selecciónela del menú desplegable. De lo contrario, active **Editar** y escriba el nombre de la nueva tabla. Seleccione Aceptar cuando haya terminado.
 1. Si va a crear una tabla, habilite **Auto create table** (Creación automática de tabla) en el campo opción de tabla.
 
 ## <a name="debug-and-publish-pipeline"></a>Depuración y publicación de la canalización
@@ -58,7 +58,7 @@ Una vez que haya terminado de configurar la canalización, puede ejecutar una de
 
 1. Para depurar la canalización, seleccione **Depurar** en la barra de herramientas. Verá el estado de ejecución de la canalización en la pestaña **Output** (Salida) en la parte inferior de la ventana. 
 1. Una vez que la canalización se pueda ejecutar correctamente, en la barra de herramientas superior, seleccione **Publicar todo**. Esta acción publica las entidades (conjuntos de datos y canalizaciones) que creó en el servicio de Synapse Analytics.
-1. Espere a que aparezca el mensaje **Successfully published** (Publicado correctamente). Para ver los mensajes de notificación, haga clic en el botón de campana en la esquina superior derecha. 
+1. Espere a que aparezca el mensaje **Successfully published** (Publicado correctamente). Para ver los mensajes de notificación, seleccione el botón de campana en la esquina superior derecha. 
 
 
 ## <a name="trigger-and-monitor-the-pipeline"></a>Activación y supervisión de la canalización

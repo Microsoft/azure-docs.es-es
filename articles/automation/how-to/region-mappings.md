@@ -10,18 +10,21 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: 4e5cad25c80661f9e707f545929e6ffcb00a1e42
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 879c6d247a915def7b4b8d53c74bde7861e47f1d
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447866"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279812"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiones admitidas para el área de trabajo de Log Analytics vinculada
 
 En Azure Automation, puede habilitar las características Update Management, Change Tracking e Inventario y Start/Stop VMs during off-hours para las máquinas virtuales. Sin embargo, un área de trabajo de Log Analytics y una cuenta de Automation en la suscripción solo se pueden vincular en determinadas regiones. Esta asignación de regiones solo se aplica a la cuenta de Automation y al área de trabajo de Log Analytics. El área de trabajo Log Analytics y la cuenta de Automation deben estar en la misma suscripción, pero pueden estar en distintos grupos de recursos implementados en la misma región. Para obtener más información, consulte el [área de trabajo de Log Analytics y la cuenta de Automation](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
 
 ## <a name="supported-mappings"></a>Asignaciones admitidas
+
+> [!NOTE]
+> Como se muestra en la tabla siguiente, solo puede existir una asignación entre Log Analytics y Azure Automation.
 
 En la tabla siguiente se muestran las asignaciones admitidas:
 

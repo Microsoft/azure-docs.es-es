@@ -1,0 +1,166 @@
+- name: Documentación de Machine Learning Studio (clásico)
+  href: index.yml
+- name: Información general
+  expanded: true
+  items:
+    - name: Machine Learning Studio (clásico)
+      displayName: overview
+      href: studio-classic-overview.md
+    - name: Comparación entre nuestros productos de aprendizaje automático
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/classic/context/ml-context
+- name: Guías de inicio rápido
+  items:
+    - name: Creación de su primer experimento
+      displayName: quickstart
+      href: create-experiment.md
+- name: Tutoriales
+  items:
+    - name: '1: Creación de experimentos predictivos'
+      href: tutorial-part1-credit-risk.md
+    - name: '2: Entrenamiento y evaluación de soluciones'
+      href: tutorial-part2-credit-risk-train.md
+    - name: '3: Implementar el servicio web'
+      href: tutorial-part3-credit-risk-deploy.md
+- name: Ejemplos
+  items:
+    - name: Conjuntos de datos disponibles
+      href: use-sample-datasets.md
+    - name: Galería de Azure AI
+      href: gallery-how-to-use-contribute-publish.md
+- name: Conceptos
+  items:
+    - name: Ciencia de datos para principiantes
+      items:
+        - name: 1 -Cinco preguntas
+          href: data-science-for-beginners-the-5-questions-data-science-answers.md
+        - name: 2 -¿Están preparados los datos?
+          href: data-science-for-beginners-is-your-data-ready-for-data-science.md
+        - name: 3 -Formulación de la pregunta correcta
+          href: data-science-for-beginners-ask-a-question-you-can-answer-with-data.md
+        - name: 4 -Predicción de una respuesta
+          href: data-science-for-beginners-predict-an-answer-with-a-simple-model.md
+        - name: 5 -Copia del trabajo de otras personas
+          href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
+    - name: Administración de modelos
+      displayName: 'deploy, consume, web service'
+      href: deploy-consume-web-service-guide.md
+- name: Guías paso a paso
+  items:
+    - name: Administración de un área de trabajo
+      items:
+        - name: Crear
+          href: create-workspace.md
+        - name: Administrar
+          href: manage-workspace.md
+        - name: Implementación con ARM
+          href: deploy-with-resource-manager-template.md
+    - name: Importación de datos de aprendizaje
+      items:
+        - name: Importar datos
+          href: import-data.md
+        - name: Uso de datos de SQL Server
+          displayName: on-premises
+          href: use-data-from-an-on-premises-sql-server.md
+    - name: Entrenamiento de modelos
+      items:
+        - name: Administración del ciclo de vida de experimentos
+          href: version-control.md
+        - name: Administración de iteraciones de experimentos
+          href: manage-experiment-iterations.md
+        - name: Uso de PowerShell para crear modelos
+          displayName: 'endpoint, endpoints'
+          href: create-models-and-endpoints-with-powershell.md
+        - name: Pruebe experimentos en AI Gallery
+          displayName: gallery
+          href: sample-experiments.md
+        - name: Evaluación e interpretación de los resultados
+          items:
+            - name: Evaluación del rendimiento
+              href: evaluate-model-performance.md
+            - name: Optimización de los parámetros
+              displayName: optimization
+              href: algorithm-parameters-optimize.md
+            - name: Interpretación de los resultados
+              href: interpret-model-results.md
+        - name: Reciclaje de modelos
+          items:
+            - name: '"Nuevos" servicios web'
+              href: retrain-machine-learning-model.md
+            - name: Servicios web clásicos
+              href: retrain-classic-web-service.md
+        - name: Uso de R y Python
+          items:
+            - name: Introducción a R
+              href: r-get-started.md
+            - name: Creación de módulos R personalizados
+              href: custom-r-modules.md
+            - name: Ejecución de scripts de Python
+              href: execute-python-scripts.md
+    - name: Selección de un algoritmo
+      href: ../how-to-select-algorithms.md
+    - name: Implementación de modelos
+      items:
+        - name: Implementación de un servicio web
+          displayName: 'deploy, multiple regions'
+          href: deploy-a-machine-learning-web-service.md
+        - name: Funcionamiento
+          href: model-progression-experiment-to-web-service.md
+        - name: Preparar la implementación
+          href: deploy-a-machine-learning-web-service.md
+        - name: Uso de datos externos
+          displayName: 'import, export'
+          href: web-services-that-use-import-export-modules.md
+        - name: Uso de parámetros de servicio web
+          href: web-service-parameters.md
+        - name: Habilitación del registro
+          href: web-services-logging.md
+    - name: Administración de servicios web
+      items:
+        - name: Uso del portal de servicios web
+          href: manage-new-webservice.md
+        - name: Administración con API
+          displayName: 'endpoint, endpoints'
+          href: manage-web-service-endpoints-using-api-management.md
+        - name: Creación de puntos de conexión
+          displayName: 'scale, scaling'
+          href: create-endpoint.md
+    - name: Consumo de modelos
+      items:
+        - name: Información general
+          href: consume-web-services.md
+        - name: Uso de Excel
+          href: consuming-from-excel.md
+        - name: Uso del complemento de Excel
+          href: excel-add-in-for-web-services.md
+    - name: Eliminación y exportación de los datos del cliente
+      items:
+        - name: Datos de Studio (clásico)
+          displayName: export
+          href: export-delete-personal-data-dsr.md
+        - name: Datos de la galería
+          displayName: export
+          href: ai-gallery-control-personal-data-dsr.md
+- name: Referencia
+  items:
+    - name: Referencia de módulos y algoritmos
+      href: /azure/machine-learning/studio-module-reference/
+    - name: Módulos de Azure PowerShell
+      href: powershell-module.md
+    - name: Códigos de error del servicio web
+      href: web-service-error-codes.md
+    - name: API de administración de REST
+      href: /rest/api/machinelearning
+- name: Recursos
+  items:
+    - name: Actualizaciones del servicio
+      href: 'https://azure.microsoft.com/updates/?product=machine-learning-studio'
+    - name: Obtención de soporte técnico
+      href: support-aml-studio.md
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Disponibilidad regional
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+    - name: Redes neuronales personalizadas (Net#)
+      href: azure-ml-netsharp-reference-guide.md

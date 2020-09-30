@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.openlocfilehash: 4c95c5eccb5ff804adeae94074136c6242678127
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 2bf48b6808fccb1f4344e66a2b8f1fc2d4c52ef6
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816072"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322456"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Solucione los problemas por los que no se muestran los datos de los dispositivos en Azure IoT Central.
 
@@ -57,7 +57,7 @@ az set account --subscription <your-subscription-id>
 Para supervisar la telemetría que el dispositivo envía, use el siguiente comando:
 
 ```cmd/bash
-az iot central app monitor-events --app-id <app-id> --device-id <device-name>
+az iot central diagnostics monitor-events --app-id <app-id> --device-id <device-name>
 ```
 
 Si el dispositivo se ha conectado correctamente a IoT Central, verá una salida similar a la siguiente:
@@ -82,7 +82,7 @@ Filtering on device: device-001
 Para supervisar las actualizaciones de propiedades que el dispositivo intercambia con IoT Central, use el siguiente comando de versión preliminar:
 
 ```cmd/bash
-az iot central app monitor-properties --app-id <app-id> --device-id <device-name>
+az iot central diagnostics monitor-properties --app-id <app-id> --device-id <device-name>
 ```
 
 Si el dispositivo envía correctamente las actualizaciones de propiedades, verá una salida similar a la siguiente:
@@ -95,8 +95,6 @@ version : 32
 rocessorArchitecture': 'ARM', 'swVersion': '1.0.0'}
 ```
 
-### <a name="interpreting-terminal-output"></a>Interpretación de la salida del terminal
-
 Si ve que los datos aparecen en el terminal, es que están llegando hasta la aplicación IoT Central.
 
 Si no ve ningún dato después de unos minutos, pruebe a presionar la tecla `Enter` o `return`, por si la salida está atascada.
@@ -108,7 +106,7 @@ Si sigue sin ver ningún dato en el terminal, es probable que el dispositivo ten
 Si los datos no aparecen en el monitor, compruebe el estado de aprovisionamiento del dispositivo; para ello, ejecute el siguiente comando:
 
 ```cmd/bash
-az iot central app device registration-info --app-id <app-id> --device-id <device-name>
+az iot central device registration-info --app-id <app-id> --device-id <device-name>
 ```
 
 La salida siguiente muestra un ejemplo de un dispositivo que no se pudo conectar:
@@ -178,16 +176,14 @@ Para detectar las categorías del problema, ejecute el comando más apropiado pa
 - Para comprobar la telemetría, use el comando de la versión preliminar:
 
     ```cmd/bash
-    az iot central app validate-messages --app-id <app-id> --device-id <device-name>
+    az iot central diagnostics validate-messages --app-id <app-id> --device-id <device-name>
     ```
 
 - Para comprobar las actualizaciones de las propiedades, use el comando de la versión preliminar:
 
     ```cmd/bash
-    az iot central app validate-properties --app-id <app-id> --device-id <device-name>
+    az iot central diagnostics validate-properties --app-id <app-id> --device-id <device-name>
     ```
-
-- Si prefiere usar una GUI, use la vista **Datos sin procesar** de IoT Central y compruebe si algo no se está modelando. La vista **Datos sin procesar** no detecta si el dispositivo está enviando JSON con formato incorrecto.
 
 Es posible que se le pida que instale la biblioteca `uamqp` la primera vez que ejecute un comando `validate`.
 
@@ -205,9 +201,9 @@ Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happen
 tatype 'double'. Data '56'. All dates/times/datetimes/durations must be ISO 8601 compliant.
 ```
 
-:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Captura de pantalla de la vista de datos sin procesar":::
+Si prefiere usar una GUI, use la vista **Datos sin procesar** de IoT Central y compruebe si algo no se está modelando. La vista **Datos sin procesar** no detecta si el dispositivo está enviando JSON con formato incorrecto.
 
-### <a name="interpreting-terminal-output"></a>Interpretación de la salida del terminal
+:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Captura de pantalla de la vista de datos sin procesar":::
 
 Cuando haya detectado el problema, es posible que tenga que actualizar el firmware del dispositivo o crear una nueva plantilla de dispositivo que contenga los datos no modelados previamente.
 
@@ -215,9 +211,6 @@ Si decide crear una plantilla que modele los datos correctamente, migre los disp
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si no puede solucionar el problema con esta guía, abra una incidencia de soporte técnico. Los clientes de Azure pueden crear y administrar las solicitudes de soporte técnico en Azure Portal:
-
-- [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-- [Azure Portal para el gobierno de los Estados Unidos](https://portal.azure.us/)
+Si necesita más ayuda, puede ponerse en contacto con los expertos de Azure en los [foros de MSDN Azure o Stack Overflow](https://azure.microsoft.com/support/community/). Como alternativa, puede abrir una [incidencia de soporte técnico de Azure](https://portal.azure.com/#create/Microsoft.Support).
 
 Para más información, consulte [Opciones de ayuda y soporte técnico de IoT de Azure](../../iot-fundamentals/iot-support-help.md).

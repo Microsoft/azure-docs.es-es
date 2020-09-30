@@ -11,15 +11,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 861fcabbfca07cb342fda42ea2425fa290a1598e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: b310f195477f4cba83ef30c6fb5ea2fd24c4df9a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386459"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897380"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Ejecución de los cuadernos de Jupyter Notebook en el área de trabajo
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Aprenda a ejecutar sus cuadernos de Jupyter Notebook directamente en el área de trabajo en Azure Machine Learning Studio. Aunque puede iniciar [Jupyter](https://jupyter.org/) o [JupyterLab](https://jupyterlab.readthedocs.io), también puede editar y ejecutar los cuadernos sin tener que salir del área de trabajo.
 
@@ -48,7 +48,7 @@ Para crear un nuevo cuaderno:
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Crear un nuevo archivo":::
 
 1. Dele un nombre al archivo. 
-1. Para los archivos de Jupyter Notebook, seleccione **Cuaderno de Python** como tipo de archivo.
+1. En el caso de los archivos de Jupyter Notebook, seleccione **Notebook** como tipo de archivo.
 1. Seleccione un directorio de archivos.
 1. Seleccione **Crear**.
 
@@ -92,7 +92,7 @@ Obtenga más información sobre [la clonación de repositorios de GIT de en el s
 
 ### <a name="share-notebooks-and-other-files"></a>Compartición de cuadernos y otros archivos
 
-Copie y pegue la dirección URL para compartir un bloc de notas o un archivo.  Solo otros usuarios del área de trabajo podrán acceder a esta dirección URL.  Obtenga más información sobre la [concesión de acceso a su área de trabajo](how-to-assign-roles.md).
+Copie y pegue la dirección URL para compartir un bloc de notas o un archivo.  Solo otros usuarios del área de trabajo pueden acceder a esta dirección URL.  Obtenga más información sobre la [concesión de acceso a su área de trabajo](how-to-assign-roles.md).
 
 ## <a name="edit-a-notebook"></a>Edición de un cuaderno
 
@@ -109,6 +109,22 @@ También puede iniciar Jupyter o JupyterLab desde la barra de herramientas de No
 [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) es una ayuda de finalización de código que incluye una serie de características: enumerar miembros, información de parámetros, información rápida y completar palabra. Estas características le ayudan a obtener más información sobre el código que está usando, realizar un seguimiento de los parámetros que está escribiendo y agregar llamadas a propiedades y métodos con solo unas cuantas pulsaciones de tecla.  
 
 Al escribir código, use Ctrl + barra espaciadora para desencadenar IntelliSense.
+
+### <a name="clean-your-notebook-preview"></a>Limpieza del cuaderno (versión preliminar)
+
+> [!IMPORTANT]
+> La característica de recopilación actualmente está en versión preliminar pública.
+> Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Durante la creación de un cuaderno, normalmente acaba con las celdas usadas para la exploración o la depuración de datos. La característica de *recopilación* le ayudará a crear un cuaderno limpio sin estas celdas extrañas.
+
+1. Ejecute todas las celdas del cuaderno.
+1. Seleccione la celda que contiene el código que desea que ejecute el nuevo cuaderno. Por ejemplo, el código que envía un experimento o quizás el código que registra un modelo.
+1. Seleccione el icono de **recopilación** que aparece en la barra de herramientas de celda.
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Captura de pantalla: seleccione el icono de recopilación":::
+1. Escriba el nombre del nuevo cuaderno "recopilado".  
+
+El nuevo cuaderno solo contiene celdas de código, con todas las celdas necesarias para generar los mismos resultados que la celda seleccionada para la recopilación.
 
 ### <a name="save-and-checkpoint-a-notebook"></a>Guardar y revisar un cuaderno
 
@@ -157,7 +173,7 @@ Solo puede ver y usar las instancias de proceso que usted cree.  Los **Archivos 
 
 ### <a name="view-logs-and-output"></a>Ver registros y resultados
 
-Utilice los [widgets de Notebook](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) para ver el progreso de la ejecución y los registros. Un widget es asincrónico y proporciona actualizaciones hasta que finaliza el entrenamiento. Los widgets de Azure Machine Learning también se admiten en Jupyter y JupterLab.
+Utilice los [widgets de Notebook](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) para ver el progreso de la ejecución y los registros. Un widget es asincrónico y proporciona actualizaciones hasta que finaliza el entrenamiento. Los widgets de Azure Machine Learning también se admiten en Jupyter y JupterLab.
 
 ## <a name="change-the-notebook-environment"></a>Cambio del entorno del cuaderno.
 

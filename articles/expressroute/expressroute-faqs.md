@@ -2,17 +2,17 @@
 title: Preguntas más frecuentes acerca de Azure ExpressRoute | Microsoft Docs
 description: P+F de ExpressRoute contiene información sobre servicios de Azure compatibles, costes, datos y conexiones, SLA, proveedores y ubicaciones, ancho de banda e información técnica adicional.
 services: expressroute
-author: jaredr80
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
-ms.author: jaredro
-ms.openlocfilehash: 8309c98e9ae45650f65fcd54676cc7655934039d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: fe7fd6d7a7511b1b1c6a218878fc185f83b1a2cd
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537129"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396699"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -217,13 +217,13 @@ Sí. Puede haber hasta 10 conexiones de redes virtuales en un circuito ExpressRo
 
 ### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>Tengo varias suscripciones a Azure que contienen redes virtuales. ¿Es posible conectar redes virtuales de diferentes suscripciones a un solo circuito ExpressRoute?
 
-Sí. Puede vincular hasta 10 redes virtuales en la misma suscripción del circuito o en distintas suscripciones mediante un circuito de ExpressRoute. Este límite puede aumentarse al habilitar la característica Premium de ExpressRoute.
+Sí. Puede vincular hasta 10 redes virtuales en la misma suscripción del circuito o en distintas suscripciones mediante un circuito de ExpressRoute. Este límite puede aumentarse al habilitar la característica Premium de ExpressRoute. Tenga en cuenta que los cargos por la conectividad y el ancho de banda del circuito dedicado se aplicarán al propietario del circuito ExpressRoute; todas las redes virtuales comparten el mismo ancho de banda.
 
 Para obtener más información, vea [Uso compartido de un circuito ExpressRoute a través de varias suscripciones](expressroute-howto-linkvnet-arm.md).
 
 ### <a name="i-have-multiple-azure-subscriptions-associated-to-different-azure-active-directory-tenants-or-enterprise-agreement-enrollments-can-i-connect-virtual-networks-that-are-in-separate-tenants-and-enrollments-to-a-single-expressroute-circuit-not-in-the-same-tenant-or-enrollment"></a>Tengo varias suscripciones de Azure asociadas a diferentes inquilinos de Azure Active Directory o inscripciones al Contrato Enterprise. ¿Puedo conectar redes virtuales que se encuentran en inquilinos e inscripciones independientes a un único circuito ExpressRoute que no está en el mismo inquilino o en la misma inscripción?
 
-Sí. Las autorizaciones de ExpressRoute pueden abarcar los límites de suscripción, inquilino e inscripción sin necesidad de realizar ninguna configuración adicional. 
+Sí. Las autorizaciones de ExpressRoute pueden abarcar los límites de suscripción, inquilino e inscripción sin necesidad de realizar ninguna configuración adicional. Tenga en cuenta que los cargos por la conectividad y el ancho de banda del circuito dedicado se aplicarán al propietario del circuito ExpressRoute; todas las redes virtuales comparten el mismo ancho de banda.
 
 Para obtener más información, vea [Uso compartido de un circuito ExpressRoute a través de varias suscripciones](expressroute-howto-linkvnet-arm.md).
 

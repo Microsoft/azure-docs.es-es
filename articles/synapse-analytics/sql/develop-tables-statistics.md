@@ -6,17 +6,17 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 25c92437b350d7329c340fe1ea13b3df40e231ba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f30e9c30f1067595fc502bf3ea349cd6b7630ae1
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020606"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032687"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estadísticas en SQL de Synapse
 

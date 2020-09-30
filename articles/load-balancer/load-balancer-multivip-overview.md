@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 2192531aec7800314c6748740262f8746da0c4fc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: b24514ed477d1acd31dbc4ef0daa3aa89b8739f9
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956379"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530835"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Varios servidores front-end para Azure Load Balancer
 
@@ -163,6 +163,7 @@ El tipo de regla de dirección IP flotante es el fundamento de varios modelos de
 
 * Solo se admiten configuraciones de varios servidores front-end con máquinas virtuales de IaaS.
 * Con la regla de dirección IP flotante, la aplicación debe utilizar la configuración IP principal para los flujos SNAT salientes. Si la aplicación se enlaza a la dirección IP del front-end configurada en la interfaz de bucle invertido en el sistema operativo invitado, entonces el SNAT saliente de Azure no está disponible para volver a escribir el flujo de salida y, por tanto, se produce un error en el flujo.  Revise los [escenarios salientes](load-balancer-outbound-connections.md).
+* La IP flotante no se admite actualmente en las configuraciones de IP secundarias para los escenarios de equilibrio de carga internos.
 * Las direcciones IP públicas repercuten en la facturación. Para obtener más información, vea [Precios de las direcciones IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Se aplican los límites de suscripción. Para más información, vea los [límites de servicio](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) .
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 54bbd5d45e14c1d345570eea9dc5469f77694154
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f8ec215458e8ebfafb87209516f167d628e98389
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853932"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047635"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Copias de seguridad en línea y restauración de datos a petición en Azure Cosmos DB
 
@@ -57,7 +57,7 @@ Siga estos pasos para cambiar las opciones de copia de seguridad predeterminadas
 
    * **Retención de copia de seguridad**: representa el período en el que se conserva cada copia de seguridad. Puede configurarlo en horas o días. El período de retención mínimo no puede ser inferior a dos veces el intervalo de copia de seguridad (en horas) y no puede ser superior a 720 horas.
 
-   * **Copias de los datos conservadas**: de manera predeterminada, se ofrecen dos copias de seguridad de los datos de forma gratuita. Si necesita copias adicionales, debe crear una solicitud de soporte técnico a través de Azure Portal y se cobrarán las copias adicionales. Consulte la sección Almacenamiento consumido en la [página de precios ](https://azure.microsoft.com/pricing/details/cosmos-db/) para conocer el precio exacto de las copias adicionales.
+   * **Copias de los datos conservadas**: de manera predeterminada, se ofrecen dos copias de seguridad de los datos de forma gratuita. Si necesita más de dos copias, se aplica un cargo adicional. Consulte la sección Almacenamiento consumido en la [página de precios ](https://azure.microsoft.com/pricing/details/cosmos-db/) para conocer el precio exacto de las copias adicionales.
 
    :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Configuración del intervalo de copia de seguridad y la retención de una cuenta de Azure Cosmos existente" border="true":::
 

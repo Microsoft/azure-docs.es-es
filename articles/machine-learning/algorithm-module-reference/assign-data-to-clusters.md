@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 207172f10277589af2b22ae2f41b07234a0925b3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e618395a2a4a11b4afb311d612cf5d0e27503dc6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477721"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898856"
 ---
 # <a name="module-assign-data-to-clusters"></a>Módulo: Asignación de datos a clústeres
 
-En este artículo se describe cómo usar el módulo *Asignación de datos a clústeres* en el diseñador de Azure Machine Learning (versión preliminar). El módulo genera predicciones mediante un modelo de agrupación en clústeres que se ha entrenado con el algoritmo de *agrupación en clústeres K-means*.
+En este artículo se describe cómo usar el módulo *Asignación de datos a clústeres* en el diseñador de Azure Machine Learning. El módulo genera predicciones mediante un modelo de agrupación en clústeres que se ha entrenado con el algoritmo de *agrupación en clústeres K-means*.
 
 El módulo Asignación de datos a clústeres devuelve un conjunto de datos que contiene las asignaciones probables para cada punto de datos nuevo. 
 

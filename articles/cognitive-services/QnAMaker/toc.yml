@@ -24,6 +24,8 @@
   items:
     - name: Integración con Power Virtual Agent
       href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
+    - name: Creación de un bot de preguntas frecuentes con Azure Bot Service
+      href: Tutorials/create-faq-bot-with-azure-bot-service.md
     - name: Prueba con un archivo por lotes
       href: Quickstarts/batch-testing.md
 - name: Conceptos
@@ -91,7 +93,7 @@
         - name: Migración a una nueva base de conocimiento
           href: Tutorials/migrate-knowledge-base.md
           displayName: 'metadata, pair'
-        - name: Prueba
+        - name: Base de conocimiento de prueba
           href: How-To/test-knowledge-base.md
     - name: Administración de pares de QnA
       items:
@@ -117,7 +119,7 @@
           items:
             - name: C#
               href: Quickstarts/create-new-kb-csharp.md
-            - name: Ir
+            - name: Go
               href: Quickstarts/create-new-kb-go.md
             - name: Java
               href: Quickstarts/create-new-kb-java.md
@@ -127,7 +129,7 @@
           items:
             - name: C#
               href: Quickstarts/publish-kb-csharp.md
-            - name: Ir
+            - name: Go
               href: Quickstarts/publish-kb-go.md
             - name: Java
               href: Quickstarts/publish-kb-java.md
@@ -139,7 +141,7 @@
           items:
             - name: C#
               href: Quickstarts/get-answer-from-knowledge-base-csharp.md
-            - name: Ir
+            - name: Go
               href: Quickstarts/get-answer-from-knowledge-base-go.md
             - name: Java
               href: Quickstarts/get-answer-from-knowledge-base-java.md

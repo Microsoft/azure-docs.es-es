@@ -7,18 +7,22 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 81e1925810f374da6f02bf6c3a013b00b5bb9a2c
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 9e909db0041979eb7bc4fc30bd9551382e83c488
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263860"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892507"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Descripción de la aplicación y la implementación en Azure Spring Cloud
 
-**Aplicación** e **implementación** son los dos conceptos clave del modelo de recursos de Azure Spring Cloud. En Azure Spring Cloud, una *aplicación* es una abstracción de una aplicación empresarial o de un microservicio.  Una versión de código o binaria implementada como la *aplicación* se ejecuta en una *implementación*.
+**Este artículo se aplica a:** ✔️ Java ✔️ C#
+
+**Aplicación** e **implementación** son los dos conceptos clave del modelo de recursos de Azure Spring Cloud. En Azure Spring Cloud, una *aplicación* es una abstracción de una aplicación empresarial o de un microservicio.  Una versión de código o binaria implementada como la *aplicación* se ejecuta en una *implementación*.  Las aplicaciones se ejecutan en una *instancia de servicio de Azure Spring Cloud*, o simplemente en una *instancia de servicio*, como se muestra a continuación.
 
  ![Aplicaciones e implementaciones](./media/spring-cloud-app-and-deployment/app-deployment-rev.png)
+
+Puede tener varias instancias de servicio en una sola suscripción de Azure, pero el servicio Azure Spring Cloud es más fácil de usar cuando todas las aplicaciones que componen una aplicación empresarial o un microservicio residen en una única instancia de servicio.
 
 El nivel estándar de Azure Spring Cloud permite que una aplicación tenga una implementación de producción y una implementación de almacenamiento provisional, de modo que pueda realizar una implementación azul/verde en ella fácilmente.
 

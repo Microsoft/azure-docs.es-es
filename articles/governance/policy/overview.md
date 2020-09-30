@@ -1,14 +1,14 @@
 ---
 title: Introducción a Azure Policy
 description: Azure Policy es un servicio de Azure que se usa para crear, asignar y administrar las definiciones de directivas en el entorno de Azure.
-ms.date: 06/17/2020
+ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: 2ac8c175f586d9649e35328a483be918276c115d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 662a7510013e2008d8c16cf21376b11c247e0bc0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044199"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905980"
 ---
 # <a name="what-is-azure-policy"></a>¿Qué es Azure Policy?
 
@@ -18,8 +18,7 @@ Entre los casos de uso comunes de Azure Policy se incluye la implementación de 
 
 ## <a name="overview"></a>Información general
 
-Para evaluar los recursos de Azure, Azure Policy compara las propiedades de esos recursos con las reglas de negocio. Estas reglas de negocios, descritas en [formato JSON](./concepts/definition-structure.md), se conocen como [definiciones de directiva](#policy-definition). Para simplificar la administración, se pueden agrupar varias reglas de negocio para formar una [iniciativa de directiva](#initiative-definition) (a veces conocida como _policySet_). Una vez formadas las reglas de negocio, se [asigna](#assignments) la definición o la iniciativa de directiva a cualquier ámbito de recursos que admita Azure, como [grupos de administración](../management-groups/overview.md), suscripciones, [grupos de recursos](../../azure-resource-manager/management/overview.md#resource-groups) o recursos individuales. La asignación se aplica a todos los recursos dentro del [ámbito](../../azure-resource-manager/management/overview.md#understand-scope) de esa asignación.
-Si es necesario, se pueden excluir los subámbitos.
+Para evaluar los recursos de Azure, Azure Policy compara las propiedades de esos recursos con las reglas de negocio. Estas reglas de negocios, descritas en [formato JSON](./concepts/definition-structure.md), se conocen como [definiciones de directiva](#policy-definition). Para simplificar la administración, se pueden agrupar varias reglas de negocio para formar una [iniciativa de directiva](#initiative-definition) (a veces conocida como _policySet_). Una vez formadas las reglas de negocio, se [asigna](#assignments) la definición o la iniciativa de directiva a cualquier ámbito de recursos que admita Azure, como [grupos de administración](../management-groups/overview.md), suscripciones, [grupos de recursos](../../azure-resource-manager/management/overview.md#resource-groups) o recursos individuales. La asignación se aplica a todos los recursos dentro del [ámbito de Resource Manager](../../azure-resource-manager/management/overview.md#understand-scope) de esa asignación. Si es necesario, se pueden excluir los subámbitos. Para más información, consulte [Ámbito de Azure Policy](./concepts/scope.md).
 
 Azure Policy usa un [formato JSON](./concepts/definition-structure.md) para formar la lógica que la evaluación emplea para determinar si un recurso es compatible o no. Las definiciones incluyen metadatos y la regla de directiva. La regla definida puede usar funciones, parámetros, operadores lógicos, condiciones y [alias](./concepts/definition-structure.md#aliases) de propiedad para coincidir exactamente con el escenario deseado. La regla de directiva determina qué recursos del ámbito de la asignación se evalúan.
 

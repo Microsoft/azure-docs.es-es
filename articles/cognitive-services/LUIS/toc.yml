@@ -130,6 +130,8 @@
           href: luis-concept-devops-automation.md
 - name: Guías paso a paso
   items:
+    - name: Inicio de sesión en el portal de LUIS
+      href: sign-in-luis-portal.md
     - name: Inicio de una nueva aplicación
       href: luis-how-to-start-new-app.md
       displayName: 'import, export, container'
@@ -428,7 +430,5 @@
       href: 'https://docs.microsoft.com/search/index?search=LUIS'
     - name: Blog
       href: 'https://blog.botframework.com/category/luis/'
-    - name: Knowledge Base
-      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service'
 - name: Portal de LUIS
   href: 'https://www.luis.ai'

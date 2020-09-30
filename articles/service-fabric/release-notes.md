@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 8a9ca656ec102a101df9aafb87652680a1001f31
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 96a9e22d929c62be2a28b8c46657970e7a403813
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826286"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050631"
 ---
 # <a name="service-fabric-releases"></a>Versiones de Service Fabric
 
@@ -74,7 +74,7 @@ Nos complace anunciar la siguiente versión de Service Fabric. Esta versión inc
 | 20 de abril de 2020 | [Azure Service Fabric 7.1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-release/ba-p/1311373)  | [Notas de la versión](https://github.com/microsoft/service-fabric/tree/master/release_notes/Service-Fabric-71-releasenotes.md)|
 | 16 de junio de 2020 | [Primera actualización de Microsoft Azure Service Fabric 7.1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-first-refresh-release/ba-p/1466517) | [Notas de la versión](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU1-releasenotes.md)
 | 20 de julio de 2020 | [Segunda actualización de Microsoft Azure Service Fabric 7.1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-second-refresh-release/ba-p/1534246) | [Notas de la versión](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU2-releasenotes.md)
-
+| 12 de agosto de 2020 | [Tercera actualización de Microsoft Azure Service Fabric 7.1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-1-third-refresh-release/ba-p/1587586) | [Notas de la versión](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-71CU3-releasenotes.md)
 
 ### <a name="service-fabric-70"></a>Service Fabric 7.0
 

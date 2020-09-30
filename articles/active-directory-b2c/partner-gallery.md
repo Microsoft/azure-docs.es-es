@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ab9a9785f2f995a6f8df766603e3fc3b9a894be5
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: ec1aa165b8fa5d3a249cb525887acf2990136bd3
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814248"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049880"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Asociados ISV de Azure Active Directory B2C
 
@@ -31,6 +31,7 @@ Nuestra red de asociados ISV amplía las capacidades de la solución para ayudar
 | :--- | :--- |
 | ![Logotipo](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) es un proveedor de soluciones de prevención de fraudes que ayuda a las organizaciones a protegerse contra ataques de bots, ataques de adquisición de cuentas y aperturas de cuentas fraudulentas.
 | ![Logotipo](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) es un proveedor de corrección y verificación de identidad que realiza evaluaciones de riesgos basadas en atributos de usuario para evitar fraudes.|
+| ![Logotipo](./media/partner-gallery/hypr-logo.png) | [HYPR](./partner-hypr.md) es un verdadero proveedor de autenticación sin contraseña, que reemplaza las contraseñas con cifrados de clave pública, lo que elimina el fraude, la suplantación de identidad y la reutilización de credenciales.|
 | ![Logotipo](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) es un proveedor de revisión y verificación de identidad con soluciones de verificación de identidad, soluciones de prevención de fraudes, soluciones de cumplimiento, entre otras.|
 | ![Logotipo](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) es una solución de identificación digital compatible con los servicios de identificación electrónica, autenticación y confianza (eiDAS) que permite a los usuarios iniciar sesión de forma segura sin lectores de tarjetas, contraseñas, autenticación en dos fases y códigos PIN múltiples. |
 | ![Logotipo](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) es un servicio de comprobación de identificadores que habilita la comprobación automatizada de identificadores en tiempo real, de modo que protege los datos de los clientes. |

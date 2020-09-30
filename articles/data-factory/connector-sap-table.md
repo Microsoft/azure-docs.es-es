@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/03/2020
-ms.openlocfilehash: a6eaa5519607d5d5e9a49851e1c55f9b60b554ea
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.date: 09/01/2020
+ms.openlocfilehash: 608694c07894c8bdff8b1101d607e07ea4383764
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529728"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279861"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copia de datos de una tabla de SAP mediante Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos con desde una tabla de SAP. Para obtener más información, consulte la [información general sobre la actividad de copia](copy-activity-overview.md).
@@ -48,6 +49,12 @@ En concreto, este conector para tablas de SAP admite las siguientes funcionalida
 - Copiar datos mediante la autenticación básica o las comunicaciones de red segura (SNC), si es que tiene SNC configuradas.
 - Conexión a un servidor de aplicaciones SAP o a un servidor de mensajes SAP.
 - Recuperación de datos a través de RFC personalizado o predeterminado.
+
+La versión 7.01 o posterior hace referencia a la versión de SAP NetWeaver en lugar de a la versión de SAP ECC. Por ejemplo, SAP ECC 6.0 EHP 7 en general tiene una versión de NetWeaver >= 7.4. En caso de que no esté seguro de su entorno, estos son los pasos para confirmar la versión del sistema de SAP:
+1.  Use la GUI de SAP para conectarse al sistema de SAP. 
+2.  Vaya a **System** -> **Status**. 
+3.  Compruebe la versión de SAP_BASIS, asegúrese de que sea mayor o igual que 701.  
+      ![Comprobar SAP_BASIS](./media/connector-sap-table/sap-basis.png)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

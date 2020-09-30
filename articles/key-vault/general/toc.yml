@@ -6,8 +6,6 @@
       href: overview.md
     - name: 'Información acerca de claves, secretos y certificados'
       href: about-keys-secrets-certificates.md
-    - name: Novedades
-      href: whats-new.md
 - name: Guías de inicio rápido
   expanded: true
   items:
@@ -62,9 +60,9 @@
         - name: Controles de seguridad de Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ../security-controls-policy.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
-    - name: Notificaciones (versión preliminar)
+    - name: Notificaciones
       items:
-        - name: Supervisión con Azure Event Grid (versión preliminar)
+        - name: Supervisión con Azure Event Grid
           href: event-grid-overview.md
     - name: Eliminación temporal
       items:
@@ -96,6 +94,8 @@
               href: assign-access-policy-portal.md
         - name: 'Uso de Azure RBAC para administrar el acceso a claves, secretos y certificados (versión preliminar)'
           href: rbac-guide.md
+        - name: Guía de migración de directivas de acceso del almacén a Azure RBAC
+          href: rbac-migration.md
         - name: Solución de problemas de acceso
           href: troubleshooting-access-issues.md
     - name: Desarrollar
@@ -144,6 +144,8 @@
           href: move-region.md
 - name: Referencia
   items:
+    - name: Novedades
+      href: whats-new.md
     - name: Bibliotecas de clientes
       href: client-libraries.md
     - name: 'Códigos de error de la API de REST: Azure Key Vault'

@@ -4,12 +4,12 @@ description: En este artículo se proporciona la información sobre los problema
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 26d30a56b3117642678f98ba3e7927c27bfd6a69
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 884e850255856b39ccbe52544a47a7453e975960
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826623"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017947"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Notas de la versión de Microsoft Azure Backup Server
 

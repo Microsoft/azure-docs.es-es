@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: 6badcedba7fa1e1b605fc5553e5c6eed52c4203b
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 7e45537d0a9fbdd738d6a2142b9259a15498e9c9
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182078"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89503812"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Uso de la inserción de dependencias en Azure Functions con .NET
 
@@ -170,9 +170,9 @@ En el ejemplo siguiente, el archivo `host.json` se agrega al filtro de seguridad
     "version": "2.0",
     "logging": {
         "applicationInsights": {
-            "samplingExcludedTypes": "Request",
             "samplingSettings": {
-                "isEnabled": true
+                "isEnabled": true,
+                "excludedTypes": "Request"
             }
         },
         "logLevel": {

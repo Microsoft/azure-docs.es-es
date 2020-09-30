@@ -3,12 +3,12 @@ title: Respuestas a preguntas comunes
 description: 'Respuestas a preguntas comunes sobre las características de Azure Backup, incluidos los almacenes de Recovery Services, las copias de seguridad que puede realizar, cómo funciona, el cifrado y los límites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: ea4cc792100edf59188a9be99c384747267dc0d8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 16ee9fa94f8c6d5ee97c35833b4cee908750bc0a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892769"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017743"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 
@@ -56,7 +56,7 @@ Si ya ha configurado la copia de seguridad y debe pasar de GRS a LRS, consulte [
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>¿Puedo hacer una restauración a nivel de elemento (ILR) de las máquinas virtuales de las que se realiza una copia de seguridad en un almacén de Recovery Services?
 
 - ILR se admite para máquinas virtuales de Azure copiadas mediante la copia de seguridad de máquina virtual de Azure. Para más información, consulte este [artículo](backup-azure-restore-files-from-vm.md)
-- ILR no se admite para puntos de recuperación en línea de máquinas virtuales locales cuya copia de seguridad se realice mediante el servidor de Azure Backup o System Center DPM.
+- ILR no se admite para puntos de recuperación en línea de máquinas virtuales locales cuya copia de seguridad se realice mediante Azure Backup Server (MABS) o System Center DPM.
 
 ## <a name="azure-backup-agent"></a>Agente de Azure Backup
 
@@ -127,7 +127,7 @@ Estado del sistema y BMR |Cada copia individual del estado del sistema o BMR del
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>¿Hay un límite en la cantidad de datos de los que se realiza una copia de seguridad con el uso de un almacén de Recovery Services?
 
-No hay ningún límite en la cantidad de datos de los que se puede hacer una copia de seguridad con el uso de un almacén de Recovery Services. Los orígenes de datos individuales (distintos de las máquinas virtuales de Azure) pueden tener un tamaño máximo de 54.400 GB. Para más información sobre los límites, consulte la sección sobre los [límites del almacén en la matriz de compatibilidad](./backup-support-matrix.md#vault-support).
+No hay ningún límite en la cantidad de datos de los que se puede hacer una copia de seguridad mediante un almacén de Recovery Services. Los orígenes de datos individuales (distintos de las máquinas virtuales de Azure) pueden tener un tamaño máximo de 54.400 GB. Para más información sobre los límites, consulte la sección sobre los [límites del almacén en la matriz de compatibilidad](./backup-support-matrix.md#vault-support).
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>¿Por qué el tamaño de los datos transferidos al almacén de Recovery Services es más pequeño que los datos seleccionados para la copia de seguridad?
 
@@ -218,7 +218,7 @@ Microsoft no descifra los datos de copia de seguridad en ningún momento.
 
 ### <a name="what-is-the-minimum-length-of-the-encryption-key-used-to-encrypt-backup-data"></a>¿Cuál es la longitud mínima de la clave de cifrado usada para cifrar los datos de copia de seguridad?
 
-La clave de cifrado usada por el agente de Microsoft Azure Recovery Services (MARS) se deriva de una frase de contraseña que debe tener 16 caracteres como mínimo. Para máquinas virtuales de Azure, no hay ningún límite de longitud para las claves usadas por Azure KeyVault.
+La clave de cifrado usada por el agente de Microsoft Azure Recovery Services (MARS) se deriva de una frase de contraseña que debe tener 16 caracteres como mínimo. En el caso de las máquinas virtuales de Azure, no hay ningún límite de longitud para las claves usadas por Azure KeyVault.
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-can-microsoft-recover-the-data"></a>¿Qué sucede si pierdo la clave de cifrado? ¿Puedo recuperar los datos? ¿Microsoft puede recuperar los datos?
 

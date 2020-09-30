@@ -1,5 +1,5 @@
 ---
-title: Carga de datos de Contoso Retail en un almacenamiento de datos de SQL de Synapse
+title: Carga de datos de Contoso Retail en Synapse SQL
 description: Use los comandos de PolyBase y T-SQL para cargar dos tablas de datos de Contoso Retail en SQL de Synapse.
 services: synapse-analytics
 author: kevinvngo
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 90da35b76bbe6ec933b3a1fd200f0f5bad643759
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 904ce55f376e42156b014056b1226512b2784742
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213319"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461704"
 ---
 # <a name="load-contoso-retail-data-to-synapse-sql"></a>Carga de datos de Contoso Retail en Synapse SQL 
 
-En este tutorial, aprenderá a usar los comandos de PolyBase y T-SQL para cargar dos tablas de datos de Contoso Retail en un almacenamiento de datos de SQL de Synapse.
+En este tutorial se aprende a usar comandos de PolyBase y T-SQL para cargar dos tablas de datos de Contoso Retail en Synapse SQL.
 
 En este tutorial, aprenderá lo siguiente:
 
@@ -30,11 +30,11 @@ En este tutorial, aprenderá lo siguiente:
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Para ejecutar este tutorial, necesita una cuenta de Azure que cuente ya con un almacenamiento de datos de SQL de Synapse. Si no tiene ningún almacenamiento de datos aprovisionado, consulte [Creación de un almacenamiento de datos y establecimiento de una regla de firewall a nivel de servidor](create-data-warehouse-portal.md).
+Para ejecutar este tutorial, necesita una cuenta de Azure que ya tenga una instancia de Synapse SQL. Si no tiene ningún almacenamiento de datos aprovisionado, consulte [Creación de un almacenamiento de datos y establecimiento de una regla de firewall a nivel de servidor](create-data-warehouse-portal.md).
 
 ## <a name="configure-the-data-source"></a>Configuración del origen de datos
 
-PolyBase usa objetos externos T-SQL para definir la ubicación y los atributos de los datos externos. Las definiciones del objeto externo se almacenan en el almacenamiento de datos de SQL de Synapse. Los datos se almacenan externamente.
+PolyBase usa objetos externos T-SQL para definir la ubicación y los atributos de los datos externos. Las definiciones de objetos externos se almacenan en Synapse SQL. Los datos se almacenan externamente.
 
 ## <a name="create-a-credential"></a>Creación de una credencial
 
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Optimización de compresión de almacén de columnas
 
-De forma predeterminada, el almacenamiento de datos de SQL de Synapse guarda la tabla como un índice de almacén de columnas agrupado. Una vez completada una carga, puede que algunas de las filas de datos no se compriman en el almacén de columnas.  Existen motivos diferentes por los que esto puede ocurrir. Para aprender más, consulte el artículo sobre [administración de índices de almacén de columnas](sql-data-warehouse-tables-index.md).
+De forma predeterminada, Synapse SQL almacena la tabla como índice de almacén de columnas agrupado. Una vez completada una carga, puede que algunas de las filas de datos no se compriman en el almacén de columnas.  Existen motivos diferentes por los que esto puede ocurrir. Para aprender más, consulte el artículo sobre [administración de índices de almacén de columnas](sql-data-warehouse-tables-index.md).
 
 Para optimizar el rendimiento de las consultas y la compresión de almacén de columnas después de una carga, vuelva a crear la tabla para obligar al índice de almacén de columnas a comprimir todas las filas.
 

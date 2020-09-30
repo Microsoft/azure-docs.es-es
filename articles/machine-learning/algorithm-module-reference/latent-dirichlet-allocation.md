@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/05/2020
-ms.openlocfilehash: 2fa969b6dd89000b4d669bc5d42aa09b3cf3a2b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9f239ea69aaf71e591a447feb300c13a45ba1a4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751692"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907847"
 ---
 # <a name="latent-dirichlet-allocation-module"></a>Módulo de asignación de Dirichlet latente
 
-En este artículo se describe cómo usar el módulo de asignación de Dirichlet latente en el diseñador de Azure Machine Learning (versión preliminar) para agrupar texto sin clasificar de otro modo en categorías. 
+En este artículo se describe cómo usar el módulo de asignación de Dirichlet latente en el diseñador de Azure Machine Learning para agrupar texto sin clasificar de otro modo en categorías. 
 
 La asignación de Dirichlet latente (LDA) se suele utilizar en el procesamiento de lenguaje natural para buscar textos similares. Otro término común es *modelado de temas*.
 
@@ -75,7 +75,7 @@ Este módulo requiere un conjunto de datos que contenga una columna de texto, ya
     + Los valores de la matriz de temas de características se representarán como una probabilidad en la que `P(word|topic)`.
 
     > [!NOTE] 
-    > En el diseñador de Azure Machine Learning (versión preliminar), la biblioteca scikit-Learn ya no admite una salida *doc_topic_distr* sin normalizar de la versión 0.19. En este módulo, el parámetro **Normalizar** solo se puede aplicar a la salida de *matriz de temas de características*. Los resultados del *conjunto de datos transformados* siempre se normalizan.
+    > En el diseñador de Azure Machine Learning, la biblioteca scikit-Learn ya no admite una salida *doc_topic_distr* sin normalizar de la versión 0.19. En este módulo, el parámetro **Normalizar** solo se puede aplicar a la salida de *matriz de temas de características*. Los resultados del *conjunto de datos transformados* siempre se normalizan.
 
 7. Seleccione la opción **Mostrar todas las opciones** y, a continuación, establézcala en **TRUE** si quiere establecer los siguientes parámetros avanzados.
 

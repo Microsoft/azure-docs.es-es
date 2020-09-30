@@ -4,15 +4,15 @@ description: Obtenga información sobre los pasos necesarios para habilitar los 
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 08/24/2020
-ms.openlocfilehash: d6d6731ae087604e0a53a6721bb76dfba5fbf40c
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/10/2020
+ms.openlocfilehash: 196be1caf91b6f1f1731d7c4afbfe72482c8f2ac
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783848"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894538"
 ---
-# <a name="workspace-based-application-insights-resources-preview"></a>Recursos de Application Insights basados en área de trabajo (versión preliminar)
+# <a name="workspace-based-application-insights-resources"></a>Recursos de Application Insights basados en áreas de trabajo
 
 Los recursos basados en área de trabajo permiten la integración completa entre Application Insights y Log Analytics. Ahora puede optar por enviar la telemetría de Application Insights a un área de trabajo común de Log Analytics, lo que permite el acceso completo a todas las características de Log Analytics a la vez que se mantienen los registros de aplicación, infraestructura y plataforma en una única ubicación consolidada.
 
@@ -21,7 +21,19 @@ Esto también permite el control de acceso basado en rol (RBAC) común en los re
 > [!NOTE]
 > La ingesta de datos y la retención de recursos de Application Insights basados en área de trabajo se facturan por medio del área de trabajo de Log Analytics en la que se encuentran los datos. [Más información]( ./pricing.md#workspace-based-application-insights) sobre la facturación de recursos de Application Insights basados en área de trabajo.
 
-Para probar la nueva experiencia, inicie sesión en [Azure Portal](https://portal.azure.com) y cree un recurso de Application Insights:
+## <a name="new-capabilities"></a>Funcionalidades nuevas
+
+Application Insights basado en áreas de trabajo permite aprovechar las capacidades más recientes de Azure Monitor y Log Analytics, lo que incluye:
+
+* Las [claves administradas por el cliente (CMK)](../platform/customer-managed-keys.md) proporcionan cifrado en reposo de los datos mediante claves de cifrado a las que solo tiene acceso el usuario.
+* [Azure Private Link](../platform/private-link-security.md) le permite vincular de forma segura los servicios PaaS de Azure a la red virtual mediante puntos de conexión privados.
+* [Traiga su propio almacenamiento (BYOS) para Profiler y Snapshot Debugger](./profiler-bring-your-own-storage.md) le proporciona control total sobre la directiva de cifrado en reposo, la directiva de administración de la duración y el acceso a la red para todos los datos asociados a Application Insights Profiler y Snapshot Debugger. 
+* Los [niveles de reserva de capacidad](../platform/manage-cost-storage.md#pricing-model) permiten ahorrar hasta un 25 % en comparación con el precio de Pago por uso. 
+* Ingesta de datos más rápida gracias a la ingesta de streaming de Log Analytics.
+
+## <a name="create-workspace-based-resource"></a>Creación de un recurso basado en áreas de trabajo
+
+Inicie sesión en [Azure Portal](https://portal.azure.com) y cree un recurso de Application Insights:
 
 ![Recurso de Application Insights basado en área de trabajo](./media/create-workspace-resource/create-workspace-based.png)
 
@@ -36,7 +48,7 @@ Una vez creado el recurso, se ve la información del área de trabajo correspond
 Al hacer clic en el texto del vínculo azul, se le lleva al área de trabajo de Log Analytics asociada, donde puede aprovechar el nuevo entorno de consultas unificado del área de trabajo.
 
 > [!NOTE]
-> Todavía se proporciona compatibilidad total con versiones anteriores con las consultas de recursos clásicas, los libros y las alertas basadas en registro de Application Insights dentro de la experiencia de Application Insights. Para consultar o ver en la [nueva estructura o esquema de tabla basados en área de trabajo](apm-tables.md), primero debe ir al área de trabajo de Log Analytics. Durante la versión preliminar, al seleccionar **Registros** en los paneles de Application Insights, se proporciona acceso a la experiencia de consulta clásica de Application Insights.
+> Todavía se proporciona compatibilidad total con versiones anteriores con las consultas de recursos clásicas, los libros y las alertas basadas en registro de Application Insights dentro de la experiencia de Application Insights. Para consultar o ver en la [nueva estructura o esquema de tabla basados en área de trabajo](apm-tables.md), primero debe ir al área de trabajo de Log Analytics. Al seleccionar **Registros ( Analytics)** en los paneles de Application Insights se obtiene acceso a la experiencia de consulta clásica de Application Insights.
 
 ## <a name="copy-the-connection-string"></a>Copiar la cadena de conexión
 
@@ -185,14 +197,6 @@ El comando `New-AzApplicationInsights` de PowerShell no admite actualmente la cr
 
 ```
 
-## <a name="new-capabilities"></a>Funcionalidades nuevas
-
-Application Insights basado en áreas de trabajo le permite aprovechar las funcionalidades más recientes de Azure Monitor, como las siguientes:
-
-* Las [claves administradas por el cliente (CMK)](../platform/customer-managed-keys.md) proporcionan cifrado en reposo de los datos mediante claves de cifrado a las que solo tiene acceso el usuario.
-* [Azure Private Link](../platform/private-link-security.md) le permite vincular de forma segura los servicios PaaS de Azure a la red virtual mediante puntos de conexión privados.
-* [Traiga su propio almacenamiento (BYOS) para Profiler y Snapshot Debugger](./profiler-bring-your-own-storage.md) le proporciona control total sobre la directiva de cifrado en reposo, la directiva de administración de la duración y el acceso a la red para todos los datos asociados a Application Insights Profiler y Snapshot Debugger. 
-
 ## <a name="modifying-the-associated-workspace"></a>Modificación del área de trabajo asociada
 
 Una vez creado un recurso de Application Insights basado en área de trabajo, puede modificar el área de trabajo de Log Analytics asociada.
@@ -207,8 +211,3 @@ La funcionalidad de exportación continua heredada no es compatible con los recu
 
 * [Exploración de métricas](../platform/metrics-charts.md)
 * [Escribir consultas de Analytics](../log-query/log-query-overview.md)
-
-[api]: ./api-custom-events-metrics.md
-[diagnostic]: ./diagnostic-search.md
-[metrics]: ../platform/metrics-charts.md
-[start]: ./app-insights-overview.md

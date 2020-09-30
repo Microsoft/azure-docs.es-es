@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/06/2020
-ms.openlocfilehash: 5d16e7f81a439d622a418dbc8cdff2d66c2a814f
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.date: 08/28/2020
+ms.openlocfilehash: e568051bfd5ac58f283eac7f9dc8a72be5c9dbbb
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903568"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079683"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Descripción y ajuste de las unidades de streaming
 
@@ -20,7 +20,7 @@ Las unidades de streaming (SU) representan los recursos informáticos que se asi
 
 Para lograr un procesamiento de streaming de latencia baja, los trabajos de Azure Stream Analytics realizan todo el procesamiento en memoria. El trabajo de streaming presenta un error cuando se queda sin memoria. Como resultado, en el caso de un trabajo de producción, resulta importante supervisar el uso de recursos de un trabajo de streaming, y debe asegurarse de que hay recursos asignados suficientes para mantener los trabajos en ejecución de manera ininterrumpida.
 
-La métrica de uso del % de SU, que oscila de 0 % al 100 %, describe el consumo de memoria de la carga de trabajo. Para un trabajo de streaming con una superficie mínima, esta métrica suele estar entre el 10 % y el 20 %. Si el porcentaje de uso de SU es bajo y los eventos de entrada quedan pendientes, puede que la carga de trabajo requiera más recursos informáticos, para lo que es necesario aumentar el número de SU. Se recomienda mantener la métrica de SU por debajo del 80 % para tener en cuenta las subidas ocasionales. Microsoft recomienda establecer una alerta en un 80 % de métrica de uso de SU para evitar el agotamiento de recursos. Para más información, consulte el [Tutorial: Configuración de alertas en Azure Stream Analytics](stream-analytics-set-up-alerts.md).
+La métrica de uso del % de SU, que oscila de 0 % al 100 %, describe el consumo de memoria de la carga de trabajo. Para un trabajo de streaming con una superficie mínima, esta métrica suele estar entre el 10 % y el 20 %. Si el porcentaje de uso de SU es alto (por encima de 80 %) o si los eventos de entrada quedan pendientes (incluso con un porcentaje de uso de SU bajo dado que no muestra el uso de la CPU), puede que la carga de trabajo requiera más recursos informáticos, para lo que es necesario aumentar el número de SU. Se recomienda mantener la métrica de SU por debajo del 80 % para tener en cuenta las subidas ocasionales. Microsoft recomienda establecer una alerta en un 80 % de métrica de uso de SU para evitar el agotamiento de recursos. Para más información, consulte el [Tutorial: Configuración de alertas en Azure Stream Analytics](stream-analytics-set-up-alerts.md).
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Configuración de las unidades de streaming (SU) de Stream Analytics
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/)

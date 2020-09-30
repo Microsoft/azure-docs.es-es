@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c261ea174f37de51a8fbd5b36aeb40c26d44e6a9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 09e0b3bbac0bdc1d268aa7f24741aeb12a7d366d
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691401"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462588"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Implementación de una herramienta de administración de Windows Virtual Desktop (clásico) con una plantilla de Azure Resource Manager
 
@@ -98,7 +98,7 @@ Después de proporcionar su consentimiento para la organización o para un usuar
 
 Siga estas instrucciones para iniciar la herramienta:
 
-1. Seleccione el recurso de Azure App Services con el nombre proporcionado en la plantilla (por ejemplo, Apr3UX) y vaya a la dirección URL asociada a él. Por ejemplo, <https://rdmimgmtweb-210520190304.azurewebsites.net>.
+1. Seleccione el recurso de Azure App Services con el nombre proporcionado en la plantilla (por ejemplo, Apr3UX) y vaya a la dirección URL asociada a él. Por ejemplo, `https://rdmimgmtweb-210520190304.azurewebsites.net`.
 2. Inicie sesión con sus credenciales de Windows Virtual Desktop.
 3. Cuando se le pida que elija un grupo de inquilinos, seleccione **Default Tenant Group** (grupo de inquilinos predeterminado) en la lista desplegable.
 4. Al seleccionar **Default Tenant Group** (grupo de inquilinos predeterminado), debería aparecer un menú en la parte izquierda de la ventana. En este menú, busque el nombre de su grupo de inquilinos y selecciónelo.

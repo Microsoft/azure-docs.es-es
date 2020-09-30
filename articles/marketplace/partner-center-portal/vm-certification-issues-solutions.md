@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 5878ea6a554439c261399706eec708b06ed59b11
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 5b6d1ee41434d8aebac81d38ced9cadd93e51ba8
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225395"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181449"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemas y soluciones durante la certificación de máquinas virtuales 
 
@@ -84,7 +84,7 @@ Si intenta instalar Visual Studio o cualquier producto con licencia de Office, 
 
 Para obtener más información sobre seleccionar una base aprobada, consulte [Creación de recursos técnicos para máquinas virtuales de Azure](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base).
 
-## <a name="tool-kit-test-case-execution-failed"></a>Error de ejecución del caso de prueba del kit de herramientas
+## <a name="tool-kit-test-case-execution-failed"></a>Error de ejecución del caso de prueba del kit de herramientas 
 
 El kit de herramientas de certificación de Microsoft le puede ayudarle a ejecutar casos de prueba y comprobar que su disco duro virtual o imagen es compatible con el entorno de Azure.
 
@@ -113,7 +113,7 @@ En la tabla siguiente se enumeran los errores comunes que se encuentran al ejecu
  
 |Escenario|Caso de prueba|Error|Solución|
 |---|---|---|---|
-|1|Caso de prueba de la versión del agente Linux|La versión mínima del agente Linux es 2.241 o más reciente. Este requisito es obligatorio desde el 1 de mayo de 2020.|La imagen debe actualizarse con la versión necesaria para [enviar la solicitud](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
+|1|Caso de prueba de la versión del agente Linux|La versión mínima del agente Linux es 2.2.41 o más reciente. Este requisito es obligatorio desde el 1 de mayo de 2020.|Actualice la versión del agente de Linux y debe ser 2.241 o posterior. Para obtener más información, puede visitar la [página de actualización de la versión del agente de Linux](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
 |2|Caso de prueba del historial de Bash|Si el tamaño del historial de Bash de la imagen enviada es superior a 1 kilobyte (KB), se mostrará un error. El tamaño está limitado a 1 KB para garantizar que cualquier información potencialmente sensible no sea capturada en el archivo de historial de Bash.|Para solucionar este problema, monte el disco duro virtual en cualquier otra máquina virtual en funcionamiento y haga los cambios que desee (por ejemplo, eliminar los archivos de historial *.bash*) para reducir el tamaño a 1 KB o menos.|
 |3|Caso de prueba del parámetro de kernel obligatorio|Recibirá este error si el valor de **console** no se ha establecido en **ttyS0**. Haga una comprobación al ejecutar el comando siguiente:<br>`cat /proc/cmdline`|Establezca el valor de **console** en **ttyS0** y vuelva a enviar la solicitud.|
 |4|Caso de prueba de ClientAliveInterval|Si el resultado del kit de herramientas genera error para este caso de prueba, el valor de **ClientAliveInterval** no es adecuado.|Establezca **ClientAliveInterval** en un valor igual o inferior a 235 y, a continuación, vuelva a enviar la solicitud.|
@@ -363,7 +363,8 @@ Los publicadores deben ponerse en contacto con el [soporte técnico para publica
    4.    Versión: la versión de la oferta de máquina virtual para la que se solicita la excepción
    5.   Tipo de excepción: pruebas, máquina virtual bloqueada, plantillas personalizadas
    6.   Motivo de la solicitud: motivo de esta excepción e información sobre las pruebas que se van a excluir 
-   7.   Datos adjuntos: posibles documentos importantes de evidencia En el caso de las máquinas virtuales bloqueadas, adjunte el informe de prueba y, para las plantillas personalizadas, proporcione la plantilla de ARM personalizada como dato adjunto. Si no adjunta el informe para las máquinas virtuales bloqueadas y la plantilla de ARM personalizada para las plantillas personalizadas se producirá una denegación de solicitud.
+   7. Escala de tiempo: fecha hasta la que se ha solicitado esta excepción 
+   8.   Datos adjuntos: posibles documentos importantes de evidencia En el caso de las máquinas virtuales bloqueadas, adjunte el informe de prueba y, para las plantillas personalizadas, proporcione la plantilla de ARM personalizada como dato adjunto. Si no adjunta el informe para las máquinas virtuales bloqueadas y la plantilla de ARM personalizada para las plantillas personalizadas se producirá una denegación de solicitud.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

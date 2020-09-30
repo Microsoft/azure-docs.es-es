@@ -11,15 +11,15 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: d57122ee98eb6612f43d09ecff4797038ceaf5f2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 21969f52223a4e0c7de6ee26c0a6f9e2f96366b1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654096"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902351"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Versión y seguimiento de conjuntos de valores en experimentos
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 En este artículo, aprenderá a controlar versiones y realizar un seguimiento de los conjuntos de datos de Azure Machine Learning para fines de reproducibilidad. El control de versiones del conjunto de datos es una manera de delimitar el estado de los datos, con el fin de que pueda aplicar una versión específica del conjunto de datos para futuros experimentos.
 
@@ -32,7 +32,7 @@ Escenarios de control de versiones típicos:
 
 En este tutorial, necesitará:
 
-- [El SDK de Azure Machine Learning para Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). Este SDK incluye el paquete de [azureml-datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py).
+- [El SDK de Azure Machine Learning para Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). Este SDK incluye el paquete de [azureml-datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py&preserve-view=true).
     
 - Un [área de trabajo de Azure Machine Learning](concept-workspace.md). Para recuperar una existente, ejecute el código siguiente o [cree una nueva área de trabajo](how-to-manage-workspace.md).
 
@@ -63,7 +63,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ### <a name="retrieve-a-dataset-by-name"></a>Recuperar un conjunto de datos por nombre
 
-De manera predeterminada, el método [get_by_name()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) de la clase `Dataset` devuelve la versión más reciente del conjunto de datos registrada en el área de trabajo. 
+De manera predeterminada, el método [get_by_name()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) de la clase `Dataset` devuelve la versión más reciente del conjunto de datos registrada en el área de trabajo. 
 
 El código siguiente obtiene la versión 1 del conjunto de datos `titanic_ds`.
 
@@ -158,7 +158,7 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 Para cada experimento de Machine Learning, puede realizar fácilmente el seguimiento de los conjuntos de datos que se usan como entrada mediante el objeto `Run` del experimento.
 
-El código siguiente usa el método [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) para realizar un seguimiento de los conjuntos de datos de entrada que se utilizaron en la ejecución del experimento:
+El código siguiente usa el método [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=trueget-details--) para realizar un seguimiento de los conjuntos de datos de entrada que se utilizaron en la ejecución del experimento:
 
 ```Python
 # get input datasets

@@ -10,12 +10,12 @@ ms.date: 08/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 407853152d4f18d8f8daacd8ef7d19c878384076
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: fbc24db21ee43e3c2aef3d0164e8510a79508fd2
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871163"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658575"
 ---
 # <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
@@ -64,8 +64,8 @@ En la tabla siguiente se muestran los tipos de cuentas de almacenamiento que adm
 | Tipo de cuenta de almacenamiento | Regiones admitidas | Servicios admitidos |
 |--|--|--|
 | Uso general v2<sup>1</sup> | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br />  Oeste de Europa<br /> Centro de Francia<br /> Japón Oriental<br /> Norte de Sudáfrica<br /> Sur de Reino Unido<br /> Centro de EE. UU.<br /> Este de EE. UU.<br /> Este de EE. UU. 2<br /> Oeste de EE. UU. 2 | Blobs en bloques<br /> Blobs en páginas<sup>2</sup><br /> Recursos compartidos de archivos (estándar)<br /> Tablas<br /> Colas<br /> |
-| BlockBlobStorage<sup>1</sup> | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br /> Oeste de Europa<br /> Este de EE. UU. <br /> Oeste de EE. UU. 2| Solo blobs en bloques Premium |
-| FileStorage | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br /> Oeste de Europa<br /> Este de EE. UU. <br /> Oeste de EE. UU. 2 | Solo recursos compartidos de archivos Premium |
+| BlockBlobStorage<sup>1</sup> | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br /> Oeste de Europa<br /> Este de EE. UU. <br /> Este de EE. UU. 2 <br /> Oeste de EE. UU. 2| Solo blobs en bloques Premium |
+| FileStorage | Sudeste de Asia<br /> Este de Australia<br /> Norte de Europa<br /> Oeste de Europa<br /> Este de EE. UU. <br /> Este de EE. UU. 2 <br /> Oeste de EE. UU. 2 | Solo recursos compartidos de archivos Premium |
 
 <sup>1</sup> El nivel de archivo no se admite actualmente en las cuentas de ZRS.<br />
 <sup>2</sup> Las cuentas de almacenamiento que contienen discos administrados de Azure para máquinas virtuales siempre usan almacenamiento con redundancia local. Los discos no administrados de Azure también deben usar almacenamiento con redundancia local. Es posible crear una cuenta de almacenamiento para discos no administrados de Azure que use almacenamiento con redundancia geográfica, pero no se recomienda debido a los posibles problemas de coherencia en la replicación geográfica asincrónica. Ni los discos administrados ni los no administrados admiten ZRS o GZRS. Para más información sobre los discos administrados, consulte [Precios de Azure Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).

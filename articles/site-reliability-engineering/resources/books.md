@@ -2,17 +2,17 @@
 title: Lista de libros de SRE | Microsoft Docs
 description: Aumente sus conocimientos de ingeniería de confiabilidad de sitios con estos libros
 author: dnblankedelman
-manager: efreeman
+manager: ScottCa
 ms.service: site-reliability-engineering
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 09/14/2020
 ms.author: dnb
-ms.openlocfilehash: 4a350953a5755f24c938011ae4b98e1e35e094e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d1e4738d933b7bd20252f597ae9c0ea27c5e3f5c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77599557"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086596"
 ---
 # <a name="books-about-site-reliability-engineering"></a>Libros acerca de la Ingeniería de confiabilidad de sitios
 

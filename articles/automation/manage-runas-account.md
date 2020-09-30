@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 06/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: c2d6e026f87211260a2cf45c0623806cc024b44e
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3e5f75a5ff9c6baff9bbefea7846ffe78655c6a9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530673"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401765"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Administración de una cuenta de ejecución de Azure Automation
 
@@ -186,7 +186,7 @@ Puede permitir que Azure Automation compruebe si Key Vault y la entidad de servi
 * Conceder permisos a Key Vault.
 * Establecer la directiva de acceso.
 
-Puede usar el script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) en el Galería de PowerShell para asignar sus permisos de la cuenta de ejecución a KeyVault. Consulte [Concesión de acceso a una instancia de Key Vault para las aplicaciones](../key-vault/general/group-permissions-for-apps.md) para obtener más detalles sobre cómo establecer permisos en Key Vault.
+Puede usar el script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) en el Galería de PowerShell para asignar sus permisos de la cuenta de ejecución a KeyVault. Consulte [Asignación de una directiva de acceso de Key Vault](/azure/key-vault/general/assign-access-policy-powershell) para obtener más detalles sobre cómo establecer permisos en Key Vault.
 
 ## <a name="resolve-misconfiguration-issues-for-run-as-accounts"></a>Solución de problemas de configuración incorrecta de las cuentas de ejecución
 

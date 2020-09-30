@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 8b695bad791388dc51123a118344b8fda0f54ca8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1bc3f7887c9d257f5971b867ff9b7b1dd970fa87
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027706"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179410"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 
@@ -242,12 +242,9 @@ La característica _IP de confianza_ de Azure Multi-Factor Authentication omite 
 
 Si su organización implementa la extensión NPS para proporcionar Multi-Factor Authentication en aplicaciones locales, tenga en cuenta que la dirección IP de origen siempre parecerá ser el servidor NPS a través del que fluye el intento de autenticación.
 
-| Tipo de inquilino de Azure AD | Opciones de características de direcciones IP de confianza |
-|:--- |:--- |
-| Administrado |**Intervalos específicos de direcciones IP**: los administradores pueden especificar un intervalo de direcciones IP que puede omitir la verificación en dos pasos para los usuarios que inician sesión desde la intranet de la empresa. Se puede configurar un máximo de cincuenta intervalos de direcciones IP de confianza.|
-| Federado |**Todos los usuarios federados**: todos los usuarios federados que inician sesión desde dentro de la organización pueden omitir la verificación en dos pasos. Los usuarios omiten la verificación mediante el uso de una notificación que emiten los servicios de federación de Active Directory (AD FS).<br/>**Intervalos específicos de direcciones IP**: los administradores pueden especificar un intervalo de direcciones IP que puede omitir la verificación en dos pasos para los usuarios que inician sesión desde la intranet de la empresa. |
+| Tipo de inquilino de Azure AD | Opciones de la característica IP de confianza | |:--- |:--- |dos pasos | Administrado |**Intervalo específico de direcciones IP**: los administradores pueden especificar un intervalo de direcciones IP que puede omitir la autenticación multifactor para los usuarios que inician sesión desde la intranet de la empresa. Se puede configurar un máximo de 50 intervalos de direcciones IP de confianza.| | Federado |**Todos los usuarios federados**: todos los usuarios federados que inician sesión desde dentro de la organización pueden omitir la autenticación multifactor. Los usuarios omiten la verificación mediante el uso de una notificación que emiten los servicios de federación de Active Directory (AD FS).<br/>**Intervalos específicos de direcciones IP**: los administradores pueden especificar un intervalo de direcciones IP que puede omitir la autenticación multifactor para los usuarios que inician sesión desde la intranet de la empresa. |
 
-La omisión de las direcciones IP de confianza solo funciona desde dentro de la intranet de la empresa. Si selecciona la opción **Todos los usuarios federados** y un usuario inicia sesión desde fuera de la intranet de la empresa, el usuario tendrá que autenticarse mediante la verificación en dos pasos. El proceso es el mismo, incluso si el usuario presenta una notificación de AD FS.
+La omisión de las direcciones IP de confianza solo funciona desde dentro de la intranet de la empresa. Si selecciona la opción **Todos los usuarios federados** y un usuario inicia sesión desde fuera de la intranet de la empresa, el usuario tendrá que autenticarse mediante la autenticación multifactor. El proceso es el mismo, incluso si el usuario presenta una notificación de AD FS.
 
 ### <a name="end-user-experience-inside-of-corpnet"></a>Experiencia del usuario final dentro de la red corporativa
 
@@ -278,14 +275,14 @@ Para habilitar direcciones IP de confianza mediante directivas de acceso condici
 1. Seleccione **Configurar IP de confianza de MFA**.
 1. En la página **Configuración del servicio**, en **IP de confianza**, seleccione una de las dos opciones siguientes:
 
-   * **Para solicitudes de usuarios federados cuyo origen esté en mi intranet**: Para elegir esta opción, seleccione la casilla. Todos los usuarios federados que inicien sesión desde la red corporativa omitirán la verificación en dos pasos mediante una notificación emitida por AD FS. Asegúrese de que AD FS tiene una regla para agregar la notificación de intranet al tráfico adecuado. Si la regla no existe, cree la siguiente regla en AD FS:
+   * **Para solicitudes de usuarios federados cuyo origen esté en mi intranet**: Para elegir esta opción, seleccione la casilla. Todos los usuarios federados que inicien sesión desde la red corporativa omitirán la autenticación multifactor mediante una notificación emitida por AD FS. Asegúrese de que AD FS tiene una regla para agregar la notificación de intranet al tráfico adecuado. Si la regla no existe, cree la siguiente regla en AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
    * **Para solicitudes de un intervalo de IP públicas específico**: para elegir esta opción, escriba las direcciones IP en el cuadro de texto mediante la notación CIDR.
       * Para las direcciones IP que se encuentran en el intervalo xxx.xxx.xxx.1 mediante xxx.xxx.xxx.254, use una notación como **xxx.xxx.xxx.0/24**.
       * Para una única dirección IP, use esta notación: **xxx.xxx.xxx.xxx/32**.
-      * Especifique un máximo de 50 intervalos de direcciones IP. Los usuarios que inician sesión desde estas direcciones IP omiten la comprobación en dos pasos.
+      * Especifique un máximo de 50 intervalos de direcciones IP. Los usuarios que inician sesión desde estas direcciones IP omiten la autenticación multifactor.
 
 1. Seleccione **Guardar**.
 
@@ -298,20 +295,20 @@ Si no desea usar las directivas de acceso condicional para habilitar las direcci
 1. En Multi-Factor Authentication, seleccione **Configuración del servicio**.
 1. En la página **Configuración del servicio**, en **IP de confianza**, seleccione una de las opciones siguientes (o ambas):
 
-   * **Para solicitudes de usuarios federados en mi intranet**: Para elegir esta opción, seleccione la casilla. Todos los usuarios federados que inicien sesión desde la red corporativa omitirán la verificación en dos pasos mediante una notificación emitida por AD FS. Asegúrese de que AD FS tiene una regla para agregar la notificación de intranet al tráfico adecuado. Si la regla no existe, cree la siguiente regla en AD FS:
+   * **Para solicitudes de usuarios federados en mi intranet**: Para elegir esta opción, seleccione la casilla. Todos los usuarios federados que inicien sesión desde la red corporativa omitirán la autenticación multifactor mediante una notificación emitida por AD FS. Asegúrese de que AD FS tiene una regla para agregar la notificación de intranet al tráfico adecuado. Si la regla no existe, cree la siguiente regla en AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
    * **Para solicitudes de un intervalo específico de subredes de direcciones IP**: para elegir esta opción, escriba las direcciones IP en el cuadro de texto mediante la notación CIDR.
       * Para las direcciones IP que se encuentran en el intervalo xxx.xxx.xxx.1 mediante xxx.xxx.xxx.254, use una notación como **xxx.xxx.xxx.0/24**.
       * Para una única dirección IP, use esta notación: **xxx.xxx.xxx.xxx/32**.
-      * Especifique un máximo de 50 intervalos de direcciones IP. Los usuarios que inician sesión desde estas direcciones IP omiten la comprobación en dos pasos.
+      * Especifique un máximo de 50 intervalos de direcciones IP. Los usuarios que inician sesión desde estas direcciones IP omiten la autenticación multifactor.
 
 1. Seleccione **Guardar**.
 
 ## <a name="verification-methods"></a>Métodos de comprobación
 
-Puede elegir los métodos de verificación que estén disponibles para los usuarios en el portal de configuración del servicio. Cuando los usuarios inscriben sus cuentas en Azure Multi-Factor Authentication, deciden su método de verificación preferido de las opciones que ha habilitado. Las instrucciones para el proceso de inscripción de los usuarios se proporcionan en [Configuración de mi cuenta para la verificación en dos pasos](../user-help/multi-factor-authentication-end-user-first-time.md).
+Puede elegir los métodos de verificación que estén disponibles para los usuarios en el portal de configuración del servicio. Cuando los usuarios inscriben sus cuentas en Azure Multi-Factor Authentication, deciden su método de verificación preferido de las opciones que ha habilitado. Las instrucciones para el proceso de inscripción de los usuarios se proporcionan en [Configuración de mi cuenta para la autenticación multifactor](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 Están disponibles los siguientes métodos de verificación:
 
@@ -336,25 +333,25 @@ Para habilitar o deshabilitar los métodos de verificación, complete los pasos 
 
 ## <a name="remember-multi-factor-authentication"></a>Recordar Multi-Factor Authentication
 
-La característica _Recordar Multi-Factor Authentication_ permite a los usuarios omitir las verificaciones posteriores durante un número especificado de días, una vez hayan iniciado sesión correctamente en un dispositivo mediante el uso de Multi-Factor Authentication. Esta característica permite mejorar la facilidad de uso, ya que minimiza el número de veces que un usuario puede realizar MFA en el mismo dispositivo.
+La característica _Recordar Multi-Factor Authentication_ permite a los usuarios omitir las verificaciones posteriores durante un número especificado de días, una vez hayan iniciado sesión correctamente en un dispositivo mediante el uso de Multi-Factor Authentication. Para mejorar la facilidad de uso y minimizar el número de veces que un usuario tiene que realizar MFA en el mismo dispositivo, seleccione una duración de 90 días o más.
 
 > [!IMPORTANT]
 > Si una cuenta o un dispositivo corren peligro, el hecho de recordar Multi-Factor Authentication para los dispositivos de confianza puede afectar a la seguridad. Si una cuenta corporativa se pone en peligro o un dispositivo de confianza es objeto de pérdida o robo, debe [revocar las sesiones de MFA](howto-mfa-userdevicesettings.md).
 >
-> La acción de restauración revoca el estado de confianza de todos los dispositivos y el usuario debe volver a realizar la verificación en dos pasos. También puede pedir a los usuarios que restauren Multi-Factor Authentication en sus propios dispositivos tal y como se indica en [Administración de la configuración de la verificación en dos pasos](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
+> La acción de restauración revoca el estado de confianza de todos los dispositivos y el usuario debe volver a realizar la autenticación multifactor. También puede pedir a los usuarios que restauren la autenticación multifactor en sus propios dispositivos tal y como se indica en [Administración de la configuración de la autenticación multifactor](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 
 ### <a name="how-the-feature-works"></a>Cómo funciona la característica
 
 La característica Recordar Multi-Factor Authentication establece una cookie persistente en el explorador cuando un usuario selecciona la opción **No preguntar de nuevo durante X días** en el momento del inicio de sesión. Al usuario no se le volverá a solicitar Multi-Factor Authentication desde ese mismo explorador hasta que expire la cookie. Si el usuario abre un explorador diferente en el mismo dispositivo o borra sus cookies, se le pedirá de nuevo la verificación.
 
-La opción **No preguntar de nuevo durante X días** no está disponible en las aplicaciones sin explorador, independientemente de si la aplicación admite la autenticación moderna. Estas aplicaciones usan _tokens de actualización_ que proporcionan nuevos tokens de acceso cada hora. Cuando se valida un token de actualización, Azure AD comprueba que la última verificación en dos pasos estaba dentro del número de días especificado.
+La opción **No preguntar de nuevo durante X días** no está disponible en las aplicaciones sin explorador, independientemente de si la aplicación admite la autenticación moderna. Estas aplicaciones usan _tokens de actualización_ que proporcionan nuevos tokens de acceso cada hora. Cuando se valida un token de actualización, Azure AD comprueba que la última autenticación multifactor estaba dentro del número de días especificado.
 
-La característica reduce el número de autenticaciones en las aplicaciones web, que normalmente se solicitan siempre. La característica aumenta el número de autenticaciones para los clientes de autenticación moderna, que normalmente se solicita cada 90 días. También se puede aumentar el número de autenticaciones cuando se combina con las directivas de acceso condicional.
+La característica reduce el número de autenticaciones en las aplicaciones web, que normalmente se solicitan siempre. La característica puede aumentar el número de autenticaciones para los clientes de autenticación moderna, que normalmente se solicita cada 90 días, si se configura una duración inferior. También se puede aumentar el número de autenticaciones cuando se combina con las directivas de acceso condicional.
 
 > [!IMPORTANT]
-> La característica **Recordar Multi-Factor Authentication** no es compatible con la característica **Mantener la sesión iniciada** de AD FS cuando los usuarios realizan la verificación en dos pasos para AD FS mediante el Servidor Azure Multi-Factor Authentication o una solución de terceros para la autenticación multifactor.
+> La característica **Recordar Multi-Factor Authentication** no es compatible con la característica **Mantener la sesión iniciada** de AD FS cuando los usuarios realizan la autenticación multifactor para AD FS mediante el servidor de Azure Multi-Factor Authentication o una solución de terceros para la autenticación multifactor.
 >
-> Si los usuarios seleccionan **Mantener la sesión iniciada** en AD FS y también marcan su dispositivo como de confianza para Multi-Factor Authentication, no se comprobará el usuario automáticamente después de que expire el número de días de la característica **Recordar Multi-Factor Authentication**. Azure AD solicita una nueva verificación en dos pasos, pero AD FS devuelve un token con la fecha y la notificación originales de Multi-Factor Authentication en lugar de volver a realizar la verificación en dos pasos. **Esta reacción crea un bucle de comprobación entre Azure AD y AD FS.**
+> Si los usuarios seleccionan **Mantener la sesión iniciada** en AD FS y también marcan su dispositivo como de confianza para Multi-Factor Authentication, no se comprobará el usuario automáticamente después de que expire el número de días de la característica **Recordar Multi-Factor Authentication**. Azure AD solicita una nueva autenticación multifactor, pero AD FS devuelve un token con la fecha y la notificación originales de Multi-Factor Authentication en lugar de volver a realizar la autenticación multifactor. **Esta reacción crea un bucle de comprobación entre Azure AD y AD FS.**
 >
 > La característica **Recordar Multi-Factor Authentication** no es compatible con los usuarios de B2B y no será visible para ellos al iniciar sesión en los inquilinos invitados.
 >
@@ -366,8 +363,8 @@ Para habilitar y configurar la opción para que los usuarios recuerden su estado
 1. En Azure Portal, busque y seleccione **Azure Active Directory** y luego elija **Usuarios**.
 1. Seleccione **Multi-Factor Authentication**.
 1. En Multi-Factor Authentication, seleccione **Configuración del servicio**.
-1. En la página **Configuración del servicio**, **administre Recordar Multi-Factor Authentication** y seleccione la opción **Permitir que los usuarios recuerden la autenticación multifactor en dispositivos de confianza**.
-1. Establezca el número de días para permitir que los dispositivos de confianza omitan la verificación en dos pasos. El valor predeterminado es 14 días.
+1. En la página **Configuración del servicio**, en **Recordar Multi-Factor Authentication**, seleccione la opción **Permitir que los usuarios recuerden la autenticación multifactor en dispositivos de confianza**.
+1. Establezca el número de días para permitir que los dispositivos de confianza omitan la autenticación multifactor. Para que la experiencia del usuario sea óptima, amplíe la duración a *90* o más días.
 1. Seleccione **Guardar**.
 
 ### <a name="mark-a-device-as-trusted"></a>Marca de un dispositivo como de confianza

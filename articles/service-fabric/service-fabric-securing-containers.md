@@ -3,14 +3,18 @@ title: Importación de certificados en un contenedor
 description: Aprenda ahora a importar los archivos de certificados a un servicio de contenedor de Service Fabric.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: da4babd8f9d1a25a8514d0c6f1526b43a9723854
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 426aa2ebbfb87fe2c80e0d1aff3eeecbe0e2472d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75614118"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050750"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Importación de un archivo de certificados a un contenedor que se ejecuta en Service Fabric
+
+> [!NOTE]
+> En el caso de los clústeres de Service Fabric que se ejecutan en Azure, se recomienda usar la [Identidad administrada de la aplicación de Service Fabric](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) para aprovisionar certificados de aplicación desde dentro de un contenedor. La identidad administrada proporciona aislamiento de secretos y certificados en el nivel de servicio, y permite que el aprovisionamiento de certificados de la aplicación forme parte del flujo de trabajo de la aplicación, en lugar de ser parte del flujo de trabajo de la infraestructura. El mecanismo CertificateRef quedará en desuso en una versión futura.
 
 Puede proteger los servicios de contenedor especificando un certificado. Service Fabric proporciona un mecanismo para los servicios dentro de un contenedor para acceder a un certificado que está instalado en los nodos de un clúster de Windows o Linux (versión 5.7 o superior). Este certificado debe instalarse en un almacén de certificados en LocalMachine en todos los nodos del clúster. La clave privada correspondiente al certificado debe estar disponible, ser accesible y, en Windows, exportable. La información del certificado se proporciona en el manifiesto de aplicación en la etiqueta `ContainerHostPolicies` como se muestra en el siguiente fragmento de código:
 
@@ -29,6 +33,8 @@ Para clústeres Linux, los certificados (PEM) se copian del almacén que especif
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PEM
 * Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey
+
+Tenga en cuenta que tanto el archivo `PEM` como el archivo `PrivateKey` contienen el certificado y la clave privada sin cifrar.
 
 Como alternativa, si ya tiene los certificados con el formato necesario y quiere poder acceder desde dentro del contenedor, puede crear un paquete de datos dentro del paquete de aplicación y especificar lo siguiente en el manifiesto de aplicación:
 

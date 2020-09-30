@@ -1,5 +1,5 @@
 ---
-title: Aumento de la resistencia
+title: Resistencia y alta disponibilidad
 titleSuffix: Azure Machine Learning
 description: Aprenda cómo hacer que los recursos relacionados con Azure Machine Learning sean más resistentes a las interrupciones mediante una configuración de alta disponibilidad.
 services: machine-learning
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 07/16/2020
-ms.openlocfilehash: 9b298e10d3eb95bcb0ef525eb973259a3ab1dbbb
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.date: 09/16/2020
+ms.openlocfilehash: 64665c0b1e32970f29233f5abdd6b2d2d020a6b2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852545"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897511"
 ---
 # <a name="increase-azure-machine-learning-resiliency"></a>Aumento de la resistencia Azure Machine Learning
 
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 En este artículo aprenderá cómo hacer que los recursos relacionados con Microsoft Azure Machine Learning sean más resistentes mediante configuraciones de alta disponibilidad. Puede configurar los servicios de Azure de los que depende Azure Machine Learning para tener una alta disponibilidad. En este artículo se identifican los servicios que se pueden configurar para alta disponibilidad y los vínculos a información adicional sobre la configuración de estos recursos.
 

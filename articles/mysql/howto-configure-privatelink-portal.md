@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 37c5a0fb1addf9f84c8a237b4d185d140553535e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1a99a91152f8308af122677ad3b8df3fb5005dbb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825980"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896172"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Creación y administración de Private Link para Azure Database for MySQL mediante el portal
 
@@ -134,7 +134,7 @@ En esta sección, creará una instancia de MySQL Server y le agregará un punto 
 
 2. En **Centro de vínculos privados: Información general**, en la opción**Build a private connection to a service** (Crear una conexión privada a un servicio), seleccione **Start** (Iniciar).
 
-    ![Información general de Private Link](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
+    :::image type="content" source="media/concepts-data-access-and-security-private-link/privatelink-overview.png" alt-text="Información general de Private Link":::
 
 1. En **Crear un punto de conexión privado - Aspectos básicos**, escriba o seleccione esta información:
 
@@ -178,7 +178,7 @@ En esta sección, creará una instancia de MySQL Server y le agregará un punto 
 1. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear**, donde Azure validará la configuración. 
 2. Cuando reciba el mensaje **Validación superada**, seleccione **Crear**. 
 
-    ![Private Link creado](media/concepts-data-access-and-security-private-link/show-mysql-private-link.png)
+    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-mysql-private-link.png" alt-text="Private Link creado":::
 
     > [!NOTE] 
     > El FQDN de la configuración de DNS del cliente no se resuelve en la dirección IP privada configurada. Tendrá que configurar una zona DNS para el FQDN configurado, como se muestra [aquí](../dns/dns-operations-recordsets-portal.md).

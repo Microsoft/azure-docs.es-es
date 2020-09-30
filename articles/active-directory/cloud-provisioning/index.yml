@@ -11,12 +11,12 @@ metadata:
   ms.subservice: na
   ms.topic: landing-page
   services: active-directory
-  ms.openlocfilehash: 83beffa0c0eb035c9cd5e30ec4644200b940dd6c
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 6176f42bd256ee8ebd65e573a96e760e116bb9c5
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77620902"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91266282"
 landingContent:
 - title: Acerca del aprovisionamiento en la nube
   linkLists:

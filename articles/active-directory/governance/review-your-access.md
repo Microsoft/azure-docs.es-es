@@ -15,12 +15,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33d946c47a17bb537c7644937547ad479b4637e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b52830e7cddb01c129df2344e26ac1684a88872
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85077923"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292731"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Revisión del acceso a los grupos o las aplicaciones en las revisiones de acceso de Azure AD
 
@@ -33,7 +33,7 @@ En este artículo se describe cómo revisar su propio acceso a un grupo o una ap
 El primer paso para realizar una revisión de acceso es buscar y abrir la revisión de acceso.
 
 >[!IMPORTANT]
-> Podría haber retrasos en la recepción del correo electrónico que, en algunos casos, podrían ser de hasta 24 horas. Incluya azure-noreply@microsoft.com en la lista blanca para asegurarse de recibir todos los correos electrónicos.
+> Podría haber retrasos en la recepción del correo electrónico que, en algunos casos, podrían ser de hasta 24 horas. Agregue azure-noreply@microsoft.com a la lista de destinatarios seguros para asegurarse de recibir todos los correos electrónicos.
 
 1. Busque un correo electrónico de Microsoft que le pide que revise el acceso. Este es un ejemplo de un correo electrónico para revisar su acceso a un grupo.
 
@@ -106,7 +106,7 @@ Puede probar la nueva experiencia con la interfaz de usuario actualizada de Mi a
 ### <a name="email"></a>Email
 
 >[!IMPORTANT]
-> Podría haber retrasos en la recepción del correo electrónico que, en algunos casos, podrían ser de hasta 24 horas. Incluya azure-noreply@microsoft.com en la lista blanca para asegurarse de recibir todos los correos electrónicos.
+> Podría haber retrasos en la recepción del correo electrónico que, en algunos casos, podrían ser de hasta 24 horas. Agregue azure-noreply@microsoft.com a la lista de destinatarios seguros para asegurarse de recibir todos los correos electrónicos.
 
 1. Busque un correo electrónico de Microsoft en el que se le pide que revise el acceso. Puede ver un mensaje de correo electrónico de ejemplo a continuación:
 

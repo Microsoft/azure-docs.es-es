@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: e73f53fe983c1ebe77044993a281847ad362a840
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 379cecf8e810b8689533d5c162e983b762fc76a4
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496780"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393588"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Línea de base de seguridad de Azure para Azure Database for MySQL
 
@@ -60,7 +60,7 @@ Habilitación y uso del Análisis de tráfico: https://docs.microsoft.com/azure/
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: Proteja las aplicaciones web críticas
 
-**Guía**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -547,9 +547,9 @@ Descripción de la protección de datos de los clientes en Azure: https://docs.m
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
-**Guía**: Use el control de acceso basado en rol de Azure (Azure RBAC) para controlar el acceso al plano de control de Azure Database for MySQL (por ejemplo, Azure Portal). Para el acceso al plano de datos (dentro de la base de datos), use consultas SQL para crear usuarios y configurar permisos de usuario. RBAC no afecta a los permisos de usuario de la base de datos.
+**Guía**: Use el control de acceso basado en rol de Azure (Azure RBAC) para controlar el acceso al plano de control de Azure Database for MySQL (por ejemplo, Azure Portal). Para el acceso al plano de datos (dentro de la base de datos), use consultas SQL para crear usuarios y configurar permisos de usuario. RBAC de Azure no afecta a los permisos de usuario de la base de datos.
 
-Cómo configurar RBAC en Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
+Configuración de Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
 Configuración del acceso de usuario con SQL para Azure Database for MySQL: https://docs.microsoft.com/azure/mysql/howto-create-users
 
@@ -736,7 +736,7 @@ Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
-**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
 - Tipos de recursos no permitidos
 
@@ -892,9 +892,11 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 Cómo integrar las identidades administradas de Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Cómo crear un almacén de claves: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Cómo crear un almacén de claves: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Cómo proporcionar la autenticación de Key Vault con una identidad administrada: https://docs.microsoft.com/azure/key-vault/managed-identity
+Autenticación en Azure Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Asignación de una directiva de acceso de Key Vault: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Supervisión de Azure Security Center**: Sí
 

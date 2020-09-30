@@ -3,22 +3,21 @@ title: 'Recepción de eventos mediante el host del procesador de eventos: Azure 
 description: En este artículo se describe el host del procesador de eventos de Azure Event Hubs, que simplifica la administración de los eventos de punto de comprobación, concesión y lectura en paralelo.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 41778425a0ec6ba1732c8e604dead2deb7c97f12
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a05f2172b266301919d0a800fb863b8f0dbe5884
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936187"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319509"
 ---
 # <a name="event-processor-host"></a>Host del procesador de eventos
 > [!NOTE]
-> Este artículo se aplica a la versión anterior del SDK de Azure Event Hubs. Para aprender a migrar el código a la versión más reciente del SDK, consulte estas guías de migración. 
+> Este artículo se aplica a la versión anterior del SDK de Azure Event Hubs. Para la versión actual del SDK, consulte también [Equilibrio de la carga de particiones entre varias instancias de la aplicación](event-processor-balance-partition-load.md). Para aprender a migrar el código a la versión más reciente del SDK, consulte estas guías de migración. 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md)
 > - [Script de Java](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md)
->
-> Consulte también [Equilibrio de la carga de particiones entre varias instancias de la aplicación](event-processor-balance-partition-load.md).
 
 Azure Event Hubs es un eficaz servicio de ingesta de telemetría que se puede usar para hacer streaming de millones de eventos a un bajo costo. En este artículo se describe cómo usar eventos ingeridos mediante el *host del procesador de eventos* (EPH), un agente de consumidor inteligente que simplifica la administración de la creación de puntos de comprobación, la concesión y los lectores de eventos paralelos.  
 
@@ -88,6 +87,8 @@ A continuación, cree una instancia de una instancia de [EventProcessorHost](/do
 
 Por último, los consumidores registran la instancia de [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) con el servicio Event Hubs. Al registrar una clase de procesador de eventos con una instancia de EventProcessorHost, se inicia el procesamiento de eventos. El proceso de registro indica al servicio Event Hubs que debe esperar que la aplicación del consumidor consuma eventos de algunas de sus particiones y que debe invocar el código de implementación de [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) siempre que envíe eventos para su consumo. 
 
+> [!NOTE]
+> consumerGroupName distingue mayúsculas de minúsculas.  Los cambios en consumerGroupName pueden dar lugar a la lectura de todas las particiones desde el inicio de la secuencia.
 
 ### <a name="example"></a>Ejemplo
 

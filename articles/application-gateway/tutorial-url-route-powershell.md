@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: fccc7281ed2978ccc63cd7b53a82c8a00b57d3c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37e76f54b9c4fe38c891f7cee7bc443d1b0b20f5
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805995"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89596080"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Redirigir el tráfico web en función de la dirección URL mediante Azure PowerShell
 
@@ -23,10 +23,9 @@ Para habilitar el enrutamiento de tráfico, se crean [reglas de enrutamiento](ap
 
 En este artículo aprenderá a:
 
-> [!div class="checklist"]
-> * Configuración de la red
-> * Crear agentes de escucha, asignaciones de rutas de dirección URL y reglas.
-> * Crear grupos de back-end escalables.
+* Configuración de la red
+* Crear agentes de escucha, asignaciones de rutas de dirección URL y reglas.
+* Crear grupos de back-end escalables.
 
 ![Ejemplo de enrutamiento de direcciones URL](./media/tutorial-url-route-powershell/scenario.png)
 

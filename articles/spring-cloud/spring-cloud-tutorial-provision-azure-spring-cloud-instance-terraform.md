@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 70a9d9f8b137f02e647d1ea0edddd409ec3cdaf3
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 4ef08ea03cab711901225cab227a0f5f84055d7a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079199"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906811"
 ---
 # <a name="tutorial-provision-an-azure-spring-cloud-instance-with-terraform"></a>Tutorial: Aprovisionamiento de una instancia de Azure Spring Cloud con Terraform
+
+**Este artículo se aplica a:** ✔️ Java ✔️ C#
 
 En este tutorial se crea una instancia de Azure Spring Cloud mediante Terraform. Los procedimientos le guiarán en la creación de los siguientes recursos:
 
@@ -94,7 +96,7 @@ En esta sección, se usan varios comandos de Terraform para ejecutar la configur
     terraform apply plan.out
     ```
 
-1. Para comprobar los resultados en Azure Portal, vaya al nuevo grupo de recursos. La nueva instancia de **Azure Cosmos DB** muestra el nuevo grupo de recursos.
+1. Para comprobar los resultados en Azure Portal, vaya al nuevo grupo de recursos. La nueva instancia de **Azure Spring Cloud** aparece en el nuevo grupo de recursos.
 
 ## <a name="update-configuration-to-config-logs-and-metrics"></a>Actualización de la configuración de los registros y métricas
 

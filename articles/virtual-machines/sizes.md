@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
-ms.openlocfilehash: 234156186d045e21cc01cc4b407408f98268c790
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: d9377ba22f1461762e53b1004dfe5f06c2d7b972
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065478"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420224"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Tamaños de las máquinas virtuales Linux en Azure
 
@@ -28,7 +28,7 @@ En este artículo se describen los tamaños y las opciones disponibles para Azur
 | [GPU](sizes-gpu.md) | NC, NCv2, NCv3, NCasT4_v3 (versión preliminar), ND, NDv2 (versión preliminar), NV, NVv3, NVv4 | Máquinas virtuales especializadas específicas para la representación de gráficos pesados y la edición de vídeo, así como para el entrenamiento e inferencia de modelos (ND) con aprendizaje profundo. Están disponibles con uno o varios GPU. |
 | [Proceso de alto rendimiento](sizes-hpc.md) | HB, HBv2, HC, H | Nuestras máquinas virtuales de CPU más rápidas y eficaces con interfaces de red de alto rendimiento opcionales (RDMA). |
 
-- Para más información sobre los precios de los diferentes tamaños, consulte las páginas de precios de [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) o [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows).
+- Para más información sobre los precios de los diferentes tamaños, consulte las páginas de precios de [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) o [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/Windows/#Windows).
 - Para ver la disponibilidad de los tamaños de máquina virtual en las regiones de Azure, consulte [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
 - Para ver los límites generales de las máquinas virtuales de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Para más información sobre cómo Azure asigna nombres a las máquinas virtuales, consulte [Convenciones de nomenclatura de los tamaños de las máquinas virtuales de Azure](./vm-naming-conventions.md).

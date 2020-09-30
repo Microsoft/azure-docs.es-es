@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 08/18/2020
+ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fab36a538cd9dfa17852c513974af062fa7a0ec2
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 2519baa01fa9d8a13dd2e7855f9da3ec7f9093f9
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89303989"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89570146"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>¿El usuario necesita disponer de una topología radial con los dispositivos SD-WAN/VPN para usar Azure Virtual WAN?
 
@@ -83,7 +83,7 @@ Hay dos opciones para agregar servidores DNS para los clientes de P2S. Se prefie
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>En el caso de la red privada virtual de usuario (de punto a sitio), ¿cuántos clientes se admiten?
 
-Cada puerta de enlace de red privada virtual de usuario P2S tiene dos instancias, y cada instancia admite hasta un número determinado de usuarios a medida que cambia la unidad de escalado. Las unidades de escalado de 1 a 3 admiten 500 conexiones, las unidades de escalado de 4 a 6 admiten 1000 conexiones, las unidades de escalado de 7 a 12 admiten 5000 conexiones y las unidades de escalado de 13 a 20 admiten hasta 10 000 conexiones. 
+Cada puerta de enlace de red privada virtual de usuario P2S tiene dos instancias, y cada instancia admite hasta un número determinado de usuarios a medida que cambia la unidad de escalado. La unidad de escalado 1-3 admite 500 conexiones, la unidad de escalado 4-6 admite 1000 conexiones, la unidad de escalado 7-12 admite 5000 conexiones y la unidad de escalado 13-18 admite hasta 10 000 conexiones. 
 
 Como ejemplo, supongamos que el usuario elige 1 unidad de escalado. Cada unidad de escalado implica una puerta de enlace activo-activo implementada, y cada una de las instancias (2, en este caso) admitiría hasta 500 conexiones. Dado que puede obtener 500 conexiones x 2 por puerta de enlace, no significa que tenga previstas 1000 en lugar de 500 para esta unidad de escalado. Es posible que se deban atender las instancias en que la conectividad de las 500 conexiones adicionales pueda sufrir interrupciones si supera el recuento de conexiones recomendado. Además, asegúrese de planear el tiempo de inactividad en caso de que decida escalar o reducir verticalmente en la unidad de escalado o cambiar la configuración de punto a sitio en VPN Gateway.
 

@@ -13,8 +13,6 @@
       href: deploy-service-catalog-quickstart.md
 - name: Tutoriales
   items:
-    - name: Publicación de la aplicación Marketplace
-      href: publish-marketplace-app.md
     - name: Creación de una aplicación administrada con el proveedor personalizado
       href: tutorial-create-managed-app-with-custom-provider.md
 - name: Ejemplos
@@ -41,6 +39,8 @@
           href: create-uidefinition-overview.md
         - name: Prueba de la interfaz del portal
           href: test-createuidefinition.md
+        - name: Creación de una oferta de aplicación de Azure
+          href: ../../marketplace/partner-center-portal/create-new-azure-apps-offer.md?toc=/azure/azure-resource-manager/managed-applications/toc.json
         - name: Solicitud de acceso Just-In-Time
           href: request-just-in-time-access.md
         - name: Uso de una red virtual existente

@@ -3,12 +3,12 @@ title: Uso de PowerShell para hacer copias de seguridad de cargas de trabajo de 
 description: Obtenga información acerca de cómo implementar y administrar Azure Backup para Data Protection Manager (DPM) mediante PowerShell
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 91fd8559b1561ae83967c7fc74a2390ce2460c95
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 4f0364ef218d346149191e168540eed4827001de
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892327"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182469"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implementación y administración de copias de seguridad en Azure para servidores de Data Protection Manager (DPM) con PowerShell
 
@@ -232,10 +232,10 @@ Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSett
 
 ## <a name="protect-data-to-azure-backup"></a>Proteger los datos en Azure Backup
 
-En esta sección, agregará un servidor de producción a DPM y, a continuación, protegerá los datos en el almacenamiento de DPM local y, a continuación, en Azure Backup. En los ejemplos, se mostrará cómo realizar copias de seguridad de archivos y carpetas. La lógica se puede ampliar fácilmente para efectuar una copia de seguridad de cualquier origen de datos compatible con DPM. Las copias de seguridad de DPM se rigen por un grupo de protección (PG) con cuatro partes:
+En esta sección, agregará un servidor de producción a DPM y, a continuación, protegerá los datos en el almacenamiento de DPM local y luego en Azure Backup. En los ejemplos, se mostrará cómo realizar copias de seguridad de archivos y carpetas. La lógica se puede ampliar fácilmente para efectuar una copia de seguridad de cualquier origen de datos compatible con DPM. Las copias de seguridad de DPM se rigen por un grupo de protección (PG) con cuatro partes:
 
 1. **Miembros del grupo** es una lista de todos los objetos que se pueden proteger (también conocidos como *Orígenes de datos* en DPM) que desea proteger en el mismo grupo de protección. Por ejemplo, puede proteger las máquinas virtuales de producción en un grupo de protección y las bases de datos de SQL Server en otro grupo de protección, ya que pueden tener distintos requisitos de copia de seguridad. Antes de que puedan realizar una copia de seguridad de cualquier origen de datos en un servidor de producción, deberá asegurarse de que el agente de DPM esté instalado en el servidor y administrado por DPM. Siga los pasos para [instalar el agente de DPM](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) y vincularlo al servidor DPM apropiado.
-2. **Método de protección de datos** especifica las ubicaciones de copia de seguridad de destino: cinta, disco y nube. En nuestro ejemplo se protegerán los datos en el disco local y en la nube.
+2. **Método de protección de datos** especifica las ubicaciones de copia de seguridad de destino: cinta, disco y nube. En nuestro ejemplo, se protegerán los datos en el disco local y en la nube.
 3. Una **programación de copia de seguridad** que especifica cuándo deben realizarse copias de seguridad y la frecuencia con la que se deben sincronizar los datos entre el servidor DPM y el servidor de producción.
 4. Una **programación de retención** que especifica cuánto tiempo se conservarán los puntos de recuperación en Azure.
 

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: a30af0c8bef47a37fe3439e885d3895a2c826225
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ce3843752ebd6ed56281f6699783181b52fdc6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768476"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903878"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Recomendaciones de rendimiento en Azure Database for PostgreSQL con un único servidor
 
@@ -27,13 +27,13 @@ La característica [Recomendaciones de rendimiento](concepts-performance-recomme
 
 Abra **Recomendaciones de rendimiento** desde la sección **Rendimiento inteligente** de la barra de menús en la página de Azure Portal para el servidor PostgreSQL.
 
-![Página de inicio de Recomendaciones de rendimiento](./media/concepts-performance-recommendations/performance-recommendations-page.png)
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-page.png" alt-text="Página de inicio de Recomendaciones de rendimiento":::
 
 Seleccione **Analizar** y elija una base de datos, lo que iniciará el análisis. Según la carga de trabajo, el análisis puede tardar varios minutos. Una vez que se realice el análisis, habrá una notificación en el portal. El análisis realiza un examen en profundidad de la base de datos. Se recomienda realizar el análisis durante los períodos de poca actividad. 
 
 La ventana **Recomendaciones** mostrará una lista de recomendaciones, si se ha detectado alguna.
 
-![Nueva página Recomendaciones de rendimiento](./media/concepts-performance-recommendations/performance-recommendations-result.png)
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Nueva página de Recomendaciones de rendimiento":::
 
 Las recomendaciones no se aplican automáticamente. Para aplicar la recomendación, copie el texto de la consulta y ejecútelo desde el cliente que prefiera. No olvide probar y supervisar para evaluar la recomendación. 
 

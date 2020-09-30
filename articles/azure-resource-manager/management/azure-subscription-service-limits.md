@@ -3,12 +3,12 @@ title: Límites y cuotas de suscripción de Azure
 description: Se proporciona una lista de límites, cuotas y restricciones de suscripción y servicio comunes de Azure. Este artículo incluye información acerca de cómo aumentar los límites junto con los valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 87018f58a59c34c5027ca63102e4c5ca841e652b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: fcbca4a1e3152dfa36d71031c2f69e8a40125380
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376235"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971014"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 
@@ -26,6 +26,9 @@ Consulte [Precios de Azure](https://azure.microsoft.com/pricing/) para más info
 > Cuando se puede ajustar el límite, las tablas incluyen encabezados de **Límite predeterminado** y **Límite máximo**. El límite se puede aumentar por encima del límite predeterminado, pero no por encima del límite máximo.
 >
 > Si desea aumentar el límite o la cuota por encima del límite predeterminado, [abra una solicitud de soporte técnico al cliente en línea sin cargo alguno](../templates/error-resource-quota.md).
+>
+> Los términos *límite flexible* y *límite máximo* se usan a menudo de manera informal para describir el límite ajustable (límite flexible) y el límite máximo actuales. Si un límite no es ajustable, no hay un límite flexible, solo un límite máximo.
+>
 
 Las [suscripciones de evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) no son aptas para aumentar el límite ni la cuota. Si tiene una [suscripción de evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), puede actualizar a una suscripción de [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/). Para más información, consulte [Actualización de la suscripción de evaluación gratuita de Azure a pago por uso](../../cost-management-billing/manage/upgrade-azure-subscription.md) y [Preguntas más frecuentes sobre la cuenta gratuita de Azure](https://azure.microsoft.com/free/free-account-faq).
 
@@ -74,6 +77,10 @@ Entre los siguientes límites de App Service se incluyen límites para Web Apps,
 ## <a name="automation-limits"></a>Límites de Automation
 
 [!INCLUDE [automation-limits](../../../includes/azure-automation-service-limits.md)]
+
+## <a name="azure-app-configuration"></a>Azure App Configuration
+
+[!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
 
 ## <a name="azure-cache-for-redis-limits"></a>Límites de Azure Cache for Redis
 
@@ -232,10 +239,6 @@ En la tabla siguiente se detallan las características y los límites de los [ni
 
 [!INCLUDE [azure-servicebus-limits](../../../includes/event-hubs-limits.md)]
 
-## <a name="identity-manager-limits"></a>Límites de Identity Manager
-
-[!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
-
 ## <a name="iot-central-limits"></a>Límites de IoT Central
 [!INCLUDE [iot-central-limits](../../../includes/iot-central-limits.md)]
 
@@ -250,6 +253,11 @@ En la tabla siguiente se detallan las características y los límites de los [ni
 ## <a name="key-vault-limits"></a>Límites de Key Vault
 
 [!INCLUDE [key-vault-limits](../../../includes/key-vault-limits.md)]
+
+## <a name="managed-identity-limits"></a>Límites de identidad administrada
+
+[!INCLUDE [Managed-Identity-Limits](../../../includes/managed-identity-limits.md)]
+
 
 ## <a name="media-services-limits"></a>Límites de Media Services
 

@@ -1,23 +1,23 @@
 ---
 title: Definiciones de directivas integradas para servidores habilitados para Azure Arc
 description: Aquí se enumeran las definiciones de directivas integradas de Azure Policy para servidores habilitados para Azure Arc (versión preliminar). Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar los recursos de Azure.
-ms.date: 07/10/2020
+ms.date: 09/16/2020
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 30084ca78a5b592bd2efb27e8b8f9af2fd40720c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 792532c407687a84a4e90c34fd7d1c69ba0fcedd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89301022"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967365"
 ---
-# <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-servers-preview"></a>Definiciones de directivas integradas de Azure Policy para servidores habilitados para Azure Arc (versión preliminar)
+# <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-servers"></a>Definiciones de directivas integradas de Azure Policy para servidores habilitados para Azure Arc
 
-Esta página es un índice de las definiciones de directivas integradas de [Azure Policy](../../governance/policy/overview.md) para servidores habilitados para Azure Arc (versión preliminar). Puede encontrar elementos integrados adicionales de Azure Policy para otros servicios en [Definiciones de elementos integrados de Azure Policy](../../governance/policy/samples/built-in-policies.md).
+Esta página es un índice de las definiciones de directivas integradas de [Azure Policy](../../governance/policy/overview.md) para servidores habilitados para Azure Arc. Puede encontrar elementos integrados adicionales de Azure Policy para otros servicios en [Definiciones de elementos integrados de Azure Policy](../../governance/policy/samples/built-in-policies.md).
 
 El nombre de cada definición de directiva integrada se vincula a la definición de directiva en Azure Portal. Use el vínculo de la columna **Versión** para ver el origen en el [repositorio de GitHub de Azure Policy](https://github.com/Azure/azure-policy).
 
-## <a name="azure-arc-enabled-servers-preview"></a>Servidores habilitados para Azure Arc (versión preliminar)
+## <a name="azure-arc-enabled-servers"></a>Servidores habilitados para Azure Arc
 
 [!INCLUDE [azure-policy-reference-rp-arcserver](../../../includes/policy/reference/byrp/microsoft.hybridcompute.md)]
 

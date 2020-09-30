@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 8/20/2020
 ms.subservice: alerts
-ms.openlocfilehash: 05586f95de03b09b95eb589812935970126b12f2
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 8a608e43ef41abfb7002811df5629eb789c3ae22
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661323"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595587"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos compatibles para las alertas de métricas de Azure Monitor
 
@@ -112,7 +112,7 @@ Esta es la lista completa de los orígenes de métricas de Azure Monitor que se 
 |Microsoft.Web/sites | Sí | No | [App Services](./metrics-supported.md#microsoftwebsites-excluding-functions) y [Functions](./metrics-supported.md#microsoftwebsites-functions)|
 |Microsoft.Web/sites/slots | Sí | No | [Ranuras de App Service](./metrics-supported.md#microsoftwebsitesslots)|
 
-<sup>1</sup> Compatible solo con las métricas de plataforma (no con métricas personalizadas)
+<sup>1</sup> No se admite con las métricas de red de máquinas virtuales (Entrada de red total, Salida de red total, Flujos de entrada, Flujos de salida, Velocidad máxima de creación de flujos entrantes, Velocidad máxima de creación de flujos salientes) ni con las métricas personalizadas.
 
 ## <a name="payload-schema"></a>Esquema de carga
 

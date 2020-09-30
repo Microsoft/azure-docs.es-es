@@ -3,7 +3,7 @@ title: Funcionamiento de las identidades administradas para recursos de Azure co
 description: Descripción del funcionamiento de las identidades administradas para recursos de Azure con las máquinas virtuales de Azure.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
@@ -13,14 +13,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 06/11/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b61fd2f9bc36743754a43b05629a798f0305d4e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b93f45b05e6d7773afc2f750fd1a9a034c01ca1e
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609216"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178678"
 ---
 # <a name="how-managed-identities-for-azure-resources-work-with-azure-virtual-machines"></a>Funcionamiento de las identidades administradas para recursos de Azure con las máquinas virtuales de Azure
 
@@ -55,7 +55,7 @@ En el diagrama siguiente se muestra cómo funcionan las identidades de servicio 
 
 3. Azure Resource Manager configura la identidad de la máquina virtual mediante la actualización del punto de conexión de identidad de Azure Instance Metadata Service con el identificador de cliente y el certificado de la entidad de servicio.
 
-4. Ahora que la máquina virtual tiene una identidad, se usa la información de la entidad de servicio para conceder a la máquina virtual acceso a los recursos de Azure. Para llamar a Azure Resource Manager, use el control de acceso basado en rol (RBAC) de Azure AD para asignar el rol apropiado a la entidad de servicio de la máquina virtual. Para llamar a Key Vault, conceda a su código acceso al secreto o a la clave específicos en Key Vault.
+4. Ahora que la máquina virtual tiene una identidad, se usa la información de la entidad de servicio para conceder a la máquina virtual acceso a los recursos de Azure. Para llamar a Azure Resource Manager, use el control de acceso basado en rol (Azure RBAC) para asignar el rol apropiado a la entidad de servicio de la máquina virtual. Para llamar a Key Vault, conceda a su código acceso al secreto o a la clave específicos en Key Vault.
 
 5. El código que se ejecuta en la máquina virtual puede solicitar un token del punto de conexión de Azure Instance Metadata Service, accesible únicamente desde dentro de la máquina virtual: `http://169.254.169.254/metadata/identity/oauth2/token`
     - El parámetro del recurso especifica el servicio al que se va a enviar el token. Para autenticarse en Azure Resource Manager, use `resource=https://management.azure.com/`.
@@ -73,7 +73,7 @@ En el diagrama siguiente se muestra cómo funcionan las identidades de servicio 
 
 3. Azure Resource Manager recibe una solicitud para configurar la identidad administrada asignada por el usuario en una máquina virtual y actualiza el punto de conexión de identidad de Azure Instance Metadata Service con el identificador de cliente y el certificado de la entidad de servicio de la identidad administrada asignada por el usuario.
 
-4. Una vez que se ha creado la identidad administrada asignada por el usuario, se usa la información de la entidad de servicio para conceder a la identidad acceso a los recursos de Azure. Para llamar a Azure Resource Manager, use el control de acceso basado en rol (RBAC) de Azure AD para asignar el rol apropiado a la entidad de servicio de la identidad asignada por el usuario. Para llamar a Key Vault, conceda a su código acceso al secreto o a la clave específicos en Key Vault.
+4. Una vez que se ha creado la identidad administrada asignada por el usuario, se usa la información de la entidad de servicio para conceder a la identidad acceso a los recursos de Azure. Para llamar a Azure Resource Manager, use Azure RBAC para asignar el rol apropiado a la entidad de servicio de la identidad asignada por el usuario. Para llamar a Key Vault, conceda a su código acceso al secreto o a la clave específicos en Key Vault.
 
    > [!Note]
    > También puede realizar este paso antes del paso 3.

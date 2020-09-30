@@ -7,20 +7,20 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley
-ms.date: 12/27/2019
+ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: e1f97fddb07e56946e37c04d9b9685412782c560
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 38784b006acac4c3ff70b2aa3c38648e939eddeb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88659762"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889923"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Creación y administración de áreas de trabajo de Azure Machine Learning en Azure Portal
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este artículo creará, verá y eliminará [**áreas de trabajo de Azure Machine Learning**](concept-workspace.md) en Azure Portal para [Azure Machine Learning](overview-what-is-azure-ml.md).  El portal es la forma más sencilla de empezar a trabajar con áreas de trabajo, pero a medida que cambian las necesidades o aumentan los requisitos de automatización, también puede crear y eliminar áreas de trabajo [mediante la CLI](reference-azure-machine-learning-cli.md), [con código de Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) o [a través de la extensión de VS Code](tutorial-setup-vscode-extension.md).
+
+En este artículo creará, verá y eliminará [**áreas de trabajo de Azure Machine Learning**](concept-workspace.md) en Azure Portal para [Azure Machine Learning](overview-what-is-azure-ml.md).  El portal es la forma más sencilla de empezar a trabajar con áreas de trabajo, pero a medida que cambian las necesidades o aumentan los requisitos de automatización, también puede crear y eliminar áreas de trabajo [mediante la CLI](reference-azure-machine-learning-cli.md), [con código de Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) o [a través de la extensión de VS Code](tutorial-setup-vscode-extension.md).
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
 
@@ -47,7 +47,6 @@ Para crear un área de trabajo, necesita una suscripción de Azure. Si no tiene 
    Resource group | Use un grupo de recursos existente en su suscripción o escriba un nombre para crear un nuevo grupo de recursos. Un grupo de recursos almacena los recursos relacionados con una solución de Azure. En este ejemplo, se usa **docs-aml**. Necesita el rol *colaborador* o *propietario* para usar un grupo de recursos existente.  Para obtener más información sobre el acceso, consulte [Administración del acceso a un área de trabajo de Azure Machine Learning](how-to-assign-roles.md).
    Location | Seleccione la ubicación más cercana a los usuarios y los recursos de datos para crear el área de trabajo.
    Location | Seleccione la ubicación más cercana a los usuarios y los recursos de datos para crear el área de trabajo.
-   Edición del área de trabajo | Seleccione **Basic** o **Enterprise**.  Esta edición del área de trabajo determina las características a las que tendrá acceso y los precios. Más información sobre las [ofertas de las ediciones Basic y Enterprise](overview-what-is-azure-ml.md#sku). 
 
     ![Configuración de un área de trabajo](./media/how-to-manage-workspace/select-edition.png)
 
@@ -70,25 +69,6 @@ Para crear un área de trabajo, necesita una suscripción de Azure. Si no tiene 
    ![Descargar config.json](./media/how-to-manage-workspace/configure.png)
    
    Coloque el archivo en la estructura de directorios que contiene los scripts de Python o las instancias de Jupyter Notebook. Puede estar en el mismo directorio, en un subdirectorio denominado *.azureml* o en un directorio principal. Al crear una instancia de proceso, este archivo se agrega automáticamente al directorio correcto de la máquina virtual.
-
-## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a>Actualización a la edición Enterprise
-
-Puede actualizar el área de trabajo de la edición Basic a la edición Enterprise para aprovechar las ventajas de las características mejoradas, como experiencias de poco código y características de seguridad mejoradas.
-
-1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com).
-
-1. Seleccione el área de trabajo que desea actualizar.
-
-1. Seleccione **Más información** en la parte superior derecha de la página.
-
-   [ ![Actualización de un área de trabajo](./media/how-to-manage-workspace/upgrade.png) ](./media/how-to-manage-workspace/upgrade.png#lightbox)
-
-1. Seleccione **Actualizar** en la ventana que aparece.
-
-
-> [!IMPORTANT]
-> No se puede rebajar un área de trabajo de la edición Enterprise a un área de trabajo de la edición Basic. 
-
 ## <a name="find-a-workspace"></a><a name="view"></a>Buscar un área de trabajo
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).

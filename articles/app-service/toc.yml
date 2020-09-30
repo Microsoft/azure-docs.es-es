@@ -27,6 +27,8 @@
       href: quickstart-ruby.md
     - name: Sitio HTML estático
       href: quickstart-html.md
+    - name: Plantilla ARM
+      href: quickstart-arm-template.md
     - name: Contenedor personalizado
       href: quickstart-custom-container.md
     - name: Aplicación de varios contenedores
@@ -144,7 +146,7 @@
           href: configure-language-java.md
         - name: Configuración de Ruby
           href: configure-language-ruby.md
-        - name: Configuración de un contenedor Linux personalizado
+        - name: Configuración de contenedor personalizado
           href: configure-custom-container.md
         - name: Conexión a recursos locales
           href: web-sites-integrate-with-vnet.md

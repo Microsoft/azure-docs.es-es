@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: c899d14b6e0eea8135b996aadfe2a7388a8fcb89
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 4a6f09fdff82b8e86c7fe75018c5267dba3c1b4a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88860521"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892984"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Paridad de nube soberana de Azure Machine Learning
 
@@ -49,9 +49,9 @@ Nos esforzamos por proporcionar la máxima paridad entre nuestra nube pública y
 | Creación de puntos de conexión de canalización con el SDK de Azure Machine Learning                           | Disponibilidad general                   | SÍ                | SÍ         |
 | Creación, edición y eliminación de ejecuciones programadas de canalizaciones con el SDK de Azure Machine Learning | Disponibilidad general                   | SÍ*               | SÍ*        |
 | Visualización de los detalles de la ejecución de la canalización en Studio                                        | Disponibilidad general                   | SÍ                | SÍ         |
-| Creación, ejecución, visualización y publicación de canalizaciones en el diseñador de Azure Machine Learning          | Vista previa pública       | SÍ                | SÍ         |
+| Creación, ejecución, visualización y publicación de canalizaciones en el diseñador de Azure Machine Learning          | Disponibilidad general      | SÍ                | SÍ         |
 | Integración de Azure Databricks con canalización de Machine Learning                             | Disponibilidad general                   | No                 | No          |
-| Creación de puntos de conexión de canalización en el diseñador de Azure Machine Learning                             | Vista previa pública       | SÍ                | SÍ         |
+| Creación de puntos de conexión de canalización en el diseñador de Azure Machine Learning                             | Disponibilidad general      | SÍ                | SÍ         |
 | **Cuadernos integrados** |   |  | | 
 | Uso compartido de archivos y cuadernos del área de trabajo                                        | Disponibilidad general                   | SÍ                | SÍ         |
 | Compatibilidad con R y Python                                                       | Disponibilidad general                   | SÍ                | SÍ         |
@@ -136,7 +136,7 @@ Nos esforzamos por proporcionar la máxima paridad entre nuestra nube pública y
 * En el caso de instancias de proceso de Azure Machine Learning, la capacidad de actualizar un token que dura más de 24 horas no está disponible en Azure Government.
 * La generación de perfiles de modelos no admite 4 CPU en la región EE.UU.: Arizona.   
 * Es posible que los cuadernos de ejemplo no funcionen en Azure Government si necesitan tener acceso a datos públicos.
-* Direcciones IP: El comando de la CLI que se usa en las instrucciones de [red virtual y tunelización forzada](how-to-enable-virtual-network.md#forced-tunneling) no devuelve intervalos IP. Use los [intervalos IP y las etiquetas de servicio de Azure para Azure Government](https://www.microsoft.com/download/details.aspx?id=57063) en su lugar.
+* Direcciones IP: El comando de la CLI que se usa en las instrucciones de [red virtual y tunelización forzada](how-to-secure-training-vnet.md#forced-tunneling) no devuelve intervalos IP. Use los [intervalos IP y las etiquetas de servicio de Azure para Azure Government](https://www.microsoft.com/download/details.aspx?id=57063) en su lugar.
 * En el caso de las canalizaciones programadas, también proporcionamos un mecanismo de desencadenador basado en blobs. Este mecanismo no es compatible con las áreas de trabajo de CMK. Para habilitar un desencadenador basado en blobs para áreas de trabajo de CMK, tiene que realizar una configuración adicional. Para más información, consulte [Desencadenamiento de una ejecución de una canalización de Machine Learning desde una aplicación lógica](how-to-trigger-published-pipeline.md).
 * Firewalls: Cuando use una región Azure Government, agregue los siguientes hosts adicionales a la configuración del firewall:
 
@@ -162,9 +162,9 @@ Nos esforzamos por proporcionar la máxima paridad entre nuestra nube pública y
 | Creación de puntos de conexión de canalización con el SDK de Azure Machine Learning                           | Disponibilidad general               | SÍ       | N/D        |
 | Creación, edición y eliminación de ejecuciones programadas de canalizaciones con el SDK de Azure Machine Learning | Disponibilidad general               | SÍ       | N/D        |
 | Visualización de los detalles de la ejecución de la canalización en Studio                                        | Disponibilidad general               | SÍ       | N/D        |
-| Creación, ejecución, visualización y publicación de canalizaciones en el diseñador de Azure Machine Learning          | Vista previa pública   | SÍ       | N/D        |
+| Creación, ejecución, visualización y publicación de canalizaciones en el diseñador de Azure Machine Learning          | Disponibilidad general  | SÍ       | N/D        |
 | Integración de Azure Databricks con canalización de Machine Learning                             | Disponibilidad general               | No        | N/D        |
-| Creación de puntos de conexión de canalización en el diseñador de Azure Machine Learning                             | Vista previa pública   | SÍ       | N/D        |
+| Creación de puntos de conexión de canalización en el diseñador de Azure Machine Learning                             | Disponibilidad general   | SÍ       | N/D        |
 | **Cuadernos integrados** |   | | |
 | Uso compartido de archivos y cuadernos del área de trabajo                                        | Disponibilidad general               | SÍ       | N/D        |
 | Compatibilidad con R y Python                                                       | Disponibilidad general               | SÍ       | N/D        |
@@ -236,7 +236,7 @@ Nos esforzamos por proporcionar la máxima paridad entre nuestra nube pública y
     | Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
 
 * Es posible que los cuadernos de ejemplo no funcionen, si necesitan tener acceso a datos públicos.
-* Intervalos de direcciones IP: El comando de la CLI que se usa en las instrucciones de [tunelización forzada de red virtual](how-to-enable-virtual-network.md#forced-tunneling) no devuelve intervalos IP. Use los [intervalos IP y las etiquetas de servicio de Azure para Azure China](https://www.microsoft.com//download/details.aspx?id=57062) en su lugar.
+* Intervalos de direcciones IP: El comando de la CLI que se usa en las instrucciones de [tunelización forzada de red virtual](how-to-secure-training-vnet.md#forced-tunneling) no devuelve intervalos IP. Use los [intervalos IP y las etiquetas de servicio de Azure para Azure China](https://www.microsoft.com//download/details.aspx?id=57062) en su lugar.
 * No se admite la versión preliminar de las instancias de proceso de Azure Machine Learning en un área de trabajo en la que Private Link está habilitado, pero se admitirá CI en la siguiente implementación de la expansión del servicio a todas las regiones AML.
 
 ## <a name="next-steps"></a>Pasos siguientes

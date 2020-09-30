@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: e7be96fcab0807ac8c6500c3b360f9380b4d2b28
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e6236d9ed5ed75b6b5e10914e668de545c48fc2c
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824957"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055641"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta del grafo gemelo de Azure Digital Twins
 
@@ -24,9 +24,21 @@ En el resto de este artículo se proporcionan ejemplos de cómo usar estas opera
 
 ## <a name="query-syntax"></a>Sintaxis de consulta
 
-Esta sección incluye consultas de ejemplo que muestran la estructura del lenguaje de consulta y realizan las operaciones de consulta posibles.
+Esta sección incluye consultas de ejemplo que muestran la estructura del lenguaje de consulta y realizan las operaciones de consulta posibles en [Digital Twins](concepts-twins-graph.md).
 
-Obtención de [Digital Twins](concepts-twins-graph.md) por propiedades (incluidos el identificador y los metadatos):
+### <a name="select-top-items"></a>Selección de los elementos principales
+
+Puede seleccionar los diversos elementos "principales" en una consulta mediante la cláusula `Select TOP`.
+
+```sql
+SELECT TOP (5)
+FROM DIGITALTWINS
+WHERE ...
+```
+
+### <a name="query-by-property"></a>Consulta por propiedad
+
+Obtenga instancias de Digital Twins por **propiedades** (incluidos el identificador y los metadatos):
 ```sql
 SELECT  * 
 FROM DigitalTwins T  
@@ -38,24 +50,29 @@ AND T.Temperature = 70
 > [!TIP]
 > El identificador de un gemelo digital se consulta con el campo de metadatos `$dtId`.
 
-También puede obtener gemelos por sus propiedades de *etiqueta*, como se describe en [Incorporación de etiquetas a gemelos digitales](how-to-use-tags.md):
+También puede obtener instancias de Digital Twins en función de **si una propiedad determinada está definida**. Esta es una consulta que obtiene instancias de Digital Twins que tienen una propiedad *Location* definida:
+
+```sql
+SELECT *
+FROM DIGITALTWINS WHERE IS_DEFINED(Location)
+```
+
+Esto le puede ayudar a obtener instancias de Digital Twins por sus propiedades de *etiqueta*, como se describe en [Incorporación de etiquetas a gemelos digitales](how-to-use-tags.md). Esta es una consulta que obtiene todas las instancias de Digital Twins etiquetadas con *red*:
+
 ```sql
 select * from digitaltwins where is_defined(tags.red) 
 ```
 
-### <a name="select-top-items"></a>Selección de los elementos principales
-
-Puede seleccionar los diversos elementos "principales" en una consulta mediante la cláusula `Select TOP`.
+También puede obtener instancias de Digital Twins en función del **tipo de una propiedad**. Esta es una consulta que obtiene instancias de Digital Twins cuya propiedad *Temperature* es un número:
 
 ```sql
-SELECT TOP (5)
-FROM DIGITALTWINS
-WHERE property = 42
+SELECT * FROM DIGITALTWINS T
+WHERE IS_NUMBER(T.Temperature)
 ```
 
 ### <a name="query-by-model"></a>Consulta por modelo
 
-El operador `IS_OF_MODEL` se puede utilizar para filtrar en función del [modelo](concepts-models.md) del gemelo. Admite la herencia y tiene varias opciones de sobrecarga.
+El operador `IS_OF_MODEL` se puede usar para filtrar en función del [**modelo**](concepts-models.md) de la instancia de Digital Twins. Admite la herencia y tiene varias opciones de sobrecarga.
 
 El uso más simple de `IS_OF_MODEL` solo toma un parámetro `twinTypeName`: `IS_OF_MODEL(twinTypeName)`.
 A continuación, se muestra un ejemplo de consulta que pasa un valor en este parámetro:
@@ -87,7 +104,7 @@ SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', ex
 
 ### <a name="query-based-on-relationships"></a>Consulta basada en relaciones
 
-Al realizar consultas basadas en relaciones de Digital Twins, el lenguaje de consultas de Azure Digital Twins tiene una sintaxis especial.
+Al realizar consultas basadas en **relaciones** de Digital Twins, el lenguaje de consultas de Azure Digital Twins tiene una sintaxis especial.
 
 Las relaciones se extraen en el ámbito de la consulta en la cláusula `FROM`. Una diferencia importante de los lenguajes de tipo SQL "clásico" es que cada expresión de esta cláusula `FROM` no es una tabla; en su lugar, la cláusula `FROM` expresa un recorrido de relación entre entidades y se escribe con una versión de Azure Digital Twins de `JOIN`. 
 
@@ -117,7 +134,8 @@ WHERE T.$dtId = 'ABC'
 
 #### <a name="query-the-properties-of-a-relationship"></a>Consulta de las propiedades de una relación
 
-Del mismo modo que los gemelos digitales tienen propiedades que se describen a través de DTDL, las relaciones también pueden tener propiedades. El lenguaje de consultas de Azure Digital Twins permite filtrar y proyectar relaciones mediante la asignación de un alias a la relación dentro de la cláusula `JOIN`. 
+Del mismo modo que los gemelos digitales tienen propiedades que se describen a través de DTDL, las relaciones también pueden tener propiedades. Puede consultar instancias de Digital Twins **en función de las propiedades de sus relaciones**.
+El lenguaje de consultas de Azure Digital Twins permite filtrar y proyectar relaciones mediante la asignación de un alias a la relación dentro de la cláusula `JOIN`. 
 
 Como ejemplo, considere una relación *servicedBy* que tiene una propiedad *reportedCondition*. En la consulta siguiente, a esta relación se le asigna el alias "R" para hacer referencia a su propiedad.
 
@@ -142,10 +160,20 @@ SELECT LightBulb
 FROM DIGITALTWINS Room 
 JOIN LightPanel RELATED Room.contains 
 JOIN LightBulb RELATED LightPanel.contains 
-WHERE IS_OF_MODEL(LightPanel, ‘dtmi:contoso:com:lightpanel;1’) 
-AND IS_OF_MODEL(LightBulb, ‘dtmi:contoso:com:lightbulb ;1’) 
-AND Room.$dtId IN [‘room1’, ‘room2’] 
+WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1') 
+AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1') 
+AND Room.$dtId IN ['room1', 'room2'] 
 ```
+
+### <a name="other-compound-query-examples"></a>Otros ejemplos de consultas compuestas
+
+Puede **combinar** cualquiera de los tipos de consulta anteriores mediante operadores de combinación con el fin de incluir más detalles en una sola consulta. A continuación se muestran algunos ejemplos adicionales de consultas compuestas que realizan consultas para más de un tipo de descriptor de instancia de Digital Twins a la vez.
+
+| Descripción | Consultar |
+| --- | --- |
+| De entre los dispositivos que tiene *Room 123*, se devuelven los dispositivos MxChip que tienen el rol de operador. | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
+| Se obtienen las instancias de Digital Twins que tienen una relación denominada *Contains* con otra instancia que tiene un identificador *id1* | `SELECT Room`<br>`FROM DIGITIALTWINS Room`<br>`JOIN Thermostat ON Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |
+| Se obtienen todas las salas de este modelo de sala contenidos en *floor11* | `SELECT Room`<br>`FROM DIGITALTWINS Floor`<br>`JOIN Room RELATED Floor.Contains`<br>`WHERE Floor.$dtId = 'floor11'`<br>`AND IS_OF_MODEL(Room, 'dtmi:contosocom:DigitalTwins:Room;1')` |
 
 ## <a name="run-queries-with-an-api-call"></a>Ejecución de consultas con una llamada a la API
 

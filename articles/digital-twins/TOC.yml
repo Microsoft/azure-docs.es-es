@@ -1,4 +1,4 @@
-- name: Azure Digital Twins
+- name: Documentación de Azure Digital Twins
   href: index.yml
 - name: Información general
   items:
@@ -7,6 +7,7 @@
     - name: Diferencias con respecto a la versión anterior
       href: overview-differences.md
 - name: Inicio rápido
+  expanded: true
   items:
     - name: Exploración de un escenario de ejemplo
       href: quickstart-adt-explorer.md
@@ -158,6 +159,12 @@
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview'
             - name: "SDK de .NET\_(C#): origen"
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
+            - name: 'SDK de JavaScript: npm'
+              href: 'https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1'
+            - name: 'SDK de JavaScript: referencia'
+              href: 'https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true'
+            - name: 'SDK de Java: Maven'
+              href: 'https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar'
     - name: CLI de Digital Twins
       items:
         - name: Referencia de la CLI de Digital Twins
@@ -218,31 +225,3 @@
           href: 'https://azure.microsoft.com/pricing/details/digital-twins'
         - name: Regiones y disponibilidad
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'
-- name: Temas relacionados
-  items:
-    - name: Soluciones
-      items:
-        - name: Aceleradores de soluciones de IoT
-          href: /azure/iot-suite
-        - name: IoT Central
-          href: /azure/iot-central/core/overview-iot-central
-    - name: Servicios de plataforma
-      items:
-        - name: IoT Hub
-          href: /azure/iot-hub
-        - name: IoT Plug and Play
-          href: /azure/iot-pnp
-        - name: IoT Hub Device Provisioning Service
-          href: /azure/iot-dps
-        - name: Mapas
-          href: /azure/azure-maps
-        - name: SDK de servicio
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: Soluciones de Edge
-      items:
-        - name: IoT Edge
-          href: /azure/iot-edge
-        - name: SDK de dispositivo IoT
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks

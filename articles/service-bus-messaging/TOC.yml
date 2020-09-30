@@ -15,7 +15,7 @@
       items:
         - name: Creación de una cola de Service Bus
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -42,7 +42,7 @@
       items:
         - name: Creación de temas y suscripciones
           items:
-            - name: Portal de Azure
+            - name: Azure Portal
               href: service-bus-quickstart-topics-subscriptions-portal.md
             - name: Azure CLI
               href: service-bus-tutorial-topics-subscriptions-cli.md
@@ -90,6 +90,8 @@
       href: service-bus-throttling.md
     - name: Seguridad
       items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
         - name: Autenticación y autorización
           href: service-bus-authentication-and-authorization.md
           items:

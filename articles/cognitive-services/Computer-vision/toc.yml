@@ -109,6 +109,22 @@
       href: concept-recognizing-text.md
     - name: Detección de contenido para adultos
       href: concept-detecting-adult-content.md
+- name: Inteligencia artificial responsable
+  items:
+    - name: Nota de transparencia
+      items:
+        - name: Introducción al análisis espacial
+          href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=/azure/cognitive-services/Computer-vision/context/context'
+        - name: Características y limitaciones
+          href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/cognitive-services/Computer-vision/context/context'
+    - name: 'Cumplimiento, privacidad y seguridad'
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/cognitive-services/Computer-vision/context/context'
+    - name: Uso responsable en la implementación de IA
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/responsible-use-deployment?context=/azure/cognitive-services/Computer-vision/context/context'
+    - name: Directrices de diseño de divulgación de información
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/disclosure-design?context=/azure/cognitive-services/Computer-vision/context/context'
+    - name: Investigación de la información
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/research-insights?context=/azure/cognitive-services/Computer-vision/context/context'
 - name: Containers
   items:
     - name: Lectura de contenedor de API
@@ -118,6 +134,8 @@
           displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
         - name: Configuración de contenedores
           href: computer-vision-resource-container-config.md
+        - name: "Migración a la versión\_3 del contenedor de lectura"
+          href: read-container-migration-guide.md
           displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
         - name: Uso con Kubernetes y Helm
           href: deploy-computer-vision-on-premises.md
@@ -125,6 +143,20 @@
         - name: Uso de instancias de contenedores
           href: deploy-computer-vision-on-container-instances.md
           displayName: 'container instances, container, containers, images'
+    - name: Contenedor de análisis espacial
+      items:
+        - name: Configuración de la máquina host y ejecución del contenedor
+          href: spatial-analysis-container.md
+        - name: Configuración de operaciones
+          href: spatial-analysis-operations.md
+        - name: Implementación de una aplicación web de recuento de personas
+          href: Spatial-analysis-web-app.md
+        - name: Registro y solución de problemas
+          href: spatial-analysis-logging.md
+        - name: Selección de ubicación de zonas y líneas
+          href: spatial-analysis-zone-line-placement.md
+        - name: Selección de ubicación de la cámara
+          href: spatial-analysis-camera-placement.md
 - name: Guías paso a paso
   items:
     - name: Llamada a Computer Vision API
@@ -138,7 +170,7 @@
     - name: Azure PowerShell
       href: 'https://aka.ms/azure-powershell-cognitiveservices'
     - name: "Computer Vision API\_v3.1, versión preliminar"
-      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005'
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005'
     - name: "Computer Vision API\_v3.0"
       href: 'https://aka.ms/computer-vision-v3-ref'
     - name: "Computer Vision API\_v2.1"

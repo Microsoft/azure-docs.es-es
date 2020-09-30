@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 097e07f3f39fc647d311af5e4eface4a7c6b3675
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 201459f4a7d2d23b384435493d6272e569698933
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498487"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887165"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Cifrado de datos para Azure Database for MySQL mediante Azure Portal
 
@@ -44,11 +44,11 @@ Aprenda a usar Azure Portal para configurar y administrar el cifrado de datos de
 
 1. En Key Vault, seleccione **Directivas de acceso** > **Agregar directiva de acceso**.
 
-   ![Captura de pantalla de Key Vault, con las opciones Directivas de acceso y Agregar directiva de acceso resaltadas](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png" alt-text="Captura de pantalla de Key Vault, con las opciones Directivas de acceso y Agregar directiva de acceso resaltadas":::
 
 2. En **Permisos clave** seleccione **Get** (Obtener), **Wrap** (Encapsular), **Unwrap** (Desencapsular) y **Principal** (Entidad de seguridad), que es el nombre del servidor MySQL. Si no se encuentra la entidad de seguridad del servidor en la lista de entidades de seguridad existentes, debe registrarla. Se le pedirá que registre la entidad de seguridad del servidor cuando intente configurar el cifrado de datos por primera vez y se produzca un error.
 
-   ![Introducción a la directiva de acceso](media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png)
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png" alt-text="Introducción a la directiva de acceso":::
 
 3. Seleccione **Guardar**.
 
@@ -56,11 +56,11 @@ Aprenda a usar Azure Portal para configurar y administrar el cifrado de datos de
 
 1. En Azure Database for MySQL, seleccione **Cifrado de datos** para configurar la clave administrada por el cliente.
 
-   ![Captura de pantalla de Azure Database for MySQL, con Cifrado de datos resaltado](media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png)
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/data-encryption-overview.png" alt-text="Captura de pantalla de Azure Database for MySQL, con Cifrado de datos resaltado":::
 
 2. Puede seleccionar un almacén de claves y un par de claves o escribir un identificador de clave.
 
-   ![Captura de pantalla de Azure Database for MySQL, con las opciones de cifrado de datos resaltadas](media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png)
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png" alt-text="Captura de pantalla de Azure Database for MySQL, con las opciones de cifrado de datos resaltadas":::
 
 3. Seleccione **Guardar**.
 
@@ -72,28 +72,28 @@ Después de cifrar Azure Database for MySQL con la clave administrada de un clie
 
 1. En el servidor, seleccione **Información general** > **Restaurar**.
 
-   ![Captura de pantalla de Azure Database for MySQL, las opciones información general y Restaurar resaltadas](media/concepts-data-access-and-security-data-encryption/show-restore.png)
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore.png" alt-text="Captura de pantalla de Azure Database for MySQL, las opciones información general y Restaurar resaltadas":::
 
    O bien, en el caso de un servidor habilitado para la replicación, en el encabezado **Configuración**, seleccione **Replicación**.
 
-   ![Captura de pantalla de Azure Database for MySQL, con la opción Replicación resaltada](media/concepts-data-access-and-security-data-encryption/mysql-replica.png)
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/mysql-replica.png" alt-text="Captura de pantalla de Azure Database for MySQL, con la opción Replicación resaltada":::
 
 2. Una vez completada la operación de restauración, el nuevo servidor creado se cifra con la clave del servidor principal. Sin embargo, las características y opciones del servidor están deshabilitadas y el servidor está inaccesible. Esto evita la manipulación de los datos, ya que la identidad del nuevo servidor todavía no tiene permiso para acceder al almacén de claves.
 
-   ![Captura de pantalla de Azure Database for MySQL, con estado Inaccesible resaltado](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png" alt-text="Captura de pantalla de Azure Database for MySQL, con estado Inaccesible resaltado":::
 
 3. Para que el servidor sea accesible, vuelva a validar la clave en el servidor restaurado. Seleccione **Cifrado de datos** > **Revalidate key** (Volver a validar la clave).
 
    > [!NOTE]
    > Se producirá un error en el primer intento de volver a realizar la validación, ya que la entidad de servicio debe tener acceso al almacén de claves. Para generar la entidad de servicio, seleccione **Revalidate key** (Volver a validar la clave). Se muestra un error, pero se genera la entidad de servicio. A partir de ese momento, consulte [estos pasos](#set-the-right-permissions-for-key-operations) anteriormente en este artículo.
 
-   ![Captura de pantalla de Azure Database for MySQL, con el paso de nueva validación resaltado](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png" alt-text="Captura de pantalla de Azure Database for MySQL, con el paso de nueva validación resaltado":::
 
    Tendrá que conceder al almacén de claves acceso al nuevo servidor.
 
 4. Después de registrar la entidad de servicio, vuelva a validar la clave otra vez; el servidor reanudará su funcionalidad normal.
 
-   ![Captura de pantalla de Azure Database for MySQL, que muestra la funcionalidad restaurada](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
+   :::image type="content" source="media/concepts-data-access-and-security-data-encryption/restore-successful.png" alt-text="Captura de pantalla de Azure Database for MySQL, que muestra la funcionalidad restaurada":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,21 +12,21 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: d25a3831897ff8ad2e7dfb0c69910fee246aec21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acb4b601118b341d14bc5e7c549d22eef23b2cc2
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477692"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085712"
 ---
-# <a name="mark-your-app-as-publisher-verified-preview"></a>Marcar la aplicación con "publicador comprobado" (versión preliminar)
+# <a name="mark-your-app-as-publisher-verified"></a>Marcación de la aplicación como comprobada por el publicador
 
-Cuando una aplicación se marca como comprobada por el publicador, significa que el publicador ha comprobado su identidad con la cuenta de Microsoft Partner Network (MPN) y ha asociado esta cuenta de MPN con el registro de aplicación. En este artículo se describe cómo completar el proceso de [verificación del publicador (versión preliminar)](publisher-verification-overview.md).
+Cuando una aplicación se marca como comprobada por el publicador, significa que el publicador ha comprobado su identidad con la cuenta de Microsoft Partner Network (MPN) y ha asociado esta cuenta de MPN con el registro de aplicación. En este artículo se describe cómo realizar el proceso de [verificación del editor](publisher-verification-overview.md).
 
 ## <a name="quickstart"></a>Guía de inicio rápido
 Si ya está inscrito en Microsoft Partner Network (MPN) y cumple los [requisitos previos](publisher-verification-overview.md#requirements), puede empezar inmediatamente: 
 
-1. Vaya al [portal de registro de aplicaciones](https://aka.ms/PublisherVerificationPreview) de la preliminar.
+1. Inicie sesión en el [portal de registro de aplicaciones](https://aka.ms/PublisherVerificationPreview) mediante la [autenticación multifactor](../fundamentals/concept-fundamentals-mfa-get-started.md).
 
 1. Elija una aplicación y haga clic en **Personalización de marca**. 
 
@@ -40,21 +40,19 @@ Para obtener más información sobre ventajas específicas, requisitos y pregunt
 ## <a name="mark-your-app-as-publisher-verified"></a>Marcación de la aplicación como comprobada por el publicador
 Asegúrese de que ha cumplido los [requisitos previos](publisher-verification-overview.md#requirements) y, después, siga estos pasos para marcar las aplicaciones como comprobadas por el publicador.  
 
-1. Asegúrese de haber iniciado sesión con una cuenta de organización (Azure AD) que esté autorizada para realizar cambios en las aplicaciones que quiere marcar como comprobadas por el publicador y en la cuenta de MPN del Centro de partners. 
+1. Asegúrese de haber iniciado sesión mediante la [autenticación multifactor](../fundamentals/concept-fundamentals-mfa-get-started.md) con una cuenta de organización (Azure AD) que esté autorizada para realizar cambios en las aplicaciones que quiera marcar como verificadas por el editor y en la cuenta de MPN del Centro de partners.
 
-    - En Azure AD, este usuario debe ser el propietario de la aplicación o tener uno de los siguientes roles: Administrador de aplicaciones, administrador de aplicaciones en la nube o administrador global. 
+    - En Azure AD, este usuario debe ser miembro de alguno de los siguientes roles: Administrador de aplicaciones, administrador de aplicaciones en la nube o administrador global. 
 
     - En el Centro de partners, este usuario debe tener uno de los siguientes roles: Administrador de MPN, administrador de cuentas o administrador global (se trata de un rol compartido que se controla en Azure AD). 
 
-1. Vaya a la versión preliminar del portal de registro de aplicaciones:  
+1. Vaya al portal de registro de aplicaciones:  
 
 1. Haga clic en una aplicación que quiera marcar como comprobada por el publicador y abra la hoja Personalización de marca. 
 
-1. Asegúrese de que el dominio del publicador de la aplicación esté establecido correctamente. Este dominio debe: 
+1. Asegúrese de que el [dominio del editor](howto-configure-publisher-domain.md) de la aplicación esté establecido. 
 
-    - Estar agregado a un inquilino de Azure AD como un dominio personalizado verificado por DNS.  
-
-    - Coincidir con el dominio de la dirección de correo electrónico usada durante el proceso de comprobación de la cuenta de MPN. 
+1. Asegúrese de que el dominio del editor o un [dominio personalizado](../fundamentals/add-custom-domain.md) verificado por DNS en el inquilino coincida con el dominio de la dirección de correo electrónico usada durante el proceso de verificación de la cuenta de MPN.
 
 1. Haga clic en **Add MPN ID to verify publisher** (Agregar id. de MPN para comprobación del publicador) casi al final de la página. 
 
@@ -72,7 +70,7 @@ Asegúrese de que ha cumplido los [requisitos previos](publisher-verification-ov
 
 1. Los usuarios que soliciten su consentimiento a su aplicación comenzarán a ver el distintivo poco después de terminar el proceso correctamente, aunque puede que tarde algún tiempo en replicarse en todo el sistema. 
 
-1. Para probar esta funcionalidad, inicie sesión en la aplicación y asegúrese de que el distintivo de verificación aparece en la pantalla de consentimiento. Si ha iniciado sesión como un usuario que ya ha concedido consentimiento a la aplicación, puede usar el parámetro de consulta *prompt=consent* para forzar una petición de consentimiento. 
+1. Para probar esta funcionalidad, inicie sesión en la aplicación y asegúrese de que el distintivo de verificación aparece en la pantalla de consentimiento. Si ha iniciado sesión como un usuario que ya ha concedido consentimiento a la aplicación, puede usar el parámetro de consulta *prompt=consent* para forzar una petición de consentimiento. Este parámetro debe usarse solo para realizar pruebas, nunca se puede codificar de forma rígida en las solicitudes de la aplicación.
 
 1. Repita este proceso según sea necesario para cualquier aplicación adicional para la que quiera que se muestre el distintivo. Puede usar Microsoft Graph para hacerlo más rápidamente en masa y los cmdlets de PowerShell pronto estarán disponibles. Consulte [Realización de llamadas a la API de Microsoft Graph](troubleshoot-publisher-verification.md#making-microsoft-graph-api-calls) para obtener más información. 
 

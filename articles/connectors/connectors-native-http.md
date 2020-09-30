@@ -5,28 +5,32 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 08/27/2020
 tags: connectors
-ms.openlocfilehash: 8c7a0ddb80ba28548fc1821cc2063e500af0fa66
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9ed490dba1547db6ec3c0ddcff38aa3e0c393fcf
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286638"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226436"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Llamada a puntos de conexión de servicio mediante HTTP o HTTPS desde Azure Logic Apps
 
-Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador o la acción HTTP integrados, puede crear tareas y flujos de trabajo automatizados que envían solicitudes a puntos de conexión de servicio mediante HTTP o HTTPS. Por ejemplo, para supervisar el punto de conexión de servicio de su sitio web puede comprobarlo según una programación específica. Cuando se produce un evento especificado en ese punto de conexión, por ejemplo, que su sitio web deje de funcionar, el evento desencadena el flujo de trabajo de la aplicación lógica y ejecuta las acciones de ese flujo de trabajo. En cambio, si desea recibir y responder llamadas HTTP o HTTPS entrantes, use el [desencadenador de solicitud o la acción de respuesta](../connectors/connectors-native-reqres.md) integrados.
+Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador o la acción HTTP integrados, puede crear tareas y flujos de trabajo automatizados que envían solicitudes salientes a puntos de conexión de servicio mediante HTTP o HTTPS. En cambio, si desea recibir y responder llamadas HTTP o HTTPS entrantes, use el [desencadenador de solicitud o la acción de respuesta](../connectors/connectors-native-reqres.md) integrados.
+
+Por ejemplo, para supervisar el punto de conexión de servicio de su sitio web puede comprobarlo según una programación específica. Cuando se produce un evento especificado en ese punto de conexión, por ejemplo, que su sitio web deje de funcionar, el evento desencadena el flujo de trabajo de la aplicación lógica y ejecuta las acciones de ese flujo de trabajo.
 
 * [Agregue el desencadenador HTTP](#http-trigger) como primer paso del flujo de trabajo para comprobar o *sondear* un punto de conexión según una programación recurrente. Cada vez que el desencadenador comprueba el punto de conexión, el desencadenador llama a o envía una *solicitud* al punto de conexión. La respuesta del punto de conexión determina si el flujo de trabajo de la aplicación lógica se ejecuta. El desencadenador pasa todo el contenido de la respuesta del punto de conexión a las acciones en la aplicación lógica.
 
 * Para llamar a un punto de conexión desde cualquier parte del flujo de trabajo, [agregue la acción HTTP](#http-action). La respuesta del punto de conexión determina cómo se ejecutan las acciones restantes de su flujo de trabajo.
 
-En este artículo se muestra cómo agregar una acción o desencadenador HTTP al flujo de trabajo de la aplicación lógica.
+En este artículo se muestra cómo usar el desencadenador HTTP y la acción HTTP para que la aplicación lógica pueda enviar llamadas salientes a otros servicios y sistemas.
+
+Para obtener información sobre el cifrado, la seguridad y la autorización de llamadas entrantes para la aplicación lógica, como la [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), conocida anteriormente como Capa de sockets seguros (SSL), certificados autofirmados o la [Autenticación abierta de Azure Active Directory Azure (Azure AD OAuth)](../active-directory/develop/index.yml), consulte [Acceso seguro y datos - Acceso para llamadas salientes a otros servicios y sistemas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Una cuenta y una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * La dirección URL del punto de conexión de destino al que quiere llamar.
 
@@ -96,21 +100,27 @@ Esta acción integrada realiza una llamada HTTP a la dirección URL especificada
 
 1. Cuando haya terminado, recuerde guardar la aplicación lógica. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 
-<a name="tls-support"></a>
+## <a name="trigger-and-action-outputs"></a>Salidas de los desencadenadores y las acciones
 
-## <a name="transport-layer-security-tls"></a>Seguridad de la capa de transporte (TLS)
+Aquí tiene más información acerca de las salidas de un desencadenador o una acción HTTP, que devuelve esta información:
 
-Según la funcionalidad del punto de conexión de destino, las llamadas salientes admiten Seguridad de la capa de transporte (TLS), que era anteriormente Capa de sockets seguros (SSL), las versiones 1.0, 1.1 y 1.2. Logic Apps negocia con el punto de conexión usando la versión compatible más alta posible.
+| Propiedad | Tipo | Descripción |
+|----------|------|-------------|
+| `headers` | Objeto JSON | Encabezados de la solicitud |
+| `body` | Objeto JSON | Objeto con el contenido del cuerpo de la solicitud |
+| `status code` | Entero | Código de estado de la solicitud |
+|||
 
-Por ejemplo, si el punto de conexión admite la versión 1.2, el conector usa primero esta versión. De lo contrario, el conector utiliza la siguiente versión compatible más alta.
-
-<a name="self-signed"></a>
-
-## <a name="self-signed-certificates"></a>Certificados autofirmados
-
-* En el caso de aplicaciones lógicas en el entorno global multiinquilino de Azure, el conector HTTP no permite certificados de TLS/SSL autofirmados. Si la aplicación lógica realiza una llamada HTTP a un servidor y presenta un certificado autofirmado de TLS/SSL, la llamada HTTP produce un error `TrustFailure`.
-
-* En el caso de las aplicaciones lógicas en un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), el conector HTTP permite certificados autofirmados para los protocolos de enlace TLS/SSL. Sin embargo, primero debe [habilitar la compatibilidad con certificados autofirmados](../logic-apps/create-integration-service-environment-rest-api.md#request-body) para un ISE existente o un ISE nuevo mediante la API REST de Logic Apps, y, después, instalar el certificado público en la ubicación de `TrustedRoot`.
+| status code | Descripción |
+|-------------|-------------|
+| 200 | Aceptar |
+| 202 | Accepted |
+| 400 | Solicitud incorrecta |
+| 401 | No autorizado |
+| 403 | Prohibido |
+| 404 | No encontrado |
+| 500 | Error interno del servidor Error desconocido. |
+|||
 
 ## <a name="content-with-multipartform-data-type"></a>Contenido con el tipo multipart/form-data
 
@@ -249,29 +259,8 @@ Para obtener más información acerca de los parámetros de desencadenador y acc
 * [Parámetros de desencadenador HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
 * [Parámetros de acción HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
-### <a name="output-details"></a>Detalles de salida
-
-Aquí tiene más información acerca de las salidas de un desencadenador o una acción HTTP, que devuelve esta información:
-
-| Propiedad | Tipo | Descripción |
-|----------|------|-------------|
-| `headers` | Objeto JSON | Encabezados de la solicitud |
-| `body` | Objeto JSON | Objeto con el contenido del cuerpo de la solicitud |
-| `status code` | Entero | Código de estado de la solicitud |
-|||
-
-| status code | Descripción |
-|-------------|-------------|
-| 200 | Aceptar |
-| 202 | Accepted |
-| 400 | Solicitud incorrecta |
-| 401 | No autorizado |
-| 403 | Prohibido |
-| 404 | No encontrado |
-| 500 | Error interno del servidor Error desconocido. |
-|||
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)
+* [Acceso seguro y datos - Acceso para llamadas salientes a otros servicios y sistemas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
+* [Conectores de Logic Apps](../connectors/apis-list.md)
 

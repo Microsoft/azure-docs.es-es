@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/15/2020
+ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2abbab0d6a0fd39b2adf0eade77d355c18b3cc03
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 759436477563065d9b03bffa314a4a843ec694b9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036086"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435956"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Creación de una red virtual con una conexión VPN de sitio a sitio mediante PowerShell
 

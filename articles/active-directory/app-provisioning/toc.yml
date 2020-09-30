@@ -78,7 +78,7 @@
     - name: Compilación de un punto de conexión de SCIM y configuración del aprovisionamiento
       href: use-scim-to-provision-users-and-groups.md
     - name: Automatización de la configuración mediante MS Graph
-      href: application-provisioning-configure-api.md
+      href: 'https://docs.microsoft.com/graph/application-provisioning-configure-api'
 - name: Referencia
   items:
     - name: "Compatibilidad del protocolo SCIM\_2.0"

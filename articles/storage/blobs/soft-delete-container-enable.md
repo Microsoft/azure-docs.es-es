@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f79b198b512547b1d93fbbd458af8251b109e62f
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: c2ce40f7d8a8d08e191fce11c98bd780e0c2fda1
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066668"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230082"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Habilitación y administración de la eliminación temporal para contenedores (versión preliminar)
 
@@ -22,7 +22,7 @@ La eliminación temporal de contenedores (versión preliminar) evita que los dat
 
 Si existe la posibilidad de que una aplicación u otro usuario de la cuenta de almacenamiento modifiquen o borren sus datos accidentalmente, Microsoft aconseja activar la eliminación temporal de contenedores. En este artículo se muestra cómo habilitar la eliminación temporal para contenedores. Para más información sobre la eliminación temporal de contenedores, incluida la forma de registrarse para la versión preliminar, vea [Eliminación temporal para contenedores (versión preliminar)](soft-delete-container-overview.md).
 
-Para la protección de datos de un extremo a otro, Microsoft recomienda que también habilite la eliminación temporal para blobs y el control de versiones de blobs (versión preliminar). Para información sobre cómo habilitar también la eliminación temporal para blobs, consulte [Habilitación y administración de la eliminación temporal para blobs](soft-delete-blob-enable.md). Para información sobre cómo habilitar el control de versiones de blobs, consulte [Control de versiones de blobs (versión preliminar)](versioning-overview.md).
+Para la protección de datos de un extremo a otro, Microsoft recomienda que también habilite la eliminación temporal para blobs y el control de versiones de blobs. Para información sobre cómo habilitar también la eliminación temporal para blobs, consulte [Habilitación y administración de la eliminación temporal para blobs](soft-delete-blob-enable.md). Para información sobre cómo habilitar el control de versiones de blobs, consulte [Control de versiones de blobs](versioning-overview.md).
 
 ## <a name="enable-container-soft-delete"></a>Habilitación de la eliminación temporal de contenedores
 
@@ -101,4 +101,4 @@ Puede restaurar un contenedor eliminado temporalmente y su contenido dentro del 
 
 - [Eliminación temporal para contenedores (versión preliminar)](soft-delete-container-overview.md)
 - [Eliminación temporal para blobs](soft-delete-blob-overview.md)
-- [Versiones de blobs (versión preliminar)](versioning-overview.md)
+- [Control de versiones de blobs](versioning-overview.md)

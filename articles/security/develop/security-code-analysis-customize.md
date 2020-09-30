@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c4c7f82b729355e59ff05d5513e22fa143d53a5e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e36485b54f209b10f9a4e6b4e6a26248955b2275
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206858"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031405"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configuración y personalización de las tareas de compilación
 
@@ -143,7 +143,7 @@ Las opciones disponibles incluyen:
 >
 >   Si la nueva tarea se ejecuta en el mismo agente que la tarea original, el resultado de la nueva tarea sobrescribe el resultado de la tarea original en la carpeta de orígenes *s*. Aunque el resultado de la compilación es el mismo, se recomienda ejecutar MSBuild, copiar los resultados en el directorio de almacenamiento provisional de los artefactos y, después, ejecutar los analizadores basados en Roslyn.
 
-Para obtener recursos adicionales para la tarea del analizador basado en Roslyn, consulte los [analizadores basados en Roslyn](https://docs.microsoft.com/dotnet/standard/analyzers/) en Microsoft Docs.
+Para obtener recursos adicionales para la tarea del analizador basado en Roslyn, consulte los [analizadores basados en Roslyn](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer) en Microsoft Docs.
 
 Encontrará el paquete de analizadores instalado y usado por esta tarea de compilación en la página de NuGet [Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers).
 

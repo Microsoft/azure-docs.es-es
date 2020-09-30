@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/21/2020
+ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 6736edd615f99ed987e7d1618c449ff7a819c497
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c91f9d38922cc1bddf252fde59291c2f233e1aa2
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536077"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650198"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con DocuSign
 
@@ -61,7 +61,7 @@ Para configurar la integración de DocuSign en Azure AD, deberá agregar DocuSi
 1. Seleccione **DocuSign** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-docusign"></a>Configuración y prueba del inicio de sesión único de Azure AD para DocuSign
+## <a name="configure-and-test-azure-ad-sso-for-docusign"></a>Configuración y prueba del inicio de sesión único de Azure AD para DocuSign
 
 Configure y pruebe el inicio de sesión único de Azure AD con DocuSign mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, tiene que establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de DocuSign.
 
@@ -94,9 +94,12 @@ Para habilitar el inicio de sesión único de Azure AD en Azure Portal, siga es
 
     `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
 
-    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón:
+    c. En el cuadro de texto **Dirección URL de respuesta**, escriba una dirección URL con alguno de los siguientes patrones:
     
-    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login`
+    | URL de respuesta |
+    |-------------|
+    |`https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/<IDPID>`|
+    |`https://<subdomain>.docusign.net/SAML/`|
 
     > [!NOTE]
     > Estos valores entre corchetes son marcadores de posición. Reemplácelos por los valores reales de la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta. Estos detalles se explican en la sección "Visualización de los puntos de conexión SAML 2.0" más adelante en este tutorial.

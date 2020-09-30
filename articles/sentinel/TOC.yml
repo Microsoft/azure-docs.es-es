@@ -27,8 +27,20 @@
       href: roles.md
     - name: Detección avanzada de ataques de varias fases
       href: fusion.md
+    - name: Plataforma de aprendizaje automático Traiga el suyo
+      href: bring-your-own-ml.md
     - name: Extender Azure Sentinel por áreas de trabajo e inquilinos
       href: extend-sentinel-across-workspaces-tenants.md
+    - name: Identificación de amenazas avanzadas con UEBA
+      href: identify-threats-with-entity-behavior-analytics.md
+    - name: Importación de inteligencia sobre amenazas en Azure Sentinel
+      href: import-threat-intelligence.md
+    - name: Normalización de los datos en tablas
+      href: normalization.md
+    - name: Seguridad
+      items:
+        - name: Línea de base de seguridad
+          href: security-baseline.md
 - name: Guías paso a paso
   items:
     - name: Conexión con orígenes de datos
@@ -50,17 +62,21 @@
               href: connect-azure-ad-identity-protection.md
             - name: Azure Information Protection
               href: connect-azure-information-protection.md
-            - name: ATP de Microsoft Defender
+            - name: "Microsoft\_365\_Defender"
+              href: connect-microsoft-365-defender.md
+            - name: Microsoft Defender para punto de conexión (anteriormente MDATP)
               href: connect-microsoft-defender-advanced-threat-protection.md
-            - name: Azure ATP
+            - name: Microsoft Defender para identidad (anteriormente Azure ATP)
               href: connect-azure-atp.md
+            - name: "Microsoft Defender para Office\_365 (anteriormente Office\_365 ATP)"
+              href: connect-office-365-advanced-threat-protection.md
             - name: Azure DDoS Protection
               href: connect-azure-ddos-protection.md
             - name: Azure Firewall
               href: connect-azure-firewall.md
-            - name: Azure Security Center
+            - name: Alertas de Azure Defender desde ASC
               href: connect-azure-security-center.md
-            - name: Preguntas más frecuentes de Azure Security Center for IoT
+            - name: Azure Defender (anteriormente ASC) para IoT
               href: connect-asc-iot.md
             - name: Firewall de aplicaciones web (WAF) de Azure
               href: connect-azure-waf.md
@@ -114,6 +130,8 @@
               href: connect-vmware-carbon-black.md
             - name: Zimperium Mobile Threat Defense
               href: connect-zimperium-mtd.md
+            - name: Conexión mediante Logstash
+              href: connect-logstash.md
             - name: Soluciones basadas en CEF
               href: connect-common-event-format.md
               items:
@@ -152,6 +170,8 @@
           href: connect-threat-intelligence.md
         - name: Conexión a máquinas virtuales de Azure Stack
           href: connect-azure-stack.md
+    - name: Habilitación del análisis de comportamiento de usuarios y entidades
+      href: enable-entity-behavior-analytics.md
     - name: Trabajo con varios inquilinos (MSSP)
       href: multiple-tenants-service-providers.md
     - name: Trabajo con incidentes en varias áreas de trabajo
@@ -177,6 +197,8 @@
   items:
     - name: API REST
       href: 'https://docs.microsoft.com/rest/api/securityinsights/'
+    - name: Esquema de normalización de la red
+      href: normalization-schema.md
 - name: Recursos
   items:
     - name: Recursos útiles

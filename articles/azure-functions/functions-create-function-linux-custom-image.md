@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: f068f91a104c15099809343438cc925fb8856248
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 1a29b8cfbc07e1232ffee788da8d195d39b9ca93
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146868"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531651"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Creación de una función en Linux con un contenedor personalizado
 
@@ -254,7 +254,7 @@ Una aplicación de funciones en Azure administra la ejecución de las funciones 
 1. Cree la aplicación de funciones con el comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create). En el ejemplo siguiente, reemplace `<storage_name>` por el nombre que utilizó en la sección anterior para la cuenta de almacenamiento. Reemplace también `<app_name>` por un nombre único global que sea adecuado y `<docker_id>` por el identificador de Docker.
 
     ```azurecli
-    az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
+    az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --runtime <functions runtime stack> --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
     El parámetro *deployment-container-image-name* especifica la imagen que se va a usar para la aplicación de funciones. Puede usar el comando [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) para ver información sobre la imagen que se utilizó en la implementación. También puede usar el comando [az functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) para realizar la implementación desde una imagen diferente.

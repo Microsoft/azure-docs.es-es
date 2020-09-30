@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f4bf3974cd561626c280dc65aa5fc78d0c9a159b
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 7ff8f3d18564140b4654b1591eec5c0e1f40b7cf
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056506"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077915"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferencia de datos con AzCopy y Blob Storage
 
@@ -255,6 +255,28 @@ Use el comando [azcopy copy](storage-ref-azcopy-copy.md) con la opción `--inclu
 | **Ejemplo** (espacio de nombres jerárquico) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
 
 Para ver una referencia detallada, consulte la documentación de referencia de [azcopy copy](storage-ref-azcopy-copy.md).
+
+#### <a name="download-previous-versions-of-a-blob"></a>Descarga de versiones anteriores de un blob
+
+Si ha habilitado el [control de versiones de blobs](../blobs/versioning-enable.md), puede descargar una o más versiones anteriores de un blob. 
+
+En primer lugar, cree un archivo de texto que contenga una lista de [identificadores de versión](../blobs/versioning-overview.md). Cada identificador de versión debe aparecer en una línea independiente. Por ejemplo: 
+
+```
+2020-08-17T05:50:34.2199403Z
+2020-08-17T05:50:34.5041365Z
+2020-08-17T05:50:36.7607103Z
+```
+
+Después, utilice el comando [azcopy copy](storage-ref-azcopy-copy.md) con la opción `--list-of-versions`. Especifique la ubicación del archivo de texto que contiene la lista de versiones (por ejemplo: `D:\\list-of-versions.txt`).  
+
+|    |     |
+|--------|-----------|
+| **Sintaxis** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-directory-path>' --list-of-versions '<list-of-versions-file>'`|
+| **Ejemplo** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt' --list-of-versions 'D:\\list-of-versions.txt'` |
+| **Ejemplo** (espacio de nombres jerárquico) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt' --list-of-versions 'D:\\list-of-versions.txt'` |
+
+El nombre de cada archivo descargado comienza con el identificador de versión seguido del nombre del blob. 
 
 ## <a name="copy-blobs-between-storage-accounts"></a>Copia de blobs entre cuentas de almacenamiento
 

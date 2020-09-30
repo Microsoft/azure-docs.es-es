@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 96078be20e8048e481a994fefc169e48ab1d8459
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bee1f95e1f56b65912895fec8af2512c6cd7b85a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76511100"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300381"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Preparación del entorno de desarrollo y prueba para IoT Edge
 
@@ -82,10 +82,10 @@ El runtime de IoT Edge solo se admite para las implementaciones de producción, 
 
 | Herramienta | También conocida como | Plataformas compatibles | Más adecuado para |
 | ---- | ------------- | ------------------- | --------- |
-| Herramienta de desarrollo de IoT EdgeHub  | iotedgehubdev | Windows, Linux, MacOS | Simular un dispositivo para depurar módulos. |
-| Contenedor de desarrollo de IoT Edge | microsoft/iotedgedev | Windows, Linux, MacOS | Desarrollar sin instalar dependencias. |
-| Runtime de IoT Edge en un contenedor | iotedgec | Windows, Linux, MacOS, ARM | Realizar pruebas en un dispositivo que no admita el runtime. |
-| Contenedor de dispositivos IoT Edge | toolboc/azure-iot-edge-device-container | Windows, Linux, MacOS, ARM | Probar un escenario con muchos dispositivos IoT Edge a escala. |
+| Herramienta de desarrollo de IoT EdgeHub  | iotedgehubdev | Windows, Linux, macOS | Simular un dispositivo para depurar módulos. |
+| Contenedor de desarrollo de IoT Edge | microsoft/iotedgedev | Windows, Linux, macOS | Desarrollar sin instalar dependencias. |
+| Runtime de IoT Edge en un contenedor | iotedgec | Windows, Linux, macOS, ARM | Realizar pruebas en un dispositivo que no admita el runtime. |
+| Contenedor de dispositivos IoT Edge | toolboc/azure-iot-edge-device-container | Windows, Linux, macOS, ARM | Probar un escenario con muchos dispositivos IoT Edge a escala. |
 
 ### <a name="iot-edgehub-dev-tool"></a>Herramienta de desarrollo de IoT EdgeHub
 
@@ -103,7 +103,7 @@ Para obtener más información, vea el artículo sobre el [contenedor de desarro
 
 ### <a name="iot-edge-runtime-in-a-container"></a>Runtime de IoT Edge en un contenedor
 
-El runtime de IoT Edge en un contenedor proporciona un runtime completo que toma la cadena de conexión del dispositivo como una variable de entorno. Este contenedor permite probar módulos y escenarios de IoT Edge en un sistema que es posible que no admita el runtime de forma nativa, como MacOS. Todos los módulos que implemente se iniciarán fuera del contenedor del runtime. Si quiere que el runtime y los módulos implementados existan dentro del mismo contenedor, considere en su lugar el contenedor de dispositivos de IoT Edge.
+El runtime de IoT Edge en un contenedor proporciona un runtime completo que toma la cadena de conexión del dispositivo como una variable de entorno. Este contenedor permite probar módulos y escenarios de IoT Edge en un sistema que es posible que no admita el entorno en tiempo de ejecución de forma nativa, como macOS. Todos los módulos que implemente se iniciarán fuera del contenedor del runtime. Si quiere que el runtime y los módulos implementados existan dentro del mismo contenedor, considere en su lugar el contenedor de dispositivos de IoT Edge.
 
 Para obtener más información, vea [Running Azure IoT Edge in a container](https://github.com/Azure/iotedgedev/tree/master/docker/runtime) (Ejecución de Azure IoT Edge en un contenedor).
 
@@ -119,7 +119,7 @@ Cuando esté listo para desarrollar soluciones a escala para escenarios de produ
 
 Para obtener más información, instrucciones y ejemplos, vea las páginas siguientes:
 
-* [Integración continua e implementación continua en Azure IoT Edge](how-to-ci-cd.md)
-* [Creación de una canalización de CI/CD para IoT Edge con Azure DevOps Projects (versión preliminar)](how-to-devops-project.md)
+* [Integración continua e implementación continua en Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md)
+* [Creación de una canalización de CI/CD para IoT Edge con Azure DevOps Starter](how-to-devops-starter.md)
 * [Complemento de Jenkins para Azure IoT Edge](https://plugins.jenkins.io/azure-iot-edge)
 * [Repositorio de GitHub de DevOps para IoT Edge](https://github.com/toolboc/IoTEdge-DevOps)

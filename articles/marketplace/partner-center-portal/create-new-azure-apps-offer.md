@@ -3,16 +3,16 @@ title: 'Creación de una oferta de aplicación de Azure: Marketplace comercial d
 description: Conozca los pasos y las consideraciones para crear una oferta de aplicación de Azure en el portal de Marketplace comercial del Centro de partners. Puede mostrar o vender su oferta de aplicación de Azure en Azure Marketplace o a través del programa Proveedor de soluciones en la nube (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 071d3fc972e99d61a226492350b7eee146584df6
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: e7e7845b458d6d1a37b65fb79e0e7e9c13b0d07d
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815679"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646940"
 ---
 # <a name="create-an-azure-application-offer"></a>Creación de una oferta de aplicación de Azure
 

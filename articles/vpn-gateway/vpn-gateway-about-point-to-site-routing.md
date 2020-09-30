@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 03/24/2020
-ms.author: kumud
-ms.openlocfilehash: 54b839170d95918889d1295eb20308688fbfb2a7
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.date: 09/03/2020
+ms.author: cherylmc
+ms.openlocfilehash: a3603c7a4b704327f829588f0fc5827d97288be0
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032380"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440820"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Información sobre el enrutamiento de VPN de punto a sitio
 

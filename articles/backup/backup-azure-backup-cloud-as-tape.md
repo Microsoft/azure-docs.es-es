@@ -3,12 +3,12 @@ title: Cómo reemplazar la infraestructura de cintas
 description: Aprenda la forma en que Azure Backup proporciona una semántica similar a la cinta que le permite hacer copias de seguridad y restaurar datos en Azure
 ms.topic: conceptual
 ms.date: 04/30/2017
-ms.openlocfilehash: 4174868d391eda70ce4921deee63b8bacf672b4c
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 695cc2644521384527ecd871f3613a078e987aa7
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757241"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378447"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Traslado del almacenamiento a largo plazo de la cinta a la nube de Azure
 
@@ -62,7 +62,7 @@ El número total de puntos de recuperación es 56.
 
 ## <a name="advanced-configuration"></a>Configuración avanzada
 
-Al hacer clic en **Modificar** en la pantalla anterior, los clientes tienen más flexibilidad para especificar programaciones de retención.
+Al seleccionar **Modificar** en la pantalla anterior, los clientes tienen más flexibilidad para especificar programaciones de retención.
 
 ![Ventana Modificar directiva](./media/backup-azure-backup-cloud-as-tape/modify.png)
 

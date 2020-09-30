@@ -4,15 +4,15 @@ description: Base de referencia de seguridad de Azure para Azure SQL Database e 
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 09/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 846d66a1cf1bb1d97f7ab9d7dfd7bbcf43d3f8d6
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ce297b436ce79a4a0a14d0f6e9ad900de61a8dc9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231034"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885212"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database--sql-managed-instance"></a>Base de referencia de seguridad de Azure para Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -285,15 +285,15 @@ https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-porta
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: Habilitación de alertas para actividades anómalas
 
-**Guía**: Use Advanced Threat Protection de Azure Security Center en Azure SQL Database para supervisar posible actividad anómala y alertar sobre ella. Habilite Advanced Data Security para las bases de datos SQL. Advanced Data Security incluye una funcionalidad para detectar y clasificar datos confidenciales, buscar y mitigar los posibles puntos vulnerables de una base de datos y detectar actividades anómalas que puedan indicar una amenaza para dicha base de datos.
+**Guía**: Use Advanced Threat Protection de Azure Security Center en Azure SQL Database para supervisar posible actividad anómala y alertar sobre ella. Habilite Azure Defender for SQL para las bases de datos SQL. Azure Defender for SQL incluye funcionalidades para buscar y mitigar las posibles vulnerabilidades de la base de datos, así como para detectar actividades anómalas que puedan indicar una amenaza para ella.
 
 Descripción de Advanced Threat Protection y alertas de Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
 
-Habilitación de Advanced Data Security para Azure SQL Database:
+Habilitación de Azure Defender for SQL para Azure SQL Database:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security
+https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql
 
 Administración de alertas de seguridad en Azure Security Center:
 
@@ -333,7 +333,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Mantenga un inventario de cuentas administrativas
 
-**Instrucciones**: Azure Active Directory (AAD) tiene roles integrados que se deben asignar explícitamente y son consultables. Use el módulo de PowerShell de AAD para realizar consultas ad hoc y detectar cuentas que son miembros de grupos administrativos.
+**Guía**: Azure Active Directory (Azure AD) tiene roles integrados que se deben asignar explícitamente y son consultables. Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc a fin de detectar cuentas que son miembros de grupos administrativos.
 
 Cómo obtener un rol de directorio en Azure AD con PowerShell:
 
@@ -381,7 +381,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: Use la autenticación multifactor para todo el acceso basado en Azure Active Directory
 
-**Instrucciones**: habilite Multi-Factor Authentication (MFA) de Azure Active Directory (AAD) y siga las recomendaciones de administración de identidades y acceso de Azure Security Center.
+**Guía**: Habilite la autenticación multifactor (MFA) de Azure Active Directory (Azure AD) y siga las recomendaciones de administración de identidades y acceso de Azure Security Center.
 
 Cómo habilitar la MFA en Azure:
 
@@ -445,13 +445,13 @@ Configuración de ubicaciones con nombre en Azure: https://docs.microsoft.com/az
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Uso de Azure Active Directory
 
-**Instrucciones**: Crear un administrador de Azure Active Directory para Azure Synapse.
+**Instrucciones**: Cree un administrador de Azure Active Directory (Azure AD) para el servidor.
 
 Configuración y administración de la autenticación de Azure Active Directory con Azure SQL:
 
 https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
-Cómo crear y configurar una instancia de AAD:
+Creación y configuración de una instancia de Azure AD:
 
 https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance
 
@@ -461,7 +461,7 @@ https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-creat
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: Revise y concilie regularmente el acceso de los usuarios
 
-**Instrucciones**: Azure Active Directory(AAD) proporciona registros para ayudar a descubrir cuentas obsoletas. Además, use las revisiones de acceso de identidad de Azure para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo los usuarios adecuados tengan acceso continuado.
+**Instrucciones**: Azure Active Directory (Azure AD) proporciona registros para ayudar a descubrir cuentas obsoletas. Además, use las revisiones de acceso de identidad de Azure para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo los usuarios adecuados tengan acceso continuado.
 
 Cómo usar las revisiones de acceso de identidad de Azure:
 
@@ -473,7 +473,7 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 ### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11: Supervise los intentos de acceso a cuentas desactivadas
 
-**Instrucciones**: configure la autenticación de Azure Active Directory (AAD) con Azure SQL y cree la configuración de diagnóstico para las cuentas de usuarios de Azure Active Directory, y envíe los registros de auditoría e inicio de sesión a un área de trabajo de Log Analytics. Configure las alertas deseadas en el área de trabajo de Log Analytics.
+**Guía**: Configure la autenticación de Azure Active Directory (Azure AD) con Azure SQL y cree la configuración de diagnóstico para las cuentas de usuario de Azure Active Directory, de forma que los registros de auditoría e inicio de sesión se envíen a un área de trabajo de Log Analytics. Configure las alertas deseadas en el área de trabajo de Log Analytics.
 
 Configuración y administración de la autenticación de Azure Active Directory con Azure SQL:
 
@@ -489,7 +489,7 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integ
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12: Alerte de las desviaciones de comportamiento en los inicios de sesión de las cuentas
 
-**Instrucciones**: use las características de protección de identidad y detección de riesgo de Azure Active Directory (AAD) para configurar respuestas automatizadas a las acciones sospechosas detectadas relacionadas con las identidades de los usuarios. Además, puede ingerir datos en Azure Sentinel para investigarlos más a fondo.
+**Guía**: Use las características de protección de identidad y detección de riesgo de Azure Active Directory (Azure AD) para configurar respuestas automatizadas a las acciones sospechosas detectadas relacionadas con las identidades de los usuarios. Además, puede ingerir datos en Azure Sentinel para investigarlos más a fondo.
 
 Visualización de los inicios de sesión de riesgo de Azure AD:
 
@@ -599,7 +599,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-cl
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
-**Instrucciones**: use Azure Active Directory (AAD) para autenticarse en instancias de Azure SQL Database y controlar el acceso a estas.
+**Guía**: Use Azure Active Directory (Azure AD) para autenticarse en instancias de Azure SQL Database y controlar el acceso a estas.
 
 Integración de Azure SQL Database en Azure Active Directory para la autenticación:
 
@@ -655,15 +655,15 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Ejecute herramientas de análisis de vulnerabilidades automatizado
 
-**Guía**: Habilite Advanced Data Security para Azure SQL Database y siga las recomendaciones de Azure Security Center sobre cómo realizar evaluaciones de vulnerabilidades en los servidores.
+**Guía**: Habilite Azure Defender for SQL para Azure SQL Database y siga las recomendaciones de Azure Security Center sobre cómo realizar evaluaciones de vulnerabilidades en los servidores.
 
 Cómo ejecutar evaluaciones de vulnerabilidades en Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment
 
-Habilitación de Advanced Data Security:
+Habilitación de Azure Defender for SQL:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security
+https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql
 
 Cómo implementar las recomendaciones de evaluación de vulnerabilidades de Azure Security Center:
 
@@ -993,7 +993,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azur
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: Administre las identidades de forma segura y automática
 
-**Instrucciones**: use las identidades administradas para proporcionar a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (AAD). Las identidades administradas le permiten autenticarse en cualquier servicio que admita la autenticación de AAD, como Key Vault, sin necesidad de credenciales en el código.
+**Instrucciones**: Use identidades administradas para proporcionar servicios de Azure con una identidad administrada automáticamente en Azure Active Directory (Azure AD). Identidades administradas le permite autenticarse en cualquier servicio que admita la autenticación de Azure AD, incluido Azure Key Vault, sin necesidad de credenciales en el código.
 
 Tutorial: Uso de una identidad administrada asignada por el sistema de una máquina virtual Windows para acceder a Azure SQL:
 

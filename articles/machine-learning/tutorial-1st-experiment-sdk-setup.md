@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Experimento en cuadernos de Jupyter Notebook (Python)'
-titleSuffix: Machine Learning - Azure
-description: En este tutorial empezará a trabajar con el SDK de Python para Azure Machine Learning que se ejecuta en cuadernos de Jupyter.  En la parte 1 se crea un área de trabajo en la que se administran los experimentos y los modelos de Machine Learning.
+title: 'Tutorial: Introducción a los cuadernos de Jupyter Notebook (Python)'
+titleSuffix: Azure Machine Learning
+description: Tutoriales para la configuración de Jupyter Notebook.  Cree un área de trabajo de Azure Machine Learning, clone los cuadernos de Jupyter Notebook en el área de trabajo y cree una instancia de proceso en la que se ejecuten los cuadernos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,44 +10,42 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ff23a42d9b96b8411d8b2f82ab8303e2a8a69953
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: de52013628f5d02bedcf72a99e0fad25cabe5d8f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852725"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896865"
 ---
-# <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Creación del primer experimento de ML con el SDK de Python
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Tutorial: Introducción a Azure Machine Learning en cuadernos de Jupyter Notebook
 
-En este tutorial, realizará los pasos de un extremo a otro para empezar a trabajar con el SDK de Python para Azure Machine Learning que se ejecuta en cuadernos de Jupyter. Este tutorial es la **parte uno de una serie de tutoriales de dos partes**, y abarca la instalación y la configuración del entorno de Python, así como la creación de un área de trabajo para administrar los experimentos y los modelos de aprendizaje automático. En la [**segunda parte**](tutorial-1st-experiment-sdk-train.md) se usa este área de trabajo para entrenar varios modelos de aprendizaje automático e introducir el proceso de administración de modelos mediante Azure Machine Learning Studio y el SDK.
+En este tutorial, completará los pasos para empezar a trabajar con Azure Machine Learning mediante cuadernos de Jupyter Notebook en una [estación de trabajo (instancia de proceso) administrada basada en la nube](concept-compute-instance.md). Este tutorial es un precursor de todos los demás tutoriales de Jupyter Notebook.
 
 En este tutorial, hizo lo siguiente:
 
 > [!div class="checklist"]
-> * Crear un [área de trabajo de Azure Machine Learning](concept-workspace.md) para usarla en el siguiente tutorial.
+> * Crear un [área de trabajo de Azure Machine Learning](concept-workspace.md) para usarla en otros tutoriales de Jupyter Notebook.
 > * Clone el cuaderno de tutoriales en su carpeta en el área de trabajo.
 > * Cree una instancia de proceso basada en la nube que tenga instalado y preconfigurado el SDK de Python para Azure Machine Learning.
-
 
 Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
 
-Un área de trabajo de Azure Machine Learning es un recurso básico de la nube que se usa para experimentar, entrenar e implementar modelos de aprendizaje automático. Vincula la suscripción y el grupo de recursos de Azure con un objeto fácilmente consumido del servicio. 
+Un área de trabajo de Azure Machine Learning es un recurso básico de la nube que se usa para experimentar, entrenar e implementar modelos de aprendizaje automático. Vincula la suscripción y el grupo de recursos de Azure con un objeto fácilmente consumido del servicio.
 
-Puede crear un área de trabajo mediante Azure Portal, una consola basada en web para administrar los recursos de Azure. 
+Puede crear un área de trabajo mediante Azure Portal, una consola basada en web para administrar los recursos de Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
->[!IMPORTANT] 
+>[!IMPORTANT]
 > Tome nota del **área de trabajo** y de la **suscripción**. Los necesitará para asegurarse de que crea el experimento en el lugar correcto. 
 
 ## <a name="run-notebook-in-your-workspace"></a><a name="azure"></a>Ejecución de un cuaderno en el área de trabajo
 
-En este tutorial se usa el servidor de cuadernos en la nube del área de trabajo para obtener una experiencia sin instalación y configurada previamente. Si prefiere tener control sobre su entorno, los paquetes y las dependencias, use [su propio entorno](how-to-configure-environment.md#local).
+Azure Machine Learning incluye un servidor de cuadernos en la nube del área de trabajo para obtener una experiencia sin instalación y configurada previamente. Si prefiere tener control sobre su entorno, los paquetes y las dependencias, use [su propio entorno](tutorial-1st-experiment-sdk-setup-local.md).
 
- Siga este vídeo o use los pasos detallados que se indican a continuación para clonar y ejecutar el tutorial desde el área de trabajo. 
+ Siga este vídeo o use los pasos detallados que se indican a continuación para clonar y ejecutar el cuaderno del tutorial desde el área de trabajo.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
 
@@ -80,12 +78,11 @@ Complete los siguientes pasos de configuración y ejecución del experimento en 
     > [!IMPORTANT]
     > Puede ver los cuadernos en la carpeta **samples** (ejemplos), pero no puede ejecutar un cuaderno desde aquí.  Para ejecutar un cuaderno, asegúrese de que abre la versión clonada del cuaderno en la sección **User Files** (Archivos de usuario).
     
-1. Seleccione el archivo **tutorial-1st-experiment-sdk-train.ipynb** de la carpeta **tutorials/create-first-ml-experiment**.
+1. Seleccione el archivo **tutorial-1st-experiment-sdk-train.ipynb** de la carpeta **tutorials/image-classification-mnist-data**.
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Apertura de la carpeta tutorials":::
 
-
-1. En la barra superior, seleccione una instancia de proceso para usarla para ejecutar el cuaderno. Estas máquinas virtuales están configuradas previamente con [todo lo necesario para ejecutar Azure Machine Learning](concept-compute-instance.md#contents). 
+1. En la barra superior, seleccione una instancia de proceso para usarla para ejecutar el cuaderno. Estas máquinas virtuales están configuradas previamente con [todo lo necesario para ejecutar Azure Machine Learning](concept-compute-instance.md#contents).
 
 1. Si no encuentra ninguna máquina virtual, seleccione **+ Add** (+ Agregar) para crear la máquina virtual de instancia de proceso. 
 
@@ -107,17 +104,11 @@ Si tiene widgets personalizados o prefiere usar Jupyter/JupyterLab, seleccione l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha completado estas tareas:
-
-* Ha creado un área de trabajo de Azure Machine Learning.
-* Ha creado y configurado un servidor de cuadernos en la nube en el área de trabajo.
-
-En la **segunda parte** del tutorial, se ejecuta el código en `tutorial-1st-experiment-sdk-train.ipynb` para entrenar un modelo de Machine Learning. 
+Ahora que tiene un entorno de desarrollo configurado, continúe con el entrenamiento de un modelo en un cuaderno de Jupyter Notebook:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Entrenamiento del primer modelo](tutorial-1st-experiment-sdk-train.md)
+> [Tutorial: Entrenamiento de modelos de clasificación de imágenes con los datos MNIST y scikit-learn](tutorial-train-models-with-aml.md)
 
-> [!IMPORTANT]
-> Si no está pensando en la segunda parte de este tutorial o en otros tutoriales, debe [detener la máquina virtual del servidor de cuadernos en la nube](tutorial-1st-experiment-sdk-train.md#clean-up-resources) cuando no se use para reducir el costo.
+<a name="stop-compute-instance"></a> Si no pretende seguir ningún otro tutorial ahora, debe detener la máquina virtual del servidor de cuadernos en la nube cuando no se use para reducir el costo.
 
-
+[!INCLUDE [aml-stop-server](../../includes/aml-stop-server.md)]

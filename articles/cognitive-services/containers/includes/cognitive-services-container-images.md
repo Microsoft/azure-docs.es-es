@@ -6,14 +6,14 @@ manager: nitinme
 description: Dos tablas que representan los registros de contenedor, los repositorios y los nombres de imagen de todas las ofertas de Cognitive Service.
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/24/2020
+ms.date: 09/03/2020
 ms.author: aahi
-ms.openlocfilehash: ac8e49c85147576e489b16a3a421c75d60ad4aee
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d514460f3cd80b5b85604251743abbbbcd1adc8c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104423"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906991"
 ---
 ### <a name="container-repositories-and-images"></a>Repositorios e imágenes de contenedor
 
@@ -23,54 +23,75 @@ Las tablas siguientes son una lista de las imágenes de contenedor disponibles q
 
 Microsoft Container Registry (MCR) sindica todos los contenedores con disponibilidad general para Cognitive Services. Los contenedores también están disponibles directamente desde [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
-#### <a name="luis"></a>[LUIS](#tab/luis)
+**LUIS**
 
-| Contenedor de LUIS | Container Registry/Repositorio/Nombre de imagen |
+| Contenedor | Container Registry/Repositorio/Nombre de imagen |
 |--|--|
-| LUIS | `mcr.microsoft.com/azure-cognitive-services/luis` |
+| LUIS | `mcr.microsoft.com/azure-cognitive-services/language/luis` |
 
 Consulte [Cómo ejecutar e instalar contenedores de LUIS](../../LUIS/luis-container-howto.md) para obtener más información.
 
-#### <a name="text-analytics"></a>[Text Analytics](#tab/text-analytics)
+**Text Analytics**
 
-| Contenedor de Text Analytics | Container Registry/Repositorio/Nombre de imagen |
+| Contenedor | Container Registry/Repositorio/Nombre de imagen |
 |--|--|
-| Análisis de sentimiento, versión 3 (inglés) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-en` |
-| Análisis de sentimiento, versión 3 (español) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-es` |
-| Análisis de sentimiento, versión 3 (francés) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-fr` |
-| Análisis de sentimiento, versión 3 (italiano) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-it` |
-| Análisis de sentimiento, versión 3 (alemán) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-de` |
-| Análisis de sentimiento, versión 3 (chino simplificado) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-zh` |
-| Análisis de sentimiento, versión 3 (chino tradicional) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-zht` |
-| Análisis de sentimiento, versión 3 (japonés) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-ja` |
-| Análisis de sentimiento, versión 3 (portugués) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-pt` |
-| Análisis de sentimiento, versión 3 (holandés) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-nl` |
+| Análisis de sentimiento, versión 3 (inglés) | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-en` |
+| Análisis de sentimiento, versión 3 (español) | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-es` |
+| Análisis de sentimiento, versión 3 (francés) | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-fr` |
+| Análisis de sentimiento, versión 3 (italiano) | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-it` |
+| Análisis de sentimiento, versión 3 (alemán) | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-de` |
+| Análisis de sentimiento, versión 3 (chino simplificado) | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-zh` |
+| Análisis de sentimiento, versión 3 (chino tradicional) | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-zht` |
+| Análisis de sentimiento, versión 3 (japonés) | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-ja` |
+| Análisis de sentimiento, versión 3 (portugués) | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-pt` |
+| Análisis de sentimiento, versión 3 (holandés) | `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-nl` |
 
 Consulte [Cómo ejecutar e instalar contenedores de Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) para obtener más información.
 
----
+**Anomaly Detector** 
 
-#### <a name="public-ungated-preview-container-registry-mcrmicrosoftcom"></a>Versión preliminar pública "no validada" (registro de contenedor: `mcr.microsoft.com`)
+| Contenedor | Container Registry/Repositorio/Nombre de imagen |
+|--|--|
+| Anomaly Detector | `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector` |
+
+Consulte el artículo sobre [cómo ejecutar e instalar contenedores de Anomaly Detector](../../anomaly-detector/anomaly-detector-container-howto.md) para más información.
+
+**Servicio Voz**
+
+> [!NOTE]
+> Para usar los contenedores de Voz, debe completar un [formulario de solicitud en línea](https://aka.ms/csgate).
+
+| Contenedor | Container Registry/Repositorio/Nombre de imagen |
+|--|--|
+| [Voz a texto](../../speech-service/speech-container-howto.md?tab=stt) | `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text` |
+| [Conversión de voz a texto personalizada](../../speech-service/speech-container-howto.md?tab=cstt) | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text` |
+| [Texto a voz](../../speech-service/speech-container-howto.md?tab=tts) | `mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech` |
+
+#### <a name="ungated-preview"></a>De versión preliminar "no validados" 
 
 Los siguientes contenedores de versión preliminar están disponibles públicamente. Microsoft Container Registry sindica todos los contenedores no validados con disponibilidad general para Cognitive Services. Los contenedores también están disponibles directamente desde [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
 | Servicio | Contenedor | Container Registry/Repositorio/Nombre de imagen |
 |--|--|--|
-| [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Extracción de frases clave | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
-| [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Detección de idiomas | `mcr.microsoft.com/azure-cognitive-services/language` |
-| [Anomaly Detector](../../anomaly-detector/anomaly-detector-container-howto.md) | Anomaly Detector | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector` |
+| [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Extracción de frases clave | `mcr.microsoft.com/azure-cognitive-services/textanalytics/keyphrase` |
+| [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Detección de idiomas | `mcr.microsoft.com/azure-cognitive-services/textanalytics/language` |
 
-#### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>Versión preliminar pública "validada" (registro de contenedor: `containerpreview.azurecr.io`)
 
-Los siguientes contenedores de la versión preliminar validada se hospedan en el registro de versiones preliminares de contenedores y requieren una aplicación para acceder a ellos. Consulte los siguientes artículos de contenedor para obtener más información.
+#### <a name="gated-preview"></a>De versión preliminar "validados"
+
+Anteriormente, los contenedores de versión preliminar validados se hospedaban en el repositorio de `containerpreview.azurecr.io`. A partir del 22 de septiembre de 2020, estos contenedores (excepto Text Analytics for Health) se hospedan en la instancia de Microsoft Container Registry (MCR) y su descarga no requiere el uso del comando login de Docker. Para usar el contenedor, tendrá que:
+
+1. Completar un [formulario de solicitud](https://aka.ms/csgate) con su identificador de suscripción de Azure y el escenario de usuario. 
+2. Tras la aprobación, descargar el contenedor desde MCR. 
+3. Usar la clave y el punto de conexión de un recurso de Azure adecuado para autenticar el contenedor en tiempo de ejecución. 
 
 | Servicio | Contenedor | Container Registry/Repositorio/Nombre de imagen |
 |--|--|--|
-| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Lectura | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
-| [Face](../../face/face-how-to-install-containers.md) | Caras | `containerpreview.azurecr.io/microsoft/cognitive-services-face` |
-| [Form Recognizer](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) | Form Recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer` |
-| [Speech Service API](../../speech-service/speech-container-howto.md?tab=stt) | Voz a texto | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` |
-| [Speech Service API](../../speech-service/speech-container-howto.md?tab=cstt) | Conversión de voz a texto personalizada | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` |
-| [Speech Service API](../../speech-service/speech-container-howto.md?tab=tts) | Texto a voz | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` |
-| [Speech Service API](../../speech-service/speech-container-howto.md?tab=ctts) | Conversión de texto a voz personalizada | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech` |
+| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read v3.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview` |
+| [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Read v3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
+| [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container) | Análisis espacial | `mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis` |
+| [Speech Service API](../../speech-service/speech-container-howto.md?tab=ctts) | Conversión de texto a voz personalizada | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech` |
+| [Speech Service API](../../speech-service/speech-container-howto.md?tab=lid) | Detección de idiomas | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection` |
+| [Speech Service API](../../speech-service/speech-container-howto.md?tab=ntts) | Texto a voz neuronal | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech` |
 | [Text Analytics for Health](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | Text Analytics for Health | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |
+

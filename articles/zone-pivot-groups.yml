@@ -18,6 +18,14 @@ groups:
     title: cURL
   - id: url-test-tool-postman
     title: postman
+- id: python-frameworks-01
+  title: Marco de trabajo web
+  prompt: Elección de un marco de trabajo
+  pivots:
+  - id: python-framework-flask
+    title: Flask
+  - id: python-framework-django
+    title: Django
 - id: programming-languages-set-one
   title: Lenguajes de programación
   prompt: Selección de un lenguaje de programación
@@ -25,7 +33,7 @@ groups:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-go
-    title: Ir
+    title: Go
   - id: programming-language-java
     title: Java
   - id: programming-language-javascript
@@ -55,7 +63,7 @@ groups:
   - id: programming-language-cpp
     title: C++
   - id: programming-language-go
-    title: Ir
+    title: Go
   - id: programming-language-java
     title: Java
   - id: programming-language-python
@@ -166,6 +174,34 @@ groups:
     title: C#
   - id: programming-language-go
     title: Go
+- id: programming-languages-set-sixteen
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-ruby
+    title: Ruby
+- id: programming-languages-set-seventeen
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación o CLI
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-curl
+    title: REST
 - id: cogsvcs-text-analytics-features
   title: Características de Text Analytics
   prompt: Elección de una oferta de características de Text Analytics
@@ -206,6 +242,20 @@ groups:
     title: JavaScript
   - id: programming-language-other
     title: Otros lenguajes...
+- id: programming-languages-metrics-monitor
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-rest-api
+    title: API DE REST
 - id: programming-languages-set-diberry-3core
   title: Lenguajes de programación
   prompt: Selección de un lenguaje de programación
@@ -516,10 +566,28 @@ groups:
     title: C++
   - id: programming-language-java
     title: Java
-  - id: programming-language-python
-    title: Python
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-spx
+    title: CLI
+- id: speech-full-stack-objectivec-swift
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
+  - id: programming-language-python
+    title: Python
   - id: programming-language-spx
     title: CLI
 - id: programming-languages-voice-assistants
@@ -566,10 +634,142 @@ groups:
     title: Java
   - id: programming-language-csharp
     title: C#
+- id: speech-full-stack-go
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-spx
+    title: CLI
+- id: acs-js-csharp
+  title: Apartados de JS y C#
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-csharp
+    title: C#
+- id: acs-js-csharp-java-python
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+- id: acs-js-csharp-java-python-swift
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-swift
+    title: Swift
+- id: acs-js-csharp-ios-android-python
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java-android
+    title: Java (Android)
+  - id: programming-language-ios
+    title: iOS
+  - id: programming-language-python
+    title: Python
+- id: acs-js-csharp-ios-android
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java-android
+    title: Java (Android)
+  - id: programming-language-ios
+    title: iOS
+- id: acs-plat-web-net-ios-android
+  title: Plataforma
+  prompt: Elección de una plataforma
+  pivots:
+  - id: platform-net
+    title: .NET
+  - id: platform-web
+    title: Web
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS
+- id: acs-plat-web-ios-android
+  title: Plataforma
+  prompt: Elección de una plataforma
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS
+- id: acs-plat-azp-js
+  title: Plataforma
+  prompt: Elección de una plataforma
+  pivots:
+  - id: platform-azp
+    title: Azure portal
+  - id: platform-javascript
+    title: JavaScript
+- id: acs-plat-azp-net
+  title: Plataforma
+  prompt: Elección de una plataforma
+  pivots:
+  - id: platform-azp
+    title: Azure portal
+  - id: platform-net
+    title: .NET
+- id: acs-plat-azp-arm-net-python-go-powershell
+  title: Plataforma
+  prompt: Elección de una plataforma
+  pivots:
+  - id: platform-azp
+    title: Azure portal
+  - id: platform-arm
+    title: Azure Resource Manager
+  - id: platform-net
+    title: .NET
+  - id: platform-python
+    title: Python
+  - id: platform-go
+    title: Go
+  - id: platform-powershell
+    title: PowerShell
 metadata:
-  ms.openlocfilehash: 0659c68f39493c3e3b2e66ebc5a38d96cd13404d
-  ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+  ms.openlocfilehash: 9e70f2b3f236bf24279550a1441b40fd0f9ae246
+  ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/27/2020
-  ms.locfileid: "88998924"
+  ms.lasthandoff: 09/29/2020
+  ms.locfileid: "91461179"

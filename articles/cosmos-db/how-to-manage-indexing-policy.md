@@ -7,16 +7,19 @@ ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-javascript, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 2b1fe86c09349a25c8ebfda38ffc3ec352fdaba3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6a1848adfd61d9d8f6db0bb16fe75c04b4a22005
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019562"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604281"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Administración de directivas de indexación en Azure Cosmos DB
 
 En Azure Cosmos DB, para indexar los datos se usan las [directivas de indexación](index-policy.md) que se definen para cada contenedor. La directiva de indexación predeterminada para los contenedores recién creados exige que se usen índices de intervalo para todas las cadenas o números. Puede invalidar esta directiva con su propia directiva de indexación personalizada.
+
+> [!NOTE]
+> El método de actualización de las directivas de indexación que se describe en este artículo solo se aplica a la API de Azure Cosmos DB SQL (Core). Obtenga información sobre la indexación en [API de Azure Cosmos DB para MongoDB](mongodb-indexing.md) e [Indexación secundaria en Cassandra API de Azure Cosmos DB](cassandra-secondary-index.md).
 
 ## <a name="indexing-policy-examples"></a>Ejemplos de directiva de indexación
 

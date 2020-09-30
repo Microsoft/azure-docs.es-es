@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7c119b56d33908dbc0e53d588f3ac4ea155c8de
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 0847329bc1bc1a2d6242a9485453a3daf315c3fe
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799103"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318325"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Preguntas más frecuentes sobre Azure Active Directory
 Azure Active Directory (Azure AD) es una completa solución de identidad como servicio (IDaaS) que abarca todos los aspectos de la identidad, la administración de acceso y la seguridad.
@@ -51,7 +51,7 @@ Los servicios de pago de Azure AD, como Enterprise Mobility + Security, compleme
 
 **R:** De forma predeterminada, a la persona que se suscribe a una suscripción a Azure se le asigna el rol de propietario para los recursos de Azure. Un propietario puede usar una cuenta de Microsoft o una cuenta profesional o educativa del directorio al que está asociada la suscripción a Azure.  Este rol tiene autorización para administrar servicios en Azure Portal.
 
-Si otros usuarios necesitan iniciar sesión y acceder a los servicios con la misma suscripción, puede asignarles el [rol integrado](../../role-based-access-control/built-in-roles.md) adecuado. Para obtener información adicional, consulte [Administración del acceso mediante RBAC y Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Si otros usuarios necesitan iniciar sesión y acceder a los servicios con la misma suscripción, puede asignarles el [rol integrado](../../role-based-access-control/built-in-roles.md) adecuado. Para más información, consulte [Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 De forma predeterminada, a la persona que se suscribe a una suscripción a Azure se le asigna el rol de administrador global para el directorio. El administrador global tiene acceso a todas las características del directorio de Azure AD. Azure AD tiene un conjunto diferente de roles de administrador para gestionar las características relacionadas con la identidad y el directorio. Estos administradores tendrán acceso a varias características de Azure Portal. El rol de administrador determina qué puede hacer, como crear o editar usuarios, asignar roles administrativos a otros, restablecer contraseñas de usuario, administrar licencias de usuario o administrar dominios.  Para obtener más información sobre los administradores de directorios de Azure AD y sus roles, consulte [Asignación de un usuario a roles de administrador en Azure Active Directory](active-directory-users-assign-role-azure-portal.md) y [Asignación de roles de administrador en Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
 
@@ -92,14 +92,14 @@ Para más información, consulte [Integración de las identidades locales con Az
 
 **R:** Sí, Azure AD proporciona el [panel de acceso de Azure AD](https://myapps.microsoft.com) para el autoservicio de los usuarios y el acceso a las aplicaciones. Si es cliente de Office 365, encontrará muchas de las mismas funcionalidades en el [portal de Office 365](https://portal.office.com).
 
-Para más información, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para más información, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 ---
 **P: ¿Me ayuda Azure AD a administrar la infraestructura local?**
 
 **R:** Sí. Azure AD Premium Edition incluye Azure AD Connect Health. Azure AD Connect Health le ayuda a supervisar y a comprender mejor su infraestructura de identidad local y los servicios de sincronización.  
 
-Para más información, consulte [Supervisión de la infraestructura de identidad local y los servicios de sincronización en la nube](../hybrid/whatis-hybrid-identity-health.md).  
+Para más información, consulte [Supervisión de la infraestructura de identidad local y los servicios de sincronización en la nube](../hybrid/whatis-azure-ad-connect.md).  
 
 ---
 ## <a name="password-management"></a>Administración de contraseñas
@@ -112,7 +112,7 @@ Para más información, consulte [Supervisión de la infraestructura de identida
 
 **R:** La escritura diferida de contraseñas funciona en tiempo real.
 
-Para más información, consulte [Introducción a la administración de contraseñas](../authentication/quickstart-sspr.md).
+Para más información, consulte [Introducción a la administración de contraseñas](../authentication/tutorial-enable-sspr.md).
 
 ---
 **P: ¿Puedo usar la escritura diferida de contraseñas con las que administra un administrador?**
@@ -184,8 +184,8 @@ Para obtener más información, consulte [Experiencias de usuario final para apl
 
 Para más información, consulte:
 
-* [Escenarios de autenticación para Azure AD](../develop/authentication-scenarios.md)
-* [Protocolos de autenticación de Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
+* [Escenarios de autenticación para Azure AD](../develop/authentication-vs-authorization.md)
+* [Protocolos de autenticación de Active Directory](/previous-versions/azure/dn151124(v=azure.100))
 * [Inicio de sesión único para aplicaciones de Azure AD](../manage-apps/what-is-single-sign-on.md)
 
 ---

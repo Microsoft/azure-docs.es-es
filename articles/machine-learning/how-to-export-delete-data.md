@@ -11,16 +11,16 @@ ms.author: laobri
 ms.date: 04/24/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: fd3abdfd9b0bc0e658caa1cc5ab5c5a7edfda453
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b27675f152132a015a6dc6f5aea35aff036e1a63
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494041"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897552"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportación o eliminación de los datos del área de trabajo de Machine Learning Service
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 En Azure Machine Learning, puede exportar o eliminar los datos del área de trabajo mediante la interfaz gráfica del portal o el SDK de Python. En este artículo se describen ambas opciones.
 
@@ -84,8 +84,8 @@ Los siguientes recursos de aprendizaje automático se pueden eliminar mediante e
 
 | Tipo | Llamada a función | Notas | 
 | --- | --- | --- |
-| `Workspace` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#delete-delete-dependent-resources-false--no-wait-false-) | Use `delete-dependent-resources` para poner en cascada el proceso de eliminación. |
-| `Model` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#delete--) | | 
-| `ComputeTarget` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py#delete--) | |
-| `WebService` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py) | | 
+| `Workspace` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#&preserve-view=truedelete-delete-dependent-resources-false--no-wait-false-) | Use `delete-dependent-resources` para poner en cascada el proceso de eliminación. |
+| `Model` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#&preserve-view=truedelete--) | | 
+| `ComputeTarget` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py#&preserve-view=truedelete--) | |
+| `WebService` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true) | | 
 

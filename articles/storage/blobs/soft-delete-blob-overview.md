@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2e390c9d5d2fa7c6551ed661c6c25096732eefd5
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: a6fc1d6b831ae794907c59ab1af3328902f3a70a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88057098"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230116"
 ---
 # <a name="soft-delete-for-blobs"></a>Eliminación temporal para blobs
 
-La eliminación temporal para blobs evita que los datos se modifiquen o eliminen de forma accidental o errónea. Cuando la eliminación temporal para blobs está habilitada para una cuenta de almacenamiento, los blobs, las versiones de blobs (versión preliminar) y las instantáneas de esa cuenta de almacenamiento pueden recuperarse una vez eliminados, dentro de un período de retención que especifique.
+La eliminación temporal para blobs evita que los datos se modifiquen o eliminen de forma accidental o errónea. Cuando la eliminación temporal para blobs está habilitada para una cuenta de almacenamiento, los blobs, las versiones de blobs y las instantáneas de esa cuenta de almacenamiento pueden recuperarse una vez eliminados, dentro de un período de retención que especifique.
 
 Si existe la posibilidad de que una aplicación u otro usuario de la cuenta de almacenamiento modifiquen o borren sus datos accidentalmente, Microsoft aconseja activar la eliminación temporal. Para más información sobre cómo habilitar la eliminación temporal, consulte [Habilitación y administración de la eliminación temporal para blobs](soft-delete-enable.md).
 
@@ -28,7 +28,7 @@ Si existe la posibilidad de que una aplicación u otro usuario de la cuenta de a
 
 Si la eliminación temporal para blobs está habilitada en una cuenta de almacenamiento, puede recuperar los objetos después de eliminarlos dentro del período de retención de datos especificado. Esta protección se extiende a todos los blobs (blobs en bloques, blobs en anexos y blobs en páginas) que se borran como resultado de una sobrescritura.
 
-Si se eliminan los datos de un blob o una instantánea existentes mientras la eliminación temporal de blobs está habilitada, pero el control de versiones de blobs (versión preliminar) no está habilitado, se genera una instantánea de eliminación temporal para guardar el estado de los datos sobrescritos. Una vez expirado el período de retención especificado, el objeto se elimina de forma permanente.
+Si se eliminan los datos de un blob o una instantánea existentes mientras la eliminación temporal de blobs está habilitada, pero el control de versiones de blobs no está habilitado, se genera una instantánea de eliminación temporal para guardar el estado de los datos sobrescritos. Una vez expirado el período de retención especificado, el objeto se elimina de forma permanente.
 
 Si el control de versiones de blobs y la eliminación temporal de blobs están habilitadas en la cuenta de almacenamiento, al eliminar un blob se crea una nueva versión, en lugar de una instantánea eliminada temporalmente. La nueva versión no se elimina de forma temporal y no se quita cuando expira el período de retención de eliminación temporal. Las versiones eliminadas temporalmente de un blob se pueden restaurar en el período de retención mediante una llamada a la operación [Undelete Blob](/rest/api/storageservices/undelete-blob). Posteriormente, el blob se puede restaurar desde una de sus versiones llamando a la operación [Copy Blob](/rest/api/storageservices/copy-blob). Para obtener más información sobre el uso conjunto del control de versiones de blobs y la eliminación temporal, vea [Control de versiones de blobs y eliminación temporal](versioning-overview.md#blob-versioning-and-soft-delete).
 
@@ -194,4 +194,4 @@ Se puede sacar provecho de la eliminación temporal independientemente de la ver
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Habilitación de la eliminación temporal para blobs](soft-delete-enable.md)
-- [Versiones de blobs (versión preliminar)](versioning-overview.md)
+- [Control de versiones de blobs](versioning-overview.md)

@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/04/2020
-ms.openlocfilehash: d03c1cad9692058c47dd643be9770284b207bb74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b7457ad5870e31d682f8727901795c9d6d73f06
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553486"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442690"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Creación de alertas para Azure SQL Database y Azure Synapse Analytics mediante Azure Portal
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "85553486"
 
 ## <a name="overview"></a>Información general
 
-En este artículo se muestra cómo configurar alertas para bases de datos en Azure SQL Database y Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse) desde Azure Portal. Las alertas pueden enviarle un correo electrónico o llamar a un webhook cuando alguna métrica (por ejemplo, el tamaño de la base de datos o el uso de la CPU) alcanza el umbral.
+En este artículo se muestra cómo configurar alertas para bases de datos en Azure SQL Database y Azure Synapse Analytics (anteriormente SQL Data Warehouse) desde Azure Portal. Las alertas pueden enviarle un correo electrónico o llamar a un webhook cuando alguna métrica (por ejemplo, el tamaño de la base de datos o el uso de la CPU) alcanza el umbral.
 
 > [!NOTE]
 > Para obtener instrucciones específicas para Instancia administrada de Azure SQL, consulte [Creación de alertas para Instancia administrada de Azure SQL](../managed-instance/alerts-create.md).

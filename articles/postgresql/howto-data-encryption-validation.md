@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: be725c574c54dfc298a900d3c043559d484d1bc7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 0a1b8eaee0a483fb4ce09a33d3c7ca9fe6f980e1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117855"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884336"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-postgresql"></a>Validación del cifrado de datos Azure Database for PostgreSQL
 
@@ -35,9 +35,9 @@ Este artículo le ayuda a validar que el cifrado de datos mediante la clave admi
     * En el campo **Cifrado de datos** del servidor, seleccione **Volver a validar la clave**.
     * Cuando la revalidación de la clave es correcta, el valor de **Estado** del servidor cambia a **Disponible**
 
-2. En Azure Portal, si puede asegurarse de que se ha establecido la clave de cifrado, los datos se cifran con la clave del cliente utilizada en Azure Portal.
+2. En Azure Portal, si puede garantizar que se ha establecido la clave de cifrado, los datos se cifran con la clave del cliente usada en Azure Portal.
 
-  ![Introducción a la directiva de acceso](media/concepts-data-access-and-security-data-encryption/byok-validate.png)
+  :::image type="content" source="media/concepts-data-access-and-security-data-encryption/byok-validate.png" alt-text="Introducción a la directiva de acceso":::
 
 ### <a name="from-cli"></a>Desde la CLI
 

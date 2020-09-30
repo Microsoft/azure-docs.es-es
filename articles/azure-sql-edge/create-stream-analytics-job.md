@@ -1,6 +1,6 @@
 ---
-title: Creación de un trabajo de streaming de T-SQL en Azure SQL Edge (versión preliminar)
-description: Más información sobre la creación de trabajos de Stream Analytics en Azure SQL Edge (versión preliminar)
+title: Creación de un trabajo de streaming de T-SQL en Azure SQL Edge
+description: Obtenga información sobre la creación de trabajos de Stream Analytics en Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,19 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 346a59f085e766fef09d73b9e7baa03dad510148
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f0fcdf7aab5f43a0412cd28a1c15188b19770dc6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321724"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888093"
 ---
-# <a name="create-an-azure-stream-analytics-job-in-azure-sql-edge-preview"></a>Creación de un trabajo de Azure Stream Analytics en Azure SQL Edge (versión preliminar) 
+# <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Creación de un trabajo de streaming de datos en Azure SQL Edge 
 
-En este artículo se explica cómo crear un trabajo de streaming de T-SQL en Azure SQL Edge (versión preliminar). Cree los objetos de entrada y salida de transmisión externa y, a continuación, defina la consulta de trabajo de streaming como parte de la creación del trabajo de streaming.
-
-> [!NOTE]
-> Para habilitar la característica de streaming de T-SQL en Azure SQL Edge, habilite TF 11515 como opción de inicio o use el comando [DBCC TRACEON]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql). Para más información sobre cómo habilitar marcas de seguimiento mediante un archivo mssql.conf, consulte [Configuración mediante un archivo mssql.conf](configure.md#configure-by-using-an-mssqlconf-file).
+En este artículo se explica cómo crear un trabajo de streaming de T-SQL en Azure SQL Edge. Cree los objetos de entrada y salida de transmisión externa y, a continuación, defina la consulta de trabajo de streaming como parte de la creación del trabajo de streaming.
 
 ## <a name="configure-the-external-stream-input-and-output-objects"></a>Configuración de los objetos de entrada y salida de transmisión externa
 
@@ -255,5 +252,5 @@ El trabajo de streaming puede tener cualquiera de los siguientes estados:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Visualización de los metadatos asociados a los trabajos de streaming en Azure SQL Edge (versión preliminar)](streaming-catalog-views.md) 
+- [Visualización de los metadatos asociados a los trabajos de streaming en Azure SQL Edge](streaming-catalog-views.md) 
 - [Creación de una transmisión externa](create-external-stream-transact-sql.md)

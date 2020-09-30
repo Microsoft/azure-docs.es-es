@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 118abaef1fd1458057a7dbe28d5cd74ded55fe28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7046ab3c30e120aaaf285c32e25fce03524a0cf4
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358300"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280169"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticación de paso a través de Azure Active Directory: Preguntas más frecuentes
 
@@ -29,7 +29,7 @@ En este artículo se ofrecen respuestas a las preguntas más frecuentes sobre la
 
 ## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>¿Cuál de los métodos de inicio de sesión, autenticación de paso a través, sincronización de hash de contraseña y Servicios de federación de Active Directory (AD FS) de Azure AD debo elegir?
 
-Consulte [esta guía](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) para ver una comparación de los distintos métodos de inicio de sesión de Azure AD y cómo elegir el método correcto para su organización.
+Consulte [esta guía](./choose-ad-authn.md) para ver una comparación de los distintos métodos de inicio de sesión de Azure AD y cómo elegir el método correcto para su organización.
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>¿Es la autenticación de paso a través una característica gratuita?
 
@@ -39,7 +39,7 @@ La autenticación de paso a través es una característica gratuita. Por tanto, 
 
 No. La autenticación de paso a través solo está disponible en la instancia mundial de Azure AD.
 
-## <a name="does-conditional-access-work-with-pass-through-authentication"></a>¿Funciona el [acceso condicional](../active-directory-conditional-access-azure-portal.md) con la autenticación de paso a través?
+## <a name="does-conditional-access-work-with-pass-through-authentication"></a>¿Funciona el [acceso condicional](../conditional-access/overview.md) con la autenticación de paso a través?
 
 Sí. Todas las capacidades de acceso condicional, incluida Azure Multi-Factor Authentication, funcionan con la autenticación de paso a través.
 
@@ -113,7 +113,7 @@ La comunicación entre cada agente de autenticación de paso a través y Azure A
 
 Mientras se esté ejecutando un agente de autenticación de paso a través, permanecerá activo y controlará continuamente las solicitudes de inicio de sesión del usuario. Si desea desinstalar un agente de autenticación, vaya a **Panel de Control -> Programas -> Programas y características** y desinstale los programas **Agente de autenticación de Microsoft Azure AD Connect** y el **Agent Updater de Microsoft Azure AD Connect**.
 
-Si activa la hoja Autenticación de paso a través en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com) después de completar los pasos anteriores, verá que el agente de autenticación se muestra como **inactivo**. Se _espera_ que esto sea así. El agente de autenticación se quita automáticamente de la lista después de unos días.
+Si activa la hoja Autenticación de paso a través en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com) después de completar los pasos anteriores, verá que el agente de autenticación se muestra como **inactivo**. Se _espera_ que esto sea así. El agente de autenticación se quita automáticamente de la lista después de 10 días.
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Ya utilizo AD FS para iniciar sesión en Azure AD. ¿Cómo se puede cambiar a la autenticación de paso a través?
 
@@ -148,7 +148,7 @@ No, este escenario _no_ se admite.
 
 ## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>¿Por qué necesito una cuenta de administrador global solo para la nube para habilitar la autenticación de paso a través?
 
-Se recomienda habilitar o deshabilitar la autenticación de paso a través con una cuenta de administrador global solo para la nube. Información acerca de la [incorporación de una cuenta de administrador global que está solo en la nube](../active-directory-users-create-azure-portal.md). De este modo, se asegura de no quedar bloqueado fuera de su inquilino.
+Se recomienda habilitar o deshabilitar la autenticación de paso a través con una cuenta de administrador global solo para la nube. Información acerca de la [incorporación de una cuenta de administrador global que está solo en la nube](../fundamentals/add-users-azure-active-directory.md). De este modo, se asegura de no quedar bloqueado fuera de su inquilino.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>¿Se puede deshabilitar la autenticación de paso a través?
 
@@ -184,4 +184,3 @@ Los inquilinos creados después del 15 de junio de 2015 tienen el comportamiento
 - [Análisis a fondo de la seguridad](how-to-connect-pta-security-deep-dive.md): Obtenga información técnica detallada sobre la característica de autenticación de paso a través.
 - [SSO de conexión directa de Azure AD](how-to-connect-sso.md): Más información sobre esta característica complementaria.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use el foro de Azure Active Directory para solicitar nuevas características.
-

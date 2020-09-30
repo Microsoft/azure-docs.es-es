@@ -1,19 +1,19 @@
 ---
 title: Protección de un servidor de archivos mediante Azure Site Recovery
 description: En este artículo se describe cómo proteger un servidor de archivos mediante Azure Site Recovery
-author: rajani-janaki-ram
-manager: gauravd
+author: Sharmistha-Rai
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: rajanaki
+ms.author: sharrai
 ms.custom: mvc
-ms.openlocfilehash: c4b6d583c2dd3d54c6201917a40fa6165efac18f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1c88a7e78d37556f0f1f89e16154dc1808f24323
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131266"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425524"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Protección de un servidor de archivos mediante Azure Site Recovery 
 

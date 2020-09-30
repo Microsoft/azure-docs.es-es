@@ -61,10 +61,14 @@
       items:
         - name: Creación a partir de plantillas precompiladas
           href: logic-apps-create-logic-apps-from-templates.md
+        - name: Administración de recursos de Azure mediante la creación de tareas de automatización
+          href: create-automation-tasks-azure-resources.md
         - name: Migración desde BizTalk Services
           href: logic-apps-move-from-mabs.md
         - name: Exportación de flujos desde Power Automate y su implementación en Azure Logic Apps
           href: export-from-microsoft-flow-logic-app-template.md
+        - name: Creación de flujos de trabajo con estado o sin estado en Visual Studio Code
+          href: create-stateful-stateless-workflows-visual-studio-code.md
         - name: Control de la ejecución del flujo de trabajo
           items:
             - name: Instrucciones condicionales
@@ -166,8 +170,8 @@
               href: logic-apps-enterprise-integration-edifact-decode.md
             - name: Control de archivos EDIFACT con el segmento UNH2.5
               href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
-        - name: Intercambio de mensajes de RosettaNet
-          href: logic-apps-enterprise-integration-rosettanet.md
+            - name: Intercambio de mensajes de RosettaNet
+              href: logic-apps-enterprise-integration-rosettanet.md
         - name: Intercambio de mensajes X12
           href: logic-apps-enterprise-integration-x12.md
           items:
@@ -207,7 +211,7 @@
           href: logic-apps-http-endpoint.md
         - name: Azure Service Bus
           href: ../connectors/connectors-create-api-servicebus.md
-        - name: "Azure\_SQL\_Database"
+        - name: Azure SQL Database
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: Bing Search
           href: ../connectors/connectors-create-api-bingsearch.md
@@ -312,7 +316,7 @@
         - name: 'Administración de aplicaciones lógicas: Visual Studio'
           href: manage-logic-apps-with-visual-studio.md
         - name: Administración de cuentas de integración
-          href: ./logic-apps-enterprise-integration-create-integration-account.md
+          href: logic-apps-enterprise-integration-create-integration-account.md
         - name: Administración de entornos del servicio de integración
           href: ise-manage-integration-service-environment.md
         - name: Traslado de recursos de aplicaciones lógicas

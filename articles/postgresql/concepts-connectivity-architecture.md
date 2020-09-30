@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: f03b5e93e4ed5155f6a713c152fbcf34dc873674
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 64be7f01cc9cc7ae77af5386be7a11cd16785dd1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065886"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882409"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitectura de la conectividad en Azure Database for PostgreSQL
 En este artículo se explica la arquitectura de la conectividad de Azure Database for PostgreSQL y cómo se dirige el tráfico a la instancia de base de datos de Azure Database for PostgreSQL desde los clientes de dentro y de fuera de Azure.
@@ -19,7 +19,7 @@ En este artículo se explica la arquitectura de la conectividad de Azure Databas
 ## <a name="connectivity-architecture"></a>Arquitectura de conectividad
 La conexión a la base de datos de Azure Database for PostgreSQL se establece a través de una puerta de enlace que se encarga de enrutamiento de las conexiones entrantes a la ubicación física del servidor en nuestros clústeres. En el diagrama siguiente se muestra este flujo de tráfico.
 
-![Información general de la arquitectura de conectividad](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
+:::image type="content" source="./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png" alt-text="Información general de la arquitectura de conectividad":::
 
 Al conectarse a la base de datos, los clientes obtienen una cadena de conexión para conectarse a la puerta de enlace. Esta puerta de enlace tiene una dirección IP pública que escucha el puerto 5432. Dentro del clúster de base de datos, el tráfico se reenvía a la instancia de Azure Database for PostgreSQL adecuada. Por tanto, para conectarse al servidor, como en las redes corporativas, es necesario abrir el firewall del lado cliente para permitir que el tráfico saliente llegue a nuestras puertas de enlace. A continuación encontrará una lista completa de las direcciones IP que usan nuestras puertas de enlace por región.
 

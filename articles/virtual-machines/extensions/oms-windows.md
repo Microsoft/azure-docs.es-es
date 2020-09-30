@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 302a0361c19d247b6da4abd516d3a5df8dfd10c7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 501681a17603fb21e073b04e48d23f1b566f8128
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494673"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89067695"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Log Analytics para Windows
 
@@ -29,13 +29,14 @@ Los registros de Azure Monitor proporcionan funcionalidades de supervisión de r
 
 ### <a name="operating-system"></a>Sistema operativo
 
-Para obtener más información acerca de los sistemas operativos Windows admitidos, consulte el artículo de [información general del agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems).
+Para obtener más información acerca de los sistemas operativos Windows admitidos, consulte el artículo [Información general sobre los agentes de Azure Monitor](../../azure-monitor/platform/agents-overview.md#supported-operating-systems).
 
 ### <a name="agent-and-vm-extension-version"></a>Versión de extensión de agente y máquina virtual
 En la tabla siguiente se proporciona una asignación de la versión de la extensión de VM de Windows Log Analytics y el paquete del agente de Log Analytics para cada versión. 
 
 | Versión del conjunto de productos Windows para Log Analytics | Versión de extensión de VM Windows de Log Analytics | Fecha de la versión | Notas de la versión |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18038 | 1.0.18040.2 | Agosto de 2020   | <ul><li>Resuelve un problema en Azure Arc</li></ul> |
 | 10.20.18038 | 1.0.18038 | Abril de 2020   | <ul><li>Permite la conectividad a través de Private Link mediante ámbitos de Private Link de Azure Monitor.</li><li>Agrega la limitación de ingesta para evitar un influjo repentino y accidental de ingesta en un área de trabajo.</li><li>Agrega compatibilidad con regiones y nubes de Azure Government adicionales.</li><li>Resuelve un error en el que se bloqueaba HealthService.exe.</li></ul> |
 | 10.20.18029 | 1.0.18029 | Marzo de 2020   | <ul><li>Agrega compatibilidad con la firma de código SHA-2.</li><li>Mejora la instalación y administración de extensiones de máquina virtual.</li><li>Resuelve un error en Azure Arc de integración de servidores.</li><li>Agrega una herramienta de solución de problemas integrada de soporte al cliente.</li><li>Agrega compatibilidad con más regiones de Azure Government.</li> |
 | 10.20.18018 | 1.0.18018 | Octubre de 2019 | <ul><li> Correcciones de errores menores y mejoras de estabilización </li></ul> |

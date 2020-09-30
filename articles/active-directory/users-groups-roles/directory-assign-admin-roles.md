@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 08/13/2020
+ms.date: 08/31/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a2bb8b98bfb936421c0522d4637a288d20a708b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 09664de9ab2040ad04127ee1556c21244ac6bc2d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795412"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269682"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
@@ -27,7 +27,7 @@ Con Azure Active Directory (Azure AD), puede designar administradores limitados 
 
 ## <a name="limit-use-of-global-administrator"></a>Limitación del uso de administrador global
 
-Los usuarios que tienen asignado el rol Administrador global pueden leer y modificar cada configuración administrativa de la organización de Azure AD. De manera predeterminada, a la persona que se suscribe a Azure se le asigna el rol Administrador global para la organización de Azure AD. Solo los administradores globales y los que tengan un rol con privilegios pueden delegar roles de administrador. Para reducir el riesgo para su negocio, le recomendamos asignar este rol a la menor cantidad posible de personas de su organización.
+Los usuarios que tienen asignado el rol Administrador global pueden leer y modificar cada configuración administrativa de la organización de Azure AD. De forma predeterminada, cuando un usuario se suscribe a un servicio en la nube de Microsoft, se crea un nuevo inquilino de Azure AD y el usuario se convierte en miembro del rol Administradores globales. Cuando se agrega una suscripción a un inquilino existente, no se le asigna el rol Administrador global. Solo los administradores globales y los que tengan un rol con privilegios pueden delegar roles de administrador. Para reducir el riesgo para su negocio, le recomendamos asignar este rol a la menor cantidad posible de personas de su organización.
 
 Como procedimiento recomendado, aconsejamos que se asigne este rol a menos de cinco personas de su organización. Si tiene más de cinco usuarios asignados al rol Administrador global en la organización, estas son algunas maneras de reducir el uso.
 
@@ -56,19 +56,12 @@ Los roles de administrador disponibles son los siguientes:
 
 los usuarios con este rol pueden crear y administrar todos los aspectos de las aplicaciones empresariales, los registros de aplicaciones y la configuración del proxy de aplicación. Tenga en cuenta que los usuarios asignados a este rol no se agregan como propietarios al crear nuevos registros de aplicaciones o aplicaciones empresariales.
 
-Los administradores de aplicaciones pueden administrar las credenciales de aplicación que les permite suplantar la aplicación. Por lo tanto, los usuarios asignados a este rol pueden administrar las credenciales de aplicación únicamente de las aplicaciones que no están asignadas a ningún rol de Azure AD ni a los asignados a los roles de administrador siguientes:
-
-* Administrador de aplicaciones
-* Desarrollador de aplicaciones
-* Administrador de aplicaciones en la nube
-* Lectores de directorios
-
-Si se asigna una aplicación a cualquier otro rol que no se menciona anteriormente, el administrador de la aplicación no puede administrar las credenciales de esa aplicación.
-
 Este rol proporciona igualmente la capacidad de _dar el consentimiento_ para permisos delegados y permisos de aplicaciones, con la excepción de los permisos relacionados con Microsoft Graph API.
 
 > [!IMPORTANT]
 > Esta excepción significa que puede seguir dando su consentimiento a los permisos para _otras_ aplicaciones (por ejemplo, aplicaciones no de Microsoft o de terceros que haya registrado), pero no a los permisos propios de Azure AD. Estos permisos se pueden seguir _solicitando_ como parte del registro de la aplicación, pero para _concederlos_ (es decir, dar su consentimiento a ellos) es necesario ser un administrador de Azure AD. Esto significa que un usuario malintencionado no puede elevar fácilmente sus permisos. Por ejemplo, no podría crear y dar su consentimiento a una aplicación que pueda escribir en todo el directorio y a través de los permisos de esa aplicación elevar sus permisos para convertirse en administrador global.
+>
+>Este rol concede la capacidad de administrar credenciales de la aplicación. Los usuarios asignados a este rol pueden agregar credenciales a una aplicación y usarlas para suplantar la identidad de la aplicación. Si a la identidad de la aplicación se le ha concedido acceso a un recurso, como la capacidad para crear o actualizar usuarios u otros objetos, un usuario asignado a este rol puede realizar esas acciones mientras suplanta la identidad de la aplicación. Esta capacidad de suplantar la identidad de la aplicación puede ser una elevación de privilegios sobre qué puede hacer el usuario mediante sus asignaciones de roles. Es importante saber que, al asignar a un usuario el rol de Administrador de aplicaciones, se le concede la capacidad de suplantar la identidad de la aplicación.
 
 ### <a name="application-developer"></a>[Desarrollador de aplicaciones](#application-developer-permissions)
 
@@ -125,15 +118,11 @@ hace compras, administra suscripciones, administra incidencias de soporte técni
 
 ### <a name="cloud-application-administrator"></a>[Administrador de aplicaciones en la nube](#cloud-application-administrator-permissions)
 
-los usuarios con este rol tienen los mismos permisos que el rol de administrador de la aplicación, excluida la capacidad de administrar el proxy de aplicación. Este rol concede la capacidad de crear y administrar todos los aspectos de las aplicaciones empresariales y los registros de aplicaciones. Este rol también proporciona la capacidad de dar el consentimiento para permisos delegados y permisos de aplicaciones, excepto Microsoft Graph API. Los usuarios asignados a este rol no se agregan como propietarios al crear nuevos registros de aplicaciones o aplicaciones empresariales.
+los usuarios con este rol tienen los mismos permisos que el rol de administrador de la aplicación, excluida la capacidad de administrar el proxy de aplicación. Este rol concede la capacidad de crear y administrar todos los aspectos de las aplicaciones empresariales y los registros de aplicaciones. Este rol proporciona igualmente la capacidad de dar el consentimiento para permisos delegados y permisos de aplicaciones, excepto Microsoft Graph y Azure AD Graph. Los usuarios asignados a este rol no se agregan como propietarios al crear nuevos registros de aplicaciones o aplicaciones empresariales.
 
-Los administradores de aplicaciones en la nube pueden administrar las credenciales de aplicación que les permite suplantar la aplicación. Por lo tanto, los usuarios asignados a este rol pueden administrar las credenciales de aplicación únicamente de las aplicaciones que no están asignadas a ningún rol de Azure AD ni a los asignados a los roles de administrador siguientes:
+> [!IMPORTANT]
+> Este rol concede la capacidad de administrar credenciales de la aplicación. Los usuarios asignados a este rol pueden agregar credenciales a una aplicación y usarlas para suplantar la identidad de la aplicación. Si a la identidad de la aplicación se le ha concedido acceso a un recurso, como la capacidad para crear o actualizar usuarios u otros objetos, un usuario asignado a este rol puede realizar esas acciones mientras suplanta la identidad de la aplicación. Esta capacidad de suplantar la identidad de la aplicación puede ser una elevación de privilegios sobre qué puede hacer el usuario mediante sus asignaciones de roles. Es importante saber que, al asignar a un usuario el rol de Administrador de aplicaciones en la nube, se le concede la capacidad de suplantar la identidad de la aplicación.
 
-* Desarrollador de aplicaciones
-* Administrador de aplicaciones en la nube
-* Lectores de directorios
-
-Si se asigna una aplicación a cualquier otro rol que no se menciona anteriormente, el administrador de la aplicación en la nube no puede administrar las credenciales de esa aplicación.
 
 ### <a name="cloud-device-administrator"></a>[Administrador de dispositivos en la nube](#cloud-device-administrator-permissions)
 
@@ -1991,6 +1980,6 @@ Combinación de dispositivos de área de trabajo | Obsoleto | [Documentación de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información acerca de cómo asignar un usuario como administrador de una suscripción de Azure, consulte [Incorporación o eliminación de asignaciones de roles con RBAC de Azure y Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+* Para más información acerca de cómo asignar un usuario como administrador de una suscripción de Azure, consulte [Incorporación o eliminación de asignaciones de roles de Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 * Para más información acerca de cómo se controla el acceso a los recursos en Microsoft Azure, consulte [Roles de administrador de suscripciones clásico de RBAC de Azure y de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Para obtener más información sobre la relación entre las suscripciones y un inquilino de Azure AD, consulte [Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md).

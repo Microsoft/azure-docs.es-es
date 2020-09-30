@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fa3bee706049bbeaed0a01cb4f3f5c0422050fa2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 25ab7d275957aff03ad76bf2e946a98fc6cd8821
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797588"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032969"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Maximización de la calidad de un grupo de filas para mejorar el rendimiento de un índice de almacén de columnas
 
@@ -68,9 +68,6 @@ JOIN    sys.[dm_pdw_nodes_db_column_store_row_group_physical_stats] rg      ON  
 select *
 from cte;
 ```
-
->[!TIP]
-> Para mejorar el rendimiento de Synapse SQL, considere la posibilidad de usar **sys.pdw_permanent_table_mappings** en lugar de **sys.pdw_table_mappings** en tablas de usuario permanentes. Para más información, consulte **[sys.pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 trim_reason_desc indica si el grupo de filas se ha recortado (trim_reason_desc = NO_TRIM implica que no ha habido ningún recorte y que el grupo de filas es de calidad óptima). Los siguientes motivos de recorte indican el recorte prematuro del grupo de filas:
 

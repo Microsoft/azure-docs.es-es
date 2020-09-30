@@ -12,17 +12,17 @@ ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: dba64761d5df9bcf27cc903f84750a767478000a
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: fc9dee3d4ace5f70c4238cdce5c57696b131bfa9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846690"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897321"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Inicio, supervisión y cancelación de las ejecuciones de entrenamiento en Python
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-El [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), la [CLI de Machine Learning](reference-azure-machine-learning-cli.md) y [Microsoft Azure Machine Learning Studio](https://ml.azure.com) proporcionan varios métodos para supervisar, organizar y administrar las ejecuciones de entrenamiento y experimentación.
+
+El [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true), la [CLI de Machine Learning](reference-azure-machine-learning-cli.md) y [Microsoft Azure Machine Learning Studio](https://ml.azure.com) proporcionan varios métodos para supervisar, organizar y administrar las ejecuciones de entrenamiento y experimentación.
 
 En este artículo se muestran ejemplos de las tareas siguientes:
 
@@ -39,7 +39,7 @@ Necesitará los siguientes elementos:
 
 * Un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 
-* El SDK de Azure Machine Learning para Python (versión 1.0.21 o posterior). Para instalar o actualizar a la versión más reciente del SDK, consulte [Instalación o actualización del SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* El SDK de Azure Machine Learning para Python (versión 1.0.21 o posterior). Para instalar o actualizar a la versión más reciente del SDK, consulte [Instalación o actualización del SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
 
     Para comprobar su versión del SDK de Azure Machine Learning, use el siguiente código:
 
@@ -53,7 +53,7 @@ Necesitará los siguientes elementos:
 
 ### <a name="using-the-sdk"></a>Uso del SDK
 
-Para configurar el experimento, importe las clases [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py), [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py), [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) y [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) del paquete [azureml.core](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py).
+Para configurar el experimento, importe las clases [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true), [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true), [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true) y [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) del paquete [azureml.core](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py&preserve-view=true).
 
 ```python
 import azureml.core
@@ -64,7 +64,7 @@ ws = Workspace.from_config()
 exp = Experiment(workspace=ws, name="explore-runs")
 ```
 
-Inicie una ejecución y su proceso de registro con el método [`start_logging()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-).
+Inicie una ejecución y su proceso de registro con el método [`start_logging()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truestart-logging--args----kwargs-).
 
 ```python
 notebook_run = exp.start_logging()
@@ -102,7 +102,7 @@ Para iniciar una ejecución del experimento, use los pasos siguientes:
     > [!TIP]
     > El comando `az ml folder attach` ha creado un subdirectorio `.azureml`, que contiene dos archivos runconfig de ejemplo.
     >
-    > Si tiene un script de Python que crea un objeto de configuración de ejecución mediante programación, puede usar [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) para guardarlo como un archivo runconfig.
+    > Si tiene un script de Python que crea un objeto de configuración de ejecución mediante programación, puede usar [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#&preserve-view=truesave-path-none--name-none--separate-environment-yaml-false-) para guardarlo como un archivo runconfig.
     >
     > Para ver más archivos runconfig de ejemplo, consulte [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/).
 
@@ -110,7 +110,7 @@ Para iniciar una ejecución del experimento, use los pasos siguientes:
 
 ### <a name="using-azure-machine-learning-studio"></a>Utilización de Azure Machine Learning Studio
 
-Para iniciar el envío de una canalización de ejecución en el diseñador (versión preliminar), siga estos pasos:
+Para iniciar el envío de una ejecución de canalización en el diseñador, siga estos pasos:
 
 1. Establezca un destino de proceso predeterminado para la canalización.
 
@@ -122,19 +122,19 @@ Para iniciar el envío de una canalización de ejecución en el diseñador (vers
 
 ### <a name="using-the-sdk"></a>Uso del SDK
 
-Obtenga el estado de una ejecución con el método [`get_status()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-status--).
+Obtenga el estado de una ejecución con el método [`get_status()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=trueget-status--).
 
 ```python
 print(notebook_run.get_status())
 ```
 
-Para obtener el identificador de ejecución, el tiempo de ejecución y los detalles adicionales sobre la ejecución, use el método [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#get-details--).
+Para obtener el identificador de ejecución, el tiempo de ejecución y los detalles adicionales sobre la ejecución, use el método [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#&preserve-view=trueget-details--).
 
 ```python
 print(notebook_run.get_details())
 ```
 
-Cuando la ejecución finalice correctamente, use el método [`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) para marcarla como completada.
+Cuando la ejecución finalice correctamente, use el método [`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truecomplete--set-status-true-) para marcarla como completada.
 
 ```python
 notebook_run.complete()
@@ -195,7 +195,7 @@ Si detecta un error o si la ejecución tarda demasiado en finalizar, puede cance
 
 ### <a name="using-the-sdk"></a>Uso del SDK
 
-Para cancelar una ejecución mediante el SDK, use el método [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--):
+Para cancelar una ejecución mediante el SDK, use el método [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truecancel--):
 
 ```python
 run_config = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
@@ -242,7 +242,7 @@ Cree ejecuciones secundarias para agrupar ejecuciones relacionadas (por ejemplo,
 > [!NOTE]
 > Las ejecuciones secundarias solo se pueden crear mediante el SDK.
 
-En este ejemplo de código se usa el script `hello_with_children.py` para crear un lote de cinco ejecuciones secundarias desde una ejecución enviada mediante el método [`child_run()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#child-run-name-none--run-id-none--outputs-none-):
+En este ejemplo de código se usa el script `hello_with_children.py` para crear un lote de cinco ejecuciones secundarias desde una ejecución enviada mediante el método [`child_run()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truechild-run-name-none--run-id-none--outputs-none-):
 
 ```python
 !more hello_with_children.py
@@ -261,7 +261,7 @@ with exp.start_logging() as parent_run:
 > [!NOTE]
 > A medida que quedan fuera del ámbito, las ejecuciones secundarias se marcan automáticamente como completadas.
 
-Para crear muchas ejecuciones secundarias de forma eficaz, use el método [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-). Dado que cada creación da lugar a una llamada de red, la creación de un lote de ejecuciones es más eficaz que hacerlo una a una.
+Para crear muchas ejecuciones secundarias de forma eficaz, use el método [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=truecreate-children-count-none--tag-key-none--tag-values-none-). Dado que cada creación da lugar a una llamada de red, la creación de un lote de ejecuciones es más eficaz que hacerlo una a una.
 
 ### <a name="submit-child-runs"></a>Envío de ejecuciones secundarias
 
@@ -299,7 +299,7 @@ for child in run.get_children():
     child.wait_for_completion()
 ```
 
-Para crear muchas ejecuciones secundarias con configuraciones, argumentos y entradas idénticas de forma eficaz, use el método [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-). Dado que cada creación da lugar a una llamada de red, la creación de un lote de ejecuciones es más eficaz que hacerlo una a una.
+Para crear muchas ejecuciones secundarias con configuraciones, argumentos y entradas idénticas de forma eficaz, use el método [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=truecreate-children-count-none--tag-key-none--tag-values-none-). Dado que cada creación da lugar a una llamada de red, la creación de un lote de ejecuciones es más eficaz que hacerlo una a una.
 
 Desde la ejecución secundaria, puede ver el identificador de la ejecución principal:
 
@@ -311,7 +311,7 @@ child_run.parent.id
 
 ### <a name="query-child-runs"></a>Consulta de ejecuciones secundarias
 
-Para consultar las ejecuciones secundarias de un elemento primario específico, use el método [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-). El argumento ``recursive = True`` permite consultar un árbol anidado de elementos secundarios y descendientes.
+Para consultar las ejecuciones secundarias de un elemento primario específico, use el método [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=trueget-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-). El argumento ``recursive = True`` permite consultar un árbol anidado de elementos secundarios y descendientes.
 
 ```python
 print(parent_run.get_children())
@@ -325,7 +325,7 @@ En Azure Machine Learning, puede usar etiquetas y propiedades para ayudar a orga
 
 #### <a name="using-the-sdk"></a>Uso del SDK
 
-Para agregar metadatos de búsqueda a las ejecuciones, use el método [`add_properties()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#add-properties-properties-). Por ejemplo, el código siguiente agrega la propiedad `"author"` a la ejecución:
+Para agregar metadatos de búsqueda a las ejecuciones, use el método [`add_properties()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=trueadd-properties-properties-). Por ejemplo, el código siguiente agrega la propiedad `"author"` a la ejecución:
 
 ```Python
 local_script_run.add_properties({"author":"azureml-user"})
@@ -341,7 +341,7 @@ except Exception as e:
     print(e)
 ```
 
-A diferencia de las propiedades, las etiquetas son mutables. Para agregar información que permite realizar búsquedas y que es significativa para los consumidores del experimento, use el método [`tag()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#tag-key--value-none-).
+A diferencia de las propiedades, las etiquetas son mutables. Para agregar información que permite realizar búsquedas y que es significativa para los consumidores del experimento, use el método [`tag()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truetag-key--value-none-).
 
 ```Python
 local_script_run.tag("quality", "great run")
@@ -384,7 +384,7 @@ list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"
 
 #### <a name="using-the-cli"></a>Uso de la CLI
 
-La CLI de Azure admite las consultas [JMESPath](http://jmespath.org), que se pueden usar para filtrar las ejecuciones en función de etiquetas y propiedades. Para usar una consulta JMESPath con la CLI de Azure, especifíquela con el parámetro `--query`. En los ejemplos siguientes se muestran consultas básicas que usan etiquetas y propiedades:
+La CLI de Azure admite las consultas [JMESPath](http://jmespath.org), que se pueden usar para filtrar las ejecuciones en función de etiquetas y propiedades. Para usar una consulta JMESPath con la CLI de Azure, especifíquela con el parámetro `--query`. En los ejemplos siguientes se muestran algunas consultas que usan etiquetas y propiedades:
 
 ```azurecli-interactive
 # list runs where the author property = 'azureml-user'

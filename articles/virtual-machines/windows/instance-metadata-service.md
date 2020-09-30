@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: adeba1964ab802a903e82b3ea71bc3248b86cea9
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 2e0788b6a7eb6f1d43185d8b484adddd76374ea3
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705068"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086715"
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -517,10 +517,11 @@ caching | Requisitos de almacenamiento en caché
 createOption | Información sobre cómo se ha creado la máquina virtual
 diffDiskSettings | Configuración de discos efímeros
 diskSizeGB | Tamaño del disco en GB
+encryptionSettings | Configuración de cifrado para el disco
 imagen   | Disco duro virtual de la imagen de usuario de origen
-lun     | Número de unidad lógica del disco
 managedDisk | Parámetros de disco administrado
 name    | Nombre del disco
+osType  | Tipo de sistema operativo incluido en el disco
 vhd     | Disco duro virtual
 writeAcceleratorEnabled | Si writeAccelerator está habilitado o no en el disco
 
@@ -532,11 +533,10 @@ caching | Requisitos de almacenamiento en caché
 createOption | Información sobre cómo se ha creado la máquina virtual
 diffDiskSettings | Configuración de discos efímeros
 diskSizeGB | Tamaño del disco en GB
-encryptionSettings | Configuración de cifrado para el disco
 imagen   | Disco duro virtual de la imagen de usuario de origen
+lun     | Número de unidad lógica del disco
 managedDisk | Parámetros de disco administrado
 name    | Nombre del disco
-osType  | Tipo de sistema operativo incluido en el disco
 vhd     | Disco duro virtual
 writeAcceleratorEnabled | Si writeAccelerator está habilitado o no en el disco
 

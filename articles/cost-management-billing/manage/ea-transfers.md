@@ -6,14 +6,14 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/03/2020
 ms.author: banders
-ms.openlocfilehash: fdbeaaf255277765c77900c10339dd3d473b590f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c4d328d2e2ef562813bcb529c104b3559f03066e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686928"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442435"
 ---
 # <a name="azure-enterprise-transfers"></a>Transferencias de Azure Enterprise
 

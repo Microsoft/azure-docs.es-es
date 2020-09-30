@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 07/07/2020
-  ms.openlocfilehash: b8afb852228669def920ca9d3b1800e2ea3ebe52
-  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+  ms.openlocfilehash: 160c415ac29ec17f7d2b0ec1e6fd02e566aa2cb1
+  ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88206404"
+  ms.lasthandoff: 09/11/2020
+  ms.locfileid: "90033547"
 conceptualContent:
   title: Ofertas de cumplimiento
   items:
@@ -359,7 +359,7 @@ additionalContent:
       - text: FedRAMP High
         url: ../governance/blueprints/samples/fedramp-h/index.md
       - text: HIPAA/HITRUST
-        url: ../governance/blueprints/samples/hipaa-hitrust/index.md
+        url: /azure/governance/blueprints/samples/hipaa-hitrust-9-2
       - text: IRS 1075
         url: ../governance/blueprints/samples/irs-1075/index.md
       - text: ISO 27001

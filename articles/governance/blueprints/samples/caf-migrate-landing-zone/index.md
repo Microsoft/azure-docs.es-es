@@ -1,14 +1,14 @@
 ---
 title: Ejemplo de plano técnico de la zona de aterrizaje de la migración de CAF, introducción
 description: Introducción y arquitectura del ejemplo de plano técnico de la zona de aterrizaje de la migración de Cloud Adoption Framework (CAF) para Azure.
-ms.date: 04/15/2020
+ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: 6deb671070a742448560309b1b1a3572f5aa082d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6b8e3484690d263a43d3824c054b28344ea07fb1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852317"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531685"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Introducción al ejemplo de plano técnico de la zona de aterrizaje de migración de Microsoft Cloud Adoption Framework para Azure
 
@@ -20,7 +20,9 @@ El plano técnico de [fundamentos de CAF](../caf-foundation/index.md) amplía es
 
 El ejemplo de plano técnico de la zona de aterrizaje de migración de CAF implementa los recursos de infraestructura básicos en Azure que pueden usar las organizaciones para preparar su suscripción a la migración de máquinas virtuales. También ayuda a poner en marcha los controles de gobernanza necesarios para administrar su propia nube. En este ejemplo se implementarán y aplicarán los recursos, las directivas y las plantillas que permitirán a una organización comenzar con confianza en Azure.
 
-:::image type="content" source="../../media/caf-blueprints/caf-migration-landing-zone-architecture.png" alt-text="Zona de aterrizaje de la migración de CAF, en la imagen se describe lo que se instala como parte de la guía de CAF para la zona de aterrizaje inicial" border="false":::
+:::image type="complex" source="../../media/caf-blueprints/caf-migration-landing-zone-architecture.png" alt-text="Zona de aterrizaje de Migración CAF, en la imagen se describe lo que se instala como parte de la guía de CAF para la zona de aterrizaje inicial." border="false":::
+   Describe una arquitectura de Azure que se consigue mediante la implementación del plano técnico de Migración CAF.  Se puede aplicar a cualquier suscripción que tenga grupos de recursos y que conste de una red virtual de Azure, una cuenta de almacenamiento para almacenar registros y análisis de registros configurados para almacenarse en la cuenta de almacenamiento.  También se muestran Azure Key Vault configurado y la configuración inicial de Azure Migrate creada.  Para acceder a todas estas infraestructuras principales se debe usar Azure Active Directory.     
+:::image-end:::
 
 Este entorno se compone de varios servicios de Azure que se usan para proporcionar una gobernanza segura, totalmente supervisada y preparada para la empresa. Este entorno se compone de:
 

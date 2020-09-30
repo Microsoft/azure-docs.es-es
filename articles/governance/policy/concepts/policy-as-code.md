@@ -1,14 +1,14 @@
 ---
 title: Diseño de flujos de trabajo de directiva como código
 description: Aprenda a diseñar flujos de trabajo para implementar sus definiciones de Azure Policy como código y validar automáticamente los recursos.
-ms.date: 07/23/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 02ff979feac1afb5f1664e6387e0abcde69b60eb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: bc7a6d72e344868a799638f724b5c225516b5a32
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131504"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651881"
 ---
 # <a name="design-policy-as-code-workflows"></a>Diseño de flujos de trabajo de directiva como código
 
@@ -43,7 +43,9 @@ Los ejemplos de estos formatos de archivo están disponibles en el [repositorio 
 
 El flujo de trabajo general recomendado de la directiva como código es similar al de este diagrama:
 
-:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Información general del flujo de trabajo de directiva como código" border="false":::
+:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagrama que muestra los cuadros del flujo de trabajo de directiva como código en las fases de creación, pruebas e implementación." border="false":::
+   El diagrama muestra los cuadros del flujo de trabajo de directiva como código. La fase de creación abarca la creación de las definiciones de directiva e iniciativa. La fase de pruebas abarca la asignación con el modo de cumplimiento deshabilitado. Después de comprobar el estado de cumplimiento, se otorgan asignaciones de permisos MSI y se corrigen los recursos.  La fase de implementación abarca la asignación con el modo de cumplimiento habilitado.
+:::image-end:::
 
 ### <a name="create-and-update-policy-definitions"></a>Crear y actualizar definiciones de directivas
 
@@ -110,7 +112,8 @@ La asignación debe utilizar [enforcementMode](./assignment-structure.md#enforce
 > [!NOTE]
 > Aunque el modo de cumplimiento es útil, no es un sustituto para probar exhaustivamente la definición de una directiva en varias condiciones. La definición de la directiva se debe probar con las llamadas API de REST `PUT` y `PATCH`, recursos compatibles y no compatibles, y casos extremos, como una propiedad que falte en el recurso.
 
-Una vez implementada la asignación, use el SDK de directivas para [obtener los datos de cumplimiento](../how-to/get-compliance-data.md) para la nueva asignación. El entorno que se usa para probar las directivas y asignaciones debe tener recursos compatibles y no compatibles. Al igual que una buena prueba unitaria del código, desea probar que los recursos son los esperados y que tampoco tiene falsos positivos ni falsos negativos. Si prueba y valida solo lo que espera, puede haber un impacto inesperado y no identificado de la directiva. Para obtener más información, consulte [Evaluación del efecto de una nueva definición de Azure Policy](./evaluate-impact.md).
+Una vez implementada la asignación, use el SDK de directiva o la [acción de GitHub de examen de cumplimiento de Azure Policy](https://github.com/marketplace/actions/azure-policy-compliance-scan) para [obtener datos de cumplimiento](../how-to/get-compliance-data.md) para la nueva asignación. El entorno que se usa para probar las directivas y asignaciones debe tener recursos compatibles y no compatibles.
+Al igual que una buena prueba unitaria del código, desea probar que los recursos son los esperados y que tampoco tiene falsos positivos ni falsos negativos. Si prueba y valida solo lo que espera, puede haber un impacto inesperado y no identificado de la directiva. Para obtener más información, consulte [Evaluación del efecto de una nueva definición de Azure Policy](./evaluate-impact.md).
 
 ### <a name="enable-remediation-tasks"></a>Habilitación de tareas de corrección
 

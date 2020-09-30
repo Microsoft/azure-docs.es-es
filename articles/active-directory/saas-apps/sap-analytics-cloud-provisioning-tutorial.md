@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 03764dc9999b233153588f4908a2c10587697e40
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f56aac256407b179dae2ef421217658ac102bbb4
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88860485"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458865"
 ---
 # <a name="tutorial-configure-sap-analytics-cloud-for-automatic-user-provisioning"></a>Tutorial: Configuración de SAP Analytics Cloud para el aprovisionamiento automático de usuarios
 
@@ -150,7 +150,7 @@ Esta operación inicia el ciclo de sincronización inicial de todos los usuarios
 Una vez configurado el aprovisionamiento, use los recursos siguientes para supervisar la implementación:
 
 1. Use los [registros de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar qué usuarios se han aprovisionado correctamente o sin éxito.
-2. Consulte la [barra de progreso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
+2. Consulte la [barra de progreso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
 3. Si la configuración de aprovisionamiento parece estar en mal estado, la aplicación pasará a estar en cuarentena. Más información sobre los estados de cuarentena [aquí](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="additional-resources"></a>Recursos adicionales

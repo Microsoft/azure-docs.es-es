@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
-ms.openlocfilehash: 2f02e579f7679180cecfd8a48736b3af307ba371
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 9c16b3ff013c2985ea381ed4bb002276b1c3fdb8
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874765"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462248"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Uso de funciones definidas por el usuario (UDF) de Python con Apache Hive y Apache Pig en HDInsight
 
@@ -594,7 +594,7 @@ La información de error (STDERR) y el resultado del trabajo (STDOUT) también s
 
 ## <a name="next-steps"></a><a name="next"></a>Pasos siguientes
 
-Si necesita cargar módulos de Python que no se proporcionan de forma predeterminada, consulte [How to deploy a module to Azure HDInsight](https://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx) (Implementación de un módulo en HDInsight de Azure).
+Si necesita cargar módulos de Python que no se proporcionan de forma predeterminada, consulte [How to deploy a module to Azure HDInsight](https://docs.microsoft.com/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight) (Implementación de un módulo en HDInsight de Azure).
 
 Para conocer otras formas de usar Pig y Hive, y para obtener información sobre el uso de MapReduce, consulte los siguientes documentos:
 

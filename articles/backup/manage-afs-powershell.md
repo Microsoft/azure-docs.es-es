@@ -3,12 +3,12 @@ title: Administración de copias de seguridad de recursos compartidos de archivo
 description: Obtenga información sobre cómo usar PowerShell para administrar y supervisar los recursos compartidos de archivos de Azure de los que el servicio Azure Backup ha realizado una copia de seguridad.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: bb400c25ca6b1deebaef6af6fe4b322951dfcdcc
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e2f07e56fb9a8715b1b53165ab5f4b45b4e20ccb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826759"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000233"
 ---
 # <a name="manage-azure-file-share-backups-with-powershell"></a>Administración de copias de seguridad de recursos compartidos de archivos de Azure con PowerShell
 
@@ -87,7 +87,7 @@ WorkloadName     Operation         Status         StartTime                 EndT
 afsfileshare     DisableBackup     Completed      1/26/2020 2:43:59 PM      1/26/2020 2:44:21 PM      98d9f8a1-54f2-4d85-8433-c32eafbd793f
 ```
 
-El atributo Job ID de la salida se corresponde con el id. del trabajo creado por el servicio de copia de seguridad para la operación de "detención de la protección". Para supervisar el estado de un trabajo, use el cmdlet [Get-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob).
+El atributo Job ID de la salida se corresponde con el id. del trabajo creado por el servicio de copia de seguridad para la operación de "detención de la protección". Para supervisar el estado de un trabajo, use el cmdlet [Get-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob).
 
 ## <a name="stop-protection-without-retaining-recovery-points"></a>Detención de la protección sin conservar los puntos de recuperación
 

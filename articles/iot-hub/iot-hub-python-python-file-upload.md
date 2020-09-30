@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
-ms.openlocfilehash: 7ac634944c9df479617af4c9171faf0f99df4b1b
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 988077a8a14339dea51bc36fdf6405b0f2f549ff
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876655"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019468"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>Carga de archivos de un dispositivo a la nube con IoT Hub (Python)
 
@@ -33,6 +33,8 @@ Al final de este tutorial, ejecutará la aplicación de consola de Python:
 * **FileUpload.py**, que carga un archivo en el almacenamiento con el SDK de dispositivo de Python.
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: a71b4096e791221057fdcc5d14351ceccab720fb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e34fa4af08be898785acbc6f00aa735c1412ec47
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307206"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897565"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Etiquetado de imágenes en un proyecto de etiquetado 
 
@@ -111,7 +111,7 @@ Si el proyecto es del tipo "Identificación del objeto (rectángulo de selecció
 1. Seleccione la herramienta **Cuadro rectangular**![Herramienta Cuadro rectangular](./media/how-to-label-images/rectangular-box-tool.png) o presione "R".
 3. Haga clic y arrastre diagonalmente en el destino para crear un rectángulo de selección aproximado. Para ajustar el rectángulo de selección, arrastre los bordes o las esquinas.
 
-![Una captura de pantalla muestra la creación del rectángulo de selección.](./media/how-to-label-images/bounding-box-sequence.png)
+![Creación de un rectángulo delimitador](./media/how-to-label-images/bounding-box-sequence.png)
 
 Para eliminar un rectángulo de selección, haga clic en la forma de X que aparece junto al rectángulo de selección una vez creado.
 

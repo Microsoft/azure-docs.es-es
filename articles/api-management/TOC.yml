@@ -11,10 +11,14 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
+    - name: 'Creación de una instancia: CLI'
+      href: get-started-create-service-instance-cli.md
     - name: 'Creación de una instancia: Portal'
       href: get-started-create-service-instance.md
     - name: 'Creación de una instancia: PowerShell'
       href: powershell-create-service-instance.md
+    - name: 'Creación de una instancia: Visual Studio Code'
+      href: vscode-create-service-instance.md
 - name: Tutoriales
   items:
     - name: 1 - Importación de la primera API
@@ -193,6 +197,8 @@
       items:
         - name: Establecimiento o edición de directivas
           href: set-edit-policies.md
+        - name: Depuración de directivas
+          href: api-management-debug-policies.md
         - name: Expresiones de directiva
           href: api-management-policy-expressions.md
         - name: Almacenamiento en caché personalizado
@@ -217,6 +223,8 @@
           href: api-management-cross-domain-policies.md
         - name: Directivas de transformación
           href: api-management-transformation-policies.md
+        - name: Directivas de integración de Distributed Application Runtime (Dapr)
+          href: api-management-dapr-policies.md
     - name: Administración en producción
       items:
         - name: Exportación de API a Power Platform

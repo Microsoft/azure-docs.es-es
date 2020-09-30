@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: beabe9440c37d16ca4a81efdbc9588739f4c7473
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: d5de8da548c2e141eb921aa4f95e82f7199ae1f4
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279353"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602377"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Seleccione el método de autenticación adecuado para su solución de identidad híbrida de Azure Active Directory
 
@@ -86,7 +86,7 @@ Detalles sobre las preguntas de decisión:
 
 ### <a name="cloud-authentication-password-hash-synchronization"></a>Autenticación en la nube: Sincronización de hash de contraseña
 
-* **Esfuerzo**. La sincronización de hash de contraseñas requiere un esfuerzo mínimo en cuanto a la implementación, el mantenimiento y la infraestructura.  Este nivel de esfuerzo se aplica generalmente a organizaciones que solo necesitan que sus usuarios inicien sesión en Office 365, aplicaciones de SaaS y otros recursos basados en Azure AD. Cuando se habilita, la sincronización de hash de contraseñas forma parte del proceso de sincronización de Azure AD Connect y se ejecuta cada dos minutos.
+* **Esfuerzo**. La sincronización de hash de contraseñas requiere un esfuerzo mínimo en cuanto a la implementación, el mantenimiento y la infraestructura.  Este nivel de esfuerzo se aplica normalmente a organizaciones que solo necesitan que sus usuarios inicien sesión en Microsoft 365, aplicaciones SaaS y otros recursos basados en Azure AD. Cuando se habilita, la sincronización de hash de contraseñas forma parte del proceso de sincronización de Azure AD Connect y se ejecuta cada dos minutos.
 
 * **Experiencia del usuario**. Para mejorar la experiencia de inicio de sesión de los usuarios, puede implementar un SSO de conexión directa gracias a la sincronización de hash de contraseñas. El SSO de conexión directa elimina las solicitudes innecesarias cuando los usuarios inician sesión.
 
@@ -203,7 +203,7 @@ Use o habilite la sincronización de hash de contraseñas con independencia del 
 
 2. **Subsistencia a interrupciones locales**.  Las consecuencias de una interrupción local debida a un ataque cibernético o a un desastre pueden ser de gran envergadura; desde daños en la reputación de la marca hasta la paralización de organizaciones que se ven incapaces de hacer frente al ataque. Últimamente muchas organizaciones han sido víctimas de ataques de malware, como ransomware dirigido, que provocaron que sus servidores locales se desconectaran. A la hora de ayudar a los clientes a tratar con estos tipos de ataques, Microsoft observó dos categorías de organizaciones:
 
-   * Las organizaciones que también activaron previamente la sincronización de hash de contraseñas sobre la autenticación federada o la autenticación de paso a través, cambiaron su método de autenticación principal para usar la sincronización de hash de contraseñas. Gracias a esto, volvieron a estar en línea en cuestión de horas. Al usar el acceso al correo electrónico a través de Office 365, pudieron trabajar para resolver los problemas y tener acceso a otras cargas de trabajo basadas en la nube.
+   * Las organizaciones que también activaron previamente la sincronización de hash de contraseñas sobre la autenticación federada o la autenticación de paso a través, cambiaron su método de autenticación principal para usar la sincronización de hash de contraseñas. Gracias a esto, volvieron a estar en línea en cuestión de horas. Al usar el acceso al correo electrónico a través de Microsoft 365, pudieron trabajar para resolver los problemas y acceder a otras cargas de trabajo basadas en la nube.
 
    * Las organizaciones que no habilitaron previamente la sincronización de hash de contraseñas, tuvieron que recurrir a sistemas de correo electrónico de consumidor externos que no son de confianza para las comunicaciones, con el fin de resolver los problemas. En esos casos, tardaron semanas en restaurar su infraestructura de identidad local, antes de que los usuarios pudieran volver a iniciar sesión en aplicaciones basadas en la nube.
 

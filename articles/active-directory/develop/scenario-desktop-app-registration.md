@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 599603ba867e21694392e38e9692280f010e08eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6796ac42a10d3b976b23f5af1418b1789011d61b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885164"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440956"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplicación de escritorio que llama a las API web: Registro de aplicación
 
@@ -28,7 +28,7 @@ Los tipos de cuenta que se admiten en una aplicación de escritorio dependen de 
 
 ### <a name="audience-for-interactive-token-acquisition"></a>Público para la adquisición interactiva de tokens
 
-Si la aplicación de escritorio usa la autenticación interactiva, puede iniciar la sesión de los usuarios desde cualquier [tipo de cuenta](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+Si la aplicación de escritorio usa la autenticación interactiva, puede iniciar la sesión de los usuarios desde cualquier [tipo de cuenta](quickstart-register-app.md).
 
 ### <a name="audience-for-desktop-app-silent-flows"></a>Audiencia para flujos silenciosos de la aplicación de escritorio
 
@@ -41,7 +41,7 @@ Si la aplicación de escritorio usa la autenticación interactiva, puede iniciar
 Los URI de redirección que se utilizan en una aplicación de escritorio dependen del flujo que se quiera utilizar.
 
 - Si usa la autenticación interactiva o el flujo de código del dispositivo, use `https://login.microsoftonline.com/common/oauth2/nativeclient`. Para lograr esta configuración, seleccione la dirección URL correspondiente en la sección **Autenticación** de la aplicación.
-  
+
   > [!IMPORTANT]
   > Hoy en día, MSAL.NET usa otro URI de redirección de forma predeterminada en las aplicaciones de escritorio que se ejecutan en Windows (`urn:ietf:wg:oauth:2.0:oob`). En el futuro, querremos cambiar este comportamiento predeterminado, por lo que le recomendamos que use `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 

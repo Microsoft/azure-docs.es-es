@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 83827c7a39b2833ce1301e78a0bef4e6d61ec62b
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.custom: devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 07e306c6c428a0e3a3f64a29a2574cb0378bb81f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185305"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230236"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Habilitación y administración de la eliminación temporal para blobs
 
-La eliminación temporal de blobs evita que los datos se modifiquen o eliminen de forma accidental o errónea. Cuando la eliminación temporal de blobs está habilitada para una cuenta de almacenamiento, los blobs, las versiones de blobs (versión preliminar) y las instantáneas de esa cuenta de almacenamiento pueden recuperarse una vez eliminados, dentro de un período de retención que especifique.
+La eliminación temporal de blobs evita que los datos se modifiquen o eliminen de forma accidental o errónea. Cuando la eliminación temporal de blobs está habilitada para una cuenta de almacenamiento, los blobs, las versiones de blobs y las instantáneas de esa cuenta de almacenamiento pueden recuperarse una vez eliminados, dentro de un período de retención que especifique.
 
 Si existe la posibilidad de que una aplicación u otro usuario de la cuenta de almacenamiento modifiquen o borren sus datos accidentalmente, Microsoft aconseja activar la eliminación temporal de blobs. En este artículo se muestra cómo habilitar la eliminación temporal para blobs. Para más información sobre la eliminación temporal de blobs, consulte [Eliminación temporal para blobs](soft-delete-blob-overview.md).
 
@@ -195,4 +195,4 @@ blockBlob.StartCopy(copySource);
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Eliminación temporal para Blob Storage](soft-delete-overview.md)
-- [Versiones de blobs (versión preliminar)](versioning-overview.md)
+- [Control de versiones de blobs](versioning-overview.md)

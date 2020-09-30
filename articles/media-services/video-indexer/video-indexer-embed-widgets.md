@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/26/2020
+ms.date: 08/10/2020
 ms.author: juliako
 ms.custom: devx-track-javascript
-ms.openlocfilehash: afc49e959061bcd2327f1c3a4f988c9ed6e5ce11
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 5f418384d4ec1272600df2488dc71d2102d6a24d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87414027"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011810"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Inserción de widgets de Video Indexer en las aplicaciones
 
@@ -102,6 +102,17 @@ Para proporcionar funcionalidades de conclusiones de edición en el widget inser
 El widget Cognitive Insights puede interactuar con un vídeo en su aplicación. En esta sección se muestra cómo conseguir esta interacción.
 
 ![Video Indexer del widget de Cognitive Insights](./media/video-indexer-embed-widgets/video-indexer-widget03.png)
+
+### <a name="flow-overview"></a>Información general sobre el flujo
+
+Al editar las transcripciones, se produce el siguiente flujo:
+
+1. La transcripción se edita en la escala de tiempo.
+1. Video Indexer obtiene estas actualizaciones y las guarda en el archivo [From transcript edits](customize-language-model-with-website.md#customize-language-models-by-correcting-transcripts) en el modelo de lenguaje.
+1. Los subtítulos se actualizan:
+
+    * Si usa el widget del reproductor de Video Indexer, se actualizan automáticamente.
+    * Si usa un reproductor externo, puede obtener un nuevo archivo de subtítulos mediante una llamada **Get video captions**.
 
 ### <a name="cross-origin-communications"></a>Comunicaciones entre orígenes
 

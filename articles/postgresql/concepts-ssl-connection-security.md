@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 615e8c80d194bb37feac1c09af22d2aa5d4aa3fc
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 872daf3a208452e8b7ec27b2326e394b416a1c5f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142722"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902045"
 ---
 # <a name="configure-tls-connectivity-in-azure-database-for-postgresql---single-server"></a>Configuración de la conectividad de TSL en Azure Database for PostgreSQL: un solo servidor
 
@@ -33,7 +33,7 @@ Si lo desea, puede deshabilitar el establecimiento de la conectividad TLS. Micro
 
 Visite el servidor de Azure Database for PostgreSQL y haga clic en **Seguridad de conexión**. Use el botón de alternancia para habilitar o deshabilitar la opción **Aplicar conexión SSL**. A continuación, haga clic en **Guardar**.
 
-![Seguridad de conexión - Deshabilitar el establecimiento de TLS/SSL](./media/concepts-ssl-connection-security/1-disable-ssl.png)
+:::image type="content" source="./media/concepts-ssl-connection-security/1-disable-ssl.png" alt-text="Seguridad de conexión - Deshabilitar el establecimiento de TLS/SSL":::
 
 Para confirmar la configuración, consulte la página **Información general** para ver el indicador **Estado de aplicación de SSL**.
 

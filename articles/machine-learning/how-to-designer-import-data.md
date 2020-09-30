@@ -1,23 +1,23 @@
 ---
-title: Importación de datos en el diseñador (versión preliminar)
+title: Importación de datos en el diseñador
 titleSuffix: Azure Machine Learning
-description: Aprenda a importar los datos en el diseñador de Azure Machine Learning (versión preliminar) desde varios orígenes de datos.
+description: Aprenda a importar los datos en el diseñador de Azure Machine Learning desde varios orígenes de datos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: peterclu
-ms.author: peterlu
-ms.date: 01/16/2020
+author: likebupt
+ms.author: keli19
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d977c8e13ce75eb276c8fdb11e9dd40e40a923ad
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 15fca48327c46480546764be1b2ab40c1635e874
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495378"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985604"
 ---
-# <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importación de datos en el diseñador de Azure Machine Learning (versión preliminar)
+# <a name="import-data-into-azure-machine-learning-designer"></a>Importación de datos en el diseñador de Azure Machine Learning
 
 En este artículo, aprenderá a importar sus propios datos en el diseñador para crear soluciones personalizadas. Hay dos formas de importar datos en el diseñador: 
 
@@ -32,25 +32,34 @@ Se recomienda usar [conjuntos de datos](concept-data.md#datasets) para importar 
 
 ### <a name="register-a-dataset"></a>Registro de un conjunto de datos
 
-Puede registrar los conjuntos de datos existentes [mediante programación con el SDK](how-to-create-register-datasets.md#datasets-sdk) o [visualmente en Azure Machine Learning Studio](how-to-create-register-datasets.md#datasets-ui).
+Puede registrar los conjuntos de datos existentes [mediante programación con el SDK](how-to-create-register-datasets.md#datasets-sdk) o [visualmente en Azure Machine Learning Studio](how-to-connect-data-ui.md#create-datasets).
 
 También puede registrar la salida de cualquier módulo del diseñador como un conjunto de datos.
 
 1. Seleccione el módulo que genera los datos que desea registrar.
 
-1. En el panel de propiedades, seleccione **Salidas** > **Visualizar**.
+1. En el panel de propiedades, seleccione **Outputs + logs** (Salidas y registros) > **Register dataset** (Registrar conjunto de datos).
 
     ![Captura de pantalla que muestra cómo ir a la opción Register Dataset (Registrar conjunto de datos)](media/how-to-designer-import-data/register-dataset-designer.png)
 
+Si los datos de salida del módulo están en formato tabular, debe optar por registrar la salida como un **conjunto de datos de archivo** o un **conjunto de datos tabular**.
+
+ - El **conjunto de datos de archivo** registra la carpeta de salida del módulo como un conjunto de datos de archivo. La carpeta de salida contiene un archivo de datos y metarchivos que el diseñador usa internamente. Seleccione esta opción si quiere seguir usando el conjunto de los conjuntos registrado en el diseñador. 
+
+ - El **conjunto de datos tabular** solo registra el archivo de datos de salida del módulo como un conjunto de datos tabular. Este formato se usa fácilmente en otras herramientas, como las de aprendizaje automático automatizado o el SDK de Python. Seleccione esta opción si tiene previsto utilizar el conjunto de datos registrado fuera del diseñador.  
+
+
+
 ### <a name="use-a-dataset"></a>Uso de un conjunto de datos
 
-Sus conjuntos de datos registrados se pueden encontrar en la paleta del módulo, en **Datasets** > **My Datasets** (Conjuntos de datos > Mis conjuntos de datos). Para usar un conjunto de datos, arrástrelo y suéltelo en el lienzo de la canalización. Luego, conecte el puerto de salida del conjunto de datos a otros módulos de la paleta.
+Sus conjuntos de datos registrados se pueden encontrar en la paleta del módulo, en **Conjuntos de datos**. Para usar un conjunto de datos, arrástrelo y suéltelo en el lienzo de la canalización. Luego, conecte el puerto de salida del conjunto de datos a otros módulos del lienzo. 
 
 ![Captura de pantalla que muestra la ubicación de los conjuntos de datos guardados en la paleta del diseñador](media/how-to-designer-import-data/use-datasets-designer.png)
 
 
 > [!NOTE]
-> Actualmente, el diseñador solo admite el procesamiento de [conjuntos de datos tabulares](how-to-create-register-datasets.md#dataset-types). Si desea usar [conjuntos de datos de archivo](how-to-create-register-datasets.md#dataset-types), use el SDK de Azure Machine Learning disponible para Python y R.
+> El diseñador admite el [control de versiones del conjunto de datos](how-to-version-track-datasets.md). Especifique la versión del conjunto de datos en el panel de propiedades del módulo del conjunto de datos.
+
 
 ## <a name="import-data-using-the-import-data-module"></a>Importación de datos mediante el módulo Import Data (Importar datos)
 
@@ -59,7 +68,7 @@ Aunque es aconsejable usar conjuntos de datos para importar datos, también se p
 Para más información acerca de cómo usar el módulo Import Data (Importar datos), consulte la [página de referencia Importar datos](algorithm-module-reference/import-data.md).
 
 > [!NOTE]
-> Si el conjunto de datos tiene demasiadas columnas, puede encontrar el siguiente error: "Validation failed due to size limitation" (Error de validación debido a un límite de tamaño). Para evitar esto, [registre el conjunto de datos en la interfaz de conjuntos de datos](how-to-create-register-datasets.md#datasets-ui).
+> Si el conjunto de datos tiene demasiadas columnas, puede encontrar el siguiente error: "Validation failed due to size limitation" (Error de validación debido a un límite de tamaño). Para evitar esto, [registre el conjunto de datos en la interfaz de conjuntos de datos](how-to-connect-data-ui.md#create-datasets).
 
 ## <a name="supported-sources"></a>Orígenes compatibles
 
@@ -94,8 +103,8 @@ Los módulos del diseñador están limitados por el tamaño del destino de proce
 
 ## <a name="access-data-in-a-virtual-network"></a>Acceso a los datos de una red virtual
 
-Si el área de trabajo está en una red virtual, debe realizar pasos de configuración adicionales para visualizar los datos en el diseñador. Para más información sobre cómo usar los almacenes de datos y los conjuntos de datos en una red virtual, consulte [Aislamiento de red durante el entrenamiento e inferencia con redes virtuales privadas](how-to-enable-virtual-network.md#machine-learning-studio).
+Si el área de trabajo está en una red virtual, debe realizar pasos de configuración adicionales para visualizar los datos en el diseñador. Para más información sobre cómo usar los almacenes de datos y los conjuntos de datos en una red virtual, consulte [Uso de Azure Machine Learning Studio en una instancia de Azure Virtual Network](how-to-enable-studio-virtual-network.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda los conceptos básicos del diseñador con [Tutorial: Predecir el precio del automóvil con el diseñador](tutorial-designer-automobile-price-train-score.md).
+Conozca los aspectos básicos del diseñador con el [Tutorial: Predecir el precio del automóvil con el diseñador](tutorial-designer-automobile-price-train-score.md).

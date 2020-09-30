@@ -7,13 +7,15 @@ ms.date: 05/05/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
-ms.openlocfilehash: aa442e15dbc95709ecf3c818f69301d2f02e9b5b
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.custom:
+- mvc
+- device-developer
+ms.openlocfilehash: 6fabd7d8cf5c19f05bd31c2d0b12863fd6e25382
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417028"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017530"
 ---
 # <a name="iot-central-device-development-overview"></a>Introducción al desarrollo de dispositivos IoT Central
 

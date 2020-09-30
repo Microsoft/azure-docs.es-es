@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e707393bda3d8820ccf94abed83beb1317027d5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 42b980f809074c275a5e62098d4162e4cb4340a0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005029"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259377"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicio de sesión en una máquina virtual Windows en Azure mediante la autenticación de Azure Active Directory (versión preliminar)
 
@@ -191,9 +191,9 @@ az role assignment create \
 
 Para obtener más información sobre cómo usar RBAC de Azure para administrar el acceso a los recursos de la suscripción de Azure, consulte los siguientes artículos:
 
-- [Incorporación o eliminación de asignaciones de roles de Azure mediante la CLI de Azure](/azure/role-based-access-control/role-assignments-cli)
-- [Incorporación o eliminación de asignaciones de roles de Azure con Azure Portal](/azure/role-based-access-control/role-assignments-portal)
-- [Incorporación o eliminación de asignaciones de roles de Azure con Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell)
+- [Incorporación o eliminación de asignaciones de roles de Azure mediante la CLI de Azure](../../role-based-access-control/role-assignments-cli.md)
+- [Incorporación o eliminación de asignaciones de roles de Azure con Azure Portal](../../role-based-access-control/role-assignments-portal.md)
+- [Incorporación o eliminación de asignaciones de roles de Azure con Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="using-conditional-access"></a>Uso del acceso condicional
 
@@ -329,7 +329,7 @@ Si ve el siguiente mensaje de error al iniciar una conexión de Escritorio remot
 
 ![Su cuenta está configurada para impedir el uso de este dispositivo.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
-Compruebe que ha [configurado directivas de RBAC](../../virtual-machines/linux/login-using-aad.md) para la VM que concedan al usuario los roles de Inicio de sesión de administrador de máquina virtual o Inicio de sesión de usuario de máquina virtual:
+Compruebe que ha [configurado directivas de RBAC de Azure](../../virtual-machines/linux/login-using-aad.md) para la VM que concedan al usuario los roles de Inicio de sesión de administrador de máquina virtual o Inicio de sesión de usuario de máquina virtual:
  
 #### <a name="unauthorized-client"></a>Cliente no autorizado
 
@@ -339,7 +339,7 @@ Si ve el siguiente mensaje de error al iniciar una conexión de Escritorio remot
 
 ![Las credenciales no funcionaron.](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
 
-Compruebe que el equipo con Windows 10 que usa para iniciar la conexión de Escritorio remoto es uno de los unidos a Azure AD o unidos al entorno híbrido de Azure AD al mismo directorio de Azure AD al que se una la VM. Para más información sobre la identidad del dispositivo, consulte el artículo [¿Qué es una identidad de dispositivo?](/azure/active-directory/devices/overview)
+Compruebe que el equipo con Windows 10 que usa para iniciar la conexión de Escritorio remoto es uno de los unidos a Azure AD o unidos al entorno híbrido de Azure AD al mismo directorio de Azure AD al que se una la VM. Para más información sobre la identidad del dispositivo, consulte el artículo [¿Qué es una identidad de dispositivo?](./overview.md)
 
 > [!NOTE]
 > La compilación 20H1 de Windows 10 agregó compatibilidad con un equipo registrado en Azure AD para iniciar la conexión RDP a la máquina virtual. Al usar un equipo registrado en Azure AD (no unido a Azure AD ni unido a Azure AD híbrido) como el cliente RDP para iniciar conexiones a la máquina virtual, debe escribir las credenciales con el formato AzureAD\UPn (por ejemplo, AzureAD\john@contoso.com).
@@ -367,4 +367,4 @@ Comparta sus comentarios sobre esta Característica en vista previa (GB) o notif
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Azure Active Directory, consulte [¿Qué es Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis)
+Para más información sobre Azure Active Directory, consulte [¿Qué es Azure Active Directory?](../fundamentals/active-directory-whatis.md)

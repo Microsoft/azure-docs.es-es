@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8d0f9866864ca4b02ca6238be2ac44537a586c2d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 213fec9e7d9da56d34f79fee7e677b0e6bbd7a63
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "67186327"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89303922"
 ---
 ## <a name="update-resources"></a>Actualización de recursos
 
@@ -65,6 +65,28 @@ az sig image-version update \
    --gallery-image-definition myImageDefinition \
    --gallery-image-version 1.0.0 \
    --add publishingProfile.targetRegions  name=eastus
+```
+
+En este ejemplo se muestra cómo usar [az sig image-version update](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update) para impedir que esta versión de imagen se use como la imagen *más reciente*.
+
+```azurecli-interactive
+az sig image-version update \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   --gallery-image-version 1.0.0 \
+   --set publishingProfile.excludeFromLatest=true
+```
+
+En este ejemplo se muestra cómo usar [az sig image-version update](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update) para que esta versión de imagen se considere como imagen *más reciente*.
+
+```azurecli-interactive
+az sig image-version update \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   --gallery-image-version 1.0.0 \
+   --set publishingProfile.excludeFromLatest=false
 ```
 
 ## <a name="delete-resources"></a>Eliminar recursos

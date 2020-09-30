@@ -5,16 +5,16 @@ services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 070d933394b19ea38a9632f25909812943f7bff8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c0373e8a476e65a61ef4b3ea945b98e0763c0a22
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255837"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032935"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Uso de tablas externas con Synapse SQL
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 85e0c1b146cfba0cb95a6612f33e42a465bfd20b
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 0e4f41cb23ec4a9463b983049f5f37d09d1b8c71
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008753"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226716"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Conexión con el cliente de Escritorio de Windows
 
@@ -63,6 +63,7 @@ Hay dos maneras de suscribirse a un área de trabajo. El cliente puede intentar 
    - Si usa la **URL del espacio de trabajo**, utilice la que le proporcionó el administrador. Si va a acceder a los recursos desde Windows Virtual Desktop, puede usar una de las siguientes direcciones URL:
      - Windows Virtual Desktop (clásico): `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
      - Windows Virtual Desktop: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
+     - Windows Virtual Desktop (US Gov): `https://rdweb.wvd.azure.us/api/arm/feeddiscovery`
    - Si en su lugar utiliza el campo **Email** (Correo electrónico), escriba su dirección de correo electrónico. Esto indica al cliente que busque una dirección URL asociada a su dirección de correo electrónico si el administrador ha configurado la [detección de correo electrónico](/windows-server/remote/remote-desktop-services/rds-email-discovery).
 3. Seleccione **Next** (Siguiente).
 4. Inicie sesión con su cuenta de usuario cuando se le solicite.

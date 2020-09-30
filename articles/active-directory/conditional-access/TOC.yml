@@ -52,8 +52,8 @@
   items:
     - name: Planeamiento de la implementación del acceso condicional
       href: plan-conditional-access.md
-    - name: Procedimientos recomendados
-      href: best-practices.md
+    - name: API de acceso condicional
+      href: howto-conditional-access-apis.md
     - name: Directivas de acceso condicional habituales
       items:
         - name: Bloquear la autenticación heredada
@@ -92,6 +92,8 @@
       href: terms-of-use.md
     - name: Controles de frecuencia de inicio de sesión y de persistencia del explorador
       href: howto-conditional-access-session-lifetime.md
+    - name: Procedimientos recomendados
+      href: best-practices.md
     - name: Solución de problemas
       items:
         - name: Solución de problemas con el inicio de sesión

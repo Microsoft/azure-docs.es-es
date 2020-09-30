@@ -5,12 +5,12 @@ description: Procedimientos recomendados con los recursos de red virtual y la co
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: fc839fd69e3b574c47aa7bb712583dfc0b9c711d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 9ec6423a853aacbc8a03cc5472bf1a95a5623b1f
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542711"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482732"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados con la conectividad de red y la seguridad en Azure Kubernetes Service (AKS)
 
@@ -31,7 +31,7 @@ Este artículo de procedimientos recomendados se centra en la conectividad de re
 Las redes virtuales proporcionan conectividad básica para que los nodos de AKS y los clientes accedan a las aplicaciones. Hay dos maneras diferentes de implementar los clústeres de AKS en redes virtuales:
 
 * **Redes de kubenet**: cuando el clúster se implementa y usa el complemento [kubenet][kubenet] de Kubernetes, Azure administra los recursos de red virtual.
-* **Redes de Azure CNI**: se implementan en una red virtual existente y usan el complemento [Azure Container Networking Interface (CNI)][cni-networking] de Kubernetes. Los pods reciben direcciones IP individuales que se pueden enrutar a otros servicios de red o recursos locales.
+* **Redes de Azure CNI**: se implementan en una red virtual y usan el complemento [Azure Container Networking Interface (CNI)][cni-networking] de Kubernetes. Los pods reciben direcciones IP individuales que se pueden enrutar a otros servicios de red o recursos locales.
 
 Container Networking Interface (CNI) es un protocolo independiente del proveedor que permite que el entorno de ejecución del contenedor realice solicitudes a un proveedor de red. Azure CNI asigna direcciones IP a los nodos y los pods, y proporciona características de administración de direcciones IP(IPAM) cuando se conecta a redes virtuales de Azure existentes. Cada recurso de nodo y pod recibe una dirección IP en la red virtual de Azure y no se necesita más enrutamiento para la comunicación con otros servicios o recursos.
 
@@ -64,7 +64,7 @@ Kubenet es adecuado para implementaciones pequeñas o cargas de trabajo de prueb
 
 **Guía de procedimiento recomendado**: para distribuir el tráfico HTTP o HTTPS a las aplicaciones, use los recursos y los controladores de entrada. Los controladores de entrada proporcionan características adicionales a las de un equilibrador de carga de Azure común y se pueden administrar como recursos nativos de Kubernetes.
 
-Un equilibrador de carga de Azure puede distribuir el tráfico de cliente a las aplicaciones en el clúster de AKS, pero su conocimiento sobre ese tráfico es limitado. Un recurso de equilibrador de carga funciona en la capa 4 y distribuye el tráfico en función de protocolos o puertos. La mayoría de las aplicaciones web que usan HTTP o HTTPS deben usar recursos y controladores de entrada de Kuberenetes, que funcionan en la capa 7. En la entrada se puede distribuir el tráfico en función de la dirección URL de la aplicación y administrar la terminación TLS/SSL. Esta capacidad también reduce el número de direcciones IP que se exponen y se asignan. Con un equilibrador de carga, cada aplicación normalmente necesita una dirección IP pública asignada y a ella y al servicio del clúster de AKS. Con un recurso de entrada, una única dirección IP puede distribuir tráfico a varias aplicaciones.
+Un equilibrador de carga de Azure puede distribuir el tráfico de cliente a las aplicaciones en el clúster de AKS, pero su conocimiento sobre ese tráfico es limitado. Un recurso de equilibrador de carga funciona en la capa 4 y distribuye el tráfico en función de protocolos o puertos. La mayoría de las aplicaciones web que usan HTTP o HTTPS deben usar recursos y controladores de entrada de Kubernetes, que funcionan en la capa 7. En la entrada se puede distribuir el tráfico en función de la dirección URL de la aplicación y administrar la terminación TLS/SSL. Esta capacidad también reduce el número de direcciones IP que se exponen y se asignan. Con un equilibrador de carga, cada aplicación normalmente necesita una dirección IP pública asignada y a ella y al servicio del clúster de AKS. Con un recurso de entrada, una única dirección IP puede distribuir tráfico a varias aplicaciones.
 
 ![Diagrama que muestra el flujo de tráfico de entrada en un clúster de AKS](media/operator-best-practices-network/aks-ingress.png)
 

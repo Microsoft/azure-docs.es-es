@@ -11,14 +11,17 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: f5409fea1cdbbc35e9068fae6b3ba7fbc2a95580
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bec96f45de69ab2698f3f0cf26f08222e4595ea5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547399"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889508"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar y ejecutar contenedores de docker de LUIS
+
+[!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
+
 
 El contenedor Language Understanding (LUIS) carga el modelo de Language Understanding entrenado o publicado. Como [aplicación de LUIS](https://www.luis.ai), el contenedor de Docker proporciona acceso a las predicciones de consulta desde los puntos de conexión de API del contenedor. Puede recopilar registros de consultas del contenedor y cargarlos de nuevo en la aplicación de Language Understanding para mejorar la precisión de predicción de la aplicación.
 
@@ -66,10 +69,10 @@ El núcleo y la memoria se corresponden con los valores de `--cpus` y `--memory`
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obtención de la imagen del contenedor con `docker pull`
 
-Utilice el comando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) para descargar la imagen de un contenedor del repositorio `mcr.microsoft.com/azure-cognitive-services/luis`:
+Utilice el comando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) para descargar la imagen de un contenedor del repositorio `mcr.microsoft.com/azure-cognitive-services/language/luis`:
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/language/luis:latest
 ```
 
 Para obtener una descripción completa de las etiquetas disponibles, como la etiqueta `latest` que se utilizó en el comando anterior, consulte [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204) en Docker Hub.
@@ -206,7 +209,7 @@ docker run --rm -it -p 5000:5000 ^
 --cpus 2 ^
 --mount type=bind,src=c:\input,target=/input ^
 --mount type=bind,src=c:\output\,target=/output ^
-mcr.microsoft.com/azure-cognitive-services/luis ^
+mcr.microsoft.com/azure-cognitive-services/language/luis ^
 Eula=accept ^
 Billing={ENDPOINT_URI} ^
 ApiKey={API_KEY}

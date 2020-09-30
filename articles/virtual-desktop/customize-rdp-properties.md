@@ -3,15 +3,15 @@ title: 'Personalización de las propiedades de RDP con PowerShell: Azure'
 description: Cómo personalizar las propiedades de EDP para Windows Virtual Desktop con cmdlets de PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 439f009d70775428a00f627160bf4d6b8ab9b089
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 7c4bda1ecf28e964db6ba672157790114affe650
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009110"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462231"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Personalización de las propiedades de Protocolo de escritorio remoto (RDP) para un grupo de hosts
 
@@ -21,6 +21,16 @@ ms.locfileid: "88009110"
 La personalización de las propiedades de Protocolo de escritorio remoto (RDP) de un grupo de hosts, como el uso de varios monitores y la redirección de audio, permite ofrecer una experiencia óptima a los usuarios en función de sus necesidades. Las propiedades de RDP se pueden personalizar en Windows Virtual Desktop desde Azure Portal o mediante el parámetro *-CustomRdpProperty* del cmdlet **Update-AzWvdHostPool**.
 
 En [Configuración admitida del archivo RDP](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) encontrará una lista completa de las propiedades admitidas y sus valores predeterminados.
+
+## <a name="default-rdp-file-properties"></a>Propiedades predeterminadas del archivo RDP
+
+Los archivos RDP tienen las siguientes propiedades de forma predeterminada:
+
+|Propiedad de RDP|En el escritorio|Como aplicación remota|
+|---|---|---|
+|Modo multimonitor|habilitado|N/D|
+|Redireccionamiento de unidad habilitado|Unidades, portapapeles, impresoras, puertos COM, dispositivos USB y tarjetas inteligentes|Unidades, Portapapeles e impresoras|
+|Modo de audio remoto|Reproducción local|Reproducción local|
 
 ## <a name="prerequisites"></a>Requisitos previos
 

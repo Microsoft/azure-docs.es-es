@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: subject-armsq
 ms.date: 08/31/2020
 ms.author: duau
-ms.openlocfilehash: 2bc4c2a3ee7f1a1dbd85d46e49ec27e5276de159
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f1dbb9623ddc87f9940fd97b05abbee113fd71c4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237152"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016561"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Inicio rápido: Creación de un circuito ExpressRoute con emparejamiento privado mediante una plantilla de Resource Manager
 
@@ -76,9 +76,9 @@ Para encontrar más plantillas relacionadas con ExpressRoute, consulte [Plantill
 
     El nombre del grupo de recursos es el nombre del proyecto con **rg** anexado.
 
-La plantilla tarda aproximadamente 20 en implementarse. Al finalizar, la salida es parecida a esta:
+    La plantilla tarda aproximadamente 20 en implementarse. Al finalizar, la salida es parecida a esta:
 
-:::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-powershell-output.png" alt-text="Salida de la implementación de PowerShell de la plantilla de Resource Manager de ExpressRoute":::
+    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-powershell-output.png" alt-text="Salida de la implementación de PowerShell de la plantilla de Resource Manager de ExpressRoute":::
 
 Azure PowerShell se usa para implementar la plantilla. Además de Azure PowerShell, también puede usar Azure Portal, la CLI de Azure y API REST. Para obtener información sobre otros métodos de implementación, consulte [Implementación de plantillas](../azure-resource-manager/templates/deploy-portal.md).
 

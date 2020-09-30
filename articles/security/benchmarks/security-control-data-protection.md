@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d89320807c6322120490db85100453edf593aded
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2622d7a2e54dac710ac09d61dee639ab1d104f02
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045542"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079003"
 ---
 # <a name="security-control-data-protection"></a>Control de seguridad: Protección de datos
 
@@ -84,15 +84,15 @@ Use Information Protection de Azure SQL para ayudar en la clasificación y el et
 
 - [Descripción de la protección de datos de los clientes en Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-## <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Uso del control de acceso basado en rol para controlar el acceso a los recursos
+## <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
 | Id. de Azure | Id. de CIS | Responsabilidad |
 |--|--|--|
 | 4.6 | 14.6 | Customer |
 
-Use el RBAC de Azure AD para controlar el acceso a los datos y recursos; si no, use métodos de control de acceso específicos del servicio.
+Use el control de acceso basado en rol de Azure (Azure RBAC) para controlar el acceso a los datos y recursos; si no, use métodos de control de acceso específicos del servicio.
 
-- [Configuración de RBAC en Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Configuración de Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 ## <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: Uso de la prevención de pérdida de datos basada en host para aplicar el control de acceso
 

@@ -3,39 +3,25 @@ title: Uso de una clave administrada por el cliente para cifrar discos de Azure 
 description: Traiga sus propias claves (BYOK) para cifrar el sistema operativo y los discos de datos en AKS.
 services: container-service
 ms.topic: article
-ms.date: 07/17/2020
-ms.openlocfilehash: 5725bc9a4d16b93ba36ac800d25e3c30f090c2df
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.date: 09/01/2020
+ms.openlocfilehash: 8687d95878cde7d0ed3308d67f26ffc266abad1e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796891"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297763"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Traiga sus propias claves (BYOK) con discos de Azure en Azure Kubernetes Service (AKS)
 
-Azure Storage cifra todos los datos de las cuentas de almacenamiento en reposo. De manera predeterminada, los datos se cifran con claves administradas por Microsoft. Para tener un mayor control sobre las claves de cifrado, puede proporcionar [claves administradas por el cliente][customer-managed-keys] y utilizarlas para el cifrado en reposo del sistema operativo y los discos de datos de los clústeres de AKS.
+Azure Storage cifra todos los datos de las cuentas de almacenamiento en reposo. De manera predeterminada, los datos se cifran con claves administradas por Microsoft. Para tener un mayor control sobre las claves de cifrado, puede proporcionar claves administradas por el cliente y utilizarlas para el cifrado en reposo del sistema operativo y los discos de datos de los clústeres de AKS. Obtenga más información sobre las claves administradas por el cliente en [Linux][customer-managed-keys-linux] y [Windows][customer-managed-keys-windows].
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="limitations"></a>Limitaciones
+* La compatibilidad con el cifrado de discos de datos se limita a los clústeres de AKS que ejecuten Kubernetes versión 1.17 y posteriores.
+* El cifrado del sistema operativo y del disco de datos con claves administradas por el cliente solo se puede habilitar cuando se crea un clúster de AKS.
 
-* En este artículo se da por supuesto que va a crear un *nuevo clúster de AKS*.
-
+## <a name="prerequisites"></a>Requisitos previos
 * Debe habilitar la protección contra el purgado y la eliminación temporal para *Azure Key Vault* al usar Key Vault para cifrar los discos administrados.
-
-* Necesita la versión 2.0.79 de la CLI de Azure u otra versión posterior y la versión 0.4.26 de la extensión aks-preview.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-## <a name="install-latest-aks-cli-preview-extension"></a>Instalación de la extensión de la versión preliminar de la CLI de AKS más reciente
-
-Para usar claves administradas por el cliente, necesita la versión 0.4.26 o posterior de la extensión *aks-preview* de la CLI. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+* Es necesaria la versión 2.11.1 o posterior de la CLI de Azure.
 
 ## <a name="create-an-azure-key-vault-instance"></a>Creación de una instancia de Azure Key Vault
 
@@ -155,11 +141,6 @@ az aks get-credentials --name myAksCluster --resource-group myResourceGroup --ou
 kubectl apply -f byok-azure-disk.yaml
 ```
 
-## <a name="limitations"></a>Limitaciones
-
-* Cifrado de disco de datos compatible con la versión 1.17 de Kubernetes y versiones posteriores
-* Actualmente, el cifrado con claves administradas por el cliente solo es para los nuevos clústeres de AKS; los clústeres existentes no se pueden actualizar
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Revise los [procedimientos recomendados para la seguridad de los clústeres de AKS][best-practices-security].
@@ -171,6 +152,7 @@ Revise los [procedimientos recomendados para la seguridad de los clústeres de A
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
 [byok-azure-portal]: ../storage/common/storage-encryption-keys-portal.md
-[customer-managed-keys]: ../virtual-machines/windows/disk-encryption.md#customer-managed-keys
+[customer-managed-keys-windows]: ../virtual-machines/windows/disk-encryption.md#customer-managed-keys
+[customer-managed-keys-linux]: ../virtual-machines/linux/disk-encryption.md#customer-managed-keys
 [key-vault-generate]: ../key-vault/general/manage-with-cli2.md
 [supported-regions]: ../virtual-machines/windows/disk-encryption.md#supported-regions

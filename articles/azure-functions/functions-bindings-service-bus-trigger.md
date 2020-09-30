@@ -7,18 +7,18 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 72f12ece3c939ee8fbaecbec377d18c5bb3b0a49
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: cd0b73dd22e5e2cab720bb1a33e58e25e517b1f6
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294618"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605046"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Desencadenador de Azure Service Bus para Azure Functions
 
 Utilice el desencadenador de Service Bus para responder a mensajes de una cola o tema de Service Bus. A partir de la versión 3.1.0 de la extensión, puede desencadenar en una cola o un tema habilitados para la sesión.
 
-Para obtener información sobre los detalles de instalación y configuración, vea la [información general](functions-bindings-service-bus-output.md).
+Para obtener información sobre los detalles de instalación y configuración, vea la [información general](functions-bindings-service-bus.md).
 
 ## <a name="example"></a>Ejemplo
 

@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: dd85504ac2321310288efe5d0a1ef7dfcde60f21
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: c28e869bff1d0e921a1e5a952dbfcb21ee97d16b
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566070"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228331"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Configuración de la replicación de objetos para blobs en bloques (versión preliminar)
 
@@ -24,6 +24,8 @@ La replicación de objetos (versión preliminar) copia asincrónicamente los blo
 Al configurar la replicación de objetos, crea una política de replicación que especifica las cuentas de almacenamiento de origen y destino. Una directiva de replicación incluye una o más reglas que especifican un contenedor de origen y uno de destino e indican qué blobs en bloques del contenedor de origen se replicarán.
 
 En este artículo se describe cómo configurar la replicación de objetos para la cuenta de almacenamiento mediante Azure Portal, PowerShell o la CLI de Azure. También puede usar una de las bibliotecas cliente del proveedor de recursos de Azure Storage para configurar la replicación de objetos.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="create-a-replication-policy-and-rules"></a>Creación de una directiva de replicación y reglas
 
@@ -34,7 +36,7 @@ Una cuenta de almacenamiento puede servir como cuenta de origen para un máximo 
 Antes comenzar, asegúrese de haberse registrado para obtener las versiones preliminares de las características siguientes:
 
 - [Replicación de objetos (versión preliminar)](object-replication-overview.md)
-- [Control de versiones de blobs (versión preliminar)](versioning-overview.md)
+- [Control de versiones de blobs](versioning-overview.md)
 - [Compatibilidad con la fuente de cambios en Azure Blob Storage (versión preliminar)](storage-blob-change-feed.md)
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)

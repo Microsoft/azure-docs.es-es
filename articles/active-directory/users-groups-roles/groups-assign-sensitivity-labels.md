@@ -1,6 +1,6 @@
 ---
 title: 'Asignación de etiquetas de confidencialidad a grupos: Azure AD | Microsoft Docs'
-description: Creación de reglas de pertenencia para rellenar automáticamente grupos y creación de una referencia de regla.
+description: Aprenda a asignar etiquetas de confidencialidad a grupos. Vea la información de solución de problemas y los recursos adicionales disponibles.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46d692b81d24b6c5088ffc42644ed1dd7f45b2d2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 3179bb294678ee030218e67dafa1c69dcf5d77a0
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795315"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056275"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Asignación de etiquetas de confidencialidad a grupos de Microsoft 365 en Azure Active Directory
 
-Azure Active Directory (Azure AD) permite aplicar etiquetas de confidencialidad publicadas por el [Centro de cumplimiento de Microsoft 365](https://sip.protection.office.com/homepage) a los grupos de Microsoft 365. Las etiquetas de confidencialidad se aplican a grupos de servicios como Outlook, Microsoft Teams y SharePoint. Esta característica está actualmente en disponibilidad general. Para más información sobre el soporte técnico de aplicaciones de Office 365, consulte [Compatibilidad de Office 365 con las etiquetas de confidencialidad](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
+Azure Active Directory (Azure AD) permite aplicar etiquetas de confidencialidad publicadas por el [Centro de cumplimiento de Microsoft 365](https://sip.protection.office.com/homepage) a los grupos de Microsoft 365. Las etiquetas de confidencialidad se aplican a grupos de servicios como Outlook, Microsoft Teams y SharePoint. Esta característica está actualmente en disponibilidad general. Para más información sobre la compatibilidad con aplicaciones de Microsoft 365, consulte [Compatibilidad de Microsoft 365 con las etiquetas de confidencialidad](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
 > Para configurar esta característica, debe haber al menos una licencia activa de Azure Active Directory Premium P1 en la organización de Azure AD.
@@ -68,7 +68,7 @@ Para aplicar etiquetas publicadas a grupos, primero debe habilitar la caracterí
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-Eso es todo. Ha habilitado la característica y puede aplicar las etiquetas publicadas a los grupos.
+También deberá sincronizar las etiquetas de confidencialidad con Azure AD. Puede encontrar instrucciones en [Cómo habilitar etiquetas de confidencialidad para contenedores y sincronizarlas](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Asignación de una etiqueta a un grupo nuevo en Azure Portal
 
@@ -113,7 +113,8 @@ Después de habilitar esta característica, las clasificaciones "clásicas" para
 La opción de etiqueta de confidencialidad solo se muestra para los grupos cuando se cumplen todas las condiciones siguientes:
 
 1. Las etiquetas se publican en el Centro de cumplimiento de Microsoft 365 de esta organización de Azure AD.
-1. La característica está habilitada, EnableMIPLabels está establecido en True en PowerShell.
+1. La característica está habilitada: EnableMIPLabels está establecido en true en el módulo Azure AD PowerShell.
+1. Las etiquetas están sincronizadas con Azure AD con el cmdlet Execute-AzureAdLabelSync en el módulo Seguridad y cumplimiento de PowerShell.
 1. El grupo es un grupo de Microsoft 365.
 1. La organización tiene una licencia activa de Azure Active Directory Premium P1.
 1. El usuario que inició la sesión actual tiene privilegios suficientes para asignar etiquetas. El usuario debe ser un administrador global, un administrador de grupo o el propietario del grupo.

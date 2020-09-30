@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: trbye
-ms.openlocfilehash: 3d67361ecd4e06fdf006e836011d2cab59e340b6
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: ff171dfce0bcbb04ec017a8d5e3310cf3162e8e2
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82587810"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565004"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -47,31 +47,27 @@ auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourService
 
 Una vez creado un elemento [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig), el paso siguiente consiste en inicializar un elemento [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer). Al inicializar un elemento [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer), deberá pasar el elemento `speech_config`. Esto proporciona las credenciales que necesita el servicio de voz para validar la solicitud.
 
-Si va a realizar un reconocimiento de voz con el micrófono predeterminado del dispositivo, el elemento [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) debería ser similar a:
-
 ```cpp
 auto recognizer = SpeechRecognizer::FromConfig(config);
 ```
 
-Si desea especificar el dispositivo de entrada de audio, deberá crear un elemento [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) y proporcionar el parámetro `audioConfig` al inicializar el elemento [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer).
+## <a name="recognize-from-microphone-or-file"></a>Reconocimiento desde un micrófono o archivo
 
-> [!TIP]
-> [Obtenga información sobre cómo obtener el identificador de dispositivo del dispositivo de entrada de audio](../../../how-to-select-audio-input-devices.md).
+Si desea especificar el dispositivo de entrada de audio, es preciso que cree [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) y lo use como parámetro al inicializar [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer).
 
-En primer lugar, agregue la siguiente instrucción `using namespace` después de las definiciones `#include`.
+Para reconocer la voz mediante el micrófono del dispositivo, cree un elemento `AudioConfig` mediante `FromDefaultMicrophoneInput()`y, después, utilice la configuración de audio al crear el objeto `SpeechRecognizer`.
 
 ```cpp
 using namespace Microsoft::CognitiveServices::Speech::Audio;
-```
 
-A continuación, podrá hacer referencia al objeto `AudioConfig`, como se indica a continuación:
-
-```cpp
 auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
 auto recognizer = SpeechRecognizer::FromConfig(config, audioConfig);
 ```
 
-Si desea proporcionar un archivo de audio en lugar de usar un micrófono, deberá proporcionar un elemento `audioConfig`. Sin embargo, cuando se crea un elemento [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig), en lugar de llamar a `FromDefaultMicrophoneInput`, llamará a `FromWavFileOutput` y pasará el parámetro `filename`.
+> [!TIP]
+> [Obtenga información sobre cómo obtener el identificador de dispositivo del dispositivo de entrada de audio](../../../how-to-select-audio-input-devices.md).
+
+Si desea reconocer la voz de un archivo de audio, en lugar de usar un micrófono, tiene que crear un elemento `AudioConfig`. Sin embargo, al crear [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig), en lugar de llamar a `FromDefaultMicrophoneInput()`, llama a `FromWavFileInput()` y usa el parámetro `filename`.
 
 ```cpp
 auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");

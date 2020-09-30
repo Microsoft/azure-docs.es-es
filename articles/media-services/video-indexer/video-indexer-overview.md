@@ -8,20 +8,24 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/12/2020
+ms.date: 08/31/2020
 ms.author: juliako
-ms.openlocfilehash: e74acd3cdb0a0d2e0fbb37d022ff40e1f5798b18
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: bff99cdd44763c0df6bb5b2dd863b27728c23fcd
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744597"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318697"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>¿Qué es Video Indexer de Azure Media Services?
+
+[!INCLUDE [regulation](./includes/regulation.md)]
 
 Video Indexer (VI) es la solución de IA de Azure Media Services y parte de la marca Azure Cognitive Services. Video Indexer proporciona la capacidad de extraer información profunda (sin necesidad de análisis de datos o conocimientos de codificación) mediante el uso de modelos de Machine Learning basados en varios canales (voz, voces y objeto visual). Los modelos se pueden personalizar y entrenar aún más. El servicio habilita la búsqueda profunda, reduce los costos operativos, permite nuevas oportunidades de monetización y crea nuevas experiencias de usuario en grandes archivos de vídeos (con barreras de entrada bajas).
 
 Para empezar a extraer información con Video Indexer, tiene que crear una cuenta y cargar vídeos. Cuando se cargan vídeos en Video Indexer, este analiza los objetos visuales y el audio mediante la ejecución de diferentes modelos de IA. A medida que Video Indexer analiza el vídeo, los modelos de IA extraen la información.
+
+Cuando crea una cuenta de Video Indexer y la conecta a Media Services, los archivos multimedia y de metadatos se almacenan en la cuenta de almacenamiento de Azure asociada con esa cuenta de Media Services. Obtenga información sobre cómo [crear una cuenta de Video Indexer conectada a Azure](connect-to-azure.md).
 
 El siguiente diagrama es una ilustración, no una explicación técnica, de cómo funciona Video Indexer en el back-end.
 

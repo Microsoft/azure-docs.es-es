@@ -7,12 +7,12 @@ ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 4abf5078a005f9d928397d9666e7f2bc55d65f19
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5ad261064adf34945a600983296cb3e0ceaa5247
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75431549"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901073"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Guía de inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure Portal
 
@@ -36,14 +36,14 @@ Antes de definir el trabajo de Stream Analytics, debe preparar los datos de ent
    
    |**Configuración**  |**Valor sugerido**  |**Descripción**  |
    |---------|---------|---------|
-   |Subscription  | \<Su suscripción\> |  Seleccione la suscripción de Azure que quiera usar. |
+   |Subscription  | \<Your subscription\> |  Seleccione la suscripción de Azure que quiera usar. |
    |Resource group   |   asaquickstart-resourcegroup  |   Seleccione **Crear nuevo** y escriba un nuevo nombre de grupo de recursos para la cuenta. |
-   |Region  |  \<Seleccione la región más cercana a los usuarios\> | Seleccione la ubicación geográfica donde puede hospedar la instancia de IoT Hub. Use la ubicación más cercana a los usuarios. |
+   |Region  |  \<Select the region that is closest to your users\> | Seleccione la ubicación geográfica donde puede hospedar la instancia de IoT Hub. Use la ubicación más cercana a los usuarios. |
    |Nombre de la instancia de IoT Hub  | MyASAIoTHub  |   Seleccione un nombre para la instancia de IoT Hub.   |
 
    ![Creación de un IoT Hub](./media/stream-analytics-quick-create-portal/create-iot-hub.png)
 
-4. Seleccione **Next: Set size and scale** (Siguiente: Establecer tamaño y escala).
+4. Seleccione **Siguiente: Establezca la escala y el tamaño**.
 
 5. Seleccione su **Nivel de precios y de escala**. En esta guía de inicio rápido, seleccione el nivel **F1 - Free** (F1: gratis) si aún está disponible en la suscripción. Para más información, consulte [Precios de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -88,9 +88,9 @@ Antes de definir el trabajo de Stream Analytics, debe preparar los datos de ent
    |**Configuración**  |**Valor sugerido**  |**Descripción**  |
    |---------|---------|---------|
    |Nombre del trabajo   |  MyASAJob   |   Escriba un nombre para identificar el trabajo de Stream Analytics. Debe tener una longitud de entre 3 y 63 caracteres, y solo puede incluir caracteres alfanuméricos, guiones y guiones bajos. |
-   |Subscription  | \<Su suscripción\> |  Seleccione la suscripción de Azure que quiere usar para este trabajo. |
+   |Subscription  | \<Your subscription\> |  Seleccione la suscripción de Azure que quiere usar para este trabajo. |
    |Resource group   |   asaquickstart-resourcegroup  |   Seleccione el mismo grupo de recursos que el de IoT Hub. |
-   |Location  |  \<Seleccione la región más cercana a los usuarios\> | Seleccione la ubicación geográfica donde puede hospedar su trabajo de Stream Analytics. Para obtener un mejor rendimiento y reducir el costo de la transferencia de datos, use la ubicación más cercana a los usuarios. |
+   |Location  |  \<Select the region that is closest to your users\> | Seleccione la ubicación geográfica donde puede hospedar su trabajo de Stream Analytics. Para obtener un mejor rendimiento y reducir el costo de la transferencia de datos, use la ubicación más cercana a los usuarios. |
    |Unidades de streaming  | 1  |   Las unidades de streaming representan los recursos informáticos que se necesitan para ejecutar un trabajo. De forma predeterminada, este valor se establece en 1. Para información sobre el escalado de unidades de streaming, consulte el artículo [Descripción y ajuste de las unidades de streaming](stream-analytics-streaming-unit-consumption.md).   |
    |Entorno de hospedaje  |  Nube  |   Los trabajos de Stream Analytics se pueden implementar en la nube o en dispositivos perimetrales. Si elige la nube, podrá implementar en la nube de Azure y, si elige implementar en un dispositivo perimetral, podrá hacerlo en un dispositivo de IoT Edge. |
 
@@ -113,7 +113,7 @@ En esta sección, configurará una entrada de dispositivo de IoT Hub al trabajo 
    |**Configuración**  |**Valor sugerido**  |**Descripción**  |
    |---------|---------|---------|
    |Alias de entrada  |  IoTHubInput   |  Escriba un nombre para identificar la entrada del trabajo.   |
-   |Subscription   |  \<Su suscripción\> |  Seleccione la suscripción de Azure que tiene la cuenta de almacenamiento que creó. La cuenta de almacenamiento puede estar en la misma suscripción, o en otra diferente. En este ejemplo se da por supuesto que ha creado la cuenta de almacenamiento en la misma suscripción. |
+   |Suscripción   |  \<Your subscription\> |  Seleccione la suscripción de Azure que tiene la cuenta de almacenamiento que creó. La cuenta de almacenamiento puede estar en la misma suscripción, o en otra diferente. En este ejemplo se da por supuesto que ha creado la cuenta de almacenamiento en la misma suscripción. |
    |IoT Hub  |  MyASAIoTHub |  Escriba el nombre de la instancia de IoT Hub que creó en la sección anterior. |
 
 4. Deje el resto de opciones con los valores predeterminados y seleccione **Guardar** para guardar la configuración.  
@@ -131,7 +131,7 @@ En esta sección, configurará una entrada de dispositivo de IoT Hub al trabajo 
    |**Configuración**  |**Valor sugerido**  |**Descripción**  |
    |---------|---------|---------|
    |Alias de salida |   BlobOutput   |   Escriba un nombre para identificar la salida del trabajo. |
-   |Subscription  |  \<Su suscripción\>  |  Seleccione la suscripción de Azure que tiene la cuenta de almacenamiento que creó. La cuenta de almacenamiento puede estar en la misma suscripción, o en otra diferente. En este ejemplo se da por supuesto que ha creado la cuenta de almacenamiento en la misma suscripción. |
+   |Suscripción  |  \<Your subscription\>  |  Seleccione la suscripción de Azure que tiene la cuenta de almacenamiento que creó. La cuenta de almacenamiento puede estar en la misma suscripción, o en otra diferente. En este ejemplo se da por supuesto que ha creado la cuenta de almacenamiento en la misma suscripción. |
    |Cuenta de almacenamiento |  asaquickstartstorage |   Elija o escriba el nombre de la cuenta de almacenamiento. Los nombres de cuenta de almacenamiento se detectan automáticamente si se crean en la misma suscripción.       |
    |Contenedor |   Contenedor1  |  Seleccione el contenedor existente que creó en la cuenta de almacenamiento.   |
 
@@ -186,7 +186,7 @@ Cuando no los necesite, elimine el grupo de recursos, el trabajo de Stream Anal
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha implementado un sencillo trabajo de Stream Analytics mediante Azure Portal. También puede implementar trabajos de Stream Analytics mediante [PowerShell](stream-analytics-quick-create-powershell.md), [Visual Studio](stream-analytics-quick-create-vs.md) y [Visual Studio Code](quick-create-vs-code.md).
+En esta guía de inicio rápido, ha implementado un sencillo trabajo de Stream Analytics mediante Azure Portal. También puede implementar trabajos de Stream Analytics mediante [PowerShell](stream-analytics-quick-create-powershell.md), [Visual Studio](stream-analytics-quick-create-vs.md) y [Visual Studio Code](quick-create-visual-studio-code.md).
 
 Para aprender a configurar otros orígenes de entrada y realizar la detección en tiempo real, continúe con el siguiente artículo:
 

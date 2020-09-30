@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 274f603fa0d7a48b99a7caed5d465d44bc68e9ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aa9d2aa94970e7d17102e5a5696c6b61330aff80
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019971"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279965"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Uso de un proveedor de identidades (IdP) de SAML 2.0 para el inicio de sesión único
 
@@ -178,7 +178,7 @@ Deberá habilitar la comunicación entre el proveedor de identidades de SAML 2.0
 ## <a name="install-windows-powershell-for-sign-on-with-saml-20-identity-provider"></a>Instalación de Windows PowerShell para el inicio de sesión con el proveedor de identidades de SAML 2.0
 Después de que ha configurado el proveedor de identidades de SAML 2.0 para su uso con el inicio de sesión de Azure AD, el siguiente paso consiste en descargar e instalar el Módulo Azure Active Directory para Windows PowerShell. Una vez instalado, usará estos cmdlets para configurar los dominios de Azure AD como dominios federados.
 
-El Módulo Azure Active Directory para Windows PowerShell es una descarga para administrar los datos de la organización en Azure AD. Este módulo instala un conjunto de cmdlets en Windows PowerShell; esos cmdlets se ejecutan para configurar el acceso de inicio de sesión único a Azure AD y, a su vez, a todos los servicios en la nube que están suscritos a él. Para instrucciones sobre cómo descargar e instalar los cmdlets, consulte [https://technet.microsoft.com/library/jj151815.aspx](https://technet.microsoft.com/library/jj151815.aspx)
+El Módulo Azure Active Directory para Windows PowerShell es una descarga para administrar los datos de la organización en Azure AD. Este módulo instala un conjunto de cmdlets en Windows PowerShell; esos cmdlets se ejecutan para configurar el acceso de inicio de sesión único a Azure AD y, a su vez, a todos los servicios en la nube que están suscritos a él. Para obtener instrucciones sobre cómo descargar e instalar los cmdlets, consulte [/previous-versions/azure/jj151815(v=azure.100)](/previous-versions/azure/jj151815(v=azure.100)).
 
 ## <a name="set-up-a-trust-between-your-saml-identity-provider-and-azure-ad"></a>Configuración de una relación de confianza entre el proveedor de identidades de SAML y Azure AD
 Antes de configurar la federación en un dominio de Azure AD, debe tener configurado un dominio personalizado. No se puede federar el dominio predeterminado proporcionado por Microsoft. El dominio predeterminado de Microsoft finaliza con "onmicrosoft.com".
@@ -238,19 +238,19 @@ En el procedimiento siguiente se explica cómo convertir un dominio estándar ex
     </IDPSSODescriptor>
     ``` 
 
-Para más información sobre "Set-MsolDomainAuthentication", consulte: [https://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx).
+Para obtener más información sobre "Set-MsolDomainAuthentication", consulte: [/previous-versions/azure/dn194112(v=azure.100)](/previous-versions/azure/dn194112(v=azure.100)).
 
 >[!NOTE]
 >Solo debe usar `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` si configura una extensión ECP para el proveedor de identidades. Los clientes de Exchange Online, excepto Outlook Web Application (OWA), dependen de un punto de conexión activo basado en POST. Si el STS de SAML 2.0 implementa un punto de conexión activo de forma similar a ECP de Shibboleth, es posible que estos clientes enriquecidos puedan interactuar con el servicio Exchange Online.
 
-Una vez configurada la federación, puede cambiar de nuevo a "no federado" (o "administrado"); sin embargo, este cambio tarda hasta dos horas en realizarse y requiere la asignación de nuevas contraseñas aleatorias para el inicio de sesión basado en la nube de cada usuario. Volver a cambiar a "administrado" puede ser necesario en algunos escenarios para restablecer un error de la configuración. Para más información sobre la conversión de dominios, consulte: [https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+Una vez configurada la federación, puede cambiar de nuevo a "no federado" (o "administrado"); sin embargo, este cambio tarda hasta dos horas en realizarse y requiere la asignación de nuevas contraseñas aleatorias para el inicio de sesión basado en la nube de cada usuario. Volver a cambiar a "administrado" puede ser necesario en algunos escenarios para restablecer un error de la configuración. Para obtener más información sobre la conversión de dominios, consulte: [/previous-versions/azure/dn194122(v=azure.100)](/previous-versions/azure/dn194122(v=azure.100)).
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Aprovisionamiento de entidades de seguridad de usuario en Azure AD y Office 365
 Antes de poder autenticar a los usuarios en Office 365, debe aprovisionar Azure AD con entidades de seguridad de usuario que correspondan a la aserción en la notificación de SAML 2.0. Si Azure AD no conoce estas entidades de seguridad de usuario de antemano, no se podrán usar para el inicio de sesión federado. Se puede usar Azure AD Connect o Windows PowerShell para aprovisionar a las entidades de seguridad de usuario.
 
 Azure AD Connect se puede usar para aprovisionar a las entidades de seguridad en los dominios en Azure Active Directory desde el entorno local de Active Directory. Para más información, consulte [Integrate your on-premises directories with Azure Active Directory](whatis-hybrid-identity.md) (Integración de los directorios locales con Azure Active Directory).
 
-También se puede usar Windows PowerShell para automatizar la adición de nuevos usuarios a Azure AD y sincronizar los cambios desde el directorio local. Para usar los cmdlets de Windows PowerShell, debe descargar los [módulos de Azure Active Directory](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+También se puede usar Windows PowerShell para automatizar la adición de nuevos usuarios a Azure AD y sincronizar los cambios desde el directorio local. Para usar los cmdlets de Windows PowerShell, debe descargar los [módulos de Azure Active Directory](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 Este procedimiento muestra cómo agregar un único usuario a Azure AD.
 
@@ -270,7 +270,7 @@ Este procedimiento muestra cómo agregar un único usuario a Azure AD.
       -UsageLocation "US" 
     ```
 
-Para obtener más información sobre "New-MsolUser", consulte [https://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx).
+Para obtener más información sobre "New-MsolUser", consulte [/previous-versions/azure/dn194096(v=azure.100)](/previous-versions/azure/dn194096(v=azure.100)).
 
 >[!NOTE]
 >El valor "UserPrinciplName" debe coincidir con el valor que se enviará para "IDPEmail" en la notificación de SAML 2.0, y el valor "ImmutableID" debe coincidir con el valor enviado en la aserción "NameID".

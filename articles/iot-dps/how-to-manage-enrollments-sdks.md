@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: fasttrack-edit, iot
 services: iot-dps
-ms.openlocfilehash: 4a5e8b6f430f6af49ab79ca0f8cb2253bd0f2049
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1dc97f92e6139475d0d5ac5ea1201d6ff6b8d470
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520663"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532331"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Cómo administrar inscripciones de dispositivos con los SDK del servicio Azure Device Provisioning
 La *inscripción de un dispositivo* crea un registro de un único dispositivo o de grupo de ellos que, en algún momento, pueden registrarse en el servicio Device Provisioning. El registro de inscripción contiene la configuración inicial preferida para los dispositivos como parte de la inscripción, incluida la instancia de IoT. En este artículo se muestra cómo administrar inscripciones de dispositivos para el servicio de aprovisionamiento mediante programación con los SDK del servicio de aprovisionamiento de Azure IoT.  Los SDK están disponibles en GitHub en el mismo repositorio que los SDK de Azure IoT.
 
 ## <a name="prerequisites"></a>Prerequisites
 * Obtenga la cadena de conexión de la instancia del servicio Device Provisioning.
-* Obtenga los artefactos de seguridad del dispositivo del [mecanismo de atestación](concepts-security.md#attestation-mechanism) correspondiente:
+* Obtenga los artefactos de seguridad del dispositivo del [mecanismo de atestación](concepts-service.md#attestation-mechanism) correspondiente:
     * [**Módulo de plataforma segura (TPM)** ](/azure/iot-dps/concepts-security#trusted-platform-module):
         * Inscripción individual: identificador de registro y clave de aprobación de TPM desde el dispositivo físico o el simulador de TPM.
         * El grupo de inscripción no se aplica a la atestación de TPM.

@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: System Architecture'
-ms.openlocfilehash: 33c878b2af64a72212a8aac060e9ccac83b79a53
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2289ff37a0e524bc765163047608eb604c02372e
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326518"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019808"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticación de dispositivos mediante certificados de entidades de certificación X.509
 
@@ -27,6 +27,8 @@ En este artículo se describe cómo usar los certificados de las entidades de ce
 * Cómo registrar el certificado de entidad de certificación X.509 en IoT Hub
 * Cómo firmar dispositivos con certificado de entidad de certificación X.509
 * Cómo autenticar los dispositivos firmados con entidades de certificación X.509
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## <a name="overview"></a>Información general
 

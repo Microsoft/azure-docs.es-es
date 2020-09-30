@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 417ca42e014c0bb197d7dd834b960f25fcfdf468
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a58b00018f6ac89f024661d8d3f50ea5249e620b
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056804"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182129"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Uso de Standard Load Balancer en Azure Kubernetes Service (AKS)
 
@@ -267,16 +267,15 @@ Si espera tener numerosas conexiones de corta duración, no hay ninguna conexió
 *outboundIPs* \* 64 000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts*.
  
 Por ejemplo, si tiene 3 *nodeVMs* y 50 000 *desiredAllocatedOutboundPorts*, debe tener al menos 3 *outboundIPs*. Se recomienda incorporar más capacidad de IP de salida de la necesaria. Además, debe tener en cuenta el escalador automático del clúster y la posibilidad de que se produzcan actualizaciones del grupo de nodos al calcular la capacidad de IP de salida. Para el escalador automático del clúster, revise el número de nodos actual y el número máximo de nodos, y use el valor más alto. Para la actualización, tenga en cuenta una VM de nodo adicional para cada grupo de nodos que permita la actualización.
- 
+
 - Si establece *IdleTimeoutInMinutes* en un valor distinto del predeterminado de 30 minutos, tenga en cuenta el tiempo que las cargas de trabajo necesitarán una conexión de salida. Tenga en cuenta también que el valor de tiempo de espera predeterminado para un equilibrador de carga de SKU *estándar* usado fuera de AKS es de 4 minutos. Un valor de *IdleTimeoutInMinutes* que refleje de forma más precisa su carga de trabajo de AKS específica puede ayudar a reducir el agotamiento de SNAT causado por la vinculación de las conexiones ya no se usan.
 
 > [!WARNING]
 > La modificación de los valores de *AllocatedOutboundPorts* e *IdleTimeoutInMinutes* puede cambiar significativamente el comportamiento de la regla de salida para el equilibrador de carga y no debe realizarse a la ligera sin comprender los inconvenientes y los patrones de conexión de la aplicación. Consulte la sección [Solución de problemas de SNAT que aparece a continuación][troubleshoot-snat] y revise las [reglas de salida de Load Balancer][azure-lb-outbound-rules-overview] y las [conexiones salientes en Azure][azure-lb-outbound-connections] antes de actualizar estos valores para comprender totalmente el impacto de los cambios.
 
-
 ## <a name="restrict-inbound-traffic-to-specific-ip-ranges"></a>Restricción del tráfico entrante a intervalos IP específicos
 
-De forma predeterminada, el grupo de seguridad de red (NSG) asociado a la red virtual del equilibrador de carga, tiene una regla para permitir todo el tráfico externo entrante. Puede actualizar esta regla para permitir solo intervalos IP específicos para el tráfico entrante. En el siguiente manifiesto se usa *loadBalancerSourceRanges* para especificar un nuevo intervalo IP para el tráfico externo entrante:
+En el siguiente manifiesto se usa *loadBalancerSourceRanges* para especificar un nuevo intervalo IP para el tráfico externo entrante:
 
 ```yaml
 apiVersion: v1
@@ -292,6 +291,9 @@ spec:
   loadBalancerSourceRanges:
   - MY_EXTERNAL_IP_RANGE
 ```
+
+> [!NOTE]
+> Los flujos de tráfico externos entrantes del equilibrador de carga a la red virtual para el clúster de AKS. La red virtual tiene un grupo de seguridad de red (NSG) que permite todo el tráfico entrante desde el equilibrador de carga. Este NSG usa una [etiqueta de servicio][service-tags] de tipo *LoadBalancer* para permitir el tráfico desde el equilibrador de carga.
 
 ## <a name="maintain-the-clients-ip-on-inbound-connections"></a>Mantenimiento de la dirección IP del cliente en las conexiones entrantes
 
@@ -322,7 +324,7 @@ A continuación, se muestra una lista de las anotaciones admitidas para los serv
 | `service.beta.kubernetes.io/azure-dns-label-name`                 | Nombre de la etiqueta DNS en direcciones IP públicas   | Especifique el nombre de la etiqueta DNS para el servicio **público**. Si se establece en una cadena vacía, no se usará la entrada DNS de la dirección IP pública.
 | `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` o `false`                     | Especifique que el servicio debe exponerse mediante una regla de seguridad de Azure que se pueda compartir con otro servicio, con el fin de definir la especificidad de las reglas para un aumento en el número de servicios que se pueden exponer. Esta anotación depende de las característica [reglas de seguridad ampliadas](../virtual-network/security-overview.md#augmented-security-rules) de los grupos de seguridad de red. 
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Nombre del grupo de recursos            | Especifique el grupo de recursos de direcciones IP públicas del equilibrador de carga que no están en el mismo grupo de recursos que la infraestructura de clúster (grupo de recursos de nodo).
-| `service.beta.kubernetes.io/azure-allowed-service-tags`           | Lista de etiquetas de servicio permitidas          | Especifique una lista de [etiquetas de servicio ](../virtual-network/security-overview.md#service-tags) permitidas separadas por comas.
+| `service.beta.kubernetes.io/azure-allowed-service-tags`           | Lista de etiquetas de servicio permitidas          | Especifique una lista de [etiquetas de servicio ][service-tags] permitidas separadas por comas.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | Tiempo de expiración de inactividad de TCP en minutos          | Especifique el tiempo, en minutos, para la expiración de inactividad de conexión TCP en el equilibrador de carga. El valor predeterminado y el mínimo es 4. El valor máximo es 30. Debe ser un entero.
 |`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                                | Deshabilite `enableTcpReset` para SLB.
 
@@ -424,3 +426,4 @@ Obtenga más información sobre el uso de una instancia de Load Balancer interna
 [requirements]: #requirements-for-customizing-allocated-outbound-ports-and-idle-timeout
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
+[service-tags]: ../virtual-network/security-overview.md#service-tags

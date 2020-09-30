@@ -1,6 +1,6 @@
 ---
 title: Ámbitos, permisos y consentimiento de la Plataforma de identidad de Microsoft
-description: Descripción de la autorización en el punto de conexión de la Plataforma de identidad de Microsoft, incluidos los ámbitos, los permisos y el consentimiento.
+description: Aprenda sobre la autorización en el punto de conexión de la plataforma de identidad de Microsoft, incluidos los ámbitos, los permisos y el consentimiento.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: d513dbd8449dad1d34117e06970f0c0881462aa3
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: f1c35fc80a4ab5b293a974b8f2901716e65f32b1
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263234"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705697"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft
 
@@ -28,11 +28,11 @@ Las aplicaciones que se integran con la plataforma de identidad de Microsoft sig
 La plataforma de identidad de Microsoft implementa el protocolo de autorización [OAuth 2.0](active-directory-v2-protocols.md). OAuth 2.0 es un método a través del cual una aplicación de terceros puede acceder a recursos hospedados en Web en nombre de un usuario. Cualquier recurso hospedado en web que se integre con la plataforma de identidad de Microsoft tiene un identificador de recursos o *URI de identificador de aplicación*. Por ejemplo, algunos de los recursos de Microsoft hospedados en la web incluyen:
 
 * Microsoft Graph: `https://graph.microsoft.com`
-* Office 365 Mail API: `https://outlook.office.com`
+* Mail API de Microsoft 365: `https://outlook.office.com`
 * `https://vault.azure.net`Azure Key Vault:
 
 > [!NOTE]
-> Se recomienda encarecidamente que utilice Microsoft Graph en lugar de Office 365 Mail API, etc.
+> Se recomienda encarecidamente usar Microsoft Graph en lugar de Mail API de Microsoft 365, etc.
 
 Ocurre lo mismo con cualquier recurso de terceros integrado en la plataforma de identidad de Microsoft. Cualquiera de estos recursos también puede definir un conjunto de permisos que se puede usar para dividir la funcionalidad de ese recurso en fragmentos menores. Por ejemplo, [Microsoft Graph](https://graph.microsoft.com) tiene permisos definidos para realizar, entre otras, las tareas siguientes:
 

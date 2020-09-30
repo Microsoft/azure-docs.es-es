@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 7daba35b9247443c84cedad03f252ea6858da236
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6d6754594a321d297d983f9bd7e90ce074857919
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327351"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961982"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Supervisión del servicio de almacenamiento con Azure Monitor para Storage
 
@@ -54,11 +54,11 @@ Para ver el uso y la disponibilidad de las cuentas de almacenamiento en todas la
 
 ### <a name="overview-workbook"></a>Libro de información general
 
-En el libro **Overview** (Información general) de la suscripción seleccionada, la tabla muestra las métricas de almacenamiento interactivas y el estado de disponibilidad del servicio para un máximo de 10 cuentas de almacenamiento agrupadas en la suscripción. Puede filtrar los resultados en función de las opciones que seleccione en las siguientes listas desplegables:
+En el libro **Información general** de la suscripción seleccionada, la tabla muestra las métricas de almacenamiento interactivas y el estado de disponibilidad del servicio para un máximo de 5 cuentas de almacenamiento agrupadas en la suscripción. Puede filtrar los resultados en función de las opciones que seleccione en las siguientes listas desplegables:
 
 * **Subscriptions** (Suscripciones): solo se muestran las suscripciones que tienen cuentas de almacenamiento.  
 
-* **Storage Accounts** (Cuentas de almacenamiento): de forma predeterminada, se seleccionan previamente 10 cuentas de almacenamiento. Si selecciona todas o varias cuentas de almacenamiento en el selector de ámbito, se devolverán como máximo 200 cuentas de almacenamiento. Por ejemplo, si tiene en total 573 cuentas de almacenamiento entre tres suscripciones que ha seleccionado, solo se mostrarán 200. 
+* **Cuentas de almacenamiento**: de forma predeterminada, se seleccionan previamente 5 cuentas de almacenamiento. Si selecciona todas o varias cuentas de almacenamiento en el selector de ámbito, se devolverán como máximo 200 cuentas de almacenamiento. Por ejemplo, si tiene en total 573 cuentas de almacenamiento entre tres suscripciones que ha seleccionado, solo se mostrarán 200. 
 
 * **Time Range** (Intervalo de tiempo): de forma predeterminada, muestra las últimas cuatro horas de información en función de las selecciones correspondientes realizadas.
 

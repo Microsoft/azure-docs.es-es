@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: duau
-ms.openlocfilehash: 1cb24e4a959e7d32a3c3b5b69a39938df4efddfa
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: aada5b976721fdfed31131095f7f2b12aefefea9
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399878"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024288"
 ---
 # <a name="caching-with-azure-front-door"></a>Almacenamiento en caché con Azure Front Door
 En el documento siguiente se especifica el comportamiento de Front Door con reglas de enrutamiento que han habilitado el almacenamiento en caché. Front Door es una red Content Delivery Network (CDN) moderna, junto con la aceleración de sitios dinámicos y el equilibrio de carga; también admite comportamientos de almacenamiento en caché como cualquier otra red CDN.
@@ -88,13 +88,22 @@ Front Door permite controlar cómo se almacenan los archivos en caché para una 
 - **Almacenar en caché todas las URL únicas**: en este modo, cada solicitud con un URL único, incluida la cadena de consulta, se trata como un recurso único con su propia memoria caché. Por ejemplo, la respuesta desde el back-end a una solicitud de `www.example.ashx?q=test1` se almacena en caché en el entorno Front Door y se devuelve en los sucesivos almacenamientos en caché con la misma cadena de consulta. Se almacena en caché una solicitud de `www.example.ashx?q=test2` como un recurso independiente con su propia configuración de período de vida.
 
 ## <a name="cache-purge"></a>Purga de la memoria caché
-Front Door almacenará los recursos en caché hasta que el período de vida de dichos recursos (TTL) expire. Tras la expiración del TTL del recurso, cuando un cliente solicite el recurso, el entorno de Front Door recuperará una nueva copia actualizada del recurso para atender la solicitud del cliente y almacenar actualizada la memoria caché.
-</br>El procedimiento recomendado para asegurarse de que los usuarios siempre obtengan la copia más reciente de los recursos es crear versiones correspondientes a cada actualización y publicarlos como nuevas URL. Front Door recuperará inmediatamente los nuevos recursos en las siguientes solicitudes de los clientes. A veces puede que quiera purgar contenido almacenado en caché de todos los nodos perimetrales y forzarlos todos para recuperar nuevos activos actualizados. Esto puede deberse a actualizaciones de la aplicación web o a actualizaciones rápidas de los activos de actualización que contienen información incorrecta.
 
-</br>Seleccione los activos que quiera purgar de los nodos perimetrales. Si quiere borrar todos los recursos, haga clic en la casilla Purgar todo. De lo contrario, escriba la ruta de acceso completa de cada recurso que quiera purgar en el cuadro de texto Ruta de acceso. Los siguientes formatos se pueden usar en las rutas de acceso.
-1. **Purga de ruta de acceso única** Purgue recursos concretos mediante la especificación de la ruta completa del activo (sin el protocolo y dominio), con la extensión de archivo; por ejemplo, /pictures/strasbourg.png;
-2. **Purga con carácter comodín**: se puede usar el asterisco (\*) como carácter comodín. Purgue todas las carpetas, subcarpetas y archivos de un punto de conexión con /\* en la ruta de acceso o todas las subcarpetas y archivos de una carpeta concreta especificando la carpeta seguido de /\*; por ejemplo, /pictures/\*.
-3. **Purga de dominio raíz**: purgue la raíz del punto de conexión con "/" en la ruta de acceso.
+Front Door almacena en caché los recursos hasta que el período de vida de dichos recursos (TTL) expira. Después de la expiración del TTL del recurso, cuando un cliente lo solicite, el entorno de Front Door recuperará una nueva copia actualizada de este para atender la solicitud del cliente y almacenará en caché la versión actualizada.
+
+El procedimiento recomendado para asegurarse de que los usuarios siempre obtengan la copia más reciente de los recursos es crear versiones correspondientes a cada actualización y publicarlos como nuevas URL. Front Door recuperará inmediatamente los nuevos recursos en las siguientes solicitudes de los clientes. A veces puede que quiera purgar contenido almacenado en caché de todos los nodos perimetrales y forzarlos todos para recuperar nuevos activos actualizados. Esto puede deberse a actualizaciones de la aplicación web o a actualizaciones rápidas de los activos de actualización que contienen información incorrecta.
+
+Seleccione los recursos que quiere purgar de los nodos perimetrales. Para borrar todos los recursos, seleccione **Purgar todo**. De lo contrario, en **Ruta de acceso**, escriba la ruta de acceso de cada recurso que quiera purgar.
+
+Estos formatos se admiten en las listas de rutas de acceso que se van a purgar:
+
+- **Purga de ruta de acceso única** Purgue recursos concretos mediante la especificación de la ruta de acceso completa del recurso (sin el protocolo y el dominio) con la extensión de archivo, por ejemplo, /pictures/strasbourg.png;
+- **Purga con carácter comodín**: se puede usar el asterisco (\*) como carácter comodín. Purgue todas las carpetas, subcarpetas y archivos de un punto de conexión con /\* en la ruta de acceso o todas las subcarpetas y archivos de una carpeta concreta especificando la carpeta seguido de /\*; por ejemplo, /pictures/\*.
+- **Purga de dominio raíz**: purgue la raíz del punto de conexión con "/" en la ruta de acceso.
+
+> [!NOTE]
+> **Depuración de dominios con caracteres comodín**: la especificación de rutas de acceso en caché para la purga como se describe en esta sección no se aplica a ningún dominio con caracteres comodín que esté asociado a Front Door. Actualmente, no se admite la purga directa de dominios con caracteres comodín. Puede purgar las rutas de acceso de subdominios específicos especificando ese subdominio concreto y la ruta de acceso de purga. Por ejemplo, si Front Door tiene `*.contoso.com`, puedo purgar los recursos de mi subdominio `foo.contoso.com` escribiendo `foo.contoso.com/path/*`. Actualmente, la especificación de los nombres de host en la ruta de acceso del contenido de purga se limita a los subdominios de dominios con caracteres comodín, si procede.
+>
 
 La purga de la memoria caché en Front Door distingue mayúsculas de minúsculas. Además, es independiente de la cadena de consulta, lo que significa que purgar una dirección URL purgará todas sus variaciones de la cadena de consulta. 
 

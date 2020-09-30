@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: b74ca75b26d4d98c79091683f428eb39e5827665
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e46cca28c049a794db617797d5f09e9f3b5720d
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82183507"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006898"
 ---
 # <a name="transport-layer-security-in-azure-hdinsight"></a>Seguridad de la capa de transporte en Azure HDInsight
 
@@ -21,8 +21,6 @@ Las conexiones al clúster de HDInsight a través del punto de conexión de clú
 
 De manera predeterminada, los clústeres de Azure HDInsight aceptan conexiones TLS 1.2 en los puntos de conexión HTTPS públicos, así como versiones más antiguas por compatibilidad con versiones anteriores. Puede controlar la versión de TLS mínima admitida en los nodos de puerta de enlace durante la creación del clúster mediante Azure Portal o una plantilla de Resource Manager. En el portal, seleccione la versión de TLS en la pestaña **Seguridad y redes** durante la creación del clúster. En el caso de una plantilla de Resource Manager, en el momento de la implementación use la propiedad **minSupportedTlsVersion**. Para ver una plantilla de ejemplo, consulte la [plantilla de inicio rápido de TLS 1.2 (versión mínima) de HDInsight](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). Esta propiedad admite tres valores: "1.0", "1.1" y "1.2", que corresponden a TLS 1.0+, TLS 1.1+ y TLS 1.2+, respectivamente.
 
-> [!IMPORTANT]
-> A partir del 30 de junio de 2020, Azure HDInsight aplicará TLS 1.2 o versiones posteriores para todas las conexiones HTTPS. Se recomienda asegurarse de que todos los clientes están listos para trabajar con TLS 1.2 o versiones posteriores. Para más información, consulte [Uso de TLS 1.2 en Azure HDInsight](https://azure.microsoft.com/updates/azure-hdinsight-tls-12-enforcement/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

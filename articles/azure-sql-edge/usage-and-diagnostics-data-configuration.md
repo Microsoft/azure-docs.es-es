@@ -8,12 +8,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 08/04/2020
-ms.openlocfilehash: 8547c07214e94176babe4909504b9292d45c06f9
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 130e23c290ce493d3fb92f6dd0be4cd7c61a86fd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759621"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888052"
 ---
 # <a name="azure-sql-edge-usage-and-diagnostics-data-configuration"></a>Configuración de datos de diagnóstico y uso de Azure SQL Edge
 
@@ -61,6 +61,9 @@ group by data_source_type
 
 La recopilación de datos de uso y diagnóstico en Azure SQL Edge se puede deshabilitar mediante cualquiera de los métodos siguientes.
 
+> [!NOTE]
+> Los datos de utilización y diagnóstico no se pueden deshabilitar para la versión del Desarrollador.
+
 ### <a name="disable-usage-and-diagnostics-using-environment-variables"></a>Deshabilitación del uso y los diagnósticos mediante variables de entorno
 
 Para deshabilitar la recopilación de datos de uso y diagnóstico en Azure SQL Edge, agregue la siguiente variable de entorno y establezca su valor en `*False*`. Para más información sobre la configuración de Azure SQL Edge mediante variables de entorno, consulte [Configuración con variables de entorno](configure.md#configure-by-using-environment-variables).
@@ -68,11 +71,11 @@ Para deshabilitar la recopilación de datos de uso y diagnóstico en Azure SQL E
 `MSSQL_TELEMETRY_ENABLED = TRUE | FALSE`
 
 - TRUE: habilita la recopilación de datos de uso y diagnóstico. Esta es la configuración predeterminada.
-- FALSE: deshabilita la recopilación de datos de uso y diagnóstico.
+- FALSE: deshabilita la recopilación de datos de utilización y diagnóstico.
 
 ### <a name="disable-usage-and-diagnostics-using-mssqlconf-file"></a>Deshabilitación del uso y los diagnósticos mediante un archivo mssql.conf
 
-Para deshabilitar la recopilación de datos de uso y diagnóstico en Azure SQL Edge, agregue los siguientes archivos en el archivo mssql.conf en la unidad de almacenamiento persistente que está asignada a la carpeta /var/opt/mssql/ en el módulo SQL Edge. Para más información sobre cómo configurar Azure SQL Edge mediante el archivo mssql.conf, consulte [Configuración mediante un archivo mssql.conf](configure.md#configure-by-using-an-mssqlconf-file).
+Para deshabilitar la recopilación de datos de utilización y diagnóstico en Azure SQL Edge, agregue las líneas siguiente en el archivo mssql.conf en la unidad de almacenamiento persistente que está asignada a la carpeta /var/opt/mssql/ en el módulo SQL Edge. Para más información sobre cómo configurar Azure SQL Edge mediante el archivo mssql.conf, consulte [Configuración mediante un archivo mssql.conf](configure.md#configure-by-using-an-mssqlconf-file).
 
 ```ini
 [telemetry]

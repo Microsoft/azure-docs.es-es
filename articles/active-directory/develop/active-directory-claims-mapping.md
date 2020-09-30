@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 1cd2b7550d47ecc92f8ca7f5531fab923e13930c
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 4fca84c8e5aa562572792968d0438a61be5ab91b
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853357"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601476"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedimientos: Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino (versión preliminar)
 
@@ -301,8 +301,8 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 | Usuario | companyname| Nombre de la organización |
 | Usuario | streetaddress | Dirección |
 | Usuario | postalcode | Código postal |
-| Usuario | preferredlanguange | Idioma preferido |
-| Usuario | onpremisesuserprincipalname | UPN local |
+| Usuario | preferredlanguage | Idioma preferido |
+| Usuario | onpremisesuserprincipalname | UPN local |*
 | Usuario | mailNickname | Alias de correo |
 | Usuario | extensionattribute1 | Atributo de extensión 1 |
 | Usuario | extensionattribute2 | Atributo de extensión 2 |
@@ -340,6 +340,8 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 
 - El elemento JwtClaimType tiene que contener el nombre de la notificación que se va a emitir en los token JWT.
 - El elemento SamlClaimType debe contener el identificador URI de la notificación que se va a emitir en los token SAML.
+
+* **Atributo onPremisesUserPrincipalName:** Cuando se usa un identificador alternativo, el atributo local userPrincipalName se sincronizará con el de Azure AD onPremisesUserPrincipalName. Este atributo solo está disponible cuando se configura el id. alternativo, pero también está disponible a través de MS Graph versión beta: https://graph.microsoft.com/beta/me/.
 
 > [!NOTE]
 > Los nombres e identificadores URI de las notificaciones del conjunto de notificaciones restringidas no se pueden usar en los elementos de tipo de notificación. Para más información, vea la sección "Excepciones y restricciones" más adelante en este artículo.

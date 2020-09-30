@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3399138ef7c14dd2db9133334a08b3984bd26448
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: a47f720344a16d0f77559d6aabfb2b0245e62976
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186015"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426340"
 ---
 # <a name="migrate-from-orchestrator-to-azure-automation-beta"></a>Migración de Orchestrator a Azure Automation (versión beta)
 
@@ -20,7 +20,7 @@ Los runbooks de [System Center 2012: Orchestrator](/previous-versions/system-ce
 
 ## <a name="download-the-orchestrator-migration-toolkit"></a>Descarga del kit de herramientas de migración de Orchestrator
 
-El primer paso de la migración consiste en descargar el [kit de herramientas para migración de System Center Orchestrator](https://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all). Este kit incluye herramientas que le ayudan a convertir runbooks de Orchestrator a Azure Automation.  
+El primer paso de la migración consiste en descargar el [kit de herramientas para migración de System Center Orchestrator](https://www.microsoft.com/download/details.aspx?id=47323). Este kit incluye herramientas que le ayudan a convertir runbooks de Orchestrator a Azure Automation.  
 
 ## <a name="import-the-standard-activities-module"></a>Importación del módulo Actividades estándar
 

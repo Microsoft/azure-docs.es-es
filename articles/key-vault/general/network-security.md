@@ -7,19 +7,19 @@ manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 04/22/2020
+ms.date: 09/14/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d416c6fdef85b83d91ca0e341659f87618d268e0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bc25a2ada3052689bc9dc4585c238fe19cb2a341
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504524"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087405"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configuración de firewalls y redes virtuales de Azure Key Vault
 
-En este artículo se describen las instrucciones paso a paso para configurar los firewalls y las redes virtuales de Azure Key Vault para restringir el acceso al almacén de claves. Los [puntos de conexión de servicio de red virtual para Key Vault](overview-vnet-service-endpoints.md) le permiten restringir el acceso a la red virtual especificada y establecer intervalos de direcciones IPv4 (versión 4 del protocolo de Internet).
+En este artículo se describen las instrucciones paso a paso para configurar los firewalls y las redes virtuales de Azure Key Vault para restringir el acceso al almacén de claves. Los [puntos de conexión de servicio de red virtual para Key Vault](overview-vnet-service-endpoints.md) le permiten restringir el acceso a la red virtual especificada y a un conjunto de rangos de direcciones IPv4 (versión 4 del protocolo de Internet).
 
 > [!IMPORTANT]
 > Una vez que las reglas del firewall están en vigor, los usuarios solo pueden realizar operaciones del [plano de datos](secure-your-key-vault.md#data-plane-access-control) de Key Vault cuando las solicitudes se originan desde redes virtuales o rangos de direcciones IPv4 permitidos. Esto también se aplica al acceso de Key Vault desde Azure Portal. Aunque los usuarios pueden ir a un almacén de claves desde Azure Portal, es posible que no pueda enumerar las claves, los secretos o los certificados si su equipo cliente no está en la lista de dispositivos permitidos. Esto también afecta al selector de Key Vault de otros servicios de Azure. Los usuarios podrían ver la lista de almacenes de claves, pero no enumerar las claves si las reglas del firewall limitan su equipo cliente.
@@ -27,7 +27,6 @@ En este artículo se describen las instrucciones paso a paso para configurar los
 > [!NOTE]
 > Tenga en cuenta las siguientes limitaciones de configuración:
 > * Se permite un máximo de 127 reglas de red virtual y 127 reglas de IPv4. 
-> * Los rangos de dirección pequeños con tamaños de prefijos "/31" o "/32" no son compatibles. En su lugar, configure estos rangos utilizando reglas de direcciones IP individuales.
 > * Las reglas de red IP solo se permiten para direcciones IP públicas. No se permiten intervalos de direcciones IP reservados para redes privadas (tal y como se define en RFC 1918) en las reglas IP. Las redes privadas incluyen direcciones que comienzan por **10.** , **172.16-31** y **192.168.** . 
 > * Solo se admiten direcciones IPV4 en este momento.
 
@@ -129,5 +128,5 @@ Estas son las instrucciones para configurar los firewalls y las redes virtuales 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Puntos de conexión de servicio de red virtual para Key Vault](overview-vnet-service-endpoints.md)
-* [Protección del almacén de claves](secure-your-key-vault.md)
+* [Puntos de conexión de servicio de red virtual para Key Vault](overview-vnet-service-endpoints.md)
+* [Protección de Key Vault](secure-your-key-vault.md)

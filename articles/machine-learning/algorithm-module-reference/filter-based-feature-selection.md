@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: c009a98931240e92527035e51fdce3f1c92f5212
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1afa5df20c9bcbf63f8ad9f527e54f622eba3d19
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79477602"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893790"
 ---
 # <a name="filter-based-feature-selection"></a>Selección de características basada en filtro
 
-En este artículo se describe cómo usar el módulo Filter Based Feature Selection (Selección de características basada en filtro) en el diseñador de Azure Machine Learning (versión preliminar). Este módulo ayuda a identificar las columnas del conjunto de datos de entrada con la máxima eficacia predictiva. 
+En este artículo se describe cómo usar el módulo Selección de características basada en filtro en el diseñador de Azure Machine Learning. Este módulo ayuda a identificar las columnas del conjunto de datos de entrada con la máxima eficacia predictiva. 
 
 En general, la *selección de características* hace referencia al proceso de aplicar pruebas estadísticas a las entradas, dada una salida especificada para determinar qué columnas son más predecibles de la salida. El módulo Filter Based Feature Selection (Selección de características basada en filtro) proporciona varios algoritmos de selección de características entre los que elegir. El módulo incluye métodos de correlación como la correlación de Pearson y valores de la χ2. 
 

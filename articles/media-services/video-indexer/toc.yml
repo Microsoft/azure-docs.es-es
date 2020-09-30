@@ -7,12 +7,14 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Introducción
+    - name: Primeros pasos
       href: video-indexer-get-started.md
     - name: Invitar a usuarios
       href: invite-users.md
 - name: Tutoriales
   items:
+    - name: Conexión con Azure
+      href: connect-to-azure.md
     - name: Uso de Video Indexer API
       href: video-indexer-use-apis.md
     - name: Conector de Logic Apps
@@ -102,6 +104,7 @@
     - name: Disponibilidad regional
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Regions
+      displayName: location
       href: regions.md
     - name: Preguntas más frecuentes
       href: faq.md

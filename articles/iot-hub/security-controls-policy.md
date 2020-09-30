@@ -1,18 +1,18 @@
 ---
 title: Controles de cumplimiento normativo de Azure Policy para Azure IoT Hub
 description: Enumera los controles de cumplimiento normativo de Azure Policy disponibles para Azure IoT Hub. Estas definiciones de directivas integradas proporcionan enfoques comunes para administrar el cumplimiento de los recursos de Azure.
-ms.date: 09/04/2020
+ms.date: 09/16/2020
 ms.topic: sample
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: ef86f3c929acd83815500b732c99ce9ca7ffd0ec
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 6ae471aecd9993b69da339d00a52701e5d0b4008
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485622"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987769"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-iot-hub"></a>Controles de cumplimiento normativo de Azure Policy para Azure IoT Hub
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: af14d4770d032c23216b805045eb27fadded5954
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0ba603dad7d48be725f308f3a3296676c5f4f108
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170265"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883240"
 ---
 # <a name="train-pytorch-model"></a>Entrenamiento del modelo de PyTorch
 
-En este artículo se describe cómo usar el módulo **Entrenamiento del modelo de PyTorch** en Azure Machine Learning Designer (versión preliminar) para entrenar modelos de PyTorch como DenseNet. El entrenamiento tiene lugar después de definir un modelo y establecer sus parámetros y requiere datos etiquetados. 
+En este artículo se describe cómo usar el módulo **Entrenamiento del modelo de PyTorch** en el diseñador de Azure Machine Learning para entrenar modelos de PyTorch como DenseNet. El entrenamiento tiene lugar después de definir un modelo y establecer sus parámetros y requiere datos etiquetados. 
 
 ## <a name="how-to-use-train-pytorch-model"></a>Uso de Entrenamiento del modelo de PyTorch 
 

@@ -1,23 +1,23 @@
 ---
-title: Supervisión de Key Vault con Azure Monitor para Key Vault (versión preliminar) | Microsoft Docs
+title: Supervisión de Key Vault con Azure Monitor para Key Vault | Microsoft Docs
 description: En este artículo se describe Azure Monitor para Key Vault.
 services: azure-monitor
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/13/2019
-ms.openlocfilehash: c669946ab76fcaeaaa6fd681f521408643c5a63c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.date: 09/10/2020
+ms.openlocfilehash: 4aeb97f112f0c95329b1449fe9c1423fdd5bd0d6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531266"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894508"
 ---
-# <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Supervisión del servicio de almacén de claves con Azure Monitor para Key Vault (versión preliminar)
-Azure Monitor para Key Vault (versión preliminar) proporciona una supervisión completa de los almacenes de claves proporcionando una vista unificada del rendimiento, los errores, la latencia y las solicitudes de Key Vault.
-Este artículo le ayudará a comprender cómo incorporar y personalizar la experiencia de Azure Monitor para Key Vault (versión preliminar).
+# <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Supervisión del servicio Key Vault con Azure Monitor para Key Vault
+Azure Monitor para Key Vault proporciona supervisión general de los almacenes de claves, ya que ofrece una vista unificada de las solicitudes, el rendimiento, los errores y la latencia de la instancia de Key Vault.
+Este artículo ayuda a entender cómo se incorpora y se personaliza la experiencia de Azure Monitor para Key Vault.
 
-## <a name="introduction-to-azure-monitor-for-key-vault-preview"></a>Introducción a Azure Monitor para Key Vault (versión preliminar)
+## <a name="introduction-to-azure-monitor-for-key-vault"></a>Introducción a Azure Monitor para Key Vault
 
 Antes de saltar a la experiencia, debe entender cómo se presenta y se visualiza la información.
 -    **Perspectiva a gran escala**, mostrando una vista de instantánea del rendimiento en función de las solicitudes, el desglose de errores y una visión general de las operaciones y la latencia.
@@ -49,7 +49,7 @@ Para ver el uso y las operaciones de los almacenes de claves en todas las suscri
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-2. Seleccione **Monitor** en el panel izquierdo y en Azure Portal, bajo la sección Conclusiones, seleccione **Almacenes de claves (versión preliminar)** .
+2. Seleccione **Supervisar** en el panel izquierdo de Azure Portal y, en la sección Insights, seleccione **Almacenes de claves**.
 
 ![Captura de pantalla de la experiencia de información general con varios gráficos](./media/key-vaults-insights-overview/overview.png)
 
@@ -77,23 +77,13 @@ El libro muestra Correctos (códigos de estado 2xx), Authentication Errors (Erro
 
 Para comprender mejor lo que representan cada uno de los códigos de estado, se recomienda leer la documentación sobre los [códigos de estado y respuesta de Azure Key Vault](../../key-vault/general/authentication-requests-and-responses.md).
 
-## <a name="operations--latency-workbook"></a>Libro de operaciones y latencia
-
-Seleccione **Operations & Latency** (Operaciones y latencia) en la parte superior de la página; se abre la pestaña **Operaciones y latencia** (Operaciones y latencia). Esta pestaña le permite incorporar los almacenes de claves para la supervisión. Para obtener pasos más detallados, consulte la sección [Configuración de los almacenes de claves para la supervisión](#configuring-your-key-vaults-for-monitoring).
-
-Puede ver cuántos almacenes de claves están habilitados para el registro. Si al menos un almacén se ha configurado correctamente, podrá ver las tablas que muestran las operaciones y los códigos de estado de cada uno de los almacenes de claves. Puede hacer clic en la sección de detalles de una fila para obtener información adicional sobre la operación individual.
-
-![Captura de pantalla de los gráficos de operaciones y latencia](./media/key-vaults-insights-overview/logs.png)
-
-Si no ve ningún dato en esta sección, consulte la sección superior sobre cómo habilitar los registros de Azure Key Vault o consulte la sección de solución de problemas a continuación.
-
 ## <a name="view-from-a-key-vault-resource"></a>Vista de un recurso de Key Vault
 
 Para acceder a Azure Monitor para Key Vault directamente desde un almacén de claves:
 
 1. En Azure Portal, seleccione Almacenes de claves.
 
-2. En la lista, elija un almacén de claves. En la sección Supervisión, seleccione Conclusiones (versión preliminar).
+2. En la lista, elija un almacén de claves. En la sección de supervisión, seleccione Insights.
 
 También se puede acceder a estas vistas seleccionando el nombre del recurso de un almacén de claves en el libro de nivel de Azure Monitor.
 
@@ -150,7 +140,7 @@ Las personalizaciones se guardan en un libro personalizado para evitar sobrescri
 
 Puede configurar los libros Información general o Errores de varias suscripciones y almacenes de claves para definir el ámbito a una o varias suscripciones o almacenes de claves en concreto en cada ejecución. Para ello, realice los siguientes pasos:
 
-1. Seleccione **Monitor** en el portal y, luego, **Almacenes de claves (versión preliminar)** en el panel izquierdo.
+1. Seleccione **Supervisar** en el portal y luego **Almacenes de claves** en el panel de la izquierda.
 2. En el libro **Overview** (Información general), elija **Edit** (Editar) en la barra de comandos.
 3. En la lista desplegable **Suscripciones**, seleccione una o varias suscripciones que quiera que sean las predeterminadas. Recuerde que el libro admite la selección de hasta 10 suscripciones.
 4. En la lista desplegable **Almacenes de claves**, seleccione una o varias cuentas que quiera usar como las predeterminadas. Recuerde que el libro admite la selección de hasta 200 cuentas de almacenamiento.
@@ -160,11 +150,11 @@ Puede configurar los libros Información general o Errores de varias suscripcion
 
 Para obtener instrucciones generales para la solución de problemas, consulte el [artículo dedicado de solución de problemas](troubleshoot-workbooks.md) de conclusiones basadas en libros.
 
-Esta sección le ayudará con el diagnóstico y la solución de algunos de los problemas habituales que pueden producirse en la aplicación al usar Azure Monitor para Almacén de claves (versión preliminar). Utilice la siguiente lista para buscar la información relacionada con el problema específico.
+Esta sección ayuda con el diagnóstico y la solución de problemas de algunos de los problemas comunes que se pueden detectar al usar Azure Monitor para Key Vault. Utilice la siguiente lista para buscar la información relacionada con el problema específico.
 
 ### <a name="resolving-performance-issues-or-failures"></a>Resolución de problemas de rendimiento o errores
 
-Para ayudar a solucionar los problemas relacionados con el almacén de claves que identifique con Azure Monitor para Key Vault (versión preliminar), consulte la [documentación de Azure Key Vault](../../key-vault/index.yml).
+Para solucionar cualquier problema relacionado con el almacén de claves que detecte en Azure Monitor para Key Vault, vea la [documentación de Azure Key Vault](../../key-vault/index.yml).
 
 ### <a name="why-can-i-only-see-200-key-vaults"></a>¿Por qué solo puedo ver doscientos almacenes de claves?
 
@@ -191,16 +181,6 @@ Se usa el intervalo de agregación "automático", por lo que depende del interva
 ### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>¿Cuál es el intervalo de agregación cuando se ancla cualquier parte del libro?
 
 El intervalo de agregación dependerá de la configuración del panel.
-
-### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>¿Por qué no veo ningún dato para mi Key Vault en las secciones Operaciones y latencia?
-
-Para ver los datos basados en registros, deberá habilitar los registros para cada uno de los almacenes de claves que desee supervisar. Esto puede realizarse en la configuración de diagnóstico de cada almacén de claves. Tendrá que enviar los datos a un área de trabajo de Log Analytics designada.
-
-### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>Ya he habilitado los registros para mi Key Vault. ¿Por qué sigo sin poder ver mis datos en Operaciones y latencia?
-
-Actualmente, los registros de diagnóstico no funcionan de forma retroactiva, por lo que los datos solo comenzarán a aparecer una vez que se hayan realizado acciones en los almacenes de claves. Por lo tanto, pueden tardar algún tiempo, desde horas hasta un día, en función de la actividad que presente el almacén de claves.
-
-Además, si tiene un gran número de almacenes de claves y suscripciones seleccionados, es posible que no pueda ver los datos debido a las limitaciones de la consulta. Para ver los datos, es posible que tenga que reducir el número de suscripciones o almacenes de claves seleccionados. 
 
 ### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-key-vault-insights"></a>¿Qué ocurre si deseo ver otros datos o crear mis propias visualizaciones? ¿Cómo puedo realizar cambios en las conclusiones de Key Vault?
 

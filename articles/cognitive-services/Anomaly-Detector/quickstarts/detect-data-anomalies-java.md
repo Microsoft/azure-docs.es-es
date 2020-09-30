@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 09/03/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: e8fdc703b094ace83e70b736c1eb0d15c461adba
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 6c37ac4a8e43f8e11e37186e2438c4803556339e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88243877"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905763"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Inicio rápido: Detección de anomalías en los datos de serie temporal mediante API REST Anomaly Detector y Java
 
@@ -25,9 +25,10 @@ Use este inicio rápido para comenzar a usar los dos modos de detección de la A
 | Solicitud a la API                                        | Salida de la aplicación                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Detección de anomalías como un lote                        | La respuesta JSON que contiene el estado de la anomalía (y otros datos) para cada punto de datos en los datos de serie temporal y las posiciones de las anomalías detectadas. |
-| Detección del estado de anomalía del punto de datos más reciente | La respuesta JSON que contiene el estado de la anomalía (y otros datos) para el punto de datos más reciente en los datos de serie temporal.                                                                                                                                         |
+| Detección del estado de anomalía del punto de datos más reciente | La respuesta JSON que contiene el estado de la anomalía (y otros datos) para el punto de datos más reciente en los datos de serie temporal.   |
+| Detección de los puntos de cambio que marcan nuevas tendencias de datos | Respuesta JSON que contiene los puntos de cambio detectados en los datos de serie temporal. |
 
- Si bien esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. El código fuente de este inicio rápido está disponible en [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/java-detect-anomalies.java).
+Si bien esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación. El código fuente de este inicio rápido está disponible en [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/java-detect-anomalies.java).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -56,6 +57,7 @@ Use este inicio rápido para comenzar a usar los dos modos de detección de la A
     |---------|---------|
     |Detección por lotes    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
     |Detección en el último punto de datos     | `/anomalydetector/v1.0/timeseries/last/detect`        |
+    | Detección de puntos de cambio | `/anomalydetector/v1.0/timeseries/changepoint/detect`   |
 
     [!code-java[Initial key and endpoint variables](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=vars)]
 
@@ -77,7 +79,7 @@ Use este inicio rápido para comenzar a usar los dos modos de detección de la A
 
 ## <a name="detect-anomalies-as-a-batch"></a>Detección de anomalías como un lote
 
-1. Cree un método llamado `detectAnomaliesBatch()` para detectar anomalías a lo largo de los datos como un lote. Llame al método `sendRequest()` creado anteriormente con el punto de conexión, dirección URL, la clave de suscripción y datos JSON. Obtenga el resultado e imprímalo en la consola.
+1. Cree un método llamado `detectAnomaliesBatch()` para detectar anomalías a lo largo de los datos como un lote. Llame al método `sendRequest()` creado anteriormente con el punto de conexión, la dirección URL, la clave de suscripción y los datos JSON. Obtenga el resultado e imprímalo en la consola.
 
 2. Si la respuesta contiene el campo `code`, imprima el código de error y el mensaje de error.
 
@@ -87,9 +89,20 @@ Use este inicio rápido para comenzar a usar los dos modos de detección de la A
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Detección del estado de anomalía del punto de datos más reciente
 
-Cree un método llamado `detectAnomaliesLatest()` para detectar el estado de las anomalías del último punto de datos del conjunto de datos. Llame al método `sendRequest()` creado anteriormente con el punto de conexión, dirección URL, la clave de suscripción y datos JSON. Obtenga el resultado e imprímalo en la consola.
+Cree un método llamado `detectAnomaliesLatest()` para detectar el estado de las anomalías del último punto de datos del conjunto de datos. Llame al método `sendRequest()` creado anteriormente con el punto de conexión, la dirección URL, la clave de suscripción y los datos JSON. Obtenga el resultado e imprímalo en la consola.
 
 [!code-java[Latest point detection method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectLatest)]
+
+
+## <a name="detect-change-points-in-the-data"></a>Detección de los puntos de cambio en los datos
+
+1. Cree un método llamado `detectChangePoints()` para detectar anomalías a lo largo de los datos como un lote. Llame al método `sendRequest()` creado anteriormente con el punto de conexión, la dirección URL, la clave de suscripción y los datos JSON. Obtenga el resultado e imprímalo en la consola.
+
+2. Si la respuesta contiene un campo `code`, imprima el código de error y el mensaje de error.
+
+3. En caso contrario, busque las posiciones de los puntos de cambio en el conjunto de datos. El campo `isChangePoint` de la respuesta contiene un valor booleano que indica si un punto de datos determinado es un punto de cambio de tendencia. Obtenga la matriz JSON e itere en ella, e imprima el índice de cualquier valor `true`. Estos valores corresponden a los índices de los puntos de cambio de tendencia, si se encuentra alguno.
+
+    [!code-java[detect change points](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectChangePoint)]
 
 ## <a name="load-your-time-series-data-and-send-the-request"></a>Carga de datos de la serie temporal y envío de la solicitud
 
@@ -104,5 +117,6 @@ Cree un método llamado `detectAnomaliesLatest()` para detectar el estado de las
 Se devuelve una respuesta correcta en formato JSON. Haga clic en los siguientes vínculos para ver la respuesta JSON en GitHub:
 * [Ejemplo de respuesta de detección por lotes](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [Ejemplo de respuesta de detección del punto más reciente](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+* [Ejemplo de respuesta de detección del punto de cambio](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/change-point-sample.json)
 
 [!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

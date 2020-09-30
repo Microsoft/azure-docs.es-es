@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: aecc933b9ada1d1935d400809e06bb4dac06abb5
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: c4ca4362f10ea6ed2fa7cc39370fc9b4c764ff3b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89393316"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566201"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configuración de filtros de ruta para el emparejamiento de Microsoft: PowerShell
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "89393316"
 
 Los filtros de ruta son una forma de consumir un subconjunto de servicios admitidos mediante el emparejamiento de Microsoft. Los pasos que se describen en este artículo le ayudan a configurar y administrar filtros de ruta para circuitos ExpressRoute.
 
-Mediante el emparejamiento de Microsoft se puede acceder a servicios de Office 365, como Exchange Online, SharePoint Online y Skype Empresarial, y a servicios públicos de Azure, como Storage y SQL DB. Los servicios públicos de Azure se pueden seleccionar región a región y no se pueden definir por servicio público.
+Mediante el emparejamiento de Microsoft se puede acceder a servicios de Microsoft 365, como Exchange Online, SharePoint Online y Skype Empresarial, y a servicios públicos de Azure, como Storage y SQL DB. Los servicios públicos de Azure se pueden seleccionar región a región y no se pueden definir por servicio público.
 
 Cuando se configura el emparejamiento de Microsoft en un circuito ExpressRoute y se anexa un filtro de ruta, todos los prefijos seleccionados para estos servicios se anuncian mediante las sesiones BGP establecidas. A cada prefijo se asocia un valor de la comunidad de BGP para identificar el servicio que se ofrece mediante el prefijo en cuestión. Para ver una lista de valores de la comunidad de BGP y los servicios a los que se asignan, consulte [Comunidades de BGP](expressroute-routing.md#bgp).
 
@@ -40,7 +40,7 @@ Cuando se configura el emparejamiento de Microsoft en el circuito ExpressRoute, 
 
 Un filtro de ruta permite identificar los servicios que desea consumir mediante el emparejamiento de Microsoft del circuito ExpressRoute. Se trata básicamente de una lista de todos los valores permitidos de la comunidad de BGP. Una vez que se define un recurso de filtro de ruta y se asocia a un circuito ExpressRoute, todos los prefijos que se asignan a valores de la comunidad de BGP se anuncian en la red.
 
-Para poder asociar filtros de ruta con servicios de Office 365 en ellos, debe tener autorización para consumir servicios de Office 365 mediante ExpressRoute. Si no está autorizado para consumir servicios de Office 365 mediante ExpressRoute, la operación para asociar filtros de ruta de produce un error. Para más información sobre el proceso de autorización, consulte [Azure ExpressRoute para Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd).
+Para poder asociar filtros de ruta con servicios de Microsoft 365 en ellos, debe tener autorización para consumir tales servicios mediante ExpressRoute. Si no la tiene, la operación para asociar filtros de ruta producirá un error. Para más información sobre el proceso de autorización, consulte [Azure ExpressRoute para Microsoft 365](/microsoft-365/enterprise/azure-expressroute).
 
 > [!IMPORTANT]
 > Se anunciarán todos los prefijos de servicio para el emparejamiento de Microsoft de los circuitos ExpressRoute que se configuraron antes del 1 de agosto de 2017, incluso si no se definen filtros de ruta. No se anunciará ningún prefijo para el emparejamiento de Microsoft de los circuitos ExpressRoute que se configuraron el 1 de agosto de 2017 o con posterioridad, hasta que se asocie un filtro de ruta al circuito.

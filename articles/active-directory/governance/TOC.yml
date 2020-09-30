@@ -60,7 +60,7 @@
               href: entitlement-management-catalog-create.md
             - name: Delegación en administradores de paquetes de acceso
               href: entitlement-management-delegate-managers.md
-        - name: Administradores de paquetes de acceso
+        - name: Administradores de paquetes de acceso y administradores de asignación de paquetes de acceso
           items:
             - name: Creación de un nuevo paquete de acceso
               href: entitlement-management-access-package-create.md
@@ -68,8 +68,10 @@
               href: entitlement-management-access-package-settings.md
             - name: Cambio de roles de recursos
               href: entitlement-management-access-package-resources.md
-            - name: Cambio de configuración de solicitudes y aprobaciones
+            - name: Configuración de solicitudes de cambio
               href: entitlement-management-access-package-request-policy.md
+            - name: Configuración de aprobación de cambios
+              href: entitlement-management-access-package-approval-policy.md
             - name: Cambio de la configuración del ciclo de vida
               href: entitlement-management-access-package-lifecycle-policy.md
             - name: Ver solicitudes

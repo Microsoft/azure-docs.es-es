@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 09/11/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: computer vision, computer vision applications, computer vision service
-ms.openlocfilehash: f613080ec24fdfc4c739d4d0494aa2f3c36705cd
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: fa00265f3c591578f9970b77770fbf7290d87510
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89323125"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907076"
 ---
 # <a name="what-is-computer-vision"></a>¿Qué es Computer Vision?
 
@@ -92,7 +92,11 @@ Puede usar Computer Vision para [detectar contenido para adultos](concept-detect
 
 ## <a name="use-containers"></a>Uso de contenedores
 
-[Use contenedores de Computer Vision](computer-vision-how-to-install-containers.md) para reconocer texto impreso y manuscrito localmente, mediante la instalación de un contenedor de Docker estándar más cercano a los datos.
+Use contenedores de Docker de Computer Vision para usar el servicio de forma local. Actualmente hay dos contenedores disponibles:
+
+* El [contenedor de lectura de Computer Vision](computer-vision-how-to-install-containers.md) permite reconocer texto impreso y manuscrito en imágenes.
+
+* El [contenedor de análisis espacial de Computer Vision](spatial-analysis-container.md) permite analizar vídeo de streaming en tiempo real para comprender las relaciones espaciales entre las personas y su movimiento en entornos físicos.
 
 ## <a name="image-requirements"></a>Requisitos de imagen
 

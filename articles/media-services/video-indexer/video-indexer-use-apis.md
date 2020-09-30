@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 09/03/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 94d5b0cac332cf777f9393104861ee766ef2488c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 85d392323b24df3cede196d2c68f05c9522b2293
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022435"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458304"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Uso de la API Video Indexer
 
@@ -36,7 +36,6 @@ En este artículo se muestra cómo los desarrolladores pueden sacar partido de [
    > * Debe usar el mismo proveedor que utilizó al suscribirse a Video Indexer.
    > * Las cuentas personales de Google y Microsoft (Outlook/Live) solo se pueden usar para las cuentas de evaluación gratuita. Las cuentas conectadas a Azure requieren Azure AD.
    > * Solo puede haber una cuenta activa por correo electrónico. Si un usuario intenta iniciar sesión con user@gmail.com para LinkedIn y después con user@gmail.com para Google, este último muestra una página de error que indica que el usuario ya existe.
-
 2. Suscríbase.
 
     Seleccione la pestaña [Products](https://api-portal.videoindexer.ai/products) (Productos). Seleccione Authorization y suscríbase.
@@ -46,7 +45,7 @@ En este artículo se muestra cómo los desarrolladores pueden sacar partido de [
     > [!NOTE]
     > Los nuevos usuarios se suscriben automáticamente a Authorization.
     
-    Después de suscribirse, puede ver la suscripción y las claves principal y secundaria. Debe proteger las claves. Las claves solo debe usarlas el código del servidor. No deben estar disponibles en el cliente (.js, .html, etc.).
+    Después de suscribirse, podrá encontrar su suscripción en **Productos** -> **Autorización**. En la página Suscripción, encontrará las claves principal y secundaria. Debe proteger las claves. Las claves solo debe usarlas el código del servidor. No deben estar disponibles en el cliente (.js, .html, etc.).
 
     ![Suscripción y claves en el Portal para desarrolladores de Video Indexer](./media/video-indexer-use-apis/video-indexer-api03.png)
 

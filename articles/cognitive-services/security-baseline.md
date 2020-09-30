@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: bde1ff4003ba69a4c5449996f4e18d646e6ecff6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 796ef0b82c15940ce9200e0b50916ca657f10b99
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498351"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393900"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Línea base de seguridad de Azure para Cognitive Services
 
@@ -151,7 +151,7 @@ También puede usar grupos de seguridad de aplicaciones (ASG) para simplificar u
 
 **Guía**: defina e implemente configuraciones de seguridad estándar para los recursos de red relacionados con el contenedor de Azure Cognitive Services con Azure Policy. Use alias de Azure Policy en los espacios de nombres "Microsoft.CognitiveServices" y "Microsoft.Network" para crear directivas personalizadas con el fin de auditar o aplicar la configuración de red de las instancias de Azure Cache for Redis.
 
-También puede utilizar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como las plantillas de Azure Resource Manager, el control de acceso basado en roles (RBAC) y las directivas, en una única definición de un plano técnico. Aplique fácilmente el plano técnico a nuevas suscripciones y entornos, y ajuste el control y la administración mediante el control de versiones.
+También puede utilizar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como las plantillas de Azure Resource Manager, el control de acceso basado en rol de Azure (Azure RBAC) y las directivas, en una única definición de un plano técnico. Aplique fácilmente el plano técnico a nuevas suscripciones y entornos, y ajuste el control y la administración mediante el control de versiones.
 
 * [Configuración y administración de Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -532,9 +532,9 @@ En el caso de la plataforma subyacente administrada por Microsoft, Microsoft tra
 
 **Responsabilidad**: Compartido
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Uso del control de acceso basado en rol para controlar el acceso a los recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Uso de RBAC de Azure para controlar el acceso a los recursos
 
-**Guía**: use el control de acceso basado en roles (RBAC) de Azure Active Directory (Azure AD) para controlar el acceso al plano de control de Azure Cognitive Services (es decir, Azure Portal).
+**Guía**: Utilice el control de acceso basado en rol de Azure (Azure RBAC) para controlar el acceso al plano de control de Azure Cognitive Services (por ejemplo, Azure Portal).
 
 * [Configuración de Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
@@ -718,7 +718,7 @@ Además, use Azure Resource Graph para consultar o detectar recursos dentro de l
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
-**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 - Tipos de recursos no permitidos
 - Tipos de recursos permitidos
 
@@ -872,7 +872,9 @@ Además, use Azure Resource Graph para consultar o detectar recursos dentro de l
 
 * [Creación de un almacén de claves](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-* [Cómo proporcionar la autenticación de Key Vault con una identidad administrada](https://docs.microsoft.com/azure/key-vault/managed-identity)
+* [Autenticación en Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+* [Asignación de una directiva de acceso de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 **Supervisión de Azure Security Center**: Sí
 

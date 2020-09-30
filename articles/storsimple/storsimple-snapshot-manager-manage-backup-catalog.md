@@ -3,7 +3,7 @@ title: Catálogo de copias de seguridad de StorSimple Snapshot Manager | Microso
 description: Describe cómo usar el complemento MMC del Administrador de instantáneas StorSimple para ver y administrar el catálogo de copia de seguridad.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: timlt
 editor: ''
 ms.assetid: 6abdbfd2-22ce-45a5-aa15-38fae4c8f4ec
@@ -13,13 +13,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: twooley
-ms.openlocfilehash: 94dccdabfa4cf83077bca3629dee8a796d27182a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: 2efc35e65ca1db2b5241e1d3b2798e068880c87e
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515468"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055000"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Uso de Administrador de instantáneas StorSimple para administrar el catálogo de copia de seguridad
 

@@ -21,7 +21,19 @@
   expanded: true
   items:
     - name: Métodos de autenticación
-      href: concept-authentication-methods.md
+      items:
+        - name: Información general
+          href: concept-authentication-methods.md
+        - name: Aplicación Microsoft Authenticator
+          href: concept-authentication-authenticator-app.md
+        - name: Tokens OATH
+          href: concept-authentication-oath-tokens.md
+        - name: Inicio de sesión sin contraseña
+          href: concept-authentication-passwordless.md
+        - name: Opciones de teléfono
+          href: concept-authentication-phone-options.md
+        - name: Preguntas de seguridad
+          href: concept-authentication-security-questions.md
     - name: Restablecimiento de la contraseña de autoservicio
       items:
         - name: Funcionamiento del restablecimiento de contraseñas
@@ -46,8 +58,6 @@
           href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
         - name: Preguntas más frecuentes
           href: multi-factor-authentication-faq.md
-    - name: Autenticación sin contraseñas
-      href: concept-authentication-passwordless.md
     - name: Protección con contraseña
       items:
         - name: Eliminación de contraseñas no seguras en la nube
@@ -213,8 +223,10 @@
               href: howto-mfa-nps-extension-errors.md
     - name: Solución de problemas
       items:
-        - name: SSPR
-          href: active-directory-passwords-troubleshoot.md
+        - name: Autoservicio de restablecimiento de contraseña (SSPR)
+          href: troubleshoot-sspr.md
+        - name: Escritura diferida de SSPR
+          href: troubleshoot-sspr-writeback.md
         - name: Preguntas frecuentes sobre SSPR
           href: active-directory-passwords-faq.md
         - name: Preguntas frecuentes sobre Multi-Factor Authentication

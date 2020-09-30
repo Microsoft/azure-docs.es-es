@@ -3,12 +3,12 @@ title: Compatibilidad con la evaluación y migración de Hyper-V en Azure Migra
 description: Obtenga información sobre la compatibilidad con la evaluación y migración de Hyper-V en Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 5af2c296147bb972d121183a7d552157b4b824c7
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4f3609560fa59c08c4d92f4faa36c7fbbffb95d7
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871503"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051158"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matriz de compatibilidad para la migración de Hyper-V
 
@@ -26,7 +26,10 @@ Puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Si
 | **Implementación**       | El host de Hyper-V puede ser independiente o implementarse en un clúster. <br/>El software de replicación de Azure Migrate (proveedor de replicación de Hyper-V) se instala en los hosts de Hyper-V.|
 | **Permisos**           | Necesita permisos de administrador en el host de Hyper-V. |
 | **Sistema operativo host** | Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2 con las últimas actualizaciones. Tenga en cuenta que también se admite la instalación de Server Core de estos sistemas operativos. |
+| **Otros requisitos de software** | .NET Framework 4.7 o posterior |
 | **Acceso a puertos** |  Conexiones salientes en el puerto HTTPS 443 para enviar datos de replicación de VM.
+| **Espacio libre en disco (caché)** |  600 GB |
+| **Espacio libre en el disco (disco de retención)** |  600 GB |
 
 
 ## <a name="hyper-v-vms"></a>Máquinas virtuales de Hyper-V
@@ -39,6 +42,7 @@ Puede seleccionar hasta 10 máquinas virtuales a la vez para la replicación. Si
 | **Cambios necesarios para Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure. Haga los ajustes manualmente antes de la migración. Los artículos pertinentes contienen instrucciones sobre cómo hacerlo. |
 | **Arranque de Linux**                 | Si/boot está en una partición dedicada, debe residir en el disco del sistema operativo y no distribuirse en varios discos.<br/> Si /boot forma parte de la partición raíz (/), la partición "/" debe estar en el disco del sistema operativo y no abarcar otros discos. |
 | **Arranque UEFI**                  | Compatible. Asegúrese de seleccionar un tamaño de máquina virtual compatible con una VM de generación 2 de Azure.  |
+| **UEFI: arranque seguro**         | No se admiten para la migración.|
 | **Tamaño del disco**                  | 2 TB para el disco del sistema operativo y 4 TB para los discos de datos.|
 | **Número de discos** | Un máximo de 16 discos por VM.|
 | **Discos/volúmenes cifrados**    | No se admiten para la migración.|

@@ -1,6 +1,6 @@
 ---
-title: Tutorial sobre cómo filtrar y analizar datos para la implementación avanzada con el proceso en Azure Stack Edge | Microsoft Docs
-description: Aprenda a configurar el rol de proceso en Azure Stack Edge y a usarlo para transformar los datos para el flujo de implementación avanzada antes de enviarlos a Azure.
+title: 'Tutorial: Filtrado y análisis de datos para la implementación avanzada con el proceso en Azure Stack Edge Pro | Microsoft Docs'
+description: Aprenda a configurar el rol de proceso en Azure Stack Edge Pro y a usarlo para transformar los datos para el flujo de implementación avanzada antes de enviarlos a Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,17 +8,17 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 59983530d93885f28dfb1625ca6d58fe572609b8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
+ms.openlocfilehash: f62eec29aebdcc98569134e0c3b75457467bc014
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080488"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903693"
 ---
-# <a name="tutorial-transform-data-with-azure-stack-edge-for-advanced-deployment-flow"></a>Tutorial: Transformación de datos con Azure Stack Edge para el flujo de implementación avanzada
+# <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>Tutorial: Transformación de datos con Azure Stack Edge Pro para el flujo de implementación avanzada
 
-Este tutorial describe cómo configurar el rol de proceso para un flujo de implementación avanzada en un dispositivo de Azure Stack Edge. Una vez configurado el rol de proceso, Azure Stack Edge puede transformar los datos antes de enviarlos a Azure.
+Este tutorial describe cómo configurar el rol de proceso para un flujo de implementación avanzada en un dispositivo de Azure Stack Edge Pro. Una vez configurado el rol de proceso, Azure Stack Edge Pro puede transformar los datos antes de enviarlos a Azure.
 
 El proceso puede configurarse para un flujo de implementación sencilla o avanzada en el dispositivo.
 
@@ -43,14 +43,14 @@ En este tutorial, aprenderá a:
  
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de configurar un rol de proceso en el dispositivo de Azure Stack Edge, compruebe lo siguiente:
+Antes de configurar un rol de proceso en el dispositivo de Azure Stack Edge Pro, asegúrese de que:
 
-- Ha activado el dispositivo físico de Azure Stack Edge tal como se describe en [Conexión, configuración y activación de Azure Stack Edge](azure-stack-edge-deploy-connect-setup-activate.md).
+- Ha activado el dispositivo físico de Azure Stack Edge Pro tal como se describe en [Conexión, configuración y activación de Azure Stack Edge Pro](azure-stack-edge-deploy-connect-setup-activate.md).
 
 
 ## <a name="configure-compute"></a>Configurar el proceso
 
-Para configurar el proceso en Azure Stack Edge, creará un recurso de IoT Hub.
+Para configurar el proceso en Azure Stack Edge Pro, creará un recurso de IoT Hub.
 
 1. En la instancia de Azure Portal del recurso de Azure Stack Edge, vaya a **Información general**. En el panel derecho, en el icono **Proceso**, seleccione **Comenzar**.
 
@@ -150,9 +150,9 @@ En este tutorial, se realizará una implementación avanzada con dos recursos co
 
 ## <a name="add-a-module"></a>Agregar un módulo
 
-No hay módulos personalizados en este dispositivo perimetral. Puede agregar un módulo personalizado o uno creado previamente. Para aprender a crear un módulo personalizado, vaya a [Desarrollo de un módulo C# para un dispositivo de Azure Stack Edge](azure-stack-edge-create-iot-edge-module.md).
+No hay módulos personalizados en este dispositivo perimetral. Puede agregar un módulo personalizado o uno creado previamente. Para aprender a crear un módulo personalizado, vaya a [Desarrollo de un módulo C# para un dispositivo de Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md).
 
-En esta sección, agregará un módulo personalizado al dispositivo de IoT Edge que creó en [Desarrollo de un módulo C# para Azure Stack Edge](azure-stack-edge-create-iot-edge-module.md). Este módulo personalizado toma los archivos de un recurso compartido local perimetral del dispositivo perimetral y los mueve a un recurso compartido perimetral (nube) del dispositivo. A continuación, el recurso compartido en la nube inserta los archivos en la cuenta de Azure Storage asociada con este.
+En esta sección, agregará un módulo personalizado al dispositivo de IoT Edge que creó en [Desarrollo de un módulo C# para Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md). Este módulo personalizado toma los archivos de un recurso compartido local perimetral del dispositivo perimetral y los mueve a un recurso compartido perimetral (nube) del dispositivo. A continuación, el recurso compartido en la nube inserta los archivos en la cuenta de Azure Storage asociada con este.
 
 1. Vaya a **Proceso perimetral > Comenzar**. En el icono **Agregar módulos**, seleccione el tipo de escenario como **avanzado**. Seleccione **Ir a IoT Hub**.
 
@@ -175,7 +175,7 @@ En esta sección, agregará un módulo personalizado al dispositivo de IoT Edge 
 4. En **Agregar módulos**, haga lo siguiente:
 
     1. Proporcione el nombre, dirección, nombre de usuario y contraseña de la configuración del Registro del contenedor para el módulo personalizado.
-    El nombre, la dirección y las credenciales mostradas se utilizan para recuperar aquellos módulos con una dirección URL que coincida. Para implementar este módulo, en **Módulos de implementación**, seleccione **Módulo de IoT Edge**. Este módulo de IoT Edge es un contenedor de Docker que puede implementar en un dispositivo de IoT Edge asociado con el dispositivo de Azure Stack Edge.
+    El nombre, la dirección y las credenciales mostradas se utilizan para recuperar aquellos módulos con una dirección URL que coincida. Para implementar este módulo, en **Módulos de implementación**, seleccione **Módulo de IoT Edge**. Este módulo de IoT Edge es un contenedor de Docker que puede implementar en un dispositivo de IoT Edge asociado con el dispositivo de Azure Stack Edge Pro.
 
         ![La página Establecer módulos](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-4.png) 
  
@@ -183,7 +183,7 @@ En esta sección, agregará un módulo personalizado al dispositivo de IoT Edge 
      
         |Campo  |Value  |
         |---------|---------|
-        |Nombre     | Un nombre único para el módulo. Este módulo es un contenedor de Docker que puede implementar en el dispositivo de IoT Edge asociado a Azure Stack Edge.        |
+        |Nombre     | Un nombre único para el módulo. Este módulo es un contenedor de Docker que puede implementar en el dispositivo de IoT Edge asociado a Azure Stack Edge Pro.        |
         |URI de imagen     | El URI de la imagen de contenedor correspondiente del módulo.        |
         |Credenciales necesarias     | Si está activada, se usa el nombre de usuario y la contraseña para recuperar los módulos con una dirección URL coincidente.        |
     
@@ -270,7 +270,7 @@ En este tutorial, ha aprendido a:
 > * Agregar un módulo de proceso
 > * Comprobar la transformación y la transferencia de los datos
 
-Para aprender a administrar el dispositivo de Azure Stack Edge, consulte:
+Para aprender a administrar el dispositivo de Azure Stack Edge Pro, consulte:
 
 > [!div class="nextstepaction"]
-> [Uso de la interfaz de usuario web local para administrar Azure Stack Edge](azure-stack-edge-manage-access-power-connectivity-mode.md).
+> [Uso de la interfaz de usuario web local para administrar Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md).

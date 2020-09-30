@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d75d6ecf73dece6dad43367a7f869a1b8ec3d86b
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: f9f68d3734cd7de83a2ddd376caefa410c619d61
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135868"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291116"
 ---
 # <a name="safe-url-list"></a>Lista de direcciones URL seguras
 
@@ -60,7 +60,7 @@ En la tabla siguiente se enumeran las direcciones URL opcionales a las que puede
 >
 >1. Registre las máquinas virtuales en el grupo de hosts de Windows Virtual Desktop.
 >2. Abra el **Visor de eventos** y, después, diríjase a **Registros de Windows** > **Aplicación** > **WVD-Agent** y busque el evento con el identificador 3701.
->3. Agregue a la lista de permitidos las direcciones URL que se encuentran en el identificador de evento 3701. Las direcciones URL del identificador de evento 3701 son específicas de una región. Deberá repetir el proceso de desbloqueo con las direcciones URL pertinentes de cada región en la que quiera implementar las máquinas virtuales.
+>3. Desbloquee las direcciones URL que se encuentran en el identificador de evento 3701. Las direcciones URL del identificador de evento 3701 son específicas de una región. Deberá repetir el proceso de desbloqueo con las direcciones URL pertinentes de cada región en la que quiera implementar las máquinas virtuales.
 
 ## <a name="remote-desktop-clients"></a>Clientes de Escritorio remoto
 

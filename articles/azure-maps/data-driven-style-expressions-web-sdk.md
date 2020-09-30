@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: c8de7148e91f8fafa4a2b1f8a661964a77ead215
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ea88797a6423118cba40d117a37dc9df75b0b7a1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009144"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089452"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expresiones de estilo basadas en datos (SDK web)
 
@@ -72,7 +72,12 @@ En todos los ejemplos de este documento, se utiliza la siguiente característica
         "subTitle": "Building 40", 
         "temperature": 72,
         "title": "Cafeteria", 
-        "zoneColor": "red"
+        "zoneColor": "red",
+        "abcArray": ['a', 'b', 'c'],
+        "array2d": [['a', 'b'], ['x', 'y']],
+        "_style": {
+            "fillColor": 'red'
+        }
     }
 }
 ```
@@ -136,6 +141,28 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 ```
 
 Igualmente, el contorno de los polígonos se representará en capas de línea. Para deshabilitar este comportamiento en una capa de línea, agregue un filtro que solo permita las características `LineString` y `MultiLineString`.  
+
+A continuación, se muestran algunos ejemplos adicionales de cómo usar expresiones de datos:
+
+```javascript
+//Get item [2] from an array "properties.abcArray[1]" = "c"
+['at', 2, ['get', 'abcArray']]
+
+//Get item [0][1] from a 2D array "properties.array2d[0][1]" = "b"
+['at', 1, ['at', 0, ['get', 'array2d']]]
+
+//Check to see if a value is in an array property "properties.abcArray.indexOf('a') !== -1" = true
+['in', 'a', ['get', 'abcArray']]
+
+//Get the length of an array "properties.abcArray.length" = 3
+['length', ['get', 'abcArray']]
+
+//Get the value of a subproperty "properties._style.fillColor" = "red"
+['get', 'fillColor', ['get', '_style']]
+
+//Check that "fillColor" exists as a subproperty of "_style".
+['has', 'fillColor', ['get', '_style']]
+```
 
 ## <a name="math-expressions"></a>Expresiones matemáticas
 
@@ -609,7 +636,7 @@ Expresiones especiales que solo se aplican a capas específicas.
 
 ### <a name="heat-map-density-expression"></a>Expresión de densidad de mapa térmico
 
-Una expresión de densidad de mapa término recupera el valor de densidad de mapa término para cada píxel de una capa de mapa térmico y se define como `['heatmap-density']`. Este valor es un número comprendido entre `0` y `1`. Se usa en combinación con una expresión `interpolation` o `step` para definir el degradado de color empleado para colorear el mapa térmico. Esta expresión solo se puede usar en la [opción de color](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest#color) de la capa de mapa térmico.
+Una expresión de densidad de mapa término recupera el valor de densidad de mapa término para cada píxel de una capa de mapa térmico y se define como `['heatmap-density']`. Este valor es un número comprendido entre `0` y `1`. Se usa en combinación con una expresión `interpolation` o `step` para definir el degradado de color empleado para colorear el mapa térmico. Esta expresión solo se puede usar en la [opción de color](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) de la capa de mapa térmico.
 
 > [!TIP]
 > El color del índice 0 de una expresión de interpolación o el color predeterminado de un paso definen el color del área donde no hay ningún dato. El color del índice 0 se puede usar para definir el color de fondo. Muchos prefieren establecer este valor en transparente o en un negro semitransparente.
@@ -653,7 +680,7 @@ Para más información, consulte el artículo [Adición de una capa de mapa tér
 
 ### <a name="line-progress-expression"></a>Expresión de progreso lineal
 
-Una expresión de progreso lineal recupera el progreso a lo largo de una línea de degradado en una capa de línea y se define como `['line-progress']`. Este valor es un número comprendido entre 0 y 1. Se usa en combinación con una expresión `interpolation` o `step`. Esta expresión solo puede usarse con la [opción strokeGradient]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest#strokegradient) de la capa de línea. 
+Una expresión de progreso lineal recupera el progreso a lo largo de una línea de degradado en una capa de línea y se define como `['line-progress']`. Este valor es un número comprendido entre 0 y 1. Se usa en combinación con una expresión `interpolation` o `step`. Esta expresión solo puede usarse con la [opción strokeGradient]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions#strokegradient) de la capa de línea. 
 
 > [!NOTE]
 > La opción `strokeGradient` de la capa de línea requiere que la opción `lineMetrics` del origen de datos esté establecida en `true`.
@@ -916,16 +943,16 @@ Consulte los siguientes artículos para ver más ejemplos de código que impleme
 Más información sobre las opciones de capa que admiten expresiones:
 
 > [!div class="nextstepaction"] 
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions?view=azure-iot-typescript-latest)
+> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest)
+> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 > [!div class="nextstepaction"] 
-> [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)
+> [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)
+> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
 
 > [!div class="nextstepaction"] 
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest)
+> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions)

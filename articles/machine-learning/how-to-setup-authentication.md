@@ -11,15 +11,15 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 9d73492110703e64df5f948ad8a2a1ed8d2c63b9
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 878b3d4a522fd2b7567ed6005283d041064d9fe5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904545"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885997"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configuración de la autenticación para recursos y flujos de trabajo de Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Obtenga información sobre cómo autenticarse en el área de trabajo de Azure Machine Learning y en los modelos implementados como servicios web.
 

@@ -3,12 +3,12 @@ title: Controles de seguridad
 description: Obtenga información sobre los controles de seguridad que se usan en el servicio de Azure Backup. Estos controles ayudan al servicio a evitar, detectar y responder a las vulnerabilidades de seguridad.
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: ce1ca0a79476e4985569c677b58892fad91866a5
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 7ff3ff5c1b024a228778b0214e67239d3c8ab721
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892969"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418762"
 ---
 # <a name="security-controls-for-azure-backup"></a>Controles de seguridad para Azure Backup
 
@@ -22,8 +22,9 @@ En este artículo se explican los controles de seguridad integrados en Azure Bac
 |---|---|--|--|
 | Compatibilidad con punto de conexión de servicio| No |  |  |
 | Compatibilidad con la inserción de redes virtuales| No |  |  |
-| Compatibilidad con el aislamiento de red y los firewalls| Sí | La tunelización forzada es compatible con copia de seguridad de VM. La tunelización forzada no es compatible con las cargas de trabajo que se ejecutan dentro de máquinas virtuales. |  |
-| Compatibilidad con la tunelización forzada| No |  |  |
+| Compatibilidad con el aislamiento de red y los firewalls| Sí | |  |
+| Compatibilidad de la tunelización forzada con las máquinas virtuales de Azure | Sí  |  |  |
+| Compatibilidad de la tunelización forzada con las aplicaciones que se ejecutan en máquinas virtuales de Azure| No  |  |  |
 
 ## <a name="monitoring--logging"></a>Supervisión y registro
 

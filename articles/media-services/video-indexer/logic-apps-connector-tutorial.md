@@ -8,12 +8,12 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 05/01/2020
-ms.openlocfilehash: 5f29e616c0643914ca28921eee481105a5feb0c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2d89782b836db0daaf75c0337ad3b7f475824177
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047092"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882881"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Tutorial: Uso de Video Indexer con Logic Apps y Power Automate
 
@@ -21,12 +21,15 @@ La [API REST de Video Indexer v2](https://api-portal.videoindexer.ai/docs/servic
 
 Para facilitar aún más la integración, se admiten los conectores [Logic Apps](https://azure.microsoft.com/services/logic-apps/) y [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) que son compatibles con nuestra API. Puede usar los conectores para configurar flujos de trabajo personalizados con el fin de indexar y extraer información de una gran cantidad de archivos de audio y vídeo, sin necesidad de escribir una sola línea de código. Además, el uso de los conectores para la integración le proporciona una mayor visibilidad sobre el estado del flujo de trabajo y una manera fácil de depurarlo.  
 
-Para ayudarle a empezar a trabajar rápidamente con los conectores de Video Indexer, haremos un tutorial de una aplicación lógica de ejemplo y una solución de Power Automate que puede configurar. 
+Para ayudarle a empezar a trabajar rápidamente con los conectores de Video Indexer, haremos un tutorial de una aplicación lógica de ejemplo y una solución de Power Automate que puede configurar. En este tutorial se muestra cómo configurar flujos mediante Logic Apps.
 
-En este tutorial, aprenderá a:
+El escenario "cargar e indexar el vídeo automáticamente" descrito en este tutorial consta de dos flujos diferentes que funcionan conjuntamente. 
+* El primer flujo se desencadena cuando se agrega o modifica un blob en una cuenta de Azure Storage. Este flujo carga el nuevo archivo en Video Indexer con una dirección URL de devolución de llamada para enviar una notificación una vez completada la operación de indexación. 
+* El segundo flujo se desencadena en función de la dirección URL de devolución de llamada y guarda de nuevo la información extraída en un archivo JSON en Azure Storage. Esta estrategia de dos flujos se usa para admitir la carga asincrónica y la indexación de archivos más grandes de forma eficaz. 
+
+En este tutorial se usa Logic Apps para mostrar cómo:
 
 > [!div class="checklist"]
-> * Cargar e indexar el vídeo automáticamente
 > * Configurar el flujo de carga de archivos
 > * Configurar el flujo de extracción de JSON
 
@@ -34,19 +37,13 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para comenzar, también necesitará una cuenta de Video Indexer junto con el acceso a las API mediante la clave de API. 
+* Para comenzar, también necesitará una cuenta de Video Indexer junto con el [acceso a las API mediante la clave de API](video-indexer-use-apis.md). 
+* Asimismo, deberá tener una cuenta de Azure Storage. Anote la clave de acceso de la cuenta de almacenamiento. Cree dos contenedores, uno para almacenar vídeos y otro para guardar los detalles generados por Video Indexer.  
+* A continuación, tendrá que abrir dos flujos independientes en Logic Apps o Power Automate (según cuál use). 
 
-Asimismo, deberá tener una cuenta de Azure Storage. Anote la clave de acceso de la cuenta de almacenamiento. Cree dos contenedores, uno para almacenar vídeos y otro para guardar los detalles generados por Video Indexer.  
+## <a name="set-up-the-first-flow---file-upload"></a>Configuración del primer flujo: carga de archivos   
 
-A continuación, tendrá que abrir dos flujos independientes en Logic Apps o Power Automate (según cuál use).  
-
-## <a name="upload-and-index-your-video-automatically"></a>Carga e indexación del vídeo automáticamente 
-
-Este escenario consta de dos flujos diferentes que funcionan juntos. El primer flujo se desencadena cuando se agrega o modifica un blob en una cuenta de Azure Storage. Este flujo carga el nuevo archivo en Video Indexer con una dirección URL de devolución de llamada para enviar una notificación una vez completada la operación de indexación. El segundo flujo se desencadena en función de la dirección URL de devolución de llamada y guarda de nuevo la información extraída en un archivo JSON en Azure Storage. Esta estrategia de dos flujos se usa para admitir la carga asincrónica y la indexación de archivos más grandes de forma eficaz. 
-
-### <a name="set-up-the-file-upload-flow"></a>Configuración del flujo de carga de archivos 
-
-El primer flujo se desencadena siempre que se agrega un blob en el contenedor de Azure Storage. Una vez que se desencadena, se crea un URI de SAS que puede usar para cargar e indexar el vídeo en Video Indexer. Empiece por crear el siguiente flujo. 
+El primer flujo se desencadena siempre que se agrega un blob en el contenedor de Azure Storage. Una vez que se desencadena, se crea un URI de SAS que puede usar para cargar e indexar el vídeo en Video Indexer. En esta sección, creará el flujo siguiente. 
 
 ![Flujo de carga de archivos](./media/logic-apps-connector-tutorial/file-upload-flow.png)
 
@@ -56,15 +53,17 @@ Para configurar el primer flujo, debe proporcionar la clave de API de Video Inde
 
 ![Nombre de la conexión y la clave de API](./media/logic-apps-connector-tutorial/connection-name-api-key.png)
 
-Una vez que pueda conectarse a sus cuentas de Azure Storage y Video Indexer, vaya al desencadenador "Cuando se agrega o modifica un blob" y seleccione el contenedor en el que colocará los archivos de vídeo. 
+Una vez que pueda conectarse a las cuentas de Azure Storage y Video Indexer, busque y elija el desencadenador "Cuando se agregue o modifique un blob" en el **diseñador de aplicaciones lógicas**. Seleccione el contenedor en el que colocará los archivos de vídeo. 
 
-![Contenedor](./media/logic-apps-connector-tutorial/container.png)
+![Captura de pantalla que muestra el cuadro de diálogo cuando se agrega o se modifica un blob, en el que puede seleccionar un contenedor.](./media/logic-apps-connector-tutorial/container.png)
 
-A continuación, vaya a la acción "Crear URI de SAS por ruta de acceso" y seleccione la lista de rutas de acceso de archivo en las opciones de contenido dinámico.  
+A continuación, busque y seleccione la acción "Crear URI de SAS por ruta de acceso". En el cuadro de diálogo de la acción, seleccione la lista de rutas de acceso de archivos en las opciones del contenido dinámico.  
+
+Además, agregue un nuevo parámetro "Protocolo de acceso compartido". Elija HttpsOnly como valor del parámetro.
 
 ![URI de SAS por ruta de acceso](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
 
-Rellene [la ubicación y el identificador de la cuenta](./video-indexer-use-apis.md#account-id) para obtener el token de la cuenta de Video Indexer.
+Rellene la [ubicación](regions.md) y el [identificador de su cuenta](./video-indexer-use-apis.md#account-id) para obtener el token de la cuenta de Video Indexer.
 
 ![Obtención del token de acceso de la cuenta](./media/logic-apps-connector-tutorial/account-access-token.png)
 
@@ -78,7 +77,7 @@ Puede usar el valor predeterminado para los demás parámetros o configurarlos s
 
 Haga clic en "Save" (Guardar). Ahora vamos a configurar el segundo flujo para extraer la información una vez completada la carga y la indexación. 
 
-## <a name="set-up-the-json-extraction-flow"></a>Configuración del flujo de extracción de JSON 
+## <a name="set-up-the-second-flow---json-extraction"></a>Configuración del segundo flujo: extracción de JSON  
 
 La finalización de la carga y la indexación del primer flujo enviará una solicitud HTTP con la dirección URL de devolución de llamada correcta para desencadenar el segundo flujo. A continuación, recuperará la información generada por Video Indexer. En este ejemplo, se almacena la salida del trabajo de indexación en Azure Storage.  Sin embargo, es decisión suya lo que pueda hacer con la salida.  
 
@@ -90,7 +89,7 @@ Para configurar este flujo, debe proporcionar de nuevo la clave de API de Video 
 
 En el caso del desencadenador, verá un campo de dirección URL HTTP POST. La dirección URL no se generará hasta que se guarde el flujo; sin embargo, la necesitará en el futuro. Luego volveremos a esto. 
 
-Rellene [la ubicación y el identificador de la cuenta](./video-indexer-use-apis.md#account-id) para obtener el token de la cuenta de Video Indexer.  
+Rellene la [ubicación](regions.md) y el [identificador de su cuenta](./video-indexer-use-apis.md#account-id)  para obtener el token de la cuenta de Video Indexer.  
 
 Vaya a la acción "Get Video Index" (Obtener índice de vídeo) y rellene los parámetros necesarios. Como identificador de vídeo, coloque la siguiente expresión: triggerOutputs()['queries']['id']. 
 
@@ -104,7 +103,7 @@ Vaya a la acción "Create blob" (Crear blob) y seleccione la ruta de acceso a la
 
 Esta expresión toma la salida de la acción "Get Video Index" (Obtener índice de vídeo) de este flujo. 
 
-Haga clic en "Save flow" (Guardar flujo). 
+Haga clic en **Save flow** (Guardar flujo). 
 
 Una vez guardado el flujo, se crea una dirección URL HTTP POST en el desencadenador. Copie la dirección URL del desencadenador. 
 
