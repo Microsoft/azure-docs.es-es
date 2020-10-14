@@ -49,7 +49,7 @@ Los SDK de dispositivos IoT de Microsoft Azure contienen código que facilita la
 
 SDK de dispositivos Azure IoT Hub para .NET: 
 
-* Se descarga de [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/).  El espacio de nombres es Microsoft.Azure.Devices.Clients, que contiene clientes de dispositivos de IoT Hub (DeviceClient, ModuleClient).
+* Se descarga de [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/).  El espacio de nombres es Microsoft.Azure.Devices.Client, que contiene clientes de dispositivos de IoT Hub (DeviceClient, ModuleClient).
 * [Código fuente](https://github.com/Azure/azure-iot-sdk-csharp)
 * [Referencia de API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices?view=azure-dotnet)
 * [Referencia para los módulos](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)
