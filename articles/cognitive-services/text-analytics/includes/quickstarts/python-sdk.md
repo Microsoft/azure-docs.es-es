@@ -498,7 +498,7 @@ def entity_recognition_example(client):
         print("Named Entities:\n")
         for entity in result.entities:
             print("\tText: \t", entity.text, "\tCategory: \t", entity.category, "\tSubCategory: \t", entity.subcategory,
-                    "\n\tConfidence Score: \t", round(entity.confidence_score, 2), "\tLength: \t", entity.length, "\tOffset: \t", entity.offset, "\n")
+                    "\n\tConfidence Score: \t", round(entity.confidence_score, 2), "\tOffset: \t", entity.offset, "\n")
 
     except Exception as err:
         print("Encountered exception. {}".format(err))
@@ -511,13 +511,13 @@ entity_recognition_example(client)
 Named Entities:
 
         Text:    trip   Category:        Event  SubCategory:     None
-        Confidence Score:        0.61   Length:          4      Offset:          18
+        Confidence Score:        0.61   Offset:          18
 
         Text:    Seattle        Category:        Location       SubCategory:     GPE
-        Confidence Score:        0.82   Length:          7      Offset:          26
+        Confidence Score:        0.82   Offset:          26
 
         Text:    last week      Category:        DateTime       SubCategory:     DateRange
-        Confidence Score:        0.8    Length:          9      Offset:          34
+        Confidence Score:        0.8    Offset:          34
 ```
 
 ### <a name="entity-linking"></a>Entity Linking
@@ -544,7 +544,6 @@ def entity_linking_example(client):
                 print("\t\tText:", match.text)
                 print("\t\tConfidence Score: {0:.2f}".format(match.confidence_score))
                 print("\t\tOffset: {}".format(match.offset))
-                print("\t\tLength: {}".format(match.length))
             
     except Exception as err:
         print("Encountered exception. {}".format(err))
@@ -562,50 +561,42 @@ Linked Entities:
                 Text: Microsoft
                 Confidence Score: 0.55
                 Offset: 0
-                Length: 9
                 Text: Microsoft
                 Confidence Score: 0.55
                 Offset: 168
-                Length: 9
         Name:  Bill Gates       Id:  Bill Gates         Url:  https://en.wikipedia.org/wiki/Bill_Gates
         Data Source:  Wikipedia
         Matches:
                 Text: Bill Gates
                 Confidence Score: 0.63
                 Offset: 25
-                Length: 10
                 Text: Gates
                 Confidence Score: 0.63
                 Offset: 179
-                Length: 5
         Name:  Paul Allen       Id:  Paul Allen         Url:  https://en.wikipedia.org/wiki/Paul_Allen
         Data Source:  Wikipedia
         Matches:
                 Text: Paul Allen
                 Confidence Score: 0.60
                 Offset: 40
-                Length: 10
         Name:  April 4  Id:  April 4    Url:  https://en.wikipedia.org/wiki/April_4
         Data Source:  Wikipedia
         Matches:
                 Text: April 4
                 Confidence Score: 0.32
                 Offset: 54
-                Length: 7
         Name:  BASIC    Id:  BASIC      Url:  https://en.wikipedia.org/wiki/BASIC
         Data Source:  Wikipedia
         Matches:
                 Text: BASIC
                 Confidence Score: 0.33
                 Offset: 98
-                Length: 5
         Name:  Altair 8800      Id:  Altair 8800        Url:  https://en.wikipedia.org/wiki/Altair_8800
         Data Source:  Wikipedia
         Matches:
                 Text: Altair 8800
                 Confidence Score: 0.88
                 Offset: 125
-                Length: 11
 ```
 
 ### <a name="personally-identifiable-information-recognition"></a>Reconocimiento de información de identificación personal
@@ -627,7 +618,6 @@ def pii_recognition_example(client):
             print("\tCategory: {}".format(entity.category))
             print("\tConfidence Score: {}".format(entity.confidence_score))
             print("\tOffset: {}".format(entity.offset))
-            print("\tLength: {}".format(entity.length))
 pii_recognition_example(client)
 ```
 
@@ -639,13 +629,11 @@ Entity: 859-98-0987
         Category: U.S. Social Security Number (SSN)
         Confidence Score: 0.65
         Offset: 22
-        Length: 11
 Redacted Text: The employee's phone number is ************.
 Entity: 555-555-5555
         Category: Phone Number
         Confidence Score: 0.8
         Offset: 31
-        Length: 12
 ```
 
 # <a name="version-30"></a>[Versión 3.0](#tab/version-3)
