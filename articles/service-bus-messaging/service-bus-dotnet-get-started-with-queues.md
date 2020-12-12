@@ -155,7 +155,7 @@ Inicie Visual Studio y cree otro proyecto **Aplicación de consola (.NET Core)
                     // if there are any remaining messages in the .NET queue, the while loop repeats 
                 }
 
-                Console.WriteLine($"Sent a batch of {messageCount} messages to the topic: {queueName}");
+                Console.WriteLine($"Sent a batch of {messageCount} messages to the queue: {queueName}");
             }
         }
     ```
