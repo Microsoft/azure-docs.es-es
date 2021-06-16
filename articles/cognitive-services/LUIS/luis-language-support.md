@@ -33,7 +33,7 @@ LUIS entiende expresiones en los idiomas siguientes:
 | Árabe (versión preliminar: Árabe estándar moderno) |`ar-AR`|-|-|-|-|
 | *[Chino](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Neerlandés |`nl-NL` |✔|-|-|✔|
-| Spanish (Traditional Sort) - Spain |`en-US` | ✔ | ✔  |✔|✔|
+| Spanish (Traditional Sort) - Spain |`es-ES` | ✔ | ✔  |✔|✔|
 | Francés (Canadá) |`fr-CA` |-|-|-|✔|
 | Francés (Francia) |`fr-FR` |✔| ✔ |✔ |✔|
 | Alemán |`de-DE` |✔| ✔ |✔ |✔|
